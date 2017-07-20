@@ -238,5 +238,26 @@ namespace kucunTest.DaoJu
         {
             asc.controlAutoSize(this);
         }
+
+        /// <summary>
+        /// 刀具更换按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_djgh_Click(object sender, EventArgs e)
+        {
+            History djgh = new History("DJGH");
+            djgh.Show();
+        }
+        /// <summary>
+        /// 刀具外借按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_djwj_Click(object sender, EventArgs e)
+        {
+            History djwj = new History("DJWJ");
+            djwj.Show();
+        }
     }
 }

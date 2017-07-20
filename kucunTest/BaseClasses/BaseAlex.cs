@@ -116,11 +116,9 @@ namespace kucunTest.BaseClasses
         /// <param name="dh">要查询的单号</param>
         /// <param name="djb">要查询的单据表</param>
         /// <returns></returns>
-        public int CunZai(string dh, string djb)
+        public int CunZai(string dh, string dhzd, string djb)
         {
-            string dhzd1 = "danhao";
-            string dhzd2 = "chucangdanhao";
-            Sqlstr = "select * from " + djb + " where " + dhzd2 + " = '" + dh + "'";
+            Sqlstr = "SELECT * FROM " + djb + " WHERE " + dhzd + " = '" + dh + "'";
             int i = 0;
             i = SQL.getCounts(Sqlstr, djb);
             return i;

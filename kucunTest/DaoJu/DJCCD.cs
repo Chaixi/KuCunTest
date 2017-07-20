@@ -24,6 +24,7 @@ namespace kucunTest.DaoJu
         string danjubiao = "daojulingyong";
         string mingxibiao = "daojulingyongmingxi";
         string liushuibiao = "daojuliushui";
+        string DHZD = "chucangdanhao";
         #endregion
 
         /// <summary>
@@ -45,7 +46,7 @@ namespace kucunTest.DaoJu
         /// <summary>
         /// 重写构造函数，用于从历史记录窗体加载数据
         /// </summary>
-        /// <param name="list"></param>
+        /// <param name="list">从历史记录传过来的值</param>
         public DJCCD(List<string> list)
         {
             InitializeComponent();//
@@ -65,9 +66,6 @@ namespace kucunTest.DaoJu
             string danjuzhuangtai = list[8]; //list[8] 单据状态
 
             Sqlstr = "select daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu  from " + mingxibiao + " where chucangdanhao = '" +danhao.Text.ToString().Trim() +  "'";
-            //DataSet ds = SQL.getDataSet(Sqlstr, "daojuchucangmingxi");
-            //lingyongmingxi.DataSource = ds.Tables[0].DefaultView;
-
             lymx_ds = SQL.getDataSet(Sqlstr, mingxibiao);
             lymx_db = lymx_ds.Tables[0];
             lingyongmingxi.DataSource = lymx_db.DefaultView;
@@ -91,49 +89,7 @@ namespace kucunTest.DaoJu
         private void DJCCD_Load(object sender, EventArgs e)
         {
             asc.controllInitializeSize(this);//记录窗体及控件初始大小，以便自适应
-
-            //danhao.Text = Alex.DanHao("DJCC");//自动生成单号
-            //LYRQ.Value = DateTime.Now;
-            //LYBZ.SelectedIndex = 0;
-            //JBR.SelectedIndex = 0;
-            //heji.Text = HJ.ToString();
         }
-
-        /// <summary>
-        /// 出仓类型更改
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void CCLX_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if(CCLX.SelectedItem.ToString() == "常规领用")
-        //    {
-        //        RMDH.Enabled = false;
-        //        JGGY.Enabled = true;
-        //        LYBZ.SelectedIndex = 0; 
-        //        CCBZ.Text = "";
-        //    }
-        //    else if(CCLX.SelectedItem.ToString() == "临时领用")
-        //    {
-        //        RMDH.Enabled = false;
-        //        JGGY.Enabled = true;
-        //        LYBZ.SelectedIndex = 0;
-        //        CCBZ.Text = "请填写领用原因";
-        //    }
-        //    else if (CCLX.SelectedItem.ToString() == "刃磨领用")
-        //    {
-        //        RMDH.Enabled = true;
-        //        JGGY.Enabled = false;
-        //        LYBZ.SelectedItem = "机动科";
-        //        CCBZ.Text = "";
-        //    }
-        //    else if(CCLX.SelectedItem.ToString() == "其他领用")
-        //    {
-        //        JGGY.Enabled = true;
-        //        RMDH.Enabled = false;
-        //        CCBZ.Text = "请填写领用原因";
-        //    }
-        //}
 
         #region 明细部分
         ///<summary>
@@ -243,14 +199,91 @@ namespace kucunTest.DaoJu
         }
         #endregion 明细部分结束
 
+        #region 按钮部分
         /// <summary>
-        /// 确认出仓按钮
+        /// 保存单据按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_save_Click(object sender, EventArgs e)
+        {
+            if (LYBZ.Text == "" && LYR.Text == "" && LYSB.Text == "" && JBR.Text == "" && SPR.Text == "" && ZJGX.Text == "" && lingyongmingxi.Rows.Count == 1)//未填写任何内容，提示取消填写单据
+            {
+                if (MessageBox.Show("当前单据为空，要直接取消填写单据？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                //将领用和操作数据存入数据库daojuchucang表
+                if (Alex.CunZai(danhao.Text.ToString(), DHZD, "daojulingyong") != 0)//判断此单号在单据表中是否已存在
+                {
+                    //使用update语句
+                    //Sqlstr = "UPDATE daojuchucang SET (chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "0" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
+                    Sqlstr = string.Format("UPDATE {0} SET lingyongbanzu = '{1}', lingyongren = '{2}', lingyongshebei = '{3}', jiagonggongyi = '{4}', chucangriqi = '{5}', beizhu = '{6}', caozuoyuan = '{7}' where chucangdanhao = '{8}'", danjubiao, LYBZ.Text.ToString().Trim(), LYR.Text.ToString().Trim(), LYSB.Text.ToString().Trim(), ZJGX.Text.ToString().Trim(), LYRQ.Text, beizhu.Text.ToString().Trim(), JBR.Text.ToString().Trim(), danhao.Text.ToString().Trim());
+                }
+                else
+                {
+                    //直接使用insert语句
+                    Sqlstr = "insert into " + danjubiao + "(chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, lingyongshebei, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "0" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + LYSB.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
+                }
+
+                //执行sql语句,row1为受影响的行数
+                int row1 = SQL.ExecuteNonQuery(Sqlstr);
+
+                //将领用明细数据存入数据库daojuchucangmingxi表
+                int row2 = 0;
+                if (row1 != 0)
+                {
+                    if (Alex.CunZai(danhao.Text.ToString(), DHZD, mingxibiao) != 0)//判断此单号在明细表中是否已存在
+                    {
+                        //使用delete语句删除已存在的明细
+                        Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", mingxibiao, danhao.Text.ToString().Trim());
+                        row2 = SQL.ExecuteNonQuery(Sqlstr);
+                    }
+                    //出仓明细数据格式化
+                    for (int rowindex = 0; rowindex < lingyongmingxi.Rows.Count - 1; rowindex++)
+                    {
+                        string djlx = lingyongmingxi.Rows[rowindex].Cells["djlx"].Value.ToString();
+                        string djgg = lingyongmingxi.Rows[rowindex].Cells["djgg"].Value.ToString();
+                        string djcd = lingyongmingxi.Rows[rowindex].Cells["djcd"].Value.ToString();
+                        string djid = lingyongmingxi.Rows[rowindex].Cells["djid"].Value.ToString();
+                        string sl = lingyongmingxi.Rows[rowindex].Cells["sl"].Value.ToString();
+                        string jcbm = lingyongmingxi.Rows[rowindex].Cells["jcbm"].Value.ToString();
+                        string dth = lingyongmingxi.Rows[rowindex].Cells["dth"].Value.ToString();
+                        string bz = lingyongmingxi.Rows[rowindex].Cells["bz"].Value.ToString();
+
+                        Sqlstr = "insert into " + mingxibiao + "(chucangdanhao, daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu) values('" + danhao.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + bz + "')";
+                        row2 = SQL.ExecuteNonQuery(Sqlstr);//执行sql语句,row2为受影响的行数
+                    }
+
+                    //出仓明细数据存入数据库
+                    if (row2 != 0)
+                    {
+                        MessageBox.Show("单据保存成功，可再次修改确认！", "提示", MessageBoxButtons.OK);
+                        //this.InitializeComponent();
+                        //this.OnLoad(null);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("领用明细数据填写有误，请检查并重试！", "警告", MessageBoxButtons.OK);
+                    }
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// 确认单据按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("是否确认对刀具进行领用？", "领用确认", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("是否确认对刀具进行领用？确认后单据不可修改！", "领用确认", MessageBoxButtons.YesNo);
             if(result == DialogResult.Yes)
             {
                 //数据验证
@@ -261,7 +294,7 @@ namespace kucunTest.DaoJu
                 else
                 {
                     //将出仓和操作数据存入数据库daojuchucang表
-                    if (Alex.CunZai(danhao.Text.ToString(), danjubiao) != 0)//判断此单号在单据表中是否已存在
+                    if (Alex.CunZai(danhao.Text.ToString(), DHZD, danjubiao) != 0)//判断此单号在单据表中是否已存在
                     {
                         //使用update语句
                         //Sqlstr = "UPDATE daojuchucang SET (chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "0" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
@@ -280,15 +313,16 @@ namespace kucunTest.DaoJu
                     int row3 = 0;//记录插入流水表数据
                     if (row1 != 0)
                     {
-                        if (Alex.CunZai(danhao.Text.ToString(), mingxibiao) != 0)//判断此单号在明细表中是否已存在
+                        if (Alex.CunZai(danhao.Text.ToString(), DHZD, mingxibiao) != 0)//判断此单号在明细表中是否已存在
                         {
                             //使用delete语句删除已存在的明细
                             Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", mingxibiao, danhao.Text.ToString().Trim());
                             row2 = SQL.ExecuteNonQuery(Sqlstr);
                         }
-                        //出仓明细数据格式化
+
                         for (int rowindex = 0; rowindex < lingyongmingxi.Rows.Count - 1; rowindex++)
                         {
+                            //出仓明细数据格式化
                             string djlx = lingyongmingxi.Rows[rowindex].Cells["djlx"].Value.ToString();
                             string djgg = lingyongmingxi.Rows[rowindex].Cells["djgg"].Value.ToString();
                             string djcd = lingyongmingxi.Rows[rowindex].Cells["djcd"].Value.ToString();
@@ -297,7 +331,8 @@ namespace kucunTest.DaoJu
                             string jcbm = lingyongmingxi.Rows[rowindex].Cells["jcbm"].Value.ToString();
                             string dth = lingyongmingxi.Rows[rowindex].Cells["dth"].Value.ToString();
                             string bz = lingyongmingxi.Rows[rowindex].Cells["bz"].Value.ToString();
-
+                            
+                            //明细数据存入数据库明细表
                             Sqlstr = "insert into " + mingxibiao + "(chucangdanhao, daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu) values('" + danhao.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + bz + "')";
                             row2 = SQL.ExecuteNonQuery(Sqlstr);
 
@@ -306,7 +341,7 @@ namespace kucunTest.DaoJu
                             row3 = SQL.ExecuteNonQuery(Sqlstr);
                         }
 
-                        //出仓明细数据存入数据库
+                        
                         //int row2 = SQL.ExecuteNonQuery(Sqlstr);
                         if (row2 != 0)
                         {
@@ -327,99 +362,6 @@ namespace kucunTest.DaoJu
                     }
                 }                
             }
-        }
-
-        /// <summary>
-        /// 出仓历史按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if(MessageBox.Show("确认打开领用历史记录并关闭此窗口？", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                History djccls = new History("DJCCD");
-                djccls.Show();
-                this.Close();
-            }            
-        }
-
-        /// <summary>
-        /// 取消出仓单按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cancel_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("确认删除此单？", "删除确认", MessageBoxButtons.YesNo);
-            if (dr == DialogResult.Yes)
-            {
-                //删除刀具领用表中的数据
-                Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", danjubiao, danhao.Text.ToString().Trim());
-                int row1 = SQL.ExecuteNonQuery(Sqlstr);
-
-                Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", mingxibiao, danhao.Text.ToString().Trim());
-                int row2 = SQL.ExecuteNonQuery(Sqlstr);
-                MessageBox.Show("成功删除一张单据和" + row2 + "条明细记录！");
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-        }
-
-        /// <summary>
-        /// 出仓备注文本框设置
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CCBZ_MouseClick(object sender, MouseEventArgs e)
-        {
-            if(beizhu.Text.ToString() == "请填写领用原因")
-            {
-                beizhu.SelectAll();
-            }            
-        }
-
-        /// <summary>
-        /// 数据验证
-        /// </summary>
-        /// <returns></returns>
-        private int CheckData()
-        {
-            string tishi = "";
-            if (LYBZ.Text == "" || LYR.Text == "" || JBR.Text == "")
-            {
-                if (LYBZ.Text.ToString() == "")
-                {
-                    tishi = "请填写领用班组！";
-                }
-                else if (LYR.Text.ToString() == "")
-                {
-                    tishi = "请填写领用人！";
-                }
-                else if (JBR.Text.ToString() == "")
-                {
-                    tishi = "请填写经办人！";
-                }
-                //MessageBox.Show(tishi, "警告", MessageBoxButtons.OK);
-            }
-            else if (ZJGX.Text == "")
-            {
-                tishi = "请选择与之相关的制件工序！";
-            }
-
-            if (lingyongmingxi.Rows.Count == 1)
-            {
-                tishi = "领用明细不能为空！";
-            }
-
-            if (tishi != "")
-            {
-                MessageBox.Show(tishi, "警告", MessageBoxButtons.OK);
-                return 0;
-            }
-            else
-                return 1;
         }
 
         /// <summary>
@@ -506,81 +448,111 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 保存单据按钮
+        /// 出仓历史按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button_save_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            if (LYBZ.Text == "" && LYR.Text == "" && LYSB.Text == "" && JBR.Text == "" && SPR.Text == "" && ZJGX.Text == "" && lingyongmingxi.Rows.Count == 1)//未填写任何内容，提示取消填写单据
+            if(MessageBox.Show("确认打开领用历史记录并关闭此窗口？", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                if (MessageBox.Show("当前单据为空，要直接取消填写单据？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    this.Close();
-                }
-            }
-            else
-            {
-                //将领用和操作数据存入数据库daojuchucang表
-                if (Alex.CunZai(danhao.Text.ToString(), "daojulingyong") != 0)//判断此单号在单据表中是否已存在
-                {
-                    //使用update语句
-                    //Sqlstr = "UPDATE daojuchucang SET (chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "0" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
-                    Sqlstr = string.Format("UPDATE {0} SET lingyongbanzu = '{1}', lingyongren = '{2}', lingyongshebei = '{3}', jiagonggongyi = '{4}', chucangriqi = '{5}', beizhu = '{6}', caozuoyuan = '{7}' where chucangdanhao = '{8}'", danjubiao, LYBZ.Text.ToString().Trim(), LYR.Text.ToString().Trim(), LYSB.Text.ToString().Trim(), ZJGX.Text.ToString().Trim(), LYRQ.Text, beizhu.Text.ToString().Trim(), JBR.Text.ToString().Trim(), danhao.Text.ToString().Trim());
-                }
-                else
-                {
-                    //直接使用insert语句
-                    Sqlstr = "insert into " + danjubiao + "(chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, lingyongshebei, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "0" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + LYSB.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
-                }
-
-                //执行sql语句,row1为受影响的行数
-                int row1 = SQL.ExecuteNonQuery(Sqlstr);
-
-                //将领用明细数据存入数据库daojuchucangmingxi表
-                int row2 = 0;
-                if (row1 != 0)
-                {
-                    if (Alex.CunZai(danhao.Text.ToString(), mingxibiao) != 0)//判断此单号在明细表中是否已存在
-                    {
-                        //使用delete语句删除已存在的明细
-                        Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", mingxibiao, danhao.Text.ToString().Trim());
-                        row2 = SQL.ExecuteNonQuery(Sqlstr);
-                    }
-                    //出仓明细数据格式化
-                    for (int rowindex = 0; rowindex < lingyongmingxi.Rows.Count - 1; rowindex++)
-                    {
-                        string djlx = lingyongmingxi.Rows[rowindex].Cells["djlx"].Value.ToString();
-                        string djgg = lingyongmingxi.Rows[rowindex].Cells["djgg"].Value.ToString();
-                        string djcd = lingyongmingxi.Rows[rowindex].Cells["djcd"].Value.ToString();
-                        string djid = lingyongmingxi.Rows[rowindex].Cells["djid"].Value.ToString();
-                        string sl = lingyongmingxi.Rows[rowindex].Cells["sl"].Value.ToString();
-                        string jcbm = lingyongmingxi.Rows[rowindex].Cells["jcbm"].Value.ToString();
-                        string dth = lingyongmingxi.Rows[rowindex].Cells["dth"].Value.ToString();
-                        string bz = lingyongmingxi.Rows[rowindex].Cells["bz"].Value.ToString();
-
-                        Sqlstr = "insert into " + mingxibiao + "(chucangdanhao, daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu) values('" + danhao.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + bz + "')";
-                        row2 = SQL.ExecuteNonQuery(Sqlstr);//执行sql语句,row2为受影响的行数
-                    }
-
-                    //出仓明细数据存入数据库
-                    if (row2 != 0)
-                    {
-                        MessageBox.Show("单据保存成功，可再次修改确认！", "提示", MessageBoxButtons.OK);
-                        //this.InitializeComponent();
-                        //this.OnLoad(null);
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("领用明细数据填写有误，请检查并重试！", "警告", MessageBoxButtons.OK);
-                    }
-                }
-            }
-             
+                History djccls = new History("DJCCD");
+                djccls.Show();
+                this.Close();
+            }            
         }
 
+        /// <summary>
+        /// 删除单据按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("确认删除此单据？", "删除确认", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                //删除刀具领用表中的数据
+                Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", danjubiao, danhao.Text.ToString().Trim());
+                int row1 = SQL.ExecuteNonQuery(Sqlstr);
+
+                Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", mingxibiao, danhao.Text.ToString().Trim());
+                int row2 = SQL.ExecuteNonQuery(Sqlstr);
+                MessageBox.Show("成功删除一张单据和" + row2 + "条明细记录！");
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        /// <summary>
+        /// 退出按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion 按钮部分结束
+
+        #region 其他方法
+        /// <summary>
+        /// 出仓备注文本框设置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CCBZ_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(beizhu.Text.ToString() == "请填写领用原因")
+            {
+                beizhu.SelectAll();
+            }            
+        }
+
+        /// <summary>
+        /// 数据验证
+        /// </summary>
+        /// <returns></returns>
+        private int CheckData()
+        {
+            string tishi = "";
+            if (LYBZ.Text == "" || LYR.Text == "" || JBR.Text == "")
+            {
+                if (LYBZ.Text.ToString() == "")
+                {
+                    tishi = "请填写领用班组！";
+                }
+                else if (LYR.Text.ToString() == "")
+                {
+                    tishi = "请填写领用人！";
+                }
+                else if (JBR.Text.ToString() == "")
+                {
+                    tishi = "请填写经办人！";
+                }
+                //MessageBox.Show(tishi, "警告", MessageBoxButtons.OK);
+            }
+            else if (ZJGX.Text == "")
+            {
+                tishi = "请选择与之相关的制件工序！";
+            }
+
+            if (lingyongmingxi.Rows.Count == 1)
+            {
+                tishi = "领用明细不能为空！";
+            }
+
+            if (tishi != "")
+            {
+                MessageBox.Show(tishi, "警告", MessageBoxButtons.OK);
+                return 0;
+            }
+            else
+                return 1;
+        }
+        
         /// <summary>
         /// 窗体大小发生变化时自适应
         /// </summary>
@@ -591,9 +563,6 @@ namespace kucunTest.DaoJu
             asc.controlAutoSize(this);
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        #endregion 其他方法结束
     }
 }

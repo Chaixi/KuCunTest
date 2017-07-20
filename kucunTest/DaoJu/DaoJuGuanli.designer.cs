@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -53,12 +53,12 @@
             this.lingyongdanhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lingyongriqi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.jcsl = new System.Windows.Forms.TextBox();
             this.djgsl = new System.Windows.Forms.TextBox();
             this.djzs = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -92,6 +92,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.djly = new System.Windows.Forms.Button();
             this.kccx = new System.Windows.Forms.Button();
+            this.btn_djgh = new System.Windows.Forms.Button();
+            this.btn_djwj = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.daojuxinxi)).BeginInit();
@@ -240,12 +242,12 @@
             // 
             this.groupBox2.Controls.Add(this.daojuxinxi);
             this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Controls.Add(this.label23);
-            this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.jcsl);
             this.groupBox2.Controls.Add(this.djgsl);
             this.groupBox2.Controls.Add(this.djzs);
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Location = new System.Drawing.Point(232, 175);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
@@ -258,8 +260,8 @@
             // daojuxinxi
             // 
             this.daojuxinxi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.daojuxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.daojuxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.daojuxinxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.daojuxinxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.daojuxinxi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -357,28 +359,6 @@
             this.label24.TabIndex = 0;
             this.label24.Text = "把。";
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label23.Location = new System.Drawing.Point(426, 40);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(154, 21);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "把，机床刀具库中有";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label22.Location = new System.Drawing.Point(208, 40);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(170, 21);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "把，其中刀具柜中存有";
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -422,6 +402,28 @@
             this.djzs.Size = new System.Drawing.Size(41, 34);
             this.djzs.TabIndex = 4;
             this.djzs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label22.Location = new System.Drawing.Point(208, 40);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(170, 21);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "把，其中刀具柜中存有";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label23.Location = new System.Drawing.Point(426, 40);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(154, 21);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "把，机床刀具库中有";
             // 
             // groupBox3
             // 
@@ -1168,12 +1170,36 @@
             this.kccx.UseVisualStyleBackColor = true;
             this.kccx.Click += new System.EventHandler(this.kccx_Click);
             // 
+            // btn_djgh
+            // 
+            this.btn_djgh.Location = new System.Drawing.Point(921, 931);
+            this.btn_djgh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_djgh.Name = "btn_djgh";
+            this.btn_djgh.Size = new System.Drawing.Size(112, 39);
+            this.btn_djgh.TabIndex = 7;
+            this.btn_djgh.Text = "刀具更换";
+            this.btn_djgh.UseVisualStyleBackColor = true;
+            this.btn_djgh.Click += new System.EventHandler(this.btn_djgh_Click);
+            // 
+            // btn_djwj
+            // 
+            this.btn_djwj.Location = new System.Drawing.Point(1041, 931);
+            this.btn_djwj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_djwj.Name = "btn_djwj";
+            this.btn_djwj.Size = new System.Drawing.Size(112, 39);
+            this.btn_djwj.TabIndex = 7;
+            this.btn_djwj.Text = "刀具外借";
+            this.btn_djwj.UseVisualStyleBackColor = true;
+            this.btn_djwj.Click += new System.EventHandler(this.btn_djwj_Click);
+            // 
             // DaoJuGuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1658, 980);
             this.Controls.Add(this.kccx);
+            this.Controls.Add(this.btn_djwj);
+            this.Controls.Add(this.btn_djgh);
             this.Controls.Add(this.djly);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.zpdj);
@@ -1268,5 +1294,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn lingyongdanhao;
         private System.Windows.Forms.DataGridViewTextBoxColumn lingyongriqi;
+        private System.Windows.Forms.Button btn_djgh;
+        private System.Windows.Forms.Button btn_djwj;
     }
 }

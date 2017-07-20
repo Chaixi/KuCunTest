@@ -53,9 +53,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(136, 330);
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(135, 326);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(79, 29);
             this.button1.TabIndex = 1;
             this.button1.Text = "添加";
             this.button1.UseVisualStyleBackColor = true;
@@ -66,16 +67,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(18, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(90, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "刀具类型：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(209, 69);
+            this.label2.Location = new System.Drawing.Point(231, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(85, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "刀 具 ID：";
             // 
@@ -84,7 +85,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(18, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(90, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "刀具规格：";
             // 
@@ -93,16 +94,16 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(18, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(90, 21);
             this.label4.TabIndex = 2;
             this.label4.Text = "机床编码：";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(215, 34);
+            this.label5.Location = new System.Drawing.Point(232, 34);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.Size = new System.Drawing.Size(84, 21);
             this.label5.TabIndex = 2;
             this.label5.Text = "刀 套 号：";
             // 
@@ -111,15 +112,15 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(18, 69);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.Size = new System.Drawing.Size(78, 21);
             this.label7.TabIndex = 2;
             this.label7.Text = "备    注：";
             // 
             // bz
             // 
-            this.bz.Location = new System.Drawing.Point(78, 66);
+            this.bz.Location = new System.Drawing.Point(104, 66);
             this.bz.Name = "bz";
-            this.bz.Size = new System.Drawing.Size(312, 21);
+            this.bz.Size = new System.Drawing.Size(319, 29);
             this.bz.TabIndex = 3;
             // 
             // groupBox1
@@ -132,9 +133,10 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 149);
+            this.groupBox1.Size = new System.Drawing.Size(444, 149);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "刀具信息";
@@ -145,43 +147,43 @@
             this.djzt.Items.AddRange(new object[] {
             "新",
             "旧"});
-            this.djzt.Location = new System.Drawing.Point(78, 100);
+            this.djzt.Location = new System.Drawing.Point(104, 103);
             this.djzt.Name = "djzt";
-            this.djzt.Size = new System.Drawing.Size(121, 20);
+            this.djzt.Size = new System.Drawing.Size(121, 29);
             this.djzt.TabIndex = 3;
             // 
             // djgg
             // 
             this.djgg.FormattingEnabled = true;
-            this.djgg.Location = new System.Drawing.Point(78, 66);
+            this.djgg.Location = new System.Drawing.Point(104, 65);
             this.djgg.Name = "djgg";
-            this.djgg.Size = new System.Drawing.Size(121, 20);
+            this.djgg.Size = new System.Drawing.Size(121, 29);
             this.djgg.TabIndex = 3;
             this.djgg.SelectedIndexChanged += new System.EventHandler(this.djgg_SelectedIndexChanged);
             // 
             // djid
             // 
             this.djid.FormattingEnabled = true;
-            this.djid.Location = new System.Drawing.Point(269, 66);
+            this.djid.Location = new System.Drawing.Point(312, 66);
             this.djid.Name = "djid";
-            this.djid.Size = new System.Drawing.Size(121, 20);
+            this.djid.Size = new System.Drawing.Size(121, 29);
             this.djid.TabIndex = 3;
             // 
             // djlx
             // 
             this.djlx.FormattingEnabled = true;
-            this.djlx.Location = new System.Drawing.Point(78, 30);
+            this.djlx.Location = new System.Drawing.Point(104, 30);
             this.djlx.Name = "djlx";
-            this.djlx.Size = new System.Drawing.Size(312, 20);
+            this.djlx.Size = new System.Drawing.Size(329, 29);
             this.djlx.TabIndex = 3;
             this.djlx.SelectedIndexChanged += new System.EventHandler(this.djlx_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 103);
+            this.label8.Location = new System.Drawing.Point(18, 106);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 12);
+            this.label8.Size = new System.Drawing.Size(90, 21);
             this.label8.TabIndex = 2;
             this.label8.Text = "刀具状态：";
             // 
@@ -193,9 +195,10 @@
             this.groupBox2.Controls.Add(this.bz);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(12, 207);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(406, 107);
+            this.groupBox2.Size = new System.Drawing.Size(444, 107);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "位置信息";
@@ -246,9 +249,9 @@
             "T18",
             "T19",
             "T20"});
-            this.dth.Location = new System.Drawing.Point(279, 31);
+            this.dth.Location = new System.Drawing.Point(312, 31);
             this.dth.Name = "dth";
-            this.dth.Size = new System.Drawing.Size(111, 20);
+            this.dth.Size = new System.Drawing.Size(111, 29);
             this.dth.TabIndex = 3;
             // 
             // jcbm
@@ -273,16 +276,17 @@
             "OP20T01",
             "OP20T40",
             "OP20T238"});
-            this.jcbm.Location = new System.Drawing.Point(78, 31);
+            this.jcbm.Location = new System.Drawing.Point(104, 31);
             this.jcbm.Name = "jcbm";
-            this.jcbm.Size = new System.Drawing.Size(121, 20);
+            this.jcbm.Size = new System.Drawing.Size(121, 29);
             this.jcbm.TabIndex = 3;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(227, 330);
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(226, 326);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(79, 29);
             this.button2.TabIndex = 1;
             this.button2.Text = "关闭";
             this.button2.UseVisualStyleBackColor = true;
@@ -291,10 +295,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Font = new System.Drawing.Font("宋体", 20F);
             this.label6.Location = new System.Drawing.Point(150, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(136, 21);
+            this.label6.Size = new System.Drawing.Size(174, 27);
             this.label6.TabIndex = 6;
             this.label6.Text = "添加外借刀具";
             // 
@@ -302,7 +306,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 364);
+            this.ClientSize = new System.Drawing.Size(464, 364);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

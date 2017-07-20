@@ -45,8 +45,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LS_djwj = new System.Windows.Forms.DataGridView();
             this.LS_djccd = new System.Windows.Forms.DataGridView();
             this.LS_lydh = new System.Windows.Forms.DataGridViewLinkColumn();
             this.LS_lybz = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,29 +81,28 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LS_djgh = new System.Windows.Forms.DataGridView();
-            this.djgh_dh = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.djgh_sqbz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgh_sqr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgh_sqsb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgh_sqsj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgh_jglj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgh_gx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgh_spld = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgh_spyj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgh_spsj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgh_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djwj = new System.Windows.Forms.DataGridView();
-            this.djwj_dh = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.djwj_jydw = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_jyyy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_jyr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_lxdh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_spld = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_spyj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_jcrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_ydghrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_dh = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.LS_djgh_sqbz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_sqr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_sqsb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_sqsj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_jglj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_gx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_spld = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_spyj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_spsj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djgh_djzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.MX_djwj = new System.Windows.Forms.DataGridView();
+            this.djwj_djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djwj_djgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djwj_djid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djwj_djzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djwj_sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djwj_jcbm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djwj_dth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djwj_bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MX_djccd = new System.Windows.Forms.DataGridView();
             this.djccd_djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.djccd_djgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,12 +128,12 @@
             this.djgh_ghly = new System.Windows.Forms.TextBox();
             this.GB_Panel_djgh_xdj = new System.Windows.Forms.GroupBox();
             this.djgh_x_djid = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.djgh_x_djcd = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.djgh_x_djgg = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.djgh_x_djlx = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.GB_Panel_djgh_ydj = new System.Windows.Forms.GroupBox();
             this.djgh_y_djid = new System.Windows.Forms.TextBox();
@@ -155,15 +156,6 @@
             this.djth_djgbm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.djth_cfwz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.djth_bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MX_djwj = new System.Windows.Forms.DataGridView();
-            this.djwj_djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_djgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_djid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_djzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_jcbm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_dth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djwj_bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NewBtn = new System.Windows.Forms.Button();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -181,13 +173,25 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.LS_djwj_dh = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.LS_djwj_jydw = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_jyyy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_jyr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_lxdh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_spld = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_spyj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_jcrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_ydghrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_djzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LS_djwj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LS_djccd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LS_djth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LS_djbf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LS_djgh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LS_djwj)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MX_djwj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MX_djccd)).BeginInit();
             this.Panel_djbf.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -196,7 +200,6 @@
             this.GB_Panel_djgh_xdj.SuspendLayout();
             this.GB_Panel_djgh_ydj.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MX_djth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MX_djwj)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -213,11 +216,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.LS_djwj);
             this.groupBox1.Controls.Add(this.LS_djccd);
             this.groupBox1.Controls.Add(this.LS_djth);
             this.groupBox1.Controls.Add(this.LS_djbf);
             this.groupBox1.Controls.Add(this.LS_djgh);
-            this.groupBox1.Controls.Add(this.LS_djwj);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.groupBox1.Location = new System.Drawing.Point(12, 167);
             this.groupBox1.Name = "groupBox1";
@@ -226,15 +229,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "历史领用单";
             // 
-            // LS_djccd
+            // LS_djwj
             // 
-            this.LS_djccd.AllowUserToAddRows = false;
-            this.LS_djccd.AllowUserToDeleteRows = false;
+            this.LS_djwj.AllowUserToAddRows = false;
+            this.LS_djwj.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.LS_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.LS_djccd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.LS_djccd.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.LS_djccd.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LS_djwj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.LS_djwj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LS_djwj.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
@@ -242,7 +244,49 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.LS_djwj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.LS_djwj.ColumnHeadersHeight = 30;
+            this.LS_djwj.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LS_djwj_dh,
+            this.LS_djwj_jydw,
+            this.LS_djwj_jyyy,
+            this.LS_djwj_jyr,
+            this.LS_djwj_lxdh,
+            this.LS_djwj_spld,
+            this.LS_djwj_spyj,
+            this.LS_djwj_jbr,
+            this.LS_djwj_jcrq,
+            this.LS_djwj_ydghrq,
+            this.LS_djwj_djzt});
+            this.LS_djwj.Location = new System.Drawing.Point(6, 20);
+            this.LS_djwj.Name = "LS_djwj";
+            this.LS_djwj.ReadOnly = true;
+            this.LS_djwj.RowTemplate.Height = 23;
+            this.LS_djwj.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.LS_djwj.Size = new System.Drawing.Size(916, 246);
+            this.LS_djwj.TabIndex = 0;
+            this.LS_djwj.Visible = false;
+            this.LS_djwj.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LiShi_CellContentClick);
+            this.LS_djwj.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LS_djwj_CellDoubleClick);
+            this.LS_djwj.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.LiShi_RowPostPaint);
+            // 
+            // LS_djccd
+            // 
+            this.LS_djccd.AllowUserToAddRows = false;
+            this.LS_djccd.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.LS_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.LS_djccd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LS_djccd.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.LS_djccd.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LS_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.LS_djccd.ColumnHeadersHeight = 30;
             this.LS_djccd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LS_lydh,
@@ -356,18 +400,18 @@
             // 
             this.LS_djth.AllowUserToAddRows = false;
             this.LS_djth.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LS_djth.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LS_djth.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.LS_djth.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.LS_djth.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djth.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LS_djth.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.LS_djth.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewLinkColumn2,
             this.dataGridViewTextBoxColumn11,
@@ -441,18 +485,18 @@
             // 
             this.LS_djbf.AllowUserToAddRows = false;
             this.LS_djbf.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LS_djbf.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LS_djbf.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.LS_djbf.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.LS_djbf.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djbf.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LS_djbf.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.LS_djbf.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewLinkColumn1,
             this.dataGridViewTextBoxColumn1,
@@ -558,127 +602,11 @@
             // 
             this.LS_djgh.AllowUserToAddRows = false;
             this.LS_djgh.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LS_djgh.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.LS_djgh.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.LS_djgh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LS_djgh.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.LS_djgh.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djgh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.LS_djgh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.djgh_dh,
-            this.djgh_sqbz,
-            this.djgh_sqr,
-            this.djgh_sqsb,
-            this.djgh_sqsj,
-            this.djgh_jglj,
-            this.djgh_gx,
-            this.djgh_spld,
-            this.djgh_spyj,
-            this.djgh_spsj,
-            this.djgh_jbr});
-            this.LS_djgh.Location = new System.Drawing.Point(6, 20);
-            this.LS_djgh.Name = "LS_djgh";
-            this.LS_djgh.ReadOnly = true;
-            this.LS_djgh.RowTemplate.Height = 23;
-            this.LS_djgh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.LS_djgh.Size = new System.Drawing.Size(916, 246);
-            this.LS_djgh.TabIndex = 0;
-            this.LS_djgh.Visible = false;
-            this.LS_djgh.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LiShi_CellContentClick);
-            this.LS_djgh.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.LiShi_RowPostPaint);
-            // 
-            // djgh_dh
-            // 
-            this.djgh_dh.DataPropertyName = "danhao";
-            this.djgh_dh.HeaderText = "更换单号";
-            this.djgh_dh.Name = "djgh_dh";
-            this.djgh_dh.ReadOnly = true;
-            this.djgh_dh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // djgh_sqbz
-            // 
-            this.djgh_sqbz.DataPropertyName = "sqbz";
-            this.djgh_sqbz.HeaderText = "申请班组";
-            this.djgh_sqbz.Name = "djgh_sqbz";
-            this.djgh_sqbz.ReadOnly = true;
-            // 
-            // djgh_sqr
-            // 
-            this.djgh_sqr.DataPropertyName = "sqr";
-            this.djgh_sqr.HeaderText = "申请人";
-            this.djgh_sqr.Name = "djgh_sqr";
-            this.djgh_sqr.ReadOnly = true;
-            // 
-            // djgh_sqsb
-            // 
-            this.djgh_sqsb.DataPropertyName = "sqsb";
-            this.djgh_sqsb.HeaderText = "申请设备";
-            this.djgh_sqsb.Name = "djgh_sqsb";
-            this.djgh_sqsb.ReadOnly = true;
-            // 
-            // djgh_sqsj
-            // 
-            this.djgh_sqsj.DataPropertyName = "sqsj";
-            this.djgh_sqsj.HeaderText = "申请时间";
-            this.djgh_sqsj.Name = "djgh_sqsj";
-            this.djgh_sqsj.ReadOnly = true;
-            // 
-            // djgh_jglj
-            // 
-            this.djgh_jglj.DataPropertyName = "jglj";
-            this.djgh_jglj.HeaderText = "加工零件";
-            this.djgh_jglj.Name = "djgh_jglj";
-            this.djgh_jglj.ReadOnly = true;
-            // 
-            // djgh_gx
-            // 
-            this.djgh_gx.DataPropertyName = "gx";
-            this.djgh_gx.HeaderText = "工序";
-            this.djgh_gx.Name = "djgh_gx";
-            this.djgh_gx.ReadOnly = true;
-            // 
-            // djgh_spld
-            // 
-            this.djgh_spld.DataPropertyName = "spld";
-            this.djgh_spld.HeaderText = "审批领导";
-            this.djgh_spld.Name = "djgh_spld";
-            this.djgh_spld.ReadOnly = true;
-            // 
-            // djgh_spyj
-            // 
-            this.djgh_spyj.DataPropertyName = "spyj";
-            this.djgh_spyj.HeaderText = "审批意见";
-            this.djgh_spyj.Name = "djgh_spyj";
-            this.djgh_spyj.ReadOnly = true;
-            // 
-            // djgh_spsj
-            // 
-            this.djgh_spsj.DataPropertyName = "spsj";
-            this.djgh_spsj.HeaderText = "审批时间";
-            this.djgh_spsj.Name = "djgh_spsj";
-            this.djgh_spsj.ReadOnly = true;
-            // 
-            // djgh_jbr
-            // 
-            this.djgh_jbr.DataPropertyName = "jbr";
-            this.djgh_jbr.HeaderText = "经办人";
-            this.djgh_jbr.Name = "djgh_jbr";
-            this.djgh_jbr.ReadOnly = true;
-            // 
-            // LS_djwj
-            // 
-            this.LS_djwj.AllowUserToAddRows = false;
-            this.LS_djwj.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LS_djwj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.LS_djwj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.LS_djwj.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 12F);
@@ -686,107 +614,144 @@
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djwj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.LS_djwj.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.djwj_dh,
-            this.djwj_jydw,
-            this.djwj_jyyy,
-            this.djwj_jyr,
-            this.djwj_lxdh,
-            this.djwj_spld,
-            this.djwj_spyj,
-            this.djwj_jbr,
-            this.djwj_jcrq,
-            this.djwj_ydghrq});
-            this.LS_djwj.Location = new System.Drawing.Point(6, 20);
-            this.LS_djwj.Name = "LS_djwj";
-            this.LS_djwj.ReadOnly = true;
-            this.LS_djwj.RowTemplate.Height = 23;
-            this.LS_djwj.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.LS_djwj.Size = new System.Drawing.Size(916, 246);
-            this.LS_djwj.TabIndex = 0;
-            this.LS_djwj.Visible = false;
-            this.LS_djwj.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LiShi_CellContentClick);
-            this.LS_djwj.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.LiShi_RowPostPaint);
+            this.LS_djgh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.LS_djgh.ColumnHeadersHeight = 30;
+            this.LS_djgh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LS_djgh_dh,
+            this.LS_djgh_sqbz,
+            this.LS_djgh_sqr,
+            this.LS_djgh_sqsb,
+            this.LS_djgh_sqsj,
+            this.LS_djgh_jglj,
+            this.LS_djgh_gx,
+            this.LS_djgh_spld,
+            this.LS_djgh_spyj,
+            this.LS_djgh_spsj,
+            this.LS_djgh_jbr,
+            this.LS_djgh_djzt});
+            this.LS_djgh.Location = new System.Drawing.Point(6, 20);
+            this.LS_djgh.Name = "LS_djgh";
+            this.LS_djgh.ReadOnly = true;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LS_djgh.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.LS_djgh.RowTemplate.Height = 23;
+            this.LS_djgh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.LS_djgh.Size = new System.Drawing.Size(916, 246);
+            this.LS_djgh.TabIndex = 0;
+            this.LS_djgh.Visible = false;
+            this.LS_djgh.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LiShi_CellContentClick);
+            this.LS_djgh.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LS_djgh_CellDoubleClick);
+            this.LS_djgh.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.LiShi_RowPostPaint);
             // 
-            // djwj_dh
+            // LS_djgh_dh
             // 
-            this.djwj_dh.DataPropertyName = "danhao";
-            this.djwj_dh.HeaderText = "外借单号";
-            this.djwj_dh.Name = "djwj_dh";
-            this.djwj_dh.ReadOnly = true;
-            this.djwj_dh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.LS_djgh_dh.DataPropertyName = "danhao";
+            this.LS_djgh_dh.HeaderText = "更换单号";
+            this.LS_djgh_dh.Name = "LS_djgh_dh";
+            this.LS_djgh_dh.ReadOnly = true;
             // 
-            // djwj_jydw
+            // LS_djgh_sqbz
             // 
-            this.djwj_jydw.DataPropertyName = "jydw";
-            this.djwj_jydw.HeaderText = "借用单位";
-            this.djwj_jydw.Name = "djwj_jydw";
-            this.djwj_jydw.ReadOnly = true;
+            this.LS_djgh_sqbz.DataPropertyName = "sqbz";
+            this.LS_djgh_sqbz.HeaderText = "申请班组";
+            this.LS_djgh_sqbz.Name = "LS_djgh_sqbz";
+            this.LS_djgh_sqbz.ReadOnly = true;
+            this.LS_djgh_sqbz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // djwj_jyyy
+            // LS_djgh_sqr
             // 
-            this.djwj_jyyy.DataPropertyName = "jyyy";
-            this.djwj_jyyy.HeaderText = "借用原因";
-            this.djwj_jyyy.Name = "djwj_jyyy";
-            this.djwj_jyyy.ReadOnly = true;
+            this.LS_djgh_sqr.DataPropertyName = "sqr";
+            this.LS_djgh_sqr.HeaderText = "申请人";
+            this.LS_djgh_sqr.Name = "LS_djgh_sqr";
+            this.LS_djgh_sqr.ReadOnly = true;
+            this.LS_djgh_sqr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // djwj_jyr
+            // LS_djgh_sqsb
             // 
-            this.djwj_jyr.DataPropertyName = "jyr";
-            this.djwj_jyr.HeaderText = "借用人";
-            this.djwj_jyr.Name = "djwj_jyr";
-            this.djwj_jyr.ReadOnly = true;
+            this.LS_djgh_sqsb.DataPropertyName = "sqsb";
+            this.LS_djgh_sqsb.HeaderText = "申请设备";
+            this.LS_djgh_sqsb.Name = "LS_djgh_sqsb";
+            this.LS_djgh_sqsb.ReadOnly = true;
+            this.LS_djgh_sqsb.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // djwj_lxdh
+            // LS_djgh_sqsj
             // 
-            this.djwj_lxdh.DataPropertyName = "lxdh";
-            this.djwj_lxdh.HeaderText = "联系电话";
-            this.djwj_lxdh.Name = "djwj_lxdh";
-            this.djwj_lxdh.ReadOnly = true;
+            this.LS_djgh_sqsj.DataPropertyName = "sqsj";
+            this.LS_djgh_sqsj.HeaderText = "申请时间";
+            this.LS_djgh_sqsj.Name = "LS_djgh_sqsj";
+            this.LS_djgh_sqsj.ReadOnly = true;
+            this.LS_djgh_sqsj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // djwj_spld
+            // LS_djgh_jglj
             // 
-            this.djwj_spld.DataPropertyName = "spld";
-            this.djwj_spld.HeaderText = "审批领导";
-            this.djwj_spld.Name = "djwj_spld";
-            this.djwj_spld.ReadOnly = true;
+            this.LS_djgh_jglj.DataPropertyName = "jglj";
+            this.LS_djgh_jglj.HeaderText = "加工零件";
+            this.LS_djgh_jglj.Name = "LS_djgh_jglj";
+            this.LS_djgh_jglj.ReadOnly = true;
+            this.LS_djgh_jglj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // djwj_spyj
+            // LS_djgh_gx
             // 
-            this.djwj_spyj.DataPropertyName = "spyj";
-            this.djwj_spyj.HeaderText = "审批意见";
-            this.djwj_spyj.Name = "djwj_spyj";
-            this.djwj_spyj.ReadOnly = true;
+            this.LS_djgh_gx.DataPropertyName = "gx";
+            this.LS_djgh_gx.HeaderText = "工序";
+            this.LS_djgh_gx.Name = "LS_djgh_gx";
+            this.LS_djgh_gx.ReadOnly = true;
+            this.LS_djgh_gx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // djwj_jbr
+            // LS_djgh_spld
             // 
-            this.djwj_jbr.DataPropertyName = "jbr";
-            this.djwj_jbr.HeaderText = "经办人";
-            this.djwj_jbr.Name = "djwj_jbr";
-            this.djwj_jbr.ReadOnly = true;
+            this.LS_djgh_spld.DataPropertyName = "spld";
+            this.LS_djgh_spld.HeaderText = "审批领导";
+            this.LS_djgh_spld.Name = "LS_djgh_spld";
+            this.LS_djgh_spld.ReadOnly = true;
+            this.LS_djgh_spld.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // djwj_jcrq
+            // LS_djgh_spyj
             // 
-            this.djwj_jcrq.DataPropertyName = "jcsj";
-            this.djwj_jcrq.HeaderText = "借出日期";
-            this.djwj_jcrq.Name = "djwj_jcrq";
-            this.djwj_jcrq.ReadOnly = true;
+            this.LS_djgh_spyj.DataPropertyName = "spyj";
+            this.LS_djgh_spyj.HeaderText = "审批意见";
+            this.LS_djgh_spyj.Name = "LS_djgh_spyj";
+            this.LS_djgh_spyj.ReadOnly = true;
+            this.LS_djgh_spyj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // djwj_ydghrq
+            // LS_djgh_spsj
             // 
-            this.djwj_ydghrq.DataPropertyName = "ydghsj";
-            this.djwj_ydghrq.HeaderText = "约定归还日期";
-            this.djwj_ydghrq.Name = "djwj_ydghrq";
-            this.djwj_ydghrq.ReadOnly = true;
+            this.LS_djgh_spsj.DataPropertyName = "spsj";
+            this.LS_djgh_spsj.HeaderText = "审批时间";
+            this.LS_djgh_spsj.Name = "LS_djgh_spsj";
+            this.LS_djgh_spsj.ReadOnly = true;
+            this.LS_djgh_spsj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djgh_jbr
+            // 
+            this.LS_djgh_jbr.DataPropertyName = "jbr";
+            this.LS_djgh_jbr.HeaderText = "经办人";
+            this.LS_djgh_jbr.Name = "LS_djgh_jbr";
+            this.LS_djgh_jbr.ReadOnly = true;
+            this.LS_djgh_jbr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djgh_djzt
+            // 
+            this.LS_djgh_djzt.DataPropertyName = "djzt";
+            this.LS_djgh_djzt.HeaderText = "单据状态";
+            this.LS_djgh_djzt.Name = "LS_djgh_djzt";
+            this.LS_djgh_djzt.ReadOnly = true;
+            this.LS_djgh_djzt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_djgh_djzt.Visible = false;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.MX_djwj);
             this.groupBox2.Controls.Add(this.MX_djccd);
             this.groupBox2.Controls.Add(this.Panel_djbf);
             this.groupBox2.Controls.Add(this.Panel_djgh);
             this.groupBox2.Controls.Add(this.MX_djth);
-            this.groupBox2.Controls.Add(this.MX_djwj);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.groupBox2.Location = new System.Drawing.Point(12, 445);
             this.groupBox2.Name = "groupBox2";
@@ -795,22 +760,114 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "领用单明细";
             // 
+            // MX_djwj
+            // 
+            this.MX_djwj.AllowUserToAddRows = false;
+            this.MX_djwj.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MX_djwj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.MX_djwj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MX_djwj.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MX_djwj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.MX_djwj.ColumnHeadersHeight = 30;
+            this.MX_djwj.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.djwj_djlx,
+            this.djwj_djgg,
+            this.djwj_djid,
+            this.djwj_djzt,
+            this.djwj_sl,
+            this.djwj_jcbm,
+            this.djwj_dth,
+            this.djwj_bz});
+            this.MX_djwj.Location = new System.Drawing.Point(0, 20);
+            this.MX_djwj.Name = "MX_djwj";
+            this.MX_djwj.ReadOnly = true;
+            this.MX_djwj.RowTemplate.Height = 23;
+            this.MX_djwj.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MX_djwj.Size = new System.Drawing.Size(922, 209);
+            this.MX_djwj.TabIndex = 0;
+            this.MX_djwj.Visible = false;
+            this.MX_djwj.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.MingXi_RowPostPaint);
+            // 
+            // djwj_djlx
+            // 
+            this.djwj_djlx.DataPropertyName = "djlx";
+            this.djwj_djlx.HeaderText = "刀具类型";
+            this.djwj_djlx.Name = "djwj_djlx";
+            this.djwj_djlx.ReadOnly = true;
+            // 
+            // djwj_djgg
+            // 
+            this.djwj_djgg.DataPropertyName = "djgg";
+            this.djwj_djgg.HeaderText = "刀具规格";
+            this.djwj_djgg.Name = "djwj_djgg";
+            this.djwj_djgg.ReadOnly = true;
+            // 
+            // djwj_djid
+            // 
+            this.djwj_djid.DataPropertyName = "djid";
+            this.djwj_djid.HeaderText = "刀具ID";
+            this.djwj_djid.Name = "djwj_djid";
+            this.djwj_djid.ReadOnly = true;
+            // 
+            // djwj_djzt
+            // 
+            this.djwj_djzt.DataPropertyName = "djzt";
+            this.djwj_djzt.HeaderText = "刀具状态";
+            this.djwj_djzt.Name = "djwj_djzt";
+            this.djwj_djzt.ReadOnly = true;
+            // 
+            // djwj_sl
+            // 
+            this.djwj_sl.DataPropertyName = "sl";
+            this.djwj_sl.HeaderText = "数量";
+            this.djwj_sl.Name = "djwj_sl";
+            this.djwj_sl.ReadOnly = true;
+            // 
+            // djwj_jcbm
+            // 
+            this.djwj_jcbm.DataPropertyName = "jcbm";
+            this.djwj_jcbm.HeaderText = "机床编码";
+            this.djwj_jcbm.Name = "djwj_jcbm";
+            this.djwj_jcbm.ReadOnly = true;
+            // 
+            // djwj_dth
+            // 
+            this.djwj_dth.DataPropertyName = "dth";
+            this.djwj_dth.HeaderText = "刀套号";
+            this.djwj_dth.Name = "djwj_dth";
+            this.djwj_dth.ReadOnly = true;
+            // 
+            // djwj_bz
+            // 
+            this.djwj_bz.DataPropertyName = "bz";
+            this.djwj_bz.HeaderText = "备注";
+            this.djwj_bz.Name = "djwj_bz";
+            this.djwj_bz.ReadOnly = true;
+            // 
             // MX_djccd
             // 
             this.MX_djccd.AllowUserToAddRows = false;
             this.MX_djccd.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.MX_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MX_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
             this.MX_djccd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MX_djccd.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MX_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MX_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.MX_djccd.ColumnHeadersHeight = 30;
             this.MX_djccd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.djccd_djlx,
@@ -862,8 +919,8 @@
             // djccd_sl
             // 
             this.djccd_sl.DataPropertyName = "shuliang";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.djccd_sl.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.djccd_sl.DefaultCellStyle = dataGridViewCellStyle16;
             this.djccd_sl.HeaderText = "数量";
             this.djccd_sl.Name = "djccd_sl";
             this.djccd_sl.ReadOnly = true;
@@ -1068,16 +1125,16 @@
             // GB_Panel_djgh_xdj
             // 
             this.GB_Panel_djgh_xdj.Controls.Add(this.djgh_x_djid);
-            this.GB_Panel_djgh_xdj.Controls.Add(this.label17);
             this.GB_Panel_djgh_xdj.Controls.Add(this.djgh_x_djcd);
-            this.GB_Panel_djgh_xdj.Controls.Add(this.label22);
             this.GB_Panel_djgh_xdj.Controls.Add(this.djgh_x_djgg);
-            this.GB_Panel_djgh_xdj.Controls.Add(this.label18);
             this.GB_Panel_djgh_xdj.Controls.Add(this.djgh_x_djlx);
+            this.GB_Panel_djgh_xdj.Controls.Add(this.label17);
+            this.GB_Panel_djgh_xdj.Controls.Add(this.label22);
+            this.GB_Panel_djgh_xdj.Controls.Add(this.label18);
             this.GB_Panel_djgh_xdj.Controls.Add(this.label19);
-            this.GB_Panel_djgh_xdj.Location = new System.Drawing.Point(341, 9);
+            this.GB_Panel_djgh_xdj.Location = new System.Drawing.Point(321, 10);
             this.GB_Panel_djgh_xdj.Name = "GB_Panel_djgh_xdj";
-            this.GB_Panel_djgh_xdj.Size = new System.Drawing.Size(226, 186);
+            this.GB_Panel_djgh_xdj.Size = new System.Drawing.Size(256, 186);
             this.GB_Panel_djgh_xdj.TabIndex = 7;
             this.GB_Panel_djgh_xdj.TabStop = false;
             this.GB_Panel_djgh_xdj.Text = "新刀具";
@@ -1085,10 +1142,34 @@
             // djgh_x_djid
             // 
             this.djgh_x_djid.Enabled = false;
-            this.djgh_x_djid.Location = new System.Drawing.Point(87, 154);
+            this.djgh_x_djid.Location = new System.Drawing.Point(106, 154);
             this.djgh_x_djid.Name = "djgh_x_djid";
             this.djgh_x_djid.Size = new System.Drawing.Size(121, 29);
             this.djgh_x_djid.TabIndex = 5;
+            // 
+            // djgh_x_djcd
+            // 
+            this.djgh_x_djcd.Enabled = false;
+            this.djgh_x_djcd.Location = new System.Drawing.Point(106, 115);
+            this.djgh_x_djcd.Name = "djgh_x_djcd";
+            this.djgh_x_djcd.Size = new System.Drawing.Size(121, 29);
+            this.djgh_x_djcd.TabIndex = 5;
+            // 
+            // djgh_x_djgg
+            // 
+            this.djgh_x_djgg.Enabled = false;
+            this.djgh_x_djgg.Location = new System.Drawing.Point(106, 70);
+            this.djgh_x_djgg.Name = "djgh_x_djgg";
+            this.djgh_x_djgg.Size = new System.Drawing.Size(121, 29);
+            this.djgh_x_djgg.TabIndex = 5;
+            // 
+            // djgh_x_djlx
+            // 
+            this.djgh_x_djlx.Enabled = false;
+            this.djgh_x_djlx.Location = new System.Drawing.Point(106, 31);
+            this.djgh_x_djlx.Name = "djgh_x_djlx";
+            this.djgh_x_djlx.Size = new System.Drawing.Size(121, 29);
+            this.djgh_x_djlx.TabIndex = 5;
             // 
             // label17
             // 
@@ -1099,30 +1180,14 @@
             this.label17.TabIndex = 0;
             this.label17.Text = "刀具类型：";
             // 
-            // djgh_x_djcd
-            // 
-            this.djgh_x_djcd.Enabled = false;
-            this.djgh_x_djcd.Location = new System.Drawing.Point(87, 115);
-            this.djgh_x_djcd.Name = "djgh_x_djcd";
-            this.djgh_x_djcd.Size = new System.Drawing.Size(121, 29);
-            this.djgh_x_djcd.TabIndex = 5;
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(16, 158);
+            this.label22.Location = new System.Drawing.Point(31, 157);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(75, 21);
             this.label22.TabIndex = 0;
             this.label22.Text = "刀具ID：";
-            // 
-            // djgh_x_djgg
-            // 
-            this.djgh_x_djgg.Enabled = false;
-            this.djgh_x_djgg.Location = new System.Drawing.Point(87, 70);
-            this.djgh_x_djgg.Name = "djgh_x_djgg";
-            this.djgh_x_djgg.Size = new System.Drawing.Size(121, 29);
-            this.djgh_x_djgg.TabIndex = 5;
             // 
             // label18
             // 
@@ -1132,14 +1197,6 @@
             this.label18.Size = new System.Drawing.Size(90, 21);
             this.label18.TabIndex = 0;
             this.label18.Text = "刀具规格：";
-            // 
-            // djgh_x_djlx
-            // 
-            this.djgh_x_djlx.Enabled = false;
-            this.djgh_x_djlx.Location = new System.Drawing.Point(87, 31);
-            this.djgh_x_djlx.Name = "djgh_x_djlx";
-            this.djgh_x_djlx.Size = new System.Drawing.Size(121, 29);
-            this.djgh_x_djlx.TabIndex = 5;
             // 
             // label19
             // 
@@ -1160,9 +1217,9 @@
             this.GB_Panel_djgh_ydj.Controls.Add(this.label15);
             this.GB_Panel_djgh_ydj.Controls.Add(this.label13);
             this.GB_Panel_djgh_ydj.Controls.Add(this.label14);
-            this.GB_Panel_djgh_ydj.Location = new System.Drawing.Point(80, 9);
+            this.GB_Panel_djgh_ydj.Location = new System.Drawing.Point(41, 10);
             this.GB_Panel_djgh_ydj.Name = "GB_Panel_djgh_ydj";
-            this.GB_Panel_djgh_ydj.Size = new System.Drawing.Size(214, 186);
+            this.GB_Panel_djgh_ydj.Size = new System.Drawing.Size(244, 186);
             this.GB_Panel_djgh_ydj.TabIndex = 2;
             this.GB_Panel_djgh_ydj.TabStop = false;
             this.GB_Panel_djgh_ydj.Text = "原刀具";
@@ -1170,7 +1227,7 @@
             // djgh_y_djid
             // 
             this.djgh_y_djid.Enabled = false;
-            this.djgh_y_djid.Location = new System.Drawing.Point(78, 154);
+            this.djgh_y_djid.Location = new System.Drawing.Point(101, 154);
             this.djgh_y_djid.Name = "djgh_y_djid";
             this.djgh_y_djid.Size = new System.Drawing.Size(121, 29);
             this.djgh_y_djid.TabIndex = 5;
@@ -1178,7 +1235,7 @@
             // djgh_y_djcd
             // 
             this.djgh_y_djcd.Enabled = false;
-            this.djgh_y_djcd.Location = new System.Drawing.Point(78, 115);
+            this.djgh_y_djcd.Location = new System.Drawing.Point(101, 115);
             this.djgh_y_djcd.Name = "djgh_y_djcd";
             this.djgh_y_djcd.Size = new System.Drawing.Size(121, 29);
             this.djgh_y_djcd.TabIndex = 5;
@@ -1186,7 +1243,7 @@
             // djgh_y_djgg
             // 
             this.djgh_y_djgg.Enabled = false;
-            this.djgh_y_djgg.Location = new System.Drawing.Point(78, 70);
+            this.djgh_y_djgg.Location = new System.Drawing.Point(101, 70);
             this.djgh_y_djgg.Name = "djgh_y_djgg";
             this.djgh_y_djgg.Size = new System.Drawing.Size(121, 29);
             this.djgh_y_djgg.TabIndex = 5;
@@ -1194,7 +1251,7 @@
             // djgh_y_djlx
             // 
             this.djgh_y_djlx.Enabled = false;
-            this.djgh_y_djlx.Location = new System.Drawing.Point(78, 31);
+            this.djgh_y_djlx.Location = new System.Drawing.Point(101, 31);
             this.djgh_y_djlx.Name = "djgh_y_djlx";
             this.djgh_y_djlx.Size = new System.Drawing.Size(121, 29);
             this.djgh_y_djlx.TabIndex = 5;
@@ -1202,7 +1259,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(16, 157);
+            this.label21.Location = new System.Drawing.Point(29, 158);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(75, 21);
             this.label21.TabIndex = 0;
@@ -1239,18 +1296,18 @@
             // 
             this.MX_djth.AllowUserToAddRows = false;
             this.MX_djth.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.MX_djth.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MX_djth.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.MX_djth.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MX_djth.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MX_djth.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MX_djth.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.MX_djth.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.djth_djlx,
             this.djth_djgg,
@@ -1350,97 +1407,6 @@
             this.djth_bz.Name = "djth_bz";
             this.djth_bz.ReadOnly = true;
             // 
-            // MX_djwj
-            // 
-            this.MX_djwj.AllowUserToAddRows = false;
-            this.MX_djwj.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.MX_djwj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            this.MX_djwj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MX_djwj.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MX_djwj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.MX_djwj.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.djwj_djlx,
-            this.djwj_djgg,
-            this.djwj_djid,
-            this.djwj_djzt,
-            this.djwj_sl,
-            this.djwj_jcbm,
-            this.djwj_dth,
-            this.djwj_bz});
-            this.MX_djwj.Location = new System.Drawing.Point(0, 20);
-            this.MX_djwj.Name = "MX_djwj";
-            this.MX_djwj.ReadOnly = true;
-            this.MX_djwj.RowTemplate.Height = 23;
-            this.MX_djwj.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MX_djwj.Size = new System.Drawing.Size(922, 209);
-            this.MX_djwj.TabIndex = 0;
-            this.MX_djwj.Visible = false;
-            this.MX_djwj.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.MingXi_RowPostPaint);
-            // 
-            // djwj_djlx
-            // 
-            this.djwj_djlx.DataPropertyName = "djlx";
-            this.djwj_djlx.HeaderText = "刀具类型";
-            this.djwj_djlx.Name = "djwj_djlx";
-            this.djwj_djlx.ReadOnly = true;
-            // 
-            // djwj_djgg
-            // 
-            this.djwj_djgg.DataPropertyName = "djgg";
-            this.djwj_djgg.HeaderText = "刀具规格";
-            this.djwj_djgg.Name = "djwj_djgg";
-            this.djwj_djgg.ReadOnly = true;
-            // 
-            // djwj_djid
-            // 
-            this.djwj_djid.DataPropertyName = "djid";
-            this.djwj_djid.HeaderText = "刀具ID";
-            this.djwj_djid.Name = "djwj_djid";
-            this.djwj_djid.ReadOnly = true;
-            // 
-            // djwj_djzt
-            // 
-            this.djwj_djzt.DataPropertyName = "djzt";
-            this.djwj_djzt.HeaderText = "刀具状态";
-            this.djwj_djzt.Name = "djwj_djzt";
-            this.djwj_djzt.ReadOnly = true;
-            // 
-            // djwj_sl
-            // 
-            this.djwj_sl.DataPropertyName = "sl";
-            this.djwj_sl.HeaderText = "数量";
-            this.djwj_sl.Name = "djwj_sl";
-            this.djwj_sl.ReadOnly = true;
-            // 
-            // djwj_jcbm
-            // 
-            this.djwj_jcbm.DataPropertyName = "jcbm";
-            this.djwj_jcbm.HeaderText = "机床编码";
-            this.djwj_jcbm.Name = "djwj_jcbm";
-            this.djwj_jcbm.ReadOnly = true;
-            // 
-            // djwj_dth
-            // 
-            this.djwj_dth.DataPropertyName = "dth";
-            this.djwj_dth.HeaderText = "刀套号";
-            this.djwj_dth.Name = "djwj_dth";
-            this.djwj_dth.ReadOnly = true;
-            // 
-            // djwj_bz
-            // 
-            this.djwj_bz.DataPropertyName = "bz";
-            this.djwj_bz.HeaderText = "备注";
-            this.djwj_bz.Name = "djwj_bz";
-            this.djwj_bz.ReadOnly = true;
-            // 
             // NewBtn
             // 
             this.NewBtn.Font = new System.Drawing.Font("微软雅黑", 12F);
@@ -1467,11 +1433,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label2.Location = new System.Drawing.Point(58, 37);
+            this.label2.Location = new System.Drawing.Point(25, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 21);
+            this.label2.Size = new System.Drawing.Size(90, 21);
             this.label2.TabIndex = 4;
-            this.label2.Text = "单号：";
+            this.label2.Text = "领用单号：";
             // 
             // DHCX
             // 
@@ -1537,7 +1503,6 @@
             this.QSSJCX.ShowCheckBox = true;
             this.QSSJCX.Size = new System.Drawing.Size(175, 29);
             this.QSSJCX.TabIndex = 6;
-            this.QSSJCX.ValueChanged += new System.EventHandler(this.QSSJCX_ValueChanged);
             // 
             // JZSJCX
             // 
@@ -1552,7 +1517,7 @@
             this.SBCX.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.SBCX.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.SBCX.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.SBCX.Location = new System.Drawing.Point(362, 34);
+            this.SBCX.Location = new System.Drawing.Point(377, 34);
             this.SBCX.Name = "SBCX";
             this.SBCX.Size = new System.Drawing.Size(153, 29);
             this.SBCX.TabIndex = 5;
@@ -1562,7 +1527,7 @@
             this.GXCX.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.GXCX.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.GXCX.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.GXCX.Location = new System.Drawing.Point(362, 69);
+            this.GXCX.Location = new System.Drawing.Point(377, 69);
             this.GXCX.Name = "GXCX";
             this.GXCX.Size = new System.Drawing.Size(153, 29);
             this.GXCX.TabIndex = 5;
@@ -1581,31 +1546,31 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label7.Location = new System.Drawing.Point(58, 72);
+            this.label7.Location = new System.Drawing.Point(25, 72);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 21);
+            this.label7.Size = new System.Drawing.Size(90, 21);
             this.label7.TabIndex = 4;
-            this.label7.Text = "班组：";
+            this.label7.Text = "领用班组：";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label9.Location = new System.Drawing.Point(306, 72);
+            this.label9.Location = new System.Drawing.Point(288, 72);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 21);
+            this.label9.Size = new System.Drawing.Size(90, 21);
             this.label9.TabIndex = 4;
-            this.label9.Text = "工序：";
+            this.label9.Text = "加工工序：";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label8.Location = new System.Drawing.Point(306, 37);
+            this.label8.Location = new System.Drawing.Point(288, 37);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 21);
+            this.label8.Size = new System.Drawing.Size(90, 21);
             this.label8.TabIndex = 4;
-            this.label8.Text = "设备：";
+            this.label8.Text = "领用设备：";
             // 
             // label11
             // 
@@ -1627,6 +1592,93 @@
             this.label10.TabIndex = 4;
             this.label10.Text = "起始时间：";
             // 
+            // LS_djwj_dh
+            // 
+            this.LS_djwj_dh.DataPropertyName = "danhao";
+            this.LS_djwj_dh.HeaderText = "外借单号";
+            this.LS_djwj_dh.Name = "LS_djwj_dh";
+            this.LS_djwj_dh.ReadOnly = true;
+            // 
+            // LS_djwj_jydw
+            // 
+            this.LS_djwj_jydw.DataPropertyName = "jydw";
+            this.LS_djwj_jydw.HeaderText = "借用单位";
+            this.LS_djwj_jydw.Name = "LS_djwj_jydw";
+            this.LS_djwj_jydw.ReadOnly = true;
+            this.LS_djwj_jydw.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_jyyy
+            // 
+            this.LS_djwj_jyyy.DataPropertyName = "jyyy";
+            this.LS_djwj_jyyy.HeaderText = "借用原因";
+            this.LS_djwj_jyyy.Name = "LS_djwj_jyyy";
+            this.LS_djwj_jyyy.ReadOnly = true;
+            this.LS_djwj_jyyy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_jyr
+            // 
+            this.LS_djwj_jyr.DataPropertyName = "jyr";
+            this.LS_djwj_jyr.HeaderText = "借用人";
+            this.LS_djwj_jyr.Name = "LS_djwj_jyr";
+            this.LS_djwj_jyr.ReadOnly = true;
+            this.LS_djwj_jyr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_lxdh
+            // 
+            this.LS_djwj_lxdh.DataPropertyName = "lxdh";
+            this.LS_djwj_lxdh.HeaderText = "联系电话";
+            this.LS_djwj_lxdh.Name = "LS_djwj_lxdh";
+            this.LS_djwj_lxdh.ReadOnly = true;
+            this.LS_djwj_lxdh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_spld
+            // 
+            this.LS_djwj_spld.DataPropertyName = "spld";
+            this.LS_djwj_spld.HeaderText = "审批领导";
+            this.LS_djwj_spld.Name = "LS_djwj_spld";
+            this.LS_djwj_spld.ReadOnly = true;
+            this.LS_djwj_spld.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_spyj
+            // 
+            this.LS_djwj_spyj.DataPropertyName = "spyj";
+            this.LS_djwj_spyj.HeaderText = "审批意见";
+            this.LS_djwj_spyj.Name = "LS_djwj_spyj";
+            this.LS_djwj_spyj.ReadOnly = true;
+            this.LS_djwj_spyj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_jbr
+            // 
+            this.LS_djwj_jbr.DataPropertyName = "jbr";
+            this.LS_djwj_jbr.HeaderText = "经办人";
+            this.LS_djwj_jbr.Name = "LS_djwj_jbr";
+            this.LS_djwj_jbr.ReadOnly = true;
+            this.LS_djwj_jbr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_jcrq
+            // 
+            this.LS_djwj_jcrq.DataPropertyName = "jcsj";
+            this.LS_djwj_jcrq.HeaderText = "借出日期";
+            this.LS_djwj_jcrq.Name = "LS_djwj_jcrq";
+            this.LS_djwj_jcrq.ReadOnly = true;
+            this.LS_djwj_jcrq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_ydghrq
+            // 
+            this.LS_djwj_ydghrq.DataPropertyName = "ydghsj";
+            this.LS_djwj_ydghrq.HeaderText = "约定归还日期";
+            this.LS_djwj_ydghrq.Name = "LS_djwj_ydghrq";
+            this.LS_djwj_ydghrq.ReadOnly = true;
+            this.LS_djwj_ydghrq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_djzt
+            // 
+            this.LS_djwj_djzt.DataPropertyName = "djzt";
+            this.LS_djwj_djzt.HeaderText = "单据状态";
+            this.LS_djwj_djzt.Name = "LS_djwj_djzt";
+            this.LS_djwj_djzt.ReadOnly = true;
+            this.LS_djwj_djzt.Visible = false;
+            // 
             // History
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1644,12 +1696,13 @@
             this.Load += new System.EventHandler(this.DJCCHistory_Load);
             this.SizeChanged += new System.EventHandler(this.History_SizeChanged);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LS_djwj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LS_djccd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LS_djth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LS_djbf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LS_djgh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LS_djwj)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MX_djwj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MX_djccd)).EndInit();
             this.Panel_djbf.ResumeLayout(false);
             this.Panel_djbf.PerformLayout();
@@ -1663,7 +1716,6 @@
             this.GB_Panel_djgh_ydj.ResumeLayout(false);
             this.GB_Panel_djgh_ydj.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MX_djth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MX_djwj)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -1695,33 +1747,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn djwj_jcbm;
         private System.Windows.Forms.DataGridViewTextBoxColumn djwj_dth;
         private System.Windows.Forms.DataGridViewTextBoxColumn djwj_bz;
-        private System.Windows.Forms.DataGridViewLinkColumn djwj_dh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djwj_jydw;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djwj_jyyy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djwj_jyr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djwj_lxdh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djwj_spld;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djwj_spyj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djwj_jbr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djwj_jcrq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djwj_ydghrq;
         private System.Windows.Forms.DataGridView LS_djgh;
-        private System.Windows.Forms.DataGridViewLinkColumn djgh_dh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgh_sqbz;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgh_sqr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgh_sqsb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgh_sqsj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgh_jglj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgh_gx;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgh_spld;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgh_spyj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgh_spsj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgh_jbr;
-        private System.Windows.Forms.GroupBox GB_Panel_djgh_ydj;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel Panel_djgh;
         private System.Windows.Forms.GroupBox GB_Panel_djgh_ghly;
         private System.Windows.Forms.TextBox djgh_ghly;
@@ -1734,10 +1760,6 @@
         private System.Windows.Forms.TextBox djgh_x_djcd;
         private System.Windows.Forms.TextBox djgh_x_djgg;
         private System.Windows.Forms.TextBox djgh_x_djlx;
-        private System.Windows.Forms.TextBox djgh_y_djid;
-        private System.Windows.Forms.TextBox djgh_y_djcd;
-        private System.Windows.Forms.TextBox djgh_y_djgg;
-        private System.Windows.Forms.TextBox djgh_y_djlx;
         private System.Windows.Forms.DataGridView LS_djbf;
         private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -1810,5 +1832,37 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LS_jbr;
         private System.Windows.Forms.DataGridViewTextBoxColumn LS_bz;
         private System.Windows.Forms.DataGridViewTextBoxColumn LS_djzt;
+        private System.Windows.Forms.GroupBox GB_Panel_djgh_ydj;
+        private System.Windows.Forms.TextBox djgh_y_djid;
+        private System.Windows.Forms.TextBox djgh_y_djcd;
+        private System.Windows.Forms.TextBox djgh_y_djgg;
+        private System.Windows.Forms.TextBox djgh_y_djlx;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridViewLinkColumn LS_djgh_dh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_sqbz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_sqr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_sqsb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_sqsj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_jglj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_gx;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_spld;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_spyj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_spsj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_jbr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djgh_djzt;
+        private System.Windows.Forms.DataGridViewLinkColumn LS_djwj_dh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_jydw;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_jyyy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_jyr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_lxdh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_spld;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_spyj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_jbr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_jcrq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_ydghrq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_djzt;
     }
 }
