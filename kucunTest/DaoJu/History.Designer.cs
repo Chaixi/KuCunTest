@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -35,20 +39,27 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LS_djwj = new System.Windows.Forms.DataGridView();
+            this.LS_djwj_dh = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.LS_djwj_jydw = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_jyyy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_jyr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_lxdh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_spld = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_spyj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_jcrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_ydghrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djwj_djzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LS_djccd = new System.Windows.Forms.DataGridView();
             this.LS_lydh = new System.Windows.Forms.DataGridViewLinkColumn();
             this.LS_lybz = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,25 +72,7 @@
             this.LS_bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LS_djzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LS_djth = new System.Windows.Forms.DataGridView();
-            this.dataGridViewLinkColumn2 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djth_thyy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LS_djbf = new System.Windows.Forms.DataGridView();
-            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LS_djgh = new System.Windows.Forms.DataGridView();
             this.LS_djgh_dh = new System.Windows.Forms.DataGridViewLinkColumn();
             this.LS_djgh_sqbz = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -173,17 +166,26 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.LS_djwj_dh = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.LS_djwj_jydw = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djwj_jyyy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djwj_jyr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djwj_lxdh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djwj_spld = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djwj_spyj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djwj_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djwj_jcrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djwj_ydghrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LS_djwj_djzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_dh = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.LS_djbf_sqbz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_sqr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_sqsb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_sqsj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_jglj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_gx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_spld = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_spyj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_spsj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djbf_djzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djth_dh = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.LS_djth_thbz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djth_thr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djth_thyy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djth_thrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djth_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djth_jbrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LS_djth_djzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LS_djwj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LS_djccd)).BeginInit();
@@ -216,11 +218,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.LS_djwj);
-            this.groupBox1.Controls.Add(this.LS_djccd);
             this.groupBox1.Controls.Add(this.LS_djth);
             this.groupBox1.Controls.Add(this.LS_djbf);
             this.groupBox1.Controls.Add(this.LS_djgh);
+            this.groupBox1.Controls.Add(this.LS_djwj);
+            this.groupBox1.Controls.Add(this.LS_djccd);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.groupBox1.Location = new System.Drawing.Point(12, 167);
             this.groupBox1.Name = "groupBox1";
@@ -233,18 +235,18 @@
             // 
             this.LS_djwj.AllowUserToAddRows = false;
             this.LS_djwj.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.LS_djwj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.LS_djwj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.LS_djwj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.LS_djwj.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djwj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LS_djwj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.LS_djwj.ColumnHeadersHeight = 30;
             this.LS_djwj.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LS_djwj_dh,
@@ -270,23 +272,110 @@
             this.LS_djwj.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LS_djwj_CellDoubleClick);
             this.LS_djwj.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.LiShi_RowPostPaint);
             // 
+            // LS_djwj_dh
+            // 
+            this.LS_djwj_dh.DataPropertyName = "danhao";
+            this.LS_djwj_dh.HeaderText = "外借单号";
+            this.LS_djwj_dh.Name = "LS_djwj_dh";
+            this.LS_djwj_dh.ReadOnly = true;
+            // 
+            // LS_djwj_jydw
+            // 
+            this.LS_djwj_jydw.DataPropertyName = "jydw";
+            this.LS_djwj_jydw.HeaderText = "借用单位";
+            this.LS_djwj_jydw.Name = "LS_djwj_jydw";
+            this.LS_djwj_jydw.ReadOnly = true;
+            this.LS_djwj_jydw.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_jyyy
+            // 
+            this.LS_djwj_jyyy.DataPropertyName = "jyyy";
+            this.LS_djwj_jyyy.HeaderText = "借用原因";
+            this.LS_djwj_jyyy.Name = "LS_djwj_jyyy";
+            this.LS_djwj_jyyy.ReadOnly = true;
+            this.LS_djwj_jyyy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_jyr
+            // 
+            this.LS_djwj_jyr.DataPropertyName = "jyr";
+            this.LS_djwj_jyr.HeaderText = "借用人";
+            this.LS_djwj_jyr.Name = "LS_djwj_jyr";
+            this.LS_djwj_jyr.ReadOnly = true;
+            this.LS_djwj_jyr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_lxdh
+            // 
+            this.LS_djwj_lxdh.DataPropertyName = "lxdh";
+            this.LS_djwj_lxdh.HeaderText = "联系电话";
+            this.LS_djwj_lxdh.Name = "LS_djwj_lxdh";
+            this.LS_djwj_lxdh.ReadOnly = true;
+            this.LS_djwj_lxdh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_spld
+            // 
+            this.LS_djwj_spld.DataPropertyName = "spld";
+            this.LS_djwj_spld.HeaderText = "审批领导";
+            this.LS_djwj_spld.Name = "LS_djwj_spld";
+            this.LS_djwj_spld.ReadOnly = true;
+            this.LS_djwj_spld.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_spyj
+            // 
+            this.LS_djwj_spyj.DataPropertyName = "spyj";
+            this.LS_djwj_spyj.HeaderText = "审批意见";
+            this.LS_djwj_spyj.Name = "LS_djwj_spyj";
+            this.LS_djwj_spyj.ReadOnly = true;
+            this.LS_djwj_spyj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_jbr
+            // 
+            this.LS_djwj_jbr.DataPropertyName = "jbr";
+            this.LS_djwj_jbr.HeaderText = "经办人";
+            this.LS_djwj_jbr.Name = "LS_djwj_jbr";
+            this.LS_djwj_jbr.ReadOnly = true;
+            this.LS_djwj_jbr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_jcrq
+            // 
+            this.LS_djwj_jcrq.DataPropertyName = "jcsj";
+            this.LS_djwj_jcrq.HeaderText = "借出日期";
+            this.LS_djwj_jcrq.Name = "LS_djwj_jcrq";
+            this.LS_djwj_jcrq.ReadOnly = true;
+            this.LS_djwj_jcrq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_ydghrq
+            // 
+            this.LS_djwj_ydghrq.DataPropertyName = "ydghsj";
+            this.LS_djwj_ydghrq.HeaderText = "约定归还日期";
+            this.LS_djwj_ydghrq.Name = "LS_djwj_ydghrq";
+            this.LS_djwj_ydghrq.ReadOnly = true;
+            this.LS_djwj_ydghrq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djwj_djzt
+            // 
+            this.LS_djwj_djzt.DataPropertyName = "djzt";
+            this.LS_djwj_djzt.HeaderText = "单据状态";
+            this.LS_djwj_djzt.Name = "LS_djwj_djzt";
+            this.LS_djwj_djzt.ReadOnly = true;
+            this.LS_djwj_djzt.Visible = false;
+            // 
             // LS_djccd
             // 
             this.LS_djccd.AllowUserToAddRows = false;
             this.LS_djccd.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.LS_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.LS_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.LS_djccd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.LS_djccd.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.LS_djccd.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LS_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.LS_djccd.ColumnHeadersHeight = 30;
             this.LS_djccd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LS_lydh,
@@ -400,10 +489,91 @@
             // 
             this.LS_djth.AllowUserToAddRows = false;
             this.LS_djth.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LS_djth.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.LS_djth.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.LS_djth.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.LS_djth.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LS_djth.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.LS_djth.ColumnHeadersHeight = 30;
+            this.LS_djth.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LS_djth_dh,
+            this.LS_djth_thbz,
+            this.LS_djth_thr,
+            this.LS_djth_thyy,
+            this.LS_djth_thrq,
+            this.LS_djth_jbr,
+            this.LS_djth_jbrq,
+            this.LS_djth_djzt});
+            this.LS_djth.Location = new System.Drawing.Point(6, 28);
+            this.LS_djth.Name = "LS_djth";
+            this.LS_djth.ReadOnly = true;
+            this.LS_djth.RowTemplate.Height = 23;
+            this.LS_djth.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.LS_djth.Size = new System.Drawing.Size(916, 238);
+            this.LS_djth.TabIndex = 0;
+            this.LS_djth.Visible = false;
+            this.LS_djth.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LiShi_CellContentClick);
+            this.LS_djth.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LS_djth_CellDoubleClick);
+            this.LS_djth.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.LiShi_RowPostPaint);
+            // 
+            // LS_djbf
+            // 
+            this.LS_djbf.AllowUserToAddRows = false;
+            this.LS_djbf.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.LS_djbf.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.LS_djbf.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LS_djbf.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LS_djbf.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.LS_djbf.ColumnHeadersHeight = 30;
+            this.LS_djbf.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LS_djbf_dh,
+            this.LS_djbf_sqbz,
+            this.LS_djbf_sqr,
+            this.LS_djbf_sqsb,
+            this.LS_djbf_sqsj,
+            this.LS_djbf_jglj,
+            this.LS_djbf_gx,
+            this.LS_djbf_spld,
+            this.LS_djbf_spyj,
+            this.LS_djbf_spsj,
+            this.LS_djbf_jbr,
+            this.LS_djbf_djzt});
+            this.LS_djbf.Location = new System.Drawing.Point(6, 28);
+            this.LS_djbf.Name = "LS_djbf";
+            this.LS_djbf.ReadOnly = true;
+            this.LS_djbf.RowTemplate.Height = 23;
+            this.LS_djbf.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.LS_djbf.Size = new System.Drawing.Size(916, 238);
+            this.LS_djbf.TabIndex = 0;
+            this.LS_djbf.Visible = false;
+            this.LS_djbf.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LiShi_CellContentClick);
+            this.LS_djbf.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LS_djbf_CellDoubleClick);
+            this.LS_djbf.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.LiShi_RowPostPaint);
+            // 
+            // LS_djgh
+            // 
+            this.LS_djgh.AllowUserToAddRows = false;
+            this.LS_djgh.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.LS_djgh.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.LS_djgh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LS_djgh.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.LS_djgh.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F);
@@ -411,210 +581,7 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djth.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.LS_djth.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewLinkColumn2,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.LS_djth_thyy,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn20,
-            this.Column1});
-            this.LS_djth.Location = new System.Drawing.Point(6, 20);
-            this.LS_djth.Name = "LS_djth";
-            this.LS_djth.ReadOnly = true;
-            this.LS_djth.RowTemplate.Height = 23;
-            this.LS_djth.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.LS_djth.Size = new System.Drawing.Size(916, 246);
-            this.LS_djth.TabIndex = 0;
-            this.LS_djth.Visible = false;
-            this.LS_djth.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LiShi_CellContentClick);
-            this.LS_djth.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.LiShi_RowPostPaint);
-            // 
-            // dataGridViewLinkColumn2
-            // 
-            this.dataGridViewLinkColumn2.DataPropertyName = "danhao";
-            this.dataGridViewLinkColumn2.HeaderText = "退还单号";
-            this.dataGridViewLinkColumn2.Name = "dataGridViewLinkColumn2";
-            this.dataGridViewLinkColumn2.ReadOnly = true;
-            this.dataGridViewLinkColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "thbz";
-            this.dataGridViewTextBoxColumn11.HeaderText = "退还班组";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "thr";
-            this.dataGridViewTextBoxColumn12.HeaderText = "退还人";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // LS_djth_thyy
-            // 
-            this.LS_djth_thyy.DataPropertyName = "thyy";
-            this.LS_djth_thyy.HeaderText = "退还原因";
-            this.LS_djth_thyy.Name = "LS_djth_thyy";
-            this.LS_djth_thyy.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "thrq";
-            this.dataGridViewTextBoxColumn14.HeaderText = "退还日期";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "jbr";
-            this.dataGridViewTextBoxColumn20.HeaderText = "经办人";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "jbrq";
-            this.Column1.HeaderText = "经办日期";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // LS_djbf
-            // 
-            this.LS_djbf.AllowUserToAddRows = false;
-            this.LS_djbf.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LS_djbf.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.LS_djbf.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.LS_djbf.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djbf.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.LS_djbf.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewLinkColumn1,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.LS_djbf.Location = new System.Drawing.Point(6, 20);
-            this.LS_djbf.Name = "LS_djbf";
-            this.LS_djbf.ReadOnly = true;
-            this.LS_djbf.RowTemplate.Height = 23;
-            this.LS_djbf.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.LS_djbf.Size = new System.Drawing.Size(916, 246);
-            this.LS_djbf.TabIndex = 0;
-            this.LS_djbf.Visible = false;
-            this.LS_djbf.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LiShi_CellContentClick);
-            this.LS_djbf.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.LiShi_RowPostPaint);
-            // 
-            // dataGridViewLinkColumn1
-            // 
-            this.dataGridViewLinkColumn1.DataPropertyName = "danhao";
-            this.dataGridViewLinkColumn1.HeaderText = "报废单号";
-            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
-            this.dataGridViewLinkColumn1.ReadOnly = true;
-            this.dataGridViewLinkColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "sqbz";
-            this.dataGridViewTextBoxColumn1.HeaderText = "申请班组";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "sqr";
-            this.dataGridViewTextBoxColumn2.HeaderText = "申请人";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "sqsb";
-            this.dataGridViewTextBoxColumn3.HeaderText = "申请设备";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "sqsj";
-            this.dataGridViewTextBoxColumn4.HeaderText = "申请时间";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "jglj";
-            this.dataGridViewTextBoxColumn5.HeaderText = "加工零件";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "gx";
-            this.dataGridViewTextBoxColumn6.HeaderText = "工序";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "spld";
-            this.dataGridViewTextBoxColumn7.HeaderText = "审批领导";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "spyj";
-            this.dataGridViewTextBoxColumn8.HeaderText = "审批意见";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "spsj";
-            this.dataGridViewTextBoxColumn9.HeaderText = "审批时间";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "jbr";
-            this.dataGridViewTextBoxColumn10.HeaderText = "经办人";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // LS_djgh
-            // 
-            this.LS_djgh.AllowUserToAddRows = false;
-            this.LS_djgh.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.LS_djgh.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.LS_djgh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.LS_djgh.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.LS_djgh.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djgh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.LS_djgh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.LS_djgh.ColumnHeadersHeight = 30;
             this.LS_djgh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LS_djgh_dh,
@@ -632,14 +599,14 @@
             this.LS_djgh.Location = new System.Drawing.Point(6, 20);
             this.LS_djgh.Name = "LS_djgh";
             this.LS_djgh.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djgh.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LS_djgh.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.LS_djgh.RowTemplate.Height = 23;
             this.LS_djgh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.LS_djgh.Size = new System.Drawing.Size(916, 246);
@@ -747,11 +714,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.MX_djth);
             this.groupBox2.Controls.Add(this.MX_djwj);
             this.groupBox2.Controls.Add(this.MX_djccd);
             this.groupBox2.Controls.Add(this.Panel_djbf);
             this.groupBox2.Controls.Add(this.Panel_djgh);
-            this.groupBox2.Controls.Add(this.MX_djth);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.groupBox2.Location = new System.Drawing.Point(12, 445);
             this.groupBox2.Name = "groupBox2";
@@ -764,18 +731,18 @@
             // 
             this.MX_djwj.AllowUserToAddRows = false;
             this.MX_djwj.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.MX_djwj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MX_djwj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
             this.MX_djwj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MX_djwj.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MX_djwj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MX_djwj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.MX_djwj.ColumnHeadersHeight = 30;
             this.MX_djwj.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.djwj_djlx,
@@ -856,18 +823,18 @@
             // 
             this.MX_djccd.AllowUserToAddRows = false;
             this.MX_djccd.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.MX_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MX_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.MX_djccd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MX_djccd.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MX_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MX_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.MX_djccd.ColumnHeadersHeight = 30;
             this.MX_djccd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.djccd_djlx,
@@ -919,8 +886,8 @@
             // djccd_sl
             // 
             this.djccd_sl.DataPropertyName = "shuliang";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.djccd_sl.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.djccd_sl.DefaultCellStyle = dataGridViewCellStyle18;
             this.djccd_sl.HeaderText = "数量";
             this.djccd_sl.Name = "djccd_sl";
             this.djccd_sl.ReadOnly = true;
@@ -959,7 +926,7 @@
             this.Panel_djbf.Controls.Add(this.label4);
             this.Panel_djbf.Location = new System.Drawing.Point(6, 26);
             this.Panel_djbf.Name = "Panel_djbf";
-            this.Panel_djbf.Size = new System.Drawing.Size(916, 195);
+            this.Panel_djbf.Size = new System.Drawing.Size(891, 193);
             this.Panel_djbf.TabIndex = 8;
             this.Panel_djbf.Visible = false;
             // 
@@ -979,7 +946,7 @@
             "200",
             "300",
             "400"});
-            this.djbf_djid.Location = new System.Drawing.Point(166, 160);
+            this.djbf_djid.Location = new System.Drawing.Point(168, 147);
             this.djbf_djid.Name = "djbf_djid";
             this.djbf_djid.Size = new System.Drawing.Size(121, 29);
             this.djbf_djid.TabIndex = 8;
@@ -987,9 +954,9 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.djbf_bfyy);
-            this.groupBox6.Location = new System.Drawing.Point(373, 17);
+            this.groupBox6.Location = new System.Drawing.Point(375, 17);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(446, 174);
+            this.groupBox6.Size = new System.Drawing.Size(446, 161);
             this.groupBox6.TabIndex = 7;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "报废原因";
@@ -997,10 +964,10 @@
             // djbf_bfyy
             // 
             this.djbf_bfyy.Enabled = false;
-            this.djbf_bfyy.Location = new System.Drawing.Point(11, 20);
+            this.djbf_bfyy.Location = new System.Drawing.Point(11, 27);
             this.djbf_bfyy.Multiline = true;
             this.djbf_bfyy.Name = "djbf_bfyy";
-            this.djbf_bfyy.Size = new System.Drawing.Size(427, 143);
+            this.djbf_bfyy.Size = new System.Drawing.Size(427, 120);
             this.djbf_bfyy.TabIndex = 1;
             // 
             // djbf_djcd
@@ -1019,7 +986,7 @@
             "200",
             "300",
             "400"});
-            this.djbf_djcd.Location = new System.Drawing.Point(166, 121);
+            this.djbf_djcd.Location = new System.Drawing.Point(168, 108);
             this.djbf_djcd.Name = "djbf_djcd";
             this.djbf_djcd.Size = new System.Drawing.Size(121, 29);
             this.djbf_djcd.TabIndex = 9;
@@ -1033,7 +1000,7 @@
             this.djbf_djgg.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.djbf_djgg.Enabled = false;
             this.djbf_djgg.FormattingEnabled = true;
-            this.djbf_djgg.Location = new System.Drawing.Point(166, 76);
+            this.djbf_djgg.Location = new System.Drawing.Point(168, 63);
             this.djbf_djgg.Name = "djbf_djgg";
             this.djbf_djgg.Size = new System.Drawing.Size(121, 29);
             this.djbf_djgg.TabIndex = 10;
@@ -1041,7 +1008,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(104, 163);
+            this.label3.Location = new System.Drawing.Point(89, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 21);
             this.label3.TabIndex = 3;
@@ -1060,7 +1027,7 @@
             "先锋一班",
             "胜利二班",
             "机动科"});
-            this.djbf_djlx.Location = new System.Drawing.Point(166, 33);
+            this.djbf_djlx.Location = new System.Drawing.Point(168, 20);
             this.djbf_djlx.Name = "djbf_djlx";
             this.djbf_djlx.Size = new System.Drawing.Size(121, 29);
             this.djbf_djlx.TabIndex = 11;
@@ -1068,7 +1035,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(104, 79);
+            this.label5.Location = new System.Drawing.Point(74, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 21);
             this.label5.TabIndex = 5;
@@ -1077,7 +1044,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(104, 124);
+            this.label6.Location = new System.Drawing.Point(74, 111);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 21);
             this.label6.TabIndex = 6;
@@ -1086,7 +1053,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(104, 36);
+            this.label4.Location = new System.Drawing.Point(74, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 21);
             this.label4.TabIndex = 4;
@@ -1296,18 +1263,19 @@
             // 
             this.MX_djth.AllowUserToAddRows = false;
             this.MX_djth.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.MX_djth.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MX_djth.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.MX_djth.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MX_djth.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MX_djth.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MX_djth.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.MX_djth.ColumnHeadersHeight = 30;
             this.MX_djth.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.djth_djlx,
             this.djth_djgg,
@@ -1592,92 +1560,161 @@
             this.label10.TabIndex = 4;
             this.label10.Text = "起始时间：";
             // 
-            // LS_djwj_dh
+            // LS_djbf_dh
             // 
-            this.LS_djwj_dh.DataPropertyName = "danhao";
-            this.LS_djwj_dh.HeaderText = "外借单号";
-            this.LS_djwj_dh.Name = "LS_djwj_dh";
-            this.LS_djwj_dh.ReadOnly = true;
+            this.LS_djbf_dh.DataPropertyName = "danhao";
+            this.LS_djbf_dh.HeaderText = "报废单号";
+            this.LS_djbf_dh.Name = "LS_djbf_dh";
+            this.LS_djbf_dh.ReadOnly = true;
             // 
-            // LS_djwj_jydw
+            // LS_djbf_sqbz
             // 
-            this.LS_djwj_jydw.DataPropertyName = "jydw";
-            this.LS_djwj_jydw.HeaderText = "借用单位";
-            this.LS_djwj_jydw.Name = "LS_djwj_jydw";
-            this.LS_djwj_jydw.ReadOnly = true;
-            this.LS_djwj_jydw.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_djbf_sqbz.DataPropertyName = "sqbz";
+            this.LS_djbf_sqbz.HeaderText = "申请班组";
+            this.LS_djbf_sqbz.Name = "LS_djbf_sqbz";
+            this.LS_djbf_sqbz.ReadOnly = true;
+            this.LS_djbf_sqbz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // LS_djwj_jyyy
+            // LS_djbf_sqr
             // 
-            this.LS_djwj_jyyy.DataPropertyName = "jyyy";
-            this.LS_djwj_jyyy.HeaderText = "借用原因";
-            this.LS_djwj_jyyy.Name = "LS_djwj_jyyy";
-            this.LS_djwj_jyyy.ReadOnly = true;
-            this.LS_djwj_jyyy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_djbf_sqr.DataPropertyName = "sqr";
+            this.LS_djbf_sqr.HeaderText = "申请人";
+            this.LS_djbf_sqr.Name = "LS_djbf_sqr";
+            this.LS_djbf_sqr.ReadOnly = true;
+            this.LS_djbf_sqr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // LS_djwj_jyr
+            // LS_djbf_sqsb
             // 
-            this.LS_djwj_jyr.DataPropertyName = "jyr";
-            this.LS_djwj_jyr.HeaderText = "借用人";
-            this.LS_djwj_jyr.Name = "LS_djwj_jyr";
-            this.LS_djwj_jyr.ReadOnly = true;
-            this.LS_djwj_jyr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_djbf_sqsb.DataPropertyName = "sqsb";
+            this.LS_djbf_sqsb.HeaderText = "申请设备";
+            this.LS_djbf_sqsb.Name = "LS_djbf_sqsb";
+            this.LS_djbf_sqsb.ReadOnly = true;
+            this.LS_djbf_sqsb.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // LS_djwj_lxdh
+            // LS_djbf_sqsj
             // 
-            this.LS_djwj_lxdh.DataPropertyName = "lxdh";
-            this.LS_djwj_lxdh.HeaderText = "联系电话";
-            this.LS_djwj_lxdh.Name = "LS_djwj_lxdh";
-            this.LS_djwj_lxdh.ReadOnly = true;
-            this.LS_djwj_lxdh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_djbf_sqsj.DataPropertyName = "sqsj";
+            this.LS_djbf_sqsj.HeaderText = "申请时间";
+            this.LS_djbf_sqsj.Name = "LS_djbf_sqsj";
+            this.LS_djbf_sqsj.ReadOnly = true;
+            this.LS_djbf_sqsj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // LS_djwj_spld
+            // LS_djbf_jglj
             // 
-            this.LS_djwj_spld.DataPropertyName = "spld";
-            this.LS_djwj_spld.HeaderText = "审批领导";
-            this.LS_djwj_spld.Name = "LS_djwj_spld";
-            this.LS_djwj_spld.ReadOnly = true;
-            this.LS_djwj_spld.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_djbf_jglj.DataPropertyName = "jglj";
+            this.LS_djbf_jglj.HeaderText = "加工零件";
+            this.LS_djbf_jglj.Name = "LS_djbf_jglj";
+            this.LS_djbf_jglj.ReadOnly = true;
+            this.LS_djbf_jglj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // LS_djwj_spyj
+            // LS_djbf_gx
             // 
-            this.LS_djwj_spyj.DataPropertyName = "spyj";
-            this.LS_djwj_spyj.HeaderText = "审批意见";
-            this.LS_djwj_spyj.Name = "LS_djwj_spyj";
-            this.LS_djwj_spyj.ReadOnly = true;
-            this.LS_djwj_spyj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_djbf_gx.DataPropertyName = "gx";
+            this.LS_djbf_gx.HeaderText = "工序";
+            this.LS_djbf_gx.Name = "LS_djbf_gx";
+            this.LS_djbf_gx.ReadOnly = true;
+            this.LS_djbf_gx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // LS_djwj_jbr
+            // LS_djbf_spld
             // 
-            this.LS_djwj_jbr.DataPropertyName = "jbr";
-            this.LS_djwj_jbr.HeaderText = "经办人";
-            this.LS_djwj_jbr.Name = "LS_djwj_jbr";
-            this.LS_djwj_jbr.ReadOnly = true;
-            this.LS_djwj_jbr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_djbf_spld.DataPropertyName = "spld";
+            this.LS_djbf_spld.HeaderText = "审批领导";
+            this.LS_djbf_spld.Name = "LS_djbf_spld";
+            this.LS_djbf_spld.ReadOnly = true;
+            this.LS_djbf_spld.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // LS_djwj_jcrq
+            // LS_djbf_spyj
             // 
-            this.LS_djwj_jcrq.DataPropertyName = "jcsj";
-            this.LS_djwj_jcrq.HeaderText = "借出日期";
-            this.LS_djwj_jcrq.Name = "LS_djwj_jcrq";
-            this.LS_djwj_jcrq.ReadOnly = true;
-            this.LS_djwj_jcrq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_djbf_spyj.DataPropertyName = "spyj";
+            this.LS_djbf_spyj.HeaderText = "审批意见";
+            this.LS_djbf_spyj.Name = "LS_djbf_spyj";
+            this.LS_djbf_spyj.ReadOnly = true;
+            this.LS_djbf_spyj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // LS_djwj_ydghrq
+            // LS_djbf_spsj
             // 
-            this.LS_djwj_ydghrq.DataPropertyName = "ydghsj";
-            this.LS_djwj_ydghrq.HeaderText = "约定归还日期";
-            this.LS_djwj_ydghrq.Name = "LS_djwj_ydghrq";
-            this.LS_djwj_ydghrq.ReadOnly = true;
-            this.LS_djwj_ydghrq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_djbf_spsj.DataPropertyName = "spsj";
+            this.LS_djbf_spsj.HeaderText = "审批时间";
+            this.LS_djbf_spsj.Name = "LS_djbf_spsj";
+            this.LS_djbf_spsj.ReadOnly = true;
+            this.LS_djbf_spsj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // LS_djwj_djzt
+            // LS_djbf_jbr
             // 
-            this.LS_djwj_djzt.DataPropertyName = "djzt";
-            this.LS_djwj_djzt.HeaderText = "单据状态";
-            this.LS_djwj_djzt.Name = "LS_djwj_djzt";
-            this.LS_djwj_djzt.ReadOnly = true;
-            this.LS_djwj_djzt.Visible = false;
+            this.LS_djbf_jbr.DataPropertyName = "jbr";
+            this.LS_djbf_jbr.HeaderText = "经办人";
+            this.LS_djbf_jbr.Name = "LS_djbf_jbr";
+            this.LS_djbf_jbr.ReadOnly = true;
+            this.LS_djbf_jbr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djbf_djzt
+            // 
+            this.LS_djbf_djzt.DataPropertyName = "djzt";
+            this.LS_djbf_djzt.HeaderText = "单据状态";
+            this.LS_djbf_djzt.Name = "LS_djbf_djzt";
+            this.LS_djbf_djzt.ReadOnly = true;
+            // 
+            // LS_djth_dh
+            // 
+            this.LS_djth_dh.DataPropertyName = "danhao";
+            this.LS_djth_dh.HeaderText = "退还单号";
+            this.LS_djth_dh.Name = "LS_djth_dh";
+            this.LS_djth_dh.ReadOnly = true;
+            // 
+            // LS_djth_thbz
+            // 
+            this.LS_djth_thbz.DataPropertyName = "thbz";
+            this.LS_djth_thbz.HeaderText = "退还班组";
+            this.LS_djth_thbz.Name = "LS_djth_thbz";
+            this.LS_djth_thbz.ReadOnly = true;
+            this.LS_djth_thbz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djth_thr
+            // 
+            this.LS_djth_thr.DataPropertyName = "thr";
+            this.LS_djth_thr.HeaderText = "退还人";
+            this.LS_djth_thr.Name = "LS_djth_thr";
+            this.LS_djth_thr.ReadOnly = true;
+            this.LS_djth_thr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djth_thyy
+            // 
+            this.LS_djth_thyy.DataPropertyName = "thyy";
+            this.LS_djth_thyy.HeaderText = "退还原因";
+            this.LS_djth_thyy.Name = "LS_djth_thyy";
+            this.LS_djth_thyy.ReadOnly = true;
+            this.LS_djth_thyy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djth_thrq
+            // 
+            this.LS_djth_thrq.DataPropertyName = "thrq";
+            this.LS_djth_thrq.HeaderText = "退还日期";
+            this.LS_djth_thrq.Name = "LS_djth_thrq";
+            this.LS_djth_thrq.ReadOnly = true;
+            this.LS_djth_thrq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djth_jbr
+            // 
+            this.LS_djth_jbr.DataPropertyName = "jbr";
+            this.LS_djth_jbr.HeaderText = "经办人";
+            this.LS_djth_jbr.Name = "LS_djth_jbr";
+            this.LS_djth_jbr.ReadOnly = true;
+            this.LS_djth_jbr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djth_jbrq
+            // 
+            this.LS_djth_jbrq.DataPropertyName = "jbrq";
+            this.LS_djth_jbrq.HeaderText = "经办日期";
+            this.LS_djth_jbrq.Name = "LS_djth_jbrq";
+            this.LS_djth_jbrq.ReadOnly = true;
+            this.LS_djth_jbrq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LS_djth_djzt
+            // 
+            this.LS_djth_djzt.DataPropertyName = "djzt";
+            this.LS_djth_djzt.HeaderText = "单据状态";
+            this.LS_djth_djzt.Name = "LS_djth_djzt";
+            this.LS_djth_djzt.ReadOnly = true;
             // 
             // History
             // 
@@ -1761,17 +1798,6 @@
         private System.Windows.Forms.TextBox djgh_x_djgg;
         private System.Windows.Forms.TextBox djgh_x_djlx;
         private System.Windows.Forms.DataGridView LS_djbf;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.Panel Panel_djbf;
         private System.Windows.Forms.ComboBox djbf_djid;
         private System.Windows.Forms.GroupBox groupBox6;
@@ -1796,13 +1822,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn djth_djgbm;
         private System.Windows.Forms.DataGridViewTextBoxColumn djth_cfwz;
         private System.Windows.Forms.DataGridViewTextBoxColumn djth_bz;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djth_thyy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -1864,5 +1883,25 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_jcrq;
         private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_ydghrq;
         private System.Windows.Forms.DataGridViewTextBoxColumn LS_djwj_djzt;
+        private System.Windows.Forms.DataGridViewLinkColumn LS_djth_dh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djth_thbz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djth_thr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djth_thyy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djth_thrq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djth_jbr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djth_jbrq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djth_djzt;
+        private System.Windows.Forms.DataGridViewLinkColumn LS_djbf_dh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_sqbz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_sqr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_sqsb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_sqsj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_jglj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_gx;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_spld;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_spyj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_spsj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_jbr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LS_djbf_djzt;
     }
 }

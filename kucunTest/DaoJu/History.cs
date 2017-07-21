@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
-using Newtonsoft.Json;
 
 namespace kucunTest.DaoJu
 {
@@ -88,6 +87,11 @@ namespace kucunTest.DaoJu
                     mingxibiao = "daojubaofei";
                     LS_dgv = LS_djbf;
                     DH = "danhao";
+                    RQ = "sqsj";//审批时间字段
+                    BZ = "sqbz";//自定义查询1，申请班组
+                    SB = "sqsb";//自定义查询2，申请设备
+                    GX = "jglj";//自定义查询3，加工零件
+                    Cells = "LS_djbf_djzt";
                     break;
                 case "DJTH"://刀具退还单
                     danjubiao = "daojutuihuan";
@@ -95,10 +99,186 @@ namespace kucunTest.DaoJu
                     LS_dgv = LS_djth;
                     MX_dgv = MX_djth;
                     DH = "danhao";
+                    RQ = "jbrq";//经办日期字段
+                    BZ = "sqbz";//自定义查询1，申请班组
+                    SB = "sqsb";//自定义查询2，申请设备
+                    GX = "jbr";//自定义查询3，经办人
+                    Cells = "LS_djth_djzt";
                     break;
             }
 
             Init(type);//窗体初始化
+        }
+
+        /// <summary>
+        /// 初始化界面
+        /// </summary>
+        /// <param name="type"></param>
+        private void Init(string type)
+        {
+            if (type == "DJCCD")//刀具领用单
+            {
+                this.Name = "DJCCDHistory";//界面显示字段名称更新
+                this.Text = "刀具领用单据记录";
+                label1.Text = "刀具领用记录";
+
+                label2.Text = "领用单号：";//查询部分
+                label7.Text = "领用班组：";
+                label8.Text = "领用设备：";
+                label9.Text = "加工工序：";
+                //label1.Font.Size = ;
+                NewBtn.Text = "新建领用";
+                groupBox1.Text = "刀具领用单";
+                groupBox2.Text = "领用单明细";
+
+                MX_djccd.Visible = true;//单据和明细信息的更新
+                LS_djccd.Visible = true;
+
+                LS_djwj.Visible = false;
+                MX_djwj.Visible = false;
+
+                LS_djgh.Visible = false;
+                Panel_djgh.Visible = false;
+
+                LS_djbf.Visible = false;
+                Panel_djbf.Visible = false;
+
+                LS_djth.Visible = false;
+                MX_djth.Visible = false;
+
+                AllBtn.Visible = false;//查看全部按钮状态更新
+
+            }
+            else if (type == "DJWJ")//刀具外借申请单
+            {
+                this.Name = "DJWJHistory";//界面显示字段名称更新
+                this.Text = "刀具外借单据记录";
+                label1.Text = "刀具外借记录";
+
+                label2.Text = "外借单号：";//查询部分
+                label7.Text = "借用单位：";
+                label8.Text = "审批领导：";
+                label9.Text = "经 办 人：";
+
+                NewBtn.Text = "新建外借";
+                groupBox1.Text = "历史外借单";
+                groupBox2.Text = "外借单明细";
+
+                LS_djwj.Visible = true;//单据和明细信息的更新
+                MX_djwj.Visible = true;
+
+                MX_djccd.Visible = false;
+                LS_djccd.Visible = false;
+
+                LS_djgh.Visible = false;
+                Panel_djgh.Visible = false;
+
+                LS_djbf.Visible = false;
+                Panel_djbf.Visible = false;
+
+                LS_djth.Visible = false;
+                MX_djth.Visible = false;
+
+                AllBtn.Visible = false;//查看全部按钮状态更新
+
+            }
+            else if (type == "DJGH")//刀具更换申请单
+            {
+                this.Name = "DJGHHistory";//界面显示字段名称更新
+                this.Text = "刀具更换单据记录";
+                label1.Text = "刀具更换记录";
+
+                label2.Text = "更换单号：";//查询部分
+                label7.Text = "申请班组：";
+                label8.Text = "申请设备：";
+                label9.Text = "加工零件：";
+
+                NewBtn.Text = "新建更换";
+                groupBox1.Text = "历史更换单";
+                groupBox2.Text = "更换刀具信息";
+
+                LS_djgh.Visible = true;//单据和明细信息的更新
+                Panel_djgh.Visible = true;
+
+                LS_djccd.Visible = false;
+                MX_djccd.Visible = false;
+
+                LS_djwj.Visible = false;
+                MX_djwj.Visible = false;
+
+                LS_djbf.Visible = false;
+                Panel_djbf.Visible = false;
+
+                LS_djth.Visible = false;
+                MX_djth.Visible = false;
+
+                AllBtn.Visible = false;//查看全部按钮状态更新
+            }
+            else if (type == "DJBF")//刀具报废申请单
+            {
+                this.Name = "DJBFHistory";//界面显示字段名称更新
+                this.Text = "刀具报废单据";
+                label1.Text = "刀具报废单据记录";
+
+                label2.Text = "报废单号：";//查询部分
+                label7.Text = "申请班组：";
+                label8.Text = "申请设备：";
+                label9.Text = "加工零件：";
+
+                NewBtn.Text = "新建报废";
+                groupBox1.Text = "历史报废单据";
+                groupBox2.Text = "报废刀具信息";
+
+
+                LS_djbf.Visible = true;
+                Panel_djbf.Visible = true;
+
+                LS_djgh.Visible = false;//单据和明细信息的更新
+                Panel_djgh.Visible = false;
+
+                LS_djccd.Visible = false;
+                MX_djccd.Visible = false;
+
+                LS_djwj.Visible = false;
+                MX_djwj.Visible = false;
+
+                LS_djth.Visible = false;
+                MX_djth.Visible = false;
+
+                AllBtn.Visible = false;//查看全部按钮状态更新
+            }
+            else if (type == "DJTH")//刀具退还单
+            {
+                this.Name = "DJTHHistory";//界面显示字段名称更新
+                this.Text = "刀具退还单据";
+                label1.Text = "刀具退还单据记录";
+
+                label2.Text = "退还单号：";//查询部分
+                label7.Text = "自定义：";
+                label8.Text = "自定义：";
+                label9.Text = "经 办 人：";
+
+                NewBtn.Text = "新建退还";
+                groupBox1.Text = "历史退还单据";
+                groupBox2.Text = "退还刀具信息";
+
+                LS_djth.Visible = true;
+                MX_djth.Visible = true;
+
+                LS_djbf.Visible = false;
+                Panel_djbf.Visible = false;
+
+                LS_djgh.Visible = false;//单据和明细信息的更新
+                Panel_djgh.Visible = false;
+
+                LS_djccd.Visible = false;
+                MX_djccd.Visible = false;
+
+                LS_djwj.Visible = false;
+                MX_djwj.Visible = false;
+
+                AllBtn.Visible = false;//查看全部按钮状态更新
+            }
         }
 
         /// <summary>
@@ -154,16 +334,46 @@ namespace kucunTest.DaoJu
                 }
                 else if (TYPE == "DJBF")//加载刀具报废单的刀具报废信息。
                 {
-                    djbf_djlx.Text = "请选择更换单号。";
+                    djbf_djlx.Text = "请选择报废单号。";
                 }
             }
             else//直接加载明细表
             {
-                SqlStr = "select * from " + mingxibiao;
+                SqlStr = "SELECT * FROM " + mingxibiao;
                 ds = SQL.getDataSet(SqlStr, mingxibiao);
                 MX_dgv.AutoGenerateColumns = false;//关闭自动生成列
                 MX_dgv.DataSource = ds.Tables[0].DefaultView;
             }
+        }
+
+        /// <summary>
+        /// 查询按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+            LS_dgv.DataSource = null;
+            SqlStr = string.Format("SELECT * FROM {0} WHERE {1} LIKE '%{2}%' AND {3} LIKE '%{4}%' AND {5} LIKE '%{6}%' AND {7} LIKE '%{8}%' ORDER BY {9} DESC", danjubiao, DH, DHCX.Text.ToString().Trim(), BZ, BZCX.Text.ToString().Trim(), GX, GXCX.Text.ToString().Trim(), SB, SBCX.Text.ToString().Trim(), RQ);
+            DataSet ds = SQL.getDataSet(SqlStr, danjubiao);
+            LS_dgv.DataSource = ds.Tables[0].DefaultView;
+
+            //临时测试，根据单据状态字段设置单元格背景色
+            for (int row = 0; row < LS_dgv.RowCount; row++)
+            {
+                if (LS_dgv.Rows[row].Cells[Cells].Value.ToString() == "1")
+                {
+                    //LS_dgv.Rows[row].Cells[0].Style.BackColor = Color.Gray;
+                    //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.Gray;
+                    //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.LightBlue;
+                    continue;
+                }
+                else
+                {
+                    LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.AntiqueWhite;
+                }
+            }
+
         }
 
         /// <summary>
@@ -258,7 +468,7 @@ namespace kucunTest.DaoJu
                     }
                     else if(TYPE == "DJBF")//刀具报废申请单
                     {
-                        SqlStr = "select * from " + mingxibiao + " where " + DH + " = '" + dh + "'";
+                        SqlStr = "SELECT * FROM " + mingxibiao + " WHERE " + DH + " = '" + dh + "'";
                         DataSet ds = SQL.getDataSet(SqlStr, mingxibiao);
 
                         djbf_djlx.Text = ds.Tables[0].Rows[0]["djlx"].ToString();
@@ -279,216 +489,7 @@ namespace kucunTest.DaoJu
         }
         #endregion
 
-        /// <summary>
-        /// 查看全部按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AllBtn_Click(object sender, EventArgs e)
-        {
-            SqlStr = "select * from " + mingxibiao;
-            DataSet ds = SQL.getDataSet(SqlStr, mingxibiao);
-            MX_dgv.DataSource = ds.Tables[0].DefaultView;
-        }
-
-        /// <summary>
-        /// 初始化界面
-        /// </summary>
-        /// <param name="type"></param>
-        private void Init(string type)
-        {
-            if(type == "DJCCD")//刀具领用单
-            {
-                this.Name = "DJCCDHistory";//界面显示字段名称更新
-                this.Text = "刀具领用单据记录";
-                label1.Text = "刀具领用记录";
-
-                label2.Text = "领用单号：";//查询部分
-                label7.Text = "领用班组：";
-                label8.Text = "领用设备：";
-                label9.Text = "加工工序：";
-                //label1.Font.Size = ;
-                NewBtn.Text = "新建领用";
-                groupBox1.Text = "刀具领用单";
-                groupBox2.Text = "领用单明细";
-
-                MX_djccd.Visible = true;//单据和明细信息的更新
-                LS_djccd.Visible = true;
-
-                LS_djwj.Visible = false;
-                MX_djwj.Visible = false;
-
-                LS_djgh.Visible = false;
-                Panel_djgh.Visible = false;
-
-                LS_djbf.Visible = false;
-                Panel_djbf.Visible = false;
-
-                LS_djth.Visible = false;
-                MX_djth.Visible = false;
-
-                AllBtn.Visible = false;//查看全部按钮状态更新
-
-            }
-            else if(type == "DJWJ")//刀具外借申请单
-            {
-                this.Name = "DJWJHistory";//界面显示字段名称更新
-                this.Text = "刀具外借单据记录";
-                label1.Text = "刀具外借记录";
-
-                label2.Text = "外借单号：";//查询部分
-                label7.Text = "借用单位：";
-                label8.Text = "审批领导：";
-                label9.Text = "经 办 人：";
-
-                NewBtn.Text = "新建外借";
-                groupBox1.Text = "历史外借单";
-                groupBox2.Text = "外借单明细";
-
-                LS_djwj.Visible = true;//单据和明细信息的更新
-                MX_djwj.Visible = true;
-
-                MX_djccd.Visible = false;
-                LS_djccd.Visible = false;
-
-                LS_djgh.Visible = false;
-                Panel_djgh.Visible = false;
-
-                LS_djbf.Visible = false;
-                Panel_djbf.Visible = false;
-
-                LS_djth.Visible = false;
-                MX_djth.Visible = false;
-
-                AllBtn.Visible = true;//查看全部按钮状态更新
-
-            }
-            else if(type == "DJGH")//刀具更换申请单
-            {
-                this.Name = "DJGHHistory";//界面显示字段名称更新
-                this.Text = "刀具更换单据记录";
-                label1.Text = "刀具更换记录";
-
-                label2.Text = "更换单号：";//查询部分
-                label7.Text = "申请班组：";
-                label8.Text = "申请设备：";
-                label9.Text = "加工零件：";
-
-                NewBtn.Text = "新建更换";
-                groupBox1.Text = "历史更换单";
-                groupBox2.Text = "更换刀具信息";
-
-                LS_djgh.Visible = true;//单据和明细信息的更新
-                Panel_djgh.Visible = true;
-
-                LS_djccd.Visible = false;
-                MX_djccd.Visible = false;
-
-                LS_djwj.Visible = false;
-                MX_djwj.Visible = false;
-
-                LS_djbf.Visible = false;
-                Panel_djbf.Visible = false;
-
-                LS_djth.Visible = false;
-                MX_djth.Visible = false;
-
-                AllBtn.Visible = false;//查看全部按钮状态更新
-            }
-            else if (type == "DJBF")//刀具报废申请单
-            {
-                this.Name = "DJBFHistory";//界面显示字段名称更新
-                this.Text = "刀具报废历史";
-                label1.Text = "刀具报废历史记录";
-                NewBtn.Text = "新建刀具报废单";
-                groupBox1.Text = "历史报废单";
-                groupBox2.Text = "报废刀具信息";
-
-                LS_djbf.Visible = true;
-                Panel_djbf.Visible = true;
-
-                LS_djgh.Visible = false;//单据和明细信息的更新
-                Panel_djgh.Visible = false;
-
-                LS_djccd.Visible = false;
-                MX_djccd.Visible = false;
-
-                LS_djwj.Visible = false;
-                MX_djwj.Visible = false;
-
-                LS_djth.Visible = false;
-                MX_djth.Visible = false;
-
-                AllBtn.Visible = false;//查看全部按钮状态更新
-            }
-            else if (type == "DJTH")//刀具退还单
-            {
-                this.Name = "DJTHHistory";//界面显示字段名称更新
-                this.Text = "刀具退还历史";
-                label1.Text = "刀具退还历史记录";
-                NewBtn.Text = "新建刀具退还单";
-                groupBox1.Text = "历史退还单";
-                groupBox2.Text = "退还刀具信息";
-
-                LS_djth.Visible = true;
-                MX_djth.Visible = true;
-
-                LS_djbf.Visible = false;
-                Panel_djbf.Visible = false;
-
-                LS_djgh.Visible = false;//单据和明细信息的更新
-                Panel_djgh.Visible = false;
-
-                LS_djccd.Visible = false;
-                MX_djccd.Visible = false;
-
-                LS_djwj.Visible = false;
-                MX_djwj.Visible = false;
-
-                AllBtn.Visible = true;//查看全部按钮状态更新
-            }
-        }
-
-        /// <summary>
-        /// 查询按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SearchBtn_Click(object sender, EventArgs e)
-        {
-            LS_dgv.DataSource = null;
-            SqlStr = string.Format("SELECT * FROM {0} WHERE {1} LIKE '%{2}%' AND {3} LIKE '%{4}%' AND {5} LIKE '%{6}%' AND {7} LIKE '%{8}%' ORDER BY {9} DESC", danjubiao, DH, DHCX.Text.ToString().Trim(), BZ, BZCX.Text.ToString().Trim(), GX, GXCX.Text.ToString().Trim(), SB, SBCX.Text.ToString().Trim(), RQ);
-            DataSet ds = SQL.getDataSet(SqlStr, danjubiao);
-            LS_dgv.DataSource = ds.Tables[0].DefaultView;
-
-            //临时测试，根据单据状态字段设置单元格背景色
-            for (int row = 0; row < LS_dgv.RowCount; row++)
-            {
-                if (LS_dgv.Rows[row].Cells[Cells].Value.ToString() == "1")
-                {
-                    //LS_dgv.Rows[row].Cells[0].Style.BackColor = Color.Gray;
-                    //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.Gray;
-                    //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.LightBlue;
-                    continue;
-                }
-                else
-                {
-                    LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.AntiqueWhite;
-                }
-            }
-
-        }
-
-        /// <summary>
-        /// 窗体自适应
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void History_SizeChanged(object sender, EventArgs e)
-        {
-            asc.controlAutoSize(this);
-        }
-
+        #region 双击单元格事件部分
         /// <summary>
         /// 领用单据历史表--双击单元格事件
         /// </summary>
@@ -553,7 +554,64 @@ namespace kucunTest.DaoJu
             {
                 DJCCHistory_Load(null, null);
             }
+        }
 
+        /// <summary>
+        /// 报废单据历史表--双击单元格事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LS_djbf_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string dh = LS_dgv.Rows[e.RowIndex].Cells["LS_djbf_dh"].Value.ToString();
+            DJBF djbf = new DJBF(dh);
+            djbf.ShowDialog();
+
+            if(djbf.DialogResult == DialogResult.OK)
+            {
+                DJCCHistory_Load(null, null);
+            }
+        }
+
+        /// <summary>
+        /// 退还单据历史表--双击单元格事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LS_djth_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string dh = LS_dgv.Rows[e.RowIndex].Cells["LS_djth_dh"].Value.ToString();
+            DJTH djth = new DJTH(dh);
+            djth.ShowDialog();
+
+            if (djth.DialogResult == DialogResult.OK)
+            {
+                DJCCHistory_Load(null, null);
+            }
+        }
+
+        #endregion 双击单元格事件部分结束
+
+        /// <summary>
+        /// 查看全部按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AllBtn_Click(object sender, EventArgs e)
+        {
+            SqlStr = "select * from " + mingxibiao;
+            DataSet ds = SQL.getDataSet(SqlStr, mingxibiao);
+            MX_dgv.DataSource = ds.Tables[0].DefaultView;
+        }
+
+        /// <summary>
+        /// 窗体自适应
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void History_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
         }
     }
 }

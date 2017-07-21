@@ -344,6 +344,9 @@
       <DependentUpon>RCHistory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="File\刀具外借单.frx" />
+    <None Include="File\刀具更换申请单.frx" />
+    <None Include="File\刀具退还单.frx" />
     <None Include="File\刀具领用单.frx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

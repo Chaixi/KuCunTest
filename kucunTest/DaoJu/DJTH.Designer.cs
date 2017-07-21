@@ -28,38 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.THRQ = new System.Windows.Forms.DateTimePicker();
             this.THBZ = new System.Windows.Forms.ComboBox();
+            this.THYY = new System.Windows.Forms.TextBox();
             this.THR = new System.Windows.Forms.TextBox();
-            this.DH = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.THDH = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.MingXi = new System.Windows.Forms.DataGridView();
-            this.button_delete = new System.Windows.Forms.Button();
-            this.button_new = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.heji = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.JBR = new System.Windows.Forms.ComboBox();
-            this.button_cancel = new System.Windows.Forms.Button();
-            this.button_print = new System.Windows.Forms.Button();
-            this.button_save = new System.Windows.Forms.Button();
-            this.button_history = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.CJ = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.JBRQ = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.THYY = new System.Windows.Forms.TextBox();
+            this.TuiHuanMingXi = new System.Windows.Forms.DataGridView();
             this.mx_djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mx_djgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mx_djcd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,37 +54,51 @@
             this.mx_djgbm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mx_cfwz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mx_bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button_delete = new System.Windows.Forms.Button();
+            this.button_new = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.heji = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.JBRQ = new System.Windows.Forms.DateTimePicker();
+            this.JBR = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button_cancel = new System.Windows.Forms.Button();
+            this.button_print = new System.Windows.Forms.Button();
+            this.button_save = new System.Windows.Forms.Button();
+            this.button_history = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MingXi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TuiHuanMingXi)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(218, 33);
+            this.label1.Font = new System.Drawing.Font("宋体", 22F);
+            this.label1.Location = new System.Drawing.Point(214, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(363, 27);
+            this.label1.Size = new System.Drawing.Size(403, 30);
             this.label1.TabIndex = 2;
             this.label1.Text = "机一车间数控刀具机床退还单";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(558, 27);
+            this.label4.Location = new System.Drawing.Point(384, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(90, 21);
             this.label4.TabIndex = 0;
             this.label4.Text = "退还日期：";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(38, 31);
+            this.label8.Location = new System.Drawing.Point(44, 31);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 12);
+            this.label8.Size = new System.Drawing.Size(84, 21);
             this.label8.TabIndex = 0;
             this.label8.Text = "经 办 人：";
             // 
@@ -115,6 +112,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 79);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(826, 94);
@@ -125,9 +123,9 @@
             // THRQ
             // 
             this.THRQ.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.THRQ.Location = new System.Drawing.Point(624, 21);
+            this.THRQ.Location = new System.Drawing.Point(480, 21);
             this.THRQ.Name = "THRQ";
-            this.THRQ.Size = new System.Drawing.Size(166, 21);
+            this.THRQ.Size = new System.Drawing.Size(151, 29);
             this.THRQ.TabIndex = 4;
             this.THRQ.Value = new System.DateTime(2017, 5, 2, 0, 0, 0, 0);
             this.THRQ.ValueChanged += new System.EventHandler(this.THRQ_ValueChanged);
@@ -144,52 +142,68 @@
             "先锋一班",
             "胜利二班",
             "机动科"});
-            this.THBZ.Location = new System.Drawing.Point(100, 24);
+            this.THBZ.Location = new System.Drawing.Point(136, 24);
             this.THBZ.Name = "THBZ";
-            this.THBZ.Size = new System.Drawing.Size(121, 20);
+            this.THBZ.Size = new System.Drawing.Size(121, 29);
             this.THBZ.TabIndex = 2;
+            // 
+            // THYY
+            // 
+            this.THYY.Location = new System.Drawing.Point(480, 59);
+            this.THYY.Name = "THYY";
+            this.THYY.Size = new System.Drawing.Size(340, 29);
+            this.THYY.TabIndex = 1;
             // 
             // THR
             // 
-            this.THR.Location = new System.Drawing.Point(367, 24);
+            this.THR.Location = new System.Drawing.Point(136, 59);
             this.THR.Name = "THR";
-            this.THR.Size = new System.Drawing.Size(121, 21);
+            this.THR.Size = new System.Drawing.Size(121, 29);
             this.THR.TabIndex = 1;
             // 
-            // DH
+            // label5
             // 
-            this.DH.Location = new System.Drawing.Point(681, 59);
-            this.DH.Name = "DH";
-            this.DH.Size = new System.Drawing.Size(121, 21);
-            this.DH.TabIndex = 1;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(336, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 21);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "退还原因或备注：";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(38, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.Size = new System.Drawing.Size(90, 21);
             this.label7.TabIndex = 0;
             this.label7.Text = "退还班组：";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(305, 27);
+            this.label10.Location = new System.Drawing.Point(46, 62);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 12);
+            this.label10.Size = new System.Drawing.Size(84, 21);
             this.label10.TabIndex = 0;
             this.label10.Text = "退 还 人：";
             // 
+            // THDH
+            // 
+            this.THDH.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.THDH.Location = new System.Drawing.Point(681, 49);
+            this.THDH.Name = "THDH";
+            this.THDH.Size = new System.Drawing.Size(151, 29);
+            this.THDH.TabIndex = 1;
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.MingXi);
+            this.groupBox2.Controls.Add(this.TuiHuanMingXi);
             this.groupBox2.Controls.Add(this.button_delete);
             this.groupBox2.Controls.Add(this.button_new);
-            this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.heji);
-            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(12, 179);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(826, 251);
@@ -197,13 +211,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "退还明细";
             // 
-            // MingXi
+            // TuiHuanMingXi
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
-            this.MingXi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.MingXi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MingXi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MingXi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
+            this.TuiHuanMingXi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.TuiHuanMingXi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.TuiHuanMingXi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TuiHuanMingXi.ColumnHeadersHeight = 30;
+            this.TuiHuanMingXi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.mx_djlx,
             this.mx_djgg,
             this.mx_djcd,
@@ -215,197 +230,14 @@
             this.mx_djgbm,
             this.mx_cfwz,
             this.mx_bz});
-            this.MingXi.Location = new System.Drawing.Point(11, 20);
-            this.MingXi.Name = "MingXi";
-            this.MingXi.RowHeadersWidth = 30;
-            this.MingXi.RowTemplate.Height = 23;
-            this.MingXi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MingXi.Size = new System.Drawing.Size(810, 184);
-            this.MingXi.TabIndex = 0;
-            this.MingXi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.MingXi_RowPostPaint);
-            // 
-            // button_delete
-            // 
-            this.button_delete.Location = new System.Drawing.Point(91, 214);
-            this.button_delete.Name = "button_delete";
-            this.button_delete.Size = new System.Drawing.Size(63, 23);
-            this.button_delete.TabIndex = 5;
-            this.button_delete.Text = "删除";
-            this.button_delete.UseVisualStyleBackColor = true;
-            this.button_delete.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button_new
-            // 
-            this.button_new.Location = new System.Drawing.Point(11, 213);
-            this.button_new.Name = "button_new";
-            this.button_new.Size = new System.Drawing.Size(62, 23);
-            this.button_new.TabIndex = 5;
-            this.button_new.Text = "新增";
-            this.button_new.UseVisualStyleBackColor = true;
-            this.button_new.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(802, 219);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(17, 12);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "把";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(677, 219);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 12);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "本次共退还刀具";
-            // 
-            // heji
-            // 
-            this.heji.Enabled = false;
-            this.heji.Location = new System.Drawing.Point(767, 215);
-            this.heji.Name = "heji";
-            this.heji.Size = new System.Drawing.Size(29, 21);
-            this.heji.TabIndex = 1;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(606, 219);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 12);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "合    计：";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.JBRQ);
-            this.groupBox3.Controls.Add(this.JBR);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Location = new System.Drawing.Point(12, 436);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(826, 62);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "操作信息";
-            // 
-            // JBR
-            // 
-            this.JBR.FormattingEnabled = true;
-            this.JBR.Items.AddRange(new object[] {
-            "赵经手",
-            "钱刀管",
-            "孙大帐"});
-            this.JBR.Location = new System.Drawing.Point(104, 28);
-            this.JBR.Name = "JBR";
-            this.JBR.Size = new System.Drawing.Size(121, 20);
-            this.JBR.TabIndex = 2;
-            // 
-            // button_cancel
-            // 
-            this.button_cancel.Location = new System.Drawing.Point(519, 516);
-            this.button_cancel.Name = "button_cancel";
-            this.button_cancel.Size = new System.Drawing.Size(75, 23);
-            this.button_cancel.TabIndex = 3;
-            this.button_cancel.Text = "取消单据";
-            this.button_cancel.UseVisualStyleBackColor = true;
-            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
-            // 
-            // button_print
-            // 
-            this.button_print.Location = new System.Drawing.Point(330, 516);
-            this.button_print.Name = "button_print";
-            this.button_print.Size = new System.Drawing.Size(75, 23);
-            this.button_print.TabIndex = 3;
-            this.button_print.Text = "打印单据";
-            this.button_print.UseVisualStyleBackColor = true;
-            this.button_print.Click += new System.EventHandler(this.button_print_Click);
-            // 
-            // button_save
-            // 
-            this.button_save.Location = new System.Drawing.Point(235, 516);
-            this.button_save.Name = "button_save";
-            this.button_save.Size = new System.Drawing.Size(75, 23);
-            this.button_save.TabIndex = 5;
-            this.button_save.Text = "保存单据";
-            this.button_save.UseVisualStyleBackColor = true;
-            this.button_save.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button_history
-            // 
-            this.button_history.Location = new System.Drawing.Point(425, 516);
-            this.button_history.Name = "button_history";
-            this.button_history.Size = new System.Drawing.Size(75, 23);
-            this.button_history.TabIndex = 3;
-            this.button_history.Text = "退还历史";
-            this.button_history.UseVisualStyleBackColor = true;
-            this.button_history.Click += new System.EventHandler(this.button_history_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(641, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 12);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "车间：";
-            // 
-            // CJ
-            // 
-            this.CJ.FormattingEnabled = true;
-            this.CJ.Items.AddRange(new object[] {
-            "机一车间"});
-            this.CJ.Location = new System.Drawing.Point(681, 33);
-            this.CJ.Name = "CJ";
-            this.CJ.Size = new System.Drawing.Size(121, 20);
-            this.CJ.TabIndex = 2;
-            this.CJ.Text = "机一车间";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(641, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "单号：";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(558, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "经办日期：";
-            // 
-            // JBRQ
-            // 
-            this.JBRQ.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.JBRQ.Location = new System.Drawing.Point(624, 25);
-            this.JBRQ.Name = "JBRQ";
-            this.JBRQ.Size = new System.Drawing.Size(166, 21);
-            this.JBRQ.TabIndex = 4;
-            this.JBRQ.Value = new System.DateTime(2017, 5, 2, 0, 0, 0, 0);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 62);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 12);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "退还原因或备注：";
-            // 
-            // THYY
-            // 
-            this.THYY.Location = new System.Drawing.Point(136, 59);
-            this.THYY.Name = "THYY";
-            this.THYY.Size = new System.Drawing.Size(352, 21);
-            this.THYY.TabIndex = 1;
+            this.TuiHuanMingXi.Location = new System.Drawing.Point(11, 28);
+            this.TuiHuanMingXi.Name = "TuiHuanMingXi";
+            this.TuiHuanMingXi.RowHeadersWidth = 30;
+            this.TuiHuanMingXi.RowTemplate.Height = 23;
+            this.TuiHuanMingXi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.TuiHuanMingXi.Size = new System.Drawing.Size(810, 176);
+            this.TuiHuanMingXi.TabIndex = 0;
+            this.TuiHuanMingXi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.MingXi_RowPostPaint);
             // 
             // mx_djlx
             // 
@@ -488,25 +320,172 @@
             this.mx_bz.HeaderText = "备注";
             this.mx_bz.Name = "mx_bz";
             // 
+            // button_delete
+            // 
+            this.button_delete.Location = new System.Drawing.Point(93, 212);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(66, 28);
+            this.button_delete.TabIndex = 5;
+            this.button_delete.Text = "删除";
+            this.button_delete.UseVisualStyleBackColor = true;
+            this.button_delete.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button_new
+            // 
+            this.button_new.Location = new System.Drawing.Point(13, 211);
+            this.button_new.Name = "button_new";
+            this.button_new.Size = new System.Drawing.Size(65, 28);
+            this.button_new.TabIndex = 5;
+            this.button_new.Text = "新增";
+            this.button_new.UseVisualStyleBackColor = true;
+            this.button_new.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(580, 214);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(202, 21);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "合计：本次共退还刀具数量";
+            // 
+            // heji
+            // 
+            this.heji.Enabled = false;
+            this.heji.Location = new System.Drawing.Point(788, 211);
+            this.heji.Name = "heji";
+            this.heji.Size = new System.Drawing.Size(32, 29);
+            this.heji.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.JBRQ);
+            this.groupBox3.Controls.Add(this.JBR);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox3.Location = new System.Drawing.Point(12, 436);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(826, 74);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "操作信息";
+            // 
+            // JBRQ
+            // 
+            this.JBRQ.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.JBRQ.Location = new System.Drawing.Point(633, 25);
+            this.JBRQ.Name = "JBRQ";
+            this.JBRQ.Size = new System.Drawing.Size(166, 29);
+            this.JBRQ.TabIndex = 4;
+            this.JBRQ.Value = new System.DateTime(2017, 5, 2, 0, 0, 0, 0);
+            // 
+            // JBR
+            // 
+            this.JBR.FormattingEnabled = true;
+            this.JBR.Items.AddRange(new object[] {
+            "赵经手",
+            "钱刀管",
+            "孙大帐"});
+            this.JBR.Location = new System.Drawing.Point(134, 28);
+            this.JBR.Name = "JBR";
+            this.JBR.Size = new System.Drawing.Size(123, 29);
+            this.JBR.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(537, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 21);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "经办日期：";
+            // 
+            // button_cancel
+            // 
+            this.button_cancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_cancel.Location = new System.Drawing.Point(492, 529);
+            this.button_cancel.Name = "button_cancel";
+            this.button_cancel.Size = new System.Drawing.Size(87, 36);
+            this.button_cancel.TabIndex = 3;
+            this.button_cancel.Text = "删除单据";
+            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
+            // 
+            // button_print
+            // 
+            this.button_print.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_print.Location = new System.Drawing.Point(399, 529);
+            this.button_print.Name = "button_print";
+            this.button_print.Size = new System.Drawing.Size(87, 36);
+            this.button_print.TabIndex = 3;
+            this.button_print.Text = "打印单据";
+            this.button_print.UseVisualStyleBackColor = true;
+            this.button_print.Click += new System.EventHandler(this.button_print_Click);
+            // 
+            // button_save
+            // 
+            this.button_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_save.Location = new System.Drawing.Point(304, 529);
+            this.button_save.Name = "button_save";
+            this.button_save.Size = new System.Drawing.Size(87, 36);
+            this.button_save.TabIndex = 5;
+            this.button_save.Text = "确认单据";
+            this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button_history
+            // 
+            this.button_history.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_history.Location = new System.Drawing.Point(596, 529);
+            this.button_history.Name = "button_history";
+            this.button_history.Size = new System.Drawing.Size(87, 36);
+            this.button_history.TabIndex = 3;
+            this.button_history.Text = "退还历史";
+            this.button_history.UseVisualStyleBackColor = true;
+            this.button_history.Visible = false;
+            this.button_history.Click += new System.EventHandler(this.button_history_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(617, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 21);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "单号：";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(211, 529);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 36);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "保存单据";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // DJTH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(849, 554);
-            this.Controls.Add(this.CJ);
+            this.ClientSize = new System.Drawing.Size(849, 577);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.DH);
+            this.Controls.Add(this.THDH);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.button_history);
             this.Controls.Add(this.button_print);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label6);
+            this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "DJTH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具退还单";
@@ -515,7 +494,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MingXi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TuiHuanMingXi)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -538,8 +517,8 @@
         private System.Windows.Forms.Button button_print;
         private System.Windows.Forms.Button button_cancel;
         //表格：DataGridView
-        private System.Windows.Forms.DataGridView MingXi;
-        private System.Windows.Forms.TextBox DH;
+        private System.Windows.Forms.DataGridView TuiHuanMingXi;
+        private System.Windows.Forms.TextBox THDH;
         private System.Windows.Forms.ComboBox JBR;
         private System.Windows.Forms.DateTimePicker THRQ;
 
@@ -551,13 +530,9 @@
         private System.Windows.Forms.Button button_history;
         private System.Windows.Forms.ComboBox THBZ;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox CJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn djID;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox heji;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox THYY;
         private System.Windows.Forms.Label label5;
@@ -574,5 +549,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mx_bz;
         private System.Windows.Forms.DateTimePicker JBRQ;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

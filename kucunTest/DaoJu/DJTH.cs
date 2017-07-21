@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
+using FastReport;
 
 namespace kucunTest.DaoJu
 {
@@ -17,13 +18,73 @@ namespace kucunTest.DaoJu
         #region 全局变量
         MySql SQL = new MySql();
         string SqlStr = "";
+
         BaseAlex Alex = new BaseAlex();
+        AutoSizeFormClass asc = new AutoSizeFormClass();
+
+        DataTable thmx_db = new DataTable();
+
+        string DanJuBiao = "daojutuihuan";//和数据库查询有关的表名、字段名
+        string MingXiBiao = "daojutuihuanmingxi";
+        string DanHaoZD = "danhao";
+        string LiuShuiBiao = "daojuliushui";
+
         int HJ = 0;//合计刀具数量
         #endregion
 
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public DJTH()
         {
             InitializeComponent();
+
+            THDH.Text = Alex.DanHao("DJTH");//自动生成单号
+
+            THBZ.SelectedIndex = 0;
+            JBR.SelectedIndex = 0;
+            THYY.Text = "机床常规退还。";//默认退还原因为"机床常规退还。"
+            heji.Text = HJ.ToString();
+            THRQ.Value = DateTime.Now;//退还日期为当前日期
+        }
+
+        /// <summary>
+        /// 重写构造函数，用于从历史记录窗体加载数据
+        /// </summary>
+        /// <param name="dh">退还单号</param>
+        public DJTH(string dh)
+        {
+            InitializeComponent();
+
+            //根据单号查询数据库退还和操作信息
+            SqlStr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHaoZD, dh);
+            DataSet ds = SQL.getDataSet(SqlStr, DanJuBiao);
+
+            //给借用信息和操作信息赋值
+            THDH.Text = dh;//单号
+            THBZ.Text = ds.Tables[0].Rows[0]["thbz"].ToString();//退还班组
+            THR.Text = ds.Tables[0].Rows[0]["thr"].ToString();//退还人
+            THRQ.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["thrq"].ToString());//退还日期
+            THYY.Text = ds.Tables[0].Rows[0]["thyy"].ToString();//退还原因
+            JBR.Text = ds.Tables[0].Rows[0]["jbr"].ToString();//经办人
+            JBRQ.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["jbrq"].ToString());//经办日期
+            string djzt = ds.Tables[0].Rows[0]["djzt"].ToString();//单据状态
+
+            //根据单号查询明细信息
+            SqlStr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, dh);
+            thmx_db = (SQL.getDataSet(SqlStr, MingXiBiao)).Tables[0];//用全局变量保存查询出来的明细，方便后续可以继续添加
+            TuiHuanMingXi.AutoGenerateColumns = false;
+            TuiHuanMingXi.DataSource = thmx_db.DefaultView;
+
+            HJ = TuiHuanMingXi.Rows.Count - 1;//更新合计数量
+            heji.Text = HJ.ToString();
+
+            //若是已完成的单据，则只允许查看，不许修改。
+            if (djzt == "1")
+            {
+                Alex.DisableAllControl(this);
+                button_print.Enabled = true;
+            }
         }
 
         /// <summary>
@@ -33,15 +94,10 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void DJTH_Load(object sender, EventArgs e)
         {
-            DH.Text = Alex.DanHao("DJTH");//自动生成单号
-
-            THBZ.SelectedIndex = 0;
-            JBR.SelectedIndex = 0;
-            THYY.Text = "机床常规退还。";//默认退还原因为"机床常规退还。"
-            heji.Text = HJ.ToString();
-            THRQ.Value = DateTime.Now;//退还日期为当前日期
+            asc.controllInitializeSize(this);
         }
 
+        #region 明细部分
         /// <summary>
         /// 退还明细新增按钮
         /// </summary>
@@ -55,18 +111,67 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
+        /// AddData函数，向datagridview中增加一行数据
+        /// </summary>
+        /// <param name="list">子窗体传输过来的list值</param>
+        public void AddData(List<string> list)
+        {
+            //新的空白单据，未绑定数据源
+            if (TuiHuanMingXi.DataSource == null)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(TuiHuanMingXi);
+
+                row.Cells[0].Value = list[0];//刀具类型
+                row.Cells[1].Value = list[1];//刀具规格
+                row.Cells[2].Value = list[2];//刀具长度
+                row.Cells[3].Value = list[3];//刀具id
+                row.Cells[4].Value = list[4];//刀具状态
+                row.Cells[5].Value = "1";//数量
+                row.Cells[6].Value = list[5];//机床编码
+                row.Cells[7].Value = list[6];//刀套号
+                row.Cells[8].Value = list[7];//刀具柜编码
+                row.Cells[9].Value = list[8];//存放位置
+                row.Cells[10].Value = list[9];//备注
+
+                TuiHuanMingXi.Rows.Add(row);
+            }
+            else//暂时保存的单据，已经绑定了数据源
+            {
+                DataRow row = thmx_db.NewRow();
+
+                row["djlx"] = list[0];//刀具类型
+                row["djgg"] = list[1];//刀具规格
+                row["djcd"] = list[2];//刀具长度
+                row["djid"] = list[3];//刀具id
+                row["djzt"] = list[4];//刀具状态
+                row["sl"] = "1";//数量
+                row["jcbm"] = list[5];//机床编码
+                row["dth"] = list[6];//刀套号
+                row["djgbm"] = list[7];//刀具柜编码
+                row["cfwz"] = list[8];//存放位置
+                row["bz"] = list[9];//备注
+
+                thmx_db.Rows.Add(row);
+            }
+
+            HJ++;//合计数量加一
+            heji.Text = HJ.ToString();//更新合计数量
+        }
+
+        /// <summary>
         /// 退还明细删除按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            int k = MingXi.SelectedRows.Count;
+            int k = TuiHuanMingXi.SelectedRows.Count;
             if (k == 0)
             {
                 MessageBox.Show("请先选择至少一行数据！", "提示", MessageBoxButtons.OK);
             }
-            else if (MingXi.CurrentRow.Index == MingXi.Rows.Count - 1 || k == MingXi.Rows.Count)//选中的是最后一行
+            else if (TuiHuanMingXi.CurrentRow.Index == TuiHuanMingXi.Rows.Count - 1 || k == TuiHuanMingXi.Rows.Count)//选中的是最后一行
             {
                 MessageBox.Show("不能删除空白行！", "警告", MessageBoxButtons.OK);
             }
@@ -75,7 +180,7 @@ namespace kucunTest.DaoJu
                 DialogResult result = MessageBox.Show("确定删除" + k + "行数据？", "提示", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    MingXi.Rows.RemoveAt(MingXi.CurrentRow.Index);
+                    TuiHuanMingXi.Rows.RemoveAt(TuiHuanMingXi.CurrentRow.Index);
                     HJ--;
                 }
             }
@@ -86,7 +191,7 @@ namespace kucunTest.DaoJu
                 {
                     for (int i = k; i >= 1; i--)//从下往上删，避免沙漏效应
                     {
-                        MingXi.Rows.RemoveAt(MingXi.SelectedRows[i - 1].Index);
+                        TuiHuanMingXi.Rows.RemoveAt(TuiHuanMingXi.SelectedRows[i - 1].Index);
                         HJ--;  //合计数量减一
                     }
                 }
@@ -96,13 +201,116 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
+        /// datagridview每一行自动生成序号
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MingXi_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            Alex.RowPostPaint(TuiHuanMingXi, e);
+        }
+
+        #endregion 明细部分结束
+
+        #region 按钮部分
+        /// <summary>
         /// 保存单据按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (THBZ.Text == "" && THR.Text == "")//未填写任何内容，提示取消填写单据
+            {
+                if (MessageBox.Show("单据未填写退换信息，要直接取消填写单据？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                if (TuiHuanMingXi.Rows.Count <= 1)
+                {
+                    if (MessageBox.Show("当前单据退还明细为空，确定要保存单据？", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        //this.Close();
+                        return;
+                    }
+                }
+
+                //将退还和操作数据存入数据库daojutuihuan表
+                //数据预处理
+                string danjuzhuangtai = "0";//单据状态
+                string dh = THDH.Text.ToString().Trim();//单号
+                string thbz = THBZ.Text.ToString().Trim();//退还班组
+                string thr = THR.Text.ToString().Trim();//退还人
+                string thrq = THRQ.Value.ToString().Trim();//退还日期
+                string thyy = THYY.Text.ToString().Trim();//退还原因
+                string jbr = JBR.Text.ToString().Trim();//经办人
+                string jbrq = JBRQ.Value.ToString();//经办日期
+
+                //判断是否是暂存单据，存入刀具退还数据库daojutuihuan
+                if (Alex.CunZai(dh, DanHaoZD, DanJuBiao) != 0)
+                {
+                    SqlStr = string.Format("UPDATE {0} SET djzt = '{1}', thbz = '{2}', thr = '{3}', thrq = '{4}', thyy = '{5}', jbr = '{6}', jbrq = '{7}' WHERE {8} = '{9}'", DanJuBiao, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq, DanHaoZD, dh);
+                }
+                else
+                {
+                    SqlStr = string.Format("INSERT INTO {0}(danhao, djzt, thbz, thr, thrq, thyy, jbr, jbrq) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", DanJuBiao, dh, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq);
+                }
+                int row1 = SQL.ExecuteNonQuery(SqlStr);
+
+                //将退还明细数据存入数据库daojutuihuanmingxi表
+                int row2 = 0;
+
+                //判断此单号在明细表中是否已存在,如果存在则一并删除，重新保存
+                if (Alex.CunZai(THDH.Text.ToString().Trim(), DanHaoZD, MingXiBiao) != 0)
+                {
+                    //delete语句删除已经存在的明细记录
+                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, THDH.Text.ToString().Trim());
+                    row2 = SQL.ExecuteNonQuery(SqlStr);
+                }
+
+                if (TuiHuanMingXi.Rows.Count > 1)
+                {
+                    if (row1 != 0)
+                    {
+                        //明细数据格式化,一行一行存入数据库
+                        for (int rowindex = 0; rowindex < TuiHuanMingXi.Rows.Count - 1; rowindex++)
+                        {
+                            string djlx = TuiHuanMingXi.Rows[rowindex].Cells["mx_djlx"].Value.ToString();//刀具类型
+                            string djgg = TuiHuanMingXi.Rows[rowindex].Cells["mx_djgg"].Value.ToString();//刀具规格
+                            string djcd = TuiHuanMingXi.Rows[rowindex].Cells["mx_djcd"].Value.ToString();//刀具长度
+                            string djid = TuiHuanMingXi.Rows[rowindex].Cells["mx_djid"].Value.ToString();//刀具id
+                            string djzt = TuiHuanMingXi.Rows[rowindex].Cells["mx_djzt"].Value.ToString();//刀具状态
+                            string sl = TuiHuanMingXi.Rows[rowindex].Cells["mx_sl"].Value.ToString();//数量
+                            string jcbm = TuiHuanMingXi.Rows[rowindex].Cells["mx_jcbm"].Value.ToString();//机床编码
+                            string dth = TuiHuanMingXi.Rows[rowindex].Cells["mx_dth"].Value.ToString();//刀套号
+                            string djgbm = TuiHuanMingXi.Rows[rowindex].Cells["mx_djgbm"].Value.ToString();//刀具柜编码
+                            string cfwz = TuiHuanMingXi.Rows[rowindex].Cells["mx_cfwz"].Value.ToString();//存放位置
+                            string bz = TuiHuanMingXi.Rows[rowindex].Cells["mx_bz"].Value.ToString();//备注
+
+                            //退还明细数据存入数据库退还明细表
+                            SqlStr = "INSERT INTO daojutuihuanmingxi(danhao, djlx, djgg, djcd, djid, djzt, sl, jcbm, dth, djgbm, cfwz, bz) values('" + dh + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "','" + djzt + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + djgbm + "', '" + cfwz + "', '" + bz + "')";
+                            row2 = SQL.ExecuteNonQuery(SqlStr);
+                        }
+                    }
+                }
+
+                MessageBox.Show("单据保存成功！可再次修改确认。", "提示", MessageBoxButtons.OK);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        /// <summary>
+        /// 确认单据按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("是否确认保存单据？", "领用确认", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("是否对单据进行确认？确认之后将不可修改！", "提示", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 //数据验证
@@ -112,42 +320,72 @@ namespace kucunTest.DaoJu
                 }
                 else
                 {
-                    //将借用和操作数据存入数据库daojuwaijie表
-                    SqlStr = "insert into daojutuihuan(danhao, thbz, thr, thrq, thyy, jbr, jbrq) values('" + DH.Text.ToString().Trim() + "', '" + THBZ.Text.ToString().Trim() + "', '" + THR.Text.ToString().Trim() + "', '" + THRQ.Text.ToString().Trim() + "', '" + THYY.Text.ToString().Trim() + "', '" + JBR.Text + "', '" + JBRQ.Text.ToString().Trim() + "')";
+                    //将退还和操作数据存入数据库daojutuihuan表
+                    //数据预处理
+                    string danjuzhuangtai = "1";//单据状态
+                    string dh = THDH.Text.ToString().Trim();//单号
+                    string thbz = THBZ.Text.ToString().Trim();//退还班组
+                    string thr = THR.Text.ToString().Trim();//退还人
+                    string thrq = THRQ.Value.ToString().Trim();//退还日期
+                    string thyy = THYY.Text.ToString().Trim();//退还原因
+                    string jbr = JBR.Text.ToString().Trim();//经办人
+                    string jbrq = JBRQ.Text.ToString();//经办日期
 
+                    //判断是否是暂存单据，存入刀具退还数据库daojutuihuan
+                    if (Alex.CunZai(dh, DanHaoZD, DanJuBiao) != 0)
+                    {
+                        SqlStr = string.Format("UPDATE {0} SET djzt = '{1}', thbz = '{2}', thr = '{3}', thrq = '{4}', thyy = '{5}', jbr = '{6}', jbrq = '{7}' WHERE {8} = '{9}'", DanJuBiao, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq, DanHaoZD, dh);
+                    }
+                    else
+                    {
+                        SqlStr = string.Format("INSERT INTO {0}(danhao, djzt, thbz, thr, thrq, thyy, jbr, jbrq) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", DanJuBiao, dh, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq);
+                    }
+                    //SqlStr = "insert into daojutuihuan(danhao, thbz, thr, thrq, thyy, jbr, jbrq) values('" + THDH.Text.ToString().Trim() + "', '" + THBZ.Text.ToString().Trim() + "', '" + THR.Text.ToString().Trim() + "', '" + THRQ.Text.ToString().Trim() + "', '" + THYY.Text.ToString().Trim() + "', '" + JBR.Text + "', '" + JBRQ.Text.ToString().Trim() + "')";
                     int row1 = SQL.ExecuteNonQuery(SqlStr);
 
-                    //将借用明细数据存入数据库daojuwaijiemingxi表
+                    //将退还明细数据存入数据库daojutuihuanmingxi表
                     int row2 = 0;
                     if (row1 != 0)
                     {
-                        //明细数据格式化
-                        for (int rowindex = 0; rowindex < MingXi.Rows.Count - 1; rowindex++)
+                        //判断此单号在明细表中是否已存在,如果存在则一并删除，重新保存
+                        if (Alex.CunZai(THDH.Text.ToString().Trim(), DanHaoZD, MingXiBiao) != 0)
                         {
-                            string djlx = MingXi.Rows[rowindex].Cells["mx_djlx"].Value.ToString();//刀具类型
-                            string djgg = MingXi.Rows[rowindex].Cells["mx_djgg"].Value.ToString();//刀具规格
-                            string djcd = MingXi.Rows[rowindex].Cells["mx_djcd"].Value.ToString();//刀具长度
-                            string djid = MingXi.Rows[rowindex].Cells["mx_djid"].Value.ToString();//刀具id
-                            string djzt = MingXi.Rows[rowindex].Cells["mx_djzt"].Value.ToString();//刀具状态
-                            string sl = MingXi.Rows[rowindex].Cells["mx_sl"].Value.ToString();//数量
-                            string jcbm = MingXi.Rows[rowindex].Cells["mx_jcbm"].Value.ToString();//机床编码
-                            string dth = MingXi.Rows[rowindex].Cells["mx_dth"].Value.ToString();//刀套号
-                            string djgbm = MingXi.Rows[rowindex].Cells["mx_djgbm"].Value.ToString();//刀具柜编码
-                            string cfwz = MingXi.Rows[rowindex].Cells["mx_cfwz"].Value.ToString();//存放位置
-                            string bz = MingXi.Rows[rowindex].Cells["mx_bz"].Value.ToString();//备注
-
-                            SqlStr = "insert into daojutuihuanmingxi(danhao, djlx, djgg, djcd, djid, djzt, sl, jcbm, dth, djgbm, cfwz, bz) values('" + DH.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "','" + djzt + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + djgbm + "', '" + cfwz + "', '" + bz + "')";
+                            //delete语句删除已经存在的明细记录
+                            SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, THDH.Text.ToString().Trim());
                             row2 = SQL.ExecuteNonQuery(SqlStr);
+                        }
+
+                        //明细数据格式化
+                        for (int rowindex = 0; rowindex < TuiHuanMingXi.Rows.Count - 1; rowindex++)
+                        {
+                            string djlx = TuiHuanMingXi.Rows[rowindex].Cells["mx_djlx"].Value.ToString();//刀具类型
+                            string djgg = TuiHuanMingXi.Rows[rowindex].Cells["mx_djgg"].Value.ToString();//刀具规格
+                            string djcd = TuiHuanMingXi.Rows[rowindex].Cells["mx_djcd"].Value.ToString();//刀具长度
+                            string djid = TuiHuanMingXi.Rows[rowindex].Cells["mx_djid"].Value.ToString();//刀具id
+                            string djzt = TuiHuanMingXi.Rows[rowindex].Cells["mx_djzt"].Value.ToString();//刀具状态
+                            string sl = TuiHuanMingXi.Rows[rowindex].Cells["mx_sl"].Value.ToString();//数量
+                            string jcbm = TuiHuanMingXi.Rows[rowindex].Cells["mx_jcbm"].Value.ToString();//机床编码
+                            string dth = TuiHuanMingXi.Rows[rowindex].Cells["mx_dth"].Value.ToString();//刀套号
+                            string djgbm = TuiHuanMingXi.Rows[rowindex].Cells["mx_djgbm"].Value.ToString();//刀具柜编码
+                            string cfwz = TuiHuanMingXi.Rows[rowindex].Cells["mx_cfwz"].Value.ToString();//存放位置
+                            string bz = TuiHuanMingXi.Rows[rowindex].Cells["mx_bz"].Value.ToString();//备注
+
+                            //退还明细数据存入数据库退还明细表
+                            SqlStr = "INSERT INTO daojutuihuanmingxi(danhao, djlx, djgg, djcd, djid, djzt, sl, jcbm, dth, djgbm, cfwz, bz) values('" + dh + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "','" + djzt + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + djgbm + "', '" + cfwz + "', '" + bz + "')";
+                            row2 = SQL.ExecuteNonQuery(SqlStr);
+
+                            //明细信息存入流水表
+                            SqlStr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}')", LiuShuiBiao, dh, "刀具退还", djlx, djgg, djid, sl, "0", djgbm, cfwz, jbrq, jbr, bz);
+                            int row3 = SQL.ExecuteNonQuery(SqlStr);
                         }
 
                         //明细数据存入数据库
                         //int row2 = SQL.ExecuteNonQuery(Sqlstr);
                         if (row2 != 0)
                         {
-                            MessageBox.Show("单据保存成功！", "提示", MessageBoxButtons.OK);
-                            this.InitializeComponent();
-                            this.OnLoad(null);
-                            //this.Close();
+                            MessageBox.Show("单据确认成功！", "提示", MessageBoxButtons.OK);
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
                         }
                         else
                         {
@@ -169,7 +407,87 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void button_print_Click(object sender, EventArgs e)
         {
+            //数据验证
+            if (CheckData() == 0)
+            {
+                return;//数据输入有误
+            }
+            else
+            {
+                DataSet FRds = new DataSet();
+                DataTable table1 = new DataTable();//存放领用明细数据
+                table1.TableName = "Table1"; // 一定要设置表名称
 
+                // 添加表中的列
+                table1.Columns.Add("xh", typeof(string));
+                table1.Columns.Add("djlx", typeof(string));
+                table1.Columns.Add("djgg", typeof(string));
+                table1.Columns.Add("djcd", typeof(string));
+                table1.Columns.Add("djid", typeof(string));
+                table1.Columns.Add("djzt", typeof(string));
+                table1.Columns.Add("sl", typeof(string));
+                table1.Columns.Add("jcbm", typeof(string));
+                table1.Columns.Add("dth", typeof(string));
+                table1.Columns.Add("djgbm", typeof(string));
+                table1.Columns.Add("cfwz", typeof(string));
+                table1.Columns.Add("bz", typeof(string));
+
+                //添加明细数据
+                for (int rowindex = 0; rowindex < TuiHuanMingXi.Rows.Count - 1; rowindex++)
+                {
+                    //格式化刀具数据
+                    string djlx = TuiHuanMingXi.Rows[rowindex].Cells["mx_djlx"].Value.ToString();
+                    string djgg = TuiHuanMingXi.Rows[rowindex].Cells["mx_djgg"].Value.ToString();
+                    string djcd = TuiHuanMingXi.Rows[rowindex].Cells["mx_djcd"].Value.ToString();
+                    string djid = TuiHuanMingXi.Rows[rowindex].Cells["mx_djid"].Value.ToString();
+                    string djzt = TuiHuanMingXi.Rows[rowindex].Cells["mx_djzt"].Value.ToString();
+                    string sl = TuiHuanMingXi.Rows[rowindex].Cells["mx_sl"].Value.ToString();
+                    string jcbm = TuiHuanMingXi.Rows[rowindex].Cells["mx_jcbm"].Value.ToString();
+                    string dth = TuiHuanMingXi.Rows[rowindex].Cells["mx_dth"].Value.ToString();
+                    string djgbm = TuiHuanMingXi.Rows[rowindex].Cells["mx_djgbm"].Value.ToString();
+                    string cfwz = TuiHuanMingXi.Rows[rowindex].Cells["mx_cfwz"].Value.ToString();
+                    string bz = TuiHuanMingXi.Rows[rowindex].Cells["mx_bz"].Value.ToString();
+
+                    DataRow row = table1.NewRow();
+                    row["xh"] = rowindex + 1;
+                    row["djlx"] = djlx;
+                    row["djgg"] = djgg;
+                    row["djcd"] = djcd;
+                    row["djid"] = djid;
+                    row["djzt"] = djzt;
+                    row["sl"] = sl;
+                    row["jcbm"] = jcbm;
+                    row["dth"] = dth;
+                    row["djgbm"] = djgbm;
+                    row["cfwz"] = cfwz;
+                    row["bz"] = bz;
+
+                    table1.Rows.Add(row);
+                }
+
+                FRds.Tables.Add(table1);
+
+                Report FReport = new Report();
+                //string sPath = @"C:\Users\workstation\Desktop\Alex\kucunTest\kucunTest\File";
+                //string sPath = @"C:\Users\workstation\Desktop\Alex\kucunTest\kucunTest\File" + @"\刀具领用单" + ".frx";
+                string sPath = @"../../File/刀具退还单.frx";
+                FReport.Load(sPath);  // 将DataSet对象注册到FastReport控件中
+                                      //FReport.RegisterData(ds1);
+                FReport.RegisterData(FRds);
+
+                FReport.SetParameterValue("danhao", THDH.Text);
+                FReport.SetParameterValue("thbz", THBZ.Text);
+                FReport.SetParameterValue("thr", THR.Text);
+                FReport.SetParameterValue("thrq", THRQ.Text.ToString());
+                FReport.SetParameterValue("thyy", THYY.Text);
+                FReport.SetParameterValue("jbr", JBR.Text);
+                FReport.SetParameterValue("jbrq", JBRQ.Text);
+
+                //显示报表
+                FReport.Prepare();
+                FReport.ShowPrepared();
+                //FReport.Show();
+            }
         }
 
         /// <summary>
@@ -188,17 +506,30 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 取消单据按钮
+        /// 删除单据按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button_cancel_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("确认取消填写刀具退还单？", "取消确认", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            DialogResult dr = MessageBox.Show("确认删除此单据？", "删除确认", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
             {
+                //删除刀具领用表中的数据
+                SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHaoZD, THDH.Text.ToString().Trim());
+                int row1 = SQL.ExecuteNonQuery(SqlStr);
+
+                //删除明细
+                SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, THDH.Text.ToString().Trim());
+                int row2 = SQL.ExecuteNonQuery(SqlStr);
+                MessageBox.Show("成功删除一张单据和" + row2 + "条明细记录！");
+
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
+
+        #endregion 按钮部分结束
 
         /// <summary>
         /// 经办日期默认和退换日期一致
@@ -208,44 +539,6 @@ namespace kucunTest.DaoJu
         private void THRQ_ValueChanged(object sender, EventArgs e)
         {
             JBRQ.Value = THRQ.Value;
-        }
-
-        /// <summary>
-        /// AddData函数，向datagridview中增加一行数据
-        /// </summary>
-        /// <param name="list">子窗体传输过来的list值</param>
-        public void AddData(List<string> list)
-        {
-            DataGridViewRow row = new DataGridViewRow();
-            row.CreateCells(MingXi);
-
-            row.Cells[0].Value = list[0];//刀具类型
-            row.Cells[1].Value = list[1];//刀具规格
-            row.Cells[2].Value = list[2];//刀具长度
-            row.Cells[3].Value = list[3];//刀具id
-            row.Cells[4].Value = list[4];//刀具状态
-            row.Cells[5].Value = "1";//数量
-            row.Cells[6].Value = list[5];//机床编码
-            row.Cells[7].Value = list[6];//刀套号
-            row.Cells[8].Value = list[7];//刀具柜编码
-            row.Cells[9].Value = list[8];//存放位置
-            row.Cells[10].Value = list[9];//备注
-
-            MingXi.Rows.Add(row);
-
-            HJ++;//合计数量加一
-            heji.Text = HJ.ToString();//更新合计数量
-        }
-
-        /// <summary>
-        /// datagridview每一行自动生成序号
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MingXi_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            Rectangle rectangle = new Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, MingXi.RowHeadersWidth - 4, e.RowBounds.Height);
-            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), MingXi.RowHeadersDefaultCellStyle.Font, rectangle, MingXi.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
         }
 
         /// <summary>
@@ -278,7 +571,7 @@ namespace kucunTest.DaoJu
                     tishi = "请选择经办日期！";
                 }
             }
-            else if (MingXi.Rows.Count == 1)
+            else if (TuiHuanMingXi.Rows.Count == 1)
             {
                 tishi = "退还刀具明细不能为空！";
             }

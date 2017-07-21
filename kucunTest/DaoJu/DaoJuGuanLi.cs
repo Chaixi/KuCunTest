@@ -33,6 +33,23 @@ namespace kucunTest.DaoJu
         private int i;
         #endregion
 
+        /// <summary>
+        /// 窗体加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void daojuguanli_Load(object sender, EventArgs e)
+        {
+            treeView1.Nodes.Add(node);
+            node.Text = "所有类型";
+            BindRoot();//生成树的第一层
+            treeView1.Nodes[0].Expand();//默认展开第一层节点
+            //treeView1.SelectedNode = treeView1.Nodes[0];//默认选中顶层节点
+            treeView1.SelectedNode = treeView1.Nodes[0].FirstNode;
+            daojuxinxi.AutoGenerateColumns = false;
+        }
+
+        #region 树有关的方法
         #region BindeRoot()方法和AddChild()方法：构造类型（所有类型-->名称-->型号）树
         ///<summary>生成树之生成第一层名称节点</summary>
         private void BindRoot()
@@ -93,7 +110,6 @@ namespace kucunTest.DaoJu
             //progressBar1.Visible = false;
         }
         #endregion
-
 
         #region treeView1_BeforeExpand()方法：按需展开节点查询并创建子节点
         /// <summary>
@@ -167,6 +183,9 @@ namespace kucunTest.DaoJu
         }
         #endregion
 
+        #endregion 树有关的方法结束
+
+        #region 按钮部分
 
         /// <summary>
         /// 装配刀具按钮
@@ -180,19 +199,14 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 窗体加载
+        /// 库存明细按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void daojuguanli_Load(object sender, EventArgs e)
+        private void kccx_Click(object sender, EventArgs e)
         {
-            treeView1.Nodes.Add(node);
-            node.Text = "所有类型";
-            BindRoot();//生成树的第一层
-            treeView1.Nodes[0].Expand();//默认展开第一层节点
-            //treeView1.SelectedNode = treeView1.Nodes[0];//默认选中顶层节点
-            treeView1.SelectedNode = treeView1.Nodes[0].FirstNode;
-            daojuxinxi.AutoGenerateColumns = false;
+            DJKCMX djczjl = new DJKCMX();
+            djczjl.Show();
         }
 
         /// <summary>
@@ -209,16 +223,52 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 库存明细按钮
+        /// 刀具更换按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void kccx_Click(object sender, EventArgs e)
+        private void btn_djgh_Click(object sender, EventArgs e)
         {
-            DJKCMX djczjl = new DJKCMX();
-            djczjl.Show();
+            History djgh = new History("DJGH");
+            djgh.Show();
         }
 
+        /// <summary>
+        /// 刀具外借按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_djwj_Click(object sender, EventArgs e)
+        {
+            History djwj = new History("DJWJ");
+            djwj.Show();
+        }
+
+        /// <summary>
+        /// 刀具报废按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            History djbf = new History("DJBF");
+            djbf.Show();
+        }
+
+        /// <summary>
+        /// 刀具退还按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            History djth = new History("DJTH");
+            djth.Show();
+        }
+
+        #endregion 按钮部分结束
+
+        #region 其他方法
         /// <summary>
         /// 表格序号显示
         /// </summary>
@@ -239,25 +289,6 @@ namespace kucunTest.DaoJu
             asc.controlAutoSize(this);
         }
 
-        /// <summary>
-        /// 刀具更换按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_djgh_Click(object sender, EventArgs e)
-        {
-            History djgh = new History("DJGH");
-            djgh.Show();
-        }
-        /// <summary>
-        /// 刀具外借按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_djwj_Click(object sender, EventArgs e)
-        {
-            History djwj = new History("DJWJ");
-            djwj.Show();
-        }
+        #endregion 其他方法结束
     }
 }

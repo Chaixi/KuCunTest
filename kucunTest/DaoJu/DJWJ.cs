@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
+using FastReport;
 
 namespace kucunTest.DaoJu
 {
@@ -29,7 +30,6 @@ namespace kucunTest.DaoJu
         string LiuShuiBiao = "daojuliushui";
 
         int HJ = 0;
-
         #endregion
 
         /// <summary>
@@ -254,7 +254,7 @@ namespace kucunTest.DaoJu
                 string spyj = SPYJ.Text.ToString().Trim();//审批意见
                 string jbr = JBR.Text.ToString().Trim();//经办人
                 string jcsj = JCSJ.Text.ToString();//借出时间
-                string ydghsj = YDGHSJ.Text.ToString();//约定归还时间
+                string ydghsj = YDGHSJ.Value.ToString();//约定归还时间
                 string danjuzhuangtai = "0";//单据状态
 
                 if (Alex.CunZai(WJDH.Text.ToString().Trim(), DanHaoZD, DanJuBiao) != 0)//已经存在的暂时保存的单据，用update语句
@@ -271,19 +271,20 @@ namespace kucunTest.DaoJu
                 int row1 = SQL.ExecuteNonQuery(SqlStr);
 
                 //将借用明细数据存入数据库daojuwaijiemingxi表
-                if(WaiJieMingXi.Rows.Count > 1)
+
+                //判断此单号在明细表中是否已存在,如果存在则一并删除，重新保存
+                if (Alex.CunZai(WJDH.Text.ToString().Trim(), DanHaoZD, MingXiBiao) != 0)
                 {
-                    int row2 = 0;//明细数据存入外借明细表
+                    //delete语句删除已经存在的明细记录
+                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, WJDH.Text.ToString().Trim());
+                    int row2 = SQL.ExecuteNonQuery(SqlStr);
+                }
+
+                if (WaiJieMingXi.Rows.Count > 1)
+                {
+                    int row3 = 0;//明细数据存入外借明细表
                     if (row1 != 0)
                     {
-                        //判断此单号在明细表中是否已存在,如果存在则一并删除，重新保存
-                        if (Alex.CunZai(WJDH.Text.ToString().Trim(), DanHaoZD, MingXiBiao) != 0)
-                        {
-                            //delete语句删除已经存在的明细记录
-                            SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, WJDH.Text.ToString().Trim());
-                            row2 = SQL.ExecuteNonQuery(SqlStr);
-                        }
-
                         //将明细数据一行一行存入数据库
                         for (int rowindex = 0; rowindex < WaiJieMingXi.Rows.Count - 1; rowindex++)
                         {
@@ -299,12 +300,12 @@ namespace kucunTest.DaoJu
 
                             //借用明细数据存入数据库外借明细表
                             SqlStr = "INSERT INTO daojuwaijiemingxi(danhao, djlx, djgg, djid, djzt, sl, jcbm, dth, bz) VALUES('" + WJDH.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djid + "','" + djzt + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + bz + "')";
-                            row2 = SQL.ExecuteNonQuery(SqlStr);
+                            row3 = SQL.ExecuteNonQuery(SqlStr);
                         }
                     }                    
                 }
 
-                MessageBox.Show("单据保存成功！可再次修改！", "提示", MessageBoxButtons.OK);
+                MessageBox.Show("单据保存成功！可再次修改确认。", "提示", MessageBoxButtons.OK);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -416,7 +417,81 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void print_Click(object sender, EventArgs e)
         {
+            //数据验证
+            if (CheckData() == 0)
+            {
+                return;//数据输入有误
+            }
+            else
+            {
+                DataSet FRds = new DataSet();
+                DataTable table1 = new DataTable();//存放明细数据
+                table1.TableName = "Table1"; // 一定要设置表名称
 
+                // 添加表中的列
+                table1.Columns.Add("xh", typeof(string));
+                table1.Columns.Add("djlx", typeof(string));
+                table1.Columns.Add("djgg", typeof(string));
+                //table1.Columns.Add("djcd", typeof(string));
+                table1.Columns.Add("djid", typeof(string));
+                table1.Columns.Add("sl", typeof(string));
+                table1.Columns.Add("jcbm", typeof(string));
+                table1.Columns.Add("dth", typeof(string));
+                table1.Columns.Add("bz", typeof(string));
+
+                //添加明细数据
+                for (int rowindex = 0; rowindex < WaiJieMingXi.Rows.Count; rowindex++)
+                {
+                    //格式化刀具数据
+                    string djlx = WaiJieMingXi.Rows[rowindex].Cells["djlx"].Value.ToString();
+                    string djgg = WaiJieMingXi.Rows[rowindex].Cells["djgg"].Value.ToString();
+                    //string djcd = WaiJieMingXi.Rows[rowindex].Cells["djcd"].Value.ToString();
+                    string djid = WaiJieMingXi.Rows[rowindex].Cells["djid"].Value.ToString();
+                    string sl = WaiJieMingXi.Rows[rowindex].Cells["sl"].Value.ToString();
+                    string jcbm = WaiJieMingXi.Rows[rowindex].Cells["jcbm"].Value.ToString();
+                    string dth = WaiJieMingXi.Rows[rowindex].Cells["dth"].Value.ToString();
+                    string bz = WaiJieMingXi.Rows[rowindex].Cells["bz"].Value.ToString();
+
+                    DataRow row = table1.NewRow();
+                    row["xh"] = rowindex + 1;
+                    row["djlx"] = djlx;
+                    row["djgg"] = djgg;
+                    //row["daojuchangdu"] = djcd;
+                    row["djid"] = djid;
+                    row["sl"] = sl;
+                    row["jcbm"] = jcbm;
+                    row["dth"] = dth;
+                    row["bz"] = bz;
+
+                    table1.Rows.Add(row);
+                }
+
+                FRds.Tables.Add(table1);
+
+                Report FReport = new Report();
+                //string sPath = @"C:\Users\workstation\Desktop\Alex\kucunTest\kucunTest\File";
+                //string sPath = @"C:\Users\workstation\Desktop\Alex\kucunTest\kucunTest\File" + @"\刀具领用单" + ".frx";
+                string sPath = @"../../File/刀具外借单.frx";
+                FReport.Load(sPath);  // 将DataSet对象注册到FastReport控件中
+                FReport.RegisterData(FRds);
+
+                FReport.SetParameterValue("danhao", WJDH.Text);
+                FReport.SetParameterValue("jydw", JYDW.Text);
+                FReport.SetParameterValue("jyr", JYR.Text);
+                FReport.SetParameterValue("ydghsj", YDGHSJ.Text.ToString());
+                FReport.SetParameterValue("lxdh", LXDH.Text);
+                FReport.SetParameterValue("jyyy", JYYY.Text);
+                FReport.SetParameterValue("dwld", DWLD.Text);
+                FReport.SetParameterValue("jbr", JBR.Text);
+                FReport.SetParameterValue("spld", SPLD.Text);
+                FReport.SetParameterValue("spyj", SPYJ.Text);
+                FReport.SetParameterValue("jcsj", JCSJ.Text.ToString());
+
+                //显示报表
+                FReport.Prepare();
+                FReport.ShowPrepared();
+                //FReport.Show();
+            }
         }
 
         /// <summary>
@@ -433,6 +508,7 @@ namespace kucunTest.DaoJu
                 SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHaoZD, WJDH.Text.ToString().Trim());
                 int row1 = SQL.ExecuteNonQuery(SqlStr);
 
+                //删除明细
                 SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, WJDH.Text.ToString().Trim());
                 int row2 = SQL.ExecuteNonQuery(SqlStr);
                 MessageBox.Show("成功删除一张单据和" + row2 + "条明细记录！");

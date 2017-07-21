@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
+using FastReport;
 
 namespace kucunTest.DaoJu
 {
@@ -22,7 +23,7 @@ namespace kucunTest.DaoJu
         AutoSizeFormClass asc = new AutoSizeFormClass();
 
         string DanJuBiao = "daojugenghuan";//刀具更换数据表
-        string DanHao = "danhao";//刀具更换数据表单号字段名
+        string DanHaoZD = "danhao";//刀具更换数据表单号字段名
         string LiuShuiBiao = "daojuliushui";
         #endregion
 
@@ -67,7 +68,7 @@ namespace kucunTest.DaoJu
             InitializeComponent();
 
             //根据单号查询数据库
-            Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHao, dh);
+            Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHaoZD, dh);
             DataSet ds = SQL.getDataSet(Sqlstr, DanJuBiao);
 
             //赋值
@@ -76,7 +77,7 @@ namespace kucunTest.DaoJu
             SQSB.Text = ds.Tables[0].Rows[0]["sqsb"].ToString();//申请设备
             SQR.Text = ds.Tables[0].Rows[0]["sqr"].ToString();//申请人
             JGLJ.Text = ds.Tables[0].Rows[0]["jglj"].ToString();//加工零件
-            SQSJ.Text = ds.Tables[0].Rows[0]["sqsj"].ToString();//申请时间
+            SQSJ.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["sqsj"].ToString());//申请时间
             GX.Text = ds.Tables[0].Rows[0]["gx"].ToString();//工序
             Y_DJLX.Text = ds.Tables[0].Rows[0]["ydjlx"].ToString();//原刀具类型
             Y_DJGG.Text = ds.Tables[0].Rows[0]["ydjgg"].ToString();//原刀具规格
@@ -98,9 +99,7 @@ namespace kucunTest.DaoJu
             {
                 Alex.DisableAllControl(this);
                 btn_print.Enabled = true;
-            }
-
-
+            }            
         }
 
         /// <summary>
@@ -217,7 +216,7 @@ namespace kucunTest.DaoJu
                 string jbr = JBR.Text.ToString().Trim();//经办人
 
                 //存入数据库前判断此单号是否存在
-                if (Alex.CunZai(dh, DanHao, DanJuBiao) != 0)
+                if (Alex.CunZai(dh, DanHaoZD, DanJuBiao) != 0)
                 {
                     //已存在， 使用UPDATE语句
                     Sqlstr = string.Format("UPDATE {0} SET djzt = '{1}', sqbz = '{2}', sqsb = '{3}', sqr = '{4}', sqsj = '{5}', jglj = '{6}', gx = '{7}', ydjlx = '{8}', ydjgg = '{9}', ydjcd = '{10}', ydjid = '{11}', xdjlx = '{12}', xdjgg = '{13}', xdjcd = '{14}', xdjid = '{15}', ghly = '{16}', spld = '{17}', spyj = '{18}', spsj = '{19}', jbr = '{20}' WHERE danhao = '{21}'", DanJuBiao, djzt, sqbz, sqsb, sqr, sqsj, jglj, gx, ydjlx, ydjgg, ydjcd, ydjid, xdjlx, xdjgg, xdjcd, xdjid, ghly, spld, spyj, spsj, jbr, dh);
@@ -231,7 +230,7 @@ namespace kucunTest.DaoJu
                 int row = SQL.ExecuteNonQuery(Sqlstr);
                 if (row != 0)
                 {
-                    MessageBox.Show("单据保存成功！可再次修改", "提示", MessageBoxButtons.OK);
+                    MessageBox.Show("单据保存成功！可再次修改。", "提示", MessageBoxButtons.OK);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -279,7 +278,7 @@ namespace kucunTest.DaoJu
                     string jbr = JBR.Text.ToString().Trim();//经办人
 
                     //存入数据库前判断此单号是否存在
-                    if(Alex.CunZai(dh, DanHao, DanJuBiao) != 0)
+                    if(Alex.CunZai(dh, DanHaoZD, DanJuBiao) != 0)
                     {
                         //已存在， 使用UPDATE语句
                         //Sqlstr = "UPDATE daojugenghuan(danhao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, ydjlx, ydjgg, ydjcd, ydjid, xdjlx, xdjgg, xdjcd, xdjid, ghly, spld, spyj, spsj, jbr) values('" + dh + "', '" + "1', '" + sqbz + "', '" + sqr + "', '" + sqsb + "', '" + sqsj + "', '" + jglj + "', '" + gx + "', '" + ydjlx + "', '" + ydjgg + "', '" + ydjcd + "', '" + ydjid + "', '" + xdjlx + "', '" + xdjgg + "', '" + xdjcd + "', '" + xdjid + "', '" + ghly + "', '" + spld + "', '" + spyj + "', '" + spsj + "', '" + jbr + "')";
@@ -316,7 +315,42 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void btn_print_Click(object sender, EventArgs e)
         {
+            //数据验证
+            if (CheckData() == 0)
+            {
+                return;//数据输入有误
+            }
+            else
+            {
+                Report FReport = new Report();
+                string sPath = @"../../File/刀具更换申请单.frx";
+                FReport.Load(sPath);
 
+                FReport.SetParameterValue("danhao", GHDH.Text);
+                FReport.SetParameterValue("sqbz", SQBZ.Text);
+                FReport.SetParameterValue("sqr", SQR.Text);
+                FReport.SetParameterValue("sqsb", SQSB.Text.ToString());
+                FReport.SetParameterValue("jglj", JGLJ.Text);
+                FReport.SetParameterValue("gx", GX.Text);
+                FReport.SetParameterValue("sqsj", SQSJ.Text);
+                FReport.SetParameterValue("jbr", JBR.Text);
+                FReport.SetParameterValue("spld", SPLD.Text);
+                FReport.SetParameterValue("spyj", SPYJ.Text);
+                FReport.SetParameterValue("spsj", SPSJ.Text.ToString());
+                FReport.SetParameterValue("ydjlx", Y_DJLX.Text.ToString());
+                FReport.SetParameterValue("ydjgg", Y_DJGG.Text.ToString());
+                FReport.SetParameterValue("ydjcd", Y_DJCD.Text.ToString());
+                FReport.SetParameterValue("ydjid", Y_DJID.Text.ToString());
+                FReport.SetParameterValue("xdjlx", X_DJLX.Text.ToString());
+                FReport.SetParameterValue("xdjgg", X_DJGG.Text.ToString());
+                FReport.SetParameterValue("xdjcd", X_DJCD.Text.ToString());
+                FReport.SetParameterValue("xdjid", X_DJID.Text.ToString());
+                FReport.SetParameterValue("ghly", GHLY.Text.ToString());
+
+                //显示报表
+                FReport.Prepare();
+                FReport.ShowPrepared();
+            }
         }
 
         /// <summary>
@@ -341,12 +375,12 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void cancel_Click(object sender, EventArgs e)
         {
-            if(Alex.CunZai(GHDH.Text.ToString().Trim(), DanHao, DanJuBiao) != 0)//单据已保存，数据库存在
+            if(Alex.CunZai(GHDH.Text.ToString().Trim(), DanHaoZD, DanJuBiao) != 0)//单据已保存，数据库存在
             {
                 if (MessageBox.Show("确认删除此单据？", "删除确认", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //删除刀具更换表中的数据
-                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHao, GHDH.Text.ToString().Trim());
+                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHaoZD, GHDH.Text.ToString().Trim());
                     int row1 = SQL.ExecuteNonQuery(Sqlstr);
                     MessageBox.Show("成功删除" + row1 + "张单据!");
                     this.DialogResult = DialogResult.OK;
