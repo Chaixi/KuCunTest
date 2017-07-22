@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
+using FastReport;
 
 namespace kucunTest.DaoJu
 {
@@ -103,16 +104,6 @@ namespace kucunTest.DaoJu
         private void DJBF_Load(object sender, EventArgs e)
         {
             asc.controllInitializeSize(this);
-        }
-
-        /// <summary>
-        /// 审批时间默认与申请时间保持一致
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SQSJ_ValueChanged(object sender, EventArgs e)
-        {
-            SPSJ.Value = SQSJ.Value;
         }
 
         #region 刀具信息三级联动
@@ -281,7 +272,39 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void BtnPrint_Click(object sender, EventArgs e)
         {
+            //数据验证
+            if (CheckData() == 0)
+            {
+                return;//数据输入有误
+            }
+            else
+            {
+                Report FReport = new Report();
+                string sPath = @"../../File/刀具报废单.frx";
+                FReport.Load(sPath);  // 将DataSet对象注册到FastReport控件中
 
+                FReport.SetParameterValue("danhao", BFDH.Text);
+                FReport.SetParameterValue("sqbz", SQBZ.Text);
+                FReport.SetParameterValue("sqr", SQR.Text);
+                FReport.SetParameterValue("sqsj", SQSJ.Text.ToString());
+                FReport.SetParameterValue("sqsb", SQSB.Text);
+                FReport.SetParameterValue("jglj", JGLJ.Text);
+                FReport.SetParameterValue("gx", GX.Text);
+                FReport.SetParameterValue("djlx", DJLX.Text);
+                FReport.SetParameterValue("djgg", DJGG.Text);
+                FReport.SetParameterValue("djcd", DJCD.Text);
+                FReport.SetParameterValue("djid", DJID.Text);
+                FReport.SetParameterValue("bfyy", BFYY.Text);
+                FReport.SetParameterValue("spld", SPLD.Text);
+                FReport.SetParameterValue("spyj", SPYJ.Text);
+                FReport.SetParameterValue("jbr", JBR.Text);
+                FReport.SetParameterValue("jbrq", SPSJ.Text);
+
+                //显示报表
+                FReport.Prepare();
+                FReport.ShowPrepared();
+                //FReport.Show();
+            }
         }
 
         /// <summary>
@@ -326,6 +349,7 @@ namespace kucunTest.DaoJu
 
         #endregion 按钮部分结束
 
+        #region 其他方法部分
         /// <summary>
         /// 数据验证
         /// </summary>
@@ -371,7 +395,7 @@ namespace kucunTest.DaoJu
                     tishi = "请填写经办人！";
                 }
             }
-            else if (DJLX.Text.ToString().Trim() == "" || DJGG.Text.ToString().Trim() == "" || DJCD.Text.ToString().Trim() == "" || DJID.Text.ToString().Trim() == "" )
+            else if (DJLX.Text.ToString().Trim() == "" || DJGG.Text.ToString().Trim() == "" || DJCD.Text.ToString().Trim() == "" || DJID.Text.ToString().Trim() == "")
             {
                 tishi = "请将刀具信息填写完整！";
             }
@@ -388,5 +412,18 @@ namespace kucunTest.DaoJu
             else
                 return 1;
         }
+
+        /// <summary>
+        /// 审批时间默认与申请时间保持一致
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SQSJ_ValueChanged(object sender, EventArgs e)
+        {
+            SPSJ.Value = SQSJ.Value;
+        }
+
+        #endregion
+
     }
 }

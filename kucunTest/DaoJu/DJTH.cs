@@ -531,6 +531,7 @@ namespace kucunTest.DaoJu
 
         #endregion 按钮部分结束
 
+        #region 其他部分
         /// <summary>
         /// 经办日期默认和退换日期一致
         /// </summary>
@@ -584,5 +585,19 @@ namespace kucunTest.DaoJu
             else
                 return 1;
         }
+
+        /// <summary>
+        /// 窗体自适应
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DJTH_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
+        }
+
+        #endregion 其他部分结束
+
+
     }
 }

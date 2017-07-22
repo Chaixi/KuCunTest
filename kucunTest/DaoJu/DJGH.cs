@@ -112,16 +112,6 @@ namespace kucunTest.DaoJu
             asc.controllInitializeSize(this);
         }
 
-        /// <summary>
-        /// 审批时间默认与申请时间保持一致
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SQSJ_ValueChanged(object sender, EventArgs e)
-        {
-            SPSJ.Value = SQSJ.Value;
-        }
-
         #region 刀具信息三级联动
         /// <summary>
         /// 保证原刀具和新刀具的分级选择各自处于联动状态
@@ -176,6 +166,7 @@ namespace kucunTest.DaoJu
         }
         #endregion
 
+        #region 按钮部分
         /// <summary>
         /// 保存单据按钮
         /// </summary>
@@ -278,7 +269,7 @@ namespace kucunTest.DaoJu
                     string jbr = JBR.Text.ToString().Trim();//经办人
 
                     //存入数据库前判断此单号是否存在
-                    if(Alex.CunZai(dh, DanHaoZD, DanJuBiao) != 0)
+                    if (Alex.CunZai(dh, DanHaoZD, DanJuBiao) != 0)
                     {
                         //已存在， 使用UPDATE语句
                         //Sqlstr = "UPDATE daojugenghuan(danhao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, ydjlx, ydjgg, ydjcd, ydjid, xdjlx, xdjgg, xdjcd, xdjid, ghly, spld, spyj, spsj, jbr) values('" + dh + "', '" + "1', '" + sqbz + "', '" + sqr + "', '" + sqsb + "', '" + sqsj + "', '" + jglj + "', '" + gx + "', '" + ydjlx + "', '" + ydjgg + "', '" + ydjcd + "', '" + ydjid + "', '" + xdjlx + "', '" + xdjgg + "', '" + xdjcd + "', '" + xdjid + "', '" + ghly + "', '" + spld + "', '" + spyj + "', '" + spsj + "', '" + jbr + "')";
@@ -360,7 +351,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("确认打开更换历史记录并关闭此窗口？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("确认打开更换历史记录并关闭此窗口？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 History djgh = new History("DJGH");
                 djgh.Show();
@@ -375,7 +366,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void cancel_Click(object sender, EventArgs e)
         {
-            if(Alex.CunZai(GHDH.Text.ToString().Trim(), DanHaoZD, DanJuBiao) != 0)//单据已保存，数据库存在
+            if (Alex.CunZai(GHDH.Text.ToString().Trim(), DanHaoZD, DanJuBiao) != 0)//单据已保存，数据库存在
             {
                 if (MessageBox.Show("确认删除此单据？", "删除确认", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -391,6 +382,19 @@ namespace kucunTest.DaoJu
             {
                 MessageBox.Show("单据还未保存，不可删除！", "提示", MessageBoxButtons.OK);
             }
+        }
+
+        #endregion 按钮部分结束
+
+        #region 其他部分
+        /// <summary>
+        /// 审批时间默认与申请时间保持一致
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SQSJ_ValueChanged(object sender, EventArgs e)
+        {
+            SPSJ.Value = SQSJ.Value;
         }
 
         /// <summary>
@@ -442,7 +446,7 @@ namespace kucunTest.DaoJu
             {
                 tishi = "原刀具与新刀具信息一致！";
             }
-            else if(GHLY.Text.Trim() == "")
+            else if (GHLY.Text.Trim() == "")
             {
                 tishi = "刀具更换理由不能为空！";
             }
@@ -465,6 +469,8 @@ namespace kucunTest.DaoJu
         {
             asc.controlAutoSize(this);
         }
+
+        #endregion 其他部分结束
 
     }
 }

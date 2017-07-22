@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -213,8 +213,8 @@
             // 
             // TuiHuanMingXi
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
-            this.TuiHuanMingXi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.TuiHuanMingXi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.TuiHuanMingXi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.TuiHuanMingXi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.TuiHuanMingXi.ColumnHeadersHeight = 30;
@@ -490,6 +490,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具退还单";
             this.Load += new System.EventHandler(this.DJTH_Load);
+            this.SizeChanged += new System.EventHandler(this.DJTH_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
