@@ -217,7 +217,7 @@ namespace kucunTest.DaoJu
             else
             {
                 //将领用和操作数据存入数据库daojuchucang表
-                if (Alex.CunZai(danhao.Text.ToString(), DHZD, "daojulingyong") != 0)//判断此单号在单据表中是否已存在
+                if (Alex.CunZai(danhao.Text.ToString(), DHZD, danjubiao) != 0)//判断此单号在单据表中是否已存在
                 {
                     //使用update语句
                     //Sqlstr = "UPDATE daojuchucang SET (chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "0" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";

@@ -604,9 +604,10 @@
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.label3);
             this.Name = "DJBF";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "刀具报废申请单";
             this.Load += new System.EventHandler(this.DJBF_Load);
+            this.SizeChanged += new System.EventHandler(this.DJBF_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);

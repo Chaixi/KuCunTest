@@ -63,9 +63,79 @@ namespace kucunTest.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap background {
+            get {
+                object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap background_带遮罩 {
+            get {
+                object obj = ResourceManager.GetObject("background 带遮罩", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap W020161222534156929912 {
             get {
                 object obj = ResourceManager.GetObject("W020161222534156929912", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 中国一拖_国机集团 {
+            get {
+                object obj = ResourceManager.GetObject("中国一拖+国机集团", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 中国一拖_国机集团2_42 {
+            get {
+                object obj = ResourceManager.GetObject("中国一拖+国机集团2.42", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 中国一拖_国机集团2_8 {
+            get {
+                object obj = ResourceManager.GetObject("中国一拖+国机集团2.8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 中国一拖_国机集团21 {
+            get {
+                object obj = ResourceManager.GetObject("中国一拖+国机集团21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 中国一拖_国机集团22 {
+            get {
+                object obj = ResourceManager.GetObject("中国一拖+国机集团22", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

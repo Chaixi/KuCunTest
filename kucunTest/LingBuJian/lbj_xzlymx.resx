@@ -117,32 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="中国一拖+国机集团22" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\中国一拖+国机集团2.422.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="中国一拖+国机集团" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\File\中国一拖+国机集团.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="立铣刀" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\立铣刀.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="W020161222534156929912" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\W020161222534156929912.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="中国一拖+国机集团2.8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\中国一拖+国机集团2.8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="中国一拖+国机集团21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\中国一拖+国机集团2.421.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="中国一拖+国机集团2.42" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\中国一拖+国机集团2.42.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background 带遮罩" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background 带遮罩.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

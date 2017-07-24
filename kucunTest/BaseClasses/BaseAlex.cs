@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using MySql.Data.MySqlClient;
+
 namespace kucunTest.BaseClasses
 {
     class BaseAlex
@@ -66,6 +68,10 @@ namespace kucunTest.BaseClasses
                     tjb = "daojutuihuan";
                     tjzd = "danhao";
                     break;
+                case "LBJLY"://零部件领用单
+                    tjb = "lbj_lingyong";
+                    tjzd = "danhao";
+                    break;
                     //case "CG"://采购
                     //    where = "rucang where rcdh like 'CG_";
                     //    break;
@@ -74,8 +80,8 @@ namespace kucunTest.BaseClasses
                     //    break;
             }
 
-            string where = " where " + tjzd + " like '" + type.Trim() + "_" + dt + "%'";
-            Sqlstr = "select count(*) from " + tjb + where;
+            string where = " WHERE " + tjzd + " LIKE '" + type.Trim() + "_" + dt + "%'";
+            Sqlstr = "SELECT COUNT(*) FROM " + tjb + where;
             count = Convert.ToInt32(SQL.ExecuteScalar(Sqlstr));
             dh = type + '_' + dt + (count + 1).ToString("000");
 
@@ -122,6 +128,28 @@ namespace kucunTest.BaseClasses
             int i = 0;
             i = SQL.getCounts(Sqlstr, djb);
             return i;
+        }
+
+        /// <summary>
+        /// 生成树
+        /// </summary>
+        /// <param name="str">SQL语句，其查询结果作为传入节点的子节点</param>
+        /// <param name="treeParent">传入要生成子节点的父节点</param>
+        /// <param name="haveChild">是否为子节点生成空白子节点，产生加好</param>
+        public void BindRoot(string str, TreeNode treeParent, bool haveChild)
+        {
+            MySqlDataReader dr = SQL.getcom(str);
+
+            while(dr.Read())
+            {
+                TreeNode t = new TreeNode();
+                t.Text = dr[0].ToString();
+                treeParent.Nodes.Add(t);
+                if(haveChild)
+                {
+                    t.Nodes.Add("");
+                }
+            }
         }
     }
 }

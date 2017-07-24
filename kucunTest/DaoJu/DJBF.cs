@@ -423,7 +423,18 @@ namespace kucunTest.DaoJu
             SPSJ.Value = SQSJ.Value;
         }
 
+        /// <summary>
+        /// 窗口自适应
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DJBF_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
+        }
+
         #endregion
+
 
     }
 }
