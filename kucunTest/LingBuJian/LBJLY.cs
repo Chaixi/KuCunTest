@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
+using FastReport;
 
 namespace kucunTest.LingBuJian
 {
@@ -22,13 +23,14 @@ namespace kucunTest.LingBuJian
         BaseAlex Alex = new BaseAlex();
         AutoSizeFormClass asc = new AutoSizeFormClass();//窗口自适应类
         
-        //DataSet lymx_ds = new DataSet();
         DataTable lymx_db = new DataTable();
 
         string danjubiao = "lbj_lingyong";
         string mingxibiao = "lbj_lingyongmingxi";
         string liushuibiao = "lbj_liushui";
         string DHZD = "danhao";
+
+        string TYPE = "LBJLY";
         #endregion
 
         /// <summary>
@@ -45,6 +47,46 @@ namespace kucunTest.LingBuJian
             heji.Text = HJ.ToString();
 
             lingyongmingxi.AutoGenerateColumns = false;//禁止自动生成行
+        }
+
+        /// <summary>
+        /// 重写构造函数，用于从历史记录窗体加载数据
+        /// </summary>
+        /// <param name="dh">从历史记录传过来的值</param>
+        public LBJLY(string dh)
+        {
+            InitializeComponent();
+
+            //根据单号查询数据库退还和操作信息
+            Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", danjubiao, DHZD, dh);
+            DataSet ds = SQL.getDataSet(Sqlstr, danjubiao);
+
+            //给借用信息和操作信息赋值
+            danhao.Text = dh;//单号
+            LYBZ.Text = ds.Tables[0].Rows[0]["lybz"].ToString();//领用班组
+            LYSB.Text = ds.Tables[0].Rows[0]["lysb"].ToString();//领用班组
+            LYR.Text = ds.Tables[0].Rows[0]["lyr"].ToString();//领用人
+            LYRQ.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["lyrq"].ToString());//领用日期
+            ZJGX.Text = ds.Tables[0].Rows[0]["zjgx"].ToString();
+            beizhu.Text = ds.Tables[0].Rows[0]["beizhu"].ToString();//领用备注
+            JBR.Text = ds.Tables[0].Rows[0]["jbr"].ToString();//经办人
+            string djzt = ds.Tables[0].Rows[0]["djzt"].ToString();//单据状态
+
+            //根据单号查询明细信息
+            Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", mingxibiao, DHZD, dh);
+            lymx_db = (SQL.getDataSet(Sqlstr, mingxibiao)).Tables[0];//用全局变量保存查询出来的明细，方便后续可以继续添加
+            lingyongmingxi.AutoGenerateColumns = false;
+            lingyongmingxi.DataSource = lymx_db.DefaultView;
+
+            HJ = lingyongmingxi.Rows.Count - 1;//更新合计数量
+            heji.Text = HJ.ToString();
+
+            //若是已完成的单据，则只允许查看，不许修改。
+            if (djzt == "1")
+            {
+                Alex.DisableAllControl(this);
+                btnPrint.Enabled = true;
+            }
         }
 
         /// <summary>
@@ -74,11 +116,13 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void btnMXNew_Click(object sender, EventArgs e)
         {
-            lbj_xzlymx xz = new lbj_xzlymx();
+            lbj_xzlymx xz = new lbj_xzlymx(TYPE);
             xz.Owner = this;
 
-            xz.Left = (this.Parent.Width - this.Width) / 2 - this.Width;
-
+            xz.StartPosition = FormStartPosition.Manual;
+            //this.Left = this.Left / 2;
+            xz.Left = this.Left + this.Width;
+            xz.Top = this.Top * 2;
 
             xz.ShowDialog();
         }
@@ -351,7 +395,76 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            //数据验证
+            if (CheckData() == 0)
+            {
+                return;//数据输入有误
+            }
+            else
+            {
+                DataSet FRds = new DataSet();
+                DataTable table1 = new DataTable();//存放领用明细数据
+                table1.TableName = "Table1"; // 一定要设置表名称
 
+                // 添加表中的列
+                table1.Columns.Add("xh", typeof(string));
+                table1.Columns.Add("lbjmc", typeof(string));
+                table1.Columns.Add("lbjgg", typeof(string));
+                table1.Columns.Add("lbjxh", typeof(string));
+                table1.Columns.Add("sl", typeof(string));
+                table1.Columns.Add("dw", typeof(string));
+                table1.Columns.Add("jcbm", typeof(string));
+                table1.Columns.Add("gx", typeof(string));
+                table1.Columns.Add("bz", typeof(string));
+
+                //添加明细数据
+                for (int rowindex = 0; rowindex < lingyongmingxi.Rows.Count - 1; rowindex++)
+                {
+                    //格式化刀具数据
+                    string lbjmc = lingyongmingxi.Rows[rowindex].Cells["lbjmc"].Value.ToString();
+                    string lbjgg = lingyongmingxi.Rows[rowindex].Cells["lbjgg"].Value.ToString();
+                    string lbjxh = lingyongmingxi.Rows[rowindex].Cells["lbjxh"].Value.ToString();
+                    string sl = lingyongmingxi.Rows[rowindex].Cells["sl"].Value.ToString();
+                    string dw = lingyongmingxi.Rows[rowindex].Cells["dw"].Value.ToString();
+                    string jcbm = lingyongmingxi.Rows[rowindex].Cells["jcbm"].Value.ToString();
+                    string gx = lingyongmingxi.Rows[rowindex].Cells["gx"].Value.ToString();
+                    string bz = lingyongmingxi.Rows[rowindex].Cells["bz"].Value.ToString();
+
+                    DataRow row = table1.NewRow();
+                    row["xh"] = rowindex + 1;
+                    row["lbjmc"] = lbjmc;
+                    row["lbjgg"] = lbjgg;
+                    row["lbjxh"] = lbjxh;
+                    row["sl"] = sl;
+                    row["dw"] = dw;
+                    row["jcbm"] = jcbm;
+                    row["gx"] = gx;
+                    row["bz"] = bz;
+
+                    table1.Rows.Add(row);
+                }
+
+                FRds.Tables.Add(table1);
+
+                Report FReport = new Report();
+                string sPath = @"../../File/零部件领用单.frx";
+                FReport.Load(sPath);  // 将DataSet对象注册到FastReport控件中
+                FReport.RegisterData(FRds);//FReport.RegisterData(ds1);
+
+                FReport.SetParameterValue("danhao", danhao.Text);
+                FReport.SetParameterValue("lybz", LYBZ.Text);
+                FReport.SetParameterValue("lysb", LYSB.Text);
+                FReport.SetParameterValue("lyr", LYR.Text);
+                FReport.SetParameterValue("zjgx", ZJGX.Text);
+                FReport.SetParameterValue("beizhu", beizhu.Text);
+                FReport.SetParameterValue("jbr", JBR.Text);
+                FReport.SetParameterValue("lyrq", LYRQ.Text);
+
+                //显示报表
+                FReport.Prepare();
+                FReport.ShowPrepared();
+                //FReport.Show();
+            }
         }
 
         /// <summary>
@@ -361,10 +474,33 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if(Alex.CunZai(danhao.Text.ToString().Trim(), DHZD, danjubiao) != 0)
+            {
+                DialogResult dr = MessageBox.Show("确认删除此单据？", "删除确认", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    //删除领用表中的数据
+                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", danjubiao, DHZD, danhao.Text.ToString().Trim());
+                    int row1 = SQL.ExecuteNonQuery(Sqlstr);
 
+                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", mingxibiao, mingxibiao, danhao.Text.ToString().Trim());
+                    int row2 = SQL.ExecuteNonQuery(Sqlstr);
+                    MessageBox.Show("成功删除一张单据和" + row2 + "条明细记录！");
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            else//数据库不存在
+            {
+                MessageBox.Show("单据还未保存，不可删除！", "提示", MessageBoxButtons.OK);
+            }
+            
         }
 
         #endregion 按钮部分结束
+
+        #region 其他方法
 
         /// <summary>
         /// 数据验证
@@ -417,5 +553,7 @@ namespace kucunTest.LingBuJian
         {
             asc.controlAutoSize(this);
         }
+
+        #endregion 其他方法结束
     }
 }

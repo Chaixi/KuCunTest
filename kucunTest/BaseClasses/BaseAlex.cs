@@ -72,12 +72,10 @@ namespace kucunTest.BaseClasses
                     tjb = "lbj_lingyong";
                     tjzd = "danhao";
                     break;
-                    //case "CG"://采购
-                    //    where = "rucang where rcdh like 'CG_";
-                    //    break;
-                    //case "RM"://刃磨
-                    //    where = "rucang where rcdh like 'RM_";
-                    //    break;
+                case "LBJTH"://零部件退还单
+                    tjb = "lbj_tuihuan";
+                    tjzd = "danhao";
+                    break;
             }
 
             string where = " WHERE " + tjzd + " LIKE '" + type.Trim() + "_" + dt + "%'";

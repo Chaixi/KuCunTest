@@ -37,8 +37,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.bz = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbjtp = new System.Windows.Forms.PictureBox();
             this.lbjxh = new System.Windows.Forms.ComboBox();
             this.lbjgg = new System.Windows.Forms.ComboBox();
+            this.sl = new System.Windows.Forms.TextBox();
+            this.dw = new System.Windows.Forms.TextBox();
             this.lbjmc = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -48,19 +51,22 @@
             this.label6 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lbjtp = new System.Windows.Forms.PictureBox();
-            this.dw = new System.Windows.Forms.TextBox();
-            this.sl = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cfwz = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.djgbm = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lbjtp)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lbjtp)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(141, 546);
+            this.btnAdd.Location = new System.Drawing.Point(139, 587);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 32);
             this.btnAdd.TabIndex = 1;
@@ -71,7 +77,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 31);
+            this.label1.Location = new System.Drawing.Point(28, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 21);
             this.label1.TabIndex = 2;
@@ -80,7 +86,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 137);
+            this.label2.Location = new System.Drawing.Point(28, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 21);
             this.label2.TabIndex = 2;
@@ -89,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 67);
+            this.label3.Location = new System.Drawing.Point(28, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 21);
             this.label3.TabIndex = 2;
@@ -107,7 +113,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 75);
+            this.label5.Location = new System.Drawing.Point(21, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 21);
             this.label5.TabIndex = 2;
@@ -116,7 +122,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 117);
+            this.label7.Location = new System.Drawing.Point(21, 104);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(88, 21);
             this.label7.TabIndex = 2;
@@ -124,7 +130,7 @@
             // 
             // bz
             // 
-            this.bz.Location = new System.Drawing.Point(107, 114);
+            this.bz.Location = new System.Drawing.Point(107, 101);
             this.bz.Name = "bz";
             this.bz.Size = new System.Drawing.Size(165, 29);
             this.bz.TabIndex = 3;
@@ -144,15 +150,23 @@
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(212, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(288, 320);
+            this.groupBox1.Size = new System.Drawing.Size(288, 281);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "零部件信息";
             // 
+            // lbjtp
+            // 
+            this.lbjtp.Location = new System.Drawing.Point(45, 163);
+            this.lbjtp.Name = "lbjtp";
+            this.lbjtp.Size = new System.Drawing.Size(213, 103);
+            this.lbjtp.TabIndex = 4;
+            this.lbjtp.TabStop = false;
+            // 
             // lbjxh
             // 
             this.lbjxh.FormattingEnabled = true;
-            this.lbjxh.Location = new System.Drawing.Point(107, 99);
+            this.lbjxh.Location = new System.Drawing.Point(107, 93);
             this.lbjxh.Name = "lbjxh";
             this.lbjxh.Size = new System.Drawing.Size(165, 29);
             this.lbjxh.TabIndex = 3;
@@ -160,15 +174,32 @@
             // lbjgg
             // 
             this.lbjgg.FormattingEnabled = true;
-            this.lbjgg.Location = new System.Drawing.Point(107, 64);
+            this.lbjgg.Location = new System.Drawing.Point(107, 58);
             this.lbjgg.Name = "lbjgg";
             this.lbjgg.Size = new System.Drawing.Size(165, 29);
             this.lbjgg.TabIndex = 3;
             // 
+            // sl
+            // 
+            this.sl.Location = new System.Drawing.Point(107, 128);
+            this.sl.Name = "sl";
+            this.sl.Size = new System.Drawing.Size(125, 29);
+            this.sl.TabIndex = 3;
+            // 
+            // dw
+            // 
+            this.dw.Enabled = false;
+            this.dw.Location = new System.Drawing.Point(238, 128);
+            this.dw.Name = "dw";
+            this.dw.Size = new System.Drawing.Size(34, 29);
+            this.dw.TabIndex = 3;
+            this.dw.Text = "件";
+            this.dw.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // lbjmc
             // 
             this.lbjmc.FormattingEnabled = true;
-            this.lbjmc.Location = new System.Drawing.Point(107, 28);
+            this.lbjmc.Location = new System.Drawing.Point(107, 23);
             this.lbjmc.Name = "lbjmc";
             this.lbjmc.Size = new System.Drawing.Size(165, 29);
             this.lbjmc.TabIndex = 3;
@@ -176,7 +207,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 102);
+            this.label8.Location = new System.Drawing.Point(28, 96);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 21);
             this.label8.TabIndex = 2;
@@ -187,13 +218,11 @@
             this.groupBox2.Controls.Add(this.gx);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.jcbm);
-            this.groupBox2.Controls.Add(this.bz);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(212, 381);
+            this.groupBox2.Location = new System.Drawing.Point(212, 338);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(288, 150);
+            this.groupBox2.Size = new System.Drawing.Size(288, 105);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "使用信息";
@@ -244,7 +273,7 @@
             "T18",
             "T19",
             "T20"});
-            this.gx.Location = new System.Drawing.Point(107, 72);
+            this.gx.Location = new System.Drawing.Point(107, 66);
             this.gx.Name = "gx";
             this.gx.Size = new System.Drawing.Size(165, 29);
             this.gx.TabIndex = 3;
@@ -279,7 +308,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClose.Location = new System.Drawing.Point(241, 546);
+            this.btnClose.Location = new System.Drawing.Point(239, 587);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(88, 32);
             this.btnClose.TabIndex = 1;
@@ -293,16 +322,17 @@
             this.label6.Font = new System.Drawing.Font("宋体", 18F);
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(523, 52);
+            this.label6.Size = new System.Drawing.Size(509, 52);
             this.label6.TabIndex = 6;
             this.label6.Text = "添加领用零部件";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // treeView1
             // 
+            this.treeView1.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.treeView1.Location = new System.Drawing.Point(6, 28);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(188, 442);
+            this.treeView1.Size = new System.Drawing.Size(188, 492);
             this.treeView1.TabIndex = 7;
             this.treeView1.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeExpand);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -313,43 +343,118 @@
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(6, 55);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 476);
+            this.groupBox3.Size = new System.Drawing.Size(200, 526);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "选择零部件";
             // 
-            // lbjtp
+            // groupBox4
             // 
-            this.lbjtp.Location = new System.Drawing.Point(26, 169);
-            this.lbjtp.Name = "lbjtp";
-            this.lbjtp.Size = new System.Drawing.Size(246, 145);
-            this.lbjtp.TabIndex = 4;
-            this.lbjtp.TabStop = false;
+            this.groupBox4.Controls.Add(this.cfwz);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.bz);
+            this.groupBox4.Controls.Add(this.djgbm);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox4.Location = new System.Drawing.Point(212, 445);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(288, 136);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "存储信息";
             // 
-            // dw
+            // cfwz
             // 
-            this.dw.Enabled = false;
-            this.dw.Location = new System.Drawing.Point(238, 134);
-            this.dw.Name = "dw";
-            this.dw.Size = new System.Drawing.Size(34, 29);
-            this.dw.TabIndex = 3;
-            this.dw.Text = "件";
-            this.dw.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cfwz.AutoCompleteCustomSource.AddRange(new string[] {
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19",
+            "T20"});
+            this.cfwz.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cfwz.FormattingEnabled = true;
+            this.cfwz.Items.AddRange(new object[] {
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6",
+            "L7",
+            "L8",
+            "L9",
+            "L10"});
+            this.cfwz.Location = new System.Drawing.Point(107, 66);
+            this.cfwz.Name = "cfwz";
+            this.cfwz.Size = new System.Drawing.Size(165, 29);
+            this.cfwz.TabIndex = 3;
             // 
-            // sl
+            // label9
             // 
-            this.sl.Location = new System.Drawing.Point(107, 134);
-            this.sl.Name = "sl";
-            this.sl.Size = new System.Drawing.Size(125, 29);
-            this.sl.TabIndex = 3;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 69);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(90, 21);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "具体位置：";
+            // 
+            // djgbm
+            // 
+            this.djgbm.AutoCompleteCustomSource.AddRange(new string[] {
+            "FMS-1#机",
+            "FMS-2#机",
+            "FMS-3#机",
+            "南车床线",
+            "北车床线",
+            "OP20T01",
+            "OP20T40",
+            "OP20T238"});
+            this.djgbm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.djgbm.FormattingEnabled = true;
+            this.djgbm.Items.AddRange(new object[] {
+            "Kardex 1#柜",
+            "Kardex 2#柜",
+            "立式刀具柜 1#",
+            "立式刀具柜 2#",
+            "立式刀具柜 3#"});
+            this.djgbm.Location = new System.Drawing.Point(107, 31);
+            this.djgbm.Name = "djgbm";
+            this.djgbm.Size = new System.Drawing.Size(165, 29);
+            this.djgbm.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(22, 31);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 21);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "刀柜编码：";
             // 
             // lbj_xzlymx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 590);
+            this.ClientSize = new System.Drawing.Size(509, 631);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnClose);
@@ -358,12 +463,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "添加领用零部件";
             this.Load += new System.EventHandler(this.lbj_xzlymx_Load);
+            this.SizeChanged += new System.EventHandler(this.lbj_xzlymx_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lbjtp)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lbjtp)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -393,5 +501,10 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox sl;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox cfwz;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox djgbm;
+        private System.Windows.Forms.Label label10;
     }
 }

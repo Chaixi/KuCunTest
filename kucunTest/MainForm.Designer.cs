@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.库存管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.库存明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,6 +68,7 @@
             this.刀具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刀具管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.零部件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.零部件库存管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.零部件领用单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.零部件退还单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -398,23 +400,31 @@
             // 零部件ToolStripMenuItem
             // 
             this.零部件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.零部件库存管理ToolStripMenuItem,
             this.零部件领用单ToolStripMenuItem,
             this.零部件退还单ToolStripMenuItem});
             this.零部件ToolStripMenuItem.Name = "零部件ToolStripMenuItem";
             this.零部件ToolStripMenuItem.Size = new System.Drawing.Size(70, 25);
             this.零部件ToolStripMenuItem.Text = "零部件";
             // 
+            // 零部件库存管理ToolStripMenuItem
+            // 
+            this.零部件库存管理ToolStripMenuItem.Name = "零部件库存管理ToolStripMenuItem";
+            this.零部件库存管理ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.零部件库存管理ToolStripMenuItem.Text = "零部件库存管理";
+            this.零部件库存管理ToolStripMenuItem.Click += new System.EventHandler(this.零部件库存管理ToolStripMenuItem_Click);
+            // 
             // 零部件领用单ToolStripMenuItem
             // 
             this.零部件领用单ToolStripMenuItem.Name = "零部件领用单ToolStripMenuItem";
-            this.零部件领用单ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
+            this.零部件领用单ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.零部件领用单ToolStripMenuItem.Text = "零部件领用单";
             this.零部件领用单ToolStripMenuItem.Click += new System.EventHandler(this.零部件领用单ToolStripMenuItem_Click);
             // 
             // 零部件退还单ToolStripMenuItem
             // 
             this.零部件退还单ToolStripMenuItem.Name = "零部件退还单ToolStripMenuItem";
-            this.零部件退还单ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
+            this.零部件退还单ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.零部件退还单ToolStripMenuItem.Text = "零部件退还单";
             this.零部件退还单ToolStripMenuItem.Click += new System.EventHandler(this.零部件退还单ToolStripMenuItem_Click);
             // 
@@ -432,7 +442,7 @@
             // 
             // TabIndex
             // 
-            this.TabIndex.BackgroundImage = global::kucunTest.Properties.Resources.background_带遮罩;
+            this.TabIndex.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TabIndex.BackgroundImage")));
             this.TabIndex.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabIndex.Controls.Add(this.groupBox2);
             this.TabIndex.Controls.Add(this.groupBox1);
@@ -788,6 +798,7 @@
         private System.Windows.Forms.ToolStripMenuItem 零部件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 零部件领用单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 零部件退还单ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 零部件库存管理ToolStripMenuItem;
     }
 }
 

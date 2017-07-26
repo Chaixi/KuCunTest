@@ -501,20 +501,27 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void cancel_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("确认删除此单据？", "删除确认", MessageBoxButtons.YesNo);
-            if (dr == DialogResult.Yes)
+            if(Alex.CunZai(WJDH.Text.ToString().Trim(), DanHaoZD, DanJuBiao) != 0)
             {
-                //删除刀具领用表中的数据
-                SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHaoZD, WJDH.Text.ToString().Trim());
-                int row1 = SQL.ExecuteNonQuery(SqlStr);
+                DialogResult dr = MessageBox.Show("确认删除此单据？", "删除确认", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    //删除刀具领用表中的数据
+                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHaoZD, WJDH.Text.ToString().Trim());
+                    int row1 = SQL.ExecuteNonQuery(SqlStr);
 
-                //删除明细
-                SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, WJDH.Text.ToString().Trim());
-                int row2 = SQL.ExecuteNonQuery(SqlStr);
-                MessageBox.Show("成功删除一张单据和" + row2 + "条明细记录！");
+                    //删除明细
+                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, WJDH.Text.ToString().Trim());
+                    int row2 = SQL.ExecuteNonQuery(SqlStr);
+                    MessageBox.Show("成功删除一张单据和" + row2 + "条明细记录！");
 
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("单据还未保存，不可删除！", "提示", MessageBoxButtons.OK);
             }
         }
 

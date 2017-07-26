@@ -531,7 +531,8 @@ namespace kucunTest
                 tabControl1.SelectedTab = tb_djccd;
                 tabControl1.Visible = true;
 
-                lbjly.Left = (tabControl1.Width - lbjly.Width) / 2;
+                lbjly.StartPosition = FormStartPosition.Manual;
+                lbjly.Left = (tabControl1.Width - lbjly.Width) / 4;
                 lbjly.Top = (tb_djccd.Height - lbjly.Height) / 4;
 
                 lbjly.Show();
@@ -545,11 +546,47 @@ namespace kucunTest
         /// <param name="e"></param>
         private void 零部件退还单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            LBJTH lbjth = new LBJTH();
+            lbjth.MdiParent = this;
 
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == lbjth.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb_djccd = new TabPage();
+                lbjth.Parent = tb_djccd;
+                tb_djccd.Text = lbjth.Text;
+                tb_djccd.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb_djccd.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb_djccd);
+                tabControl1.SelectedTab = tb_djccd;
+                tabControl1.Visible = true;
+
+                lbjth.StartPosition = FormStartPosition.Manual;
+                lbjth.Left = (tabControl1.Width - lbjth.Width) / 4;
+                lbjth.Top = (tb_djccd.Height - lbjth.Height) / 4;
+
+                lbjth.Show();
+            }
         }
 
-        #endregion 零部件领用单据结束
 
-        
+        #endregion 零部件单据结束
+
+        private void 零部件库存管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lbj_GuanLi lbjgl = new lbj_GuanLi();
+            lbjgl.Show();
+        }
     }
 }

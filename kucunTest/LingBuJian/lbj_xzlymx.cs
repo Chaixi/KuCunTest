@@ -23,12 +23,25 @@ namespace kucunTest.LingBuJian
         string lbj = "lbj_temp";
 
         BaseAlex Alex = new BaseAlex();
+        AutoSizeFormClass asc = new AutoSizeFormClass();
+
+        string TYPE = "";
 
         #endregion
 
-        public lbj_xzlymx()
+        public lbj_xzlymx(string type)
         {
             InitializeComponent();
+
+            TYPE = type;
+
+            switch(type)
+            {
+                case "LBJLY":
+                    break;
+                case "LBJTH":
+                    break;
+            }
         }
 
         private void lbj_xzlymx_Load(object sender, EventArgs e)
@@ -39,6 +52,8 @@ namespace kucunTest.LingBuJian
             Sqlstr = string.Format("SELECT DISTINCT lbjmc FROM {0}", lbj);
             Alex.BindRoot(Sqlstr, root, true);
             root.Expand();
+
+            asc.controllInitializeSize(this);
 
         }
 
@@ -97,13 +112,32 @@ namespace kucunTest.LingBuJian
                 list.Add(lbjxh.Text.ToString().Trim());//list[2] 零部件型号
                 list.Add(sl.Text.ToString().Trim());//list[3] 数量
                 list.Add(dw.Text.ToString().Trim());//list[3] 单位
+
                 list.Add(jcbm.Text.ToString().Trim());//list[4] 机床编码
                 list.Add(gx.Text.ToString().Trim());//list[5] 工序
+
+                if(TYPE == "LBJTH")
+                {
+                    list.Add(djgbm.Text.ToString().Trim());
+                    list.Add(cfwz.Text.ToString().Trim());
+                }
+
                 list.Add(bz.Text.ToString().Trim());//list[6] 备注
 
-                LBJLY ly = new LBJLY();
-                ly = (LBJLY)this.Owner;
-                ly.AddData(list);
+                switch(TYPE)
+                {
+                    case "LBJLY":
+                        LBJLY ly = new LBJLY();
+                        ly = (LBJLY)this.Owner;
+                        ly.AddData(list);
+                        break;
+                    case "LBJTH":
+                        LBJTH th = new LBJTH();
+                        th = (LBJTH)this.Owner;
+                        th.AddData(list);
+                        break;
+                }
+                
 
                 //this.Close();
             }
@@ -126,13 +160,34 @@ namespace kucunTest.LingBuJian
         private int CheckData()
         {
             string tishi = "";
+            string t1 = "";
+            string t2 = "";
+            string t3 = "";
+
             if (lbjmc.Text.ToString() == "" || lbjxh.Text.ToString() == "")
             {
                 tishi = "请将零部件信息填写完整！";
             }
-            else if (jcbm.Text.ToString() == "" || gx.Text.ToString() == "")
+            else
             {
-                tishi = "请将使用信息填写完整！";
+                switch(TYPE)
+                {
+                    case "LBJLY":
+                        t1 = jcbm.Text.ToString();
+                        t2 = gx.Text.ToString();
+                        t3 = "请将使用信息填写完整！";
+                        break;
+                    case "LBJTH":
+                        t1 = djgbm.Text.ToString();
+                        t2 = gx.Text.ToString();
+                        t3 = "请将存储信息填写完整！";
+                        break;
+                }
+
+                if (t1 == "" || t2 == "")
+                {
+                    tishi = t3;
+                }
             }
 
             if (tishi != "")
@@ -142,6 +197,11 @@ namespace kucunTest.LingBuJian
             }
             else
                 return 1;
+        }
+
+        private void lbj_xzlymx_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
         }
     }
 }

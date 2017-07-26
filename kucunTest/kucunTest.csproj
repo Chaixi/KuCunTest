@@ -226,6 +226,24 @@
     <Compile Include="KuCun\KCMingXi.Designer.cs">
       <DependentUpon>KCMingXi.cs</DependentUpon>
     </Compile>
+    <Compile Include="LingBuJian\LBJTH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LingBuJian\LBJTH.Designer.cs">
+      <DependentUpon>LBJTH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LingBuJian\lbj_GuanLi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LingBuJian\lbj_GuanLi.Designer.cs">
+      <DependentUpon>lbj_GuanLi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LingBuJian\lbj_History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LingBuJian\lbj_History.Designer.cs">
+      <DependentUpon>lbj_History.cs</DependentUpon>
+    </Compile>
     <Compile Include="LingBuJian\LBJLY.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +266,11 @@
     <Compile Include="BaseClasses\MysqlHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RuCang\NewRC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +362,15 @@
     <EmbeddedResource Include="LingBuJian\LBJLY.resx">
       <DependentUpon>LBJLY.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LingBuJian\LBJTH.resx">
+      <DependentUpon>LBJTH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LingBuJian\lbj_guanli.resx">
+      <DependentUpon>lbj_GuanLi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LingBuJian\lbj_History.resx">
+      <DependentUpon>lbj_History.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LingBuJian\lbj_xzlymx.resx">
       <DependentUpon>lbj_xzlymx.cs</DependentUpon>
     </EmbeddedResource>
@@ -347,14 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="RuCang\NewRC.resx">
       <DependentUpon>NewRC.cs</DependentUpon>
     </EmbeddedResource>
@@ -390,10 +417,6 @@
     <None Include="Resources\background.png" />
     <None Include="Resources\background 带遮罩.jpg" />
     <Content Include="Resources\中国一拖+国机集团.jpg" />
-    <None Include="Resources\中国一拖+国机集团2.42.png" />
-    <None Include="Resources\中国一拖+国机集团2.8.png" />
-    <None Include="Resources\中国一拖+国机集团2.421.png" />
-    <None Include="Resources\中国一拖+国机集团2.422.png" />
     <Content Include="Resources\中国一拖.jpg" />
   </ItemGroup>
   <ItemGroup>
