@@ -100,6 +100,12 @@
     <Compile Include="ChuCang\NewCC.Designer.cs">
       <DependentUpon>NewCC.cs</DependentUpon>
     </Compile>
+    <Compile Include="DaoJu\DaoJuCanShuXinXi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoJu\DaoJuCanShuXinXi.Designer.cs">
+      <DependentUpon>DaoJuCanShuXinXi.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaoJu\DaoJuGuanLi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChuCang\NewCC.resx">
       <DependentUpon>NewCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoJu\DaoJuCanShuXinXi.resx">
+      <DependentUpon>DaoJuCanShuXinXi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DaoJuGuanLi.resx">
       <DependentUpon>DaoJuGuanLi.cs</DependentUpon>

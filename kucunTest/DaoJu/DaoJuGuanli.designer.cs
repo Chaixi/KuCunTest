@@ -59,32 +59,31 @@
             this.djzs = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.grpBox_parameter = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.p10 = new System.Windows.Forms.TextBox();
+            this.p12 = new System.Windows.Forms.TextBox();
+            this.p1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.p8 = new System.Windows.Forms.TextBox();
+            this.p9 = new System.Windows.Forms.TextBox();
+            this.p11 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.p2 = new System.Windows.Forms.TextBox();
+            this.p7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.p3 = new System.Windows.Forms.TextBox();
+            this.p6 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.p4 = new System.Windows.Forms.TextBox();
+            this.p5 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -96,12 +95,13 @@
             this.btn_djwj = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.daojuxinxi)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.grpBox_parameter.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -285,6 +285,8 @@
             this.daojuxinxi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.daojuxinxi.Size = new System.Drawing.Size(1384, 377);
             this.daojuxinxi.TabIndex = 0;
+            this.daojuxinxi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.daojuxinxi_CellClick);
+            this.daojuxinxi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.daojuxinxi_CellDoubleClick);
             this.daojuxinxi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.daojuxinxi_RowPostPaint);
             // 
             // djid
@@ -427,53 +429,42 @@
             this.label23.TabIndex = 0;
             this.label23.Text = "把，机床刀具库中有";
             // 
-            // groupBox3
+            // grpBox_parameter
             // 
-            this.groupBox3.Controls.Add(this.pictureBox1);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.textBox12);
-            this.groupBox3.Controls.Add(this.textBox10);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.textBox8);
-            this.groupBox3.Controls.Add(this.textBox11);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.comboBox3);
-            this.groupBox3.Controls.Add(this.textBox9);
-            this.groupBox3.Controls.Add(this.comboBox2);
-            this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Location = new System.Drawing.Point(232, 639);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox3.Size = new System.Drawing.Size(1414, 282);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "单把刀具详细信息";
-            // 
-            // pictureBox1
-            // 
-//            this.pictureBox1.Image = global::kucunTest.Properties.Resources.立铣刀;
-            this.pictureBox1.Location = new System.Drawing.Point(1113, 57);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(285, 204);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.grpBox_parameter.Controls.Add(this.pictureBox1);
+            this.grpBox_parameter.Controls.Add(this.label6);
+            this.grpBox_parameter.Controls.Add(this.label15);
+            this.grpBox_parameter.Controls.Add(this.label18);
+            this.grpBox_parameter.Controls.Add(this.label14);
+            this.grpBox_parameter.Controls.Add(this.p10);
+            this.grpBox_parameter.Controls.Add(this.p12);
+            this.grpBox_parameter.Controls.Add(this.p1);
+            this.grpBox_parameter.Controls.Add(this.label16);
+            this.grpBox_parameter.Controls.Add(this.p8);
+            this.grpBox_parameter.Controls.Add(this.p9);
+            this.grpBox_parameter.Controls.Add(this.p11);
+            this.grpBox_parameter.Controls.Add(this.label7);
+            this.grpBox_parameter.Controls.Add(this.label17);
+            this.grpBox_parameter.Controls.Add(this.label13);
+            this.grpBox_parameter.Controls.Add(this.p2);
+            this.grpBox_parameter.Controls.Add(this.p7);
+            this.grpBox_parameter.Controls.Add(this.label8);
+            this.grpBox_parameter.Controls.Add(this.label12);
+            this.grpBox_parameter.Controls.Add(this.p3);
+            this.grpBox_parameter.Controls.Add(this.p6);
+            this.grpBox_parameter.Controls.Add(this.label9);
+            this.grpBox_parameter.Controls.Add(this.label11);
+            this.grpBox_parameter.Controls.Add(this.p4);
+            this.grpBox_parameter.Controls.Add(this.p5);
+            this.grpBox_parameter.Controls.Add(this.label10);
+            this.grpBox_parameter.Location = new System.Drawing.Point(232, 639);
+            this.grpBox_parameter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpBox_parameter.Name = "grpBox_parameter";
+            this.grpBox_parameter.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpBox_parameter.Size = new System.Drawing.Size(1414, 282);
+            this.grpBox_parameter.TabIndex = 3;
+            this.grpBox_parameter.TabStop = false;
+            this.grpBox_parameter.Text = "单把刀具详细信息";
             // 
             // label6
             // 
@@ -515,9 +506,9 @@
             this.label14.TabIndex = 3;
             this.label14.Text = "刀具副偏角A2：";
             // 
-            // textBox12
+            // p10
             // 
-            this.textBox12.AutoCompleteCustomSource.AddRange(new string[] {
+            this.p10.AutoCompleteCustomSource.AddRange(new string[] {
             "BT16",
             "BT50",
             "BT520",
@@ -555,17 +546,18 @@
             " C3-390.410-100 080A",
             "C6-390.410-100110A",
             " C4-390.410-100090A"});
-            this.textBox12.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox12.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox12.Location = new System.Drawing.Point(914, 228);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(112, 29);
-            this.textBox12.TabIndex = 6;
+            this.p10.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p10.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p10.Enabled = false;
+            this.p10.Location = new System.Drawing.Point(914, 109);
+            this.p10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p10.Name = "p10";
+            this.p10.Size = new System.Drawing.Size(112, 29);
+            this.p10.TabIndex = 6;
             // 
-            // textBox10
+            // p12
             // 
-            this.textBox10.AutoCompleteCustomSource.AddRange(new string[] {
+            this.p12.AutoCompleteCustomSource.AddRange(new string[] {
             "BT16",
             "BT50",
             "BT520",
@@ -603,13 +595,63 @@
             " C3-390.410-100 080A",
             "C6-390.410-100110A",
             " C4-390.410-100090A"});
-            this.textBox10.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox10.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox10.Location = new System.Drawing.Point(277, 53);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(112, 29);
-            this.textBox10.TabIndex = 6;
+            this.p12.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p12.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p12.Enabled = false;
+            this.p12.Location = new System.Drawing.Point(914, 228);
+            this.p12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p12.Name = "p12";
+            this.p12.Size = new System.Drawing.Size(112, 29);
+            this.p12.TabIndex = 6;
+            // 
+            // p1
+            // 
+            this.p1.AutoCompleteCustomSource.AddRange(new string[] {
+            "BT16",
+            "BT50",
+            "BT520",
+            "BT80",
+            "Colorman8080",
+            "GS39032",
+            "HSK100",
+            "HSK20",
+            "HSK212",
+            "HSK40",
+            "HSK52212",
+            "HSK60",
+            "HSK80",
+            "lab212",
+            "S1608032",
+            " R331.32-080Q27EM10.00",
+            " N331.1A-084508E-KL3220",
+            " SCLCR2020K12",
+            "SOMT120408PDER-GACK200",
+            " C4-391.01-40080A",
+            " R390-044C4-45M",
+            "R390-11T316M-KM1020",
+            " C3-391.01-32060A",
+            " 870-2500-25-Pm4234",
+            " C4-391.27-25*077",
+            "870-2500-25L32-8",
+            " 4736 308.100",
+            " 3Z6070-18.5",
+            "3Z750-19.70L",
+            " 3Z1025-20.05SL",
+            " C5-390.410-100-100A",
+            "C8-390.410-100120A",
+            " 5692022-06",
+            " TXP20-D24.7A30P72",
+            " C3-390.410-100 080A",
+            "C6-390.410-100110A",
+            " C4-390.410-100090A"});
+            this.p1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p1.Enabled = false;
+            this.p1.Location = new System.Drawing.Point(277, 53);
+            this.p1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p1.Name = "p1";
+            this.p1.Size = new System.Drawing.Size(112, 29);
+            this.p1.TabIndex = 6;
             // 
             // label16
             // 
@@ -621,9 +663,9 @@
             this.label16.TabIndex = 3;
             this.label16.Text = "要求工件表面粗糙度：";
             // 
-            // textBox8
+            // p8
             // 
-            this.textBox8.AutoCompleteCustomSource.AddRange(new string[] {
+            this.p8.AutoCompleteCustomSource.AddRange(new string[] {
             "BT16",
             "BT50",
             "BT520",
@@ -661,17 +703,18 @@
             " C3-390.410-100 080A",
             "C6-390.410-100110A",
             " C4-390.410-100090A"});
-            this.textBox8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox8.Location = new System.Drawing.Point(570, 228);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(112, 29);
-            this.textBox8.TabIndex = 6;
+            this.p8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p8.Enabled = false;
+            this.p8.Location = new System.Drawing.Point(570, 228);
+            this.p8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p8.Name = "p8";
+            this.p8.Size = new System.Drawing.Size(112, 29);
+            this.p8.TabIndex = 6;
             // 
-            // textBox11
+            // p9
             // 
-            this.textBox11.AutoCompleteCustomSource.AddRange(new string[] {
+            this.p9.AutoCompleteCustomSource.AddRange(new string[] {
             "BT16",
             "BT50",
             "BT520",
@@ -709,13 +752,63 @@
             " C3-390.410-100 080A",
             "C6-390.410-100110A",
             " C4-390.410-100090A"});
-            this.textBox11.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox11.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox11.Location = new System.Drawing.Point(914, 169);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(112, 29);
-            this.textBox11.TabIndex = 6;
+            this.p9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p9.Enabled = false;
+            this.p9.Location = new System.Drawing.Point(914, 54);
+            this.p9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p9.Name = "p9";
+            this.p9.Size = new System.Drawing.Size(112, 29);
+            this.p9.TabIndex = 6;
+            // 
+            // p11
+            // 
+            this.p11.AutoCompleteCustomSource.AddRange(new string[] {
+            "BT16",
+            "BT50",
+            "BT520",
+            "BT80",
+            "Colorman8080",
+            "GS39032",
+            "HSK100",
+            "HSK20",
+            "HSK212",
+            "HSK40",
+            "HSK52212",
+            "HSK60",
+            "HSK80",
+            "lab212",
+            "S1608032",
+            " R331.32-080Q27EM10.00",
+            " N331.1A-084508E-KL3220",
+            " SCLCR2020K12",
+            "SOMT120408PDER-GACK200",
+            " C4-391.01-40080A",
+            " R390-044C4-45M",
+            "R390-11T316M-KM1020",
+            " C3-391.01-32060A",
+            " 870-2500-25-Pm4234",
+            " C4-391.27-25*077",
+            "870-2500-25L32-8",
+            " 4736 308.100",
+            " 3Z6070-18.5",
+            "3Z750-19.70L",
+            " 3Z1025-20.05SL",
+            " C5-390.410-100-100A",
+            "C8-390.410-100120A",
+            " 5692022-06",
+            " TXP20-D24.7A30P72",
+            " C3-390.410-100 080A",
+            "C6-390.410-100110A",
+            " C4-390.410-100090A"});
+            this.p11.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p11.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p11.Enabled = false;
+            this.p11.Location = new System.Drawing.Point(914, 169);
+            this.p11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p11.Name = "p11";
+            this.p11.Size = new System.Drawing.Size(112, 29);
+            this.p11.TabIndex = 6;
             // 
             // label7
             // 
@@ -747,20 +840,9 @@
             this.label13.TabIndex = 3;
             this.label13.Text = "刀具主偏角A1：";
             // 
-            // comboBox3
+            // p2
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(914, 110);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox3.MaxDropDownItems = 20;
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(113, 29);
-            this.comboBox3.TabIndex = 2;
-            // 
-            // textBox9
-            // 
-            this.textBox9.AutoCompleteCustomSource.AddRange(new string[] {
+            this.p2.AutoCompleteCustomSource.AddRange(new string[] {
             "BT16",
             "BT50",
             "BT520",
@@ -798,28 +880,18 @@
             " C3-390.410-100 080A",
             "C6-390.410-100110A",
             " C4-390.410-100090A"});
-            this.textBox9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox9.Location = new System.Drawing.Point(277, 109);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(112, 29);
-            this.textBox9.TabIndex = 6;
+            this.p2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p2.Enabled = false;
+            this.p2.Location = new System.Drawing.Point(277, 109);
+            this.p2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p2.Name = "p2";
+            this.p2.Size = new System.Drawing.Size(112, 29);
+            this.p2.TabIndex = 6;
             // 
-            // comboBox2
+            // p7
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(914, 53);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox2.MaxDropDownItems = 20;
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(113, 29);
-            this.comboBox2.TabIndex = 2;
-            // 
-            // textBox7
-            // 
-            this.textBox7.AutoCompleteCustomSource.AddRange(new string[] {
+            this.p7.AutoCompleteCustomSource.AddRange(new string[] {
             "BT16",
             "BT50",
             "BT520",
@@ -857,13 +929,14 @@
             " C3-390.410-100 080A",
             "C6-390.410-100110A",
             " C4-390.410-100090A"});
-            this.textBox7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox7.Location = new System.Drawing.Point(570, 169);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(112, 29);
-            this.textBox7.TabIndex = 6;
+            this.p7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p7.Enabled = false;
+            this.p7.Location = new System.Drawing.Point(570, 169);
+            this.p7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p7.Name = "p7";
+            this.p7.Size = new System.Drawing.Size(112, 29);
+            this.p7.TabIndex = 6;
             // 
             // label8
             // 
@@ -885,9 +958,9 @@
             this.label12.TabIndex = 3;
             this.label12.Text = "刀具长度实际值L：";
             // 
-            // textBox3
+            // p3
             // 
-            this.textBox3.AutoCompleteCustomSource.AddRange(new string[] {
+            this.p3.AutoCompleteCustomSource.AddRange(new string[] {
             "BT16",
             "BT50",
             "BT520",
@@ -925,17 +998,18 @@
             " C3-390.410-100 080A",
             "C6-390.410-100110A",
             " C4-390.410-100090A"});
-            this.textBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox3.Location = new System.Drawing.Point(277, 169);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(112, 29);
-            this.textBox3.TabIndex = 6;
+            this.p3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p3.Enabled = false;
+            this.p3.Location = new System.Drawing.Point(277, 169);
+            this.p3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p3.Name = "p3";
+            this.p3.Size = new System.Drawing.Size(112, 29);
+            this.p3.TabIndex = 6;
             // 
-            // textBox6
+            // p6
             // 
-            this.textBox6.AutoCompleteCustomSource.AddRange(new string[] {
+            this.p6.AutoCompleteCustomSource.AddRange(new string[] {
             "BT16",
             "BT50",
             "BT520",
@@ -973,13 +1047,14 @@
             " C3-390.410-100 080A",
             "C6-390.410-100110A",
             " C4-390.410-100090A"});
-            this.textBox6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox6.Location = new System.Drawing.Point(569, 109);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(112, 29);
-            this.textBox6.TabIndex = 6;
+            this.p6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p6.Enabled = false;
+            this.p6.Location = new System.Drawing.Point(569, 109);
+            this.p6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p6.Name = "p6";
+            this.p6.Size = new System.Drawing.Size(112, 29);
+            this.p6.TabIndex = 6;
             // 
             // label9
             // 
@@ -1001,9 +1076,9 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "刀具半径实际值R：";
             // 
-            // textBox4
+            // p4
             // 
-            this.textBox4.AutoCompleteCustomSource.AddRange(new string[] {
+            this.p4.AutoCompleteCustomSource.AddRange(new string[] {
             "BT16",
             "BT50",
             "BT520",
@@ -1041,17 +1116,18 @@
             " C3-390.410-100 080A",
             "C6-390.410-100110A",
             " C4-390.410-100090A"});
-            this.textBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox4.Location = new System.Drawing.Point(277, 228);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(112, 29);
-            this.textBox4.TabIndex = 6;
+            this.p4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p4.Enabled = false;
+            this.p4.Location = new System.Drawing.Point(277, 228);
+            this.p4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p4.Name = "p4";
+            this.p4.Size = new System.Drawing.Size(112, 29);
+            this.p4.TabIndex = 6;
             // 
-            // textBox5
+            // p5
             // 
-            this.textBox5.AutoCompleteCustomSource.AddRange(new string[] {
+            this.p5.AutoCompleteCustomSource.AddRange(new string[] {
             "BT16",
             "BT50",
             "BT520",
@@ -1089,13 +1165,14 @@
             " C3-390.410-100 080A",
             "C6-390.410-100110A",
             " C4-390.410-100090A"});
-            this.textBox5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBox5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox5.Location = new System.Drawing.Point(570, 53);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(112, 29);
-            this.textBox5.TabIndex = 6;
+            this.p5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.p5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.p5.Enabled = false;
+            this.p5.Location = new System.Drawing.Point(570, 53);
+            this.p5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p5.Name = "p5";
+            this.p5.Size = new System.Drawing.Size(112, 29);
+            this.p5.TabIndex = 6;
             // 
             // label10
             // 
@@ -1216,6 +1293,16 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(1113, 57);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(285, 204);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // DaoJuGuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -1230,7 +1317,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.zpdj);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.grpBox_parameter);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -1246,10 +1333,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.daojuxinxi)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.grpBox_parameter.ResumeLayout(false);
+            this.grpBox_parameter.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1268,7 +1355,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView daojuxinxi;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grpBox_parameter;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button zpdj;
@@ -1276,26 +1363,24 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox p12;
+        private System.Windows.Forms.TextBox p1;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox p8;
+        private System.Windows.Forms.TextBox p11;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox p2;
+        private System.Windows.Forms.TextBox p7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox p3;
+        private System.Windows.Forms.TextBox p6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox p4;
+        private System.Windows.Forms.TextBox p5;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
@@ -1324,5 +1409,7 @@
         private System.Windows.Forms.Button btn_djwj;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox p10;
+        private System.Windows.Forms.TextBox p9;
     }
 }

@@ -28,6 +28,8 @@ namespace kucunTest.DaoJu
         private TreeNode node = new TreeNode();//类型树的根节点。
         private AutoSizeFormClass asc = new AutoSizeFormClass();
 
+        private string canshubiao = "jichucanshu";
+
         //沫
         private string SqlStr1 = "";
         private int i;
@@ -290,5 +292,56 @@ namespace kucunTest.DaoJu
         }
 
         #endregion 其他方法结束
+
+        /// <summary>
+        /// 选中单元格刀具，加载刀具参数数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void daojuxinxi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)//判断点击的是否是表头
+            {
+                SqlStr = string.Format("SELECT * FROM {0} WHERE ssfm = '{1}'", canshubiao, daojuxinxi.Rows[e.RowIndex].Cells["djid"].Value.ToString());
+                DataTable db = SelectSql.getDataSet(SqlStr, canshubiao).Tables[0];
+
+                foreach (Control c in grpBox_parameter.Controls)
+                {
+                    if (c is TextBox)
+                    {
+                        if (db.Rows.Count <= 0)
+                        {
+                            c.Text = "";
+                        }
+                        else
+                        {
+                            for (int i = 0; i < db.Rows.Count; i++)
+                            {
+                                if (db.Rows[i]["csdm"].ToString() == c.Name)
+                                {
+                                    c.Text = db.Rows[i]["csz"].ToString();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        private void daojuxinxi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                string id = daojuxinxi.Rows[e.RowIndex].Cells["djid"].Value.ToString();
+                DaoJuCanShuXinXi djcs = new DaoJuCanShuXinXi(id);
+                djcs.ShowDialog();
+                //if(djcs.DialogResult == DialogResult.OK)
+                //{
+
+                //}
+            }
+        }
     }
 }
