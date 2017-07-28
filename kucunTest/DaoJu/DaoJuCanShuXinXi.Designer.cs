@@ -634,7 +634,6 @@
             this.cp1.Name = "cp1";
             this.cp1.Size = new System.Drawing.Size(94, 29);
             this.cp1.TabIndex = 3;
-            this.cp1.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // cp2
             // 
@@ -653,6 +652,7 @@
             this.label33.TabIndex = 2;
             this.label33.Text = "刀具参数信息";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label33.SizeChanged += new System.EventHandler(this.label33_SizeChanged);
             // 
             // button1
             // 
@@ -754,7 +754,9 @@
             this.Controls.Add(this.grp_cl);
             this.Controls.Add(this.grp_jc);
             this.Controls.Add(this.label33);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DaoJuCanShuXinXi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具参数信息";
             this.Load += new System.EventHandler(this.DaoJuCanShuXinXi_Load);
             this.grp_jc.ResumeLayout(false);

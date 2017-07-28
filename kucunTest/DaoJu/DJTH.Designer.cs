@@ -68,6 +68,7 @@
             this.button_history = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TuiHuanMingXi)).BeginInit();
@@ -404,7 +405,7 @@
             // button_cancel
             // 
             this.button_cancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_cancel.Location = new System.Drawing.Point(492, 529);
+            this.button_cancel.Location = new System.Drawing.Point(448, 529);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(87, 36);
             this.button_cancel.TabIndex = 3;
@@ -415,7 +416,7 @@
             // button_print
             // 
             this.button_print.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_print.Location = new System.Drawing.Point(399, 529);
+            this.button_print.Location = new System.Drawing.Point(355, 529);
             this.button_print.Name = "button_print";
             this.button_print.Size = new System.Drawing.Size(87, 36);
             this.button_print.TabIndex = 3;
@@ -426,7 +427,7 @@
             // button_save
             // 
             this.button_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_save.Location = new System.Drawing.Point(304, 529);
+            this.button_save.Location = new System.Drawing.Point(260, 529);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(87, 36);
             this.button_save.TabIndex = 5;
@@ -437,7 +438,7 @@
             // button_history
             // 
             this.button_history.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_history.Location = new System.Drawing.Point(596, 529);
+            this.button_history.Location = new System.Drawing.Point(635, 529);
             this.button_history.Name = "button_history";
             this.button_history.Size = new System.Drawing.Size(87, 36);
             this.button_history.TabIndex = 3;
@@ -459,13 +460,24 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(211, 529);
+            this.button1.Location = new System.Drawing.Point(167, 529);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 36);
             this.button1.TabIndex = 5;
             this.button1.Text = "保存单据";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(544, 529);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(85, 36);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "退    出";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // DJTH
             // 
@@ -474,6 +486,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(849, 577);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -551,5 +564,6 @@
         private System.Windows.Forms.DateTimePicker JBRQ;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }

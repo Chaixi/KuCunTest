@@ -67,6 +67,7 @@
             this.fR测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刀具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刀具管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刀具类型管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.零部件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.零部件库存管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.零部件领用单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -385,7 +386,8 @@
             // 刀具ToolStripMenuItem
             // 
             this.刀具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.刀具管理ToolStripMenuItem});
+            this.刀具管理ToolStripMenuItem,
+            this.刀具类型管理ToolStripMenuItem1});
             this.刀具ToolStripMenuItem.Name = "刀具ToolStripMenuItem";
             this.刀具ToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
             this.刀具ToolStripMenuItem.Text = "刀具";
@@ -393,9 +395,16 @@
             // 刀具管理ToolStripMenuItem
             // 
             this.刀具管理ToolStripMenuItem.Name = "刀具管理ToolStripMenuItem";
-            this.刀具管理ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.刀具管理ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
             this.刀具管理ToolStripMenuItem.Text = "刀具管理";
             this.刀具管理ToolStripMenuItem.Click += new System.EventHandler(this.刀具管理ToolStripMenuItem_Click);
+            // 
+            // 刀具类型管理ToolStripMenuItem1
+            // 
+            this.刀具类型管理ToolStripMenuItem1.Name = "刀具类型管理ToolStripMenuItem1";
+            this.刀具类型管理ToolStripMenuItem1.Size = new System.Drawing.Size(176, 26);
+            this.刀具类型管理ToolStripMenuItem1.Text = "刀具类型管理";
+            this.刀具类型管理ToolStripMenuItem1.Click += new System.EventHandler(this.刀具类型管理ToolStripMenuItem1_Click);
             // 
             // 零部件ToolStripMenuItem
             // 
@@ -799,6 +808,7 @@
         private System.Windows.Forms.ToolStripMenuItem 零部件领用单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 零部件退还单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 零部件库存管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 刀具类型管理ToolStripMenuItem1;
     }
 }
 

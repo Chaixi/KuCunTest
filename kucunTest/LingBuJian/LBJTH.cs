@@ -519,6 +519,16 @@ namespace kucunTest.LingBuJian
             }
         }
 
+        /// <summary>
+        /// 退出按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion 按钮部分结束
 
         #region 其他部分

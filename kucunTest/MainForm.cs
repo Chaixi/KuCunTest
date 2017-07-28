@@ -588,5 +588,11 @@ namespace kucunTest
             lbj_GuanLi lbjgl = new lbj_GuanLi();
             lbjgl.Show();
         }
+
+        private void 刀具类型管理ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DaoJuLeiXingGuanLi djlxgl = new DaoJuLeiXingGuanLi();
+            djlxgl.Show();
+        }
     }
 }

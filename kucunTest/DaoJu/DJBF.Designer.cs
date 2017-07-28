@@ -69,6 +69,7 @@
             this.BFYY = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -377,7 +378,7 @@
             // BtnCancel
             // 
             this.BtnCancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnCancel.Location = new System.Drawing.Point(478, 522);
+            this.BtnCancel.Location = new System.Drawing.Point(454, 522);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(87, 30);
             this.BtnCancel.TabIndex = 3;
@@ -388,7 +389,7 @@
             // BtnPrint
             // 
             this.BtnPrint.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnPrint.Location = new System.Drawing.Point(385, 522);
+            this.BtnPrint.Location = new System.Drawing.Point(361, 522);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(87, 30);
             this.BtnPrint.TabIndex = 3;
@@ -399,7 +400,7 @@
             // BtnSave
             // 
             this.BtnSave.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnSave.Location = new System.Drawing.Point(290, 522);
+            this.BtnSave.Location = new System.Drawing.Point(266, 522);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(87, 30);
             this.BtnSave.TabIndex = 5;
@@ -410,7 +411,7 @@
             // BtnHistory
             // 
             this.BtnHistory.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnHistory.Location = new System.Drawing.Point(572, 522);
+            this.BtnHistory.Location = new System.Drawing.Point(641, 522);
             this.BtnHistory.Name = "BtnHistory";
             this.BtnHistory.Size = new System.Drawing.Size(87, 30);
             this.BtnHistory.TabIndex = 3;
@@ -577,13 +578,24 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(197, 522);
+            this.button1.Location = new System.Drawing.Point(173, 522);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 30);
             this.button1.TabIndex = 5;
             this.button1.Text = "保存单据";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(548, 522);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(87, 30);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "退    出";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // DJBF
             // 
@@ -592,6 +604,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(849, 564);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -669,5 +682,6 @@
         private System.Windows.Forms.ComboBox DJID;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

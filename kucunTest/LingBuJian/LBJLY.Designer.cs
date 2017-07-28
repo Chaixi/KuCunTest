@@ -450,7 +450,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Location = new System.Drawing.Point(476, 590);
+            this.btnDelete.Location = new System.Drawing.Point(468, 590);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(83, 29);
             this.btnDelete.TabIndex = 3;
@@ -461,7 +461,7 @@
             // btnPrint
             // 
             this.btnPrint.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPrint.Location = new System.Drawing.Point(371, 590);
+            this.btnPrint.Location = new System.Drawing.Point(363, 590);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(83, 29);
             this.btnPrint.TabIndex = 3;
@@ -472,7 +472,7 @@
             // btnConfirm
             // 
             this.btnConfirm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnConfirm.Location = new System.Drawing.Point(268, 590);
+            this.btnConfirm.Location = new System.Drawing.Point(260, 590);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(83, 29);
             this.btnConfirm.TabIndex = 5;
@@ -483,7 +483,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(588, 590);
+            this.button4.Location = new System.Drawing.Point(663, 590);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(83, 29);
             this.button4.TabIndex = 3;
@@ -494,7 +494,7 @@
             // btn_save
             // 
             this.btn_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_save.Location = new System.Drawing.Point(171, 590);
+            this.btn_save.Location = new System.Drawing.Point(163, 590);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(83, 29);
             this.btn_save.TabIndex = 5;
@@ -505,13 +505,13 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.button5.Location = new System.Drawing.Point(582, 590);
+            this.button5.Location = new System.Drawing.Point(574, 590);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(83, 29);
             this.button5.TabIndex = 6;
             this.button5.Text = "退    出";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // LBJLY
             // 

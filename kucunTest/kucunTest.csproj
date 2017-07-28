@@ -112,6 +112,12 @@
     <Compile Include="DaoJu\DaoJuGuanLi.designer.cs">
       <DependentUpon>DaoJuGuanLi.cs</DependentUpon>
     </Compile>
+    <Compile Include="DaoJu\DaoJuLeiXingGuanLi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoJu\DaoJuLeiXingGuanLi.Designer.cs">
+      <DependentUpon>DaoJuLeiXingGuanLi.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaoJu\DJBF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DaoJuGuanLi.resx">
       <DependentUpon>DaoJuGuanLi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoJu\DaoJuLeiXingGuanLi.resx">
+      <DependentUpon>DaoJuLeiXingGuanLi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DJBF.resx">
       <DependentUpon>DJBF.cs</DependentUpon>

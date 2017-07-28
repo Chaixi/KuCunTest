@@ -79,6 +79,7 @@
             this.GHLY = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -369,7 +370,7 @@
             // cancel
             // 
             this.cancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cancel.Location = new System.Drawing.Point(500, 563);
+            this.cancel.Location = new System.Drawing.Point(453, 563);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(88, 32);
             this.cancel.TabIndex = 3;
@@ -380,7 +381,7 @@
             // btn_print
             // 
             this.btn_print.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_print.Location = new System.Drawing.Point(406, 563);
+            this.btn_print.Location = new System.Drawing.Point(359, 563);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(88, 32);
             this.btn_print.TabIndex = 3;
@@ -391,7 +392,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(218, 563);
+            this.button1.Location = new System.Drawing.Point(171, 563);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 32);
             this.button1.TabIndex = 5;
@@ -402,7 +403,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(594, 563);
+            this.button4.Location = new System.Drawing.Point(643, 563);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(88, 32);
             this.button4.TabIndex = 3;
@@ -695,13 +696,24 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(312, 563);
+            this.button2.Location = new System.Drawing.Point(265, 563);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 32);
             this.button2.TabIndex = 5;
             this.button2.Text = "确认单据";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(549, 563);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(88, 32);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "退    出";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // DJGH
             // 
@@ -710,6 +722,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(849, 607);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -800,5 +813,6 @@
         private System.Windows.Forms.ComboBox X_DJID;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -51,7 +51,7 @@ namespace kucunTest.LingBuJian
 
             Sqlstr = string.Format("SELECT DISTINCT lbjmc FROM {0}", lbj);
             Alex.BindRoot(Sqlstr, root, true);
-            root.Expand();
+            treeView1.Nodes[0].Expand();
 
             asc.controllInitializeSize(this);
 
@@ -64,13 +64,17 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void treeView1_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
-            if (e.Node.Nodes[0].Text == "")
+            if(e.Node.Level == 1)
             {
-                TreeNode currentNode = e.Node;
-                currentNode.Nodes[0].Remove();
-                Sqlstr = string.Format("SELECT lbjxh FROM {0} WHERE lbjmc = '{1}'", lbj, currentNode.Text);
-                Alex.BindRoot(Sqlstr, currentNode, false);
+                if (e.Node.Nodes[0].Text == "")
+                {
+                    TreeNode currentNode = e.Node;
+                    currentNode.Nodes[0].Remove();
+                    Sqlstr = string.Format("SELECT lbjxh FROM {0} WHERE lbjmc = '{1}'", lbj, currentNode.Text);
+                    Alex.BindRoot(Sqlstr, currentNode, false);
+                }
             }
+            
         }
 
         /// <summary>

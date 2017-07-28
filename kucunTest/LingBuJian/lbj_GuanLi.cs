@@ -43,7 +43,7 @@ namespace kucunTest.LingBuJian
 
             Sqlstr = string.Format("SELECT DISTINCT lbjmc FROM {0}", lbj);
             Alex.BindRoot(Sqlstr, root, true);
-            root.Expand();
+            treeView1.Nodes[0].Expand();
 
             asc.controllInitializeSize(this);
         }

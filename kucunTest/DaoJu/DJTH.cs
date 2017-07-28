@@ -538,6 +538,16 @@ namespace kucunTest.DaoJu
 
         }
 
+        /// <summary>
+        /// 退出按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion 按钮部分结束
 
         #region 其他部分
@@ -605,8 +615,8 @@ namespace kucunTest.DaoJu
             asc.controlAutoSize(this);
         }
 
+
         #endregion 其他部分结束
-
-
+                
     }
 }
