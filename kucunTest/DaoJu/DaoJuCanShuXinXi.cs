@@ -46,15 +46,16 @@ namespace kucunTest.DaoJu
             asc.controllInitializeSize(this);
 
             //查询刀具表中对应刀具类型和刀具规格
-            Sqlstr = string.Format("SELECT daojuleixing, daojuguige FROM {0} WHERE daojuid = '{1}'", daojubiao, ID);
+            Sqlstr = string.Format("SELECT daojuleixing, daojuguige, daojuxinghao FROM {0} WHERE daojuid = '{1}'", daojubiao, ID);
             DataTable db1 = SQL.getDataSet(Sqlstr, daojubiao).Tables[0];
             //赋值
             djlx.Text = db1.Rows[0]["daojuleixing"].ToString();
             djgg.Text = db1.Rows[0]["daojuguige"].ToString();
+            string djxh = db1.Rows[0]["daojuxinghao"].ToString();
             djid.Text = ID;
 
             //查询基础参数表中刀具基础信息
-            Sqlstr = string.Format("SELECT csdm, csz FROM {0} WHERE ssfm = '{1}'", jichucanshubiao , ID);
+            Sqlstr = string.Format("SELECT csdm, csz FROM {0} WHERE ssfm = '{1}'", jichucanshubiao , djxh);
             DataTable db2 = SQL.getDataSet(Sqlstr, jichucanshubiao).Tables[0];
             //遍历基础参数
             if(db2.Rows.Count > 0)

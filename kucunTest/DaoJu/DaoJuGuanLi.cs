@@ -42,6 +42,8 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void daojuguanli_Load(object sender, EventArgs e)
         {
+            treeView1.Nodes.Clear();
+
             treeView1.Nodes.Add(node);
             node.Text = "所有类型";
             BindRoot();//生成树的第一层
@@ -196,8 +198,18 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            zhuangpeidaoju zpdj = new zhuangpeidaoju();
-            zpdj.Show();
+            string daojuleixing = daojuxinxi.CurrentRow.Cells["djlx"].Value.ToString();
+            string daojuguige = daojuxinxi.CurrentRow.Cells["djgg"].Value.ToString();
+            string daojuxinghao = daojuxinxi.CurrentRow.Cells["djxh"].Value.ToString();
+
+            zhuangpeidaoju zpdj = new zhuangpeidaoju(daojuleixing, daojuguige, daojuxinghao);
+            zpdj.ShowDialog();
+            TreeNode crtNode = treeView1.SelectedNode;
+            if(zpdj.DialogResult == DialogResult.OK)
+            {
+                daojuguanli_Load(null, null);
+                treeView1.SelectedNode = crtNode;
+            }
         }
 
         /// <summary>

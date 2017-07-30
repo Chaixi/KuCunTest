@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.grp_jc = new System.Windows.Forms.GroupBox();
-            this.jp7 = new System.Windows.Forms.TextBox();
+            this.yhbjxgc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.jp9 = new System.Windows.Forms.TextBox();
-            this.jp15 = new System.Windows.Forms.TextBox();
+            this.djfpj = new System.Windows.Forms.TextBox();
+            this.csxgc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.jp12 = new System.Windows.Forms.TextBox();
-            this.jp6 = new System.Windows.Forms.TextBox();
-            this.jp8 = new System.Windows.Forms.TextBox();
-            this.jp14 = new System.Windows.Forms.TextBox();
-            this.jp11 = new System.Windows.Forms.TextBox();
-            this.jp17 = new System.Windows.Forms.TextBox();
-            this.jp5 = new System.Windows.Forms.TextBox();
-            this.jp4 = new System.Windows.Forms.TextBox();
-            this.jp13 = new System.Windows.Forms.TextBox();
-            this.jp10 = new System.Windows.Forms.TextBox();
-            this.jp16 = new System.Windows.Forms.TextBox();
-            this.jp3 = new System.Windows.Forms.TextBox();
-            this.jp2 = new System.Windows.Forms.TextBox();
-            this.jp1 = new System.Windows.Forms.TextBox();
+            this.bjxgc = new System.Windows.Forms.TextBox();
+            this.yhbjsgc = new System.Windows.Forms.TextBox();
+            this.djzpj = new System.Windows.Forms.TextBox();
+            this.cdsgc = new System.Windows.Forms.TextBox();
+            this.bjsgc = new System.Windows.Forms.TextBox();
+            this.jxtdfw = new System.Windows.Forms.TextBox();
+            this.djyhbj = new System.Windows.Forms.TextBox();
+            this.smbjyz = new System.Windows.Forms.TextBox();
+            this.djbzcd = new System.Windows.Forms.TextBox();
+            this.djbzbj = new System.Windows.Forms.TextBox();
+            this.dmtdfw = new System.Windows.Forms.TextBox();
+            this.djyssm = new System.Windows.Forms.TextBox();
+            this.djddsl = new System.Windows.Forms.TextBox();
+            this.djclph = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -96,6 +96,8 @@
             this.刀具规格 = new System.Windows.Forms.Label();
             this.djlx = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.djytjs = new System.Windows.Forms.TextBox();
             this.grp_jc.SuspendLayout();
             this.grp_cl.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -103,25 +105,27 @@
             // 
             // grp_jc
             // 
-            this.grp_jc.Controls.Add(this.jp7);
+            this.grp_jc.Controls.Add(this.label19);
+            this.grp_jc.Controls.Add(this.djytjs);
+            this.grp_jc.Controls.Add(this.yhbjxgc);
             this.grp_jc.Controls.Add(this.label3);
-            this.grp_jc.Controls.Add(this.jp9);
-            this.grp_jc.Controls.Add(this.jp15);
+            this.grp_jc.Controls.Add(this.djfpj);
+            this.grp_jc.Controls.Add(this.csxgc);
             this.grp_jc.Controls.Add(this.label2);
-            this.grp_jc.Controls.Add(this.jp12);
-            this.grp_jc.Controls.Add(this.jp6);
-            this.grp_jc.Controls.Add(this.jp8);
-            this.grp_jc.Controls.Add(this.jp14);
-            this.grp_jc.Controls.Add(this.jp11);
-            this.grp_jc.Controls.Add(this.jp17);
-            this.grp_jc.Controls.Add(this.jp5);
-            this.grp_jc.Controls.Add(this.jp4);
-            this.grp_jc.Controls.Add(this.jp13);
-            this.grp_jc.Controls.Add(this.jp10);
-            this.grp_jc.Controls.Add(this.jp16);
-            this.grp_jc.Controls.Add(this.jp3);
-            this.grp_jc.Controls.Add(this.jp2);
-            this.grp_jc.Controls.Add(this.jp1);
+            this.grp_jc.Controls.Add(this.bjxgc);
+            this.grp_jc.Controls.Add(this.yhbjsgc);
+            this.grp_jc.Controls.Add(this.djzpj);
+            this.grp_jc.Controls.Add(this.cdsgc);
+            this.grp_jc.Controls.Add(this.bjsgc);
+            this.grp_jc.Controls.Add(this.jxtdfw);
+            this.grp_jc.Controls.Add(this.djyhbj);
+            this.grp_jc.Controls.Add(this.smbjyz);
+            this.grp_jc.Controls.Add(this.djbzcd);
+            this.grp_jc.Controls.Add(this.djbzbj);
+            this.grp_jc.Controls.Add(this.dmtdfw);
+            this.grp_jc.Controls.Add(this.djyssm);
+            this.grp_jc.Controls.Add(this.djddsl);
+            this.grp_jc.Controls.Add(this.djclph);
             this.grp_jc.Controls.Add(this.label16);
             this.grp_jc.Controls.Add(this.label12);
             this.grp_jc.Controls.Add(this.label8);
@@ -145,164 +149,164 @@
             this.grp_jc.TabStop = false;
             this.grp_jc.Text = "基础信息";
             // 
-            // jp7
+            // yhbjxgc
             // 
-            this.jp7.Enabled = false;
-            this.jp7.Location = new System.Drawing.Point(149, 342);
-            this.jp7.Name = "jp7";
-            this.jp7.Size = new System.Drawing.Size(93, 29);
-            this.jp7.TabIndex = 3;
+            this.yhbjxgc.Enabled = false;
+            this.yhbjxgc.Location = new System.Drawing.Point(149, 286);
+            this.yhbjxgc.Name = "yhbjxgc";
+            this.yhbjxgc.Size = new System.Drawing.Size(102, 29);
+            this.yhbjxgc.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 192);
+            this.label3.Location = new System.Drawing.Point(41, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "寿命报警阈值";
             // 
-            // jp9
+            // djfpj
             // 
-            this.jp9.Enabled = false;
-            this.jp9.Location = new System.Drawing.Point(149, 437);
-            this.jp9.Name = "jp9";
-            this.jp9.Size = new System.Drawing.Size(93, 29);
-            this.jp9.TabIndex = 3;
+            this.djfpj.Enabled = false;
+            this.djfpj.Location = new System.Drawing.Point(149, 366);
+            this.djfpj.Name = "djfpj";
+            this.djfpj.Size = new System.Drawing.Size(102, 29);
+            this.djfpj.TabIndex = 3;
             // 
-            // jp15
+            // csxgc
             // 
-            this.jp15.Enabled = false;
-            this.jp15.Location = new System.Drawing.Point(416, 289);
-            this.jp15.Name = "jp15";
-            this.jp15.Size = new System.Drawing.Size(93, 29);
-            this.jp15.TabIndex = 3;
+            this.csxgc.Enabled = false;
+            this.csxgc.Location = new System.Drawing.Point(418, 243);
+            this.csxgc.Name = "csxgc";
+            this.csxgc.Size = new System.Drawing.Size(91, 29);
+            this.csxgc.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 143);
+            this.label2.Location = new System.Drawing.Point(39, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "刀具原始寿命";
             // 
-            // jp12
+            // bjxgc
             // 
-            this.jp12.Enabled = false;
-            this.jp12.Location = new System.Drawing.Point(416, 140);
-            this.jp12.Name = "jp12";
-            this.jp12.Size = new System.Drawing.Size(93, 29);
-            this.jp12.TabIndex = 3;
+            this.bjxgc.Enabled = false;
+            this.bjxgc.Location = new System.Drawing.Point(418, 118);
+            this.bjxgc.Name = "bjxgc";
+            this.bjxgc.Size = new System.Drawing.Size(91, 29);
+            this.bjxgc.TabIndex = 3;
             // 
-            // jp6
+            // yhbjsgc
             // 
-            this.jp6.Enabled = false;
-            this.jp6.Location = new System.Drawing.Point(149, 289);
-            this.jp6.Name = "jp6";
-            this.jp6.Size = new System.Drawing.Size(93, 29);
-            this.jp6.TabIndex = 3;
+            this.yhbjsgc.Enabled = false;
+            this.yhbjsgc.Location = new System.Drawing.Point(149, 243);
+            this.yhbjsgc.Name = "yhbjsgc";
+            this.yhbjsgc.Size = new System.Drawing.Size(102, 29);
+            this.yhbjsgc.TabIndex = 3;
             // 
-            // jp8
+            // djzpj
             // 
-            this.jp8.Enabled = false;
-            this.jp8.Location = new System.Drawing.Point(149, 389);
-            this.jp8.Name = "jp8";
-            this.jp8.Size = new System.Drawing.Size(93, 29);
-            this.jp8.TabIndex = 3;
+            this.djzpj.Enabled = false;
+            this.djzpj.Location = new System.Drawing.Point(149, 328);
+            this.djzpj.Name = "djzpj";
+            this.djzpj.Size = new System.Drawing.Size(102, 29);
+            this.djzpj.TabIndex = 3;
             // 
-            // jp14
+            // cdsgc
             // 
-            this.jp14.Enabled = false;
-            this.jp14.Location = new System.Drawing.Point(416, 240);
-            this.jp14.Name = "jp14";
-            this.jp14.Size = new System.Drawing.Size(93, 29);
-            this.jp14.TabIndex = 3;
+            this.cdsgc.Enabled = false;
+            this.cdsgc.Location = new System.Drawing.Point(418, 201);
+            this.cdsgc.Name = "cdsgc";
+            this.cdsgc.Size = new System.Drawing.Size(91, 29);
+            this.cdsgc.TabIndex = 3;
             // 
-            // jp11
+            // bjsgc
             // 
-            this.jp11.Enabled = false;
-            this.jp11.Location = new System.Drawing.Point(416, 89);
-            this.jp11.Name = "jp11";
-            this.jp11.Size = new System.Drawing.Size(93, 29);
-            this.jp11.TabIndex = 3;
+            this.bjsgc.Enabled = false;
+            this.bjsgc.Location = new System.Drawing.Point(418, 75);
+            this.bjsgc.Name = "bjsgc";
+            this.bjsgc.Size = new System.Drawing.Size(91, 29);
+            this.bjsgc.TabIndex = 3;
             // 
-            // jp17
+            // jxtdfw
             // 
-            this.jp17.Enabled = false;
-            this.jp17.Location = new System.Drawing.Point(418, 389);
-            this.jp17.Name = "jp17";
-            this.jp17.Size = new System.Drawing.Size(91, 29);
-            this.jp17.TabIndex = 3;
+            this.jxtdfw.Enabled = false;
+            this.jxtdfw.Location = new System.Drawing.Point(418, 328);
+            this.jxtdfw.Name = "jxtdfw";
+            this.jxtdfw.Size = new System.Drawing.Size(91, 29);
+            this.jxtdfw.TabIndex = 3;
             // 
-            // jp5
+            // djyhbj
             // 
-            this.jp5.Enabled = false;
-            this.jp5.Location = new System.Drawing.Point(149, 240);
-            this.jp5.Name = "jp5";
-            this.jp5.Size = new System.Drawing.Size(93, 29);
-            this.jp5.TabIndex = 3;
+            this.djyhbj.Enabled = false;
+            this.djyhbj.Location = new System.Drawing.Point(149, 201);
+            this.djyhbj.Name = "djyhbj";
+            this.djyhbj.Size = new System.Drawing.Size(102, 29);
+            this.djyhbj.TabIndex = 3;
             // 
-            // jp4
+            // smbjyz
             // 
-            this.jp4.Enabled = false;
-            this.jp4.Location = new System.Drawing.Point(149, 189);
-            this.jp4.Name = "jp4";
-            this.jp4.Size = new System.Drawing.Size(93, 29);
-            this.jp4.TabIndex = 3;
+            this.smbjyz.Enabled = false;
+            this.smbjyz.Location = new System.Drawing.Point(149, 160);
+            this.smbjyz.Name = "smbjyz";
+            this.smbjyz.Size = new System.Drawing.Size(102, 29);
+            this.smbjyz.TabIndex = 3;
             // 
-            // jp13
+            // djbzcd
             // 
-            this.jp13.Enabled = false;
-            this.jp13.Location = new System.Drawing.Point(416, 189);
-            this.jp13.Name = "jp13";
-            this.jp13.Size = new System.Drawing.Size(93, 29);
-            this.jp13.TabIndex = 3;
+            this.djbzcd.Enabled = false;
+            this.djbzcd.Location = new System.Drawing.Point(418, 160);
+            this.djbzcd.Name = "djbzcd";
+            this.djbzcd.Size = new System.Drawing.Size(91, 29);
+            this.djbzcd.TabIndex = 3;
             // 
-            // jp10
+            // djbzbj
             // 
-            this.jp10.Enabled = false;
-            this.jp10.Location = new System.Drawing.Point(418, 38);
-            this.jp10.Name = "jp10";
-            this.jp10.Size = new System.Drawing.Size(93, 29);
-            this.jp10.TabIndex = 3;
+            this.djbzbj.Enabled = false;
+            this.djbzbj.Location = new System.Drawing.Point(418, 33);
+            this.djbzbj.Name = "djbzbj";
+            this.djbzbj.Size = new System.Drawing.Size(91, 29);
+            this.djbzbj.TabIndex = 3;
             // 
-            // jp16
+            // dmtdfw
             // 
-            this.jp16.Enabled = false;
-            this.jp16.Location = new System.Drawing.Point(416, 342);
-            this.jp16.Name = "jp16";
-            this.jp16.Size = new System.Drawing.Size(93, 29);
-            this.jp16.TabIndex = 3;
+            this.dmtdfw.Enabled = false;
+            this.dmtdfw.Location = new System.Drawing.Point(418, 286);
+            this.dmtdfw.Name = "dmtdfw";
+            this.dmtdfw.Size = new System.Drawing.Size(91, 29);
+            this.dmtdfw.TabIndex = 3;
             // 
-            // jp3
+            // djyssm
             // 
-            this.jp3.Enabled = false;
-            this.jp3.Location = new System.Drawing.Point(149, 140);
-            this.jp3.Name = "jp3";
-            this.jp3.Size = new System.Drawing.Size(93, 29);
-            this.jp3.TabIndex = 3;
+            this.djyssm.Enabled = false;
+            this.djyssm.Location = new System.Drawing.Point(149, 118);
+            this.djyssm.Name = "djyssm";
+            this.djyssm.Size = new System.Drawing.Size(102, 29);
+            this.djyssm.TabIndex = 3;
             // 
-            // jp2
+            // djddsl
             // 
-            this.jp2.Enabled = false;
-            this.jp2.Location = new System.Drawing.Point(149, 89);
-            this.jp2.Name = "jp2";
-            this.jp2.Size = new System.Drawing.Size(93, 29);
-            this.jp2.TabIndex = 3;
+            this.djddsl.Enabled = false;
+            this.djddsl.Location = new System.Drawing.Point(149, 75);
+            this.djddsl.Name = "djddsl";
+            this.djddsl.Size = new System.Drawing.Size(102, 29);
+            this.djddsl.TabIndex = 3;
             // 
-            // jp1
+            // djclph
             // 
-            this.jp1.Enabled = false;
-            this.jp1.Location = new System.Drawing.Point(151, 38);
-            this.jp1.Name = "jp1";
-            this.jp1.Size = new System.Drawing.Size(93, 29);
-            this.jp1.TabIndex = 3;
+            this.djclph.Enabled = false;
+            this.djclph.Location = new System.Drawing.Point(149, 33);
+            this.djclph.Name = "djclph";
+            this.djclph.Size = new System.Drawing.Size(102, 29);
+            this.djclph.TabIndex = 3;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 292);
+            this.label16.Location = new System.Drawing.Point(27, 246);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(122, 21);
             this.label16.TabIndex = 2;
@@ -311,7 +315,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(57, 440);
+            this.label12.Location = new System.Drawing.Point(59, 369);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(90, 21);
             this.label12.TabIndex = 2;
@@ -320,7 +324,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(320, 143);
+            this.label8.Location = new System.Drawing.Point(320, 121);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 21);
             this.label8.TabIndex = 2;
@@ -329,7 +333,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(41, 243);
+            this.label15.Location = new System.Drawing.Point(43, 204);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(106, 21);
             this.label15.TabIndex = 2;
@@ -338,7 +342,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(57, 392);
+            this.label11.Location = new System.Drawing.Point(59, 331);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(90, 21);
             this.label11.TabIndex = 2;
@@ -347,7 +351,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(320, 92);
+            this.label7.Location = new System.Drawing.Point(322, 78);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 21);
             this.label7.TabIndex = 2;
@@ -356,7 +360,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(41, 92);
+            this.label18.Location = new System.Drawing.Point(41, 78);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(106, 21);
             this.label18.TabIndex = 2;
@@ -365,7 +369,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(304, 392);
+            this.label14.Location = new System.Drawing.Point(306, 331);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(106, 21);
             this.label14.TabIndex = 2;
@@ -374,7 +378,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(320, 292);
+            this.label10.Location = new System.Drawing.Point(322, 246);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 21);
             this.label10.TabIndex = 2;
@@ -383,7 +387,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(25, 345);
+            this.label17.Location = new System.Drawing.Point(27, 289);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(122, 21);
             this.label17.TabIndex = 2;
@@ -392,7 +396,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(304, 345);
+            this.label13.Location = new System.Drawing.Point(306, 289);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(106, 21);
             this.label13.TabIndex = 2;
@@ -401,7 +405,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(320, 243);
+            this.label9.Location = new System.Drawing.Point(322, 204);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(90, 21);
             this.label9.TabIndex = 2;
@@ -410,7 +414,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(304, 192);
+            this.label5.Location = new System.Drawing.Point(304, 163);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 21);
             this.label5.TabIndex = 2;
@@ -419,7 +423,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(306, 41);
+            this.label4.Location = new System.Drawing.Point(306, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 21);
             this.label4.TabIndex = 2;
@@ -428,7 +432,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 41);
+            this.label1.Location = new System.Drawing.Point(39, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 21);
             this.label1.TabIndex = 2;
@@ -743,6 +747,24 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "刀具类型";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(41, 402);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(106, 21);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "刀具用途介绍";
+            // 
+            // djytjs
+            // 
+            this.djytjs.Enabled = false;
+            this.djytjs.Location = new System.Drawing.Point(149, 407);
+            this.djytjs.Multiline = true;
+            this.djytjs.Name = "djytjs";
+            this.djytjs.Size = new System.Drawing.Size(360, 69);
+            this.djytjs.TabIndex = 28;
+            // 
             // DaoJuCanShuXinXi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -801,23 +823,23 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox jp7;
-        private System.Windows.Forms.TextBox jp9;
-        private System.Windows.Forms.TextBox jp15;
-        private System.Windows.Forms.TextBox jp12;
-        private System.Windows.Forms.TextBox jp6;
-        private System.Windows.Forms.TextBox jp8;
-        private System.Windows.Forms.TextBox jp14;
-        private System.Windows.Forms.TextBox jp11;
-        private System.Windows.Forms.TextBox jp17;
-        private System.Windows.Forms.TextBox jp5;
-        private System.Windows.Forms.TextBox jp4;
-        private System.Windows.Forms.TextBox jp13;
-        private System.Windows.Forms.TextBox jp10;
-        private System.Windows.Forms.TextBox jp16;
-        private System.Windows.Forms.TextBox jp3;
-        private System.Windows.Forms.TextBox jp2;
-        private System.Windows.Forms.TextBox jp1;
+        private System.Windows.Forms.TextBox yhbjxgc;
+        private System.Windows.Forms.TextBox djfpj;
+        private System.Windows.Forms.TextBox csxgc;
+        private System.Windows.Forms.TextBox bjxgc;
+        private System.Windows.Forms.TextBox yhbjsgc;
+        private System.Windows.Forms.TextBox djzpj;
+        private System.Windows.Forms.TextBox cdsgc;
+        private System.Windows.Forms.TextBox bjsgc;
+        private System.Windows.Forms.TextBox jxtdfw;
+        private System.Windows.Forms.TextBox djyhbj;
+        private System.Windows.Forms.TextBox smbjyz;
+        private System.Windows.Forms.TextBox djbzcd;
+        private System.Windows.Forms.TextBox djbzbj;
+        private System.Windows.Forms.TextBox dmtdfw;
+        private System.Windows.Forms.TextBox djyssm;
+        private System.Windows.Forms.TextBox djddsl;
+        private System.Windows.Forms.TextBox djclph;
         private System.Windows.Forms.TextBox cp8;
         private System.Windows.Forms.TextBox cp4;
         private System.Windows.Forms.TextBox cp7;
@@ -839,5 +861,7 @@
         private System.Windows.Forms.Label 刀具规格;
         private System.Windows.Forms.TextBox djlx;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox djytjs;
     }
 }

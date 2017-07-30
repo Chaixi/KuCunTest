@@ -44,14 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.daojuxinxi = new System.Windows.Forms.DataGridView();
-            this.djid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.daojuleixing = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djsm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lingyongdanhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lingyongriqi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label24 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.jcsl = new System.Windows.Forms.TextBox();
@@ -60,6 +52,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.grpBox_parameter = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -95,13 +88,20 @@
             this.btn_djwj = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.djid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djsm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djwz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lingyongdanhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lingyongriqi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.daojuxinxi)).BeginInit();
             this.grpBox_parameter.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -261,6 +261,7 @@
             // 
             // daojuxinxi
             // 
+            this.daojuxinxi.AllowUserToAddRows = false;
             this.daojuxinxi.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
             this.daojuxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -270,11 +271,11 @@
             this.daojuxinxi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.daojuxinxi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.djid,
+            this.djxh,
             this.djlx,
-            this.daojuleixing,
             this.djgg,
             this.djsm,
-            this.Column1,
+            this.djwz,
             this.lingyongdanhao,
             this.lingyongriqi});
             this.daojuxinxi.Location = new System.Drawing.Point(14, 77);
@@ -288,69 +289,6 @@
             this.daojuxinxi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.daojuxinxi_CellClick);
             this.daojuxinxi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.daojuxinxi_CellDoubleClick);
             this.daojuxinxi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.daojuxinxi_RowPostPaint);
-            // 
-            // djid
-            // 
-            this.djid.DataPropertyName = "daojuid";
-            this.djid.HeaderText = "刀具ID";
-            this.djid.Name = "djid";
-            this.djid.ReadOnly = true;
-            this.djid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // djlx
-            // 
-            this.djlx.DataPropertyName = "daojuxinghao";
-            this.djlx.HeaderText = "刀具型号";
-            this.djlx.Name = "djlx";
-            this.djlx.ReadOnly = true;
-            this.djlx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // daojuleixing
-            // 
-            this.daojuleixing.DataPropertyName = "daojuleixing";
-            this.daojuleixing.HeaderText = "刀具类型";
-            this.daojuleixing.Name = "daojuleixing";
-            this.daojuleixing.ReadOnly = true;
-            // 
-            // djgg
-            // 
-            this.djgg.DataPropertyName = "daojuguige";
-            this.djgg.HeaderText = "刀具规格";
-            this.djgg.Name = "djgg";
-            this.djgg.ReadOnly = true;
-            this.djgg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // djsm
-            // 
-            this.djsm.DataPropertyName = "daojushouming";
-            this.djsm.HeaderText = "刀具寿命";
-            this.djsm.Name = "djsm";
-            this.djsm.ReadOnly = true;
-            this.djsm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "daojuweizhi";
-            this.Column1.HeaderText = "刀具位置";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // lingyongdanhao
-            // 
-            this.lingyongdanhao.DataPropertyName = "chucangdanhao";
-            this.lingyongdanhao.HeaderText = "领用单号";
-            this.lingyongdanhao.Name = "lingyongdanhao";
-            this.lingyongdanhao.ReadOnly = true;
-            this.lingyongdanhao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // lingyongriqi
-            // 
-            this.lingyongriqi.DataPropertyName = "chucangriqi";
-            this.lingyongriqi.HeaderText = "领用日期";
-            this.lingyongriqi.Name = "lingyongriqi";
-            this.lingyongriqi.ReadOnly = true;
-            this.lingyongriqi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // label24
             // 
@@ -465,6 +403,17 @@
             this.grpBox_parameter.TabIndex = 3;
             this.grpBox_parameter.TabStop = false;
             this.grpBox_parameter.Text = "单把刀具详细信息";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::kucunTest.Properties.Resources.立铣刀;
+            this.pictureBox1.Location = new System.Drawing.Point(1113, 57);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(285, 204);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // label6
             // 
@@ -1293,15 +1242,68 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // pictureBox1
+            // djid
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(1113, 57);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(285, 204);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.djid.DataPropertyName = "daojuid";
+            this.djid.HeaderText = "刀具ID";
+            this.djid.Name = "djid";
+            this.djid.ReadOnly = true;
+            this.djid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // djxh
+            // 
+            this.djxh.DataPropertyName = "daojuxinghao";
+            this.djxh.HeaderText = "刀具型号";
+            this.djxh.Name = "djxh";
+            this.djxh.ReadOnly = true;
+            this.djxh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // djlx
+            // 
+            this.djlx.DataPropertyName = "daojuleixing";
+            this.djlx.HeaderText = "刀具类型";
+            this.djlx.Name = "djlx";
+            this.djlx.ReadOnly = true;
+            // 
+            // djgg
+            // 
+            this.djgg.DataPropertyName = "daojuguige";
+            this.djgg.HeaderText = "刀具规格";
+            this.djgg.Name = "djgg";
+            this.djgg.ReadOnly = true;
+            this.djgg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // djsm
+            // 
+            this.djsm.DataPropertyName = "daojushouming";
+            this.djsm.HeaderText = "刀具寿命";
+            this.djsm.Name = "djsm";
+            this.djsm.ReadOnly = true;
+            this.djsm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // djwz
+            // 
+            this.djwz.DataPropertyName = "daojuweizhi";
+            this.djwz.HeaderText = "刀具位置";
+            this.djwz.Name = "djwz";
+            this.djwz.ReadOnly = true;
+            this.djwz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // lingyongdanhao
+            // 
+            this.lingyongdanhao.DataPropertyName = "chucangdanhao";
+            this.lingyongdanhao.HeaderText = "领用单号";
+            this.lingyongdanhao.Name = "lingyongdanhao";
+            this.lingyongdanhao.ReadOnly = true;
+            this.lingyongdanhao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // lingyongriqi
+            // 
+            this.lingyongriqi.DataPropertyName = "chucangriqi";
+            this.lingyongriqi.HeaderText = "领用日期";
+            this.lingyongriqi.Name = "lingyongriqi";
+            this.lingyongriqi.ReadOnly = true;
+            this.lingyongriqi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // DaoJuGuanLi
             // 
@@ -1335,8 +1337,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.daojuxinxi)).EndInit();
             this.grpBox_parameter.ResumeLayout(false);
             this.grpBox_parameter.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1397,19 +1399,19 @@
         private System.Windows.Forms.TextBox djzs;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button kccx;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djlx;
-        private System.Windows.Forms.DataGridViewTextBoxColumn daojuleixing;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djsm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lingyongdanhao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lingyongriqi;
         private System.Windows.Forms.Button btn_djgh;
         private System.Windows.Forms.Button btn_djwj;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox p10;
         private System.Windows.Forms.TextBox p9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn djid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn djxh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn djlx;
+        private System.Windows.Forms.DataGridViewTextBoxColumn djgg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn djsm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn djwz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lingyongdanhao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lingyongriqi;
     }
 }

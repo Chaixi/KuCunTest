@@ -129,6 +129,19 @@ namespace kucunTest.BaseClasses
         }
 
         /// <summary>
+        /// 条件查询，判断记录是否在数据库中已存在
+        /// </summary>
+        /// <param name="table">要查询的数据表</param>
+        /// <param name="conditions">要查询的SQL语句条件，如djl = 'XXX'</param>
+        /// <returns></returns>
+        public int CunZai(string table, string conditions)
+        {
+            Sqlstr = string.Format("SELECT * FROM {0} WHERE {1}", table, conditions);
+            int row = SQL.getCounts(Sqlstr, table);
+            return row;
+        }
+
+        /// <summary>
         /// 生成树
         /// </summary>
         /// <param name="str">SQL语句，其查询结果作为传入节点的子节点</param>
@@ -146,6 +159,23 @@ namespace kucunTest.BaseClasses
                 if(haveChild)
                 {
                     t.Nodes.Add("");
+                }
+            }
+        }
+
+        /// <summary>
+        /// 清空界面上所有的textbox值
+        /// </summary>
+        /// <param name="ctrlTop"></param>
+        public void ClearText(Control ctrlTop)
+        {
+            if (ctrlTop.GetType() == typeof(TextBox))
+                ctrlTop.Text = "";
+            else
+            {
+                foreach (Control ctrl in ctrlTop.Controls)
+                {
+                    ClearText(ctrl); //循环调用  
                 }
             }
         }
