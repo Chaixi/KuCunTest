@@ -45,12 +45,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cfwz = new System.Windows.Forms.ComboBox();
             this.dth = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.djgbm = new System.Windows.Forms.ComboBox();
             this.bz = new System.Windows.Forms.TextBox();
             this.jcbm = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -160,6 +160,7 @@
             this.djid.Name = "djid";
             this.djid.Size = new System.Drawing.Size(121, 29);
             this.djid.TabIndex = 3;
+            this.djid.SelectedIndexChanged += new System.EventHandler(this.djid_SelectedIndexChanged);
             // 
             // djcd
             // 
@@ -308,15 +309,6 @@
             this.dth.Size = new System.Drawing.Size(121, 29);
             this.dth.TabIndex = 3;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(235, 74);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 21);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "存放位置：";
-            // 
             // djgbm
             // 
             this.djgbm.AutoCompleteCustomSource.AddRange(new string[] {
@@ -392,6 +384,15 @@
             this.label11.Size = new System.Drawing.Size(90, 21);
             this.label11.TabIndex = 2;
             this.label11.Text = "刀柜编码：";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(235, 74);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(90, 21);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "存放位置：";
             // 
             // button2
             // 

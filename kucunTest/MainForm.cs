@@ -16,6 +16,8 @@ using kucunTest.DaoJu;
 using kucunTest.CaiGou;
 using kucunTest.FastReport;
 using kucunTest.BaseClasses;
+using kucunTest.Daojugui;
+using kucunTest.Jichuang;
 
 
 namespace kucunTest
@@ -23,6 +25,9 @@ namespace kucunTest
     public partial class MainForm : Form
     {
         #region 全局变量
+        MySql SQL = new MySql();
+        string Sqlstr = "";
+
         private AutoSizeFormClass asc = new AutoSizeFormClass();
         #endregion
 
@@ -36,7 +41,25 @@ namespace kucunTest
 
             asc.controllInitializeSize(this);
 
-            this.WindowState = FormWindowState.Maximized;//窗口默认最大化
+            //this.WindowState = FormWindowState.Maximized;//窗口默认最大化
+
+            Sqlstr = "SELECT COUNT(DISTINCT dt.daojuleixing) FROM daojutemp dt";
+            djzlsl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//刀具种类
+
+            Sqlstr = "SELECT COUNT(DISTINCT dt.daojuid) FROM daojutemp dt";
+            djsl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//刀具数量
+
+            Sqlstr = "SELECT COUNT(DISTINCT dt.daojuleixing) FROM daojutemp dt WHERE dt.weizhibiaoshi = 'M'";
+            jczydjzl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//机床在用刀具种类
+
+            Sqlstr = "SELECT COUNT(DISTINCT dt.daojuid) FROM daojutemp dt WHERE dt.weizhibiaoshi = 'M'";
+            jczydjsl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//机床在用刀具数量
+
+            Sqlstr = "SELECT COUNT(DISTINCT dt.daojuleixing) FROM daojutemp dt WHERE dt.weizhibiaoshi = 'S'";
+            djgdjzlsl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//刀具柜刀具种类
+
+            Sqlstr = "SELECT COUNT(DISTINCT dt.daojuid) FROM daojutemp dt WHERE dt.weizhibiaoshi = 'S'";
+            djgdjsl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//刀具柜刀具数量
         }
 
         #region 其他
@@ -593,6 +616,20 @@ namespace kucunTest
         {
             DaoJuLeiXingGuanLi djlxgl = new DaoJuLeiXingGuanLi();
             djlxgl.Show();
+        }
+
+        private void 刀具柜管理ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            daojugui djg = new daojugui();
+            //djg.MdiParent = this;
+            djg.Show();
+        }
+
+        private void 机床管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            jichuang jc = new jichuang();
+            //jc.MdiParent = this;
+            jc.Show();
         }
     }
 }

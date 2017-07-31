@@ -31,15 +31,24 @@ namespace kucunTest.DaoJu
         {
             sqlstr = "select distinct daojuleixing from daojutemp";
             djlx.DataSource = SQL.DataReadList(sqlstr);
-            djlx.SelectedIndex = 0;
+            djlx.SelectedIndex = -1;
         }
 
         #region 刀具信息三级联动
         private void djxh_SelectedIndexChanged(object sender, EventArgs e)
         {
-            sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'";
-            djgg.DataSource = SQL.DataReadList(sqlstr);
-            //djgg.SelectedIndex = 0;//默认选择第一项
+            if(djlx.Text == "")
+            {
+                djgg.Text = "";
+                return;
+            }
+            else
+            {
+                sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'";
+                djgg.DataSource = SQL.DataReadList(sqlstr);
+                djgg.SelectedIndex = 0;//默认为空
+            }
+            
         }
 
         private void djgg_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,34 +56,28 @@ namespace kucunTest.DaoJu
             //sqlstr = "select daojuid from daojutemp where daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'" + " and daojuguige = '" + djgg.SelectedItem.ToString().Trim() + "'";
             //djid.DataSource = SQL.DataReadList(sqlstr);
             //djid.SelectedIndex = 0;//默认选择第一项
-
-            sqlstr = "SELECT dj.daojuid, dj.daojuxinghao, dj.daojuguige, dj.daojuleixing, dj.daojushouming, djmx.jichuangbianma FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid WHERE dj.daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'" + " and dj.daojuguige = '" + djgg.SelectedItem.ToString().Trim() + "'";
-            djid.Text = "";
-            List<string> list1 = new List<string>();//机床位置信息
-            List<string> list2 = new List<string>();//刀具ID信息
-            List<string> list3 = new List<string>();
-            list1 = SQL.DataReadList1(sqlstr);//机床位置信息
-            list2 = SQL.DataReadList(sqlstr);//刀具ID信息
-            for (int i = 0; i < list1.Count; i++)
+            if(djgg.Text == "")
             {
-                if (list1[i] == "")
-                {
-                    list3.Add(list2[i]);
-                }
-                else
-                {
-                    continue;
-                }
-
-            }
-            if (list3.Count == 0)
-            {
-                MessageBox.Show("该规格下没有空闲刀具，是否现在进行装配刀具？", "提示", MessageBoxButtons.YesNo);//是否进行刀具装配
+                djid.Text = "";
+                return;
             }
             else
             {
-                djid.DataSource = list3;
-            }
+                djid.DataSource = null;
+
+                sqlstr = "SELECT dj.daojuid FROM daojutemp dj WHERE dj.weizhibiaoshi = 'S' AND dj.daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'" + " AND dj.daojuguige = '" + djgg.SelectedItem.ToString().Trim() + "'";
+
+                List<string> list = new List<string>();
+                list = SQL.DataReadList(sqlstr);
+                if (list.Count == 0)
+                {
+                    MessageBox.Show("该规格下没有空闲刀具，是否现在进行装配刀具？", "提示", MessageBoxButtons.YesNo);//是否进行刀具装配
+                }
+                else
+                {
+                    djid.DataSource = list;
+                }
+            }            
         }
         #endregion
 

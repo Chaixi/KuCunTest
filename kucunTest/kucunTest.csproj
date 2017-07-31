@@ -103,6 +103,18 @@
     <Compile Include="ChuCang\NewCC.Designer.cs">
       <DependentUpon>NewCC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Daojugui\daojugui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Daojugui\daojugui.Designer.cs">
+      <DependentUpon>daojugui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Daojugui\XZDJG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Daojugui\XZDJG.Designer.cs">
+      <DependentUpon>XZDJG.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaoJu\DaoJuCanShuXinXi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +247,18 @@
     <Compile Include="FastReport\FastReport测试.Designer.cs">
       <DependentUpon>FastReport测试.cs</DependentUpon>
     </Compile>
+    <Compile Include="Jichuang\jichuang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jichuang\jichuang.Designer.cs">
+      <DependentUpon>jichuang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jichuang\xinzengjichuang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jichuang\xinzengjichuang.Designer.cs">
+      <DependentUpon>xinzengjichuang.cs</DependentUpon>
+    </Compile>
     <Compile Include="KuCun\KCMingXi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +335,12 @@
     <EmbeddedResource Include="ChuCang\NewCC.resx">
       <DependentUpon>NewCC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Daojugui\daojugui.resx">
+      <DependentUpon>daojugui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daojugui\XZDJG.resx">
+      <DependentUpon>XZDJG.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DaoJuCanShuXinXi.resx">
       <DependentUpon>DaoJuCanShuXinXi.cs</DependentUpon>
     </EmbeddedResource>
@@ -377,6 +407,12 @@
     <EmbeddedResource Include="FastReport\FastReport测试.resx">
       <DependentUpon>FastReport测试.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Jichuang\jichuang.resx">
+      <DependentUpon>jichuang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jichuang\xinzengjichuang.resx">
+      <DependentUpon>xinzengjichuang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KuCun\KCMingXi.resx">
       <DependentUpon>KCMingXi.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,8 +471,11 @@
   <ItemGroup>
     <Content Include="File\中国一拖+国机集团.jpg" />
     <Content Include="File\中国一拖.jpg" />
+    <Content Include="Resources\刀具柜.jpg" />
+    <Content Include="Resources\刀具柜1.jpg" />
     <None Include="Resources\background.png" />
     <None Include="Resources\background 带遮罩.jpg" />
+    <Content Include="Resources\1.jpg" />
     <Content Include="Resources\中国一拖+国机集团.jpg" />
     <Content Include="Resources\中国一拖.jpg" />
   </ItemGroup>

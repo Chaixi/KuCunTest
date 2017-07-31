@@ -208,7 +208,7 @@ namespace kucunTest
         #endregion
 
         #region 返回list
-        public List<string> DataReadList1(string SQLstr)
+        public List<string> DataReadList2(string SQLstr)
         {
             List<string> list = new List<string>();
             getcon();
@@ -218,8 +218,8 @@ namespace kucunTest
             MySqlDataReader My_read = My_com.ExecuteReader();  //执行SQL语句，生成一个SqlDataReader对象
             while (My_read.Read())
             {
-                //list.Add(My_read[0].ToString());
-                list.Add(My_read[5].ToString());
+                list.Add(My_read[0].ToString());
+                list.Add(My_read[1].ToString());
             }
             return list;
         }

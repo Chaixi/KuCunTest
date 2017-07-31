@@ -72,6 +72,10 @@
             this.零部件库存管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.零部件领用单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.零部件退还单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刀具柜管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刀具柜管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.机床ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.机床管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabIndex = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -97,6 +101,16 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.close = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.djzlsl = new System.Windows.Forms.Label();
+            this.djsl = new System.Windows.Forms.Label();
+            this.jczydjzl = new System.Windows.Forms.Label();
+            this.jczydjsl = new System.Windows.Forms.Label();
+            this.djgdjzlsl = new System.Windows.Forms.Label();
+            this.djgdjsl = new System.Windows.Forms.Label();
+            this.smdqdjsl = new System.Windows.Forms.Label();
+            this.kcbzlbjsl = new System.Windows.Forms.Label();
+            this.ylrdj = new System.Windows.Forms.Label();
+            this.zcdj = new System.Windows.Forms.Label();
             this.mainMenu.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabIndex.SuspendLayout();
@@ -118,7 +132,9 @@
             this.临时ToolStripMenuItem,
             this.fR测试ToolStripMenuItem,
             this.刀具ToolStripMenuItem,
-            this.零部件ToolStripMenuItem});
+            this.零部件ToolStripMenuItem,
+            this.刀具柜管理ToolStripMenuItem,
+            this.机床ToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Size = new System.Drawing.Size(1184, 29);
@@ -437,6 +453,36 @@
             this.零部件退还单ToolStripMenuItem.Text = "零部件退还单";
             this.零部件退还单ToolStripMenuItem.Click += new System.EventHandler(this.零部件退还单ToolStripMenuItem_Click);
             // 
+            // 刀具柜管理ToolStripMenuItem
+            // 
+            this.刀具柜管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.刀具柜管理ToolStripMenuItem1});
+            this.刀具柜管理ToolStripMenuItem.Name = "刀具柜管理ToolStripMenuItem";
+            this.刀具柜管理ToolStripMenuItem.Size = new System.Drawing.Size(70, 25);
+            this.刀具柜管理ToolStripMenuItem.Text = "刀具柜";
+            // 
+            // 刀具柜管理ToolStripMenuItem1
+            // 
+            this.刀具柜管理ToolStripMenuItem1.Name = "刀具柜管理ToolStripMenuItem1";
+            this.刀具柜管理ToolStripMenuItem1.Size = new System.Drawing.Size(160, 26);
+            this.刀具柜管理ToolStripMenuItem1.Text = "刀具柜管理";
+            this.刀具柜管理ToolStripMenuItem1.Click += new System.EventHandler(this.刀具柜管理ToolStripMenuItem1_Click);
+            // 
+            // 机床ToolStripMenuItem
+            // 
+            this.机床ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.机床管理ToolStripMenuItem});
+            this.机床ToolStripMenuItem.Name = "机床ToolStripMenuItem";
+            this.机床ToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
+            this.机床ToolStripMenuItem.Text = "机床";
+            // 
+            // 机床管理ToolStripMenuItem
+            // 
+            this.机床管理ToolStripMenuItem.Name = "机床管理ToolStripMenuItem";
+            this.机床管理ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.机床管理ToolStripMenuItem.Text = "机床管理";
+            this.机床管理ToolStripMenuItem.Click += new System.EventHandler(this.机床管理ToolStripMenuItem_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.TabIndex);
@@ -471,9 +517,9 @@
             this.groupBox2.Controls.Add(this.linkLabel1);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.groupBox2.ForeColor = System.Drawing.Color.LightGray;
-            this.groupBox2.Location = new System.Drawing.Point(287, 295);
+            this.groupBox2.Location = new System.Drawing.Point(271, 283);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(633, 89);
+            this.groupBox2.Size = new System.Drawing.Size(647, 101);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "常用功能";
@@ -532,15 +578,25 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.zcdj);
+            this.groupBox1.Controls.Add(this.ylrdj);
+            this.groupBox1.Controls.Add(this.kcbzlbjsl);
+            this.groupBox1.Controls.Add(this.smdqdjsl);
+            this.groupBox1.Controls.Add(this.djgdjsl);
+            this.groupBox1.Controls.Add(this.djgdjzlsl);
+            this.groupBox1.Controls.Add(this.jczydjsl);
+            this.groupBox1.Controls.Add(this.jczydjzl);
+            this.groupBox1.Controls.Add(this.djsl);
+            this.groupBox1.Controls.Add(this.djzlsl);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.groupBox1.ForeColor = System.Drawing.Color.LightGray;
-            this.groupBox1.Location = new System.Drawing.Point(287, 91);
+            this.groupBox1.Location = new System.Drawing.Point(271, 91);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(633, 198);
+            this.groupBox1.Size = new System.Drawing.Size(647, 186);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "系统提示";
@@ -549,7 +605,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(293, 141);
+            this.label13.Location = new System.Drawing.Point(332, 141);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(42, 21);
             this.label13.TabIndex = 0;
@@ -559,7 +615,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(164, 141);
+            this.label5.Location = new System.Drawing.Point(172, 141);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 21);
             this.label5.TabIndex = 0;
@@ -569,7 +625,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(202, 141);
+            this.label12.Location = new System.Drawing.Point(220, 141);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(74, 21);
             this.label12.TabIndex = 0;
@@ -589,7 +645,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(267, 105);
+            this.label11.Location = new System.Drawing.Point(276, 105);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(154, 21);
             this.label11.TabIndex = 0;
@@ -609,7 +665,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(472, 66);
+            this.label10.Location = new System.Drawing.Point(497, 66);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(106, 21);
             this.label10.TabIndex = 0;
@@ -619,7 +675,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(202, 66);
+            this.label8.Location = new System.Drawing.Point(212, 66);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 21);
             this.label8.TabIndex = 0;
@@ -629,7 +685,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(332, 66);
+            this.label9.Location = new System.Drawing.Point(349, 66);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(122, 21);
             this.label9.TabIndex = 0;
@@ -649,7 +705,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(136, 29);
+            this.label6.Location = new System.Drawing.Point(147, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 21);
             this.label6.TabIndex = 0;
@@ -707,6 +763,106 @@
             this.closeAll.Size = new System.Drawing.Size(124, 22);
             this.closeAll.Text = "关闭全部";
             this.closeAll.Click += new System.EventHandler(this.closeAll_Click);
+            // 
+            // djzlsl
+            // 
+            this.djzlsl.AutoSize = true;
+            this.djzlsl.ForeColor = System.Drawing.Color.Yellow;
+            this.djzlsl.Location = new System.Drawing.Point(122, 29);
+            this.djzlsl.Name = "djzlsl";
+            this.djzlsl.Size = new System.Drawing.Size(19, 21);
+            this.djzlsl.TabIndex = 0;
+            this.djzlsl.Text = "1";
+            // 
+            // djsl
+            // 
+            this.djsl.AutoSize = true;
+            this.djsl.ForeColor = System.Drawing.Color.Yellow;
+            this.djsl.Location = new System.Drawing.Point(289, 29);
+            this.djsl.Name = "djsl";
+            this.djsl.Size = new System.Drawing.Size(19, 21);
+            this.djsl.TabIndex = 0;
+            this.djsl.Text = "1";
+            // 
+            // jczydjzl
+            // 
+            this.jczydjzl.AutoSize = true;
+            this.jczydjzl.ForeColor = System.Drawing.Color.Yellow;
+            this.jczydjzl.Location = new System.Drawing.Point(187, 66);
+            this.jczydjzl.Name = "jczydjzl";
+            this.jczydjzl.Size = new System.Drawing.Size(19, 21);
+            this.jczydjzl.TabIndex = 0;
+            this.jczydjzl.Text = "1";
+            // 
+            // jczydjsl
+            // 
+            this.jczydjsl.AutoSize = true;
+            this.jczydjsl.ForeColor = System.Drawing.Color.Yellow;
+            this.jczydjsl.Location = new System.Drawing.Point(324, 66);
+            this.jczydjsl.Name = "jczydjsl";
+            this.jczydjsl.Size = new System.Drawing.Size(19, 21);
+            this.jczydjsl.TabIndex = 0;
+            this.jczydjsl.Text = "1";
+            // 
+            // djgdjzlsl
+            // 
+            this.djgdjzlsl.AutoSize = true;
+            this.djgdjzlsl.ForeColor = System.Drawing.Color.Yellow;
+            this.djgdjzlsl.Location = new System.Drawing.Point(472, 66);
+            this.djgdjzlsl.Name = "djgdjzlsl";
+            this.djgdjzlsl.Size = new System.Drawing.Size(19, 21);
+            this.djgdjzlsl.TabIndex = 0;
+            this.djgdjzlsl.Text = "1";
+            // 
+            // djgdjsl
+            // 
+            this.djgdjsl.AutoSize = true;
+            this.djgdjsl.ForeColor = System.Drawing.Color.Yellow;
+            this.djgdjsl.Location = new System.Drawing.Point(608, 66);
+            this.djgdjsl.Name = "djgdjsl";
+            this.djgdjsl.Size = new System.Drawing.Size(19, 21);
+            this.djgdjsl.TabIndex = 0;
+            this.djgdjsl.Text = "1";
+            // 
+            // smdqdjsl
+            // 
+            this.smdqdjsl.AutoSize = true;
+            this.smdqdjsl.ForeColor = System.Drawing.Color.Yellow;
+            this.smdqdjsl.Location = new System.Drawing.Point(41, 105);
+            this.smdqdjsl.Name = "smdqdjsl";
+            this.smdqdjsl.Size = new System.Drawing.Size(19, 21);
+            this.smdqdjsl.TabIndex = 0;
+            this.smdqdjsl.Text = "0";
+            // 
+            // kcbzlbjsl
+            // 
+            this.kcbzlbjsl.AutoSize = true;
+            this.kcbzlbjsl.ForeColor = System.Drawing.Color.Yellow;
+            this.kcbzlbjsl.Location = new System.Drawing.Point(251, 105);
+            this.kcbzlbjsl.Name = "kcbzlbjsl";
+            this.kcbzlbjsl.Size = new System.Drawing.Size(19, 21);
+            this.kcbzlbjsl.TabIndex = 0;
+            this.kcbzlbjsl.Text = "0";
+            // 
+            // ylrdj
+            // 
+            this.ylrdj.AutoSize = true;
+            this.ylrdj.ForeColor = System.Drawing.Color.Yellow;
+            this.ylrdj.Location = new System.Drawing.Point(151, 141);
+            this.ylrdj.Name = "ylrdj";
+            this.ylrdj.Size = new System.Drawing.Size(19, 21);
+            this.ylrdj.TabIndex = 0;
+            this.ylrdj.Text = "0";
+            // 
+            // zcdj
+            // 
+            this.zcdj.AutoSize = true;
+            this.zcdj.ForeColor = System.Drawing.Color.Yellow;
+            this.zcdj.Location = new System.Drawing.Point(307, 141);
+            this.zcdj.Name = "zcdj";
+            this.zcdj.Size = new System.Drawing.Size(19, 21);
+            this.zcdj.TabIndex = 0;
+            this.zcdj.Text = "0";
             // 
             // MainForm
             // 
@@ -809,6 +965,20 @@
         private System.Windows.Forms.ToolStripMenuItem 零部件退还单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 零部件库存管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 刀具类型管理ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 刀具柜管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 刀具柜管理ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 机床ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 机床管理ToolStripMenuItem;
+        private System.Windows.Forms.Label zcdj;
+        private System.Windows.Forms.Label ylrdj;
+        private System.Windows.Forms.Label kcbzlbjsl;
+        private System.Windows.Forms.Label smdqdjsl;
+        private System.Windows.Forms.Label djgdjsl;
+        private System.Windows.Forms.Label djgdjzlsl;
+        private System.Windows.Forms.Label jczydjsl;
+        private System.Windows.Forms.Label jczydjzl;
+        private System.Windows.Forms.Label djsl;
+        private System.Windows.Forms.Label djzlsl;
     }
 }
 

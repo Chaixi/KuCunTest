@@ -23,6 +23,10 @@ namespace kucunTest.DaoJu
         private string DJID = "";
         private DataGridView dgv = new DataGridView();
         #endregion
+
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
         public DJKCMX()
         {
             InitializeComponent();
@@ -35,28 +39,30 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void DJCZJL_Load(object sender, EventArgs e)
         {
-            //加载表3，单把刀具具体操作记录
-            //dgv = liushuibiao;
-            //dgv.AutoGenerateColumns = false;
-            //Sqlstr = string.Format("SELECT danhao, dhlx, djlx, djgg, djid, CONCAT(wzbm, '-', jtwz) AS djwz, czsj, jbr, bz FROM {0} ORDER BY czsj DESC", DanJuBiao);
-            //DataSet ds = SQL.getDataSet(Sqlstr, DanJuBiao);
-            //dgv.DataSource = ds.Tables[0].DefaultView;
-
             //加载表1，库存统计表
-            //Sqlstr = "SELECT daojuleixing AS djlx, COUNT(d.daojuleixing) AS sysl FROM daojutemp d GROUP BY d.daojuleixing";
-            Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(dt.daojuleixing) AS sysl, COUNT(dt.daojuleixing) + SUM(d.zsl) - SUM(d.fsl) AS kysl, dt.jiliangdanwei AS jldw FROM daojutemp dt LEFT JOIN daojuliushui d ON dt.daojuid = d.djid GROUP BY dt.daojuleixing";
+            //Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl, COUNT(dt.daojuleixing) + SUM(d.zsl) - SUM(d.fsl) AS kysl FROM daojutemp dt LEFT JOIN daojuliushui d ON dt.daojuid = d.djid GROUP BY dt.daojuleixing";
+
+            Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl FROM daojutemp dt GROUP BY dt.daojuleixing";
             KCTJ.AutoGenerateColumns = false;
-            KCTJ.DataSource = (SQL.getDataSet(Sqlstr, "daojutemp")).Tables[0].DefaultView;
+            DataSet ds = SQL.getDataSet1(Sqlstr);
+            KCTJ.DataSource = ds.Tables[0].DefaultView;
 
             //对可用数量等于所有数量，但是显示为空的行，进行遍历
             for(int rowindex = 0; rowindex < KCTJ.Rows.Count; rowindex++)
             {
-                if (KCTJ.Rows[rowindex].Cells["kctj_kysl"].Value.ToString() == "")//可用数量等于所有数量
+                Sqlstr = "SELECT COUNT(dt.daojuid) FROM daojutemp dt WHERE dt.daojuleixing = '" + KCTJ.Rows[rowindex].Cells["kctj_djlx"].Value.ToString() + "'" + " AND dt.weizhibiaoshi = 'S' ";
+                int kysl = Convert.ToInt32(SQL.ExecuteScalar(Sqlstr).ToString());//可用数量
+
+                KCTJ.Rows[rowindex].Cells["kctj_kysl"].Value = kysl.ToString();//赋值
+
+                int sysl = Convert.ToInt32(KCTJ.Rows[rowindex].Cells["kctj_sysl"].Value.ToString());//所有数量
+
+                if (kysl == sysl)//可用数量等于所有数量
                 {
-                    KCTJ.Rows[rowindex].Cells["kctj_kysl"].Value = KCTJ.Rows[rowindex].Cells["kctj_sysl"].Value;
+                    //KCTJ.Rows[rowindex].Cells["kctj_kysl"].Value = KCTJ.Rows[rowindex].Cells["kctj_sysl"].Value;
                     KCTJ.Rows[rowindex].DefaultCellStyle.BackColor = Color.AliceBlue;
                 }
-                else if(Convert.ToInt32(KCTJ.Rows[rowindex].Cells["kctj_kysl"].Value) == 0 )//可用数量为0的情况下，底色变红色警告
+                else if(kysl == 0 )//可用数量为0的情况下，底色变红色警告
                 {
                     KCTJ.Rows[rowindex].DefaultCellStyle.BackColor = Color.Red;
                 }
