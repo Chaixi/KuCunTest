@@ -217,18 +217,19 @@ namespace kucunTest
 
             if (!have)
             {
-                TabPage tb_djccd = new TabPage();
-                djccd.Parent = tb_djccd;
-                tb_djccd.Text = djccd.Text;
-                tb_djccd.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb_djccd.BackgroundImageLayout = ImageLayout.Stretch;
+                TabPage tb = new TabPage();
+                tb.Name = djccd.Name;
+                djccd.Parent = tb;
+                tb.Text = djccd.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
 
-                this.tabControl1.TabPages.Add(tb_djccd);
-                tabControl1.SelectedTab = tb_djccd;
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
                 djccd.Left = (tabControl1.Width - djccd.Width) / 2;
-                djccd.Top = (tb_djccd.Height - djccd.Height) / 4;
+                djccd.Top = (tb.Height - djccd.Height) / 4;
 
                 djccd.Show();
             }
@@ -257,18 +258,19 @@ namespace kucunTest
 
             if(!have)
             {
-                TabPage tb_djwj = new TabPage();
-                djwj.Parent = tb_djwj;
-                tb_djwj.Text = djwj.Text;
-                tb_djwj.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb_djwj.BackgroundImageLayout = ImageLayout.Stretch;
+                TabPage tb = new TabPage();
+                tb.Name = djwj.Name;
+                djwj.Parent = tb;
+                tb.Text = djwj.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
 
-                this.tabControl1.TabPages.Add(tb_djwj);
-                tabControl1.SelectedTab = tb_djwj;
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
                 djwj.Left = (tabControl1.Width - djwj.Width) / 2;
-                djwj.Top = (tb_djwj.Height - djwj.Height) / 4;
+                djwj.Top = (tb.Height - djwj.Height) / 4;
 
                 djwj.Show();
             }
@@ -298,18 +300,19 @@ namespace kucunTest
 
             if(!have)
             {
-                TabPage tb_djgh = new TabPage();
-                djgh.Parent = tb_djgh;
-                tb_djgh.Text = djgh.Text;
-                tb_djgh.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb_djgh.BackgroundImageLayout = ImageLayout.Stretch;
+                TabPage tb = new TabPage();
+                tb.Name = djgh.Name;
+                djgh.Parent = tb;
+                tb.Text = djgh.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
 
-                this.tabControl1.TabPages.Add(tb_djgh);
-                tabControl1.SelectedTab = tb_djgh;
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
                 djgh.Left = (tabControl1.Width - djgh.Width) / 2;
-                djgh.Top = (tb_djgh.Height - djgh.Height) / 4;
+                djgh.Top = (tb.Height - djgh.Height) / 4;
 
                 djgh.Show();
             }
@@ -339,18 +342,19 @@ namespace kucunTest
 
             if(!have)
             {
-                TabPage tb_djbf = new TabPage();
-                djbf.Parent = tb_djbf;
-                tb_djbf.Text = djbf.Text;
-                tb_djbf.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb_djbf.BackgroundImageLayout = ImageLayout.Stretch;
+                TabPage tb = new TabPage();
+                tb.Name = djbf.Name;
+                djbf.Parent = tb;
+                tb.Text = djbf.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
 
-                this.tabControl1.TabPages.Add(tb_djbf);
-                tabControl1.SelectedTab = tb_djbf;
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
                 djbf.Left = (tabControl1.Width - djbf.Width) / 2;
-                djbf.Top = (tb_djbf.Height - djbf.Height) / 4;
+                djbf.Top = (tb.Height - djbf.Height) / 4;
 
                 djbf.Show();
             }
@@ -379,20 +383,64 @@ namespace kucunTest
 
             if(!have)
             {
-                TabPage tb_djth = new TabPage();
-                djth.Parent = tb_djth;
-                tb_djth.Text = djth.Text;
-                tb_djth.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb_djth.BackgroundImageLayout = ImageLayout.Stretch;
+                TabPage tb = new TabPage();
+                tb.Name = djth.Name;
+                djth.Parent = tb;
+                tb.Text = djth.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
 
-                this.tabControl1.TabPages.Add(tb_djth);
-                tabControl1.SelectedTab = tb_djth;
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
                 djth.Left = (tabControl1.Width - djth.Width) / 2;
-                djth.Top = (tb_djth.Height - djth.Height) / 4;
+                djth.Top = (tb.Height - djth.Height) / 4;
 
                 djth.Show();
+            }
+        }
+
+        /// <summary>
+        /// 组和领用单据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 组合领用单据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DJZZLY djzzly = new DJZZLY();
+            djzzly.MdiParent = this;
+            //djzzly.Owner = this;
+            //djzzly.Show();
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djzzly.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djzzly.Name;
+                djzzly.Parent = tb;
+                tb.Text = djzzly.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djzzly.Left = (tabControl1.Width - djzzly.Width) / 2;
+                djzzly.Top = (tb.Height - djzzly.Height) / 4;
+
+                djzzly.Show();
             }
         }
 
@@ -447,6 +495,22 @@ namespace kucunTest
             }
         }
 
+        /// <summary>
+        /// 关闭窗体时调用关闭选项卡
+        /// </summary>
+        /// <param name="tab_name"></param>
+        public void CloseTab(string tab_name)
+        {
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Name == tab_name)
+                {
+                    tp.Dispose();
+                    return;
+                }
+            }
+        }
+        
         /// <summary>
         /// 关闭全部选项卡，除了首页
         /// </summary>
@@ -631,5 +695,6 @@ namespace kucunTest
             //jc.MdiParent = this;
             jc.Show();
         }
+
     }
 }

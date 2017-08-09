@@ -597,6 +597,7 @@
             this.Name = "DJWJ";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具外借申请表暨领用单";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DJWJ_FormClosed);
             this.Load += new System.EventHandler(this.DJWJ_Load);
             this.SizeChanged += new System.EventHandler(this.DJWJ_SizeChanged);
             this.groupBox1.ResumeLayout(false);

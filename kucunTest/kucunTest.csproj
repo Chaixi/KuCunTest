@@ -163,6 +163,12 @@
     <Compile Include="DaoJu\DJTH.Designer.cs">
       <DependentUpon>DJTH.cs</DependentUpon>
     </Compile>
+    <Compile Include="DaoJu\DJZZLY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoJu\DJZZLY.Designer.cs">
+      <DependentUpon>DJZZLY.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaoJu\History.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DJTH.resx">
       <DependentUpon>DJTH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoJu\DJZZLY.resx">
+      <DependentUpon>DJZZLY.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\History.resx">
       <DependentUpon>History.cs</DependentUpon>

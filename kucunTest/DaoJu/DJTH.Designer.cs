@@ -502,6 +502,7 @@
             this.Name = "DJTH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具退还单";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DJTH_FormClosed);
             this.Load += new System.EventHandler(this.DJTH_Load);
             this.SizeChanged += new System.EventHandler(this.DJTH_SizeChanged);
             this.groupBox1.ResumeLayout(false);

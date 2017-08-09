@@ -171,7 +171,6 @@ namespace kucunTest.Daojugui
                 {
                     //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
                     kcmx.Rows[i].Cells["Column5"].Style.BackColor = Color.Red;
-
                 }
 
             }

@@ -619,6 +619,7 @@
             this.Name = "DJBF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "刀具报废申请单";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DJBF_FormClosed);
             this.Load += new System.EventHandler(this.DJBF_Load);
             this.SizeChanged += new System.EventHandler(this.DJBF_SizeChanged);
             this.groupBox1.ResumeLayout(false);

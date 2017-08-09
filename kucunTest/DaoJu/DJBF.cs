@@ -444,8 +444,21 @@ namespace kucunTest.DaoJu
         }
 
 
+
         #endregion
-        
-        
+
+        /// <summary>
+        /// 当窗体在选项卡中打开时，关闭窗体则关闭相应的选项卡
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DJBF_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.Parent != null)
+            {
+                MainForm mfr = (MainForm)this.Parent.FindForm();
+                mfr.CloseTab(this.Name);
+            }
+        }
     }
 }

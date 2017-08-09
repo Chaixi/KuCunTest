@@ -77,6 +77,11 @@
             this.机床ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机床管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.close = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeAll = new System.Windows.Forms.ToolStripMenuItem();
             this.TabIndex = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
@@ -92,32 +97,32 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.zcdj = new System.Windows.Forms.Label();
+            this.ylrdj = new System.Windows.Forms.Label();
+            this.kcbzlbjsl = new System.Windows.Forms.Label();
+            this.smdqdjsl = new System.Windows.Forms.Label();
+            this.djgdjsl = new System.Windows.Forms.Label();
+            this.djgdjzlsl = new System.Windows.Forms.Label();
+            this.jczydjsl = new System.Windows.Forms.Label();
+            this.jczydjzl = new System.Windows.Forms.Label();
+            this.djsl = new System.Windows.Forms.Label();
+            this.djzlsl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.close = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.djzlsl = new System.Windows.Forms.Label();
-            this.djsl = new System.Windows.Forms.Label();
-            this.jczydjzl = new System.Windows.Forms.Label();
-            this.jczydjsl = new System.Windows.Forms.Label();
-            this.djgdjzlsl = new System.Windows.Forms.Label();
-            this.djgdjsl = new System.Windows.Forms.Label();
-            this.smdqdjsl = new System.Windows.Forms.Label();
-            this.kcbzlbjsl = new System.Windows.Forms.Label();
-            this.ylrdj = new System.Windows.Forms.Label();
-            this.zcdj = new System.Windows.Forms.Label();
+            this.组合领用单据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.TabIndex.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -352,7 +357,8 @@
             this.刀具外借单ToolStripMenuItem,
             this.刀具更换单ToolStripMenuItem,
             this.刀具报废单ToolStripMenuItem,
-            this.刀具退还单ToolStripMenuItem});
+            this.刀具退还单ToolStripMenuItem,
+            this.组合领用单据ToolStripMenuItem});
             this.临时ToolStripMenuItem.Name = "临时ToolStripMenuItem";
             this.临时ToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
             this.临时ToolStripMenuItem.Text = "临时";
@@ -490,10 +496,54 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1184, 693);
+            this.tabControl1.Size = new System.Drawing.Size(1004, 693);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
             this.tabControl1.MouseLeave += new System.EventHandler(this.tabControl1_MouseLeave);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.splitContainer1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 29);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1184, 693);
+            this.panel1.TabIndex = 3;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer1.Size = new System.Drawing.Size(1184, 693);
+            this.splitContainer1.SplitterDistance = 176;
+            this.splitContainer1.TabIndex = 2;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.close,
+            this.closeAll});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
+            // 
+            // close
+            // 
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(124, 22);
+            this.close.Text = "关闭";
+            this.close.Click += new System.EventHandler(this.close_Click);
+            // 
+            // closeAll
+            // 
+            this.closeAll.Name = "closeAll";
+            this.closeAll.Size = new System.Drawing.Size(124, 22);
+            this.closeAll.Text = "关闭全部";
+            this.closeAll.Click += new System.EventHandler(this.closeAll_Click);
             // 
             // TabIndex
             // 
@@ -504,7 +554,7 @@
             this.TabIndex.Controls.Add(this.label1);
             this.TabIndex.Location = new System.Drawing.Point(4, 26);
             this.TabIndex.Name = "TabIndex";
-            this.TabIndex.Size = new System.Drawing.Size(1176, 663);
+            this.TabIndex.Size = new System.Drawing.Size(996, 663);
             this.TabIndex.TabIndex = 0;
             this.TabIndex.Text = "首页";
             this.TabIndex.UseVisualStyleBackColor = true;
@@ -681,16 +731,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "类，总数量为";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(349, 66);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 21);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "。刀具柜刀具共";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -700,6 +740,106 @@
             this.label7.Size = new System.Drawing.Size(154, 21);
             this.label7.TabIndex = 0;
             this.label7.Text = "其中机床在用刀具共";
+            // 
+            // zcdj
+            // 
+            this.zcdj.AutoSize = true;
+            this.zcdj.ForeColor = System.Drawing.Color.Yellow;
+            this.zcdj.Location = new System.Drawing.Point(307, 141);
+            this.zcdj.Name = "zcdj";
+            this.zcdj.Size = new System.Drawing.Size(19, 21);
+            this.zcdj.TabIndex = 0;
+            this.zcdj.Text = "0";
+            // 
+            // ylrdj
+            // 
+            this.ylrdj.AutoSize = true;
+            this.ylrdj.ForeColor = System.Drawing.Color.Yellow;
+            this.ylrdj.Location = new System.Drawing.Point(151, 141);
+            this.ylrdj.Name = "ylrdj";
+            this.ylrdj.Size = new System.Drawing.Size(19, 21);
+            this.ylrdj.TabIndex = 0;
+            this.ylrdj.Text = "0";
+            // 
+            // kcbzlbjsl
+            // 
+            this.kcbzlbjsl.AutoSize = true;
+            this.kcbzlbjsl.ForeColor = System.Drawing.Color.Yellow;
+            this.kcbzlbjsl.Location = new System.Drawing.Point(251, 105);
+            this.kcbzlbjsl.Name = "kcbzlbjsl";
+            this.kcbzlbjsl.Size = new System.Drawing.Size(19, 21);
+            this.kcbzlbjsl.TabIndex = 0;
+            this.kcbzlbjsl.Text = "0";
+            // 
+            // smdqdjsl
+            // 
+            this.smdqdjsl.AutoSize = true;
+            this.smdqdjsl.ForeColor = System.Drawing.Color.Yellow;
+            this.smdqdjsl.Location = new System.Drawing.Point(41, 105);
+            this.smdqdjsl.Name = "smdqdjsl";
+            this.smdqdjsl.Size = new System.Drawing.Size(19, 21);
+            this.smdqdjsl.TabIndex = 0;
+            this.smdqdjsl.Text = "0";
+            // 
+            // djgdjsl
+            // 
+            this.djgdjsl.AutoSize = true;
+            this.djgdjsl.ForeColor = System.Drawing.Color.Yellow;
+            this.djgdjsl.Location = new System.Drawing.Point(608, 66);
+            this.djgdjsl.Name = "djgdjsl";
+            this.djgdjsl.Size = new System.Drawing.Size(19, 21);
+            this.djgdjsl.TabIndex = 0;
+            this.djgdjsl.Text = "1";
+            // 
+            // djgdjzlsl
+            // 
+            this.djgdjzlsl.AutoSize = true;
+            this.djgdjzlsl.ForeColor = System.Drawing.Color.Yellow;
+            this.djgdjzlsl.Location = new System.Drawing.Point(472, 66);
+            this.djgdjzlsl.Name = "djgdjzlsl";
+            this.djgdjzlsl.Size = new System.Drawing.Size(19, 21);
+            this.djgdjzlsl.TabIndex = 0;
+            this.djgdjzlsl.Text = "1";
+            // 
+            // jczydjsl
+            // 
+            this.jczydjsl.AutoSize = true;
+            this.jczydjsl.ForeColor = System.Drawing.Color.Yellow;
+            this.jczydjsl.Location = new System.Drawing.Point(324, 66);
+            this.jczydjsl.Name = "jczydjsl";
+            this.jczydjsl.Size = new System.Drawing.Size(19, 21);
+            this.jczydjsl.TabIndex = 0;
+            this.jczydjsl.Text = "1";
+            // 
+            // jczydjzl
+            // 
+            this.jczydjzl.AutoSize = true;
+            this.jczydjzl.ForeColor = System.Drawing.Color.Yellow;
+            this.jczydjzl.Location = new System.Drawing.Point(187, 66);
+            this.jczydjzl.Name = "jczydjzl";
+            this.jczydjzl.Size = new System.Drawing.Size(19, 21);
+            this.jczydjzl.TabIndex = 0;
+            this.jczydjzl.Text = "1";
+            // 
+            // djsl
+            // 
+            this.djsl.AutoSize = true;
+            this.djsl.ForeColor = System.Drawing.Color.Yellow;
+            this.djsl.Location = new System.Drawing.Point(289, 29);
+            this.djsl.Name = "djsl";
+            this.djsl.Size = new System.Drawing.Size(19, 21);
+            this.djsl.TabIndex = 0;
+            this.djsl.Text = "1";
+            // 
+            // djzlsl
+            // 
+            this.djzlsl.AutoSize = true;
+            this.djzlsl.ForeColor = System.Drawing.Color.Yellow;
+            this.djzlsl.Location = new System.Drawing.Point(122, 29);
+            this.djzlsl.Name = "djzlsl";
+            this.djzlsl.Size = new System.Drawing.Size(19, 21);
+            this.djzlsl.TabIndex = 0;
+            this.djzlsl.Text = "1";
             // 
             // label6
             // 
@@ -721,6 +861,16 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "车间内共有";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(349, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(122, 21);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "。刀具柜刀具共";
+            // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -728,141 +878,17 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1176, 88);
+            this.label1.Size = new System.Drawing.Size(996, 88);
             this.label1.TabIndex = 1;
             this.label1.Text = "洛阳一拖刀具管理系统";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // 组合领用单据ToolStripMenuItem
             // 
-            this.panel1.Controls.Add(this.tabControl1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 29);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1184, 693);
-            this.panel1.TabIndex = 3;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.close,
-            this.closeAll});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
-            // 
-            // close
-            // 
-            this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(124, 22);
-            this.close.Text = "关闭";
-            this.close.Click += new System.EventHandler(this.close_Click);
-            // 
-            // closeAll
-            // 
-            this.closeAll.Name = "closeAll";
-            this.closeAll.Size = new System.Drawing.Size(124, 22);
-            this.closeAll.Text = "关闭全部";
-            this.closeAll.Click += new System.EventHandler(this.closeAll_Click);
-            // 
-            // djzlsl
-            // 
-            this.djzlsl.AutoSize = true;
-            this.djzlsl.ForeColor = System.Drawing.Color.Yellow;
-            this.djzlsl.Location = new System.Drawing.Point(122, 29);
-            this.djzlsl.Name = "djzlsl";
-            this.djzlsl.Size = new System.Drawing.Size(19, 21);
-            this.djzlsl.TabIndex = 0;
-            this.djzlsl.Text = "1";
-            // 
-            // djsl
-            // 
-            this.djsl.AutoSize = true;
-            this.djsl.ForeColor = System.Drawing.Color.Yellow;
-            this.djsl.Location = new System.Drawing.Point(289, 29);
-            this.djsl.Name = "djsl";
-            this.djsl.Size = new System.Drawing.Size(19, 21);
-            this.djsl.TabIndex = 0;
-            this.djsl.Text = "1";
-            // 
-            // jczydjzl
-            // 
-            this.jczydjzl.AutoSize = true;
-            this.jczydjzl.ForeColor = System.Drawing.Color.Yellow;
-            this.jczydjzl.Location = new System.Drawing.Point(187, 66);
-            this.jczydjzl.Name = "jczydjzl";
-            this.jczydjzl.Size = new System.Drawing.Size(19, 21);
-            this.jczydjzl.TabIndex = 0;
-            this.jczydjzl.Text = "1";
-            // 
-            // jczydjsl
-            // 
-            this.jczydjsl.AutoSize = true;
-            this.jczydjsl.ForeColor = System.Drawing.Color.Yellow;
-            this.jczydjsl.Location = new System.Drawing.Point(324, 66);
-            this.jczydjsl.Name = "jczydjsl";
-            this.jczydjsl.Size = new System.Drawing.Size(19, 21);
-            this.jczydjsl.TabIndex = 0;
-            this.jczydjsl.Text = "1";
-            // 
-            // djgdjzlsl
-            // 
-            this.djgdjzlsl.AutoSize = true;
-            this.djgdjzlsl.ForeColor = System.Drawing.Color.Yellow;
-            this.djgdjzlsl.Location = new System.Drawing.Point(472, 66);
-            this.djgdjzlsl.Name = "djgdjzlsl";
-            this.djgdjzlsl.Size = new System.Drawing.Size(19, 21);
-            this.djgdjzlsl.TabIndex = 0;
-            this.djgdjzlsl.Text = "1";
-            // 
-            // djgdjsl
-            // 
-            this.djgdjsl.AutoSize = true;
-            this.djgdjsl.ForeColor = System.Drawing.Color.Yellow;
-            this.djgdjsl.Location = new System.Drawing.Point(608, 66);
-            this.djgdjsl.Name = "djgdjsl";
-            this.djgdjsl.Size = new System.Drawing.Size(19, 21);
-            this.djgdjsl.TabIndex = 0;
-            this.djgdjsl.Text = "1";
-            // 
-            // smdqdjsl
-            // 
-            this.smdqdjsl.AutoSize = true;
-            this.smdqdjsl.ForeColor = System.Drawing.Color.Yellow;
-            this.smdqdjsl.Location = new System.Drawing.Point(41, 105);
-            this.smdqdjsl.Name = "smdqdjsl";
-            this.smdqdjsl.Size = new System.Drawing.Size(19, 21);
-            this.smdqdjsl.TabIndex = 0;
-            this.smdqdjsl.Text = "0";
-            // 
-            // kcbzlbjsl
-            // 
-            this.kcbzlbjsl.AutoSize = true;
-            this.kcbzlbjsl.ForeColor = System.Drawing.Color.Yellow;
-            this.kcbzlbjsl.Location = new System.Drawing.Point(251, 105);
-            this.kcbzlbjsl.Name = "kcbzlbjsl";
-            this.kcbzlbjsl.Size = new System.Drawing.Size(19, 21);
-            this.kcbzlbjsl.TabIndex = 0;
-            this.kcbzlbjsl.Text = "0";
-            // 
-            // ylrdj
-            // 
-            this.ylrdj.AutoSize = true;
-            this.ylrdj.ForeColor = System.Drawing.Color.Yellow;
-            this.ylrdj.Location = new System.Drawing.Point(151, 141);
-            this.ylrdj.Name = "ylrdj";
-            this.ylrdj.Size = new System.Drawing.Size(19, 21);
-            this.ylrdj.TabIndex = 0;
-            this.ylrdj.Text = "0";
-            // 
-            // zcdj
-            // 
-            this.zcdj.AutoSize = true;
-            this.zcdj.ForeColor = System.Drawing.Color.Yellow;
-            this.zcdj.Location = new System.Drawing.Point(307, 141);
-            this.zcdj.Name = "zcdj";
-            this.zcdj.Size = new System.Drawing.Size(19, 21);
-            this.zcdj.TabIndex = 0;
-            this.zcdj.Text = "0";
+            this.组合领用单据ToolStripMenuItem.Name = "组合领用单据ToolStripMenuItem";
+            this.组合领用单据ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.组合领用单据ToolStripMenuItem.Text = "组合领用单";
+            this.组合领用单据ToolStripMenuItem.Click += new System.EventHandler(this.组合领用单据ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -884,13 +910,16 @@
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.TabIndex.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -979,6 +1008,8 @@
         private System.Windows.Forms.Label jczydjzl;
         private System.Windows.Forms.Label djsl;
         private System.Windows.Forms.Label djzlsl;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ToolStripMenuItem 组合领用单据ToolStripMenuItem;
     }
 }
 

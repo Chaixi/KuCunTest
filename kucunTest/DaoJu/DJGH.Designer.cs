@@ -737,6 +737,7 @@
             this.Name = "DJGH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具更换申请单";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DJGH_FormClosed);
             this.Load += new System.EventHandler(this.DJGH_Load);
             this.SizeChanged += new System.EventHandler(this.DJGH_SizeChanged);
             this.groupBox1.ResumeLayout(false);
