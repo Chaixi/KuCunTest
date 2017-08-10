@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,6 +58,13 @@
             this.dth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbjqd = new System.Windows.Forms.DataGridView();
+            this.szdjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sxsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ytbz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -76,13 +83,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.szdjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sxsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ytbz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -317,8 +317,8 @@
             // 
             // lingyongmingxi
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
-            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.lingyongmingxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.lingyongmingxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.lingyongmingxi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -450,6 +450,62 @@
             this.lbjqd.Size = new System.Drawing.Size(789, 180);
             this.lbjqd.TabIndex = 1;
             this.lbjqd.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.lbjqd_RowPostPaint);
+            // 
+            // szdjxh
+            // 
+            this.szdjxh.FillWeight = 123.1497F;
+            this.szdjxh.HeaderText = "所组刀具型号";
+            this.szdjxh.Name = "szdjxh";
+            this.szdjxh.ReadOnly = true;
+            this.szdjxh.Width = 131;
+            // 
+            // lbjmc
+            // 
+            this.lbjmc.FillWeight = 96.67254F;
+            this.lbjmc.HeaderText = "零部件名称";
+            this.lbjmc.Name = "lbjmc";
+            this.lbjmc.ReadOnly = true;
+            this.lbjmc.Width = 115;
+            // 
+            // lbjgg
+            // 
+            this.lbjgg.FillWeight = 96.67254F;
+            this.lbjgg.HeaderText = "零部件规格";
+            this.lbjgg.Name = "lbjgg";
+            this.lbjgg.ReadOnly = true;
+            this.lbjgg.Width = 115;
+            // 
+            // lbjxh
+            // 
+            this.lbjxh.FillWeight = 96.67254F;
+            this.lbjxh.HeaderText = "零部件型号";
+            this.lbjxh.Name = "lbjxh";
+            this.lbjxh.ReadOnly = true;
+            this.lbjxh.Width = 115;
+            // 
+            // sxsl
+            // 
+            this.sxsl.FillWeight = 92.38577F;
+            this.sxsl.HeaderText = "所需数量";
+            this.sxsl.Name = "sxsl";
+            this.sxsl.ReadOnly = true;
+            this.sxsl.Width = 99;
+            // 
+            // kcsl
+            // 
+            this.kcsl.FillWeight = 93.36138F;
+            this.kcsl.HeaderText = "库存数量";
+            this.kcsl.Name = "kcsl";
+            this.kcsl.ReadOnly = true;
+            this.kcsl.Width = 99;
+            // 
+            // ytbz
+            // 
+            this.ytbz.FillWeight = 101.0854F;
+            this.ytbz.HeaderText = "用途";
+            this.ytbz.Name = "ytbz";
+            this.ytbz.ReadOnly = true;
+            this.ytbz.Width = 67;
             // 
             // label5
             // 
@@ -647,62 +703,6 @@
             this.button5.Text = "退    出";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // szdjxh
-            // 
-            this.szdjxh.FillWeight = 123.1497F;
-            this.szdjxh.HeaderText = "所组刀具型号";
-            this.szdjxh.Name = "szdjxh";
-            this.szdjxh.ReadOnly = true;
-            this.szdjxh.Width = 131;
-            // 
-            // lbjmc
-            // 
-            this.lbjmc.FillWeight = 96.67254F;
-            this.lbjmc.HeaderText = "零部件名称";
-            this.lbjmc.Name = "lbjmc";
-            this.lbjmc.ReadOnly = true;
-            this.lbjmc.Width = 115;
-            // 
-            // lbjgg
-            // 
-            this.lbjgg.FillWeight = 96.67254F;
-            this.lbjgg.HeaderText = "零部件规格";
-            this.lbjgg.Name = "lbjgg";
-            this.lbjgg.ReadOnly = true;
-            this.lbjgg.Width = 115;
-            // 
-            // lbjxh
-            // 
-            this.lbjxh.FillWeight = 96.67254F;
-            this.lbjxh.HeaderText = "零部件型号";
-            this.lbjxh.Name = "lbjxh";
-            this.lbjxh.ReadOnly = true;
-            this.lbjxh.Width = 115;
-            // 
-            // sxsl
-            // 
-            this.sxsl.FillWeight = 92.38577F;
-            this.sxsl.HeaderText = "所需数量";
-            this.sxsl.Name = "sxsl";
-            this.sxsl.ReadOnly = true;
-            this.sxsl.Width = 99;
-            // 
-            // kcsl
-            // 
-            this.kcsl.FillWeight = 93.36138F;
-            this.kcsl.HeaderText = "库存数量";
-            this.kcsl.Name = "kcsl";
-            this.kcsl.ReadOnly = true;
-            this.kcsl.Width = 99;
-            // 
-            // ytbz
-            // 
-            this.ytbz.FillWeight = 101.0854F;
-            this.ytbz.HeaderText = "用途";
-            this.ytbz.Name = "ytbz";
-            this.ytbz.ReadOnly = true;
-            this.ytbz.Width = 67;
             // 
             // DJZZLY
             // 

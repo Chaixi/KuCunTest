@@ -19,6 +19,7 @@ using kucunTest.BaseClasses;
 using kucunTest.Daojugui;
 using kucunTest.Jichuang;
 
+using System.Runtime.InteropServices;
 
 namespace kucunTest
 {
@@ -29,6 +30,9 @@ namespace kucunTest
         string Sqlstr = "";
 
         private AutoSizeFormClass asc = new AutoSizeFormClass();
+
+        private string nongli = "";//农历日期
+        
         #endregion
 
         public MainForm()
@@ -38,10 +42,10 @@ namespace kucunTest
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Win32.AnimateWindow(this.Handle, 2000, Win32.AW_BLEND);//窗体淡入效果
 
             asc.controllInitializeSize(this);
-
-            //this.WindowState = FormWindowState.Maximized;//窗口默认最大化
+            this.WindowState = FormWindowState.Maximized;//窗口默认最大化
 
             Sqlstr = "SELECT COUNT(DISTINCT dt.daojuleixing) FROM daojutemp dt";
             djzlsl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//刀具种类
@@ -60,6 +64,12 @@ namespace kucunTest
 
             Sqlstr = "SELECT COUNT(DISTINCT dt.daojuid) FROM daojutemp dt WHERE dt.weizhibiaoshi = 'S'";
             djgdjsl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//刀具柜刀具数量
+
+            nongli = ChinaDate.GetChinaDate(DateTime.Now);
+            //toolStripStatusLabel_TimeNow.Text =DateTime.Now.ToString("yyyy年M月d日 dddd HH:mm:ss") + nongli;//日期格式形如：2017年8月10日 星期四 14:17:20 农历 
+            toolStripStatusLabel_TimeNow.Text = DateTime.Now.ToString("yyyy年M月d日 dddd [") + nongli + DateTime.Now.ToString("] HH:mm:ss");//日期格式形如：2017年8月10日 星期四 14:17:20
+
+            this.timer1.Start();//计时器开始计时，每秒更新时间
         }
 
         #region 其他
@@ -696,5 +706,48 @@ namespace kucunTest
             jc.Show();
         }
 
+        /// <summary>
+        /// 计时器每秒更新当前时间
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //toolStripStatusLabel_TimeNow.Text = "系统时间：" + DateTime.Now.ToString("yyyy年M月d日 dddd HH:mm:ss");
+            toolStripStatusLabel_TimeNow.Text = "当前时间：" + DateTime.Now.ToString("yyyy年M月d日 dddd [") + nongli + DateTime.Now.ToString("] HH:mm:ss");//日期格式形如：2017年8月10日 星期四 14:17:20
+            toolStripStatusLabel_TimeNow.ToolTipText = toolStripStatusLabel_TimeNow.Text;
+        }
+
+        /// <summary>
+        /// 窗体淡入淡出效果
+        /// </summary>
+        public class Win32
+        {
+            public const Int32 AW_HOR_POSITIVE = 0x00000001;    // 从左到右打开窗口
+            public const Int32 AW_HOR_NEGATIVE = 0x00000002;    // 从右到左打开窗口
+            public const Int32 AW_VER_POSITIVE = 0x00000004;    // 从上到下打开窗口
+            public const Int32 AW_VER_NEGATIVE = 0x00000008;    // 从下到上打开窗口
+            public const Int32 AW_CENTER = 0x00000010;
+            public const Int32 AW_HIDE = 0x00010000;        // 在窗体卸载时若想使用本函数就得加上此常量
+            public const Int32 AW_ACTIVATE = 0x00020000;    //在窗体通过本函数打开后，默认情况下会失去焦点，除非加上本常量
+            public const Int32 AW_SLIDE = 0x00040000;
+            public const Int32 AW_BLEND = 0x00080000;       // 淡入淡出效果
+            [DllImport("user32.dll", CharSet = CharSet.Auto)]
+            public static extern bool AnimateWindow(
+                IntPtr hwnd,  //  handle  to  window    
+                int dwTime,  //  duration  of  animation    
+                int dwFlags  //  animation  type    
+                );
+        }
+
+        /// <summary>
+        /// 窗体淡出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Win32.AnimateWindow(this.Handle, 2000, Win32.AW_SLIDE | Win32.AW_HIDE | Win32.AW_BLEND);
+        }
     }
 }
