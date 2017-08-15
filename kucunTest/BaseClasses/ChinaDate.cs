@@ -55,7 +55,7 @@ public static class ChinaDate
 			throw new Exception(string.Format("日期超出范围！必须在{0}到{1}之间！", china.MinSupportedDateTime.ToString("yyyy-MM-dd"), china.MaxSupportedDateTime.ToString("yyyy-MM-dd")));
 		}
         //string str = string.Format("{0} {1}{2}", GetYear(dt), GetMonth(dt), GetDay(dt));
-        string str = string.Format("农历 {0}{1}", GetMonth(dt), GetDay(dt));
+        string str = string.Format("农历 {0}{1}{2}", GetYear(dt), GetMonth(dt), GetDay(dt));
         string strJQ = GetSolarTerm(dt);
 		if (strJQ != "")
 		{
@@ -90,8 +90,9 @@ public static class ChinaDate
 		int yTG = china.GetCelestialStem(yearIndex);
 		int yDZ = china.GetTerrestrialBranch(yearIndex);
 
-		string str = string.Format("[{1}]{2}{3}{0}", year, yearSX[yDZ], yearTG[yTG], yearDZ[yDZ]);
-		return str;
+		//string str = string.Format("[{1}]{2}{3}{0}", year, yearSX[yDZ], yearTG[yTG], yearDZ[yDZ]);
+        string str = string.Format("{0}{1}[{2}]年",  yearTG[yTG], yearDZ[yDZ], yearSX[yDZ]);
+        return str;
 	}
 
     /// <summary>

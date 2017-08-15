@@ -110,8 +110,8 @@ namespace kucunTest.Jichuang
                 jclx.Text = list1[1];
                 jcmc.Text = e.Node.Text.ToString();
 
-                SqlStr = "SELECT djmx.daojuleixing,djmx.daojuid,djmx.daojuguige,jcdjk.jichuangbianma,jcdjk.daotaohao FROM jcdaojukun jcdjk LEFT JOIN daojulingyongmingxi djmx ON concat(djmx.jichuangbianma,'-', djmx.daotaohao ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where jcdjk.jichuangbianma =  '" + e.Node.Text.ToString() + "'";
-                //SqlStr = "SELECT djtp.daojuleixing,djtp.daojuid,djtp.daojuguige,djtp.daojushouming,jcdjk.jichuangbianma,jcdjk.daotaohao FROM daojutemp djtp LEFT JOIN jcdaojukun jcdjk ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where jcdjk.jichuangbianma =  '" + e.Node.Text.ToString() + "'";
+                SqlStr = "SELECT djmx.daojuleixing,djmx.daojuid,djmx.daojuguige,jcdjk.jichuangbianma,jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojulingyongmingxi djmx ON concat(djmx.jichuangbianma,'-', djmx.daotaohao ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where jcdjk.jichuangbianma =  '" + e.Node.Text.ToString() + "'";
+                //SqlStr = "SELECT djtp.daojuleixing,djtp.daojuid,djtp.daojuguige,djtp.daojushouming,jcdjk.jichuangbianma,jcdjk.daotaohao FROM daojutemp djtp LEFT JOIN jcdaojuku jcdjk ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where jcdjk.jichuangbianma =  '" + e.Node.Text.ToString() + "'";
                 jcdth.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
             }
 

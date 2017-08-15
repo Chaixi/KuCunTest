@@ -17,8 +17,7 @@ namespace kucunTest.Daojugui
         {
             InitializeComponent();
         }
-
-
+        
         #region 全局变量
         private MySql Sql = new MySql();//MySQL类
         private string SqlStr = "";

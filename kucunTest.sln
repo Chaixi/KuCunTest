@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kucunTest", "kucunTest\kucunTest.csproj", "{23434C8E-C3E3-4588-87B1-C64A5A35A87F}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "KucunTest_Setup", "KucunTest_Setup\KucunTest_Setup.vdproj", "{FCC41C26-777C-4EF4-8B6B-3372A37232D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{23434C8E-C3E3-4588-87B1-C64A5A35A87F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23434C8E-C3E3-4588-87B1-C64A5A35A87F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23434C8E-C3E3-4588-87B1-C64A5A35A87F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCC41C26-777C-4EF4-8B6B-3372A37232D2}.Debug|Any CPU.ActiveCfg = Debug
+		{FCC41C26-777C-4EF4-8B6B-3372A37232D2}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

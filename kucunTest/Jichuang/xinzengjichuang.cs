@@ -43,7 +43,7 @@ namespace kucunTest.Jichuang
             int x = Int32.Parse(i);
             for (j = 1; j <= x; j++)
             {
-                SqlStr = "insert into jcdaojukun(jichuangbianma, daotaohao) values('" + jcmc.Text.ToString().Trim() + "', '" + "T" + j +"');";
+                SqlStr = "insert into jcdaojuku(jichuangbianma, daotaohao) values('" + jcmc.Text.ToString().Trim() + "', '" + "T" + j.ToString("00") +"');";
                 SqlStr1 += SqlStr;
             }
             Sql.ExecuteNonQuery(SqlStr1);

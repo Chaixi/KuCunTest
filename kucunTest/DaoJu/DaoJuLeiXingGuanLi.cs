@@ -545,8 +545,26 @@ namespace kucunTest.DaoJu
             button1.Visible = false;
         }
 
+
         #endregion 按钮部分结束
 
+        private void DaoJuLeiXingGuanLi_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
+        }
 
+        /// <summary>
+        /// 当窗体在选项卡中打开时，关闭窗体则关闭相应的选项卡
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DaoJuLeiXingGuanLi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.Parent != null)
+            {
+                MainForm mfr = (MainForm)this.Parent.FindForm();
+                mfr.CloseTab(this.Name);
+            }
+        }
     }
 }

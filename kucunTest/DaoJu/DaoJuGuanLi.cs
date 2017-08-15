@@ -22,13 +22,15 @@ namespace kucunTest.DaoJu
         }
 
         #region 全局变量
-        private MySql SelectSql = new MySql();//MySQL类
+        private MySql SQL = new MySql();//MySQL类
         private string SqlStr = "";//sql语句
         private BaseAlex Alex = new BaseAlex();//自定义公共方法类
         private TreeNode node = new TreeNode();//类型树的根节点。
         private AutoSizeFormClass asc = new AutoSizeFormClass();
 
         private string canshubiao = "jichucanshu";
+        private string jichuangdaojuku = "jcdaojuku";
+        private string daojubiao = "daojutemp";
 
         //沫
         private string SqlStr1 = "";
@@ -51,6 +53,9 @@ namespace kucunTest.DaoJu
             //treeView1.SelectedNode = treeView1.Nodes[0];//默认选中顶层节点
             treeView1.SelectedNode = treeView1.Nodes[0].FirstNode;
             daojuxinxi.AutoGenerateColumns = false;
+
+            treeView2.SelectedNode = treeView2.Nodes[0];
+
         }
 
         #region 树有关的方法
@@ -74,7 +79,7 @@ namespace kucunTest.DaoJu
             //treeView1.Nodes.Add(node);
 
             //把数据库中取出所有零部件名称
-            MySqlDataReader djlx = SelectSql.getcom("select distinct daojuleixing from daojutemp");
+            MySqlDataReader djlx = SQL.getcom("select distinct daojuleixing from daojutemp");
             //node.Nodes[0].Remove();//移除刚开始建立的第一个空节点
             while (djlx.Read())
             {
@@ -99,7 +104,7 @@ namespace kucunTest.DaoJu
             //progressBar1.Visible = true;           
             //progressBar1.Value = 0;//重置进度条
 
-            MySqlDataReader djid = SelectSql.getcom("select daojuid from daojutemp where daojuleixing='" + t1.Text.ToString().Trim() + "'");
+            MySqlDataReader djid = SQL.getcom("select daojuid from daojutemp where daojuleixing='" + t1.Text.ToString().Trim() + "'");
             while (djid.Read())
             {
                 TreeNode t2 = new TreeNode();
@@ -149,8 +154,8 @@ namespace kucunTest.DaoJu
                 where = "where dj.daojuleixing = '" + e.Node.Text.ToString() + "'";
                 SqlStr = "SELECT COUNT(*) from daojutemp where daojuleixing = '" + e.Node.Text.ToString() + "'";//查询所有刀具数量
                 SqlStr1 = "SELECT COUNT(djmx.weizhibiaoshi) FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid where dj.daojuleixing =  '" + e.Node.Text.ToString() + "'";//查询领用到机床的刀具数量
-                Object a = SelectSql.ExecuteScalar(SqlStr);
-                Object b = SelectSql.ExecuteScalar(SqlStr1);
+                Object a = SQL.ExecuteScalar(SqlStr);
+                Object b = SQL.ExecuteScalar(SqlStr1);
                 string x = a.ToString();
                 string y = b.ToString();
                 int c = Int32.Parse(x) - Int32.Parse(y);//计算出刀具柜中的刀具数量
@@ -162,7 +167,7 @@ namespace kucunTest.DaoJu
             
             //查询出选种类型的刀具
             SqlStr = "SELECT dj.daojuid,dj.daojuxinghao,dj.daojuguige,dj.daojuleixing,dj.daojushouming,CONCAT(djmx.jichuangbianma,'--', djmx.daotaohao ) AS daojuweizhi,djcc.chucangdanhao,djcc.chucangriqi FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid LEFT JOIN daojulingyong  djcc ON  djcc.chucangdanhao = djmx.chucangdanhao " + where + " group by dj.daojuid";
-            daojuxinxi.DataSource = SelectSql.getDataSet1(SqlStr).Tables[0].DefaultView;
+            daojuxinxi.DataSource = SQL.getDataSet1(SqlStr).Tables[0].DefaultView;
             daojuxinxi.AutoGenerateColumns = false;
 
             for (i = 0; i < daojuxinxi.Rows.Count - 1; i++)
@@ -209,6 +214,25 @@ namespace kucunTest.DaoJu
             {
                 daojuguanli_Load(null, null);
                 treeView1.SelectedNode = crtNode;
+            }
+        }
+
+        /// <summary>
+        /// 刀具测量按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (daojuxinxi.CurrentCell.RowIndex >= 0)
+            {
+                string id = daojuxinxi.Rows[daojuxinxi.CurrentCell.RowIndex].Cells["djid"].Value.ToString();
+                DaoJuCanShuXinXi djcs = new DaoJuCanShuXinXi(id);
+                djcs.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("请选择一把刀具！", "提示");
             }
         }
 
@@ -312,33 +336,33 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void daojuxinxi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)//判断点击的是否是表头
-            {
-                SqlStr = string.Format("SELECT * FROM {0} WHERE ssfm = '{1}'", canshubiao, daojuxinxi.Rows[e.RowIndex].Cells["djid"].Value.ToString());
-                DataTable db = SelectSql.getDataSet(SqlStr, canshubiao).Tables[0];
+            //if(e.RowIndex >= 0)//判断点击的是否是表头
+            //{
+            //    SqlStr = string.Format("SELECT * FROM {0} WHERE ssfm = '{1}'", canshubiao, daojuxinxi.Rows[e.RowIndex].Cells["djid"].Value.ToString());
+            //    DataTable db = SelectSql.getDataSet(SqlStr, canshubiao).Tables[0];
 
-                foreach (Control c in grpBox_parameter.Controls)
-                {
-                    if (c is TextBox)
-                    {
-                        if (db.Rows.Count <= 0)
-                        {
-                            c.Text = "";
-                        }
-                        else
-                        {
-                            for (int i = 0; i < db.Rows.Count; i++)
-                            {
-                                if (db.Rows[i]["csdm"].ToString() == c.Name)
-                                {
-                                    c.Text = db.Rows[i]["csz"].ToString();
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            //    foreach (Control c in grpBox_parameter.Controls)
+            //    {
+            //        if (c is TextBox)
+            //        {
+            //            if (db.Rows.Count <= 0)
+            //            {
+            //                c.Text = "";
+            //            }
+            //            else
+            //            {
+            //                for (int i = 0; i < db.Rows.Count; i++)
+            //                {
+            //                    if (db.Rows[i]["csdm"].ToString() == c.Name)
+            //                    {
+            //                        c.Text = db.Rows[i]["csz"].ToString();
+            //                        break;
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
             
         }
 
@@ -354,6 +378,79 @@ namespace kucunTest.DaoJu
 
                 //}
             }
+        }
+
+        /// <summary>
+        /// 当窗体在选项卡中打开时，关闭窗体则关闭相应的选项卡
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DaoJuGuanLi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.Parent != null)
+            {
+                MainForm mfr = (MainForm)this.Parent.FindForm();
+                mfr.CloseTab(this.Name);
+            }
+        }
+
+        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            scxmc.Text = treeView2.SelectedNode.Text;
+        }
+
+        /// <summary>
+        /// 刷新按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 机床点击函数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            //GetChildAtPoint(Cursor.Position).BackColor = Color.Blue;
+
+            //改变picturebox背景色
+            PictureBox crt_pb = (PictureBox)sender;//当前点击的图片
+
+            foreach(Control c in scx_panel.Controls)
+            {
+                if(c is PictureBox)
+                {
+                    if(c.Name == crt_pb.Name)
+                    {
+                        crt_pb.BackColor = Color.DarkSeaGreen;
+                    }
+                    else
+                    {
+                        c.BackColor = Color.FromKnownColor(KnownColor.Control);
+                    }
+                }
+            }
+
+            //加载机床刀具库
+            dgv_jcdk.DataSource = null;
+            if(crt_pb.Tag != null)
+            {
+                SqlStr = string.Format("SELECT j.daotaohao AS daotaohao, d.daojuid AS daojuid FROM {0} j LEFT JOIN {1} d ON j.jichuangbianma = d.weizhi AND j.daotaohao = d.cengshu WHERE j.jichuangbianma = '{2}' ", jichuangdaojuku, daojubiao, crt_pb.Tag.ToString());
+                DataSet ds = SQL.getDataSet1(SqlStr);
+
+                dgv_jcdk.AutoGenerateColumns = false;
+                dgv_jcdk.DataSource = ds.Tables[0].DefaultView;
+            }
+        }
+
+        private void dgv_jcdk_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            Alex.RowPostPaint(dgv_jcdk, e);
         }
     }
 }

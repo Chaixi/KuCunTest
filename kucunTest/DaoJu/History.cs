@@ -118,7 +118,7 @@ namespace kucunTest.DaoJu
         {
             if (type == "DJCCD")//刀具领用单
             {
-                this.Name = "DJCCDHistory";//界面显示字段名称更新
+                this.Name = "DJCCD";//界面显示字段名称更新
                 this.Text = "刀具领用单据记录";
                 label1.Text = "刀具领用记录";
 
@@ -151,7 +151,7 @@ namespace kucunTest.DaoJu
             }
             else if (type == "DJWJ")//刀具外借申请单
             {
-                this.Name = "DJWJHistory";//界面显示字段名称更新
+                this.Name = "DJWJ";//界面显示字段名称更新
                 this.Text = "刀具外借单据记录";
                 label1.Text = "刀具外借记录";
 
@@ -184,7 +184,7 @@ namespace kucunTest.DaoJu
             }
             else if (type == "DJGH")//刀具更换申请单
             {
-                this.Name = "DJGHHistory";//界面显示字段名称更新
+                this.Name = "DJGH";//界面显示字段名称更新
                 this.Text = "刀具更换单据记录";
                 label1.Text = "刀具更换记录";
 
@@ -216,7 +216,7 @@ namespace kucunTest.DaoJu
             }
             else if (type == "DJBF")//刀具报废申请单
             {
-                this.Name = "DJBFHistory";//界面显示字段名称更新
+                this.Name = "DJBF";//界面显示字段名称更新
                 this.Text = "刀具报废单据";
                 label1.Text = "刀具报废单据记录";
 
@@ -249,7 +249,7 @@ namespace kucunTest.DaoJu
             }
             else if (type == "DJTH")//刀具退还单
             {
-                this.Name = "DJTHHistory";//界面显示字段名称更新
+                this.Name = "DJTH";//界面显示字段名称更新
                 this.Text = "刀具退还单据";
                 label1.Text = "刀具退还单据记录";
 

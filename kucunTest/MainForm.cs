@@ -32,7 +32,8 @@ namespace kucunTest
         private AutoSizeFormClass asc = new AutoSizeFormClass();
 
         private string nongli = "";//农历日期
-        
+
+        bool Collapsed = false;
         #endregion
 
         public MainForm()
@@ -42,10 +43,11 @@ namespace kucunTest
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Win32.AnimateWindow(this.Handle, 2000, Win32.AW_BLEND);//窗体淡入效果
-
             asc.controllInitializeSize(this);
             this.WindowState = FormWindowState.Maximized;//窗口默认最大化
+            Win32.AnimateWindow(this.Handle, 2000, Win32.AW_BLEND);//窗体淡入效果
+            treeView1.ExpandAll();
+            treeView1.SelectedNode = null;
 
             Sqlstr = "SELECT COUNT(DISTINCT dt.daojuleixing) FROM daojutemp dt";
             djzlsl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//刀具种类
@@ -462,7 +464,39 @@ namespace kucunTest
         private void 刀具管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DaoJuGuanLi djgl = new DaoJuGuanLi();
-            //djgl.MdiParent = this;
+            djgl.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djgl.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djgl.Name;
+                djgl.Parent = tb;
+                tb.Text = djgl.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djgl.Left = (tabControl1.Width - djgl.Width) / 2;
+                djgl.Top = (tb.Height - djgl.Height) / 4;
+
+                djgl.Show();
+                djgl.Dock = DockStyle.Fill;
+                //djgl.WindowState = FormWindowState.Maximized;
+            }
             //djgl.Parent = panel1;
 
             //TabPage tb_djgl = new TabPage();
@@ -473,7 +507,7 @@ namespace kucunTest
             //tabControl1.SelectedTab = tb_djgl;
             //tabControl1.Visible = true;
 
-            djgl.Show();
+            //djgl.Show();
         }
 
         #endregion 刀具单据部分结束
@@ -485,7 +519,7 @@ namespace kucunTest
         /// <param name="e"></param>
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
-            asc.controlAutoSize(this);
+            //asc.controlAutoSize(this);
         }
 
         /// <summary>
@@ -689,7 +723,40 @@ namespace kucunTest
         private void 刀具类型管理ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DaoJuLeiXingGuanLi djlxgl = new DaoJuLeiXingGuanLi();
-            djlxgl.Show();
+            djlxgl.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djlxgl.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djlxgl.Name;
+                djlxgl.Parent = tb;
+                tb.Text = djlxgl.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djlxgl.Left = (tabControl1.Width - djlxgl.Width) / 2;
+                djlxgl.Top = (tb.Height - djlxgl.Height) / 4;
+
+                djlxgl.Show();
+                djlxgl.Dock = DockStyle.Fill;
+            }
+
+            //djlxgl.Show();
         }
 
         private void 刀具柜管理ToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -713,8 +780,9 @@ namespace kucunTest
         /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //toolStripStatusLabel_TimeNow.Text = "系统时间：" + DateTime.Now.ToString("yyyy年M月d日 dddd HH:mm:ss");
-            toolStripStatusLabel_TimeNow.Text = "当前时间：" + DateTime.Now.ToString("yyyy年M月d日 dddd [") + nongli + DateTime.Now.ToString("] HH:mm:ss");//日期格式形如：2017年8月10日 星期四 14:17:20
+            //toolStripStatusLabel_TimeNow.Text = "当前时间：" + DateTime.Now.ToString("yyyy年M月d日 dddd [") + nongli + DateTime.Now.ToString("] HH:mm:ss");//日期格式形如：2017年8月10日 星期四 14:17:20
+            toolStripStatusLabel_TimeNow.Text = DateTime.Now.ToString("yyyy年M月d日 dddd ") + nongli + DateTime.Now.ToString(" HH:mm:ss");//日期格式形如：2017年8月10日 星期四 14:17:20
+
             toolStripStatusLabel_TimeNow.ToolTipText = toolStripStatusLabel_TimeNow.Text;
         }
 
@@ -748,6 +816,153 @@ namespace kucunTest
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Win32.AnimateWindow(this.Handle, 2000, Win32.AW_SLIDE | Win32.AW_HIDE | Win32.AW_BLEND);
+        }
+
+        /// <summary>
+        /// 拆分器更改大小后刷新tabpage界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+            foreach(TabPage tp in tabControl1.TabPages)
+            {
+                tp.Refresh();
+            }
+        }
+
+        /// <summary>
+        /// 显示/隐藏菜单面板
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if(Collapsed)
+            {
+                this.splitContainer1.Panel1Collapsed = false;
+                Collapsed = false;
+            }
+            else
+            {
+                this.splitContainer1.Panel1Collapsed = true;
+                Collapsed = true;
+            }
+        }
+
+        /// <summary>
+        /// 树状菜单选定后打开新选项卡
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if(treeView1.SelectedNode.Level == 0)
+            {
+                switch(treeView1.SelectedNode.Tag.ToString())
+                {
+                    case "DJJC":
+                        刀具管理ToolStripMenuItem_Click(null, null);
+                        break;
+                    case "KCMX":
+                        DJKCMX_ShowTabPage();
+                        break;
+                    case "LXGL":
+                        刀具类型管理ToolStripMenuItem1_Click(null, null);
+                        break;
+                        
+
+                }
+            }
+            else if (treeView1.SelectedNode.Level == 1)
+            {
+                //刀具续用单据暂时不作操作
+                if(treeView1.SelectedNode.Tag.ToString() == "DJXY")
+                {
+                    return;
+                }
+
+                else
+                {
+                    History historyPage = new History(treeView1.SelectedNode.Tag.ToString());
+                    historyPage.MdiParent = this;
+
+                    bool have = false;
+                    foreach (TabPage tp in tabControl1.TabPages)
+                    {
+                        if (tp.Text == historyPage.Text)
+                        {
+                            tabControl1.SelectedTab = tp;
+                            have = true;
+                            return;
+                        }
+                    }
+
+                    if (!have)
+                    {
+                        TabPage tb = new TabPage();
+                        tb.Name = historyPage.Name;
+                        historyPage.Parent = tb;
+                        tb.Text = historyPage.Text;
+                        tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                        tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                        this.tabControl1.TabPages.Add(tb);
+                        tabControl1.SelectedTab = tb;
+                        tabControl1.Visible = true;
+
+                        historyPage.Left = (tabControl1.Width - historyPage.Width) / 2;
+                        historyPage.Top = (tb.Height - historyPage.Height) / 4;
+
+                        historyPage.Show();
+                        historyPage.Dock = DockStyle.Fill;
+                    }
+
+                    //historyPage.Show();
+                }                
+            }
+        }
+
+        /// <summary>
+        /// 刀具库存明细用tabpage展开
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DJKCMX_ShowTabPage()
+        {
+            DJKCMX djkcmx = new DJKCMX();
+            djkcmx.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djkcmx.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djkcmx.Name;
+                djkcmx.Parent = tb;
+                tb.Text = djkcmx.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djkcmx.Left = (tabControl1.Width - djkcmx.Width) / 2;
+                djkcmx.Top = (tb.Height - djkcmx.Height) / 4;
+
+                djkcmx.Show();
+                djkcmx.Dock = DockStyle.Fill;
+            }
         }
     }
 }
