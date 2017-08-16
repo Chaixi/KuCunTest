@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1# 1204后箱加工线");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("2# 1204前箱加工线");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("3# 前托架加工线");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("4# 80加速器壳体加工线");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("5# 80传动箱壳体加工线");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("6# 系列箱体加工线");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("7# 差速器轴承座加工线");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("8# 制动器活塞加工线");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("9# 中小件加工线");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("1# 1204后箱加工线");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("2# 1204前箱加工线");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("3# 前托架加工线");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("4# 80加速器壳体加工线");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("5# 80传动箱壳体加工线");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("6# 系列箱体加工线");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("7# 差速器轴承座加工线");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("8# 制动器活塞加工线");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("9# 中小件加工线");
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -95,14 +95,14 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgv_jcdk = new System.Windows.Forms.DataGridView();
+            this.jcdk_dth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcdk_djxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcdk_djtp = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.treeView2 = new System.Windows.Forms.TreeView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.label5 = new System.Windows.Forms.Label();
-            this.jcdk_dth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcdk_djxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcdk_djtp = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.daojuxinxi)).BeginInit();
@@ -454,8 +454,8 @@
             // 
             this.daojuxinxi.AllowUserToAddRows = false;
             this.daojuxinxi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.daojuxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gainsboro;
+            this.daojuxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.daojuxinxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.daojuxinxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.daojuxinxi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -757,14 +757,14 @@
             this.dgv_jcdk.AllowUserToDeleteRows = false;
             this.dgv_jcdk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_jcdk.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_jcdk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_jcdk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_jcdk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_jcdk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.jcdk_dth,
@@ -780,6 +780,35 @@
             this.dgv_jcdk.Size = new System.Drawing.Size(320, 289);
             this.dgv_jcdk.TabIndex = 0;
             this.dgv_jcdk.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgv_jcdk_RowPostPaint);
+            // 
+            // jcdk_dth
+            // 
+            this.jcdk_dth.DataPropertyName = "daotaohao";
+            this.jcdk_dth.FillWeight = 60.78487F;
+            this.jcdk_dth.HeaderText = "刀套号";
+            this.jcdk_dth.Name = "jcdk_dth";
+            this.jcdk_dth.ReadOnly = true;
+            this.jcdk_dth.Width = 83;
+            // 
+            // jcdk_djxh
+            // 
+            this.jcdk_djxh.DataPropertyName = "daojuid";
+            this.jcdk_djxh.FillWeight = 110.2811F;
+            this.jcdk_djxh.HeaderText = "刀具ID";
+            this.jcdk_djxh.Name = "jcdk_djxh";
+            this.jcdk_djxh.ReadOnly = true;
+            this.jcdk_djxh.Width = 84;
+            // 
+            // jcdk_djtp
+            // 
+            this.jcdk_djtp.FillWeight = 128.934F;
+            this.jcdk_djtp.HeaderText = "刀具图片";
+            this.jcdk_djtp.Name = "jcdk_djtp";
+            this.jcdk_djtp.ReadOnly = true;
+            this.jcdk_djtp.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.jcdk_djtp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.jcdk_djtp.Visible = false;
+            this.jcdk_djtp.Width = 185;
             // 
             // groupBox3
             // 
@@ -800,34 +829,34 @@
             this.treeView2.ItemHeight = 26;
             this.treeView2.Location = new System.Drawing.Point(3, 25);
             this.treeView2.Name = "treeView2";
-            treeNode1.Name = "节点0";
-            treeNode1.Text = "1# 1204后箱加工线";
-            treeNode2.Name = "节点1";
-            treeNode2.Text = "2# 1204前箱加工线";
-            treeNode3.Name = "节点2";
-            treeNode3.Text = "3# 前托架加工线";
-            treeNode4.Name = "节点3";
-            treeNode4.Text = "4# 80加速器壳体加工线";
-            treeNode5.Name = "节点4";
-            treeNode5.Text = "5# 80传动箱壳体加工线";
-            treeNode6.Name = "节点5";
-            treeNode6.Text = "6# 系列箱体加工线";
-            treeNode7.Name = "节点6";
-            treeNode7.Text = "7# 差速器轴承座加工线";
-            treeNode8.Name = "节点7";
-            treeNode8.Text = "8# 制动器活塞加工线";
-            treeNode9.Name = "节点8";
-            treeNode9.Text = "9# 中小件加工线";
+            treeNode28.Name = "节点0";
+            treeNode28.Text = "1# 1204后箱加工线";
+            treeNode29.Name = "节点1";
+            treeNode29.Text = "2# 1204前箱加工线";
+            treeNode30.Name = "节点2";
+            treeNode30.Text = "3# 前托架加工线";
+            treeNode31.Name = "节点3";
+            treeNode31.Text = "4# 80加速器壳体加工线";
+            treeNode32.Name = "节点4";
+            treeNode32.Text = "5# 80传动箱壳体加工线";
+            treeNode33.Name = "节点5";
+            treeNode33.Text = "6# 系列箱体加工线";
+            treeNode34.Name = "节点6";
+            treeNode34.Text = "7# 差速器轴承座加工线";
+            treeNode35.Name = "节点7";
+            treeNode35.Text = "8# 制动器活塞加工线";
+            treeNode36.Name = "节点8";
+            treeNode36.Text = "9# 中小件加工线";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
+            treeNode28,
+            treeNode29,
+            treeNode30,
+            treeNode31,
+            treeNode32,
+            treeNode33,
+            treeNode34,
+            treeNode35,
+            treeNode36});
             this.treeView2.Size = new System.Drawing.Size(210, 280);
             this.treeView2.TabIndex = 0;
             this.treeView2.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView2_AfterSelect);
@@ -865,40 +894,13 @@
             this.label5.Text = "正在加载……";
             this.label5.Visible = false;
             // 
-            // jcdk_dth
-            // 
-            this.jcdk_dth.DataPropertyName = "daotaohao";
-            this.jcdk_dth.FillWeight = 60.78487F;
-            this.jcdk_dth.HeaderText = "刀套号";
-            this.jcdk_dth.Name = "jcdk_dth";
-            this.jcdk_dth.ReadOnly = true;
-            this.jcdk_dth.Width = 83;
-            // 
-            // jcdk_djxh
-            // 
-            this.jcdk_djxh.DataPropertyName = "daojuid";
-            this.jcdk_djxh.FillWeight = 110.2811F;
-            this.jcdk_djxh.HeaderText = "刀具ID";
-            this.jcdk_djxh.Name = "jcdk_djxh";
-            this.jcdk_djxh.ReadOnly = true;
-            this.jcdk_djxh.Width = 84;
-            // 
-            // jcdk_djtp
-            // 
-            this.jcdk_djtp.FillWeight = 128.934F;
-            this.jcdk_djtp.HeaderText = "刀具图片";
-            this.jcdk_djtp.Name = "jcdk_djtp";
-            this.jcdk_djtp.ReadOnly = true;
-            this.jcdk_djtp.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.jcdk_djtp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.jcdk_djtp.Visible = false;
-            this.jcdk_djtp.Width = 185;
-            // 
             // DaoJuGuanLi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1658, 980);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.grpBox_parameter);
