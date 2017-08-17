@@ -615,9 +615,6 @@ namespace kucunTest.DaoJu
             asc.controlAutoSize(this);
         }
 
-
-        #endregion 其他部分结束
-
         /// <summary>
         /// 当窗体在选项卡中打开时，关闭窗体则关闭相应的选项卡
         /// </summary>
@@ -630,6 +627,52 @@ namespace kucunTest.DaoJu
                 MainForm mfr = (MainForm)this.Parent.FindForm();
                 mfr.CloseTab(this.Name);
             }
+        }
+        #endregion 其他部分结束
+
+        /// <summary>
+        /// 从表增加明细，即可以通过选择多条记录一并新增明细
+        /// </summary>
+        /// <param name="tb">要新增的明细表部分内容</param>
+        public void AddDataFromTable(DataTable tb)
+        {
+            thmx_db.Columns.Add("djlx", System.Type.GetType("System.String"));
+            thmx_db.Columns.Add("djgg", System.Type.GetType("System.String"));
+            thmx_db.Columns.Add("djcd", System.Type.GetType("System.String"));
+            thmx_db.Columns.Add("djid", System.Type.GetType("System.String"));
+            thmx_db.Columns.Add("djzt", System.Type.GetType("System.String"));
+            thmx_db.Columns.Add("sl", System.Type.GetType("System.String"));
+            thmx_db.Columns.Add("jcbm", System.Type.GetType("System.String"));
+            thmx_db.Columns.Add("dth", System.Type.GetType("System.String"));
+            thmx_db.Columns.Add("djgbm", System.Type.GetType("System.String"));
+            thmx_db.Columns.Add("cfwz", System.Type.GetType("System.String"));
+            thmx_db.Columns.Add("bz", System.Type.GetType("System.String"));
+
+            for (int i = 0; i < tb.Rows.Count; i++)
+            {
+                DataRow rowrow = thmx_db.NewRow();
+
+                rowrow["djlx"] = tb.Rows[i]["djlx"];//刀具类型
+                rowrow["djgg"] = tb.Rows[i]["djgg"];//刀具规格
+                rowrow["djcd"] = "";//刀具长度
+                rowrow["djid"] = tb.Rows[i]["djid"];//刀具id
+                rowrow["djzt"] = "";//刀具状态
+                rowrow["sl"] = "1";//数量
+
+                string djwz = tb.Rows[0]["djwz"].ToString().Trim();
+                rowrow["jcbm"] = djwz.Substring(0, djwz.Length - 5);//机床编码
+                rowrow["dth"] = djwz.Substring(djwz.Length - 3);//刀套号
+
+                rowrow["djgbm"] = "";//刀具柜编码
+                rowrow["cfwz"] = "";//存放位置
+                rowrow["bz"] = "";//备注
+
+                thmx_db.Rows.Add(rowrow);
+                HJ++;
+            }
+
+            TuiHuanMingXi.DataSource = thmx_db.DefaultView;
+            heji.Text = HJ.ToString();
         }
     }
 }

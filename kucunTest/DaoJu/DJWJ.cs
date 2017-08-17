@@ -637,5 +637,52 @@ namespace kucunTest.DaoJu
                 mfr.CloseTab(this.Name);
             }
         }
+
+        /// <summary>
+        /// 从表增加明细，即可以通过选择多条记录一并新增明细
+        /// </summary>
+        /// <param name="tb">要新增的明细表部分内容</param>
+        public void AddDataFromTable(DataTable tb)
+        {
+            wjmx_db.Columns.Add("djlx", System.Type.GetType("System.String"));
+            wjmx_db.Columns.Add("djgg", System.Type.GetType("System.String"));
+            wjmx_db.Columns.Add("djid", System.Type.GetType("System.String"));
+            wjmx_db.Columns.Add("djzt", System.Type.GetType("System.String"));
+            wjmx_db.Columns.Add("sl", System.Type.GetType("System.String"));
+            wjmx_db.Columns.Add("jcbm", System.Type.GetType("System.String"));
+            wjmx_db.Columns.Add("dth", System.Type.GetType("System.String"));
+            wjmx_db.Columns.Add("bz", System.Type.GetType("System.String"));
+
+            for (int i = 0; i < tb.Rows.Count; i++)
+            {
+                DataRow rowrow = wjmx_db.NewRow();
+
+                rowrow["djlx"] = tb.Rows[i]["djlx"];//刀具类型
+                rowrow["djgg"] = tb.Rows[i]["djgg"];//刀具规格
+                rowrow["djid"] = tb.Rows[i]["djid"];//刀具id
+                rowrow["djzt"] = "";//刀具状态
+                rowrow["sl"] = "1";//数量
+
+                string djwz = tb.Rows[i]["djwz"].ToString().Trim();
+                if(djwz == null || djwz == "")
+                {
+                    rowrow["jcbm"] = "";//机床编码
+                    rowrow["dth"] = "";//刀套号
+                }
+                else
+                {
+                    rowrow["jcbm"] = djwz.Substring(0, djwz.Length - 5);//机床编码
+                    rowrow["dth"] = djwz.Substring(djwz.Length - 3);//刀套号
+                }
+                
+                rowrow["bz"] = "";//备注
+
+                wjmx_db.Rows.Add(rowrow);
+                HJ++;
+            }
+
+            WaiJieMingXi.DataSource = wjmx_db.DefaultView;
+            heji.Text = HJ.ToString();
+        }
     }
 }

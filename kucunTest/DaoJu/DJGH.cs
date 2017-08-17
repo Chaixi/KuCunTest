@@ -37,21 +37,21 @@ namespace kucunTest.DaoJu
             GHDH.Text = Alex.DanHao("DJGH");//自动生成单号
 
             //申请信息默认值
-            SQBZ.SelectedIndex = 0;
-            SQSB.SelectedIndex = 0;
-            JGLJ.SelectedIndex = 0;
+            //SQBZ.SelectedIndex = 0;
+            //SQSB.SelectedIndex = 0;
+            //JGLJ.SelectedIndex = 0;
             SQSJ.Text = DateTime.Now.ToString();
 
             //刀具信息默认值
             string Sqlstr1 = "select distinct daojuleixing from daojutemp";
             Y_DJLX.DataSource = SQL.DataReadList(Sqlstr1);
-            Y_DJLX.SelectedIndex = 0;
-            Y_DJCD.SelectedIndex = 0;
+            Y_DJLX.SelectedIndex = -1;
+            //Y_DJCD.SelectedIndex = 0;
 
-            X_DJLX.DataSource = Y_DJLX.DataSource;//此处会让新刀具类型与原刀具类型同步更改
-            //X_DJLX.DataSource = SQL.DataReadList(Sqlstr1);//此处会让新刀具类型与原刀具类型独立更改
-            X_DJLX.SelectedIndex = 0;
-            X_DJCD.SelectedIndex = 0;
+            //X_DJLX.DataSource = Y_DJLX.DataSource;//此处会让新刀具类型与原刀具类型同步更改
+            X_DJLX.DataSource = SQL.DataReadList(Sqlstr1);//此处会让新刀具类型与原刀具类型独立更改
+            X_DJLX.SelectedIndex = -1;
+            //X_DJCD.SelectedIndex = 0;
 
             //操作信息默认值
             SPLD.SelectedIndex = 0;
@@ -121,25 +121,25 @@ namespace kucunTest.DaoJu
         private void Y_DJLX_SelectedIndexChanged(object sender, EventArgs e)
         {
             Y_DJGG.DataSource = Djlx_Changed(Y_DJLX.Text.ToString().Trim());
-            Y_DJGG.SelectedIndex = 0;//选择第一项作为默认值
+            Y_DJGG.SelectedIndex = -1;//选择第一项作为默认值
         }
 
         private void Y_DJGG_SelectedIndexChanged(object sender, EventArgs e)
         {
             Y_DJID.DataSource = Djgg_Changed(Y_DJLX.Text.ToString().Trim(), Y_DJGG.Text.ToString().Trim());
-            Y_DJID.SelectedIndex = 0;
+            Y_DJID.SelectedIndex = -1;
         }
 
         private void X_DJLX_SelectedIndexChanged(object sender, EventArgs e)
         {
             X_DJGG.DataSource = Djlx_Changed(X_DJLX.Text.ToString().Trim());
-            X_DJGG.SelectedIndex = 0;
+            X_DJGG.SelectedIndex = -1;
         }
 
         private void X_DJGG_SelectedIndexChanged(object sender, EventArgs e)
         {
             X_DJID.DataSource = Djgg_Changed(X_DJLX.Text.ToString().Trim(), X_DJGG.Text.ToString().Trim());
-            X_DJID.SelectedIndex = 0;
+            X_DJID.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -149,8 +149,15 @@ namespace kucunTest.DaoJu
         /// <returns></returns>
         public List<string> Djlx_Changed(string djlx)
         {
-            Sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx + "'";
-            return SQL.DataReadList(Sqlstr);
+            if(djlx == null || djlx == "")
+            {
+                return null;
+            }
+            else
+            {
+                Sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx + "'";
+                return SQL.DataReadList(Sqlstr);
+            }            
         }
 
         /// <summary>
@@ -161,8 +168,19 @@ namespace kucunTest.DaoJu
         /// <returns></returns>
         public List<string> Djgg_Changed(string djlx, string djgg)
         {
-            Sqlstr = "select daojuid from daojutemp where daojuleixing = '" + djlx + "'" + " and daojuguige = '" + djgg + "'";
-            return SQL.DataReadList(Sqlstr);
+            if (djlx == null || djlx == "")
+            {
+                return null;
+            }
+            else if(djgg == null || djgg == "")
+            {
+                return null;
+            }
+            else
+            {
+                Sqlstr = "select daojuid from daojutemp where daojuleixing = '" + djlx + "'" + " and daojuguige = '" + djgg + "'";
+                return SQL.DataReadList(Sqlstr);
+            }
         }
         #endregion
 
@@ -497,5 +515,35 @@ namespace kucunTest.DaoJu
             }
         }
 
+        /// <summary>
+        /// 从刀具管理界面进行刀具更换
+        /// </summary>
+        /// <param name="tb">要进行更换的刀具</param>
+        public void AddDataFromTable(DataTable tb)
+        {
+            Y_DJLX.Text = tb.Rows[0]["djlx"].ToString();
+            Y_DJLX.Enabled = false;
+            Y_DJGG.Text = tb.Rows[0]["djgg"].ToString();
+            Y_DJGG.Enabled = false;
+            Y_DJID.Text = tb.Rows[0]["djid"].ToString();
+            Y_DJID.Enabled = false;
+
+            string djwz = tb.Rows[0]["djwz"].ToString().Trim();
+            //string[] sArray = djwz.Split('-');
+            SQSB.Text = djwz.Substring(0, djwz.Length - 5);
+            SQSB.Enabled = false;
+            Y_DTH.Text = djwz.Substring(djwz.Length - 3);
+            Y_DTH.Enabled = false;
+        }
+
+        /// <summary>
+        /// 新原刀具刀套号保持一致
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Y_DTH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            X_DTH.Text = Y_DTH.Text;
+        }
     }
 }

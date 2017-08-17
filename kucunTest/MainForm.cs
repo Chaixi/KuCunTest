@@ -977,6 +977,7 @@ namespace kucunTest
 
                         historyPage.Show();
                         historyPage.Dock = DockStyle.Fill;
+                        historyPage.Refresh();
                     }
 
                     //historyPage.Show();
@@ -1025,6 +1026,26 @@ namespace kucunTest
                 djkcmx.Show();
                 djkcmx.Refresh_kcmxTable();
             }
+        }
+
+        /// <summary>
+        /// 默认不选择任何的节点
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        {
+            //Unknown,引发操作未知, 一般非
+            //①ByMouse--由鼠标操作引发
+            //②ByKeyboard--由按键操作引发, 比如上下方向箭选择
+            //③Collaspe--由折叠操作引发
+            //④Expand--由展开操作引发
+            //以上四种状态时, 就都属于这种, 窗体Show()时, TreeViewAction就是这种状态, 只要把这种状态的操作取消, 就能达到想要的效果
+            if (e.Action == TreeViewAction.Unknown)
+            {
+                e.Cancel = true;
+            }
+
         }
     }
 }

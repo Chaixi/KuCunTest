@@ -80,6 +80,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.Y_DTH = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.X_DTH = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -294,7 +298,7 @@
             this.groupBox3.Controls.Add(this.SPYJ);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 432);
+            this.groupBox3.Location = new System.Drawing.Point(12, 464);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(825, 113);
             this.groupBox3.TabIndex = 4;
@@ -370,7 +374,7 @@
             // cancel
             // 
             this.cancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cancel.Location = new System.Drawing.Point(453, 563);
+            this.cancel.Location = new System.Drawing.Point(445, 583);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(88, 32);
             this.cancel.TabIndex = 3;
@@ -381,7 +385,7 @@
             // btn_print
             // 
             this.btn_print.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_print.Location = new System.Drawing.Point(359, 563);
+            this.btn_print.Location = new System.Drawing.Point(351, 583);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(88, 32);
             this.btn_print.TabIndex = 3;
@@ -392,7 +396,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(171, 563);
+            this.button1.Location = new System.Drawing.Point(163, 583);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 32);
             this.button1.TabIndex = 5;
@@ -403,7 +407,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(643, 563);
+            this.button4.Location = new System.Drawing.Point(635, 583);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(88, 32);
             this.button4.TabIndex = 3;
@@ -417,14 +421,16 @@
             this.groupBox4.Controls.Add(this.Y_DJID);
             this.groupBox4.Controls.Add(this.Y_DJCD);
             this.groupBox4.Controls.Add(this.Y_DJGG);
+            this.groupBox4.Controls.Add(this.Y_DTH);
             this.groupBox4.Controls.Add(this.Y_DJLX);
             this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.label21);
+            this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Location = new System.Drawing.Point(24, 28);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(243, 203);
+            this.groupBox4.Size = new System.Drawing.Size(243, 243);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "原刀具";
@@ -437,13 +443,6 @@
             "机动科"});
             this.Y_DJID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Y_DJID.FormattingEnabled = true;
-            this.Y_DJID.Items.AddRange(new object[] {
-            "50",
-            "100",
-            "150",
-            "200",
-            "300",
-            "400"});
             this.Y_DJID.Location = new System.Drawing.Point(102, 159);
             this.Y_DJID.Name = "Y_DJID";
             this.Y_DJID.Size = new System.Drawing.Size(121, 29);
@@ -458,6 +457,7 @@
             this.Y_DJCD.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Y_DJCD.FormattingEnabled = true;
             this.Y_DJCD.Items.AddRange(new object[] {
+            "",
             "50",
             "100",
             "150",
@@ -491,10 +491,6 @@
             "机动科"});
             this.Y_DJLX.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Y_DJLX.FormattingEnabled = true;
-            this.Y_DJLX.Items.AddRange(new object[] {
-            "先锋一班",
-            "胜利二班",
-            "机动科"});
             this.Y_DJLX.Location = new System.Drawing.Point(102, 31);
             this.Y_DJLX.Name = "Y_DJLX";
             this.Y_DJLX.Size = new System.Drawing.Size(121, 29);
@@ -542,14 +538,16 @@
             this.groupBox5.Controls.Add(this.X_DJID);
             this.groupBox5.Controls.Add(this.X_DJLX);
             this.groupBox5.Controls.Add(this.X_DJCD);
+            this.groupBox5.Controls.Add(this.X_DTH);
             this.groupBox5.Controls.Add(this.label17);
             this.groupBox5.Controls.Add(this.X_DJGG);
             this.groupBox5.Controls.Add(this.label18);
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.label22);
+            this.groupBox5.Controls.Add(this.label20);
             this.groupBox5.Location = new System.Drawing.Point(291, 27);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(247, 204);
+            this.groupBox5.Size = new System.Drawing.Size(247, 244);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "新刀具";
@@ -562,13 +560,6 @@
             "机动科"});
             this.X_DJID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.X_DJID.FormattingEnabled = true;
-            this.X_DJID.Items.AddRange(new object[] {
-            "50",
-            "100",
-            "150",
-            "200",
-            "300",
-            "400"});
             this.X_DJID.Location = new System.Drawing.Point(105, 160);
             this.X_DJID.Name = "X_DJID";
             this.X_DJID.Size = new System.Drawing.Size(121, 29);
@@ -582,10 +573,6 @@
             "机动科"});
             this.X_DJLX.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.X_DJLX.FormattingEnabled = true;
-            this.X_DJLX.Items.AddRange(new object[] {
-            "先锋一班",
-            "胜利二班",
-            "机动科"});
             this.X_DJLX.Location = new System.Drawing.Point(105, 32);
             this.X_DJLX.Name = "X_DJLX";
             this.X_DJLX.Size = new System.Drawing.Size(121, 29);
@@ -601,6 +588,7 @@
             this.X_DJCD.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.X_DJCD.FormattingEnabled = true;
             this.X_DJCD.Items.AddRange(new object[] {
+            "",
             "50",
             "100",
             "150",
@@ -667,7 +655,7 @@
             this.groupBox6.Controls.Add(this.GHLY);
             this.groupBox6.Location = new System.Drawing.Point(553, 28);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(243, 203);
+            this.groupBox6.Size = new System.Drawing.Size(243, 243);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "更换理由";
@@ -677,7 +665,7 @@
             this.GHLY.Location = new System.Drawing.Point(11, 31);
             this.GHLY.Multiline = true;
             this.GHLY.Name = "GHLY";
-            this.GHLY.Size = new System.Drawing.Size(222, 157);
+            this.GHLY.Size = new System.Drawing.Size(222, 206);
             this.GHLY.TabIndex = 1;
             // 
             // groupBox2
@@ -688,7 +676,7 @@
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(10, 181);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(827, 245);
+            this.groupBox2.Size = new System.Drawing.Size(827, 277);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "刀具信息";
@@ -696,7 +684,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(265, 563);
+            this.button2.Location = new System.Drawing.Point(257, 583);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 32);
             this.button2.TabIndex = 5;
@@ -707,7 +695,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(549, 563);
+            this.button3.Location = new System.Drawing.Point(541, 583);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(88, 32);
             this.button3.TabIndex = 6;
@@ -715,13 +703,58 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(32, 205);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 21);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "刀套号：";
+            // 
+            // Y_DTH
+            // 
+            this.Y_DTH.AutoCompleteCustomSource.AddRange(new string[] {
+            "先锋一班",
+            "胜利二班",
+            "机动科"});
+            this.Y_DTH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Y_DTH.FormattingEnabled = true;
+            this.Y_DTH.Location = new System.Drawing.Point(102, 202);
+            this.Y_DTH.Name = "Y_DTH";
+            this.Y_DTH.Size = new System.Drawing.Size(121, 29);
+            this.Y_DTH.TabIndex = 2;
+            this.Y_DTH.SelectedIndexChanged += new System.EventHandler(this.Y_DTH_SelectedIndexChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(32, 206);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(74, 21);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "刀套号：";
+            // 
+            // X_DTH
+            // 
+            this.X_DTH.AutoCompleteCustomSource.AddRange(new string[] {
+            "先锋一班",
+            "胜利二班",
+            "机动科"});
+            this.X_DTH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.X_DTH.FormattingEnabled = true;
+            this.X_DTH.Location = new System.Drawing.Point(105, 203);
+            this.X_DTH.Name = "X_DTH";
+            this.X_DTH.Size = new System.Drawing.Size(121, 29);
+            this.X_DTH.TabIndex = 2;
+            // 
             // DJGH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(849, 607);
+            this.ClientSize = new System.Drawing.Size(849, 627);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -815,5 +848,9 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox Y_DTH;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox X_DTH;
+        private System.Windows.Forms.Label label20;
     }
 }

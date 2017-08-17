@@ -586,5 +586,41 @@ namespace kucunTest.DaoJu
         }
 
         #endregion 其他方法结束
+
+        /// <summary>
+        /// 从表增加明细，即可以通过选择多条记录一并新增明细
+        /// </summary>
+        /// <param name="tb">要新增的明细表部分内容</param>
+        public void AddDataFromTable(DataTable tb)
+        {
+            lymx_db.Columns.Add("daojuleixing", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("daojuguige", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("changdu", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("daojuid", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("shuliang", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("jichuangbianma", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("daotaohao", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("beizhu", System.Type.GetType("System.String"));
+
+            for (int i = 0; i < tb.Rows.Count; i++)
+            {
+                DataRow rowrow = lymx_db.NewRow();
+
+                rowrow["daojuleixing"] = tb.Rows[i]["djlx"];//刀具类型
+                rowrow["daojuguige"] = tb.Rows[i]["djgg"];//刀具规格
+                rowrow["changdu"] = "";//刀具长度
+                rowrow["daojuid"] = tb.Rows[i]["djid"];//刀具id
+                rowrow["shuliang"] = "1";//数量
+                rowrow["jichuangbianma"] = "";//机床编码
+                rowrow["daotaohao"] = "";//刀套号
+                rowrow["beizhu"] = "";//备注
+
+                lymx_db.Rows.Add(rowrow);
+                HJ++;
+            }
+
+            lingyongmingxi.DataSource = lymx_db.DefaultView;
+            heji.Text = HJ.ToString();
+        }
     }
 }

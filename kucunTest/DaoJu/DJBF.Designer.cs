@@ -70,6 +70,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.DTH = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -295,7 +297,7 @@
             this.groupBox3.Controls.Add(this.SPYJ);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 394);
+            this.groupBox3.Location = new System.Drawing.Point(10, 445);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(826, 111);
             this.groupBox3.TabIndex = 4;
@@ -378,7 +380,7 @@
             // BtnCancel
             // 
             this.BtnCancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnCancel.Location = new System.Drawing.Point(454, 522);
+            this.BtnCancel.Location = new System.Drawing.Point(449, 572);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(87, 30);
             this.BtnCancel.TabIndex = 3;
@@ -389,7 +391,7 @@
             // BtnPrint
             // 
             this.BtnPrint.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnPrint.Location = new System.Drawing.Point(361, 522);
+            this.BtnPrint.Location = new System.Drawing.Point(356, 572);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(87, 30);
             this.BtnPrint.TabIndex = 3;
@@ -400,7 +402,7 @@
             // BtnSave
             // 
             this.BtnSave.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnSave.Location = new System.Drawing.Point(266, 522);
+            this.BtnSave.Location = new System.Drawing.Point(261, 572);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(87, 30);
             this.BtnSave.TabIndex = 5;
@@ -411,7 +413,7 @@
             // BtnHistory
             // 
             this.BtnHistory.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BtnHistory.Location = new System.Drawing.Point(641, 522);
+            this.BtnHistory.Location = new System.Drawing.Point(636, 572);
             this.BtnHistory.Name = "BtnHistory";
             this.BtnHistory.Size = new System.Drawing.Size(87, 30);
             this.BtnHistory.TabIndex = 3;
@@ -542,7 +544,7 @@
             this.groupBox6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox6.Location = new System.Drawing.Point(311, 20);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(487, 181);
+            this.groupBox6.Size = new System.Drawing.Size(487, 232);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "报废原因";
@@ -553,14 +555,16 @@
             this.BFYY.Location = new System.Drawing.Point(11, 28);
             this.BFYY.Multiline = true;
             this.BFYY.Name = "BFYY";
-            this.BFYY.Size = new System.Drawing.Size(466, 146);
+            this.BFYY.Size = new System.Drawing.Size(466, 190);
             this.BFYY.TabIndex = 1;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.DTH);
             this.groupBox2.Controls.Add(this.DJID);
             this.groupBox2.Controls.Add(this.groupBox6);
             this.groupBox2.Controls.Add(this.DJCD);
+            this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.DJGG);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.label14);
@@ -570,7 +574,7 @@
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(10, 181);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(827, 207);
+            this.groupBox2.Size = new System.Drawing.Size(827, 258);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "刀具信息";
@@ -578,7 +582,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(173, 522);
+            this.button1.Location = new System.Drawing.Point(168, 572);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 30);
             this.button1.TabIndex = 5;
@@ -589,7 +593,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(548, 522);
+            this.button2.Location = new System.Drawing.Point(543, 572);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 30);
             this.button2.TabIndex = 6;
@@ -597,13 +601,37 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(56, 212);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 21);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "刀套号：";
+            // 
+            // DTH
+            // 
+            this.DTH.AutoCompleteCustomSource.AddRange(new string[] {
+            "先锋一班",
+            "胜利二班",
+            "机动科"});
+            this.DTH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.DTH.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DTH.FormattingEnabled = true;
+            this.DTH.Location = new System.Drawing.Point(136, 209);
+            this.DTH.Name = "DTH";
+            this.DTH.Size = new System.Drawing.Size(135, 29);
+            this.DTH.TabIndex = 2;
+            // 
             // DJBF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(849, 564);
+            this.ClientSize = new System.Drawing.Size(849, 614);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -684,5 +712,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox DTH;
+        private System.Windows.Forms.Label label16;
     }
 }

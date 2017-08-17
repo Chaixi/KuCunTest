@@ -38,16 +38,16 @@ namespace kucunTest.DaoJu
             BFDH.Text = Alex.DanHao("DJBF");//自动生成单号
 
             //申请信息默认值
-            SQBZ.SelectedIndex = 0;
-            SQSB.SelectedIndex = 0;
-            JGLJ.SelectedIndex = 0;
+            //SQBZ.SelectedIndex = 0;
+            //SQSB.SelectedIndex = 0;
+            //JGLJ.SelectedIndex = 0;
             SQSJ.Text = DateTime.Now.ToString();
 
             //刀具信息默认值
             string Sqlstr1 = "select distinct daojuleixing from daojutemp";
             DJLX.DataSource = SQL.DataReadList(Sqlstr1);
-            DJLX.SelectedIndex = 0;
-            DJCD.SelectedIndex = 0;
+            DJLX.SelectedIndex = -1;
+            DJCD.SelectedIndex = -1;
 
             //操作信息默认值
             SPLD.SelectedIndex = 0;
@@ -115,13 +115,13 @@ namespace kucunTest.DaoJu
         private void DJLX_SelectedIndexChanged(object sender, EventArgs e)
         {
             DJGG.DataSource = Djlx_Changed(DJLX.Text.ToString().Trim());
-            DJGG.SelectedIndex = 0;//选择第一项作为默认值
+            DJGG.SelectedIndex = -1;//选择第一项作为默认值
         }
 
         private void DJGG_SelectedIndexChanged(object sender, EventArgs e)
         {
             DJID.DataSource = Djgg_Changed(DJLX.Text.ToString().Trim(), DJGG.Text.ToString().Trim());
-            DJID.SelectedIndex = 0;
+            DJID.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -131,8 +131,16 @@ namespace kucunTest.DaoJu
         /// <returns></returns>
         public List<string> Djlx_Changed(string djlx)
         {
-            Sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx + "'";
-            return SQL.DataReadList(Sqlstr);
+            if(djlx == "")
+            {
+                return null;
+            }
+            else
+            {
+                Sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx + "'";
+                return SQL.DataReadList(Sqlstr);
+            }
+            
         }
 
         /// <summary>
@@ -143,8 +151,19 @@ namespace kucunTest.DaoJu
         /// <returns></returns>
         public List<string> Djgg_Changed(string djlx, string djgg)
         {
-            Sqlstr = "select daojuid from daojutemp where daojuleixing = '" + djlx + "'" + " and daojuguige = '" + djgg + "'";
-            return SQL.DataReadList(Sqlstr);
+            if (djlx == null || djlx == "")
+            {
+                return null;
+            }
+            else if (djgg == null || djgg == "")
+            {
+                return null;
+            }
+            else
+            {
+                Sqlstr = "select daojuid from daojutemp where daojuleixing = '" + djlx + "'" + " and daojuguige = '" + djgg + "'";
+                return SQL.DataReadList(Sqlstr);
+            }
         }
         #endregion
 
@@ -459,6 +478,26 @@ namespace kucunTest.DaoJu
                 MainForm mfr = (MainForm)this.Parent.FindForm();
                 mfr.CloseTab(this.Name);
             }
+        }
+
+        /// <summary>
+        /// 从表增加明细，即可以通过选择多条记录一并新增明细
+        /// </summary>
+        /// <param name="tb">要新增的明细表部分内容</param>
+        public void AddDataFromTable(DataTable tb)
+        {
+            DJLX.Text = tb.Rows[0]["djlx"].ToString();
+            DJLX.Enabled = false;
+            DJGG.Text = tb.Rows[0]["djgg"].ToString();
+            DJGG.Enabled = false;
+            DJID.Text = tb.Rows[0]["djid"].ToString();
+            DJID.Enabled = false;
+
+            string djwz = tb.Rows[0]["djwz"].ToString().Trim();
+            SQSB.Text = djwz.Substring(0, djwz.Length - 5);
+            SQSB.Enabled = false;
+            DTH.Text = djwz.Substring(djwz.Length - 3);
+            DTH.Enabled = false;
         }
     }
 }

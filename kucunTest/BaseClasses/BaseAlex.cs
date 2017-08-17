@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace kucunTest.BaseClasses
 {
@@ -178,6 +179,35 @@ namespace kucunTest.BaseClasses
                     ClearText(ctrl); //循环调用  
                 }
             }
+        }
+
+        /// <summary>
+        /// DataGridView转换成DataTable, 可以在DataGridView的DataSource为空的时候使用
+        /// </summary>
+        /// <param name="dgv">要进行转化的DataGridView</param>
+        /// <returns></returns>
+        public DataTable GetDgvToTable(DataGridView dgv)
+        {
+            DataTable dt = new DataTable();
+
+            // 列强制转换
+            for (int count = 0; count < dgv.Columns.Count; count++)
+            {
+                DataColumn dc = new DataColumn(dgv.Columns[count].Name.ToString());
+                dt.Columns.Add(dc);
+            }
+
+            // 循环行
+            for (int count = 0; count < dgv.Rows.Count; count++)
+            {
+                DataRow dr = dt.NewRow();
+                for (int countsub = 0; countsub < dgv.Columns.Count; countsub++)
+                {
+                    dr[countsub] = Convert.ToString(dgv.Rows[count].Cells[countsub].Value);
+                }
+                dt.Rows.Add(dr);
+            }
+            return dt;
         }
     }
 }

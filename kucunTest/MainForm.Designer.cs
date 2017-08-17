@@ -97,7 +97,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_CrtUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_TimeNow = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -539,8 +538,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel_CrtUser,
-            this.toolStripStatusLabel_TimeNow,
-            this.toolStripProgressBar1});
+            this.toolStripStatusLabel_TimeNow});
             this.statusStrip1.Location = new System.Drawing.Point(0, 692);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1184, 30);
@@ -575,12 +573,6 @@
             this.toolStripStatusLabel_TimeNow.Spring = true;
             this.toolStripStatusLabel_TimeNow.Text = "当前时间：";
             this.toolStripStatusLabel_TimeNow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 24);
-            this.toolStripProgressBar1.Visible = false;
             // 
             // splitContainer1
             // 
@@ -680,6 +672,7 @@
             this.treeView1.ShowRootLines = false;
             this.treeView1.Size = new System.Drawing.Size(187, 456);
             this.treeView1.TabIndex = 1;
+            this.treeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // button1
@@ -1288,7 +1281,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }
 

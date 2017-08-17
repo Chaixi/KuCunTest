@@ -309,20 +309,7 @@ namespace kucunTest.DaoJu
             LS_dgv.DataSource = ds.Tables[0].DefaultView;
 
             //根据单据状态字段设置历史单号表单元格背景色
-            for (int row = 0; row < LS_dgv.RowCount; row++)
-            {
-                if (LS_dgv.Rows[row].Cells[Cells].Value.ToString() == "1")
-                {
-                    //LS_dgv.Rows[row].Cells[0].Style.BackColor = Color.Gray;
-                    //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.Gray;
-                    //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.LightBlue;
-                    continue;
-                }
-                else
-                {
-                    LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.AntiqueWhite;
-                }
-            }
+            Refresh();
 
             //加载单据明细，若是“刀具更换单”、“刀具报废单”等没有明细表的情况，则不加载明细表
             if(TYPE == "DJGH" || TYPE == "DJBF")
@@ -358,22 +345,8 @@ namespace kucunTest.DaoJu
             DataSet ds = SQL.getDataSet(SqlStr, danjubiao);
             LS_dgv.DataSource = ds.Tables[0].DefaultView;
 
-            //临时测试，根据单据状态字段设置单元格背景色
-            for (int row = 0; row < LS_dgv.RowCount; row++)
-            {
-                if (LS_dgv.Rows[row].Cells[Cells].Value.ToString() == "1")
-                {
-                    //LS_dgv.Rows[row].Cells[0].Style.BackColor = Color.Gray;
-                    //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.Gray;
-                    //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.LightBlue;
-                    continue;
-                }
-                else
-                {
-                    LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.AntiqueWhite;
-                }
-            }
-
+            //根据单据状态字段设置单元格背景色
+            Refresh();
         }
 
         /// <summary>
@@ -612,6 +585,28 @@ namespace kucunTest.DaoJu
         private void History_SizeChanged(object sender, EventArgs e)
         {
             asc.controlAutoSize(this);
+        }
+
+        /// <summary>
+        /// 刷新表格数据背景,根据单据状态字段设置历史单号表单元格背景色
+        /// </summary>
+        public void Refresh()
+        {
+            //临时测试，根据单据状态字段设置单元格背景色
+            for (int row = 0; row < LS_dgv.RowCount; row++)
+            {
+                if (LS_dgv.Rows[row].Cells[Cells].Value.ToString() == "1")
+                {
+                    //LS_dgv.Rows[row].Cells[0].Style.BackColor = Color.Gray;
+                    //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.Gray;
+                    //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.LightBlue;
+                    continue;
+                }
+                else
+                {
+                    LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.AntiqueWhite;
+                }
+            }
         }
     }
 }
