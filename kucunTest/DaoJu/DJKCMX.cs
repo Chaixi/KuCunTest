@@ -48,6 +48,12 @@ namespace kucunTest.DaoJu
             asc.controllInitializeSize(this);
 
             time_count = 0;
+
+            Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl FROM daojutemp dt GROUP BY dt.daojuleixing";
+            KCTJ.AutoGenerateColumns = false;
+            DataSet ds = SQL.getDataSet1(Sqlstr);
+            KCTJ.DataSource = ds.Tables[0].DefaultView;
+
             Refresh_kcmxTable();
         }
 
@@ -114,12 +120,12 @@ namespace kucunTest.DaoJu
         /// <summary>
         /// 刷新库存明细表
         /// </summary>
-        private void Refresh_kcmxTable()
+        public void Refresh_kcmxTable()
         {
-            Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl FROM daojutemp dt GROUP BY dt.daojuleixing";
-            KCTJ.AutoGenerateColumns = false;
-            DataSet ds = SQL.getDataSet1(Sqlstr);
-            KCTJ.DataSource = ds.Tables[0].DefaultView;
+            //Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl FROM daojutemp dt GROUP BY dt.daojuleixing";
+            //KCTJ.AutoGenerateColumns = false;
+            //DataSet ds = SQL.getDataSet1(Sqlstr);
+            //KCTJ.DataSource = ds.Tables[0].DefaultView;
 
             //对可用数量等于所有数量，但是显示为空的行，进行遍历
             for (int rowindex = 0; rowindex < KCTJ.Rows.Count; rowindex++)
@@ -157,7 +163,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            if(time_count >= 60)
+            if(time_count >= 3)
             {
                 timer1.Stop();
                 Refresh_kcmxTable();               

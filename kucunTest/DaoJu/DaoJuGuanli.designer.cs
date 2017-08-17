@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1# 1204后箱加工线");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("2# 1204前箱加工线");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("3# 前托架加工线");
@@ -755,16 +757,18 @@
             // 
             this.dgv_jcdk.AllowUserToAddRows = false;
             this.dgv_jcdk.AllowUserToDeleteRows = false;
-            this.dgv_jcdk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_jcdk.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_jcdk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_jcdk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_jcdk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_jcdk.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_jcdk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_jcdk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_jcdk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.jcdk_dth,
@@ -772,8 +776,17 @@
             this.jcdk_djtp});
             this.dgv_jcdk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_jcdk.Location = new System.Drawing.Point(3, 25);
+            this.dgv_jcdk.MultiSelect = false;
             this.dgv_jcdk.Name = "dgv_jcdk";
             this.dgv_jcdk.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_jcdk.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_jcdk.RowHeadersWidth = 31;
             this.dgv_jcdk.RowTemplate.Height = 23;
             this.dgv_jcdk.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -867,21 +880,24 @@
             // 
             // jcdk_dth
             // 
+            this.jcdk_dth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.jcdk_dth.DataPropertyName = "daotaohao";
             this.jcdk_dth.FillWeight = 60.78487F;
             this.jcdk_dth.HeaderText = "刀套号";
             this.jcdk_dth.Name = "jcdk_dth";
             this.jcdk_dth.ReadOnly = true;
-            this.jcdk_dth.Width = 83;
+            this.jcdk_dth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.jcdk_dth.Width = 64;
             // 
             // jcdk_djxh
             // 
+            this.jcdk_djxh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.jcdk_djxh.DataPropertyName = "daojuid";
             this.jcdk_djxh.FillWeight = 110.2811F;
             this.jcdk_djxh.HeaderText = "刀具ID";
             this.jcdk_djxh.Name = "jcdk_djxh";
             this.jcdk_djxh.ReadOnly = true;
-            this.jcdk_djxh.Width = 84;
+            this.jcdk_djxh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // jcdk_djtp
             // 
@@ -892,7 +908,6 @@
             this.jcdk_djtp.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.jcdk_djtp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.jcdk_djtp.Visible = false;
-            this.jcdk_djtp.Width = 185;
             // 
             // DaoJuGuanLi
             // 

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grp_jc = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.djytjs = new System.Windows.Forms.TextBox();
             this.yhbjxgc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.djfpj = new System.Windows.Forms.TextBox();
@@ -96,8 +98,6 @@
             this.刀具规格 = new System.Windows.Forms.Label();
             this.djlx = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.djytjs = new System.Windows.Forms.TextBox();
             this.grp_jc.SuspendLayout();
             this.grp_cl.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -148,6 +148,24 @@
             this.grp_jc.TabIndex = 0;
             this.grp_jc.TabStop = false;
             this.grp_jc.Text = "基础信息";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(41, 402);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(106, 21);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "刀具用途介绍";
+            // 
+            // djytjs
+            // 
+            this.djytjs.Enabled = false;
+            this.djytjs.Location = new System.Drawing.Point(149, 407);
+            this.djytjs.Multiline = true;
+            this.djytjs.Name = "djytjs";
+            this.djytjs.Size = new System.Drawing.Size(360, 69);
+            this.djytjs.TabIndex = 28;
             // 
             // yhbjxgc
             // 
@@ -654,7 +672,7 @@
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(878, 63);
             this.label33.TabIndex = 2;
-            this.label33.Text = "刀具参数信息";
+            this.label33.Text = "刀具测量";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label33.SizeChanged += new System.EventHandler(this.label33_SizeChanged);
             // 
@@ -746,24 +764,6 @@
             this.label6.Size = new System.Drawing.Size(74, 21);
             this.label6.TabIndex = 2;
             this.label6.Text = "刀具类型";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(41, 402);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(106, 21);
-            this.label19.TabIndex = 27;
-            this.label19.Text = "刀具用途介绍";
-            // 
-            // djytjs
-            // 
-            this.djytjs.Enabled = false;
-            this.djytjs.Location = new System.Drawing.Point(149, 407);
-            this.djytjs.Multiline = true;
-            this.djytjs.Name = "djytjs";
-            this.djytjs.Size = new System.Drawing.Size(360, 69);
-            this.djytjs.TabIndex = 28;
             // 
             // DaoJuCanShuXinXi
             // 

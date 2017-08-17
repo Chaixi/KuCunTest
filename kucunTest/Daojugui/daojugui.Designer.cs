@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.kcmx = new System.Windows.Forms.DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,12 +51,12 @@
             this.lbjsl = new System.Windows.Forms.TextBox();
             this.djsl = new System.Windows.Forms.TextBox();
             this.djgccs = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.xzdjg = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lxcx = new System.Windows.Forms.ComboBox();
@@ -75,9 +74,9 @@
             // 
             this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 45);
+            this.groupBox1.Location = new System.Drawing.Point(16, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(211, 598);
+            this.groupBox1.Size = new System.Drawing.Size(211, 631);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "刀具柜名称";
@@ -86,28 +85,17 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(6, 24);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(199, 567);
+            this.treeView1.Size = new System.Drawing.Size(199, 600);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("宋体", 22F);
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1173, 42);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "刀具柜管理";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.kcmx);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(233, 294);
+            this.groupBox2.Location = new System.Drawing.Point(233, 261);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(932, 349);
+            this.groupBox2.Size = new System.Drawing.Size(932, 382);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "刀具柜库存";
@@ -134,12 +122,13 @@
             this.Column6,
             this.Column1,
             this.Column7});
-            this.kcmx.Location = new System.Drawing.Point(19, 28);
+            this.kcmx.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kcmx.Location = new System.Drawing.Point(3, 25);
             this.kcmx.Name = "kcmx";
             this.kcmx.ReadOnly = true;
             this.kcmx.RowTemplate.Height = 23;
             this.kcmx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.kcmx.Size = new System.Drawing.Size(894, 314);
+            this.kcmx.Size = new System.Drawing.Size(926, 354);
             this.kcmx.TabIndex = 0;
             // 
             // Column2
@@ -217,7 +206,7 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(233, 45);
+            this.groupBox3.Location = new System.Drawing.Point(233, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(722, 243);
             this.groupBox3.TabIndex = 3;
@@ -299,15 +288,6 @@
             this.djgccs.Size = new System.Drawing.Size(42, 29);
             this.djgccs.TabIndex = 3;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(671, 187);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 21);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "种。";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -354,12 +334,21 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "刀具柜图片";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(671, 187);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 21);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "种。";
+            // 
             // xzdjg
             // 
             this.xzdjg.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.xzdjg.Location = new System.Drawing.Point(460, 659);
+            this.xzdjg.Location = new System.Drawing.Point(471, 659);
             this.xzdjg.Name = "xzdjg";
-            this.xzdjg.Size = new System.Drawing.Size(94, 29);
+            this.xzdjg.Size = new System.Drawing.Size(109, 29);
             this.xzdjg.TabIndex = 4;
             this.xzdjg.Text = "新增刀具柜";
             this.xzdjg.UseVisualStyleBackColor = true;
@@ -368,7 +357,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(591, 659);
+            this.button1.Location = new System.Drawing.Point(602, 659);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 29);
             this.button1.TabIndex = 5;
@@ -403,7 +392,7 @@
             this.查询条件.Controls.Add(this.lxcx);
             this.查询条件.Controls.Add(this.label11);
             this.查询条件.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.查询条件.Location = new System.Drawing.Point(961, 45);
+            this.查询条件.Location = new System.Drawing.Point(961, 12);
             this.查询条件.Name = "查询条件";
             this.查询条件.Size = new System.Drawing.Size(204, 243);
             this.查询条件.TabIndex = 6;
@@ -420,11 +409,12 @@
             this.Controls.Add(this.xzdjg);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "daojugui";
             this.Text = "刀具柜管理";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.daojugui_FormClosed);
             this.Load += new System.EventHandler(this.daojugui_Load);
+            this.SizeChanged += new System.EventHandler(this.daojugui_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kcmx)).EndInit();
@@ -440,7 +430,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.DataGridView kcmx;

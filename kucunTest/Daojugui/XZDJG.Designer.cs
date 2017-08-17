@@ -88,7 +88,7 @@
             // djgmc
             // 
             this.djgmc.Location = new System.Drawing.Point(139, 64);
-            this.djgmc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.djgmc.Margin = new System.Windows.Forms.Padding(5);
             this.djgmc.Name = "djgmc";
             this.djgmc.Size = new System.Drawing.Size(206, 29);
             this.djgmc.TabIndex = 2;
@@ -96,7 +96,7 @@
             // djgcs
             // 
             this.djgcs.Location = new System.Drawing.Point(139, 210);
-            this.djgcs.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.djgcs.Margin = new System.Windows.Forms.Padding(5);
             this.djgcs.Name = "djgcs";
             this.djgcs.Size = new System.Drawing.Size(206, 29);
             this.djgcs.TabIndex = 3;
@@ -104,7 +104,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(79, 320);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 31);
             this.button1.TabIndex = 4;
@@ -115,7 +115,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(198, 320);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(92, 31);
             this.button2.TabIndex = 4;
@@ -126,7 +126,7 @@
             // beizhu
             // 
             this.beizhu.Location = new System.Drawing.Point(139, 263);
-            this.beizhu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.beizhu.Margin = new System.Windows.Forms.Padding(5);
             this.beizhu.Name = "beizhu";
             this.beizhu.Size = new System.Drawing.Size(206, 29);
             this.beizhu.TabIndex = 5;
@@ -134,7 +134,7 @@
             // djgbm
             // 
             this.djgbm.Location = new System.Drawing.Point(139, 111);
-            this.djgbm.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.djgbm.Margin = new System.Windows.Forms.Padding(5);
             this.djgbm.Name = "djgbm";
             this.djgbm.Size = new System.Drawing.Size(206, 29);
             this.djgbm.TabIndex = 6;
@@ -162,7 +162,7 @@
             // djglx
             // 
             this.djglx.Location = new System.Drawing.Point(139, 161);
-            this.djglx.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.djglx.Margin = new System.Windows.Forms.Padding(5);
             this.djglx.Name = "djglx";
             this.djglx.Size = new System.Drawing.Size(206, 29);
             this.djglx.TabIndex = 9;
@@ -186,8 +186,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "XZDJG";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "新增刀具柜";
             this.Load += new System.EventHandler(this.XZDJG_Load);
             this.ResumeLayout(false);

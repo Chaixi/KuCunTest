@@ -493,8 +493,9 @@ namespace kucunTest
                 djgl.Left = (tabControl1.Width - djgl.Width) / 2;
                 djgl.Top = (tb.Height - djgl.Height) / 4;
 
-                djgl.Show();
                 djgl.Dock = DockStyle.Fill;
+                djgl.Show();
+                djgl.button5_Click(null, null);
                 //djgl.WindowState = FormWindowState.Maximized;
             }
             //djgl.Parent = panel1;
@@ -762,15 +763,75 @@ namespace kucunTest
         private void 刀具柜管理ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             daojugui djg = new daojugui();
-            //djg.MdiParent = this;
-            djg.Show();
+            djg.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djg.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djg.Name;
+                djg.Parent = tb;
+                tb.Text = djg.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djg.Left = (tabControl1.Width - djg.Width) / 2;
+                djg.Top = (tb.Height - djg.Height) / 4;
+
+                djg.Show();
+                djg.Dock = DockStyle.Fill;
+            }
         }
 
         private void 机床管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             jichuang jc = new jichuang();
-            //jc.MdiParent = this;
-            jc.Show();
+            jc.MdiParent = this;
+            
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == jc.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = jc.Name;
+                jc.Parent = tb;
+                tb.Text = jc.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                jc.Left = (tabControl1.Width - jc.Width) / 2;
+                jc.Top = (tb.Height - jc.Height) / 4;
+
+                jc.Show();
+                jc.Dock = DockStyle.Fill;
+            }
         }
 
         /// <summary>
@@ -960,8 +1021,9 @@ namespace kucunTest
                 djkcmx.Left = (tabControl1.Width - djkcmx.Width) / 2;
                 djkcmx.Top = (tb.Height - djkcmx.Height) / 4;
 
-                djkcmx.Show();
                 djkcmx.Dock = DockStyle.Fill;
+                djkcmx.Show();
+                djkcmx.Refresh_kcmxTable();
             }
         }
     }

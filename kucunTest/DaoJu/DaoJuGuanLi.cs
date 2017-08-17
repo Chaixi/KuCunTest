@@ -400,13 +400,31 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 刷新按钮
+        /// 刷新按钮,对刀具寿命值进行判断，以对需要提醒的数据突出显示
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button5_Click(object sender, EventArgs e)
+        public void button5_Click(object sender, EventArgs e)
         {
+            for (i = 0; i < daojuxinxi.Rows.Count - 1; i++)
+            {
+                //对刀具寿命值进行判断，以对需要提醒的数据突出显示
 
+                // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                string sm = daojuxinxi.Rows[i].Cells["djsm"].Value.ToString();
+                int shouming = int.Parse(sm);
+                if (shouming <= 30)
+                {
+                    //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
+                    daojuxinxi.Rows[i].Cells["djsm"].Style.BackColor = Color.Red;
+
+                }
+                if (shouming > 30 && shouming <= 100)
+                {
+                    //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
+                    daojuxinxi.Rows[i].Cells["djsm"].Style.BackColor = Color.Yellow;
+                }
+            }
         }
 
         /// <summary>
@@ -440,7 +458,7 @@ namespace kucunTest.DaoJu
             dgv_jcdk.DataSource = null;
             if(crt_pb.Tag != null)
             {
-                SqlStr = string.Format("SELECT j.daotaohao AS daotaohao, d.daojuid AS daojuid FROM {0} j LEFT JOIN {1} d ON j.jichuangbianma = d.weizhi AND j.daotaohao = d.cengshu WHERE j.jichuangbianma = '{2}' ", jichuangdaojuku, daojubiao, crt_pb.Tag.ToString());
+                SqlStr = string.Format("SELECT j.daotaohao AS daotaohao, d.daojuid AS daojuid FROM {0} j LEFT JOIN {1} d ON j.jichuangbianma = d.weizhi AND j.daotaohao = d.cengshu WHERE j.jichuangbianma = '{2}' ORDER BY j.daotaohao ", jichuangdaojuku, daojubiao, crt_pb.Tag.ToString());
                 DataSet ds = SQL.getDataSet1(SqlStr);
 
                 dgv_jcdk.AutoGenerateColumns = false;

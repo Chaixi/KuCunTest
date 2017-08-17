@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.BaseClasses;
+
 namespace kucunTest.Jichuang
 {
     public partial class jichuang : Form
@@ -20,6 +22,8 @@ namespace kucunTest.Jichuang
 
         #region 全局变量
         private MySql Sql = new MySql();//MySQL类
+        private AutoSizeFormClass asc = new AutoSizeFormClass();
+
         private string SqlStr = "";
         private TreeNode node = new TreeNode();//类型树的根节点。
         #endregion
@@ -46,8 +50,6 @@ namespace kucunTest.Jichuang
 
         private void AddChild(TreeNode t1)
         {
-
-     
             MySqlDataReader jcbm = Sql.getcom("select jichuangbianma from jichuang where shengchanxian ='" + t1.Text.ToString().Trim() + "'");
             while (jcbm.Read())
             {
@@ -82,7 +84,8 @@ namespace kucunTest.Jichuang
 
         private void jichuang_Load(object sender, EventArgs e)
         {
-           
+            asc.controllInitializeSize(this);
+
             treeView1.Nodes.Add(node);
             node.Text = "所有生产线";
             BindRoot();//生成树的第一层
@@ -126,6 +129,20 @@ namespace kucunTest.Jichuang
             if(jcxz.DialogResult == DialogResult.OK)
             {
                 jichuang_Load(null, null);
+            }
+        }
+
+        private void jichuang_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
+        }
+
+        private void jichuang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.Parent != null)
+            {
+                MainForm mfr = (MainForm)this.Parent.FindForm();
+                mfr.CloseTab(this.Name);
             }
         }
     }

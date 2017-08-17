@@ -66,7 +66,7 @@
             // jcmc
             // 
             this.jcmc.Location = new System.Drawing.Point(125, 59);
-            this.jcmc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.jcmc.Margin = new System.Windows.Forms.Padding(5);
             this.jcmc.Name = "jcmc";
             this.jcmc.Size = new System.Drawing.Size(227, 29);
             this.jcmc.TabIndex = 2;
@@ -74,7 +74,7 @@
             // jclx
             // 
             this.jclx.Location = new System.Drawing.Point(125, 111);
-            this.jclx.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.jclx.Margin = new System.Windows.Forms.Padding(5);
             this.jclx.Name = "jclx";
             this.jclx.Size = new System.Drawing.Size(227, 29);
             this.jclx.TabIndex = 3;
@@ -92,7 +92,7 @@
             // scx
             // 
             this.scx.Location = new System.Drawing.Point(125, 162);
-            this.scx.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.scx.Margin = new System.Windows.Forms.Padding(5);
             this.scx.Name = "scx";
             this.scx.Size = new System.Drawing.Size(229, 29);
             this.scx.TabIndex = 4;
@@ -120,7 +120,7 @@
             // dkcc
             // 
             this.dkcc.Location = new System.Drawing.Point(125, 218);
-            this.dkcc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dkcc.Margin = new System.Windows.Forms.Padding(5);
             this.dkcc.Name = "dkcc";
             this.dkcc.Size = new System.Drawing.Size(227, 29);
             this.dkcc.TabIndex = 7;
@@ -128,7 +128,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(76, 280);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 34);
             this.button1.TabIndex = 8;
@@ -139,7 +139,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(206, 280);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(99, 34);
             this.button2.TabIndex = 9;
@@ -164,8 +164,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "xinzengjichuang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "新增机床";
             this.Load += new System.EventHandler(this.xinzengjichuang_Load);
             this.ResumeLayout(false);

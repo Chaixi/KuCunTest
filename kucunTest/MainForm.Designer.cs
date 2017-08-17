@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("刀具监测");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("刀具领用单据");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("刀具续用单据");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("刀具更换单据");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("刀具外借单据");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("刀具退还单据");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("刀具报废单据");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("单据填写", new System.Windows.Forms.TreeNode[] {
-            treeNode14,
-            treeNode15,
-            treeNode16,
-            treeNode17,
-            treeNode18,
-            treeNode19});
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("库存明细");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("类型管理");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("刀具监测");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("刀具领用单据");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("刀具续用单据");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("刀具更换单据");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("刀具外借单据");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("刀具退还单据");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("刀具报废单据");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("单据填写", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("库存明细");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("类型管理");
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.库存管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.库存明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,9 +95,9 @@
             this.机床管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_CrtUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_TimeNow = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -538,9 +538,9 @@
             this.statusStrip1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2,
             this.toolStripStatusLabel_CrtUser,
-            this.toolStripStatusLabel_TimeNow});
+            this.toolStripStatusLabel_TimeNow,
+            this.toolStripProgressBar1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 692);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1184, 30);
@@ -557,12 +557,6 @@
             this.toolStripStatusLabel1.Text = "欢迎使用厦门大学刀具管理系统";
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(335, 25);
-            this.toolStripStatusLabel2.Spring = true;
-            // 
             // toolStripStatusLabel_CrtUser
             // 
             this.toolStripStatusLabel_CrtUser.Font = new System.Drawing.Font("黑体", 11F);
@@ -577,10 +571,16 @@
             this.toolStripStatusLabel_TimeNow.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.toolStripStatusLabel_TimeNow.Font = new System.Drawing.Font("黑体", 11F);
             this.toolStripStatusLabel_TimeNow.Name = "toolStripStatusLabel_TimeNow";
-            this.toolStripStatusLabel_TimeNow.Size = new System.Drawing.Size(335, 25);
+            this.toolStripStatusLabel_TimeNow.Size = new System.Drawing.Size(671, 25);
             this.toolStripStatusLabel_TimeNow.Spring = true;
             this.toolStripStatusLabel_TimeNow.Text = "当前时间：";
             this.toolStripStatusLabel_TimeNow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 24);
+            this.toolStripProgressBar1.Visible = false;
             // 
             // splitContainer1
             // 
@@ -638,45 +638,45 @@
             this.treeView1.ItemHeight = 40;
             this.treeView1.Location = new System.Drawing.Point(3, 42);
             this.treeView1.Name = "treeView1";
-            treeNode12.Name = "节点2";
-            treeNode12.Tag = "0";
-            treeNode12.Text = "";
-            treeNode13.Name = "节点1";
-            treeNode13.Tag = "DJJC";
-            treeNode13.Text = "刀具监测";
-            treeNode14.Name = "节点4";
-            treeNode14.Tag = "DJCCD";
-            treeNode14.Text = "刀具领用单据";
-            treeNode15.Name = "节点18";
-            treeNode15.Tag = "DJCCD";
-            treeNode15.Text = "刀具续用单据";
-            treeNode16.Name = "节点5";
-            treeNode16.Tag = "DJGH";
-            treeNode16.Text = "刀具更换单据";
-            treeNode17.Name = "节点6";
-            treeNode17.Tag = "DJWJ";
-            treeNode17.Text = "刀具外借单据";
-            treeNode18.Name = "节点16";
-            treeNode18.Tag = "DJTH";
-            treeNode18.Text = "刀具退还单据";
-            treeNode19.Name = "节点17";
-            treeNode19.Tag = "DJBF";
-            treeNode19.Text = "刀具报废单据";
-            treeNode20.Name = "节点0";
-            treeNode20.Tag = "DJTX";
-            treeNode20.Text = "单据填写";
-            treeNode21.Name = "节点1";
-            treeNode21.Tag = "KCMX";
-            treeNode21.Text = "库存明细";
-            treeNode22.Name = "节点0";
-            treeNode22.Tag = "LXGL";
-            treeNode22.Text = "类型管理";
+            treeNode1.Name = "节点2";
+            treeNode1.Tag = "0";
+            treeNode1.Text = "";
+            treeNode2.Name = "节点1";
+            treeNode2.Tag = "DJJC";
+            treeNode2.Text = "刀具监测";
+            treeNode3.Name = "节点4";
+            treeNode3.Tag = "DJCCD";
+            treeNode3.Text = "刀具领用单据";
+            treeNode4.Name = "节点18";
+            treeNode4.Tag = "DJCCD";
+            treeNode4.Text = "刀具续用单据";
+            treeNode5.Name = "节点5";
+            treeNode5.Tag = "DJGH";
+            treeNode5.Text = "刀具更换单据";
+            treeNode6.Name = "节点6";
+            treeNode6.Tag = "DJWJ";
+            treeNode6.Text = "刀具外借单据";
+            treeNode7.Name = "节点16";
+            treeNode7.Tag = "DJTH";
+            treeNode7.Text = "刀具退还单据";
+            treeNode8.Name = "节点17";
+            treeNode8.Tag = "DJBF";
+            treeNode8.Text = "刀具报废单据";
+            treeNode9.Name = "节点0";
+            treeNode9.Tag = "DJTX";
+            treeNode9.Text = "单据填写";
+            treeNode10.Name = "节点1";
+            treeNode10.Tag = "KCMX";
+            treeNode10.Text = "库存明细";
+            treeNode11.Name = "节点0";
+            treeNode11.Tag = "LXGL";
+            treeNode11.Text = "类型管理";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode12,
-            treeNode13,
-            treeNode20,
-            treeNode21,
-            treeNode22});
+            treeNode1,
+            treeNode2,
+            treeNode9,
+            treeNode10,
+            treeNode11});
             this.treeView1.ShowRootLines = false;
             this.treeView1.Size = new System.Drawing.Size(187, 456);
             this.treeView1.TabIndex = 1;
@@ -1280,7 +1280,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
@@ -1289,6 +1288,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }
 

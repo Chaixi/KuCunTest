@@ -52,9 +52,7 @@ namespace kucunTest.Jichuang
             {
                 MessageBox.Show("新增机床完成！", "提示", MessageBoxButtons.OK);
                 this.Close();
-                this.DialogResult = DialogResult.OK;
-              
-   
+                this.DialogResult = DialogResult.OK; 
             }
 
         }

@@ -49,7 +49,7 @@ namespace kucunTest.Daojugui
             int x = Int32.Parse(i);
             for (j = 1; j <= x; j++)
             {
-                SqlStr = "insert into daojuguicengshu(djgmc, djgcs) values('" + djgmc.Text.ToString().Trim() + "', '"  + j + "层" + "');";
+                SqlStr = "insert into daojuguicengshu(djgmc, djgcs) values('" + djgmc.Text.ToString().Trim() + "', '"  + j.ToString("00") + "层" + "');";
                 SqlStr1 += SqlStr;
             }
             Sql.ExecuteNonQuery(SqlStr1);

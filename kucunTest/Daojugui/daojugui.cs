@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.BaseClasses;
+
 namespace kucunTest.Daojugui
 {
     public partial class daojugui : Form
@@ -20,6 +22,8 @@ namespace kucunTest.Daojugui
         
         #region 全局变量
         private MySql Sql = new MySql();//MySQL类
+        private AutoSizeFormClass asc = new AutoSizeFormClass();
+
         private string SqlStr = "";
         private string SqlStr1 = "";
         private string cengshu = "";
@@ -33,7 +37,7 @@ namespace kucunTest.Daojugui
         private void xzdjg_Click(object sender, EventArgs e)
         {
             XZDJG xzd = new XZDJG();
-            xzd.Show();
+            xzd.ShowDialog();
         }
 
         #region BindeRoot()方法和AddChild()方法：构造类型（所有类型-->名称-->型号）树
@@ -90,6 +94,8 @@ namespace kucunTest.Daojugui
         
         private void daojugui_Load(object sender, EventArgs e)
         {
+            asc.controllInitializeSize(this);
+
             treeView1.Nodes.Add(node);
             node.Text = "刀具柜";
             BindRoot();//生成树的第一层
@@ -328,15 +334,25 @@ namespace kucunTest.Daojugui
                         {
                             //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
                             kcmx.Rows[i].Cells["Column5"].Style.BackColor = Color.Red;
-
                         }
 
                     }
                 }
             }
+        }
 
+        private void daojugui_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.Parent != null)
+            {
+                MainForm mfr = (MainForm)this.Parent.FindForm();
+                mfr.CloseTab(this.Name);
+            }
+        }
 
-        
+        private void daojugui_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
         }
     }
 }
