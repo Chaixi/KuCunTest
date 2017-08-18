@@ -24,6 +24,8 @@ namespace kucunTest.DaoJu
         private string DJID = "";
         private DataGridView dgv = new DataGridView();
 
+        private DataTable kcmx_db = new DataTable();
+
         private int time_count;
         #endregion
 
@@ -49,11 +51,14 @@ namespace kucunTest.DaoJu
 
             time_count = 0;
 
-            Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl FROM daojutemp dt GROUP BY dt.daojuleixing";
+            Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl FROM daojutemp dt GROUP BY dt.daojuleixing";//刀具类型下所有刀具数量
             KCTJ.AutoGenerateColumns = false;
             DataSet ds = SQL.getDataSet1(Sqlstr);
-            KCTJ.DataSource = ds.Tables[0].DefaultView;
+            kcmx_db = ds.Tables[0];
+            KCTJ.DataSource = kcmx_db.DefaultView;
 
+            kcmx_db.Columns.Add("kysl", typeof(string));
+            kysl_Calculation();//计算可用数量
             Refresh_kcmxTable();
         }
 
@@ -77,18 +82,22 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void KCTJ_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Sqlstr = string.Format("SELECT * FROM {0} WHERE djlx = '{1}' ORDER BY czsj ASC", DanJuBiao, KCTJ.Rows[e.RowIndex].Cells["kctj_djlx"].Value.ToString());
-            CRMX.AutoGenerateColumns = false;
-            CRMX.DataSource = (SQL.getDataSet(Sqlstr, DanJuBiao)).Tables[0].DefaultView;
-
-            //int sskysl = 0;//实时可用数量
-            int sskysl = Convert.ToInt32(KCTJ.Rows[e.RowIndex].Cells["kctj_sysl"].Value);//实时可用数量,默认数量为车间中所有数量
-            
-            for (int i = 0; i < CRMX.Rows.Count; i++)
+            if(e.RowIndex >= 0)
             {
-                sskysl = sskysl + Convert.ToInt32(CRMX.Rows[i].Cells["zsl"].Value) - Convert.ToInt32(CRMX.Rows[i].Cells["fsl"].Value);
-                CRMX.Rows[i].Cells["crmx_kysl"].Value = sskysl.ToString();
+                Sqlstr = string.Format("SELECT * FROM {0} WHERE djlx = '{1}' ORDER BY czsj ASC", DanJuBiao, KCTJ.Rows[e.RowIndex].Cells["kctj_djlx"].Value.ToString());
+                CRMX.AutoGenerateColumns = false;
+                CRMX.DataSource = (SQL.getDataSet(Sqlstr, DanJuBiao)).Tables[0].DefaultView;
+
+                //int sskysl = 0;//当时可用数量
+                int sskysl = Convert.ToInt32(KCTJ.Rows[e.RowIndex].Cells["kctj_sysl"].Value);//当时可用数量,默认数量为车间中所有数量
+
+                for (int i = 0; i < CRMX.Rows.Count; i++)
+                {
+                    sskysl = sskysl + Convert.ToInt32(CRMX.Rows[i].Cells["zsl"].Value) - Convert.ToInt32(CRMX.Rows[i].Cells["fsl"].Value);
+                    CRMX.Rows[i].Cells["crmx_kysl"].Value = sskysl.ToString();
+                }
             }
+            
         }
 
         private void CRMX_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -118,24 +127,29 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 刷新库存明细表
+        /// 计算该类型刀具的可用数量
+        /// </summary>
+        private void kysl_Calculation()
+        {
+            for (int rowindex = 0; rowindex < KCTJ.Rows.Count; rowindex++)
+            {
+                Sqlstr = "SELECT COUNT(dt.daojuid) FROM daojutemp dt WHERE dt.daojuleixing = '" + KCTJ.Rows[rowindex].Cells["kctj_djlx"].Value.ToString().Trim() + "'" + " AND dt.weizhibiaoshi = 'S' ";
+                int kysl = Convert.ToInt32(SQL.ExecuteScalar(Sqlstr).ToString());//可用数量
+
+                kcmx_db.Rows[rowindex]["kysl"] = kysl.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 刷新库存明细表,颜色的突出显示
         /// </summary>
         public void Refresh_kcmxTable()
         {
-            //Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl FROM daojutemp dt GROUP BY dt.daojuleixing";
-            //KCTJ.AutoGenerateColumns = false;
-            //DataSet ds = SQL.getDataSet1(Sqlstr);
-            //KCTJ.DataSource = ds.Tables[0].DefaultView;
-
             //对可用数量等于所有数量，但是显示为空的行，进行遍历
             for (int rowindex = 0; rowindex < KCTJ.Rows.Count; rowindex++)
             {
-                Sqlstr = "SELECT COUNT(dt.daojuid) FROM daojutemp dt WHERE dt.daojuleixing = '" + KCTJ.Rows[rowindex].Cells["kctj_djlx"].Value.ToString() + "'" + " AND dt.weizhibiaoshi = 'S' ";
-                int kysl = Convert.ToInt32(SQL.ExecuteScalar(Sqlstr).ToString());//可用数量
-
-                KCTJ.Rows[rowindex].Cells["kctj_kysl"].Value = kysl.ToString();//赋值
-
                 int sysl = Convert.ToInt32(KCTJ.Rows[rowindex].Cells["kctj_sysl"].Value.ToString());//所有数量
+                int kysl = Convert.ToInt32(KCTJ.Rows[rowindex].Cells["kctj_kysl"].Value.ToString());//可用数量
 
                 if (kysl == sysl)//可用数量等于所有数量
                 {

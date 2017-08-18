@@ -671,7 +671,7 @@ namespace kucunTest.DaoJu
                 }
                 else
                 {
-                    rowrow["jcbm"] = djwz.Substring(0, djwz.Length - 5);//机床编码
+                    rowrow["jcbm"] = djwz.Substring(2, djwz.Length - 6);//截取机床编码，去掉2位位置标识前缀和4位具体位置标识
                     rowrow["dth"] = djwz.Substring(djwz.Length - 3);//刀套号
                 }
                 

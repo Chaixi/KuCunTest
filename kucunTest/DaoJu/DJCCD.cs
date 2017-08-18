@@ -24,6 +24,7 @@ namespace kucunTest.DaoJu
         string danjubiao = "daojulingyong";
         string mingxibiao = "daojulingyongmingxi";
         string liushuibiao = "daojuliushui";
+        string daojutemp = "daojutemp";
         string DHZD = "chucangdanhao";
         #endregion
 
@@ -311,6 +312,7 @@ namespace kucunTest.DaoJu
                     //将出仓明细数据存入数据库daojuchucangmingxi表和刀具流水总表
                     int row2 = 0;//记录插入明细表数据
                     int row3 = 0;//记录插入流水表数据
+                    int row4 = 0;//记录更新刀具监测表数据
                     if (row1 != 0)
                     {
                         if (Alex.CunZai(danhao.Text.ToString(), DHZD, mingxibiao) != 0)//判断此单号在明细表中是否已存在
@@ -339,6 +341,10 @@ namespace kucunTest.DaoJu
                             //明细信息存入流水表
                             Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}')", liushuibiao, danhao.Text.ToString().Trim(), "常规领用", djlx, djgg, djid, "0", sl, jcbm, dth, LYRQ.Value.ToString().Trim(), JBR.Text.ToString().Trim() ,bz);
                             row3 = SQL.ExecuteNonQuery(Sqlstr);
+
+                            //更新刀具位置寿命监测表
+                            Sqlstr = string.Format("UPDATE {0} dj SET dj.weizhibiaoshi = 'M', dj.weizhi = '{1}', dj.cengshu = '{2}' WHERE dj.daojuid = '{3}'", daojutemp, jcbm, dth, djid);
+                            row4 = SQL.ExecuteNonQuery(Sqlstr);
                         }
 
                         

@@ -494,7 +494,7 @@ namespace kucunTest.DaoJu
             DJID.Enabled = false;
 
             string djwz = tb.Rows[0]["djwz"].ToString().Trim();
-            SQSB.Text = djwz.Substring(0, djwz.Length - 5);
+            SQSB.Text = djwz.Substring(2, djwz.Length - 6);//截取机床编码，去掉2位位置标识前缀和4位具体位置标识
             SQSB.Enabled = false;
             DTH.Text = djwz.Substring(djwz.Length - 3);
             DTH.Enabled = false;

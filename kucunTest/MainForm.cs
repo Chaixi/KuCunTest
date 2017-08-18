@@ -495,7 +495,7 @@ namespace kucunTest
 
                 djgl.Dock = DockStyle.Fill;
                 djgl.Show();
-                djgl.button5_Click(null, null);
+                djgl.Refresh_color();
                 //djgl.WindowState = FormWindowState.Maximized;
             }
             //djgl.Parent = panel1;
@@ -931,8 +931,6 @@ namespace kucunTest
                     case "LXGL":
                         刀具类型管理ToolStripMenuItem1_Click(null, null);
                         break;
-                        
-
                 }
             }
             else if (treeView1.SelectedNode.Level == 1)

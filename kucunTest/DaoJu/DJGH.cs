@@ -498,9 +498,6 @@ namespace kucunTest.DaoJu
             asc.controlAutoSize(this);
         }
 
-
-        #endregion 其他部分结束
-
         /// <summary>
         /// 当窗体在选项卡中打开时，关闭窗体则关闭相应的选项卡
         /// </summary>
@@ -514,6 +511,7 @@ namespace kucunTest.DaoJu
                 mfr.CloseTab(this.Name);
             }
         }
+        #endregion 其他部分结束
 
         /// <summary>
         /// 从刀具管理界面进行刀具更换
@@ -530,7 +528,7 @@ namespace kucunTest.DaoJu
 
             string djwz = tb.Rows[0]["djwz"].ToString().Trim();
             //string[] sArray = djwz.Split('-');
-            SQSB.Text = djwz.Substring(0, djwz.Length - 5);
+            SQSB.Text = djwz.Substring(2, djwz.Length - 6);//截取机床编码，去掉2位位置标识前缀和4位具体位置标识
             SQSB.Enabled = false;
             Y_DTH.Text = djwz.Substring(djwz.Length - 3);
             Y_DTH.Enabled = false;

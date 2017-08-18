@@ -32,6 +32,8 @@ namespace kucunTest.DaoJu
         private string jichuangdaojuku = "jcdaojuku";
         private string daojubiao = "daojutemp";
 
+        Panel scx_panel = new Panel();//生产线机床排布全局变量
+
         //沫
         private string SqlStr1 = "";
         private int i;
@@ -54,7 +56,7 @@ namespace kucunTest.DaoJu
             treeView1.SelectedNode = treeView1.Nodes[0].FirstNode;
             daojuxinxi.AutoGenerateColumns = false;
 
-            treeView2.SelectedNode = treeView2.Nodes[0];
+            comboBox2.SelectedIndex = 0;
 
         }
 
@@ -151,9 +153,10 @@ namespace kucunTest.DaoJu
             string where = "";//SQL语句条件。默认为空，即第一层节点：所有类型
             if (treeView1.SelectedNode.Level == 1)//当前选中节点为第二层节点：刀具类型
             {
-                where = "where dj.daojuleixing = '" + e.Node.Text.ToString() + "'";
-                SqlStr = "SELECT COUNT(*) from daojutemp where daojuleixing = '" + e.Node.Text.ToString() + "'";//查询所有刀具数量
-                SqlStr1 = "SELECT COUNT(djmx.weizhibiaoshi) FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid where dj.daojuleixing =  '" + e.Node.Text.ToString() + "'";//查询领用到机床的刀具数量
+                where = "WHERE dj.daojuleixing = '" + e.Node.Text.ToString() + "'";
+                SqlStr = "SELECT COUNT(*) FROM daojutemp dj WHERE dj.daojuleixing = '" + e.Node.Text.ToString() + "'";//查询所有刀具数量
+                //SqlStr1 = "SELECT COUNT(djmx.weizhibiaoshi) FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid where dj.daojuleixing =  '" + e.Node.Text.ToString() + "'";//查询领用到机床的刀具数量
+                SqlStr1 = string.Format("SELECT COUNT(*) FROM {0} dj WHERE dj.daojuleixing = '{1}' AND dj.weizhibiaoshi = 'M'", daojubiao, e.Node.Text.ToString());
                 Object a = SQL.ExecuteScalar(SqlStr);
                 Object b = SQL.ExecuteScalar(SqlStr1);
                 string x = a.ToString();
@@ -165,33 +168,15 @@ namespace kucunTest.DaoJu
                 djgsl.Text = z;
             }
             
-            //查询出选种类型的刀具
-            SqlStr = "SELECT dj.daojuid,dj.daojuxinghao,dj.daojuguige,dj.daojuleixing,dj.daojushouming,CONCAT(djmx.jichuangbianma,'--', djmx.daotaohao ) AS daojuweizhi,djcc.chucangdanhao,djcc.chucangriqi FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid LEFT JOIN daojulingyong  djcc ON  djcc.chucangdanhao = djmx.chucangdanhao " + where + " group by dj.daojuid";
+            //查询出选中类型的刀具
+            //SqlStr = "SELECT dj.daojuid, dj.daojuxinghao, dj.daojuguige, dj.daojuleixing, dj.daojushouming, CONCAT(djmx.jichuangbianma,'--', djmx.daotaohao ) AS daojuweizhi,djcc.chucangdanhao,djcc.chucangriqi FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid LEFT JOIN daojulingyong  djcc ON  djcc.chucangdanhao = djmx.chucangdanhao " + where + " group by dj.daojuid";
+            SqlStr = "SELECT dj.daojuid, dj.daojuxinghao, dj.daojuguige, dj.daojuleixing, dj.daojushouming, CONCAT(dj.weizhibiaoshi, '-', dj.weizhi,'-', dj.cengshu) AS daojuweizhi, dj.weizhibiaoshi, djcc.chucangdanhao, djcc.chucangriqi FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid LEFT JOIN daojulingyong djcc ON djcc.chucangdanhao = djmx.chucangdanhao " + where + " ORDER BY daojuweizhi";
             daojuxinxi.DataSource = SQL.getDataSet1(SqlStr).Tables[0].DefaultView;
             daojuxinxi.AutoGenerateColumns = false;
 
-            for (i = 0; i < daojuxinxi.Rows.Count - 1; i++)
-            {
-                //对刀具寿命值进行判断，以对需要提醒的数据突出显示
-
-               // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                string sm = daojuxinxi.Rows[i].Cells["djsm"].Value.ToString();
-                int shouming = int.Parse(sm);
-                if (shouming <= 30)
-                {
-                    //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                    daojuxinxi.Rows[i].Cells["djsm"].Style.BackColor = Color.Red;
-
-                }
-                if (shouming > 30 && shouming <=100)
-                {
-                    //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                    daojuxinxi.Rows[i].Cells["djsm"].Style.BackColor = Color.Yellow;
-                }
-            }
+            Refresh_color();
         }
         #endregion
-
         #endregion 树有关的方法结束
 
         #region 按钮部分
@@ -236,6 +221,21 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
+        /// 快捷操作，刀具信息表格双击弹出刀具测量界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void daojuxinxi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string id = daojuxinxi.Rows[e.RowIndex].Cells["djid"].Value.ToString();
+                DaoJuCanShuXinXi djcs = new DaoJuCanShuXinXi(id);
+                djcs.ShowDialog();
+            }
+        }
+
+        /// <summary>
         /// 库存明细按钮
         /// </summary>
         /// <param name="sender"></param>
@@ -247,7 +247,7 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 刀具领用按钮
+        /// 刀具领用按钮，只能对未被领用刀具进行领用，位置标识为S的
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -260,6 +260,7 @@ namespace kucunTest.DaoJu
             bool flag = true;//是否可以领用
             int rowCheckedCount = 0;//选中行数量
             string str = "";
+            string djwz = "";//存放刀具位置
             DataTable tb = new DataTable();//存放选中的数据
             //DataTable dgv_tb = (DataTable)daojuxinxi.DataSource;//获取dataview 转换成 datatable
             DataTable dgv_tb = Alex.GetDgvToTable(daojuxinxi);
@@ -275,13 +276,17 @@ namespace kucunTest.DaoJu
                 {
                     rowCheckedCount++;//选中行+1
 
+                    //截取还原刀具位置
+                    djwz = dgv_tb.Rows[i]["djwz"].ToString();
+                    
                     //判断刀具是否已经被领用
-                    if(dgv_tb.Rows[i]["djwz"].ToString() == null || dgv_tb.Rows[i]["djwz"].ToString() == "")
+                    //if (dgv_tb.Rows[i]["djwz"].ToString() == null || dgv_tb.Rows[i]["djwz"].ToString() == "")
+                    if(djwz.Substring(0, 1) == "S")//截取一位标识符，S表示在库，可领用
                     {
                         tb.Rows.Add(dgv_tb.Rows[i].ItemArray);//也可以是tb.ImportRow(dgv_tb.Rows[i]);但不能直接tb.Rows.Add(row);出错：改行已经在另一个表中
                         //DataRow row = ((daojuxinxi.Rows[i]).DataBoundItem as DataRowView).Row;//微软提供的唯一的从DataGridViewRow转换DataRow
                     }
-                    else
+                    else//M表示在机床
                     {
                         str = daojuxinxi.Rows[i].Cells["djid"].Value.ToString() + "已被领用！请重新选择或装配新刀具。";
                         flag = false;
@@ -313,7 +318,7 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 刀具更换按钮
+        /// 刀具更换按钮，只能对已被领用刀具进行更换，位置标识为M的
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -326,6 +331,7 @@ namespace kucunTest.DaoJu
             bool flag = true;//是否可以更换
             int rowCheckedCount = 0;//选中行数量
             string str = "";
+            string djwz = "";//存放刀具位置
             DataTable tb = new DataTable();//存放选中的数据
             DataTable dgv_tb = Alex.GetDgvToTable(daojuxinxi);
             tb = dgv_tb.Copy();
@@ -340,8 +346,12 @@ namespace kucunTest.DaoJu
                 {
                     rowCheckedCount++;//选中行+1
 
+                    //截取还原刀具位置
+                    djwz = dgv_tb.Rows[i]["djwz"].ToString();
+
                     //判断刀具是否已经被领用
-                    if (dgv_tb.Rows[i]["djwz"].ToString() == null || dgv_tb.Rows[i]["djwz"].ToString() == "")
+                    //if (dgv_tb.Rows[i]["djwz"].ToString() == null || dgv_tb.Rows[i]["djwz"].ToString() == "")
+                    if(djwz.Substring(0, 1) == "S")
                     {
                         str = daojuxinxi.Rows[i].Cells["djid"].Value.ToString() + "未被领用！无需更换。";
                         flag = false;
@@ -382,7 +392,7 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 刀具外借按钮
+        /// 刀具外借按钮，所有刀具均可外借
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -436,7 +446,7 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 刀具报废按钮
+        /// 刀具报废按钮，只能对已被领用刀具进行报废单据填写，位置标识为M的
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -449,6 +459,7 @@ namespace kucunTest.DaoJu
             bool flag = true;//是否可以更换
             int rowCheckedCount = 0;//选中行数量
             string str = "";
+            string djwz = "";//存放刀具位置
             DataTable tb = new DataTable();//存放选中的数据
             DataTable dgv_tb = Alex.GetDgvToTable(daojuxinxi);
             tb = dgv_tb.Copy();
@@ -463,8 +474,12 @@ namespace kucunTest.DaoJu
                 {
                     rowCheckedCount++;//选中行+1
 
+                    //截取还原刀具位置
+                    djwz = dgv_tb.Rows[i]["djwz"].ToString();
+
                     //判断刀具是否已经被领用
-                    if (dgv_tb.Rows[i]["djwz"].ToString() == null || dgv_tb.Rows[i]["djwz"].ToString() == "")
+                    //if (dgv_tb.Rows[i]["djwz"].ToString() == null || dgv_tb.Rows[i]["djwz"].ToString() == "")
+                    if(djwz.Substring(0, 1) == "S")
                     {
                         str = daojuxinxi.Rows[i].Cells["djid"].Value.ToString() + "未被领用！";
                         flag = false;
@@ -505,7 +520,7 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 刀具退还按钮
+        /// 刀具退还按钮，只能对已被领用刀具进行更换，位置标识为M的
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -518,6 +533,7 @@ namespace kucunTest.DaoJu
             bool flag = true;//是否可以退还
             int rowCheckedCount = 0;//选中行数量
             string str = "";
+            string djwz = "";//存放刀具位置
             DataTable tb = new DataTable();//存放选中的数据
             DataTable dgv_tb = Alex.GetDgvToTable(daojuxinxi);
             tb = dgv_tb.Copy();
@@ -532,8 +548,12 @@ namespace kucunTest.DaoJu
                 {
                     rowCheckedCount++;//选中行+1
 
+                    //截取还原刀具位置
+                    djwz = dgv_tb.Rows[i]["djwz"].ToString();
+
                     //判断刀具是否已经被领用
-                    if (dgv_tb.Rows[i]["djwz"].ToString() == null || dgv_tb.Rows[i]["djwz"].ToString() == "")
+                    //if (dgv_tb.Rows[i]["djwz"].ToString() == null || dgv_tb.Rows[i]["djwz"].ToString() == "")
+                    if(djwz.Substring(0, 1) == "S")
                     {
                         str = daojuxinxi.Rows[i].Cells["djid"].Value.ToString() + "还未被领用！";
                         flag = false;
@@ -565,6 +585,43 @@ namespace kucunTest.DaoJu
             else
             {
                 MessageBox.Show(str, "提示");
+            }
+        }
+
+        /// <summary>
+        /// 刷新按钮,对刀具寿命值进行判断，以对需要提醒的数据突出显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Refresh_color();
+        }
+
+        /// <summary>
+        /// checkbox值发生改变时，改变该行背景色。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void daojuxinxi_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)//表头不发生验证
+            {
+                if (daojuxinxi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "true")//选中该行
+                {
+                    daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = SystemColors.Highlight;//背景色高亮
+                }
+                else if (daojuxinxi.CurrentCell.Value.ToString() == "false")//取消选中该行
+                {
+                    if (Convert.ToInt16(e.RowIndex) % 2 == 0)//偶数行
+                    {
+                        daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = SystemColors.Window;
+                    }
+                    else//奇数行
+                    {
+                        daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Gainsboro;
+                    }
+                }
             }
         }
 
@@ -614,7 +671,6 @@ namespace kucunTest.DaoJu
                 mfr.CloseTab(this.Name);
             }
         }
-        #endregion 其他方法结束
 
         /// <summary>
         /// 选中单元格刀具，加载刀具参数数据
@@ -650,68 +706,60 @@ namespace kucunTest.DaoJu
             //        }
             //    }
             //}
-            
+
         }
 
-        /// <summary>
-        /// 快捷操作，刀具信息表格双击弹出刀具测量界面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void daojuxinxi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(e.RowIndex >= 0)
-            {
-                string id = daojuxinxi.Rows[e.RowIndex].Cells["djid"].Value.ToString();
-                DaoJuCanShuXinXi djcs = new DaoJuCanShuXinXi(id);
-                djcs.ShowDialog();
-            }
-        }
-        
+        #endregion 其他方法结束
+
+        #region 位置信息部分
         /// <summary>
         /// 选择不同生产线，生产线标题和机床排布相应变化
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             //生产线标题变化
-            scxmc.Text = treeView2.SelectedNode.Text;
+            scxmc.Text = comboBox2.SelectedItem.ToString();
 
-            //机床排布和机床名称变化
+            //机床排布和机床名称变化,全部隐藏，再用全局变量显示
+            scx_panel1.Visible = false;
+            scx_panel2.Visible = false;
+            scx_panel3.Visible = false;
 
-        }
-
-        /// <summary>
-        /// 刷新按钮,对刀具寿命值进行判断，以对需要提醒的数据突出显示
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void button5_Click(object sender, EventArgs e)
-        {
-            for (i = 0; i < daojuxinxi.Rows.Count - 1; i++)
+            //全局变量赋值
+            switch (comboBox2.SelectedItem.ToString().Substring(0, 1))
             {
-                //对刀具寿命值进行判断，以对需要提醒的数据突出显示
+                case "1":
+                    scx_panel = scx_panel1;
+                    break;
+                case "2":
+                    scx_panel = scx_panel2;
+                    break;
+                case "3":
+                    scx_panel = scx_panel3;
+                    break;
+            }
 
-                // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                string sm = daojuxinxi.Rows[i].Cells["djsm"].Value.ToString();
-                int shouming = int.Parse(sm);
-                if (shouming <= 30)
+            //清除之前的选择
+            foreach (Control c in scx_panel.Controls)
+            {
+                if(c is PictureBox)
                 {
-                    //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                    daojuxinxi.Rows[i].Cells["djsm"].Style.BackColor = Color.Red;
-
-                }
-                if (shouming > 30 && shouming <= 100)
-                {
-                    //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                    daojuxinxi.Rows[i].Cells["djsm"].Style.BackColor = Color.Yellow;
+                    c.BackColor = Color.Transparent;
                 }
             }
+
+            //清空机床刀具库
+            dgv_jcdk.DataSource = null;
+
+            //显示当前机床排布
+            scx_panel.Visible = true;
+            scx_panel.Dock = DockStyle.Bottom;
         }
 
         /// <summary>
-        /// 机床点击函数
+        /// 点击机床加载相应刀具库
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -749,31 +797,49 @@ namespace kucunTest.DaoJu
             }
         }
 
+
+        #endregion 位置信息部分结束
+
         /// <summary>
-        /// checkbox值发生改变时，改变该行背景色。
+        /// 对刀具寿命值进行判断，以对需要提醒的数据突出显示
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void daojuxinxi_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        public void Refresh_color()
         {
-            if(e.RowIndex >= 0)//表头不发生验证
+            string sm = "";
+            int shouming = 0;
+            string djwz = "";
+            for (i = 0; i < daojuxinxi.Rows.Count; i++)
             {
-                if (daojuxinxi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "true")//选中该行
+                sm = daojuxinxi.Rows[i].Cells["djsm"].Value.ToString();
+                djwz = daojuxinxi.Rows[i].Cells["djwz"].Value.ToString();
+
+                //对刀具位置进行判断，对刀具柜刀具和机床刀具库刀具区分显示
+                switch(djwz.Substring(0, 1))
                 {
-                    daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = SystemColors.Highlight;//背景色高亮
+                    case "M":
+                        this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                        break;
+                    case "S":
+                        this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
+                        break;
                 }
-                else if (daojuxinxi.CurrentCell.Value.ToString() == "false")//取消选中该行
+
+                //对刀具寿命值进行判断，以对需要提醒的数据突出显示
+                shouming = int.Parse(sm);
+                if (shouming <= 30)
                 {
-                    if(Convert.ToInt16(e.RowIndex) % 2 == 0)//偶数行
-                    {
-                        daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = SystemColors.Window;
-                    }
-                    else//奇数行
-                    {
-                        daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Gainsboro;
-                    }
+                    //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
+                    daojuxinxi.Rows[i].Cells["djsm"].Style.BackColor = Color.Red;
+
+                }
+                if (shouming > 30 && shouming <= 100)
+                {
+                    //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
+                    daojuxinxi.Rows[i].Cells["djsm"].Style.BackColor = Color.Yellow;
                 }
             }
         }
+
+        
     }
 }
