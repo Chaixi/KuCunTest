@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 using kucunTest.BaseClasses;
 
@@ -175,7 +176,29 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
+            //刀具的objId和StepId ? 用于查找测量数据
+            string ObjId = "";//刀具ID?
+            string StepId = "";//刀段号?
 
+            //连接并打开zoller数据库
+            string source = "server = .; database = ZOLLERDB3; uid = sa; pwd = 123456;";
+            SqlConnection conn = new SqlConnection(source);
+            conn.Open();
+
+            //从数据库把数据表取出
+            //sql语句需要重写，可能需要联合表
+            string SqlStr = string.Format("SELECT TOP 10 [ObjId], [StepId], [MeasureHistoryDate], [ZActual], [XActual], [RadiusActual], [Angle1Actual], [Angle2Actual], [UserTxt], [MeasureTimeInSeconds] FROM [ZOLLERDB3].[dbo].[BasicMeasureHistory]");
+            SqlDataAdapter da = new SqlDataAdapter(SqlStr, conn);
+
+            //关闭数据库
+            conn.Close();
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "[ZOLLERDB3].[dbo].[BasicMeasureHistory]");
+
+            //测量数据填补进系统界面中
+            DataTable db = ds.Tables[0].Copy();
+            
         }
 
         #region 数据检查和对比方法
