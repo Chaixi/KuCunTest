@@ -28,26 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.jichuang = new System.Windows.Forms.ComboBox();
+            this.djg = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.daojuxinxi = new System.Windows.Forms.DataGridView();
-            this.djid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.daojuleixing = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djsm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjxinxi = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lingyongdanhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lingyongriqi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label21 = new System.Windows.Forms.Label();
             this.djgsl = new System.Windows.Forms.TextBox();
             this.djzs = new System.Windows.Forms.TextBox();
@@ -81,7 +78,7 @@
             this.btn_lbjth = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.daojuxinxi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbjxinxi)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -94,7 +91,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1181, 60);
+            this.label1.Size = new System.Drawing.Size(1302, 60);
             this.label1.TabIndex = 0;
             this.label1.Text = "零部件管理";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -103,60 +100,63 @@
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.comboBox5);
-            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.jichuang);
+            this.groupBox1.Controls.Add(this.djg);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(232, 65);
+            this.groupBox1.Location = new System.Drawing.Point(262, 65);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(921, 86);
+            this.groupBox1.Size = new System.Drawing.Size(1027, 86);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "筛选条件";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(809, 32);
+            this.button1.Location = new System.Drawing.Point(895, 32);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 33);
             this.button1.TabIndex = 6;
             this.button1.Text = "查    询";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(167, 35);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(91, 29);
+            this.textBox1.Size = new System.Drawing.Size(145, 29);
             this.textBox1.TabIndex = 4;
             // 
-            // comboBox5
+            // jichuang
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(665, 35);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(125, 29);
-            this.comboBox5.TabIndex = 3;
+            this.jichuang.FormattingEnabled = true;
+            this.jichuang.Location = new System.Drawing.Point(731, 35);
+            this.jichuang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.jichuang.Name = "jichuang";
+            this.jichuang.Size = new System.Drawing.Size(142, 29);
+            this.jichuang.TabIndex = 3;
+            this.jichuang.SelectedIndexChanged += new System.EventHandler(this.jichuang_SelectedIndexChanged);
             // 
-            // comboBox4
+            // djg
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(403, 35);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(131, 29);
-            this.comboBox4.TabIndex = 3;
+            this.djg.FormattingEnabled = true;
+            this.djg.Location = new System.Drawing.Point(429, 35);
+            this.djg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.djg.Name = "djg";
+            this.djg.Size = new System.Drawing.Size(187, 29);
+            this.djg.TabIndex = 3;
+            this.djg.SelectedIndexChanged += new System.EventHandler(this.djg_SelectedIndexChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(559, 38);
+            this.label20.Location = new System.Drawing.Point(633, 36);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(90, 21);
@@ -166,7 +166,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(289, 38);
+            this.label19.Location = new System.Drawing.Point(320, 38);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(106, 21);
@@ -176,7 +176,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 38);
+            this.label2.Location = new System.Drawing.Point(27, 38);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 21);
@@ -185,110 +185,79 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.daojuxinxi);
+            this.groupBox2.Controls.Add(this.lbjxinxi);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.djgsl);
             this.groupBox2.Controls.Add(this.djzs);
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label23);
-            this.groupBox2.Location = new System.Drawing.Point(232, 161);
+            this.groupBox2.Location = new System.Drawing.Point(262, 161);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(921, 396);
+            this.groupBox2.Size = new System.Drawing.Size(1027, 396);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "零部件信息";
             // 
-            // daojuxinxi
+            // lbjxinxi
             // 
-            this.daojuxinxi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            this.daojuxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.daojuxinxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.daojuxinxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.daojuxinxi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.daojuxinxi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.daojuxinxi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.djid,
-            this.djlx,
-            this.daojuleixing,
-            this.djgg,
-            this.djsm,
+            this.lbjxinxi.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.lbjxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.lbjxinxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.lbjxinxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.lbjxinxi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbjxinxi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lbjxinxi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.lingyongdanhao,
-            this.lingyongriqi});
-            this.daojuxinxi.Location = new System.Drawing.Point(14, 63);
-            this.daojuxinxi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.daojuxinxi.Name = "daojuxinxi";
-            this.daojuxinxi.ReadOnly = true;
-            this.daojuxinxi.RowTemplate.Height = 23;
-            this.daojuxinxi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.daojuxinxi.Size = new System.Drawing.Size(899, 323);
-            this.daojuxinxi.TabIndex = 0;
-            // 
-            // djid
-            // 
-            this.djid.DataPropertyName = "daojuid";
-            this.djid.HeaderText = "刀具ID";
-            this.djid.Name = "djid";
-            this.djid.ReadOnly = true;
-            this.djid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // djlx
-            // 
-            this.djlx.DataPropertyName = "daojuxinghao";
-            this.djlx.HeaderText = "刀具型号";
-            this.djlx.Name = "djlx";
-            this.djlx.ReadOnly = true;
-            this.djlx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // daojuleixing
-            // 
-            this.daojuleixing.DataPropertyName = "daojuleixing";
-            this.daojuleixing.HeaderText = "刀具类型";
-            this.daojuleixing.Name = "daojuleixing";
-            this.daojuleixing.ReadOnly = true;
-            // 
-            // djgg
-            // 
-            this.djgg.DataPropertyName = "daojuguige";
-            this.djgg.HeaderText = "刀具规格";
-            this.djgg.Name = "djgg";
-            this.djgg.ReadOnly = true;
-            this.djgg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // djsm
-            // 
-            this.djsm.DataPropertyName = "daojushouming";
-            this.djsm.HeaderText = "刀具寿命";
-            this.djsm.Name = "djsm";
-            this.djsm.ReadOnly = true;
-            this.djsm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.lbjxinxi.Location = new System.Drawing.Point(8, 63);
+            this.lbjxinxi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lbjxinxi.Name = "lbjxinxi";
+            this.lbjxinxi.ReadOnly = true;
+            this.lbjxinxi.RowTemplate.Height = 23;
+            this.lbjxinxi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.lbjxinxi.Size = new System.Drawing.Size(1011, 323);
+            this.lbjxinxi.TabIndex = 0;
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "daojuweizhi";
-            this.Column1.HeaderText = "刀具位置";
+            this.Column1.DataPropertyName = "daojuxinghao";
+            this.Column1.HeaderText = "零部件型号";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // lingyongdanhao
+            // Column2
             // 
-            this.lingyongdanhao.DataPropertyName = "chucangdanhao";
-            this.lingyongdanhao.HeaderText = "领用单号";
-            this.lingyongdanhao.Name = "lingyongdanhao";
-            this.lingyongdanhao.ReadOnly = true;
-            this.lingyongdanhao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column2.DataPropertyName = "daojuid";
+            this.Column2.HeaderText = "零部件类型";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
-            // lingyongriqi
+            // Column3
             // 
-            this.lingyongriqi.DataPropertyName = "chucangriqi";
-            this.lingyongriqi.HeaderText = "领用日期";
-            this.lingyongriqi.Name = "lingyongriqi";
-            this.lingyongriqi.ReadOnly = true;
-            this.lingyongriqi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column3.DataPropertyName = "daojuguige";
+            this.Column3.HeaderText = "零部件规格";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "daojuweizhi";
+            this.Column4.HeaderText = "库存位置";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "kcsl";
+            this.Column5.HeaderText = "库存数量";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // label21
             // 
@@ -365,18 +334,18 @@
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.textBox5);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Location = new System.Drawing.Point(232, 567);
+            this.groupBox3.Location = new System.Drawing.Point(262, 567);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox3.Size = new System.Drawing.Size(921, 276);
+            this.groupBox3.Size = new System.Drawing.Size(1027, 276);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "参数信息";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(618, 57);
+            this.pictureBox1.Location = new System.Drawing.Point(714, 62);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(285, 204);
@@ -387,7 +356,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(692, 27);
+            this.label6.Location = new System.Drawing.Point(783, 27);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(132, 21);
@@ -787,27 +756,28 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.treeView1);
-            this.groupBox4.Location = new System.Drawing.Point(13, 65);
+            this.groupBox4.Location = new System.Drawing.Point(7, 65);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox4.Size = new System.Drawing.Size(211, 798);
+            this.groupBox4.Size = new System.Drawing.Size(247, 798);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "零部件类型";
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(10, 26);
+            this.treeView1.Location = new System.Drawing.Point(6, 26);
             this.treeView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(193, 762);
+            this.treeView1.Size = new System.Drawing.Size(227, 762);
             this.treeView1.TabIndex = 0;
             this.treeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // btn_xzlbj
             // 
-            this.btn_xzlbj.Location = new System.Drawing.Point(246, 853);
+            this.btn_xzlbj.Location = new System.Drawing.Point(429, 862);
             this.btn_xzlbj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_xzlbj.Name = "btn_xzlbj";
             this.btn_xzlbj.Size = new System.Drawing.Size(112, 39);
@@ -829,7 +799,7 @@
             // 
             // btn_lbjly
             // 
-            this.btn_lbjly.Location = new System.Drawing.Point(601, 856);
+            this.btn_lbjly.Location = new System.Drawing.Point(781, 862);
             this.btn_lbjly.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_lbjly.Name = "btn_lbjly";
             this.btn_lbjly.Size = new System.Drawing.Size(112, 39);
@@ -840,7 +810,7 @@
             // 
             // btn_kcpd
             // 
-            this.btn_kcpd.Location = new System.Drawing.Point(383, 853);
+            this.btn_kcpd.Location = new System.Drawing.Point(600, 862);
             this.btn_kcpd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_kcpd.Name = "btn_kcpd";
             this.btn_kcpd.Size = new System.Drawing.Size(112, 39);
@@ -851,7 +821,7 @@
             // 
             // btn_lbjth
             // 
-            this.btn_lbjth.Location = new System.Drawing.Point(722, 856);
+            this.btn_lbjth.Location = new System.Drawing.Point(932, 862);
             this.btn_lbjth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_lbjth.Name = "btn_lbjth";
             this.btn_lbjth.Size = new System.Drawing.Size(112, 39);
@@ -864,7 +834,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1181, 909);
+            this.ClientSize = new System.Drawing.Size(1302, 915);
             this.Controls.Add(this.btn_kcpd);
             this.Controls.Add(this.btn_lbjth);
             this.Controls.Add(this.btn_lbjly);
@@ -879,13 +849,13 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "lbj_GuanLi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "刀具管理";
+            this.Text = "零部件管理";
             this.Load += new System.EventHandler(this.lbj_GuanLi_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.daojuxinxi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbjxinxi)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -903,7 +873,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView daojuxinxi;
+        private System.Windows.Forms.DataGridView lbjxinxi;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TreeView treeView1;
@@ -928,8 +898,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_lbjly;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox jichuang;
+        private System.Windows.Forms.ComboBox djg;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label23;
@@ -938,14 +908,11 @@
         private System.Windows.Forms.TextBox djgsl;
         private System.Windows.Forms.TextBox djzs;
         private System.Windows.Forms.Button btn_kcpd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djlx;
-        private System.Windows.Forms.DataGridViewTextBoxColumn daojuleixing;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djgg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djsm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lingyongdanhao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lingyongriqi;
         private System.Windows.Forms.Button btn_lbjth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

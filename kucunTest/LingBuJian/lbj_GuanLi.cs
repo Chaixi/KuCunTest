@@ -19,7 +19,7 @@ namespace kucunTest.LingBuJian
         String Sqlstr = "";
 
         TreeNode root = new TreeNode();
-        string lbj = "lbj_temp";
+        string lbj = "jichuxinxi";
 
         BaseAlex Alex = new BaseAlex();
         AutoSizeFormClass asc = new AutoSizeFormClass();
@@ -41,11 +41,21 @@ namespace kucunTest.LingBuJian
             root.Text = "所有类型";
             treeView1.Nodes.Add(root);
 
-            Sqlstr = string.Format("SELECT DISTINCT lbjmc FROM {0}", lbj);
+            Sqlstr = string.Format("SELECT DISTINCT daojuid FROM {0}", lbj);
             Alex.BindRoot(Sqlstr, root, true);
             treeView1.Nodes[0].Expand();
 
             asc.controllInitializeSize(this);
+            lbjxinxi.AutoGenerateColumns = false;
+
+
+            string sqlstr1 = "select djgmc from daojugui";
+            djg.DataSource = SQL.DataReadList(sqlstr1);
+            djg.SelectedIndex = -1;
+
+            string sqlstr2 = "select jichuangbianma from jichuang";
+            jichuang.DataSource = SQL.DataReadList(sqlstr2);
+            jichuang.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -59,10 +69,30 @@ namespace kucunTest.LingBuJian
             {
                 TreeNode currentNode = e.Node;
                 currentNode.Nodes[0].Remove();
-                Sqlstr = string.Format("SELECT lbjxh FROM {0} WHERE lbjmc = '{1}'", lbj, currentNode.Text);
+                Sqlstr = string.Format("SELECT daojuxinghao FROM {0} WHERE daojuid = '{1}'", lbj, currentNode.Text);
                 Alex.BindRoot(Sqlstr, currentNode, false);
             }
         }
+
+        #region treeView1_AfterSelect()方法：根据选择的树节点进行查询
+        /// <summary>
+        /// 根据选择的树节点进行库存明细查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">当前节点</param>
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            string where = "";//SQL语句条件。默认为空，即第一层节点：所有类型
+            if (treeView1.SelectedNode.Level == 1)//当前选中节点为第二层节点：刀具类型
+            {
+                where = "where daojuid = '" + e.Node.Text.ToString() + "'";
+                
+            }
+            Sqlstr = "SELECT daojuid,daojuxinghao,daojuguige,daojuleixing,CONCAT(weizhi,'--', cengshu) AS daojuweizhi,kcsl from jichuxinxi " + where;
+            lbjxinxi.DataSource = SQL.getDataSet1(Sqlstr).Tables[0].DefaultView;
+            
+        }
+        #endregion
 
         #region 按钮部分
         /// <summary>
@@ -104,12 +134,32 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void btn_kcpd_Click(object sender, EventArgs e)
         {
-
+            lbjkcmx lbjkc = new lbjkcmx();
+            lbjkc.Show();
         }
+
+
+
 
 
         #endregion 按钮部分结束
 
-        
+        private void djg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+           
+        }
+
+        private void jichuang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+           
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

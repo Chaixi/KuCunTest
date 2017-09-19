@@ -283,6 +283,7 @@
             this.jcbm.Name = "jcbm";
             this.jcbm.Size = new System.Drawing.Size(121, 29);
             this.jcbm.TabIndex = 3;
+            this.jcbm.SelectedIndexChanged += new System.EventHandler(this.jcbm_SelectedIndexChanged);
             // 
             // button2
             // 

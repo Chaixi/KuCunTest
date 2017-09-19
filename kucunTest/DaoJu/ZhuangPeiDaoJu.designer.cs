@@ -33,6 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbjmx = new System.Windows.Forms.DataGridView();
+            this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dw = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.djid = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,14 +49,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dgbm = new System.Windows.Forms.ComboBox();
             this.jtwz = new System.Windows.Forms.ComboBox();
-            this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dw = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djgbm = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbjmx)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +64,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(583, 52);
             this.label1.TabIndex = 1;
-            this.label1.Text = "装配刀具";
+            this.label1.Text = "组装刀具";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -121,6 +121,52 @@
             this.lbjmx.TabIndex = 0;
             this.lbjmx.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.lbjmx_RowPostPaint);
             // 
+            // lbjmc
+            // 
+            this.lbjmc.DataPropertyName = "lbjmc";
+            this.lbjmc.FillWeight = 107.9076F;
+            this.lbjmc.HeaderText = "零部件名称";
+            this.lbjmc.Name = "lbjmc";
+            this.lbjmc.ReadOnly = true;
+            // 
+            // lbjxh
+            // 
+            this.lbjxh.DataPropertyName = "lbjxh";
+            this.lbjxh.FillWeight = 128.4288F;
+            this.lbjxh.HeaderText = "零部件型号";
+            this.lbjxh.Name = "lbjxh";
+            this.lbjxh.ReadOnly = true;
+            // 
+            // lbjgg
+            // 
+            this.lbjgg.DataPropertyName = "lbjgg";
+            this.lbjgg.FillWeight = 121.3444F;
+            this.lbjgg.HeaderText = "规格";
+            this.lbjgg.Name = "lbjgg";
+            this.lbjgg.ReadOnly = true;
+            // 
+            // sl
+            // 
+            this.sl.DataPropertyName = "sl";
+            this.sl.FillWeight = 97.40771F;
+            this.sl.HeaderText = "数量";
+            this.sl.Name = "sl";
+            this.sl.ReadOnly = true;
+            // 
+            // dw
+            // 
+            this.dw.DataPropertyName = "dw";
+            this.dw.HeaderText = "单位";
+            this.dw.Name = "dw";
+            this.dw.ReadOnly = true;
+            // 
+            // kcsl
+            // 
+            this.kcsl.DataPropertyName = "kcsl";
+            this.kcsl.HeaderText = "库存数量";
+            this.kcsl.Name = "kcsl";
+            this.kcsl.ReadOnly = true;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -147,7 +193,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 40);
             this.button1.TabIndex = 7;
-            this.button1.Text = "装配刀具";
+            this.button1.Text = "组装刀具";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -158,7 +204,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 40);
             this.button2.TabIndex = 8;
-            this.button2.Text = "取消装配";
+            this.button2.Text = "取消组装";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -223,34 +269,9 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "具体位置";
             // 
-            // dgbm
-            // 
-            this.dgbm.FormattingEnabled = true;
-            this.dgbm.Items.AddRange(new object[] {
-            "Kardex 1#柜",
-            "Kardex 2#柜",
-            "立式刀具柜 1#",
-            "立式刀具柜 2#",
-            "立式刀具柜 3#"});
-            this.dgbm.Location = new System.Drawing.Point(116, 103);
-            this.dgbm.Margin = new System.Windows.Forms.Padding(5);
-            this.dgbm.Name = "dgbm";
-            this.dgbm.Size = new System.Drawing.Size(139, 29);
-            this.dgbm.TabIndex = 9;
-            this.dgbm.SelectedIndexChanged += new System.EventHandler(this.djxh_SelectedIndexChanged);
-            // 
             // jtwz
             // 
             this.jtwz.FormattingEnabled = true;
-            this.jtwz.Items.AddRange(new object[] {
-            "1层",
-            "2层",
-            "3层",
-            "4层",
-            "5层",
-            "6层",
-            "7层",
-            "8层"});
             this.jtwz.Location = new System.Drawing.Point(385, 103);
             this.jtwz.Margin = new System.Windows.Forms.Padding(5);
             this.jtwz.Name = "jtwz";
@@ -258,60 +279,23 @@
             this.jtwz.TabIndex = 9;
             this.jtwz.SelectedIndexChanged += new System.EventHandler(this.djgg_SelectedIndexChanged);
             // 
-            // lbjmc
+            // djgbm
             // 
-            this.lbjmc.DataPropertyName = "lbjmc";
-            this.lbjmc.FillWeight = 107.9076F;
-            this.lbjmc.HeaderText = "零部件名称";
-            this.lbjmc.Name = "lbjmc";
-            this.lbjmc.ReadOnly = true;
-            // 
-            // lbjxh
-            // 
-            this.lbjxh.DataPropertyName = "lbjxh";
-            this.lbjxh.FillWeight = 128.4288F;
-            this.lbjxh.HeaderText = "零部件型号";
-            this.lbjxh.Name = "lbjxh";
-            this.lbjxh.ReadOnly = true;
-            // 
-            // lbjgg
-            // 
-            this.lbjgg.DataPropertyName = "lbjgg";
-            this.lbjgg.FillWeight = 121.3444F;
-            this.lbjgg.HeaderText = "规格";
-            this.lbjgg.Name = "lbjgg";
-            this.lbjgg.ReadOnly = true;
-            // 
-            // sl
-            // 
-            this.sl.DataPropertyName = "sl";
-            this.sl.FillWeight = 97.40771F;
-            this.sl.HeaderText = "数量";
-            this.sl.Name = "sl";
-            this.sl.ReadOnly = true;
-            // 
-            // dw
-            // 
-            this.dw.DataPropertyName = "dw";
-            this.dw.HeaderText = "单位";
-            this.dw.Name = "dw";
-            this.dw.ReadOnly = true;
-            // 
-            // kcsl
-            // 
-            this.kcsl.DataPropertyName = "kcsl";
-            this.kcsl.HeaderText = "库存数量";
-            this.kcsl.Name = "kcsl";
-            this.kcsl.ReadOnly = true;
+            this.djgbm.FormattingEnabled = true;
+            this.djgbm.Location = new System.Drawing.Point(116, 106);
+            this.djgbm.Name = "djgbm";
+            this.djgbm.Size = new System.Drawing.Size(139, 29);
+            this.djgbm.TabIndex = 10;
+            this.djgbm.SelectedIndexChanged += new System.EventHandler(this.djgbm_SelectedIndexChanged);
             // 
             // zhuangpeidaoju
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 504);
+            this.Controls.Add(this.djgbm);
             this.Controls.Add(this.jtwz);
             this.Controls.Add(this.djgg);
-            this.Controls.Add(this.dgbm);
             this.Controls.Add(this.djlx);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -353,7 +337,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox dgbm;
         private System.Windows.Forms.ComboBox jtwz;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjmc;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjxh;
@@ -361,5 +344,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sl;
         private System.Windows.Forms.DataGridViewTextBoxColumn dw;
         private System.Windows.Forms.DataGridViewTextBoxColumn kcsl;
+        private System.Windows.Forms.ComboBox dgbm;
+        private System.Windows.Forms.ComboBox djgbm;
     }
 }

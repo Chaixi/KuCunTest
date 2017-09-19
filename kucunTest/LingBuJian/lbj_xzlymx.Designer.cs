@@ -37,6 +37,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.bz = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.kcsl = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbjtp = new System.Windows.Forms.PictureBox();
             this.lbjxh = new System.Windows.Forms.ComboBox();
             this.lbjgg = new System.Windows.Forms.ComboBox();
@@ -44,6 +46,7 @@
             this.dw = new System.Windows.Forms.TextBox();
             this.lbjmc = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gx = new System.Windows.Forms.ComboBox();
             this.jcbm = new System.Windows.Forms.ComboBox();
@@ -52,9 +55,9 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cfwz = new System.Windows.Forms.ComboBox();
+            this.cfwz = new System.Windows.Forms.TextBox();
+            this.djgbm = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.djgbm = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbjtp)).BeginInit();
@@ -90,7 +93,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 21);
             this.label2.TabIndex = 2;
-            this.label2.Text = "数     量：";
+            this.label2.Text = "领     用：";
             // 
             // label3
             // 
@@ -137,6 +140,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.kcsl);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.lbjtp);
             this.groupBox1.Controls.Add(this.lbjxh);
             this.groupBox1.Controls.Add(this.lbjgg);
@@ -147,6 +152,7 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(212, 55);
             this.groupBox1.Name = "groupBox1";
@@ -155,11 +161,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "零部件信息";
             // 
+            // kcsl
+            // 
+            this.kcsl.Location = new System.Drawing.Point(107, 167);
+            this.kcsl.Name = "kcsl";
+            this.kcsl.ReadOnly = true;
+            this.kcsl.Size = new System.Drawing.Size(125, 29);
+            this.kcsl.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(238, 167);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(34, 29);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.Text = "件";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // lbjtp
             // 
-            this.lbjtp.Location = new System.Drawing.Point(45, 163);
+            this.lbjtp.Location = new System.Drawing.Point(45, 208);
             this.lbjtp.Name = "lbjtp";
-            this.lbjtp.Size = new System.Drawing.Size(213, 103);
+            this.lbjtp.Size = new System.Drawing.Size(213, 58);
             this.lbjtp.TabIndex = 4;
             this.lbjtp.TabStop = false;
             // 
@@ -212,6 +236,15 @@
             this.label8.Size = new System.Drawing.Size(83, 21);
             this.label8.TabIndex = 2;
             this.label8.Text = "型     号：";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(28, 169);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(83, 21);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "库     存：";
             // 
             // groupBox2
             // 
@@ -291,15 +324,6 @@
             "OP20T238"});
             this.jcbm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.jcbm.FormattingEnabled = true;
-            this.jcbm.Items.AddRange(new object[] {
-            "FMS-1#机",
-            "FMS-2#机",
-            "FMS-3#机",
-            "南车床线",
-            "北车床线",
-            "OP20T01",
-            "OP20T40",
-            "OP20T238"});
             this.jcbm.Location = new System.Drawing.Point(107, 31);
             this.jcbm.Name = "jcbm";
             this.jcbm.Size = new System.Drawing.Size(165, 29);
@@ -351,9 +375,9 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.cfwz);
+            this.groupBox4.Controls.Add(this.djgbm);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.bz);
-            this.groupBox4.Controls.Add(this.djgbm);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -366,44 +390,19 @@
             // 
             // cfwz
             // 
-            this.cfwz.AutoCompleteCustomSource.AddRange(new string[] {
-            "T1",
-            "T2",
-            "T3",
-            "T4",
-            "T5",
-            "T6",
-            "T7",
-            "T8",
-            "T9",
-            "T10",
-            "T11",
-            "T12",
-            "T13",
-            "T14",
-            "T15",
-            "T16",
-            "T17",
-            "T18",
-            "T19",
-            "T20"});
-            this.cfwz.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cfwz.FormattingEnabled = true;
-            this.cfwz.Items.AddRange(new object[] {
-            "L1",
-            "L2",
-            "L3",
-            "L4",
-            "L5",
-            "L6",
-            "L7",
-            "L8",
-            "L9",
-            "L10"});
             this.cfwz.Location = new System.Drawing.Point(107, 66);
             this.cfwz.Name = "cfwz";
+            this.cfwz.ReadOnly = true;
             this.cfwz.Size = new System.Drawing.Size(165, 29);
-            this.cfwz.TabIndex = 3;
+            this.cfwz.TabIndex = 9;
+            // 
+            // djgbm
+            // 
+            this.djgbm.Location = new System.Drawing.Point(107, 28);
+            this.djgbm.Name = "djgbm";
+            this.djgbm.ReadOnly = true;
+            this.djgbm.Size = new System.Drawing.Size(165, 29);
+            this.djgbm.TabIndex = 8;
             // 
             // label9
             // 
@@ -413,30 +412,6 @@
             this.label9.Size = new System.Drawing.Size(90, 21);
             this.label9.TabIndex = 2;
             this.label9.Text = "具体位置：";
-            // 
-            // djgbm
-            // 
-            this.djgbm.AutoCompleteCustomSource.AddRange(new string[] {
-            "FMS-1#机",
-            "FMS-2#机",
-            "FMS-3#机",
-            "南车床线",
-            "北车床线",
-            "OP20T01",
-            "OP20T40",
-            "OP20T238"});
-            this.djgbm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.djgbm.FormattingEnabled = true;
-            this.djgbm.Items.AddRange(new object[] {
-            "Kardex 1#柜",
-            "Kardex 2#柜",
-            "立式刀具柜 1#",
-            "立式刀具柜 2#",
-            "立式刀具柜 3#"});
-            this.djgbm.Location = new System.Drawing.Point(107, 31);
-            this.djgbm.Name = "djgbm";
-            this.djgbm.Size = new System.Drawing.Size(165, 29);
-            this.djgbm.TabIndex = 3;
             // 
             // label10
             // 
@@ -502,9 +477,12 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox sl;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox cfwz;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox djgbm;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox kcsl;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox cfwz;
+        private System.Windows.Forms.TextBox djgbm;
     }
 }

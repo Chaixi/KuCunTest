@@ -31,7 +31,6 @@ namespace kucunTest.DaoJu
         private string canshubiao = "jichucanshu";
         private string jichuangdaojuku = "jcdaojuku";
         private string daojubiao = "daojutemp";
-
         Panel scx_panel = new Panel();//生产线机床排布全局变量
 
         //沫
@@ -56,7 +55,12 @@ namespace kucunTest.DaoJu
             treeView1.SelectedNode = treeView1.Nodes[0].FirstNode;
             daojuxinxi.AutoGenerateColumns = false;
 
-            comboBox2.SelectedIndex = 0;
+            //comboBox2.SelectedIndex = 0;
+
+            //加载所有刀具柜
+            string sqlstr1 = "select djgmc from daojugui";
+            cxdjgmc.DataSource = SQL.DataReadList(sqlstr1);
+            cxdjgmc.SelectedIndex = -1;
 
         }
 
@@ -170,7 +174,9 @@ namespace kucunTest.DaoJu
             
             //查询出选中类型的刀具
             //SqlStr = "SELECT dj.daojuid, dj.daojuxinghao, dj.daojuguige, dj.daojuleixing, dj.daojushouming, CONCAT(djmx.jichuangbianma,'--', djmx.daotaohao ) AS daojuweizhi,djcc.chucangdanhao,djcc.chucangriqi FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid LEFT JOIN daojulingyong  djcc ON  djcc.chucangdanhao = djmx.chucangdanhao " + where + " group by dj.daojuid";
-            SqlStr = "SELECT dj.daojuid, dj.daojuxinghao, dj.daojuguige, dj.daojuleixing, dj.daojushouming, CONCAT(dj.weizhibiaoshi, '-', dj.weizhi,'-', dj.cengshu) AS daojuweizhi, dj.weizhibiaoshi, djcc.chucangdanhao, djcc.chucangriqi FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid LEFT JOIN daojulingyong djcc ON djcc.chucangdanhao = djmx.chucangdanhao " + where + " ORDER BY daojuweizhi";
+            //SqlStr = "SELECT dj.daojuid, dj.daojuxinghao, dj.daojuguige, dj.daojuleixing, dj.daojushouming, CONCAT(dj.weizhibiaoshi, '-', dj.weizhi,'-', dj.cengshu) AS daojuweizhi, dj.weizhibiaoshi, djcc.chucangdanhao, djcc.chucangriqi FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid LEFT JOIN daojulingyong djcc ON djcc.chucangdanhao = djmx.chucangdanhao " + where + " ORDER BY daojuweizhi";
+			SqlStr = "SELECT dj.daojuid,dj.daojuxinghao,dj.daojuguige,dj.daojuleixing,dj.daojushouming,CONCAT(dj.weizhibiaoshi, '-', dj.weizhi,'-', dj.cengshu) AS daojuweizhi,dj.zzdj,dj.weizhibiaoshi,djcc.chucangdanhao,djcc.chucangriqi FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid LEFT JOIN daojulingyong  djcc ON  djcc.chucangdanhao = djmx.chucangdanhao " + where + " group by dj.daojuid";
+
             daojuxinxi.DataSource = SQL.getDataSet1(SqlStr).Tables[0].DefaultView;
             daojuxinxi.AutoGenerateColumns = false;
 
@@ -221,6 +227,92 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
+        /// 库存明细按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void kccx_Click(object sender, EventArgs e)
+        {
+
+            DJKCMX djczjl = new DJKCMX();
+            djczjl.Show();
+        }
+
+        /// <summary>
+        /// 拆卸刀具按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cxdj_Click(object sender, EventArgs e)
+        {
+            bool flag = true;//是否可以拆卸
+            int rowCheckedCount = 0;//选中行数量
+            string str = "";
+            string daojuleixing = "";
+            string daojuguige = "";
+            string daojuid = "";
+            string daojuxinghao = "";
+            DataTable tb = new DataTable();//存放选中的数据
+            DataTable dgv_tb = Alex.GetDgvToTable(daojuxinxi);
+            tb = dgv_tb.Copy();
+            tb.Clear();
+
+            daojuxinxi.EndEdit();//如果DataGridView是可编辑的，将数据提交，否则处于编辑状态的行无法取到 
+
+            //循环遍历选中的行
+            for (int i = 0; i < dgv_tb.Rows.Count; i++)
+            {
+                if (dgv_tb.Rows[i]["check"].ToString() == "true")//该行是否选中
+                {
+                    rowCheckedCount++;//选中行+1
+                    if (dgv_tb.Rows[i]["zzdj"].ToString() == null || dgv_tb.Rows[i]["zzdj"].ToString() == "") //判断是否是组装的刀具
+                    {
+                        str = daojuxinxi.Rows[i].Cells["djid"].Value.ToString() + "不是可拆卸刀具！请重新选择可拆卸刀具。";
+                        flag = false;
+                    }
+                    else
+                    {
+                        daojuleixing = daojuxinxi.Rows[i].Cells["djlx"].Value.ToString();
+                        daojuguige = daojuxinxi.Rows[i].Cells["djgg"].Value.ToString();
+                        daojuid = daojuxinxi.Rows[i].Cells["djid"].Value.ToString();
+                        daojuxinghao = daojuxinxi.Rows[i].Cells["djxh"].Value.ToString();
+                        chaixiedaoju cxdj = new chaixiedaoju(daojuleixing, daojuguige, daojuid, daojuxinghao);
+                        cxdj.ShowDialog();
+                        TreeNode crtNode = treeView1.SelectedNode;
+                        if (cxdj.DialogResult == DialogResult.OK)
+                        {
+                            daojuguanli_Load(null, null);
+                            treeView1.SelectedNode = crtNode;
+                        }
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            if (rowCheckedCount == 0)
+            {
+                str = "请先选择要拆卸的刀具！";
+                flag = false;
+
+            }
+            if (rowCheckedCount > 1)
+            {
+
+                str = "每次只能拆卸一把刀具！";
+                flag = false;
+            }
+            if (flag == false)//可以领用
+            {
+                MessageBox.Show(str, "提示");
+            }
+
+
+        }
+
+        /// <summary>
         /// 快捷操作，刀具信息表格双击弹出刀具测量界面
         /// </summary>
         /// <param name="sender"></param>
@@ -233,17 +325,6 @@ namespace kucunTest.DaoJu
                 DaoJuCanShuXinXi djcs = new DaoJuCanShuXinXi(id);
                 djcs.ShowDialog();
             }
-        }
-
-        /// <summary>
-        /// 库存明细按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void kccx_Click(object sender, EventArgs e)
-        {
-            DJKCMX djczjl = new DJKCMX();
-            djczjl.Show();
         }
 
         /// <summary>
@@ -315,6 +396,74 @@ namespace kucunTest.DaoJu
             {
                 MessageBox.Show(str, "提示");
             }            
+        }
+
+        /// <summary>
+        /// 刀具续用按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void djxy_Click(object sender, EventArgs e)
+        {
+            bool flag = true;//是否可以领用
+            int rowCheckedCount = 0;//选中行数量
+            string str = "";
+            string djwz = "";//存放刀具位置
+
+            DataTable tb = new DataTable();//存放选中的数据
+            //DataTable dgv_tb = (DataTable)daojuxinxi.DataSource;//获取dataview 转换成 datatable
+            DataTable dgv_tb = Alex.GetDgvToTable(daojuxinxi);
+            tb = dgv_tb.Copy();
+            tb.Clear();
+
+            daojuxinxi.EndEdit();//如果DataGridView是可编辑的，将数据提交，否则处于编辑状态的行无法取到 
+
+            //循环遍历选中的行
+            for (int i = 0; i < dgv_tb.Rows.Count; i++)
+            {
+                if (dgv_tb.Rows[i]["check"].ToString() == "true")//该行是否选中
+                {
+                    rowCheckedCount++;//选中行+1
+
+                    //截取还原刀具位置
+                    djwz = dgv_tb.Rows[i]["djwz"].ToString();
+
+                    //判断刀具是否已经被领用
+                    //if (dgv_tb.Rows[i]["weizhibiaoshi"].ToString() == wzbs)
+                    if (djwz.Substring(0, 1) == "S")//截取一位标识符，S表示在库，可领用
+                    {
+                        tb.Rows.Add(dgv_tb.Rows[i].ItemArray);//也可以是tb.ImportRow(dgv_tb.Rows[i]);但不能直接tb.Rows.Add(row);出错：改行已经在另一个表中
+                        //DataRow row = ((daojuxinxi.Rows[i]).DataBoundItem as DataRowView).Row;//微软提供的唯一的从DataGridViewRow转换DataRow
+                    }
+                    else
+                    {
+                        str = daojuxinxi.Rows[i].Cells["djid"].Value.ToString() + "未被领用，不能进行续用！";
+                        flag = false;
+                        break;
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            if (rowCheckedCount == 0)
+            {
+                str = "请先选择要续用的刀具！";
+                flag = false;
+            }
+
+            if (flag)//可以领用
+            {
+                DJXY djxy = new DJXY();
+                djxy.AddDataFromTable(tb);
+                djxy.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(str, "提示");
+            }
         }
 
         /// <summary>
@@ -498,7 +647,7 @@ namespace kucunTest.DaoJu
 
             if (rowCheckedCount == 0)
             {
-                str = "请先选择要领用的刀具！";
+                str = "请先选择要报废的刀具！";
                 flag = false;
             }
             else if (rowCheckedCount > 1)
@@ -840,6 +989,25 @@ namespace kucunTest.DaoJu
             }
         }
 
-        
+        //查询条件
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string lxcx = cxdjlx.Text;
+            string idcx = cxdjid.Text;
+            string smcx = cxdjsm.Text;
+            string djgcx = cxdjgmc.SelectedItem.ToString();
+
+            if (lxcx == "" && idcx == "" && smcx == "" && djgcx == "")
+            {
+                MessageBox.Show("请输入查询条件！", "提示");
+            }
+            if (lxcx != "" || idcx != "" || smcx != "" || djgcx != "")
+            {
+                MessageBox.Show("123", "提示");
+            }
+
+        }
+
+
     }
 }

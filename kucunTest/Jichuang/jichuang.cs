@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
+using System.IO;
+using System.Threading;
 
 namespace kucunTest.Jichuang
 {
@@ -25,6 +27,7 @@ namespace kucunTest.Jichuang
         private AutoSizeFormClass asc = new AutoSizeFormClass();
 
         private string SqlStr = "";
+        string jcbmmc = "";
         private TreeNode node = new TreeNode();//类型树的根节点。
         #endregion
 
@@ -86,6 +89,8 @@ namespace kucunTest.Jichuang
         {
             asc.controllInitializeSize(this);
 
+            node.Nodes.Clear();
+            node.Remove();
             treeView1.Nodes.Add(node);
             node.Text = "所有生产线";
             BindRoot();//生成树的第一层
@@ -112,10 +117,24 @@ namespace kucunTest.Jichuang
                 ssscx.Text = list1[0];
                 jclx.Text = list1[1];
                 jcmc.Text = e.Node.Text.ToString();
+                jcbmmc = jcmc.Text + ".jpg";
 
-                SqlStr = "SELECT djmx.daojuleixing,djmx.daojuid,djmx.daojuguige,jcdjk.jichuangbianma,jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojulingyongmingxi djmx ON concat(djmx.jichuangbianma,'-', djmx.daotaohao ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where jcdjk.jichuangbianma =  '" + e.Node.Text.ToString() + "'";
-                //SqlStr = "SELECT djtp.daojuleixing,djtp.daojuid,djtp.daojuguige,djtp.daojushouming,jcdjk.jichuangbianma,jcdjk.daotaohao FROM daojutemp djtp LEFT JOIN jcdaojuku jcdjk ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where jcdjk.jichuangbianma =  '" + e.Node.Text.ToString() + "'";
+                SqlStr = "SELECT djtp.daojuleixing,djtp.daojuid,djtp.daojuguige,jcdjk.jichuangbianma,jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojutemp djtp ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where jcdjk.jichuangbianma =  '" + e.Node.Text.ToString() + "'";
+                
                 jcdth.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
+
+                string FileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\";
+                if (File.Exists(FileUrl+jcbmmc) == false)
+                {
+                    jichuangtupian.Image = null;
+                    //MessageBox.Show("请导入机床图片！", "信息提示");
+                    return;
+                }
+                else
+                {
+                    jichuangtupian.Image = Image.FromFile(FileUrl+jcbmmc);
+                }
+
             }
 
             }
@@ -145,5 +164,49 @@ namespace kucunTest.Jichuang
                 mfr.CloseTab(this.Name);
             }
         }
+
+        //导入图片
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog lvse = new OpenFileDialog())
+            {
+                lvse.Title = "请选择机床图片";
+                lvse.InitialDirectory = "";
+                lvse.Filter = "图片文件|*.bmp;*.jpg;*.jpeg;*.gif;*.png";
+                lvse.FilterIndex = 1;
+
+                if (lvse.ShowDialog() == DialogResult.OK)
+                {
+                    //MySQL_Helper mysql = new MySQL_Helper();
+                    //mysql.Record_Insert(MySQL_Helper.base_mode, this.Tag.ToString(), MySQL_Helper.type_operate, "36", "");
+                    if (jichuangtupian.Image != null)
+                    {
+                        Image img = jichuangtupian.Image;
+                        jichuangtupian.Image = null;
+                        img.Dispose();
+                    }
+                    Thread.Sleep(200);
+                    jichuangtupian.Image = Image.FromFile(lvse.FileName);
+                    Picture_Save(jcbmmc);
+                }
+            }
+        }
+        //保存图片
+        string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\";
+        private void Picture_Save(string filename)
+        {
+            
+            Bitmap bit = new Bitmap(jichuangtupian.ClientRectangle.Width, jichuangtupian.ClientRectangle.Height);
+            jichuangtupian.DrawToBitmap(bit, jichuangtupian.ClientRectangle);
+            if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images") == false)
+            {
+                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images");
+            }           
+            bit.Save(str_iniFileUrl + filename);
+          
+        }
+
+
     }
+
 }

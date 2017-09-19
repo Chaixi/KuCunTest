@@ -18,6 +18,8 @@ using kucunTest.FastReport;
 using kucunTest.BaseClasses;
 using kucunTest.Daojugui;
 using kucunTest.Jichuang;
+using kucunTest.gongyika;
+using kucunTest.quanxianguanli;
 
 using System.Runtime.InteropServices;
 
@@ -718,7 +720,41 @@ namespace kucunTest
         private void 零部件库存管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lbj_GuanLi lbjgl = new lbj_GuanLi();
-            lbjgl.Show();
+            //lbjgl.Show();
+
+            lbjgl.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == lbjgl.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = lbjgl.Name;
+                lbjgl.Parent = tb;
+                tb.Text = lbjgl.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                lbjgl.Left = (tabControl1.Width - lbjgl.Width) / 2;
+                lbjgl.Top = (tb.Height - lbjgl.Height) / 4;
+
+                lbjgl.Dock = DockStyle.Fill;
+                lbjgl.Show();
+
+            }
         }
 
         private void 刀具类型管理ToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1044,6 +1080,57 @@ namespace kucunTest
                 e.Cancel = true;
             }
 
+        }
+
+        private void 工艺卡管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gyk gyka = new gyk();
+            //gyka.Show();
+            /*
+            gyka.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == gyka.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = gyka.Name;
+                gyka.Parent = tb;
+                tb.Text = gyka.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                gyka.Left = (tabControl1.Width - gyka.Width) / 2;
+                gyka.Top = (tb.Height - gyka.Height) / 4;
+
+                gyka.Dock = DockStyle.Fill;
+                }
+                */
+                gyka.Show();
+          
+   
+
+
+        }
+
+
+        private void 系统管理ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            qxguanli qxgl = new qxguanli();
+            qxgl.Show();
         }
     }
 }

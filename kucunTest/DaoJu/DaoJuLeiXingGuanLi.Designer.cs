@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_save = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.grp_jc = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.pic_dj = new System.Windows.Forms.PictureBox();
@@ -115,6 +114,7 @@
             this.删除节点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_cansel = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.grp_jc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_dj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZuChengMingXi)).BeginInit();
@@ -148,7 +148,6 @@
             // 
             // grp_jc
             // 
-            this.grp_jc.Controls.Add(this.button1);
             this.grp_jc.Controls.Add(this.label14);
             this.grp_jc.Controls.Add(this.label22);
             this.grp_jc.Controls.Add(this.pic_dj);
@@ -173,17 +172,6 @@
             this.grp_jc.TabStop = false;
             this.grp_jc.Text = "基础信息";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(635, 169);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 31);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "选择刀具图片";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -204,7 +192,6 @@
             // 
             // pic_dj
             // 
-            this.pic_dj.Image = global::kucunTest.Properties.Resources.立铣刀;
             this.pic_dj.Location = new System.Drawing.Point(558, 119);
             this.pic_dj.Name = "pic_dj";
             this.pic_dj.Size = new System.Drawing.Size(282, 126);
@@ -332,14 +319,14 @@
             this.ZuChengMingXi.AllowUserToDeleteRows = false;
             this.ZuChengMingXi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ZuChengMingXi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ZuChengMingXi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ZuChengMingXi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.ZuChengMingXi.ColumnHeadersHeight = 32;
             this.ZuChengMingXi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.lbjmc,
@@ -380,8 +367,8 @@
             // sl
             // 
             this.sl.DataPropertyName = "sl";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.sl.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.sl.DefaultCellStyle = dataGridViewCellStyle8;
             this.sl.HeaderText = "数量";
             this.sl.Name = "sl";
             this.sl.ReadOnly = true;
@@ -1007,9 +994,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(741, 784);
+            this.button4.Location = new System.Drawing.Point(694, 790);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 41);
+            this.button4.Size = new System.Drawing.Size(125, 32);
             this.button4.TabIndex = 0;
             this.button4.Text = "保存为新类型";
             this.button4.UseVisualStyleBackColor = true;
@@ -1063,7 +1050,7 @@
             // 
             // btn_cansel
             // 
-            this.btn_cansel.Location = new System.Drawing.Point(610, 790);
+            this.btn_cansel.Location = new System.Drawing.Point(560, 790);
             this.btn_cansel.Name = "btn_cansel";
             this.btn_cansel.Size = new System.Drawing.Size(104, 29);
             this.btn_cansel.TabIndex = 0;
@@ -1071,11 +1058,22 @@
             this.btn_cansel.UseVisualStyleBackColor = true;
             this.btn_cansel.Click += new System.EventHandler(this.btn_cansel_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(843, 790);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(109, 32);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "导入图片";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // DaoJuLeiXingGuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 831);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.grp_zc);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grp_cs);
@@ -1191,6 +1189,6 @@
         private System.Windows.Forms.ToolStripMenuItem 删除节点ToolStripMenuItem;
         private System.Windows.Forms.Button btn_cansel;
         private System.Windows.Forms.ToolStripMenuItem 刷新ToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button5;
     }
 }

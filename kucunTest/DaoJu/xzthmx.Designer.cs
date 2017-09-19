@@ -44,10 +44,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cfwz = new System.Windows.Forms.ComboBox();
-            this.dth = new System.Windows.Forms.ComboBox();
+            this.dth = new System.Windows.Forms.TextBox();
             this.djgbm = new System.Windows.Forms.ComboBox();
             this.bz = new System.Windows.Forms.TextBox();
-            this.jcbm = new System.Windows.Forms.ComboBox();
+            this.jcbm = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -247,67 +247,10 @@
             "T20"});
             this.cfwz.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cfwz.FormattingEnabled = true;
-            this.cfwz.Items.AddRange(new object[] {
-            "L1",
-            "L2",
-            "L3",
-            "L4",
-            "L5"});
             this.cfwz.Location = new System.Drawing.Point(321, 71);
             this.cfwz.Name = "cfwz";
             this.cfwz.Size = new System.Drawing.Size(121, 29);
             this.cfwz.TabIndex = 3;
-            // 
-            // dth
-            // 
-            this.dth.AutoCompleteCustomSource.AddRange(new string[] {
-            "T1",
-            "T2",
-            "T3",
-            "T4",
-            "T5",
-            "T6",
-            "T7",
-            "T8",
-            "T9",
-            "T10",
-            "T11",
-            "T12",
-            "T13",
-            "T14",
-            "T15",
-            "T16",
-            "T17",
-            "T18",
-            "T19",
-            "T20"});
-            this.dth.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.dth.FormattingEnabled = true;
-            this.dth.Items.AddRange(new object[] {
-            "T1",
-            "T2",
-            "T3",
-            "T4",
-            "T5",
-            "T6",
-            "T7",
-            "T8",
-            "T9",
-            "T10",
-            "T11",
-            "T12",
-            "T13",
-            "T14",
-            "T15",
-            "T16",
-            "T17",
-            "T18",
-            "T19",
-            "T20"});
-            this.dth.Location = new System.Drawing.Point(321, 31);
-            this.dth.Name = "dth";
-            this.dth.Size = new System.Drawing.Size(121, 29);
-            this.dth.TabIndex = 3;
             // 
             // djgbm
             // 
@@ -322,16 +265,11 @@
             "OP20T238"});
             this.djgbm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.djgbm.FormattingEnabled = true;
-            this.djgbm.Items.AddRange(new object[] {
-            "kardex-1#柜",
-            "kardex-2#柜",
-            "立式-1#柜",
-            "立式-2#柜",
-            "立式-3#柜"});
             this.djgbm.Location = new System.Drawing.Point(104, 71);
             this.djgbm.Name = "djgbm";
             this.djgbm.Size = new System.Drawing.Size(121, 29);
             this.djgbm.TabIndex = 3;
+            this.djgbm.SelectedIndexChanged += new System.EventHandler(this.djgbm_SelectedIndexChanged);
             // 
             // bz
             // 
@@ -339,33 +277,6 @@
             this.bz.Name = "bz";
             this.bz.Size = new System.Drawing.Size(340, 29);
             this.bz.TabIndex = 3;
-            // 
-            // jcbm
-            // 
-            this.jcbm.AutoCompleteCustomSource.AddRange(new string[] {
-            "FMS-1#机",
-            "FMS-2#机",
-            "FMS-3#机",
-            "南车床线",
-            "北车床线",
-            "OP20T01",
-            "OP20T40",
-            "OP20T238"});
-            this.jcbm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.jcbm.FormattingEnabled = true;
-            this.jcbm.Items.AddRange(new object[] {
-            "FMS-1#机",
-            "FMS-2#机",
-            "FMS-3#机",
-            "南车床线",
-            "北车床线",
-            "OP20T01",
-            "OP20T40",
-            "OP20T238"});
-            this.jcbm.Location = new System.Drawing.Point(104, 31);
-            this.jcbm.Name = "jcbm";
-            this.jcbm.Size = new System.Drawing.Size(121, 29);
-            this.jcbm.TabIndex = 3;
             // 
             // label10
             // 
@@ -415,6 +326,22 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "添加退还刀具";
             // 
+            // jcbm
+            // 
+            this.jcbm.Location = new System.Drawing.Point(104, 31);
+            this.jcbm.Name = "jcbm";
+            this.jcbm.ReadOnly = true;
+            this.jcbm.Size = new System.Drawing.Size(121, 29);
+            this.jcbm.TabIndex = 4;
+            // 
+            // dth
+            // 
+            this.dth.Location = new System.Drawing.Point(321, 31);
+            this.dth.Name = "dth";
+            this.dth.ReadOnly = true;
+            this.dth.Size = new System.Drawing.Size(121, 29);
+            this.dth.TabIndex = 5;
+            // 
             // xzthmx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -453,8 +380,8 @@
         private System.Windows.Forms.ComboBox djgg;
         private System.Windows.Forms.ComboBox djcd;
         private System.Windows.Forms.ComboBox djlx;
-        private System.Windows.Forms.ComboBox dth;
-        private System.Windows.Forms.ComboBox jcbm;
+        private System.Windows.Forms.TextBox dth;
+        private System.Windows.Forms.TextBox jcbm;
         private System.Windows.Forms.ComboBox djzt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cfwz;

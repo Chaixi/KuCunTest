@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
 using System.IO;
+using System.Threading;
 
 namespace kucunTest.DaoJu
 {
@@ -35,6 +36,8 @@ namespace kucunTest.DaoJu
         string djtpzd = "djtp";
 
         string DJPIC = "";
+        string picmc = "";
+        string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\daojuleixing\\";
 
         string conditions = "";//数据库查询条件，用于Alex.CunZai()
         bool HaveNewNode = false;
@@ -129,6 +132,10 @@ namespace kucunTest.DaoJu
                 if(e.Node.Level == 1)
                 {
                     DJLX.Text = e.Node.Text;
+
+                   
+                    pic_dj.Image = null;
+               
                 }
                 else if (e.Node.Level == 2)
                 {
@@ -138,6 +145,20 @@ namespace kucunTest.DaoJu
                     DJLX.Text = db1.Rows[0][djlxzd].ToString();
                     DJGG.Text = db1.Rows[0][djggzd].ToString();
                     DJXH.Text = db1.Rows[0][djxhzd].ToString();
+
+                    //加载图片
+                    picmc = DJXH.Text + ".jpg";
+
+                    if (File.Exists(str_iniFileUrl + picmc) == false)
+                    {
+                        pic_dj.Image = null;
+                        //MessageBox.Show("请导入机床图片！", "信息提示");
+                        return;
+                    }
+                    else
+                    {
+                        pic_dj.Image = Image.FromFile(str_iniFileUrl + picmc);
+                    }
 
                     ////加载图片
                     //string pic = db1.Rows[0][djtpzd].ToString();
@@ -518,32 +539,32 @@ namespace kucunTest.DaoJu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openfile = new OpenFileDialog();
-            openfile.Title = " 请选择刀具图片";
-            openfile.Filter = "图片格式 (*.jpg;*.bmp;*png)|*.jpeg;*.jpg;*.bmp;*.png|AllFiles(*.*)|*.*";
-            openfile.Multiselect = false;
-            if (openfile.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    Bitmap bmp = new Bitmap(openfile.FileName);
-                    pic_dj.Image = bmp;
-                    MemoryStream ms = new MemoryStream();
-                    bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-                    byte[] arr = new byte[ms.Length];
-                    ms.Position = 0;
-                    ms.Read(arr, 0, (int)ms.Length);
-                    ms.Close();
+       // private void button1_Click(object sender, EventArgs e)
+       // {
+            //OpenFileDialog openfile = new OpenFileDialog();
+           // openfile.Title = " 请选择刀具图片";
+           // openfile.Filter = "图片格式 (*.jpg;*.bmp;*png)|*.jpeg;*.jpg;*.bmp;*.png|AllFiles(*.*)|*.*";
+           // openfile.Multiselect = false;
+           // if (openfile.ShowDialog() == DialogResult.OK)
+           // {
+               // try
+               // {
+                   // Bitmap bmp = new Bitmap(openfile.FileName);
+                   // pic_dj.Image = bmp;
+                   // MemoryStream ms = new MemoryStream();
+                   // bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+                   // byte[] arr = new byte[ms.Length];
+                   // ms.Position = 0;
+                   // ms.Read(arr, 0, (int)ms.Length);
+                   // ms.Close();
                     // 直接返这个值放到数据就行了
-                    DJPIC  = Convert.ToBase64String(arr);
-                }
-                catch { }
-            }
+                  //  DJPIC  = Convert.ToBase64String(arr);
+              //  }
+                //catch { }
+          //  }
 
-            button1.Visible = false;
-        }
+           // button1.Visible = false;
+       // }
 
 
         #endregion 按钮部分结束
@@ -565,6 +586,48 @@ namespace kucunTest.DaoJu
                 MainForm mfr = (MainForm)this.Parent.FindForm();
                 mfr.CloseTab(this.Name);
             }
+        }
+
+
+        //导入图片
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog lvse = new OpenFileDialog())
+            {
+                lvse.Title = "请选择机床图片";
+                lvse.InitialDirectory = "";
+                lvse.Filter = "图片文件|*.bmp;*.jpg;*.jpeg;*.gif;*.png";
+                lvse.FilterIndex = 1;
+
+                if (lvse.ShowDialog() == DialogResult.OK)
+                {
+                    //MySQL_Helper mysql = new MySQL_Helper();
+                    //mysql.Record_Insert(MySQL_Helper.base_mode, this.Tag.ToString(), MySQL_Helper.type_operate, "36", "");
+                    if (pic_dj.Image != null)
+                    {
+                        Image img = pic_dj.Image;
+                        pic_dj.Image = null;
+                        img.Dispose();
+                    }
+                    Thread.Sleep(200);
+                    pic_dj.Image = Image.FromFile(lvse.FileName);
+                    Picture_Save(picmc);
+                }
+            }
+        }
+        //保存图片
+
+        private void Picture_Save(string filename)
+        {
+
+            Bitmap bit = new Bitmap(pic_dj.ClientRectangle.Width, pic_dj.ClientRectangle.Height);
+            pic_dj.DrawToBitmap(bit, pic_dj.ClientRectangle);
+            if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images\\daojuleixing") == false)
+            {
+                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images\\daojuleixing");
+            }
+            bit.Save(str_iniFileUrl + filename);
+
         }
     }
 }

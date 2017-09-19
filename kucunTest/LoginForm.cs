@@ -122,6 +122,7 @@ namespace kucunTest
                 else
                 {
                     MessageBox.Show("密码错误，请重试！", "提示");
+                    return;
                 }
             }
             

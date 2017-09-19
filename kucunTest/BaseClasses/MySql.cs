@@ -203,6 +203,7 @@ namespace kucunTest
             {
                 list.Add(My_read[0].ToString());
             }
+            con_close();
             return list;
         }
         #endregion
@@ -221,6 +222,27 @@ namespace kucunTest
                 list.Add(My_read[0].ToString());
                 list.Add(My_read[1].ToString());
             }
+            con_close();
+            return list;
+        }
+        #endregion
+
+        #region 返回list
+        public List<string> DataReadList3(string SQLstr)
+        {
+            List<string> list = new List<string>();
+            getcon();
+            //创建一个SqlCommand对象，用于执行SQL语句
+            MySqlCommand My_com = My_con.CreateCommand();
+            My_com.CommandText = SQLstr;
+            MySqlDataReader My_read = My_com.ExecuteReader();  //执行SQL语句，生成一个SqlDataReader对象
+            while (My_read.Read())
+            {
+                list.Add(My_read[0].ToString());
+                list.Add(My_read[1].ToString());
+                list.Add(My_read[2].ToString());
+            }
+            con_close();
             return list;
         }
         #endregion

@@ -137,6 +137,12 @@
     <Compile Include="Daojugui\XZDJG.Designer.cs">
       <DependentUpon>XZDJG.cs</DependentUpon>
     </Compile>
+    <Compile Include="DaoJu\chaixiedaoju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoJu\chaixiedaoju.designer.cs">
+      <DependentUpon>chaixiedaoju.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaoJu\DaoJuCanShuXinXi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,12 @@
     <Compile Include="DaoJu\PDQDGL.Designer.cs">
       <DependentUpon>PDQDGL.cs</DependentUpon>
     </Compile>
+    <Compile Include="DaoJu\XYLS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoJu\XYLS.designer.cs">
+      <DependentUpon>XYLS.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaoJu\xzccmx.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +293,12 @@
     <Compile Include="FastReport\FastReport测试.Designer.cs">
       <DependentUpon>FastReport测试.cs</DependentUpon>
     </Compile>
+    <Compile Include="gongyika\gyk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gongyika\gyk.designer.cs">
+      <DependentUpon>gyk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Jichuang\jichuang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +316,12 @@
     </Compile>
     <Compile Include="KuCun\KCMingXi.Designer.cs">
       <DependentUpon>KCMingXi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LingBuJian\lbjkcmx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LingBuJian\lbjkcmx.designer.cs">
+      <DependentUpon>lbjkcmx.cs</DependentUpon>
     </Compile>
     <Compile Include="LingBuJian\LBJTH.cs">
       <SubType>Form</SubType>
@@ -350,6 +374,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="quanxianguanli\qxguanli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="quanxianguanli\qxguanli.designer.cs">
+      <DependentUpon>qxguanli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="quanxianguanli\xjxz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="quanxianguanli\xjxz.designer.cs">
+      <DependentUpon>xjxz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="quanxianguanli\xzyh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="quanxianguanli\xzyh.designer.cs">
+      <DependentUpon>xzyh.cs</DependentUpon>
+    </Compile>
     <Compile Include="RuCang\NewRC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -386,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Daojugui\XZDJG.resx">
       <DependentUpon>XZDJG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoJu\chaixiedaoju.resx">
+      <DependentUpon>chaixiedaoju.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DaoJuCanShuXinXi.resx">
       <DependentUpon>DaoJuCanShuXinXi.cs</DependentUpon>
@@ -444,6 +489,9 @@
     <EmbeddedResource Include="DaoJu\PDQDGL.resx">
       <DependentUpon>PDQDGL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DaoJu\XYLS.resx">
+      <DependentUpon>XYLS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\xzccmx.resx">
       <DependentUpon>xzccmx.cs</DependentUpon>
     </EmbeddedResource>
@@ -459,6 +507,9 @@
     <EmbeddedResource Include="FastReport\FastReport测试.resx">
       <DependentUpon>FastReport测试.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gongyika\gyk.resx">
+      <DependentUpon>gyk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Jichuang\jichuang.resx">
       <DependentUpon>jichuang.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,6 +518,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KuCun\KCMingXi.resx">
       <DependentUpon>KCMingXi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LingBuJian\lbjkcmx.resx">
+      <DependentUpon>lbjkcmx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LingBuJian\LBJLY.resx">
       <DependentUpon>LBJLY.cs</DependentUpon>
@@ -493,6 +547,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="quanxianguanli\qxguanli.resx">
+      <DependentUpon>qxguanli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="quanxianguanli\xjxz.resx">
+      <DependentUpon>xjxz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="quanxianguanli\xzyh.resx">
+      <DependentUpon>xzyh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RuCang\NewRC.resx">
       <DependentUpon>NewRC.cs</DependentUpon>

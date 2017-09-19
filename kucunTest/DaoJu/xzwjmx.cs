@@ -15,6 +15,7 @@ namespace kucunTest.DaoJu
         #region 全局变量
         MySql SQL = new MySql();
         String sqlstr = "";
+        String sqlstr1 = "";
         #endregion
 
         public xzwjmx()
@@ -35,6 +36,10 @@ namespace kucunTest.DaoJu
             djlx.SelectedIndex = 0;
 
             djzt.SelectedIndex = 0;
+
+            sqlstr1 = "select jichuangbianma from jichuang";
+            jcbm.DataSource = SQL.DataReadList(sqlstr1);
+            jcbm.SelectedIndex = 0;
         }
 
         #region 刀具信息三级联动
@@ -119,6 +124,13 @@ namespace kucunTest.DaoJu
             }
             else
                 return 1;
+        }
+
+        private void jcbm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sqlstr = "SELECT jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojutemp djtp ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where djtp.daojuid is NULL and jcdjk.jichuangbianma = '" + jcbm.SelectedItem.ToString().Trim() + "'";
+            dth.DataSource = SQL.DataReadList(sqlstr);
+            dth.SelectedIndex = 0;
         }
     }
 }

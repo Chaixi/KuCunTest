@@ -15,6 +15,7 @@ namespace kucunTest.DaoJu
         #region 全局变量
         MySql SQL = new MySql();
         String sqlstr = "";
+        String sqlstr1 = "";
         #endregion
 
         public xzthmx()
@@ -34,9 +35,13 @@ namespace kucunTest.DaoJu
             //加载所有刀具，并选择第一条数据
             sqlstr = "select distinct daojuleixing from daojutemp";
             djlx.DataSource = SQL.DataReadList(sqlstr);
-            djlx.SelectedIndex = -1;
+            djlx.SelectedIndex = 0;
             //djcd.SelectedIndex = 0;
             //djzt.SelectedIndex = 0;
+
+            sqlstr1 = "select djgmc from daojugui";
+            djgbm.DataSource = SQL.DataReadList(sqlstr1);
+            djgbm.SelectedIndex = 0;
         }
 
         #region 刀具信息三级联动
@@ -76,7 +81,7 @@ namespace kucunTest.DaoJu
                 list3 = SQL.DataReadList(sqlstr);
 
                 djid.DataSource = list3;
-                djid.SelectedIndex = 0;
+                djid.SelectedIndex = -1;
             }
         }
 
@@ -85,11 +90,12 @@ namespace kucunTest.DaoJu
             if(djid.Text == "")
             {
                 jcbm.Text = "";
+                dth.Text = "";
                 return;
             }
             else
             {
-                jcbm.DataSource = null;
+               // jcbm.DataSource = null;
 
                 sqlstr = "SELECT dj.weizhi, dj.cengshu FROM daojutemp dj WHERE dj.daojuid = '" + djid.SelectedItem.ToString().Trim() + "'";
                 DataTable db = SQL.getDataSet(sqlstr, "daojutemp").Tables[0];
@@ -173,6 +179,11 @@ namespace kucunTest.DaoJu
                 return 1;
         }
 
-        
+        private void djgbm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sqlstr = "SELECT djgcs from daojuguicengshu where djgmc = '" + djgbm.SelectedItem.ToString().Trim() + "'";
+            cfwz.DataSource = SQL.DataReadList(sqlstr);
+            cfwz.SelectedIndex = 0;
+        }
     }
 }

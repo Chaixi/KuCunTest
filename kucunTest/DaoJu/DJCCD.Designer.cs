@@ -164,15 +164,6 @@
             "机动科"});
             this.LYSB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.LYSB.FormattingEnabled = true;
-            this.LYSB.Items.AddRange(new object[] {
-            "FMS-1#机",
-            "FMS-2#机",
-            "FMS-3#机",
-            "南车床线",
-            "北车床线",
-            "OP20T01",
-            "OP20T40",
-            "OP20T238"});
             this.LYSB.Location = new System.Drawing.Point(124, 77);
             this.LYSB.Name = "LYSB";
             this.LYSB.Size = new System.Drawing.Size(144, 29);

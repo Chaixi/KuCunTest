@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
+using System.IO;
+using System.Threading;
 
 namespace kucunTest.Daojugui
 {
@@ -28,6 +30,7 @@ namespace kucunTest.Daojugui
         private string SqlStr1 = "";
         private string cengshu = "";
         private string cengshu2 = "";
+        string djgtp = "";
         DataSet ds1 = new DataSet();
         DataSet ds2 = new DataSet();
         private TreeNode node = new TreeNode();//类型树的根节点。
@@ -121,6 +124,7 @@ namespace kucunTest.Daojugui
             if (treeView1.SelectedNode.Level == 1)//当前选中节点为第二层节点：
             {
                 djgmmc.Text = e.Node.Text.ToString();
+                djgtp = djgmmc.Text + ".jpg";
                 where = "where weizhi = '" + e.Node.Text.ToString() + "' and weizhibiaoshi = 'S'";
                 where1 = "where weizhi = '" + e.Node.Text.ToString() + "' and weizhibiaoshi = 'S'";
                 SqlStr = "SELECT djgbm,djglx FROM  daojugui where djgmc = '" + e.Node.Text.ToString() +  "'";
@@ -146,6 +150,20 @@ namespace kucunTest.Daojugui
                 cengshu = "";
                 cengshu2 = "";
                 lxcx.SelectedIndex = 0;
+
+
+                string FileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\";
+                if (File.Exists(FileUrl + djgtp) == false)
+                {
+                    daojuguitupian.Image = null;
+                    //MessageBox.Show("请导入机床图片！", "信息提示");
+                    return;
+                }
+                else
+                {
+                    daojuguitupian.Image = Image.FromFile(FileUrl + djgtp);
+                }
+
 
             }
             if (treeView1.SelectedNode.Level == 2)//当前选中节点为第三层节点：层数
@@ -353,6 +371,47 @@ namespace kucunTest.Daojugui
         private void daojugui_SizeChanged(object sender, EventArgs e)
         {
             asc.controlAutoSize(this);
+        }
+
+        //导入刀具柜图片
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog lvse = new OpenFileDialog())
+            {
+                lvse.Title = "请选择机床图片";
+                lvse.InitialDirectory = "";
+                lvse.Filter = "图片文件|*.bmp;*.jpg;*.jpeg;*.gif;*.png";
+                lvse.FilterIndex = 1;
+
+                if (lvse.ShowDialog() == DialogResult.OK)
+                {
+                    //MySQL_Helper mysql = new MySQL_Helper();
+                    //mysql.Record_Insert(MySQL_Helper.base_mode, this.Tag.ToString(), MySQL_Helper.type_operate, "36", "");
+                    if (daojuguitupian.Image != null)
+                    {
+                        Image img = daojuguitupian.Image;
+                        daojuguitupian.Image = null;
+                        img.Dispose();
+                    }
+                    Thread.Sleep(200);
+                    daojuguitupian.Image = Image.FromFile(lvse.FileName);
+                    Picture_Save(djgtp);
+                }
+            }
+        }
+        //保存图片
+        private void Picture_Save(string filename)
+        {
+
+            Bitmap bit = new Bitmap(daojuguitupian.ClientRectangle.Width, daojuguitupian.ClientRectangle.Height);
+            daojuguitupian.DrawToBitmap(bit, daojuguitupian.ClientRectangle);
+            if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images") == false)
+            {
+                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images");
+            }
+            string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\";
+            bit.Save(str_iniFileUrl + filename);
+
         }
     }
 }

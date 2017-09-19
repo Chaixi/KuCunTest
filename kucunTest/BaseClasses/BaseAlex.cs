@@ -77,6 +77,10 @@ namespace kucunTest.BaseClasses
                     tjb = "lbj_tuihuan";
                     tjzd = "danhao";
                     break;
+                case "DJXY"://刀具续用单
+                    tjb = "daojuxuyong";
+                    tjzd = "xuyongdanhao";
+                    break;
             }
 
             string where = " WHERE " + tjzd + " LIKE '" + type.Trim() + "_" + dt + "%'";

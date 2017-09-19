@@ -55,6 +55,10 @@ namespace kucunTest.LingBuJian
 
             asc.controllInitializeSize(this);
 
+            string sqlstr2 = "select jichuangbianma from jichuang";
+            jcbm.DataSource = SQL.DataReadList(sqlstr2);
+            jcbm.SelectedIndex = -1;
+
         }
 
         /// <summary>
@@ -94,6 +98,19 @@ namespace kucunTest.LingBuJian
 
                 lbjgg.Text = ds.Tables[0].Rows[0]["lbjgg"].ToString();
                 dw.Text = ds.Tables[0].Rows[0]["dw"].ToString();
+
+                string sql = "SELECT kcsl,weizhi,cengshu FROM jichuxinxi where daojuid = '" + lbjmc.Text.ToString() + "' and daojuxinghao = '" + lbjxh.Text.ToString() + "' ";
+                MySqlDataReader my = SQL.getcom(sql);
+                List<string> list = new List<string>();
+                while (my.Read())
+                {
+                    list.Add(my[0].ToString());
+                    list.Add(my[1].ToString());
+                    list.Add(my[2].ToString());
+                }
+                kcsl.Text = list[0];
+                djgbm.Text = list[1];
+                cfwz.Text = list[2];
             }
         }
 
@@ -104,6 +121,27 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string t1 = "";
+            string t2 = "";
+            t1 = sl.Text.ToString();
+            t2 = kcsl.Text.ToString();
+            if (t1 == "")
+            {
+                MessageBox.Show("请填写需领用零部件的数量！", "警告", MessageBoxButtons.OK);
+                return;
+            }
+            if(Int32.Parse(t1) > Int32.Parse(t2))
+            {
+                MessageBox.Show("领用零部件的数量大于库存数量，请重新填写！", "警告", MessageBoxButtons.OK);
+                return;
+            }
+            if(Int32.Parse(t1) <= 0)
+            {
+                MessageBox.Show("请填写正确的领用数量！", "警告", MessageBoxButtons.OK);
+                return;
+            }
+
+
             if (CheckData() == 0)
             {
                 return;

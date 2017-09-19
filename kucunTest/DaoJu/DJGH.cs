@@ -138,8 +138,18 @@ namespace kucunTest.DaoJu
 
         private void X_DJGG_SelectedIndexChanged(object sender, EventArgs e)
         {
-            X_DJID.DataSource = Djgg_Changed(X_DJLX.Text.ToString().Trim(), X_DJGG.Text.ToString().Trim());
+            //X_DJID.DataSource = Djgg_Changed(X_DJLX.Text.ToString().Trim(), X_DJGG.Text.ToString().Trim());
+            //X_DJID.SelectedIndex = -1;
+
+            //X_DJID.DataSource = Djgg_Changed(X_DJLX.Text.ToString().Trim(), X_DJGG.Text.ToString().Trim());
+            string sql = "select daojuid from daojutemp where weizhibiaoshi = 'S' and daojuleixing = '" + X_DJLX.Text.ToString() + "' and daojuguige = '" + X_DJGG.Text.ToString() + "'";
+            X_DJID.DataSource = SQL.DataReadList(sql);
             X_DJID.SelectedIndex = -1;
+
+
+            string sqlstr = "SELECT jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojutemp djtp ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where djtp.daojuid is NULL and jcdjk.jichuangbianma = '" + SQSB.Text.ToString() + "'";
+            X_DTH.DataSource = SQL.DataReadList(sqlstr);
+            X_DTH.SelectedIndex = -1;
         }
 
         /// <summary>
