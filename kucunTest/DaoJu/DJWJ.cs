@@ -359,6 +359,9 @@ namespace kucunTest.DaoJu
                     //将借用明细数据存入数据库daojuwaijiemingxi表和流水表
                     int row2 = 0;//明细数据存入外借明细表
                     int row3 = 0;//明细数据存入流水表
+
+                    string dskysl = "";//此类型刀具的当时可用数量！！！当时可用数量为单据操作后的刀具可用数量
+
                     if (row1 != 0)
                     {
                         //判断此单号在明细表中是否已存在,如果存在则一并删除，重新保存
@@ -381,13 +384,16 @@ namespace kucunTest.DaoJu
                             string jcbm = WaiJieMingXi.Rows[rowindex].Cells["jcbm"].Value.ToString();//机床编码
                             string dth = WaiJieMingXi.Rows[rowindex].Cells["dth"].Value.ToString();//刀套号
                             string bz = WaiJieMingXi.Rows[rowindex].Cells["bz"].Value.ToString();//备注
-                            
+
+                            //查询此类型刀具当时可用数量, 刀具外借可用数量减一
+                            dskysl = (Alex.Count_djsl(djlx, "kysl") - 1).ToString();
+
                             //借用明细数据存入数据库外借明细表
                             SqlStr = "INSERT INTO daojuwaijiemingxi(danhao, djlx, djgg, djid, djzt, sl, jcbm, dth, bz) VALUES('" + WJDH.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djid + "','" + djzt + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + bz + "')";
                             row2 = SQL.ExecuteNonQuery(SqlStr);
 
                             //明细信息存入流水表
-                            SqlStr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}')", LiuShuiBiao, dh, "刀具外借", djlx, djgg, djid, "0", sl, jydw, jyr, jcsj, jbr, bz);
+                            SqlStr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", LiuShuiBiao, dh, "刀具外借", djlx, djgg, djid, "0", sl, dskysl, jydw, jyr, jcsj, jbr, bz);
                             row3 = SQL.ExecuteNonQuery(SqlStr);
                         }
 

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.BaseClasses;
+
 namespace kucunTest.DaoJu
 {
     public partial class chaixiedaoju : Form
@@ -19,6 +21,8 @@ namespace kucunTest.DaoJu
 
         #region 全局变量
         MySql SQL = new MySql();
+        BaseAlex Alex = new BaseAlex();
+
         string Sqlstr = "";
         string Sqlstr1 = "";
 
@@ -86,8 +90,13 @@ namespace kucunTest.DaoJu
             Sqlstr = string.Format("DELETE FROM daojutemp WHERE daojuid = '" + daojuid.Text.ToString() + "'");
             int row = SQL.ExecuteNonQuery(Sqlstr);
 
+            string dskysl = "";//此类型刀具的当时可用数量！！！当时可用数量为单据操作后的刀具可用数量
+            
+            //查询此类型刀具当时可用数量, 刀具拆卸可用数量不变，直接为daojutemp表查出来的数量，因为先删除后查询
+            dskysl = Alex.Count_djsl(daojuleixing.Text.ToString().Trim(), "kysl").ToString();
+
             //存入刀具流水表
-            Sqlstr = string.Format("INSERT INTO {0}(dhlx, djlx, djgg, djid, zsl, fsl, czsj) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", DaoJuLiuShui, "刀具拆卸", daojuleixing.Text, daojuguige.Text, daojuid.Text, "0", "1", DateTime.Now);
+            Sqlstr = string.Format("INSERT INTO {0}(dhlx, djlx, djgg, djid, zsl, fsl, dskysl, czsj) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", DaoJuLiuShui, "刀具拆卸", daojuleixing.Text, daojuguige.Text, daojuid.Text, "0", "1", dskysl, DateTime.Now);
             row = SQL.ExecuteNonQuery(Sqlstr);
 
             //更新相应零部件库存信息并存入零部件流水表

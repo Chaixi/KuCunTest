@@ -47,18 +47,22 @@ namespace kucunTest.DaoJu
             //加载表1，库存统计表
             //Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl, COUNT(dt.daojuleixing) + SUM(d.zsl) - SUM(d.fsl) AS kysl FROM daojutemp dt LEFT JOIN daojuliushui d ON dt.daojuid = d.djid GROUP BY dt.daojuleixing";
 
+            //窗体自适应
             asc.controllInitializeSize(this);
 
+            //计时归零
             time_count = 0;
 
-            Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl FROM daojutemp dt GROUP BY dt.daojuleixing";//刀具类型下所有刀具数量
-            KCTJ.AutoGenerateColumns = false;
+            //刀具类型下所有刀具数量
+            Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl FROM daojutemp dt GROUP BY dt.daojuleixing";
+            dgv_KCTJ.AutoGenerateColumns = false;
             DataSet ds = SQL.getDataSet1(Sqlstr);
             kcmx_db = ds.Tables[0];
-            KCTJ.DataSource = kcmx_db.DefaultView;
-
+            dgv_KCTJ.DataSource = kcmx_db.DefaultView;
+            
+            //计算当前可用数量
             kcmx_db.Columns.Add("kysl", typeof(string));
-            kysl_Calculation();//计算可用数量
+            kysl_Calculation();
             Refresh_kcmxTable();
         }
 
@@ -84,29 +88,38 @@ namespace kucunTest.DaoJu
         {
             if(e.RowIndex >= 0)
             {
-                Sqlstr = string.Format("SELECT * FROM {0} WHERE djlx = '{1}' ORDER BY czsj ASC", DanJuBiao, KCTJ.Rows[e.RowIndex].Cells["kctj_djlx"].Value.ToString());
-                CRMX.AutoGenerateColumns = false;
-                CRMX.DataSource = (SQL.getDataSet(Sqlstr, DanJuBiao)).Tables[0].DefaultView;
+                //加载流水表中此类型所有刀具操作记录
+                Sqlstr = string.Format("SELECT * FROM {0} WHERE djlx = '{1}' ORDER BY czsj ASC", DanJuBiao, dgv_KCTJ.Rows[e.RowIndex].Cells["kctj_djlx"].Value.ToString());
+                dgv_CRMX.AutoGenerateColumns = false;
+                dgv_CRMX.DataSource = (SQL.getDataSet(Sqlstr, DanJuBiao)).Tables[0].DefaultView;
 
                 //int sskysl = 0;//当时可用数量
-                int sskysl = Convert.ToInt32(KCTJ.Rows[e.RowIndex].Cells["kctj_sysl"].Value);//当时可用数量,默认数量为车间中所有数量
+                //int sskysl = Convert.ToInt32(dgv_KCTJ.Rows[e.RowIndex].Cells["kctj_sysl"].Value);//当时可用数量,默认数量为车间中所有数量。问题在于这是当前可用数量不是！当时！可用数量
 
-                for (int i = 0; i < CRMX.Rows.Count; i++)
-                {
-                    sskysl = sskysl + Convert.ToInt32(CRMX.Rows[i].Cells["zsl"].Value) - Convert.ToInt32(CRMX.Rows[i].Cells["fsl"].Value);
-                    CRMX.Rows[i].Cells["crmx_kysl"].Value = sskysl.ToString();
-                }
-            }
-            
+                //for (int i = 0; i < dgv_CRMX.Rows.Count; i++)
+                //{
+                //    sskysl = sskysl + Convert.ToInt32(dgv_CRMX.Rows[i].Cells["zsl"].Value) - Convert.ToInt32(dgv_CRMX.Rows[i].Cells["fsl"].Value);
+                //    dgv_CRMX.Rows[i].Cells["crmx_kysl"].Value = sskysl.ToString();
+                //}
+            }            
         }
 
+        /// <summary>
+        /// 出入明细双击查看具体单把刀具的操作记录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CRMX_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-            DJCZJL djczjl = new DJCZJL(CRMX.Rows[e.RowIndex].Cells["crmx_djid"].Value.ToString());
+        {            
+            DJCZJL djczjl = new DJCZJL(dgv_CRMX.Rows[e.RowIndex].Cells["crmx_djid"].Value.ToString());
             djczjl.ShowDialog();
         }
 
+        /// <summary>
+        /// 窗口自适应
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DJKCMX_SizeChanged(object sender, EventArgs e)
         {
             asc.controlAutoSize(this);   
@@ -131,10 +144,11 @@ namespace kucunTest.DaoJu
         /// </summary>
         private void kysl_Calculation()
         {
-            for (int rowindex = 0; rowindex < KCTJ.Rows.Count; rowindex++)
+            for (int rowindex = 0; rowindex < dgv_KCTJ.Rows.Count; rowindex++)
             {
-                Sqlstr = "SELECT COUNT(dt.daojuid) FROM daojutemp dt WHERE dt.daojuleixing = '" + KCTJ.Rows[rowindex].Cells["kctj_djlx"].Value.ToString().Trim() + "'" + " AND dt.weizhibiaoshi = 'S' ";
-                int kysl = Convert.ToInt32(SQL.ExecuteScalar(Sqlstr).ToString());//可用数量
+                //当前可用数量
+                Sqlstr = "SELECT COUNT(dt.daojuid) FROM daojutemp dt WHERE dt.daojuleixing = '" + dgv_KCTJ.Rows[rowindex].Cells["kctj_djlx"].Value.ToString().Trim() + "'" + " AND dt.weizhibiaoshi = 'S' ";
+                int kysl = Convert.ToInt32(SQL.ExecuteScalar(Sqlstr).ToString());
 
                 kcmx_db.Rows[rowindex]["kysl"] = kysl.ToString();
             }
@@ -146,23 +160,23 @@ namespace kucunTest.DaoJu
         public void Refresh_kcmxTable()
         {
             //对可用数量等于所有数量，但是显示为空的行，进行遍历
-            for (int rowindex = 0; rowindex < KCTJ.Rows.Count; rowindex++)
+            for (int rowindex = 0; rowindex < dgv_KCTJ.Rows.Count; rowindex++)
             {
-                int sysl = Convert.ToInt32(KCTJ.Rows[rowindex].Cells["kctj_sysl"].Value.ToString());//所有数量
-                int kysl = Convert.ToInt32(KCTJ.Rows[rowindex].Cells["kctj_kysl"].Value.ToString());//可用数量
+                int sysl = Convert.ToInt32(dgv_KCTJ.Rows[rowindex].Cells["kctj_sysl"].Value.ToString());//所有数量
+                int kysl = Convert.ToInt32(dgv_KCTJ.Rows[rowindex].Cells["kctj_kysl"].Value.ToString());//可用数量
 
                 if (kysl == sysl)//可用数量等于所有数量
                 {
                     //KCTJ.Rows[rowindex].Cells["kctj_kysl"].Value = KCTJ.Rows[rowindex].Cells["kctj_sysl"].Value;
-                    KCTJ.Rows[rowindex].DefaultCellStyle.BackColor = Color.AliceBlue;
+                    dgv_KCTJ.Rows[rowindex].DefaultCellStyle.BackColor = Color.AliceBlue;
                 }
                 else if (kysl == 0)//可用数量为0的情况下，底色变红色警告
                 {
-                    KCTJ.Rows[rowindex].DefaultCellStyle.BackColor = Color.Red;
+                    dgv_KCTJ.Rows[rowindex].DefaultCellStyle.BackColor = Color.Red;
                 }
                 else
                 {
-                    KCTJ.Rows[rowindex].DefaultCellStyle.BackColor = Color.AntiqueWhite;
+                    dgv_KCTJ.Rows[rowindex].DefaultCellStyle.BackColor = Color.AntiqueWhite;
                 }
 
                 time_count = 0;//重置时间值

@@ -556,6 +556,13 @@
             this.工艺卡管理ToolStripMenuItem.Text = "工艺卡管理";
             this.工艺卡管理ToolStripMenuItem.Click += new System.EventHandler(this.工艺卡管理ToolStripMenuItem_Click);
             // 
+            // 系统管理ToolStripMenuItem
+            // 
+            this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
+            this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
+            this.系统管理ToolStripMenuItem.Text = "系统管理";
+            this.系统管理ToolStripMenuItem.Click += new System.EventHandler(this.系统管理ToolStripMenuItem_Click_1);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.WhiteSmoke;

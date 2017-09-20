@@ -296,6 +296,13 @@ namespace kucunTest.DaoJu
                     string spsj = SPSJ.Text.ToString().Trim();//审批时间
                     string jbr = JBR.Text.ToString().Trim();//经办人
 
+                    string dskysl1 = "";//原刀具类型的当时可用数量！！！当时可用数量为单据操作后的刀具可用数量
+                    string dskysl2 = "";//新刀具类型的当时可用数量！！！当时可用数量为单据操作后的刀具可用数量
+
+                    //查询此类型刀具当时可用数量, 原刀具可用数量减一，新刀具可用数量加一
+                    dskysl1 = (Alex.Count_djsl(ydjlx, "kysl") + 1).ToString();
+                    dskysl2 = (Alex.Count_djsl(xdjlx, "kysl") - 1).ToString();
+
                     //存入数据库前判断此单号是否存在
                     if (Alex.CunZai(dh, DanHaoZD, DanJuBiao) != 0)
                     {
@@ -312,9 +319,9 @@ namespace kucunTest.DaoJu
                     int row1 = SQL.ExecuteNonQuery(Sqlstr);
 
                     //刀具信息存入流水表
-                    Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}')", LiuShuiBiao, dh, "刀具更换", ydjlx, ydjgg, ydjid, "1", "0", "", "", spsj, jbr, "");
+                    Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", LiuShuiBiao, dh, "刀具更换", ydjlx, ydjgg, ydjid, "1", "0", dskysl1, "", "", spsj, jbr, "");
                     int row2 = SQL.ExecuteNonQuery(Sqlstr);//原刀具
-                    Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}')", LiuShuiBiao, dh, "刀具更换", xdjlx, xdjgg, xdjid, "0", "1", sqsb, "", spsj, jbr, "");
+                    Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", LiuShuiBiao, dh, "刀具更换", xdjlx, xdjgg, xdjid, "0", "1", dskysl2, sqsb, "", spsj, jbr, "");
                     int row3 = SQL.ExecuteNonQuery(Sqlstr);//新刀具
 
                     if (row1 != 0)

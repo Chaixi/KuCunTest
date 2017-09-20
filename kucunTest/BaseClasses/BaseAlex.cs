@@ -213,5 +213,40 @@ namespace kucunTest.BaseClasses
             }
             return dt;
         }
+
+        /// <summary>
+        /// 按刀具类型查询刀具数量
+        /// </summary>
+        /// <param name="daojuleixing">要查询的刀具类型名</param>
+        /// <param name="shuliangleixing">要查询的刀具数量类型，"sysl":所有数量 "kysl":可用数量（位置标识为S） "zysl":机床占用数量（位置标识为M）</param>
+        /// <returns></returns>
+        public int Count_djsl(string daojuleixing, string shuliangleixing)
+        {
+            //记录要查询的刀具数量
+            int i = 0;
+
+            //要查询的刀具数量类型
+            switch(shuliangleixing)
+            {
+                //某类型刀具所有数量
+                case "sysl":
+                    Sqlstr = string.Format("SELECT * FROM daojutemp dj WHERE dj.daojuleixing = '{0}'", daojuleixing);
+                    break;
+
+                //某类型刀具可用数量
+                case "kysl":
+                    Sqlstr = string.Format("SELECT * FROM daojutemp dj WHERE dj.daojuleixing = '{0}' AND dj.weizhibiaoshi = 'S'", daojuleixing);
+                    break;
+
+                //某类型刀具机床占用数量
+                case "zysl":
+                    Sqlstr = string.Format("SELECT * FROM daojutemp dj WHERE dj.daojuleixing = '{0}' AND dj.weizhibiaoshi = 'M'", daojuleixing);
+                    break;
+            }
+
+            i = SQL.getCounts(Sqlstr, "daojutemp");
+
+            return i;
+        }
     }
 }

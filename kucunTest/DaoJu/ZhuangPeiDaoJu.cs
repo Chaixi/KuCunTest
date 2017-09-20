@@ -183,12 +183,17 @@ namespace kucunTest.DaoJu
                         return;
                     }
 
+                    string dskysl = "";//此类型刀具的当时可用数量！！！当时可用数量为单据操作后的刀具可用数量
+
+                    //查询此类型刀具当时可用数量, 刀具装配可用数量加一，因为先查数量后存入daojutemp表
+                    dskysl = (Alex.Count_djsl(djlx.Text.ToString().Trim(), "kysl") + 1).ToString();
+
                     //新刀具id存入刀具ID表,并更新刀具寿命和位置信息
                     Sqlstr = string.Format("INSERT INTO {0}({1}, {2}, {3}, {4}, weizhi, cengshu, weizhibiaoshi, type, kcsl,zuixiaokucun,zuidakucun, daojushouming, zzdj) VALUES('{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}',  '{14}', '{15}','{16}','{17}')", DaoJuIDBiao, djidb_djid, djidb_djlx, djidb_djgg, djidb_djxh, djid.Text, djlx.Text, djgg.Text, DJXH, djgbm.Text, jtwz.Text, "S", "刀具", "1", "1", "1", djyssm, "组装刀");
                     int row = SQL.ExecuteNonQuery(Sqlstr);
 
                     //存入刀具流水表
-                    Sqlstr = string.Format("INSERT INTO {0}(dhlx, djlx, djgg, djid, zsl, fsl, wzbm, jtwz, czsj) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", DaoJuLiuShui, "刀具装配", djlx.Text, djgg.Text, djid.Text, "1", "0", djgbm.Text, jtwz.Text, DateTime.Now);
+                    Sqlstr = string.Format("INSERT INTO {0}(dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz, czsj) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')", DaoJuLiuShui, "刀具装配", djlx.Text, djgg.Text, djid.Text, "1", "0", dskysl, djgbm.Text, jtwz.Text, DateTime.Now);
                     row = SQL.ExecuteNonQuery(Sqlstr);
 
                     //更新相应零部件库存信息并存入零部件流水表

@@ -318,6 +318,8 @@ namespace kucunTest.DaoJu
                     int row2 = 0;//记录插入明细表数据
                     int row3 = 0;//记录插入流水表数据
                     int row4 = 0;//记录更新刀具监测表数据
+                    string dskysl = "";//此类型刀具的当时可用数量！！！当时可用数量为单据操作后的刀具可用数量
+
                     if (row1 != 0)
                     {
                         if (Alex.CunZai(danhao.Text.ToString(), DHZD, mingxibiao) != 0)//判断此单号在明细表中是否已存在
@@ -338,13 +340,16 @@ namespace kucunTest.DaoJu
                             string jcbm = lingyongmingxi.Rows[rowindex].Cells["jcbm"].Value.ToString();
                             string dth = lingyongmingxi.Rows[rowindex].Cells["dth"].Value.ToString();
                             string bz = lingyongmingxi.Rows[rowindex].Cells["bz"].Value.ToString();
-                            
+
+                            //查询此类型刀具当时可用数量, 刀具领用可用数量减一
+                            dskysl = (Alex.Count_djsl(djlx, "kysl") - 1).ToString();
+
                             //明细数据存入数据库明细表
                             Sqlstr = "insert into " + mingxibiao + "(chucangdanhao, daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu) values('" + danhao.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + bz + "')";
                             row2 = SQL.ExecuteNonQuery(Sqlstr);
 
                             //明细信息存入流水表
-                            Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}')", liushuibiao, danhao.Text.ToString().Trim(), "常规领用", djlx, djgg, djid, "0", sl, jcbm, dth, LYRQ.Value.ToString().Trim(), JBR.Text.ToString().Trim() ,bz);
+                            Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", liushuibiao, danhao.Text.ToString().Trim(), "常规领用", djlx, djgg, djid, "0", sl, dskysl, jcbm, dth, LYRQ.Value.ToString().Trim(), JBR.Text.ToString().Trim() ,bz);
                             row3 = SQL.ExecuteNonQuery(Sqlstr);
 
                             //更新刀具位置寿命监测表

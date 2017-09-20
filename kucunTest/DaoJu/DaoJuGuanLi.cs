@@ -55,7 +55,8 @@ namespace kucunTest.DaoJu
             treeView1.SelectedNode = treeView1.Nodes[0].FirstNode;
             daojuxinxi.AutoGenerateColumns = false;
 
-            //comboBox2.SelectedIndex = 0;
+            //默认选择第一条生产线
+            comboBox2.SelectedIndex = 0;
 
             //加载所有刀具柜
             string sqlstr1 = "select djgmc from daojugui";

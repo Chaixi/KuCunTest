@@ -259,8 +259,13 @@ namespace kucunTest.DaoJu
                     string spsj = SPSJ.Text.ToString().Trim();//审批时间
                     string jbr = JBR.Text.ToString().Trim();//经办人
 
+                    string dskysl = "";//此类型刀具的当时可用数量！！！当时可用数量为单据操作后的刀具可用数量
+         
+                    //查询此类型刀具当时可用数量, 刀具报废可用数量减一
+                    dskysl = Alex.Count_djsl(djlx, "kysl").ToString();
+
                     //判断是否是暂存单据，存入刀具报废数据库
-                    if(Alex.CunZai(BFDH.Text.ToString().Trim(), DanHaoZD, DanJuBiao) != 0 )
+                    if (Alex.CunZai(BFDH.Text.ToString().Trim(), DanHaoZD, DanJuBiao) != 0 )
                     {
                         Sqlstr = string.Format("UPDATE {0} SET djzt = '{1}', sqbz = '{2}', sqr = '{3}', sqsb = '{4}', sqsj = '{5}', jglj = '{6}', gx = '{7}', djlx = '{8}', djgg = '{9}', djcd = '{10}', djid = '{11}', bfyy = '{12}', spld = '{13}', spyj = '{14}', spsj = '{15}', jbr = '{16}' WHERE {17} = '{18}'", DanJuBiao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, djlx, djgg, djcd, djid, bfyy, spld, spyj, spsj, jbr, DanHaoZD, dh);
                     }
@@ -271,7 +276,7 @@ namespace kucunTest.DaoJu
                     int row = SQL.ExecuteNonQuery(Sqlstr);
 
                     //刀具信息存入流水表
-                    Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}')", LiuShuiBiao, dh, "刀具报废", djlx, djgg, djid, "0", "1", sqsb, "", spsj, jbr, "");
+                    Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", LiuShuiBiao, dh, "刀具报废", djlx, djgg, djid, "0", "0", dskysl, sqsb, "", spsj, jbr, "");
                     int row2 = SQL.ExecuteNonQuery(Sqlstr);
 
                     if (row != 0 && row2 != 0)

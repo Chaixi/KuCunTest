@@ -345,6 +345,9 @@ namespace kucunTest.DaoJu
 
                     //将退还明细数据存入数据库daojutuihuanmingxi表
                     int row2 = 0;
+
+                    string dskysl = "";//此类型刀具的当时可用数量！！！当时可用数量为单据操作后的刀具可用数量
+
                     if (row1 != 0)
                     {
                         //判断此单号在明细表中是否已存在,如果存在则一并删除，重新保存
@@ -370,12 +373,15 @@ namespace kucunTest.DaoJu
                             string cfwz = TuiHuanMingXi.Rows[rowindex].Cells["mx_cfwz"].Value.ToString();//存放位置
                             string bz = TuiHuanMingXi.Rows[rowindex].Cells["mx_bz"].Value.ToString();//备注
 
+                            //查询此类型刀具当时可用数量, 刀具退还可用数量加一
+                            dskysl = (Alex.Count_djsl(djlx, "kysl") + 1).ToString();
+
                             //退还明细数据存入数据库退还明细表
                             SqlStr = "INSERT INTO daojutuihuanmingxi(danhao, djlx, djgg, djcd, djid, djzt, sl, jcbm, dth, djgbm, cfwz, bz) values('" + dh + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "','" + djzt + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + djgbm + "', '" + cfwz + "', '" + bz + "')";
                             row2 = SQL.ExecuteNonQuery(SqlStr);
 
                             //明细信息存入流水表
-                            SqlStr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}')", LiuShuiBiao, dh, "刀具退还", djlx, djgg, djid, sl, "0", djgbm, cfwz, jbrq, jbr, bz);
+                            SqlStr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", LiuShuiBiao, dh, "刀具退还", djlx, djgg, djid, sl, "0", dskysl, djgbm, cfwz, jbrq, jbr, bz);
                             int row3 = SQL.ExecuteNonQuery(SqlStr);
                         }
 
