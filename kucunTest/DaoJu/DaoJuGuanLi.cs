@@ -763,13 +763,28 @@ namespace kucunTest.DaoJu
                 }
                 else if (daojuxinxi.CurrentCell.Value.ToString() == "false")//取消选中该行
                 {
-                    if (Convert.ToInt16(e.RowIndex) % 2 == 0)//偶数行
+                    //根据奇偶行判断表格底色
+                    //if (Convert.ToInt16(e.RowIndex) % 2 == 0)//偶数行
+                    //{
+                    //    daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = SystemColors.Window;
+                    //}
+                    //else//奇数行
+                    //{
+                    //    daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Gainsboro;
+                    //}
+                    
+                    //取消选中表格颜色更换，根据寿命和刀具位置判断显示颜色
+                    string sm = daojuxinxi.Rows[e.RowIndex].Cells["djsm"].Value.ToString();
+                    string djwz = daojuxinxi.Rows[e.RowIndex].Cells["djwz"].Value.ToString();
+                    //对刀具位置进行判断，对刀具柜刀具和机床刀具库刀具区分显示
+                    switch (djwz.Substring(0, 1))
                     {
-                        daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = SystemColors.Window;
-                    }
-                    else//奇数行
-                    {
-                        daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Gainsboro;
+                        case "M":
+                            this.daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Gray;
+                            break;
+                        case "S":
+                            this.daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
+                            break;
                     }
                 }
             }
@@ -993,9 +1008,9 @@ namespace kucunTest.DaoJu
         //查询条件
         private void button1_Click(object sender, EventArgs e)
         {
-            string lxcx = cxdjlx.Text;
-            string idcx = cxdjid.Text;
-            string smcx = cxdjsm.Text;
+            string lxcx = cxdjlx.Text.ToString();
+            string idcx = cxdjid.Text.ToString();
+            string smcx = cxdjsm.Text.ToString();
             string djgcx = cxdjgmc.SelectedItem.ToString();
 
             if (lxcx == "" && idcx == "" && smcx == "" && djgcx == "")
@@ -1004,7 +1019,7 @@ namespace kucunTest.DaoJu
             }
             if (lxcx != "" || idcx != "" || smcx != "" || djgcx != "")
             {
-                MessageBox.Show("123", "提示");
+                MessageBox.Show("查询成功!", "提示");
             }
 
         }
