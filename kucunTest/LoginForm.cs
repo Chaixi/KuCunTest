@@ -50,6 +50,8 @@ namespace kucunTest
             panel2.BackColor = Color.FromArgb(128, Color.WhiteSmoke);
 
             UserName.Select();
+            UserName.Text = "xmu";
+            pwd.Text = "123";
         }
 
         /// <summary>
@@ -172,6 +174,39 @@ namespace kucunTest
                 this.m_OpaqueLayer.Enabled = false;
                 this.m_OpaqueLayer.Visible = false;
             }
+        }
+
+        private void linkLabel1_MouseLeave(object sender, EventArgs e)
+        {
+            linkLabel1.Text = "忘记密码？";
+        }
+
+        private void linkLabel1_MouseHover(object sender, EventArgs e)
+        {
+            linkLabel1.Text = "默认账户xmu，密码为123";
+        }
+
+        /// <summary>
+        /// 进行数据库设置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel_SetDatabase.Visible = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel_SetDatabase.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //string con = string.Format("Data Source=localhost; Database=kucuntest; Userid={0}; PWD={1}; Charset=utf8", db_userid, db_userpwd);
+            //MySql.M_str_sqlcon = con;
+
+            MySql.M_str_sqlcon = string.Format("Data Source=localhost; Database=kucuntest; Userid={0}; PWD={1}; Charset=utf8", db_userid, db_userpwd);
         }
     }
 }

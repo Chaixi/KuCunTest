@@ -45,6 +45,8 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void daojuguanli_Load(object sender, EventArgs e)
         {
+            asc.controllInitializeSize(this);
+
             treeView1.Nodes.Clear();
 
             treeView1.Nodes.Add(node);
@@ -986,6 +988,9 @@ namespace kucunTest.DaoJu
                         break;
                     case "S":
                         this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
+                        break;
+                    case "T"://位置特殊刀具，如外借
+                        this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.HotPink;
                         break;
                 }
 

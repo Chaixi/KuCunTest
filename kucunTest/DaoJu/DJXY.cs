@@ -112,20 +112,11 @@ namespace kucunTest.DaoJu
                 MessageBox.Show("请选择机床刀套号！", "信息提示");
                 return;
             }
-
-            
  
             list.Add(xjcbm.SelectedItem.ToString().Trim());//list[0] 机床编码
             list.Add(xdth.SelectedItem.ToString().Trim());//list[1] 刀套号
             list.Add(xgx.Text.ToString().Trim());//list[2] 工序号
-
-           
         }
-
-      
-
-
-
 
         private void xuyongmingxi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -245,7 +236,9 @@ namespace kucunTest.DaoJu
             heji.Text = HJ.ToString();//更新合计数量
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

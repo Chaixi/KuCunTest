@@ -53,6 +53,16 @@ namespace kucunTest.DaoJu
             SPLD.SelectedIndex = 0;
             SPYJ.Text = "情况属实。";
             JBR.SelectedIndex = 0;
+
+            //加载所有设备
+            Sqlstr = string.Format("SELECT jichuangbianma FROM jichuang");
+            SQSB.DataSource = SQL.DataReadList(Sqlstr);
+            SQSB.SelectedIndex = -1;
+
+            //加载所有刀具柜，刀具报废后暂存位置和具体位置
+            Sqlstr = string.Format("SELECT djgmc FROM daojugui");
+            BFZCWZ.DataSource = SQL.DataReadList(Sqlstr);
+            BFZCWZ.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -198,6 +208,8 @@ namespace kucunTest.DaoJu
                 string djgg = DJGG.Text.ToString().Trim();//刀具规格
                 string djcd = DJCD.Text.ToString().Trim();//刀具长度
                 string djid = DJID.Text.ToString().Trim();//刀具ID
+                string bfzcwz = BFZCWZ.Text.ToString().Trim();//刀具报废后暂存位置
+                string jtwz = JTWZ.Text.ToString().Trim();//报废后具体位置
                 string bfyy = BFYY.Text.ToString().Trim();//更换理由
                 string spld = SPLD.Text.ToString().Trim();//审批领导
                 string spyj = SPYJ.Text.ToString().Trim();//审批意见
@@ -207,11 +219,11 @@ namespace kucunTest.DaoJu
                 //判断是否是暂存单据，存入刀具报废数据库
                 if (Alex.CunZai(BFDH.Text.ToString().Trim(), DanHaoZD, DanJuBiao) != 0)
                 {
-                    Sqlstr = string.Format("UPDATE {0} SET djzt = '{1}', sqbz = '{2}', sqr = '{3}', sqsb = '{4}', sqsj = '{5}', jglj = '{6}', gx = '{7}', djlx = '{8}', djgg = '{9}', djcd = '{10}', djid = '{11}', bfyy = '{12}', spld = '{13}', spyj = '{14}', spsj = '{15}', jbr = '{16}' WHERE {17} = '{18}'", DanJuBiao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, djlx, djgg, djcd, djid, bfyy, spld, spyj, spsj, jbr, DanHaoZD, dh);
+                    Sqlstr = string.Format("UPDATE {0} SET djzt = '{1}', sqbz = '{2}', sqr = '{3}', sqsb = '{4}', sqsj = '{5}', jglj = '{6}', gx = '{7}', djlx = '{8}', djgg = '{9}', djcd = '{10}', djid = '{11}', bfyy = '{12}', spld = '{13}', spyj = '{14}', spsj = '{15}', jbr = '{16}', bfzcwz = '{17}', jtwz = '{18}' WHERE {19} = '{20}'", DanJuBiao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, djlx, djgg, djcd, djid, bfyy, spld, spyj, spsj, jbr, bfzcwz, jtwz, DanHaoZD, dh);
                 }
                 else
                 {
-                    Sqlstr = "INSERT INTO daojubaofei(danhao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, djlx, djgg, djcd, djid, bfyy, spld, spyj, spsj, jbr) values('" + dh + "', '" + djzt + "', '" + sqbz + "', '" + sqr + "', '" + sqsb + "', '" + sqsj + "', '" + jglj + "', '" + gx + "', '" + djlx + "', '" + djgg + "', '" + djcd + "', '" + djid + "', '" + bfyy + "', '" + spld + "', '" + spyj + "', '" + spsj + "', '" + jbr + "')";
+                    Sqlstr = "INSERT INTO daojubaofei(danhao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, djlx, djgg, djcd, djid, bfyy, spld, spyj, spsj, jbr, bfzcwz, jtwz) values('" + dh + "', '" + djzt + "', '" + sqbz + "', '" + sqr + "', '" + sqsb + "', '" + sqsj + "', '" + jglj + "', '" + gx + "', '" + djlx + "', '" + djgg + "', '" + djcd + "', '" + djid + "', '" + bfyy + "', '" + spld + "', '" + spyj + "', '" + spsj + "', '" + jbr + "', '" + bfzcwz + "', '" + jtwz + "')";
                 }
                 int row = SQL.ExecuteNonQuery(Sqlstr);
 
@@ -253,6 +265,8 @@ namespace kucunTest.DaoJu
                     string djgg = DJGG.Text.ToString().Trim();//刀具规格
                     string djcd = DJCD.Text.ToString().Trim();//刀具长度
                     string djid = DJID.Text.ToString().Trim();//刀具ID
+                    string bfzcwz = BFZCWZ.Text.ToString().Trim();//刀具报废后暂存位置
+                    string jtwz = JTWZ.Text.ToString().Trim();//报废后具体位置
                     string bfyy = BFYY.Text.ToString().Trim();//更换理由
                     string spld = SPLD.Text.ToString().Trim();//审批领导
                     string spyj = SPYJ.Text.ToString().Trim();//审批意见
@@ -267,17 +281,21 @@ namespace kucunTest.DaoJu
                     //判断是否是暂存单据，存入刀具报废数据库
                     if (Alex.CunZai(BFDH.Text.ToString().Trim(), DanHaoZD, DanJuBiao) != 0 )
                     {
-                        Sqlstr = string.Format("UPDATE {0} SET djzt = '{1}', sqbz = '{2}', sqr = '{3}', sqsb = '{4}', sqsj = '{5}', jglj = '{6}', gx = '{7}', djlx = '{8}', djgg = '{9}', djcd = '{10}', djid = '{11}', bfyy = '{12}', spld = '{13}', spyj = '{14}', spsj = '{15}', jbr = '{16}' WHERE {17} = '{18}'", DanJuBiao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, djlx, djgg, djcd, djid, bfyy, spld, spyj, spsj, jbr, DanHaoZD, dh);
+                        Sqlstr = string.Format("UPDATE {0} SET djzt = '{1}', sqbz = '{2}', sqr = '{3}', sqsb = '{4}', sqsj = '{5}', jglj = '{6}', gx = '{7}', djlx = '{8}', djgg = '{9}', djcd = '{10}', djid = '{11}', bfyy = '{12}', spld = '{13}', spyj = '{14}', spsj = '{15}', jbr = '{16}', bfzcwz = '{17}', jtwz = '{18}' WHERE {19} = '{20}'", DanJuBiao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, djlx, djgg, djcd, djid, bfyy, spld, spyj, spsj, jbr, bfzcwz, jtwz, DanHaoZD, dh);
                     }
                     else
                     {
-                        Sqlstr = "INSERT INTO daojubaofei(danhao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, djlx, djgg, djcd, djid, bfyy, spld, spyj, spsj, jbr) values('" + dh + "', '" + djzt + "', '" + sqbz + "', '" + sqr + "', '" + sqsb + "', '" + sqsj + "', '" + jglj + "', '" + gx + "', '" + djlx + "', '" + djgg + "', '" + djcd + "', '" + djid + "', '" + bfyy + "', '" + spld + "', '" + spyj + "', '" + spsj + "', '" + jbr + "')";
+                        Sqlstr = "INSERT INTO daojubaofei(danhao, djzt, sqbz, sqr, sqsb, sqsj, jglj, gx, djlx, djgg, djcd, djid, bfyy, spld, spyj, spsj, jbr, bfzcwz, jtwz) values('" + dh + "', '" + djzt + "', '" + sqbz + "', '" + sqr + "', '" + sqsb + "', '" + sqsj + "', '" + jglj + "', '" + gx + "', '" + djlx + "', '" + djgg + "', '" + djcd + "', '" + djid + "', '" + bfyy + "', '" + spld + "', '" + spyj + "', '" + spsj + "', '" + jbr + "', '" + bfzcwz + "', '" + jtwz + "')";
                     }
                     int row = SQL.ExecuteNonQuery(Sqlstr);
 
                     //刀具信息存入流水表
                     Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", LiuShuiBiao, dh, "刀具报废", djlx, djgg, djid, "0", "0", dskysl, sqsb, "", spsj, jbr, "");
                     int row2 = SQL.ExecuteNonQuery(Sqlstr);
+
+                    //更新刀具位置寿命监测表
+                    Sqlstr = string.Format("UPDATE daojutemp dj SET dj.weizhibiaoshi = 'T', dj.weizhi = '{0}', dj.cengshu = '{1}' WHERE dj.daojuid = '{2}'", bfzcwz, jtwz, djid);
+                    int row4 = SQL.ExecuteNonQuery(Sqlstr);
 
                     if (row != 0 && row2 != 0)
                     {
@@ -467,10 +485,6 @@ namespace kucunTest.DaoJu
             asc.controlAutoSize(this);
         }
 
-
-
-        #endregion
-
         /// <summary>
         /// 当窗体在选项卡中打开时，关闭窗体则关闭相应的选项卡
         /// </summary>
@@ -484,6 +498,8 @@ namespace kucunTest.DaoJu
                 mfr.CloseTab(this.Name);
             }
         }
+
+        #endregion 其他方法部分结束
 
         /// <summary>
         /// 从表增加明细，即可以通过选择多条记录一并新增明细
@@ -503,6 +519,94 @@ namespace kucunTest.DaoJu
             SQSB.Enabled = false;
             DTH.Text = djwz.Substring(djwz.Length - 3);
             DTH.Enabled = false;
+        }
+
+        /// <summary>
+        /// 设备变化，刀套号相应变化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SQSB_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(SQSB.Text != "")
+            {
+                //加载已占用的刀套号
+                Sqlstr = string.Format("SELECT cengshu FROM daojutemp WHERE weizhi = '{0}' ORDER BY cengshu ASC", SQSB.Text.ToString().Trim());
+                DTH.DataSource = SQL.DataReadList(Sqlstr);
+                DTH.SelectedIndex = -1;
+
+                //加载此设备上的刀具类型
+                //Sqlstr = string.Format("SELECT DISTINCT daojuleixing FROM daojutemp WHERE weizhi = '{0}'", SQSB.Text.ToString().Trim());
+                //DJLX.DataSource = SQL.DataReadList(Sqlstr);
+                //DJLX.SelectedIndex = -1;
+            }
+
+        }
+
+        /// <summary>
+        /// 刀套号变化直接确定单把刀具
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DTH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectTool();
+        }
+
+        /// <summary>
+        /// 根据设备和刀套号加载刀具信息
+        /// </summary>
+        public void SelectTool()
+        {
+            //设备和刀套号均不为空，则可以确定刀具
+            if(SQSB.Text != "" && DTH.Text != "")
+            {
+                Sqlstr = string.Format("SELECT * FROM daojutemp WHERE weizhi = '{0}' AND cengshu = '{1}'", SQSB.Text.ToString().Trim(), DTH.Text.ToString().Trim());
+                DataTable db_SelectTool = SQL.getDataSet(Sqlstr, "daojutemp").Tables[0];
+                DJLX.SelectedItem = db_SelectTool.Rows[0]["daojuleixing"].ToString();
+                DJGG.SelectedItem = db_SelectTool.Rows[0]["daojuguige"].ToString();
+                DJID.SelectedItem = db_SelectTool.Rows[0]["daojuid"].ToString();
+
+                //DJLX.Enabled = false;
+                //DJGG.Enabled = false;
+                //DJID.Enabled = false;
+            }            
+            else
+            {
+                DJLX.SelectedIndex = -1;
+                DJGG.SelectedIndex = -1;
+                DJID.SelectedIndex = -1;
+            }
+
+            //刀具类型、规格、id均不为空，则可以确定位置
+            //if (DJLX.Text != "" && DJGG.Text != "" && DJID.Text != "")
+            //{
+            //    Sqlstr = string.Format("SELECT * FROM daojutemp WHERE daojuid = '{0}'", DJID.Text.ToString().Trim());
+            //    DataTable db_SelectTool = SQL.getDataSet(Sqlstr, "daojutemp").Tables[0];
+            //    SQSB.SelectedItem = db_SelectTool.Rows[0]["weizhi"].ToString();
+            //    DTH.SelectedItem = db_SelectTool.Rows[0]["cengshu"].ToString();
+            //}
+        }
+
+        /// <summary>
+        /// 选择报废暂存位置（刀具柜）加载具体位置（刀具柜层数）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BFZCWZ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //有选择刀具柜名称并且此刀具柜存在具体层数
+            int djgcs = Alex.CunZai("daojuguicengshu", string.Format("djgmc = '{0}'", BFZCWZ.Text.ToString().Trim()));
+            if(BFZCWZ.SelectedIndex >= 0 &&  djgcs > 0)
+            {
+                Sqlstr = string.Format("SELECT cs.djgcs FROM daojuguicengshu cs WHERE cs.djgmc = '{0}'", BFZCWZ.Text.ToString().Trim());
+                JTWZ.DataSource = SQL.DataReadList(Sqlstr);
+                JTWZ.SelectedIndex = -1;
+            }
+            else
+            {
+                JTWZ.DataSource = null;
+            }
         }
     }
 }

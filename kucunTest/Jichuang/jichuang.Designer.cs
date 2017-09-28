@@ -31,13 +31,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.jcxx = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.jichuangtupian = new System.Windows.Forms.PictureBox();
             this.ssscx = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.jclx = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.jcmc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.jichuangtupian = new System.Windows.Forms.PictureBox();
             this.jcdth = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,13 +48,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.jcxx.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jichuangtupian)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jcdth)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -91,6 +91,25 @@
             this.jcxx.TabIndex = 2;
             this.jcxx.TabStop = false;
             this.jcxx.Text = "机床信息";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.jichuangtupian);
+            this.groupBox3.Location = new System.Drawing.Point(102, 16);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(204, 172);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "机床图片";
+            // 
+            // jichuangtupian
+            // 
+            this.jichuangtupian.Location = new System.Drawing.Point(24, 26);
+            this.jichuangtupian.Name = "jichuangtupian";
+            this.jichuangtupian.Size = new System.Drawing.Size(161, 138);
+            this.jichuangtupian.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.jichuangtupian.TabIndex = 2;
+            this.jichuangtupian.TabStop = false;
             // 
             // ssscx
             // 
@@ -139,15 +158,6 @@
             this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "机床名称";
-            // 
-            // jichuangtupian
-            // 
-            this.jichuangtupian.Location = new System.Drawing.Point(24, 26);
-            this.jichuangtupian.Name = "jichuangtupian";
-            this.jichuangtupian.Size = new System.Drawing.Size(161, 138);
-            this.jichuangtupian.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.jichuangtupian.TabIndex = 2;
-            this.jichuangtupian.TabStop = false;
             // 
             // jcdth
             // 
@@ -240,20 +250,11 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.jichuangtupian);
-            this.groupBox3.Location = new System.Drawing.Point(102, 16);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(204, 172);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "机床图片";
-            // 
             // jichuang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(996, 580);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
@@ -263,16 +264,17 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "jichuang";
             this.Text = "机床管理";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.jichuang_FormClosed);
             this.Load += new System.EventHandler(this.jichuang_Load);
             this.SizeChanged += new System.EventHandler(this.jichuang_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.jcxx.ResumeLayout(false);
             this.jcxx.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.jichuangtupian)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jcdth)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

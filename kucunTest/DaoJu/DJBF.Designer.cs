@@ -68,10 +68,14 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.BFYY = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.JTWZ = new System.Windows.Forms.ComboBox();
+            this.BFZCWZ = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.DTH = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.DTH = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -204,22 +208,13 @@
             "先锋一班",
             "胜利二班",
             "机动科"});
-            this.SQSB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.SQSB.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SQSB.FormattingEnabled = true;
-            this.SQSB.Items.AddRange(new object[] {
-            "FMS-1#机",
-            "FMS-2#机",
-            "FMS-3#机",
-            "南车床线",
-            "北车床线",
-            "OP20T01",
-            "OP20T40",
-            "OP20T238"});
             this.SQSB.Location = new System.Drawing.Point(134, 63);
             this.SQSB.Name = "SQSB";
             this.SQSB.Size = new System.Drawing.Size(135, 29);
             this.SQSB.TabIndex = 2;
+            this.SQSB.SelectedValueChanged += new System.EventHandler(this.SQSB_SelectedValueChanged);
             // 
             // SQR
             // 
@@ -428,16 +423,8 @@
             "先锋一班",
             "胜利二班",
             "机动科"});
-            this.DJID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.DJID.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DJID.FormattingEnabled = true;
-            this.DJID.Items.AddRange(new object[] {
-            "50",
-            "100",
-            "150",
-            "200",
-            "300",
-            "400"});
             this.DJID.Location = new System.Drawing.Point(136, 165);
             this.DJID.Name = "DJID";
             this.DJID.Size = new System.Drawing.Size(135, 29);
@@ -449,7 +436,6 @@
             "先锋一班",
             "胜利二班",
             "机动科"});
-            this.DJCD.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.DJCD.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DJCD.FormattingEnabled = true;
             this.DJCD.Items.AddRange(new object[] {
@@ -470,7 +456,6 @@
             "先锋一班",
             "胜利二班",
             "机动科"});
-            this.DJGG.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.DJGG.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DJGG.FormattingEnabled = true;
             this.DJGG.Location = new System.Drawing.Point(136, 81);
@@ -495,13 +480,8 @@
             "先锋一班",
             "胜利二班",
             "机动科"});
-            this.DJLX.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.DJLX.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DJLX.FormattingEnabled = true;
-            this.DJLX.Items.AddRange(new object[] {
-            "先锋一班",
-            "胜利二班",
-            "机动科"});
             this.DJLX.Location = new System.Drawing.Point(136, 38);
             this.DJLX.Name = "DJLX";
             this.DJLX.Size = new System.Drawing.Size(135, 29);
@@ -542,24 +522,30 @@
             // 
             this.groupBox6.Controls.Add(this.BFYY);
             this.groupBox6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox6.Location = new System.Drawing.Point(311, 20);
+            this.groupBox6.Location = new System.Drawing.Point(303, 120);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(487, 232);
+            this.groupBox6.Size = new System.Drawing.Size(518, 118);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "报废原因";
             // 
             // BFYY
             // 
+            this.BFYY.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BFYY.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BFYY.Location = new System.Drawing.Point(11, 28);
+            this.BFYY.Location = new System.Drawing.Point(3, 25);
             this.BFYY.Multiline = true;
             this.BFYY.Name = "BFYY";
-            this.BFYY.Size = new System.Drawing.Size(466, 190);
+            this.BFYY.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.BFYY.Size = new System.Drawing.Size(512, 90);
             this.BFYY.TabIndex = 1;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.JTWZ);
+            this.groupBox2.Controls.Add(this.BFZCWZ);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.DTH);
             this.groupBox2.Controls.Add(this.DJID);
             this.groupBox2.Controls.Add(this.groupBox6);
@@ -578,6 +564,66 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "刀具信息";
+            // 
+            // JTWZ
+            // 
+            this.JTWZ.FormattingEnabled = true;
+            this.JTWZ.Location = new System.Drawing.Point(423, 81);
+            this.JTWZ.Name = "JTWZ";
+            this.JTWZ.Size = new System.Drawing.Size(197, 29);
+            this.JTWZ.TabIndex = 4;
+            // 
+            // BFZCWZ
+            // 
+            this.BFZCWZ.FormattingEnabled = true;
+            this.BFZCWZ.Location = new System.Drawing.Point(423, 38);
+            this.BFZCWZ.Name = "BFZCWZ";
+            this.BFZCWZ.Size = new System.Drawing.Size(197, 29);
+            this.BFZCWZ.TabIndex = 4;
+            this.BFZCWZ.SelectedIndexChanged += new System.EventHandler(this.BFZCWZ_SelectedIndexChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(307, 84);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(90, 21);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "具体位置：";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(307, 41);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(122, 21);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "报废暂存位置：";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // DTH
+            // 
+            this.DTH.AutoCompleteCustomSource.AddRange(new string[] {
+            "先锋一班",
+            "胜利二班",
+            "机动科"});
+            this.DTH.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DTH.FormattingEnabled = true;
+            this.DTH.Location = new System.Drawing.Point(136, 209);
+            this.DTH.Name = "DTH";
+            this.DTH.Size = new System.Drawing.Size(135, 29);
+            this.DTH.TabIndex = 2;
+            this.DTH.SelectedIndexChanged += new System.EventHandler(this.DTH_SelectedIndexChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(56, 212);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 21);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "刀套号：";
             // 
             // button1
             // 
@@ -600,30 +646,6 @@
             this.button2.Text = "退    出";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.Location = new System.Drawing.Point(56, 212);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(74, 21);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "刀套号：";
-            // 
-            // DTH
-            // 
-            this.DTH.AutoCompleteCustomSource.AddRange(new string[] {
-            "先锋一班",
-            "胜利二班",
-            "机动科"});
-            this.DTH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.DTH.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.DTH.FormattingEnabled = true;
-            this.DTH.Location = new System.Drawing.Point(136, 209);
-            this.DTH.Name = "DTH";
-            this.DTH.Size = new System.Drawing.Size(135, 29);
-            this.DTH.TabIndex = 2;
             // 
             // DJBF
             // 
@@ -714,5 +736,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox DTH;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox JTWZ;
+        private System.Windows.Forms.ComboBox BFZCWZ;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
     }
 }

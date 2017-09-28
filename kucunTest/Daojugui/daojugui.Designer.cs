@@ -403,6 +403,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1173, 700);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.查询条件);
@@ -412,6 +413,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "daojugui";
             this.Text = "刀具柜管理";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.daojugui_FormClosed);
             this.Load += new System.EventHandler(this.daojugui_Load);
             this.SizeChanged += new System.EventHandler(this.daojugui_SizeChanged);

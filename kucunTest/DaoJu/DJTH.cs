@@ -28,6 +28,7 @@ namespace kucunTest.DaoJu
         string MingXiBiao = "daojutuihuanmingxi";
         string DanHaoZD = "danhao";
         string LiuShuiBiao = "daojuliushui";
+        string daojutemp = "daojutemp";
 
         int HJ = 0;//合计刀具数量
         #endregion
@@ -344,8 +345,9 @@ namespace kucunTest.DaoJu
                     int row1 = SQL.ExecuteNonQuery(SqlStr);
 
                     //将退还明细数据存入数据库daojutuihuanmingxi表
-                    int row2 = 0;
-
+                    int row2 = 0;//记录插入明细表数据
+                    int row3 = 0;//记录插入流水表数据
+                    int row4 = 0;//记录更新刀具监测表数据
                     string dskysl = "";//此类型刀具的当时可用数量！！！当时可用数量为单据操作后的刀具可用数量
 
                     if (row1 != 0)
@@ -382,7 +384,11 @@ namespace kucunTest.DaoJu
 
                             //明细信息存入流水表
                             SqlStr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", LiuShuiBiao, dh, "刀具退还", djlx, djgg, djid, sl, "0", dskysl, djgbm, cfwz, jbrq, jbr, bz);
-                            int row3 = SQL.ExecuteNonQuery(SqlStr);
+                            row3 = SQL.ExecuteNonQuery(SqlStr);
+
+                            //更新刀具位置寿命监测表
+                            SqlStr = string.Format("UPDATE {0} dj SET dj.weizhibiaoshi = 'S', dj.weizhi = '{1}', dj.cengshu = '{2}' WHERE dj.daojuid = '{3}'", daojutemp, djgbm, cfwz, djid);
+                            row4 = SQL.ExecuteNonQuery(SqlStr);
                         }
 
                         //明细数据存入数据库

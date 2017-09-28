@@ -65,13 +65,16 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void treeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
-            if (e.Node.Nodes[0].Text == "")
+            if(e.Node.Level == 1)
             {
-                TreeNode currentNode = e.Node;
-                currentNode.Nodes[0].Remove();
-                Sqlstr = string.Format("SELECT daojuxinghao FROM {0} WHERE daojuid = '{1}'", lbj, currentNode.Text);
-                Alex.BindRoot(Sqlstr, currentNode, false);
-            }
+                if (e.Node.Nodes[0].Text == "")
+                {
+                    TreeNode currentNode = e.Node;
+                    currentNode.Nodes[0].Remove();
+                    Sqlstr = string.Format("SELECT daojuxinghao FROM {0} WHERE daojuid = '{1}'", lbj, currentNode.Text);
+                    Alex.BindRoot(Sqlstr, currentNode, false);
+                }
+            }            
         }
 
         #region treeView1_AfterSelect()方法：根据选择的树节点进行查询

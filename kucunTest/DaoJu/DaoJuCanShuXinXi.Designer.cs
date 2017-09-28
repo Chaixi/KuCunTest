@@ -679,7 +679,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(279, 641);
+            this.button1.Location = new System.Drawing.Point(299, 641);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 37);
             this.button1.TabIndex = 3;
@@ -690,7 +690,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(428, 641);
+            this.button2.Location = new System.Drawing.Point(448, 641);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 37);
             this.button2.TabIndex = 3;

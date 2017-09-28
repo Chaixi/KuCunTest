@@ -43,6 +43,7 @@
             this.ygx = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.xgx = new System.Windows.Forms.TextBox();
             this.xdth = new System.Windows.Forms.ComboBox();
@@ -60,6 +61,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.xuyongmingxi = new System.Windows.Forms.DataGridView();
+            this.djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.djID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jiagonggongxu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcbm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heji = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -74,14 +82,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cancel = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcbm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jiagonggongxu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -242,6 +242,16 @@
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "续用明细";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(20, 262);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(118, 31);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "确认续用信息";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox5
             // 
@@ -424,6 +434,78 @@
             this.xuyongmingxi.TabIndex = 0;
             this.xuyongmingxi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.xuyongmingxi_CellContentClick);
             // 
+            // djlx
+            // 
+            this.djlx.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.djlx.DataPropertyName = "daojuleixing";
+            this.djlx.FillWeight = 137.4698F;
+            this.djlx.HeaderText = "刀具类型";
+            this.djlx.Name = "djlx";
+            this.djlx.ReadOnly = true;
+            this.djlx.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.djlx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.djlx.Width = 80;
+            // 
+            // djgg
+            // 
+            this.djgg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.djgg.DataPropertyName = "daojuguige";
+            this.djgg.FillWeight = 154.7204F;
+            this.djgg.HeaderText = "刀具规格";
+            this.djgg.Name = "djgg";
+            this.djgg.ReadOnly = true;
+            this.djgg.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.djgg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.djgg.Width = 80;
+            // 
+            // djID
+            // 
+            this.djID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.djID.DataPropertyName = "daojuid";
+            this.djID.FillWeight = 112.4726F;
+            this.djID.HeaderText = "刀具ID";
+            this.djID.Name = "djID";
+            this.djID.ReadOnly = true;
+            this.djID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.djID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.djID.Width = 65;
+            // 
+            // sl
+            // 
+            this.sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.sl.DataPropertyName = "shuliang";
+            this.sl.FillWeight = 47.44536F;
+            this.sl.HeaderText = "数量";
+            this.sl.Name = "sl";
+            this.sl.ReadOnly = true;
+            this.sl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.sl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sl.Width = 48;
+            // 
+            // jiagonggongxu
+            // 
+            this.jiagonggongxu.DataPropertyName = "jiagonggongxu";
+            this.jiagonggongxu.HeaderText = "加工工序";
+            this.jiagonggongxu.Name = "jiagonggongxu";
+            this.jiagonggongxu.ReadOnly = true;
+            // 
+            // jcbm
+            // 
+            this.jcbm.DataPropertyName = "jcbm";
+            this.jcbm.HeaderText = "机床编码";
+            this.jcbm.Name = "jcbm";
+            this.jcbm.ReadOnly = true;
+            this.jcbm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.jcbm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dth
+            // 
+            this.dth.DataPropertyName = "dth";
+            this.dth.HeaderText = "刀套号";
+            this.dth.Name = "dth";
+            this.dth.ReadOnly = true;
+            this.dth.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // heji
             // 
             this.heji.Enabled = false;
@@ -530,6 +612,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "确认续用";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // print
             // 
@@ -571,88 +654,6 @@
             this.button2.Text = "续用历史";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(20, 262);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(118, 31);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "确认续用信息";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // dth
-            // 
-            this.dth.DataPropertyName = "dth";
-            this.dth.HeaderText = "刀套号";
-            this.dth.Name = "dth";
-            this.dth.ReadOnly = true;
-            this.dth.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // jcbm
-            // 
-            this.jcbm.DataPropertyName = "jcbm";
-            this.jcbm.HeaderText = "机床编码";
-            this.jcbm.Name = "jcbm";
-            this.jcbm.ReadOnly = true;
-            this.jcbm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.jcbm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // jiagonggongxu
-            // 
-            this.jiagonggongxu.DataPropertyName = "jiagonggongxu";
-            this.jiagonggongxu.HeaderText = "加工工序";
-            this.jiagonggongxu.Name = "jiagonggongxu";
-            this.jiagonggongxu.ReadOnly = true;
-            // 
-            // sl
-            // 
-            this.sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.sl.DataPropertyName = "shuliang";
-            this.sl.FillWeight = 47.44536F;
-            this.sl.HeaderText = "数量";
-            this.sl.Name = "sl";
-            this.sl.ReadOnly = true;
-            this.sl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sl.Width = 48;
-            // 
-            // djID
-            // 
-            this.djID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.djID.DataPropertyName = "daojuid";
-            this.djID.FillWeight = 112.4726F;
-            this.djID.HeaderText = "刀具ID";
-            this.djID.Name = "djID";
-            this.djID.ReadOnly = true;
-            this.djID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.djID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.djID.Width = 65;
-            // 
-            // djgg
-            // 
-            this.djgg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.djgg.DataPropertyName = "daojuguige";
-            this.djgg.FillWeight = 154.7204F;
-            this.djgg.HeaderText = "刀具规格";
-            this.djgg.Name = "djgg";
-            this.djgg.ReadOnly = true;
-            this.djgg.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.djgg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.djgg.Width = 80;
-            // 
-            // djlx
-            // 
-            this.djlx.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.djlx.DataPropertyName = "daojuleixing";
-            this.djlx.FillWeight = 137.4698F;
-            this.djlx.HeaderText = "刀具类型";
-            this.djlx.Name = "djlx";
-            this.djlx.ReadOnly = true;
-            this.djlx.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.djlx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.djlx.Width = 80;
             // 
             // DJXY
             // 

@@ -46,21 +46,31 @@
             this.UserType = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel_SetDatabase = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.db_userid = new System.Windows.Forms.TextBox();
+            this.db_userpwd = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel_SetDatabase.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.linkLabel2);
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -112,6 +122,8 @@
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.panel_SetDatabase);
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.chejian);
             this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.cancel);
@@ -124,7 +136,7 @@
             this.panel2.Controls.Add(this.UserType);
             this.panel2.Location = new System.Drawing.Point(146, 117);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(532, 276);
+            this.panel2.Size = new System.Drawing.Size(533, 277);
             this.panel2.TabIndex = 8;
             // 
             // chejian
@@ -150,6 +162,8 @@
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "忘记密码？";
+            this.linkLabel1.MouseLeave += new System.EventHandler(this.linkLabel1_MouseLeave);
+            this.linkLabel1.MouseHover += new System.EventHandler(this.linkLabel1_MouseHover);
             // 
             // cancel
             // 
@@ -261,6 +275,101 @@
             this.label1.Text = "刀具管理系统登录";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(391, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 29);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "数据库设置";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel_SetDatabase
+            // 
+            this.panel_SetDatabase.BackColor = System.Drawing.Color.Transparent;
+            this.panel_SetDatabase.Controls.Add(this.button3);
+            this.panel_SetDatabase.Controls.Add(this.button2);
+            this.panel_SetDatabase.Controls.Add(this.db_userpwd);
+            this.panel_SetDatabase.Controls.Add(this.db_userid);
+            this.panel_SetDatabase.Controls.Add(this.label6);
+            this.panel_SetDatabase.Controls.Add(this.label7);
+            this.panel_SetDatabase.Controls.Add(this.label3);
+            this.panel_SetDatabase.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.panel_SetDatabase.Location = new System.Drawing.Point(0, 0);
+            this.panel_SetDatabase.Name = "panel_SetDatabase";
+            this.panel_SetDatabase.Size = new System.Drawing.Size(530, 274);
+            this.panel_SetDatabase.TabIndex = 7;
+            this.panel_SetDatabase.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(128, 95);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 21);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "连接用户名:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(138, 139);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 21);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "连接密码：";
+            // 
+            // db_userid
+            // 
+            this.db_userid.Location = new System.Drawing.Point(243, 92);
+            this.db_userid.Name = "db_userid";
+            this.db_userid.Size = new System.Drawing.Size(161, 29);
+            this.db_userid.TabIndex = 1;
+            // 
+            // db_userpwd
+            // 
+            this.db_userpwd.Location = new System.Drawing.Point(243, 136);
+            this.db_userpwd.Name = "db_userpwd";
+            this.db_userpwd.PasswordChar = '*';
+            this.db_userpwd.Size = new System.Drawing.Size(161, 29);
+            this.db_userpwd.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 18F);
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(530, 76);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "数据库连接设置";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(176, 192);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 35);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "更    新";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(297, 192);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(95, 35);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "返    回";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -282,6 +391,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel_SetDatabase.ResumeLayout(false);
+            this.panel_SetDatabase.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -305,5 +416,14 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel_SetDatabase;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox db_userpwd;
+        private System.Windows.Forms.TextBox db_userid;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }

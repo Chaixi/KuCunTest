@@ -43,14 +43,21 @@ namespace kucunTest
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 窗体加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            asc.controllInitializeSize(this);
+            asc.controllInitializeSize(this);//记录窗体大小，以便进行窗口自适应
             this.WindowState = FormWindowState.Maximized;//窗口默认最大化
             Win32.AnimateWindow(this.Handle, 2000, Win32.AW_BLEND);//窗体淡入效果
-            treeView1.ExpandAll();
-            treeView1.SelectedNode = null;
 
+            menu_treeView.ExpandAll();
+            menu_treeView.SelectedNode = null;
+
+            //加载系统提示数据
             Sqlstr = "SELECT COUNT(DISTINCT dt.daojuleixing) FROM daojutemp dt";
             djzlsl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//刀具种类
 
@@ -69,6 +76,7 @@ namespace kucunTest
             Sqlstr = "SELECT COUNT(DISTINCT dt.daojuid) FROM daojutemp dt WHERE dt.weizhibiaoshi = 'S'";
             djgdjsl.Text = SQL.ExecuteScalar(Sqlstr).ToString();//刀具柜刀具数量
 
+            //加载系统时间
             nongli = ChinaDate.GetChinaDate(DateTime.Now);
             //toolStripStatusLabel_TimeNow.Text =DateTime.Now.ToString("yyyy年M月d日 dddd HH:mm:ss") + nongli;//日期格式形如：2017年8月10日 星期四 14:17:20 农历 
             toolStripStatusLabel_TimeNow.Text = DateTime.Now.ToString("yyyy年M月d日 dddd [") + nongli + DateTime.Now.ToString("] HH:mm:ss");//日期格式形如：2017年8月10日 星期四 14:17:20
@@ -458,73 +466,9 @@ namespace kucunTest
             }
         }
 
-        /// <summary>
-        /// 刀具管理界面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void 刀具管理ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DaoJuGuanLi djgl = new DaoJuGuanLi();
-            djgl.MdiParent = this;
-
-            bool have = false;
-            foreach (TabPage tp in tabControl1.TabPages)
-            {
-                if (tp.Text == djgl.Text)
-                {
-                    tabControl1.SelectedTab = tp;
-                    have = true;
-                    return;
-                }
-            }
-
-            if (!have)
-            {
-                TabPage tb = new TabPage();
-                tb.Name = djgl.Name;
-                djgl.Parent = tb;
-                tb.Text = djgl.Text;
-                tb.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb.BackgroundImageLayout = ImageLayout.Stretch;
-
-                this.tabControl1.TabPages.Add(tb);
-                tabControl1.SelectedTab = tb;
-                tabControl1.Visible = true;
-
-                djgl.Left = (tabControl1.Width - djgl.Width) / 2;
-                djgl.Top = (tb.Height - djgl.Height) / 4;
-
-                djgl.Dock = DockStyle.Fill;
-                djgl.Show();
-                djgl.Refresh_color();
-                //djgl.WindowState = FormWindowState.Maximized;
-            }
-            //djgl.Parent = panel1;
-
-            //TabPage tb_djgl = new TabPage();
-            //djgl.Parent = tb_djgl;
-            //tb_djgl.Text = djgl.Text;
-
-            //this.tabControl1.TabPages.Add(tb_djgl);
-            //tabControl1.SelectedTab = tb_djgl;
-            //tabControl1.Visible = true;
-
-            //djgl.Show();
-        }
-
         #endregion 刀具单据部分结束
 
-        /// <summary>
-        /// 窗口自适应
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MainForm_SizeChanged(object sender, EventArgs e)
-        {
-            //asc.controlAutoSize(this);
-        }
-
+        #region 选项卡操作部分
         /// <summary>
         /// 关闭选中的选项卡
         /// </summary>
@@ -609,6 +553,8 @@ namespace kucunTest
             this.tabControl1.ContextMenuStrip = null;
         }
 
+        #endregion 选项卡操作部分结束
+
         #region 首页linklabel部分
         /// <summary>
         /// 刀具管理linklabel
@@ -631,21 +577,24 @@ namespace kucunTest
         }
         #endregion 首页linklabel部分结束
 
-        #region 零部件单据
+
+        #region 主菜单部分
+
+        #region 主菜单——刀具
         /// <summary>
-        /// 零部件领用单据
+        /// 刀具管理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void 零部件领用单ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 刀具管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LBJLY lbjly = new LBJLY();
-            lbjly.MdiParent = this;
+            DaoJuGuanLi djgl = new DaoJuGuanLi();
+            djgl.MdiParent = this;
 
             bool have = false;
             foreach (TabPage tp in tabControl1.TabPages)
             {
-                if (tp.Text == lbjly.Text)
+                if (tp.Text == djgl.Text)
                 {
                     tabControl1.SelectedTab = tp;
                     have = true;
@@ -655,38 +604,57 @@ namespace kucunTest
 
             if (!have)
             {
-                TabPage tb_djccd = new TabPage();
-                lbjly.Parent = tb_djccd;
-                tb_djccd.Text = lbjly.Text;
-                tb_djccd.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb_djccd.BackgroundImageLayout = ImageLayout.Stretch;
+                TabPage tb = new TabPage();
+                tb.Name = djgl.Name;
+                djgl.Parent = tb;
+                tb.Text = djgl.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
 
-                this.tabControl1.TabPages.Add(tb_djccd);
-                tabControl1.SelectedTab = tb_djccd;
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
-                lbjly.StartPosition = FormStartPosition.Manual;
-                lbjly.Left = (tabControl1.Width - lbjly.Width) / 4;
-                lbjly.Top = (tb_djccd.Height - lbjly.Height) / 4;
+                //djgl.Left = (tabControl1.Width - djgl.Width) / 2;
+                //djgl.Top = (tb.Height - djgl.Height) / 4;
 
-                lbjly.Show();
+                //djgl.Width = tb.Width;
+                //djgl.Height = tb.Height;
+                djgl.Size = tb.Size;
+                //djgl.WindowState = FormWindowState.Maximized;
+
+                //djgl.Dock = DockStyle.Fill;
+                djgl.Show();
+                djgl.Refresh_color();
+                //djgl.WindowState = FormWindowState.Maximized;
             }
+            //djgl.Parent = panel1;
+
+            //TabPage tb_djgl = new TabPage();
+            //djgl.Parent = tb_djgl;
+            //tb_djgl.Text = djgl.Text;
+
+            //this.tabControl1.TabPages.Add(tb_djgl);
+            //tabControl1.SelectedTab = tb_djgl;
+            //tabControl1.Visible = true;
+
+            //djgl.Show();
         }
 
         /// <summary>
-        /// 零部件退还单据
+        /// 刀具类型管理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void 零部件退还单ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 刀具类型管理ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            LBJTH lbjth = new LBJTH();
-            lbjth.MdiParent = this;
+            DaoJuLeiXingGuanLi djlxgl = new DaoJuLeiXingGuanLi();
+            djlxgl.MdiParent = this;
 
             bool have = false;
             foreach (TabPage tp in tabControl1.TabPages)
             {
-                if (tp.Text == lbjth.Text)
+                if (tp.Text == djlxgl.Text)
                 {
                     tabControl1.SelectedTab = tp;
                     have = true;
@@ -696,27 +664,35 @@ namespace kucunTest
 
             if (!have)
             {
-                TabPage tb_djccd = new TabPage();
-                lbjth.Parent = tb_djccd;
-                tb_djccd.Text = lbjth.Text;
-                tb_djccd.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb_djccd.BackgroundImageLayout = ImageLayout.Stretch;
+                TabPage tb = new TabPage();
+                tb.Name = djlxgl.Name;
+                djlxgl.Parent = tb;
+                tb.Text = djlxgl.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
 
-                this.tabControl1.TabPages.Add(tb_djccd);
-                tabControl1.SelectedTab = tb_djccd;
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
-                lbjth.StartPosition = FormStartPosition.Manual;
-                lbjth.Left = (tabControl1.Width - lbjth.Width) / 4;
-                lbjth.Top = (tb_djccd.Height - lbjth.Height) / 4;
+                //djlxgl.Left = (tabControl1.Width - djlxgl.Width) / 2;
+                //djlxgl.Top = (tb.Height - djlxgl.Height) / 4;
+                djlxgl.Size = tb.Size;
 
-                lbjth.Show();
+                djlxgl.Show();
+                //djlxgl.Dock = DockStyle.Fill;
             }
+
+            //djlxgl.Show();
         }
+        #endregion 主菜单——刀具结束
 
-
-        #endregion 零部件单据结束
-
+        #region 主菜单——零部件
+        /// <summary>
+        /// 零部件库存管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 零部件库存管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lbj_GuanLi lbjgl = new lbj_GuanLi();
@@ -757,15 +733,20 @@ namespace kucunTest
             }
         }
 
-        private void 刀具类型管理ToolStripMenuItem1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 零部件领用单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 零部件领用单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DaoJuLeiXingGuanLi djlxgl = new DaoJuLeiXingGuanLi();
-            djlxgl.MdiParent = this;
+            LBJLY lbjly = new LBJLY();
+            lbjly.MdiParent = this;
 
             bool have = false;
             foreach (TabPage tp in tabControl1.TabPages)
             {
-                if (tp.Text == djlxgl.Text)
+                if (tp.Text == lbjly.Text)
                 {
                     tabControl1.SelectedTab = tp;
                     have = true;
@@ -775,27 +756,73 @@ namespace kucunTest
 
             if (!have)
             {
-                TabPage tb = new TabPage();
-                tb.Name = djlxgl.Name;
-                djlxgl.Parent = tb;
-                tb.Text = djlxgl.Text;
-                tb.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb.BackgroundImageLayout = ImageLayout.Stretch;
+                TabPage tb_djccd = new TabPage();
+                lbjly.Parent = tb_djccd;
+                tb_djccd.Text = lbjly.Text;
+                tb_djccd.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb_djccd.BackgroundImageLayout = ImageLayout.Stretch;
 
-                this.tabControl1.TabPages.Add(tb);
-                tabControl1.SelectedTab = tb;
+                this.tabControl1.TabPages.Add(tb_djccd);
+                tabControl1.SelectedTab = tb_djccd;
                 tabControl1.Visible = true;
 
-                djlxgl.Left = (tabControl1.Width - djlxgl.Width) / 2;
-                djlxgl.Top = (tb.Height - djlxgl.Height) / 4;
+                lbjly.StartPosition = FormStartPosition.Manual;
+                lbjly.Left = (tabControl1.Width - lbjly.Width) / 4;
+                lbjly.Top = (tb_djccd.Height - lbjly.Height) / 4;
 
-                djlxgl.Show();
-                djlxgl.Dock = DockStyle.Fill;
+                lbjly.Show();
             }
-
-            //djlxgl.Show();
         }
 
+        /// <summary>
+        /// 零部件退还单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 零部件退还单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LBJTH lbjth = new LBJTH();
+            lbjth.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == lbjth.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb_djccd = new TabPage();
+                lbjth.Parent = tb_djccd;
+                tb_djccd.Text = lbjth.Text;
+                tb_djccd.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb_djccd.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb_djccd);
+                tabControl1.SelectedTab = tb_djccd;
+                tabControl1.Visible = true;
+
+                lbjth.StartPosition = FormStartPosition.Manual;
+                lbjth.Left = (tabControl1.Width - lbjth.Width) / 4;
+                lbjth.Top = (tb_djccd.Height - lbjth.Height) / 4;
+
+                lbjth.Show();
+            }
+        }
+        #endregion 主菜单——零部件结束
+
+        #region 主菜单——刀具柜
+
+        /// <summary>
+        /// 刀具柜管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 刀具柜管理ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             daojugui djg = new daojugui();
@@ -825,14 +852,23 @@ namespace kucunTest
                 tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
-                djg.Left = (tabControl1.Width - djg.Width) / 2;
-                djg.Top = (tb.Height - djg.Height) / 4;
+                //djg.Left = (tabControl1.Width - djg.Width) / 2;
+                //djg.Top = (tb.Height - djg.Height) / 4;
+                djg.Size = tb.Size;
 
                 djg.Show();
-                djg.Dock = DockStyle.Fill;
+                //djg.Dock = DockStyle.Fill;
             }
         }
 
+        #endregion 主菜单——刀具柜结束
+
+        #region 主菜单——机床
+        /// <summary>
+        /// 机床管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 机床管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             jichuang jc = new jichuang();
@@ -862,12 +898,161 @@ namespace kucunTest
                 tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
-                jc.Left = (tabControl1.Width - jc.Width) / 2;
-                jc.Top = (tb.Height - jc.Height) / 4;
+                //jc.Left = (tabControl1.Width - jc.Width) / 2;
+                //jc.Top = (tb.Height - jc.Height) / 4;
+                jc.Size = tb.Size;
 
                 jc.Show();
-                jc.Dock = DockStyle.Fill;
+                //jc.Dock = DockStyle.Fill;
             }
+        }
+        #endregion 主菜单——机床结束
+
+        #region 主菜单——工艺卡
+
+        /// <summary>
+        /// 工艺卡管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 工艺卡管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gyk gyka = new gyk();
+            gyka.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == gyka.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = gyka.Name;
+                gyka.Parent = tb;
+                tb.Text = gyka.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                //gyka.Left = (tabControl1.Width - gyka.Width) / 2;
+                //gyka.Top = (tb.Height - gyka.Height) / 4;
+                gyka.Size = tb.Size;
+
+                gyka.Show();
+                //gyka.Dock = DockStyle.Fill;
+            }
+
+            //gyk gyka = new gyk();
+            //gyka.Show();
+            /*
+            gyka.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == gyka.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = gyka.Name;
+                gyka.Parent = tb;
+                tb.Text = gyka.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                gyka.Left = (tabControl1.Width - gyka.Width) / 2;
+                gyka.Top = (tb.Height - gyka.Height) / 4;
+
+                gyka.Dock = DockStyle.Fill;
+                }
+                */
+                //gyka.Show();
+        }
+
+        #endregion 主菜单——工艺卡结束
+
+        #region 主菜单——基础资料
+
+        #endregion 主菜单——基础资料结束
+
+        #region 主菜单——系统管理
+
+        /// <summary>
+        /// 系统管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 系统管理ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            qxguanli qxgl = new qxguanli();
+            qxgl.Show();
+        }
+
+        /// <summary>
+        /// 权限管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 权限管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 系统日志
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 系统日志ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 其他设置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 其他设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion 主菜单——系统管理结束
+        #endregion 主菜单部分结束
+
+
+        #region 其他方法部分
+
+        /// <summary>
+        /// 窗口自适应
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            //asc.controlAutoSize(this);
         }
 
         /// <summary>
@@ -922,7 +1107,7 @@ namespace kucunTest
         /// <param name="e"></param>
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
         {
-            foreach(TabPage tp in tabControl1.TabPages)
+            foreach (TabPage tp in tabControl1.TabPages)
             {
                 tp.Refresh();
             }
@@ -935,7 +1120,7 @@ namespace kucunTest
         /// <param name="e"></param>
         private void button6_Click(object sender, EventArgs e)
         {
-            if(Collapsed)
+            if (Collapsed)
             {
                 this.splitContainer1.Panel1Collapsed = false;
                 Collapsed = false;
@@ -954,9 +1139,9 @@ namespace kucunTest
         /// <param name="e"></param>
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if(treeView1.SelectedNode.Level == 0)
+            if (menu_treeView.SelectedNode.Level == 0)
             {
-                switch(treeView1.SelectedNode.Tag.ToString())
+                switch (menu_treeView.SelectedNode.Tag.ToString())
                 {
                     case "DJJC":
                         刀具管理ToolStripMenuItem_Click(null, null);
@@ -969,17 +1154,17 @@ namespace kucunTest
                         break;
                 }
             }
-            else if (treeView1.SelectedNode.Level == 1)
+            else if (menu_treeView.SelectedNode.Level == 1)
             {
                 //刀具续用单据暂时不作操作
-                if(treeView1.SelectedNode.Tag.ToString() == "DJXY")
+                if (menu_treeView.SelectedNode.Tag.ToString() == "DJXY")
                 {
                     return;
                 }
 
                 else
                 {
-                    History historyPage = new History(treeView1.SelectedNode.Tag.ToString());
+                    History historyPage = new History(menu_treeView.SelectedNode.Tag.ToString());
                     historyPage.MdiParent = this;
 
                     bool have = false;
@@ -1015,7 +1200,7 @@ namespace kucunTest
                     }
 
                     //historyPage.Show();
-                }                
+                }
             }
         }
 
@@ -1082,55 +1267,7 @@ namespace kucunTest
 
         }
 
-        private void 工艺卡管理ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            gyk gyka = new gyk();
-            //gyka.Show();
-            /*
-            gyka.MdiParent = this;
+        #endregion 其他方法部分结束
 
-            bool have = false;
-            foreach (TabPage tp in tabControl1.TabPages)
-            {
-                if (tp.Text == gyka.Text)
-                {
-                    tabControl1.SelectedTab = tp;
-                    have = true;
-                    return;
-                }
-            }
-
-            if (!have)
-            {
-                TabPage tb = new TabPage();
-                tb.Name = gyka.Name;
-                gyka.Parent = tb;
-                tb.Text = gyka.Text;
-                tb.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb.BackgroundImageLayout = ImageLayout.Stretch;
-
-                this.tabControl1.TabPages.Add(tb);
-                tabControl1.SelectedTab = tb;
-                tabControl1.Visible = true;
-
-                gyka.Left = (tabControl1.Width - gyka.Width) / 2;
-                gyka.Top = (tb.Height - gyka.Height) / 4;
-
-                gyka.Dock = DockStyle.Fill;
-                }
-                */
-                gyka.Show();
-          
-   
-
-
-        }
-
-
-        private void 系统管理ToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            qxguanli qxgl = new qxguanli();
-            qxgl.Show();
-        }
     }
 }

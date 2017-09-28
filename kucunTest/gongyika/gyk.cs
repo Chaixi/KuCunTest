@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.BaseClasses;
+
 namespace kucunTest.gongyika
 {
     public partial class gyk : Form
@@ -20,6 +22,7 @@ namespace kucunTest.gongyika
 
         #region 全局变量
         private MySql Sql = new MySql();//MySQL类
+        private AutoSizeFormClass asc = new AutoSizeFormClass();
 
         private string SqlStr = "";
         private TreeNode node = new TreeNode();//类型树的根节点。
@@ -27,6 +30,8 @@ namespace kucunTest.gongyika
 
         private void gyk_Load(object sender, EventArgs e)
         {
+            asc.controllInitializeSize(this);
+
             treeView1.Nodes.Add(node);
             node.Text = "工艺卡编号";
             BindRoot();//生成树的第一层
@@ -35,7 +40,6 @@ namespace kucunTest.gongyika
             gxxx.AutoGenerateColumns = false;
             pdxx.AutoGenerateColumns = false;
         }
-
 
         #region BindeRoot()方法和AddChild()方法：构造类型（所有类型-->名称-->型号）树
         ///<summary>生成树之生成第一层名称节点</summary>
@@ -110,5 +114,24 @@ namespace kucunTest.gongyika
             }
         }
         #endregion
+
+        /// <summary>
+        /// 当窗体在选项卡中打开时，关闭窗体则关闭相应的选项卡
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gyk_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.Parent != null)
+            {
+                MainForm mfr = (MainForm)this.Parent.FindForm();
+                mfr.CloseTab(this.Name);
+            }
+        }
+
+        private void gyk_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
+        }
     }
 }

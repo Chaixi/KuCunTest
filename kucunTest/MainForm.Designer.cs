@@ -29,24 +29,44 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("刀具监测");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("刀具领用单据");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("刀具续用单据");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("刀具更换单据");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("刀具外借单据");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("刀具退还单据");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("刀具报废单据");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("单据填写", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("库存明细");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("类型管理");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("刀具监测");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("刀具领用单据");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("刀具续用单据");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("刀具更换单据");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("刀具外借单据");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("刀具退还单据");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("刀具报废单据");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("单据填写", new System.Windows.Forms.TreeNode[] {
+            treeNode36,
+            treeNode37,
+            treeNode38,
+            treeNode39,
+            treeNode40,
+            treeNode41});
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("库存明细");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("类型管理");
             this.mainMenu = new System.Windows.Forms.MenuStrip();
+            this.刀具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刀具管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刀具类型管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.零部件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.零部件库存管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.零部件领用单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.零部件退还单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刀具柜管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刀具柜管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.机床ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.机床管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.工艺卡ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.工艺卡管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.基础资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.车间管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刀具类型管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.权限管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.系统日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.其他设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.库存管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.库存明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.出仓管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,13 +87,6 @@
             this.采购需求历史ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.采购需求入仓单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.采购需求退还单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.基础资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.车间管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具类型管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.权限管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.系统日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.其他设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.临时ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刀具领用单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刀具外借单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,26 +95,13 @@
             this.刀具退还单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.组合领用单据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fR测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具类型管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.零部件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.零部件库存管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.零部件领用单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.零部件退还单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具柜管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具柜管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.机床ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.机床管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.工艺卡ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.工艺卡管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_CrtUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_TimeNow = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.menu_treeView = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -186,6 +186,158 @@
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
             // 
+            // 刀具ToolStripMenuItem
+            // 
+            this.刀具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.刀具管理ToolStripMenuItem,
+            this.刀具类型管理ToolStripMenuItem1});
+            this.刀具ToolStripMenuItem.Name = "刀具ToolStripMenuItem";
+            this.刀具ToolStripMenuItem.Size = new System.Drawing.Size(54, 26);
+            this.刀具ToolStripMenuItem.Text = "刀具";
+            // 
+            // 刀具管理ToolStripMenuItem
+            // 
+            this.刀具管理ToolStripMenuItem.Name = "刀具管理ToolStripMenuItem";
+            this.刀具管理ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
+            this.刀具管理ToolStripMenuItem.Text = "刀具管理";
+            this.刀具管理ToolStripMenuItem.Click += new System.EventHandler(this.刀具管理ToolStripMenuItem_Click);
+            // 
+            // 刀具类型管理ToolStripMenuItem1
+            // 
+            this.刀具类型管理ToolStripMenuItem1.Name = "刀具类型管理ToolStripMenuItem1";
+            this.刀具类型管理ToolStripMenuItem1.Size = new System.Drawing.Size(176, 26);
+            this.刀具类型管理ToolStripMenuItem1.Text = "刀具类型管理";
+            this.刀具类型管理ToolStripMenuItem1.Click += new System.EventHandler(this.刀具类型管理ToolStripMenuItem1_Click);
+            // 
+            // 零部件ToolStripMenuItem
+            // 
+            this.零部件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.零部件库存管理ToolStripMenuItem,
+            this.零部件领用单ToolStripMenuItem,
+            this.零部件退还单ToolStripMenuItem});
+            this.零部件ToolStripMenuItem.Name = "零部件ToolStripMenuItem";
+            this.零部件ToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
+            this.零部件ToolStripMenuItem.Text = "零部件";
+            // 
+            // 零部件库存管理ToolStripMenuItem
+            // 
+            this.零部件库存管理ToolStripMenuItem.Name = "零部件库存管理ToolStripMenuItem";
+            this.零部件库存管理ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.零部件库存管理ToolStripMenuItem.Text = "零部件库存管理";
+            this.零部件库存管理ToolStripMenuItem.Click += new System.EventHandler(this.零部件库存管理ToolStripMenuItem_Click);
+            // 
+            // 零部件领用单ToolStripMenuItem
+            // 
+            this.零部件领用单ToolStripMenuItem.Name = "零部件领用单ToolStripMenuItem";
+            this.零部件领用单ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.零部件领用单ToolStripMenuItem.Text = "零部件领用单";
+            this.零部件领用单ToolStripMenuItem.Click += new System.EventHandler(this.零部件领用单ToolStripMenuItem_Click);
+            // 
+            // 零部件退还单ToolStripMenuItem
+            // 
+            this.零部件退还单ToolStripMenuItem.Name = "零部件退还单ToolStripMenuItem";
+            this.零部件退还单ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.零部件退还单ToolStripMenuItem.Text = "零部件退还单";
+            this.零部件退还单ToolStripMenuItem.Click += new System.EventHandler(this.零部件退还单ToolStripMenuItem_Click);
+            // 
+            // 刀具柜管理ToolStripMenuItem
+            // 
+            this.刀具柜管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.刀具柜管理ToolStripMenuItem1});
+            this.刀具柜管理ToolStripMenuItem.Name = "刀具柜管理ToolStripMenuItem";
+            this.刀具柜管理ToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
+            this.刀具柜管理ToolStripMenuItem.Text = "刀具柜";
+            // 
+            // 刀具柜管理ToolStripMenuItem1
+            // 
+            this.刀具柜管理ToolStripMenuItem1.Name = "刀具柜管理ToolStripMenuItem1";
+            this.刀具柜管理ToolStripMenuItem1.Size = new System.Drawing.Size(160, 26);
+            this.刀具柜管理ToolStripMenuItem1.Text = "刀具柜管理";
+            this.刀具柜管理ToolStripMenuItem1.Click += new System.EventHandler(this.刀具柜管理ToolStripMenuItem1_Click);
+            // 
+            // 机床ToolStripMenuItem
+            // 
+            this.机床ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.机床管理ToolStripMenuItem});
+            this.机床ToolStripMenuItem.Name = "机床ToolStripMenuItem";
+            this.机床ToolStripMenuItem.Size = new System.Drawing.Size(54, 26);
+            this.机床ToolStripMenuItem.Text = "机床";
+            // 
+            // 机床管理ToolStripMenuItem
+            // 
+            this.机床管理ToolStripMenuItem.Name = "机床管理ToolStripMenuItem";
+            this.机床管理ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.机床管理ToolStripMenuItem.Text = "机床管理";
+            this.机床管理ToolStripMenuItem.Click += new System.EventHandler(this.机床管理ToolStripMenuItem_Click);
+            // 
+            // 工艺卡ToolStripMenuItem
+            // 
+            this.工艺卡ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.工艺卡管理ToolStripMenuItem});
+            this.工艺卡ToolStripMenuItem.Name = "工艺卡ToolStripMenuItem";
+            this.工艺卡ToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
+            this.工艺卡ToolStripMenuItem.Text = "工艺卡";
+            // 
+            // 工艺卡管理ToolStripMenuItem
+            // 
+            this.工艺卡管理ToolStripMenuItem.Name = "工艺卡管理ToolStripMenuItem";
+            this.工艺卡管理ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.工艺卡管理ToolStripMenuItem.Text = "工艺卡管理";
+            this.工艺卡管理ToolStripMenuItem.Click += new System.EventHandler(this.工艺卡管理ToolStripMenuItem_Click);
+            // 
+            // 基础资料ToolStripMenuItem
+            // 
+            this.基础资料ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.车间管理ToolStripMenuItem,
+            this.刀具类型管理ToolStripMenuItem});
+            this.基础资料ToolStripMenuItem.Name = "基础资料ToolStripMenuItem";
+            this.基础资料ToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
+            this.基础资料ToolStripMenuItem.Text = "基础资料";
+            // 
+            // 车间管理ToolStripMenuItem
+            // 
+            this.车间管理ToolStripMenuItem.Name = "车间管理ToolStripMenuItem";
+            this.车间管理ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
+            this.车间管理ToolStripMenuItem.Text = "车间管理";
+            // 
+            // 刀具类型管理ToolStripMenuItem
+            // 
+            this.刀具类型管理ToolStripMenuItem.Name = "刀具类型管理ToolStripMenuItem";
+            this.刀具类型管理ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
+            this.刀具类型管理ToolStripMenuItem.Text = "刀具类型管理";
+            // 
+            // 系统管理ToolStripMenuItem
+            // 
+            this.系统管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.权限管理ToolStripMenuItem,
+            this.系统日志ToolStripMenuItem,
+            this.其他设置ToolStripMenuItem});
+            this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
+            this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
+            this.系统管理ToolStripMenuItem.Text = "系统管理";
+            this.系统管理ToolStripMenuItem.Click += new System.EventHandler(this.系统管理ToolStripMenuItem_Click_1);
+            // 
+            // 权限管理ToolStripMenuItem
+            // 
+            this.权限管理ToolStripMenuItem.Name = "权限管理ToolStripMenuItem";
+            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.权限管理ToolStripMenuItem.Text = "权限管理";
+            this.权限管理ToolStripMenuItem.Click += new System.EventHandler(this.权限管理ToolStripMenuItem_Click);
+            // 
+            // 系统日志ToolStripMenuItem
+            // 
+            this.系统日志ToolStripMenuItem.Name = "系统日志ToolStripMenuItem";
+            this.系统日志ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.系统日志ToolStripMenuItem.Text = "系统日志";
+            this.系统日志ToolStripMenuItem.Click += new System.EventHandler(this.系统日志ToolStripMenuItem_Click);
+            // 
+            // 其他设置ToolStripMenuItem
+            // 
+            this.其他设置ToolStripMenuItem.Name = "其他设置ToolStripMenuItem";
+            this.其他设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.其他设置ToolStripMenuItem.Text = "其他设置";
+            this.其他设置ToolStripMenuItem.Click += new System.EventHandler(this.其他设置ToolStripMenuItem_Click);
+            // 
             // 库存管理ToolStripMenuItem
             // 
             this.库存管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -200,7 +352,7 @@
             // 库存明细ToolStripMenuItem
             // 
             this.库存明细ToolStripMenuItem.Name = "库存明细ToolStripMenuItem";
-            this.库存明细ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.库存明细ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.库存明细ToolStripMenuItem.Text = "库存明细";
             this.库存明细ToolStripMenuItem.Click += new System.EventHandler(this.库存明细ToolStripMenuItem_Click);
             // 
@@ -210,7 +362,7 @@
             this.新建出仓单ToolStripMenuItem1,
             this.出仓历史ToolStripMenuItem1});
             this.出仓管理ToolStripMenuItem.Name = "出仓管理ToolStripMenuItem";
-            this.出仓管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.出仓管理ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.出仓管理ToolStripMenuItem.Text = "出仓管理";
             this.出仓管理ToolStripMenuItem.Click += new System.EventHandler(this.出仓管理ToolStripMenuItem_Click);
             // 
@@ -234,7 +386,7 @@
             this.新建入仓单ToolStripMenuItem1,
             this.入仓历史ToolStripMenuItem1});
             this.入仓管理ToolStripMenuItem.Name = "入仓管理ToolStripMenuItem";
-            this.入仓管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.入仓管理ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.入仓管理ToolStripMenuItem.Text = "入仓管理";
             // 
             // 新建入仓单ToolStripMenuItem1
@@ -344,55 +496,6 @@
             this.采购需求退还单ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.采购需求退还单ToolStripMenuItem.Text = "采购需求退还单";
             // 
-            // 基础资料ToolStripMenuItem
-            // 
-            this.基础资料ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.车间管理ToolStripMenuItem,
-            this.刀具类型管理ToolStripMenuItem});
-            this.基础资料ToolStripMenuItem.Name = "基础资料ToolStripMenuItem";
-            this.基础资料ToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
-            this.基础资料ToolStripMenuItem.Text = "基础资料";
-            // 
-            // 车间管理ToolStripMenuItem
-            // 
-            this.车间管理ToolStripMenuItem.Name = "车间管理ToolStripMenuItem";
-            this.车间管理ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.车间管理ToolStripMenuItem.Text = "车间管理";
-            // 
-            // 刀具类型管理ToolStripMenuItem
-            // 
-            this.刀具类型管理ToolStripMenuItem.Name = "刀具类型管理ToolStripMenuItem";
-            this.刀具类型管理ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.刀具类型管理ToolStripMenuItem.Text = "刀具类型管理";
-            // 
-            // 系统管理ToolStripMenuItem
-            // 
-            this.系统管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.权限管理ToolStripMenuItem,
-            this.系统日志ToolStripMenuItem,
-            this.其他设置ToolStripMenuItem});
-            this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
-            this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
-            this.系统管理ToolStripMenuItem.Text = "系统管理";
-            // 
-            // 权限管理ToolStripMenuItem
-            // 
-            this.权限管理ToolStripMenuItem.Name = "权限管理ToolStripMenuItem";
-            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.权限管理ToolStripMenuItem.Text = "权限管理";
-            // 
-            // 系统日志ToolStripMenuItem
-            // 
-            this.系统日志ToolStripMenuItem.Name = "系统日志ToolStripMenuItem";
-            this.系统日志ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.系统日志ToolStripMenuItem.Text = "系统日志";
-            // 
-            // 其他设置ToolStripMenuItem
-            // 
-            this.其他设置ToolStripMenuItem.Name = "其他设置ToolStripMenuItem";
-            this.其他设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.其他设置ToolStripMenuItem.Text = "其他设置";
-            // 
             // 临时ToolStripMenuItem
             // 
             this.临时ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -456,112 +559,6 @@
             this.fR测试ToolStripMenuItem.Text = "FR测试";
             this.fR测试ToolStripMenuItem.Visible = false;
             this.fR测试ToolStripMenuItem.Click += new System.EventHandler(this.fR测试ToolStripMenuItem_Click);
-            // 
-            // 刀具ToolStripMenuItem
-            // 
-            this.刀具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.刀具管理ToolStripMenuItem,
-            this.刀具类型管理ToolStripMenuItem1});
-            this.刀具ToolStripMenuItem.Name = "刀具ToolStripMenuItem";
-            this.刀具ToolStripMenuItem.Size = new System.Drawing.Size(54, 26);
-            this.刀具ToolStripMenuItem.Text = "刀具";
-            // 
-            // 刀具管理ToolStripMenuItem
-            // 
-            this.刀具管理ToolStripMenuItem.Name = "刀具管理ToolStripMenuItem";
-            this.刀具管理ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.刀具管理ToolStripMenuItem.Text = "刀具管理";
-            this.刀具管理ToolStripMenuItem.Click += new System.EventHandler(this.刀具管理ToolStripMenuItem_Click);
-            // 
-            // 刀具类型管理ToolStripMenuItem1
-            // 
-            this.刀具类型管理ToolStripMenuItem1.Name = "刀具类型管理ToolStripMenuItem1";
-            this.刀具类型管理ToolStripMenuItem1.Size = new System.Drawing.Size(176, 26);
-            this.刀具类型管理ToolStripMenuItem1.Text = "刀具类型管理";
-            this.刀具类型管理ToolStripMenuItem1.Click += new System.EventHandler(this.刀具类型管理ToolStripMenuItem1_Click);
-            // 
-            // 零部件ToolStripMenuItem
-            // 
-            this.零部件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.零部件库存管理ToolStripMenuItem,
-            this.零部件领用单ToolStripMenuItem,
-            this.零部件退还单ToolStripMenuItem});
-            this.零部件ToolStripMenuItem.Name = "零部件ToolStripMenuItem";
-            this.零部件ToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
-            this.零部件ToolStripMenuItem.Text = "零部件";
-            // 
-            // 零部件库存管理ToolStripMenuItem
-            // 
-            this.零部件库存管理ToolStripMenuItem.Name = "零部件库存管理ToolStripMenuItem";
-            this.零部件库存管理ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            this.零部件库存管理ToolStripMenuItem.Text = "零部件库存管理";
-            this.零部件库存管理ToolStripMenuItem.Click += new System.EventHandler(this.零部件库存管理ToolStripMenuItem_Click);
-            // 
-            // 零部件领用单ToolStripMenuItem
-            // 
-            this.零部件领用单ToolStripMenuItem.Name = "零部件领用单ToolStripMenuItem";
-            this.零部件领用单ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            this.零部件领用单ToolStripMenuItem.Text = "零部件领用单";
-            this.零部件领用单ToolStripMenuItem.Click += new System.EventHandler(this.零部件领用单ToolStripMenuItem_Click);
-            // 
-            // 零部件退还单ToolStripMenuItem
-            // 
-            this.零部件退还单ToolStripMenuItem.Name = "零部件退还单ToolStripMenuItem";
-            this.零部件退还单ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            this.零部件退还单ToolStripMenuItem.Text = "零部件退还单";
-            this.零部件退还单ToolStripMenuItem.Click += new System.EventHandler(this.零部件退还单ToolStripMenuItem_Click);
-            // 
-            // 刀具柜管理ToolStripMenuItem
-            // 
-            this.刀具柜管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.刀具柜管理ToolStripMenuItem1});
-            this.刀具柜管理ToolStripMenuItem.Name = "刀具柜管理ToolStripMenuItem";
-            this.刀具柜管理ToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
-            this.刀具柜管理ToolStripMenuItem.Text = "刀具柜";
-            // 
-            // 刀具柜管理ToolStripMenuItem1
-            // 
-            this.刀具柜管理ToolStripMenuItem1.Name = "刀具柜管理ToolStripMenuItem1";
-            this.刀具柜管理ToolStripMenuItem1.Size = new System.Drawing.Size(160, 26);
-            this.刀具柜管理ToolStripMenuItem1.Text = "刀具柜管理";
-            this.刀具柜管理ToolStripMenuItem1.Click += new System.EventHandler(this.刀具柜管理ToolStripMenuItem1_Click);
-            // 
-            // 机床ToolStripMenuItem
-            // 
-            this.机床ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.机床管理ToolStripMenuItem});
-            this.机床ToolStripMenuItem.Name = "机床ToolStripMenuItem";
-            this.机床ToolStripMenuItem.Size = new System.Drawing.Size(54, 26);
-            this.机床ToolStripMenuItem.Text = "机床";
-            // 
-            // 机床管理ToolStripMenuItem
-            // 
-            this.机床管理ToolStripMenuItem.Name = "机床管理ToolStripMenuItem";
-            this.机床管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.机床管理ToolStripMenuItem.Text = "机床管理";
-            this.机床管理ToolStripMenuItem.Click += new System.EventHandler(this.机床管理ToolStripMenuItem_Click);
-            // 
-            // 工艺卡ToolStripMenuItem
-            // 
-            this.工艺卡ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.工艺卡管理ToolStripMenuItem});
-            this.工艺卡ToolStripMenuItem.Name = "工艺卡ToolStripMenuItem";
-            this.工艺卡ToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
-            this.工艺卡ToolStripMenuItem.Text = "工艺卡";
-            // 
-            // 工艺卡管理ToolStripMenuItem
-            // 
-            this.工艺卡管理ToolStripMenuItem.Name = "工艺卡管理ToolStripMenuItem";
-            this.工艺卡管理ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.工艺卡管理ToolStripMenuItem.Text = "工艺卡管理";
-            this.工艺卡管理ToolStripMenuItem.Click += new System.EventHandler(this.工艺卡管理ToolStripMenuItem_Click);
-            // 
-            // 系统管理ToolStripMenuItem
-            // 
-            this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
-            this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
-            this.系统管理ToolStripMenuItem.Text = "系统管理";
-            this.系统管理ToolStripMenuItem.Click += new System.EventHandler(this.系统管理ToolStripMenuItem_Click_1);
             // 
             // statusStrip1
             // 
@@ -634,7 +631,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tableLayoutPanel1.Controls.Add(this.treeView1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.menu_treeView, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button5, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.button4, 0, 4);
@@ -654,59 +651,59 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(208, 660);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // treeView1
+            // menu_treeView
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.treeView1.HotTracking = true;
-            this.treeView1.Indent = 20;
-            this.treeView1.ItemHeight = 40;
-            this.treeView1.Location = new System.Drawing.Point(3, 42);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "节点2";
-            treeNode1.Tag = "0";
-            treeNode1.Text = "";
-            treeNode2.Name = "节点1";
-            treeNode2.Tag = "DJJC";
-            treeNode2.Text = "刀具监测";
-            treeNode3.Name = "节点4";
-            treeNode3.Tag = "DJCCD";
-            treeNode3.Text = "刀具领用单据";
-            treeNode4.Name = "节点18";
-            treeNode4.Tag = "DJCCD";
-            treeNode4.Text = "刀具续用单据";
-            treeNode5.Name = "节点5";
-            treeNode5.Tag = "DJGH";
-            treeNode5.Text = "刀具更换单据";
-            treeNode6.Name = "节点6";
-            treeNode6.Tag = "DJWJ";
-            treeNode6.Text = "刀具外借单据";
-            treeNode7.Name = "节点16";
-            treeNode7.Tag = "DJTH";
-            treeNode7.Text = "刀具退还单据";
-            treeNode8.Name = "节点17";
-            treeNode8.Tag = "DJBF";
-            treeNode8.Text = "刀具报废单据";
-            treeNode9.Name = "节点0";
-            treeNode9.Tag = "DJTX";
-            treeNode9.Text = "单据填写";
-            treeNode10.Name = "节点1";
-            treeNode10.Tag = "KCMX";
-            treeNode10.Text = "库存明细";
-            treeNode11.Name = "节点0";
-            treeNode11.Tag = "LXGL";
-            treeNode11.Text = "类型管理";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode9,
-            treeNode10,
-            treeNode11});
-            this.treeView1.ShowRootLines = false;
-            this.treeView1.Size = new System.Drawing.Size(187, 456);
-            this.treeView1.TabIndex = 1;
-            this.treeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.menu_treeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menu_treeView.Font = new System.Drawing.Font("微软雅黑", 14F);
+            this.menu_treeView.HotTracking = true;
+            this.menu_treeView.Indent = 20;
+            this.menu_treeView.ItemHeight = 40;
+            this.menu_treeView.Location = new System.Drawing.Point(3, 42);
+            this.menu_treeView.Name = "menu_treeView";
+            treeNode34.Name = "节点2";
+            treeNode34.Tag = "0";
+            treeNode34.Text = "";
+            treeNode35.Name = "节点1";
+            treeNode35.Tag = "DJJC";
+            treeNode35.Text = "刀具监测";
+            treeNode36.Name = "节点4";
+            treeNode36.Tag = "DJCCD";
+            treeNode36.Text = "刀具领用单据";
+            treeNode37.Name = "节点18";
+            treeNode37.Tag = "DJCCD";
+            treeNode37.Text = "刀具续用单据";
+            treeNode38.Name = "节点5";
+            treeNode38.Tag = "DJGH";
+            treeNode38.Text = "刀具更换单据";
+            treeNode39.Name = "节点6";
+            treeNode39.Tag = "DJWJ";
+            treeNode39.Text = "刀具外借单据";
+            treeNode40.Name = "节点16";
+            treeNode40.Tag = "DJTH";
+            treeNode40.Text = "刀具退还单据";
+            treeNode41.Name = "节点17";
+            treeNode41.Tag = "DJBF";
+            treeNode41.Text = "刀具报废单据";
+            treeNode42.Name = "节点0";
+            treeNode42.Tag = "DJTX";
+            treeNode42.Text = "单据填写";
+            treeNode43.Name = "节点1";
+            treeNode43.Tag = "KCMX";
+            treeNode43.Text = "库存明细";
+            treeNode44.Name = "节点0";
+            treeNode44.Tag = "LXGL";
+            treeNode44.Text = "类型管理";
+            this.menu_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode34,
+            treeNode35,
+            treeNode42,
+            treeNode43,
+            treeNode44});
+            this.menu_treeView.ShowRootLines = false;
+            this.menu_treeView.Size = new System.Drawing.Size(187, 456);
+            this.menu_treeView.TabIndex = 1;
+            this.menu_treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
+            this.menu_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // button1
             // 
@@ -1333,7 +1330,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView menu_treeView;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;

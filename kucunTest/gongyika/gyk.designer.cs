@@ -44,6 +44,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gx = new System.Windows.Forms.GroupBox();
             this.gxxx = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pd = new System.Windows.Forms.GroupBox();
             this.pdxx = new System.Windows.Forms.DataGridView();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,14 +61,6 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gx.SuspendLayout();
@@ -71,19 +71,20 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
-            this.label1.Location = new System.Drawing.Point(516, 9);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 30);
+            this.label1.Size = new System.Drawing.Size(1267, 58);
             this.label1.TabIndex = 0;
             this.label1.Text = "工艺卡管理";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(12, 46);
+            this.groupBox1.Location = new System.Drawing.Point(12, 61);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(198, 619);
             this.groupBox1.TabIndex = 1;
@@ -111,7 +112,7 @@
             this.groupBox2.Controls.Add(this.gykbh);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.groupBox2.Location = new System.Drawing.Point(225, 46);
+            this.groupBox2.Location = new System.Drawing.Point(225, 61);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1028, 89);
             this.groupBox2.TabIndex = 2;
@@ -202,7 +203,7 @@
             // 
             this.gx.Controls.Add(this.gxxx);
             this.gx.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.gx.Location = new System.Drawing.Point(225, 141);
+            this.gx.Location = new System.Drawing.Point(225, 156);
             this.gx.Name = "gx";
             this.gx.Size = new System.Drawing.Size(1028, 220);
             this.gx.TabIndex = 3;
@@ -211,6 +212,7 @@
             // 
             // gxxx
             // 
+            this.gxxx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gxxx.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gxxx.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gxxx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -222,17 +224,66 @@
             this.Column6,
             this.Column7,
             this.Column8});
-            this.gxxx.Location = new System.Drawing.Point(6, 28);
+            this.gxxx.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gxxx.Location = new System.Drawing.Point(3, 25);
             this.gxxx.Name = "gxxx";
             this.gxxx.RowTemplate.Height = 23;
-            this.gxxx.Size = new System.Drawing.Size(1016, 183);
+            this.gxxx.Size = new System.Drawing.Size(1022, 192);
             this.gxxx.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "gxh";
+            this.Column1.HeaderText = "工序号";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "jgljh";
+            this.Column2.HeaderText = "加工零件号";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "jgljmc";
+            this.Column3.HeaderText = "加工零件名称";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "gxnr";
+            this.Column4.HeaderText = "工序内容";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "jichuangbianma";
+            this.Column5.HeaderText = "机床编号";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "jiaju";
+            this.Column6.HeaderText = "夹具";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "dbxx";
+            this.Column7.HeaderText = "刀柄信息";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "djscsj";
+            this.Column8.HeaderText = "单件生产时间";
+            this.Column8.Name = "Column8";
             // 
             // pd
             // 
             this.pd.Controls.Add(this.pdxx);
             this.pd.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.pd.Location = new System.Drawing.Point(225, 367);
+            this.pd.Location = new System.Drawing.Point(225, 382);
             this.pd.Name = "pd";
             this.pd.Size = new System.Drawing.Size(1028, 298);
             this.pd.TabIndex = 4;
@@ -241,6 +292,7 @@
             // 
             // pdxx
             // 
+            this.pdxx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.pdxx.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.pdxx.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.pdxx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -251,10 +303,11 @@
             this.Column13,
             this.Column14,
             this.Column15});
-            this.pdxx.Location = new System.Drawing.Point(6, 20);
+            this.pdxx.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdxx.Location = new System.Drawing.Point(3, 25);
             this.pdxx.Name = "pdxx";
             this.pdxx.RowTemplate.Height = 23;
-            this.pdxx.Size = new System.Drawing.Size(1016, 272);
+            this.pdxx.Size = new System.Drawing.Size(1022, 270);
             this.pdxx.TabIndex = 0;
             // 
             // Column9
@@ -262,111 +315,49 @@
             this.Column9.DataPropertyName = "gxh";
             this.Column9.HeaderText = "工序号";
             this.Column9.Name = "Column9";
-            this.Column9.Width = 139;
             // 
             // Column10
             // 
             this.Column10.DataPropertyName = "daojuleixing";
             this.Column10.HeaderText = "刀具类型";
             this.Column10.Name = "Column10";
-            this.Column10.Width = 139;
             // 
             // Column11
             // 
             this.Column11.DataPropertyName = "daojuguige";
             this.Column11.HeaderText = "刀具规格";
             this.Column11.Name = "Column11";
-            this.Column11.Width = 139;
             // 
             // Column12
             // 
             this.Column12.DataPropertyName = "daojuxinghao";
             this.Column12.HeaderText = "刀具型号";
             this.Column12.Name = "Column12";
-            this.Column12.Width = 139;
             // 
             // Column13
             // 
             this.Column13.DataPropertyName = "sl";
             this.Column13.HeaderText = "数量";
             this.Column13.Name = "Column13";
-            this.Column13.Width = 139;
             // 
             // Column14
             // 
             this.Column14.DataPropertyName = "jichuangbianma";
             this.Column14.HeaderText = "机床编号";
             this.Column14.Name = "Column14";
-            this.Column14.Width = 139;
             // 
             // Column15
             // 
             this.Column15.DataPropertyName = "daotaohao";
             this.Column15.HeaderText = "刀套号";
             this.Column15.Name = "Column15";
-            this.Column15.Width = 139;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "gxh";
-            this.Column1.HeaderText = "工序号";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 122;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "jgljh";
-            this.Column2.HeaderText = "加工零件号";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 121;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "jgljmc";
-            this.Column3.HeaderText = "加工零件名称";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 142;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "gxnr";
-            this.Column4.HeaderText = "工序内容";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 122;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "jichuangbianma";
-            this.Column5.HeaderText = "机床编号";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 121;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "jiaju";
-            this.Column6.HeaderText = "夹具";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "dbxx";
-            this.Column7.HeaderText = "刀柄信息";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 121;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "djscsj";
-            this.Column8.HeaderText = "单件生产时间";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 144;
             // 
             // gyk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1267, 712);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1267, 692);
             this.Controls.Add(this.pd);
             this.Controls.Add(this.gx);
             this.Controls.Add(this.groupBox2);
@@ -374,7 +365,10 @@
             this.Controls.Add(this.label1);
             this.Name = "gyk";
             this.Text = "工艺卡管理";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.gyk_FormClosing);
             this.Load += new System.EventHandler(this.gyk_Load);
+            this.SizeChanged += new System.EventHandler(this.gyk_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -383,7 +377,6 @@
             this.pd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pdxx)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

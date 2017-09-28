@@ -273,8 +273,6 @@
             // 
             // WaiJieMingXi
             // 
-            this.WaiJieMingXi.AllowUserToAddRows = false;
-            this.WaiJieMingXi.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.WaiJieMingXi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.WaiJieMingXi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
