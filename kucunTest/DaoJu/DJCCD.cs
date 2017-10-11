@@ -94,7 +94,6 @@ namespace kucunTest.DaoJu
             string sqlstr2 = "select jichuangbianma from jichuang";
             LYSB.DataSource = SQL.DataReadList(sqlstr2);
             LYSB.SelectedIndex = -1;
-
         }
 
         #region 明细部分

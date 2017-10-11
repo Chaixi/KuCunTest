@@ -402,7 +402,7 @@ namespace kucunTest.DaoJu
         }
 
         /// <summary>
-        /// 刀具续用按钮
+        /// 刀具续用按钮，只能对已领用刀具进行续用，位置标识为M的
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -410,13 +410,12 @@ namespace kucunTest.DaoJu
         {
             bool flag = true;//是否可以领用
             int rowCheckedCount = 0;//选中行数量
-            string str = "";
+            string str = "";//存放报错or提示信息
             string djwz = "";//存放刀具位置
 
             DataTable tb = new DataTable();//存放选中的数据
-            //DataTable dgv_tb = (DataTable)daojuxinxi.DataSource;//获取dataview 转换成 datatable
-            DataTable dgv_tb = Alex.GetDgvToTable(daojuxinxi);
-            tb = dgv_tb.Copy();
+            DataTable dgv_tb = Alex.GetDgvToTable(daojuxinxi);//datagridview 转换成 datatable
+            tb = dgv_tb.Copy();//tb与datagridview中表结构相同
             tb.Clear();
 
             daojuxinxi.EndEdit();//如果DataGridView是可编辑的，将数据提交，否则处于编辑状态的行无法取到 
@@ -432,14 +431,14 @@ namespace kucunTest.DaoJu
                     djwz = dgv_tb.Rows[i]["djwz"].ToString();
 
                     //判断刀具是否已经被领用
-                    //if (dgv_tb.Rows[i]["weizhibiaoshi"].ToString() == wzbs)
-                    if (djwz.Substring(0, 1) == "S")//截取一位标识符，S表示在库，可领用
+                    if (djwz.Substring(0, 1) == "M")//截取一位标识符，M表示已被领用，可续用
                     {
-                        tb.Rows.Add(dgv_tb.Rows[i].ItemArray);//也可以是tb.ImportRow(dgv_tb.Rows[i]);但不能直接tb.Rows.Add(row);出错：改行已经在另一个表中
+                        tb.Rows.Add(dgv_tb.Rows[i].ItemArray);//也可以是tb.ImportRow(dgv_tb.Rows[i]);但不能直接tb.Rows.Add(row);出错：该行已经在另一个表中
                         //DataRow row = ((daojuxinxi.Rows[i]).DataBoundItem as DataRowView).Row;//微软提供的唯一的从DataGridViewRow转换DataRow
                     }
                     else
                     {
+                        //存在不能续用的刀具，直接跳出循环，flag置false
                         str = daojuxinxi.Rows[i].Cells["djid"].Value.ToString() + "未被领用，不能进行续用！";
                         flag = false;
                         break;
@@ -460,7 +459,7 @@ namespace kucunTest.DaoJu
             if (flag)//可以领用
             {
                 DJXY djxy = new DJXY();
-                djxy.AddDataFromTable(tb);
+                djxy.AddDataFromTable(tb);//传输选中的刀具信息
                 djxy.ShowDialog();
             }
             else
@@ -778,6 +777,7 @@ namespace kucunTest.DaoJu
                     //取消选中表格颜色更换，根据寿命和刀具位置判断显示颜色
                     string sm = daojuxinxi.Rows[e.RowIndex].Cells["djsm"].Value.ToString();
                     string djwz = daojuxinxi.Rows[e.RowIndex].Cells["djwz"].Value.ToString();
+
                     //对刀具位置进行判断，对刀具柜刀具和机床刀具库刀具区分显示
                     switch (djwz.Substring(0, 1))
                     {
@@ -786,6 +786,9 @@ namespace kucunTest.DaoJu
                             break;
                         case "S":
                             this.daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
+                            break;
+                        case "T":
+                            this.daojuxinxi.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.HotPink;
                             break;
                     }
                 }

@@ -45,13 +45,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.xuyonglishi = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.xuyongmingxi = new System.Windows.Forms.DataGridView();
             this.xydh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xybz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xyr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xyrq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.xuyongmingxi = new System.Windows.Forms.DataGridView();
             this.djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.djgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.djid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -232,6 +232,9 @@
             // 
             // xuyonglishi
             // 
+            this.xuyonglishi.AllowUserToAddRows = false;
+            this.xuyonglishi.AllowUserToDeleteRows = false;
+            this.xuyonglishi.AllowUserToOrderColumns = true;
             this.xuyonglishi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.xuyonglishi.BackgroundColor = System.Drawing.SystemColors.Control;
             this.xuyonglishi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -243,11 +246,48 @@
             this.czy});
             this.xuyonglishi.Location = new System.Drawing.Point(6, 20);
             this.xuyonglishi.Name = "xuyonglishi";
+            this.xuyonglishi.ReadOnly = true;
             this.xuyonglishi.RowTemplate.Height = 23;
             this.xuyonglishi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.xuyonglishi.Size = new System.Drawing.Size(993, 184);
             this.xuyonglishi.TabIndex = 0;
-            this.xuyonglishi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.xuyonglishi_CellContentClick);
+            this.xuyonglishi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.xuyonglishi_CellClick);
+            this.xuyonglishi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.xuyonglishi_RowPostPaint);
+            // 
+            // xydh
+            // 
+            this.xydh.DataPropertyName = "xydh";
+            this.xydh.HeaderText = "续用单号";
+            this.xydh.Name = "xydh";
+            this.xydh.ReadOnly = true;
+            // 
+            // xybz
+            // 
+            this.xybz.DataPropertyName = "xybz";
+            this.xybz.HeaderText = "续用班组";
+            this.xybz.Name = "xybz";
+            this.xybz.ReadOnly = true;
+            // 
+            // xyr
+            // 
+            this.xyr.DataPropertyName = "xyr";
+            this.xyr.HeaderText = "续用人";
+            this.xyr.Name = "xyr";
+            this.xyr.ReadOnly = true;
+            // 
+            // xyrq
+            // 
+            this.xyrq.DataPropertyName = "xyrq";
+            this.xyrq.HeaderText = "续用日期";
+            this.xyrq.Name = "xyrq";
+            this.xyrq.ReadOnly = true;
+            // 
+            // czy
+            // 
+            this.czy.DataPropertyName = "jbr";
+            this.czy.HeaderText = "操作员";
+            this.czy.Name = "czy";
+            this.czy.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -262,6 +302,9 @@
             // 
             // xuyongmingxi
             // 
+            this.xuyongmingxi.AllowUserToAddRows = false;
+            this.xuyongmingxi.AllowUserToDeleteRows = false;
+            this.xuyongmingxi.AllowUserToOrderColumns = true;
             this.xuyongmingxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.xuyongmingxi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.xuyongmingxi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -274,82 +317,70 @@
             this.jcbm,
             this.dth});
             this.xuyongmingxi.Location = new System.Drawing.Point(6, 20);
+            this.xuyongmingxi.MultiSelect = false;
             this.xuyongmingxi.Name = "xuyongmingxi";
+            this.xuyongmingxi.ReadOnly = true;
             this.xuyongmingxi.RowTemplate.Height = 23;
+            this.xuyongmingxi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.xuyongmingxi.Size = new System.Drawing.Size(993, 226);
             this.xuyongmingxi.TabIndex = 0;
-            // 
-            // xydh
-            // 
-            this.xydh.DataPropertyName = "xuyongdanhao";
-            this.xydh.HeaderText = "续用单号";
-            this.xydh.Name = "xydh";
-            // 
-            // xybz
-            // 
-            this.xybz.DataPropertyName = "xuyongbanzu";
-            this.xybz.HeaderText = "续用班组";
-            this.xybz.Name = "xybz";
-            // 
-            // xyr
-            // 
-            this.xyr.DataPropertyName = "xuyongren";
-            this.xyr.HeaderText = "续用人";
-            this.xyr.Name = "xyr";
-            // 
-            // xyrq
-            // 
-            this.xyrq.DataPropertyName = "xuyongriqi";
-            this.xyrq.HeaderText = "续用日期";
-            this.xyrq.Name = "xyrq";
-            // 
-            // czy
-            // 
-            this.czy.DataPropertyName = "caozuoyuan";
-            this.czy.HeaderText = "操作员";
-            this.czy.Name = "czy";
+            this.xuyongmingxi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.xuyongmingxi_RowPostPaint);
             // 
             // djlx
             // 
-            this.djlx.DataPropertyName = "daojuleixing";
+            this.djlx.DataPropertyName = "djlx";
             this.djlx.HeaderText = "刀具类型";
             this.djlx.Name = "djlx";
+            this.djlx.ReadOnly = true;
+            this.djlx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // djgg
             // 
-            this.djgg.DataPropertyName = "daojuguige";
+            this.djgg.DataPropertyName = "djgg";
             this.djgg.HeaderText = "刀具规格";
             this.djgg.Name = "djgg";
+            this.djgg.ReadOnly = true;
+            this.djgg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // djid
             // 
-            this.djid.DataPropertyName = "daojuid";
+            this.djid.DataPropertyName = "djid";
             this.djid.HeaderText = "刀具ID";
             this.djid.Name = "djid";
+            this.djid.ReadOnly = true;
+            this.djid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // sl
             // 
-            this.sl.DataPropertyName = "shuliang";
+            this.sl.DataPropertyName = "sl";
             this.sl.HeaderText = "数量";
             this.sl.Name = "sl";
+            this.sl.ReadOnly = true;
+            this.sl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // jiagonggongxu
             // 
-            this.jiagonggongxu.DataPropertyName = "jiagonggongxu";
+            this.jiagonggongxu.DataPropertyName = "jggx";
             this.jiagonggongxu.HeaderText = "加工工序";
             this.jiagonggongxu.Name = "jiagonggongxu";
+            this.jiagonggongxu.ReadOnly = true;
+            this.jiagonggongxu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // jcbm
             // 
-            this.jcbm.DataPropertyName = "jichuangbianma";
+            this.jcbm.DataPropertyName = "jcbm";
             this.jcbm.HeaderText = "机床编码";
             this.jcbm.Name = "jcbm";
+            this.jcbm.ReadOnly = true;
+            this.jcbm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dth
             // 
-            this.dth.DataPropertyName = "daotaohao";
+            this.dth.DataPropertyName = "dth";
             this.dth.HeaderText = "刀套号";
             this.dth.Name = "dth";
+            this.dth.ReadOnly = true;
+            this.dth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // XYLS
             // 
