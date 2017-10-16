@@ -570,6 +570,44 @@ namespace kucunTest.LingBuJian
 
         #endregion 其他方法结束
 
-        
+        /// <summary>
+        /// 从表增加明细，即可以通过选择多条记录一并新增明细
+        /// </summary>
+        /// <param name="tb">要新增的明细表部分内容</param>
+        public void AddDataFromTable(DataTable tb)
+        {
+            lymx_db.Columns.Add("lbjmc", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("lbjgg", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("lbjxh", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("kcwz", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("kcsl", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("dw", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("lysl", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("jcbm", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("gx", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("bz", System.Type.GetType("System.String"));
+
+            for (int i = 0; i < tb.Rows.Count; i++)
+            {
+                DataRow rowrow = lymx_db.NewRow();
+
+                rowrow["lbjmc"] = tb.Rows[i]["lbjmc"];//零部件名称
+                rowrow["lbjgg"] = tb.Rows[i]["lbjgg"];//零部件规格
+                rowrow["lbjxh"] = tb.Rows[i]["lbjxh"];//零部件型号
+                rowrow["kcwz"] = tb.Rows[i]["kcwz"];//库存位置
+                rowrow["kcsl"] = tb.Rows[i]["kcsl"];//库存数量
+                rowrow["dw"] = tb.Rows[i]["dw"];//单位
+                rowrow["lysl"] = "";//领用数量
+                rowrow["jcbm"] = "";//机床编码
+                rowrow["gx"] = "";//工序
+                rowrow["bz"] = "";//备注
+                
+                lymx_db.Rows.Add(rowrow);
+                HJ++;
+            }
+
+            lingyongmingxi.DataSource = lymx_db.DefaultView;
+            heji.Text = HJ.ToString();
+        }
     }
 }

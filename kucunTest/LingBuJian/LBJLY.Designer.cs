@@ -48,16 +48,6 @@
             this.danhao = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lingyongmingxi = new System.Windows.Forms.DataGridView();
-            this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dw = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcbm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnMXDelete = new System.Windows.Forms.Button();
-            this.btnMXNew = new System.Windows.Forms.Button();
             this.heji = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -66,8 +56,20 @@
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.btnMXDelete = new System.Windows.Forms.Button();
+            this.btnMXNew = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcwz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dw = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lysl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcbm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lingyongmingxi)).BeginInit();
@@ -76,19 +78,20 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
-            this.label1.Location = new System.Drawing.Point(304, 34);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 30);
+            this.label1.Size = new System.Drawing.Size(1010, 92);
             this.label1.TabIndex = 2;
             this.label1.Text = "零部件领用单据";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(596, 43);
+            this.label3.Location = new System.Drawing.Point(734, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 21);
             this.label3.TabIndex = 0;
@@ -98,7 +101,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(552, 32);
+            this.label4.Location = new System.Drawing.Point(690, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 21);
             this.label4.TabIndex = 0;
@@ -108,7 +111,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(559, 37);
+            this.label8.Location = new System.Drawing.Point(724, 31);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 21);
             this.label8.TabIndex = 0;
@@ -131,14 +134,14 @@
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(825, 122);
+            this.groupBox1.Size = new System.Drawing.Size(986, 122);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "领用信息";
             // 
             // beizhu
             // 
-            this.beizhu.Location = new System.Drawing.Point(645, 68);
+            this.beizhu.Location = new System.Drawing.Point(783, 68);
             this.beizhu.Multiline = true;
             this.beizhu.Name = "beizhu";
             this.beizhu.Size = new System.Drawing.Size(166, 48);
@@ -148,7 +151,7 @@
             // LYRQ
             // 
             this.LYRQ.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.LYRQ.Location = new System.Drawing.Point(645, 26);
+            this.LYRQ.Location = new System.Drawing.Point(783, 26);
             this.LYRQ.Name = "LYRQ";
             this.LYRQ.Size = new System.Drawing.Size(166, 29);
             this.LYRQ.TabIndex = 4;
@@ -195,7 +198,7 @@
             // 
             // LYR
             // 
-            this.LYR.Location = new System.Drawing.Point(383, 29);
+            this.LYR.Location = new System.Drawing.Point(465, 29);
             this.LYR.Name = "LYR";
             this.LYR.Size = new System.Drawing.Size(144, 29);
             this.LYR.TabIndex = 1;
@@ -204,7 +207,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(293, 32);
+            this.label12.Location = new System.Drawing.Point(375, 32);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(90, 21);
             this.label12.TabIndex = 0;
@@ -212,7 +215,7 @@
             // 
             // ZJGX
             // 
-            this.ZJGX.Location = new System.Drawing.Point(383, 77);
+            this.ZJGX.Location = new System.Drawing.Point(465, 77);
             this.ZJGX.Name = "ZJGX";
             this.ZJGX.Size = new System.Drawing.Size(144, 29);
             this.ZJGX.TabIndex = 1;
@@ -230,7 +233,7 @@
             // label13
             // 
             this.label13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(552, 80);
+            this.label13.Location = new System.Drawing.Point(690, 80);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(90, 26);
             this.label13.TabIndex = 0;
@@ -250,7 +253,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(293, 80);
+            this.label10.Location = new System.Drawing.Point(375, 80);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 21);
             this.label10.TabIndex = 0;
@@ -259,22 +262,22 @@
             // danhao
             // 
             this.danhao.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.danhao.Location = new System.Drawing.Point(657, 39);
+            this.danhao.Location = new System.Drawing.Point(795, 44);
             this.danhao.Name = "danhao";
             this.danhao.Size = new System.Drawing.Size(166, 29);
             this.danhao.TabIndex = 1;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lingyongmingxi);
             this.groupBox2.Controls.Add(this.btnMXDelete);
             this.groupBox2.Controls.Add(this.btnMXNew);
             this.groupBox2.Controls.Add(this.heji);
             this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.lingyongmingxi);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(11, 207);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(826, 277);
+            this.groupBox2.Size = new System.Drawing.Size(987, 277);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "领用明细";
@@ -283,7 +286,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.lingyongmingxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.lingyongmingxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.lingyongmingxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.lingyongmingxi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lingyongmingxi.ColumnHeadersHeight = 30;
@@ -291,8 +294,10 @@
             this.lbjmc,
             this.lbjgg,
             this.lbjxh,
-            this.sl,
+            this.kcwz,
+            this.kcsl,
             this.dw,
+            this.lysl,
             this.jcbm,
             this.gx,
             this.bz});
@@ -302,112 +307,14 @@
             this.lingyongmingxi.RowHeadersWidth = 30;
             this.lingyongmingxi.RowTemplate.Height = 23;
             this.lingyongmingxi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.lingyongmingxi.Size = new System.Drawing.Size(809, 210);
+            this.lingyongmingxi.Size = new System.Drawing.Size(970, 210);
             this.lingyongmingxi.TabIndex = 0;
             this.lingyongmingxi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.lingyongmingxi_RowPostPaint);
-            // 
-            // lbjmc
-            // 
-            this.lbjmc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.lbjmc.DataPropertyName = "lbjmc";
-            this.lbjmc.FillWeight = 137.4698F;
-            this.lbjmc.HeaderText = "零部件名称";
-            this.lbjmc.Name = "lbjmc";
-            this.lbjmc.ReadOnly = true;
-            this.lbjmc.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.lbjmc.Width = 115;
-            // 
-            // lbjgg
-            // 
-            this.lbjgg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.lbjgg.DataPropertyName = "lbjgg";
-            this.lbjgg.FillWeight = 154.7204F;
-            this.lbjgg.HeaderText = "零部件规格";
-            this.lbjgg.Name = "lbjgg";
-            this.lbjgg.ReadOnly = true;
-            this.lbjgg.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.lbjgg.Width = 115;
-            // 
-            // lbjxh
-            // 
-            this.lbjxh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.lbjxh.DataPropertyName = "lbjxh";
-            this.lbjxh.FillWeight = 58.94201F;
-            this.lbjxh.HeaderText = "型号/编号";
-            this.lbjxh.Name = "lbjxh";
-            this.lbjxh.ReadOnly = true;
-            this.lbjxh.Width = 106;
-            // 
-            // sl
-            // 
-            this.sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.sl.DataPropertyName = "sl";
-            this.sl.FillWeight = 47.44536F;
-            this.sl.HeaderText = "数量";
-            this.sl.Name = "sl";
-            this.sl.ReadOnly = true;
-            this.sl.Width = 67;
-            // 
-            // dw
-            // 
-            this.dw.DataPropertyName = "dw";
-            this.dw.HeaderText = "单位";
-            this.dw.Name = "dw";
-            this.dw.ReadOnly = true;
-            // 
-            // jcbm
-            // 
-            this.jcbm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.jcbm.DataPropertyName = "jcbm";
-            this.jcbm.FillWeight = 99.25738F;
-            this.jcbm.HeaderText = "机床";
-            this.jcbm.Name = "jcbm";
-            this.jcbm.ReadOnly = true;
-            this.jcbm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.jcbm.Width = 67;
-            // 
-            // gx
-            // 
-            this.gx.DataPropertyName = "gx";
-            this.gx.HeaderText = "工序";
-            this.gx.Name = "gx";
-            this.gx.ReadOnly = true;
-            // 
-            // bz
-            // 
-            this.bz.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.bz.DataPropertyName = "bz";
-            this.bz.FillWeight = 122.0194F;
-            this.bz.HeaderText = "备注";
-            this.bz.Name = "bz";
-            this.bz.ReadOnly = true;
-            // 
-            // btnMXDelete
-            // 
-            this.btnMXDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnMXDelete.Location = new System.Drawing.Point(91, 237);
-            this.btnMXDelete.Name = "btnMXDelete";
-            this.btnMXDelete.Size = new System.Drawing.Size(71, 29);
-            this.btnMXDelete.TabIndex = 5;
-            this.btnMXDelete.Text = "删除";
-            this.btnMXDelete.UseVisualStyleBackColor = true;
-            this.btnMXDelete.Click += new System.EventHandler(this.btnMXDelete_Click);
-            // 
-            // btnMXNew
-            // 
-            this.btnMXNew.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnMXNew.Location = new System.Drawing.Point(11, 236);
-            this.btnMXNew.Name = "btnMXNew";
-            this.btnMXNew.Size = new System.Drawing.Size(70, 29);
-            this.btnMXNew.TabIndex = 5;
-            this.btnMXNew.Text = "新增";
-            this.btnMXNew.UseVisualStyleBackColor = true;
-            this.btnMXNew.Click += new System.EventHandler(this.btnMXNew_Click);
             // 
             // heji
             // 
             this.heji.Enabled = false;
-            this.heji.Location = new System.Drawing.Point(784, 236);
+            this.heji.Location = new System.Drawing.Point(940, 239);
             this.heji.Name = "heji";
             this.heji.Size = new System.Drawing.Size(37, 29);
             this.heji.TabIndex = 1;
@@ -416,7 +323,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(567, 241);
+            this.label15.Location = new System.Drawing.Point(723, 244);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(218, 21);
             this.label15.TabIndex = 0;
@@ -429,7 +336,7 @@
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(11, 490);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(826, 80);
+            this.groupBox3.Size = new System.Drawing.Size(987, 80);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "操作信息";
@@ -442,7 +349,7 @@
             "赵经手",
             "钱刀管",
             "孙大帐"});
-            this.JBR.Location = new System.Drawing.Point(646, 34);
+            this.JBR.Location = new System.Drawing.Point(811, 28);
             this.JBR.Name = "JBR";
             this.JBR.Size = new System.Drawing.Size(166, 29);
             this.JBR.TabIndex = 2;
@@ -450,68 +357,205 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Location = new System.Drawing.Point(468, 590);
+            this.btnDelete.Image = global::kucunTest.Properties.Resources.remove;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(523, 599);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(83, 29);
+            this.btnDelete.Size = new System.Drawing.Size(98, 32);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "删除单据";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnPrint
             // 
             this.btnPrint.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPrint.Location = new System.Drawing.Point(363, 590);
+            this.btnPrint.Image = global::kucunTest.Properties.Resources.print;
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(419, 599);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(83, 29);
+            this.btnPrint.Size = new System.Drawing.Size(98, 32);
             this.btnPrint.TabIndex = 3;
             this.btnPrint.Text = "打印单据";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnConfirm
             // 
             this.btnConfirm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnConfirm.Location = new System.Drawing.Point(260, 590);
+            this.btnConfirm.Image = global::kucunTest.Properties.Resources._lock;
+            this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirm.Location = new System.Drawing.Point(315, 599);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(83, 29);
+            this.btnConfirm.Size = new System.Drawing.Size(98, 32);
             this.btnConfirm.TabIndex = 5;
             this.btnConfirm.Text = "确认领用";
+            this.btnConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(663, 590);
+            this.button4.Location = new System.Drawing.Point(731, 599);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 29);
+            this.button4.Size = new System.Drawing.Size(98, 32);
             this.button4.TabIndex = 3;
             this.button4.Text = "领用历史";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Visible = false;
             // 
-            // btn_save
-            // 
-            this.btn_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_save.Location = new System.Drawing.Point(163, 590);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(83, 29);
-            this.btn_save.TabIndex = 5;
-            this.btn_save.Text = "保存单据";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.button5.Location = new System.Drawing.Point(574, 590);
+            this.button5.Image = global::kucunTest.Properties.Resources.cancel;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(627, 599);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(83, 29);
+            this.button5.Size = new System.Drawing.Size(98, 32);
             this.button5.TabIndex = 6;
             this.button5.Text = "退    出";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // btnMXDelete
+            // 
+            this.btnMXDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnMXDelete.Image = global::kucunTest.Properties.Resources.remove;
+            this.btnMXDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMXDelete.Location = new System.Drawing.Point(102, 236);
+            this.btnMXDelete.Name = "btnMXDelete";
+            this.btnMXDelete.Size = new System.Drawing.Size(75, 29);
+            this.btnMXDelete.TabIndex = 5;
+            this.btnMXDelete.Text = "删 除";
+            this.btnMXDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMXDelete.UseVisualStyleBackColor = true;
+            this.btnMXDelete.Click += new System.EventHandler(this.btnMXDelete_Click);
+            // 
+            // btnMXNew
+            // 
+            this.btnMXNew.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnMXNew.Image = global::kucunTest.Properties.Resources.add;
+            this.btnMXNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMXNew.Location = new System.Drawing.Point(19, 236);
+            this.btnMXNew.Name = "btnMXNew";
+            this.btnMXNew.Size = new System.Drawing.Size(75, 29);
+            this.btnMXNew.TabIndex = 5;
+            this.btnMXNew.Text = "新 增";
+            this.btnMXNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMXNew.UseVisualStyleBackColor = true;
+            this.btnMXNew.Click += new System.EventHandler(this.btnMXNew_Click);
+            // 
+            // btn_save
+            // 
+            this.btn_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_save.Image = global::kucunTest.Properties.Resources.save;
+            this.btn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_save.Location = new System.Drawing.Point(211, 599);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(98, 32);
+            this.btn_save.TabIndex = 5;
+            this.btn_save.Text = "保存单据";
+            this.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // lbjmc
+            // 
+            this.lbjmc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.lbjmc.DataPropertyName = "lbjmc";
+            this.lbjmc.FillWeight = 137.4698F;
+            this.lbjmc.HeaderText = "名称";
+            this.lbjmc.Name = "lbjmc";
+            this.lbjmc.ReadOnly = true;
+            this.lbjmc.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.lbjmc.Width = 67;
+            // 
+            // lbjgg
+            // 
+            this.lbjgg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.lbjgg.DataPropertyName = "lbjgg";
+            this.lbjgg.FillWeight = 154.7204F;
+            this.lbjgg.HeaderText = "规格";
+            this.lbjgg.Name = "lbjgg";
+            this.lbjgg.ReadOnly = true;
+            this.lbjgg.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.lbjgg.Width = 67;
+            // 
+            // lbjxh
+            // 
+            this.lbjxh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.lbjxh.DataPropertyName = "lbjxh";
+            this.lbjxh.FillWeight = 58.94201F;
+            this.lbjxh.HeaderText = "型号";
+            this.lbjxh.Name = "lbjxh";
+            this.lbjxh.ReadOnly = true;
+            this.lbjxh.Width = 67;
+            // 
+            // kcwz
+            // 
+            this.kcwz.DataPropertyName = "kcwz";
+            this.kcwz.HeaderText = "库存位置";
+            this.kcwz.Name = "kcwz";
+            this.kcwz.ReadOnly = true;
+            this.kcwz.Width = 99;
+            // 
+            // kcsl
+            // 
+            this.kcsl.DataPropertyName = "kcsl";
+            this.kcsl.HeaderText = "库存数量";
+            this.kcsl.Name = "kcsl";
+            this.kcsl.ReadOnly = true;
+            this.kcsl.Width = 99;
+            // 
+            // dw
+            // 
+            this.dw.DataPropertyName = "dw";
+            this.dw.HeaderText = "单位";
+            this.dw.Name = "dw";
+            this.dw.ReadOnly = true;
+            this.dw.Width = 67;
+            // 
+            // lysl
+            // 
+            this.lysl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.lysl.DataPropertyName = "lysl";
+            this.lysl.FillWeight = 47.44536F;
+            this.lysl.HeaderText = "领用数量";
+            this.lysl.Name = "lysl";
+            this.lysl.ReadOnly = true;
+            this.lysl.Width = 99;
+            // 
+            // jcbm
+            // 
+            this.jcbm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.jcbm.DataPropertyName = "jcbm";
+            this.jcbm.FillWeight = 99.25738F;
+            this.jcbm.HeaderText = "领用机床";
+            this.jcbm.Name = "jcbm";
+            this.jcbm.ReadOnly = true;
+            this.jcbm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.jcbm.Width = 99;
+            // 
+            // gx
+            // 
+            this.gx.DataPropertyName = "gx";
+            this.gx.HeaderText = "相关工序";
+            this.gx.Name = "gx";
+            this.gx.ReadOnly = true;
+            this.gx.Width = 99;
+            // 
+            // bz
+            // 
+            this.bz.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.bz.DataPropertyName = "bz";
+            this.bz.FillWeight = 122.0194F;
+            this.bz.HeaderText = "备注";
+            this.bz.Name = "bz";
+            this.bz.ReadOnly = true;
             // 
             // LBJLY
             // 
@@ -519,9 +563,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(842, 631);
+            this.ClientSize = new System.Drawing.Size(1010, 643);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -532,6 +575,7 @@
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.label1);
             this.Name = "LBJLY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "零部件领用单";
@@ -591,8 +635,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjmc;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjgg;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjxh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcwz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcsl;
         private System.Windows.Forms.DataGridViewTextBoxColumn dw;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lysl;
         private System.Windows.Forms.DataGridViewTextBoxColumn jcbm;
         private System.Windows.Forms.DataGridViewTextBoxColumn gx;
         private System.Windows.Forms.DataGridViewTextBoxColumn bz;

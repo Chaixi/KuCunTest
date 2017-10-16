@@ -233,7 +233,11 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void btn_edit_xymx_Click(object sender, EventArgs e)
         {
-            int crtrowindex = this.xuyongmingxi.CurrentRow.Index;
+            int crtrowindex = -1;
+            if (this.xuyongmingxi.Rows.Count > 0 && this.xuyongmingxi.SelectedRows.Count > 0)
+            {
+                crtrowindex = this.xuyongmingxi.CurrentRow.Index;
+            }            
 
             if(crtrowindex < 0)
             {
@@ -264,7 +268,38 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void btn_delete_xymx_Click(object sender, EventArgs e)
         {
+            int k = xuyongmingxi.SelectedRows.Count;
+            if (k == 0)
+            {
+                MessageBox.Show("请先选择至少一行数据！", "提示", MessageBoxButtons.OK);
+            }
+            //else if (xuyongmingxi.CurrentRow.Index == xuyongmingxi.Rows.Count - 1 || k == xuyongmingxi.Rows.Count)//选中的是最后一行
+            //{
+            //    MessageBox.Show("不能删除空白行！", "警告", MessageBoxButtons.OK);
+            //}
+            else if (k == 1)
+            {
+                DialogResult result = MessageBox.Show("确定删除" + k + "行数据？", "提示", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    xuyongmingxi.Rows.RemoveAt(xuyongmingxi.CurrentRow.Index);
+                    HJ--;
+                }
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("确定删除" + k + "行数据？", "提示", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    for (int i = k; i >= 1; i--)//从下往上删，避免沙漏效应
+                    {
+                        xuyongmingxi.Rows.RemoveAt(xuyongmingxi.SelectedRows[i - 1].Index);
+                        HJ--;  //合计数量减一
+                    }
+                }
+            }
 
+            heji.Text = HJ.ToString();//更新合计数量
         }
 
         /// <summary>
