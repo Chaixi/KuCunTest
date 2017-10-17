@@ -617,6 +617,9 @@
     <None Include="Resources\search.gif" />
     <None Include="Resources\reload.png" />
     <None Include="Resources\save.gif" />
+    <None Include="Resources\required.png" />
+    <None Include="Resources\required.gif" />
+    <None Include="Resources\required1.gif" />
     <Content Include="Resources\xmulogo.png" />
     <Content Include="Resources\xmulogo厦门大学.png" />
     <None Include="Resources\zoller-刀具图片.jpg" />

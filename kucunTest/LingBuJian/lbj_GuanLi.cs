@@ -41,7 +41,7 @@ namespace kucunTest.LingBuJian
             root.Text = "所有类型";
             treeView1.Nodes.Add(root);
 
-            Sqlstr = string.Format("SELECT DISTINCT daojuid FROM {0} ORDER BY daojuid ASC", lbj);
+            Sqlstr = string.Format("SELECT DISTINCT daojuid FROM {0} ORDER BY CONVERT(daojuid USING gbk) ASC", lbj);
             Alex.BindRoot(Sqlstr, root, true);
             treeView1.Nodes[0].Expand();
             treeView1.SelectedNode = treeView1.Nodes[0];//默认选中所有类型
@@ -73,7 +73,7 @@ namespace kucunTest.LingBuJian
                 {
                     TreeNode currentNode = e.Node;
                     currentNode.Nodes[0].Remove();
-                    Sqlstr = string.Format("SELECT daojuxinghao FROM {0} WHERE daojuid = '{1}'", lbj, currentNode.Text);
+                    Sqlstr = string.Format("SELECT DISTINCT daojuxinghao FROM {0} WHERE daojuid = '{1}'", lbj, currentNode.Text);
                     Alex.BindRoot(Sqlstr, currentNode, false);
                 }
             }            
@@ -335,6 +335,11 @@ namespace kucunTest.LingBuJian
             }
         }
 
+        /// <summary>
+        /// 每次表格绑定数据发生变化，重新绘制底色
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbjxinxi_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             RefreshColor();

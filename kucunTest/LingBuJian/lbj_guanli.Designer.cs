@@ -45,15 +45,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.lbjxinxi = new System.Windows.Forms.DataGridView();
-            this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kcwz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dw = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zxkc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zdkc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_xzlbj = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.djgsl = new System.Windows.Forms.TextBox();
@@ -81,6 +72,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcwz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dw = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zxkc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zdkc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbjxinxi)).BeginInit();
@@ -289,77 +289,6 @@
             this.lbjxinxi.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.lbjxinxi_CellValueChanged);
             this.lbjxinxi.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.lbjxinxi_DataBindingComplete);
             this.lbjxinxi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.lbjxinxi_RowPostPaint);
-            // 
-            // check
-            // 
-            this.check.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.check.FalseValue = "false";
-            this.check.HeaderText = "选择";
-            this.check.IndeterminateValue = "false";
-            this.check.Name = "check";
-            this.check.TrueValue = "true";
-            this.check.Width = 48;
-            // 
-            // lbjmc
-            // 
-            this.lbjmc.DataPropertyName = "lbjmc";
-            this.lbjmc.HeaderText = "零部件名称";
-            this.lbjmc.Name = "lbjmc";
-            this.lbjmc.ReadOnly = true;
-            this.lbjmc.Width = 115;
-            // 
-            // lbjxh
-            // 
-            this.lbjxh.DataPropertyName = "lbjxh";
-            this.lbjxh.HeaderText = "零部件型号";
-            this.lbjxh.Name = "lbjxh";
-            this.lbjxh.ReadOnly = true;
-            this.lbjxh.Width = 115;
-            // 
-            // lbjgg
-            // 
-            this.lbjgg.DataPropertyName = "lbjgg";
-            this.lbjgg.HeaderText = "零部件规格";
-            this.lbjgg.Name = "lbjgg";
-            this.lbjgg.ReadOnly = true;
-            this.lbjgg.Width = 115;
-            // 
-            // kcwz
-            // 
-            this.kcwz.DataPropertyName = "kcwz";
-            this.kcwz.HeaderText = "库存位置";
-            this.kcwz.Name = "kcwz";
-            this.kcwz.ReadOnly = true;
-            this.kcwz.Width = 99;
-            // 
-            // kcsl
-            // 
-            this.kcsl.DataPropertyName = "kcsl";
-            this.kcsl.HeaderText = "库存数量";
-            this.kcsl.Name = "kcsl";
-            this.kcsl.ReadOnly = true;
-            this.kcsl.Width = 99;
-            // 
-            // dw
-            // 
-            this.dw.DataPropertyName = "dw";
-            this.dw.HeaderText = "单位";
-            this.dw.Name = "dw";
-            this.dw.Width = 67;
-            // 
-            // zxkc
-            // 
-            this.zxkc.DataPropertyName = "zxkc";
-            this.zxkc.HeaderText = "最小库存量";
-            this.zxkc.Name = "zxkc";
-            this.zxkc.Width = 115;
-            // 
-            // zdkc
-            // 
-            this.zdkc.DataPropertyName = "zdkc";
-            this.zdkc.HeaderText = "最大库存量";
-            this.zdkc.Name = "zdkc";
-            this.zdkc.Width = 115;
             // 
             // btn_xzlbj
             // 
@@ -887,6 +816,77 @@
             this.treeView1.TabIndex = 0;
             this.treeView1.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeExpand);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // check
+            // 
+            this.check.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.check.FalseValue = "false";
+            this.check.HeaderText = "选择";
+            this.check.IndeterminateValue = "false";
+            this.check.Name = "check";
+            this.check.TrueValue = "true";
+            this.check.Width = 48;
+            // 
+            // lbjmc
+            // 
+            this.lbjmc.DataPropertyName = "lbjmc";
+            this.lbjmc.HeaderText = "零部件名称";
+            this.lbjmc.Name = "lbjmc";
+            this.lbjmc.ReadOnly = true;
+            this.lbjmc.Width = 115;
+            // 
+            // lbjxh
+            // 
+            this.lbjxh.DataPropertyName = "lbjxh";
+            this.lbjxh.HeaderText = "零部件型号";
+            this.lbjxh.Name = "lbjxh";
+            this.lbjxh.ReadOnly = true;
+            this.lbjxh.Width = 115;
+            // 
+            // lbjgg
+            // 
+            this.lbjgg.DataPropertyName = "lbjgg";
+            this.lbjgg.HeaderText = "规格";
+            this.lbjgg.Name = "lbjgg";
+            this.lbjgg.ReadOnly = true;
+            this.lbjgg.Width = 67;
+            // 
+            // kcwz
+            // 
+            this.kcwz.DataPropertyName = "kcwz";
+            this.kcwz.HeaderText = "库存位置";
+            this.kcwz.Name = "kcwz";
+            this.kcwz.ReadOnly = true;
+            this.kcwz.Width = 99;
+            // 
+            // kcsl
+            // 
+            this.kcsl.DataPropertyName = "kcsl";
+            this.kcsl.HeaderText = "库存数量";
+            this.kcsl.Name = "kcsl";
+            this.kcsl.ReadOnly = true;
+            this.kcsl.Width = 99;
+            // 
+            // dw
+            // 
+            this.dw.DataPropertyName = "dw";
+            this.dw.HeaderText = "单位";
+            this.dw.Name = "dw";
+            this.dw.Width = 67;
+            // 
+            // zxkc
+            // 
+            this.zxkc.DataPropertyName = "zxkc";
+            this.zxkc.HeaderText = "最小库存";
+            this.zxkc.Name = "zxkc";
+            this.zxkc.Width = 99;
+            // 
+            // zdkc
+            // 
+            this.zdkc.DataPropertyName = "zdkc";
+            this.zdkc.HeaderText = "最大库存";
+            this.zdkc.Name = "zdkc";
+            this.zdkc.Width = 99;
             // 
             // lbj_GuanLi
             // 

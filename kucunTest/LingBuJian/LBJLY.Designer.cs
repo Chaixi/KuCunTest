@@ -47,19 +47,21 @@
             this.label10 = new System.Windows.Forms.Label();
             this.danhao = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lingyongmingxi = new System.Windows.Forms.DataGridView();
-            this.heji = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.JBR = new System.Windows.Forms.ComboBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.cbx_cfwz = new System.Windows.Forms.ComboBox();
+            this.cbx_djgbm = new System.Windows.Forms.ComboBox();
+            this.cbx_xggx = new System.Windows.Forms.ComboBox();
+            this.txt_bz = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_kcsl = new System.Windows.Forms.TextBox();
+            this.txt_dw1 = new System.Windows.Forms.TextBox();
+            this.cbx_lyjc = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.btnMXDelete = new System.Windows.Forms.Button();
-            this.btnMXNew = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnMXEdit = new System.Windows.Forms.Button();
+            this.lingyongmingxi = new System.Windows.Forms.DataGridView();
             this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,10 +72,36 @@
             this.jcbm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbx_lbjxh = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.heji = new System.Windows.Forms.TextBox();
+            this.btnMXNew = new System.Windows.Forms.Button();
+            this.cbx_lbjgg = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txt_lysl = new System.Windows.Forms.TextBox();
+            this.txt_dw2 = new System.Windows.Forms.TextBox();
+            this.cbx_lbjmc = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.JBR = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lingyongmingxi)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +110,7 @@
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1010, 92);
+            this.label1.Size = new System.Drawing.Size(1226, 77);
             this.label1.TabIndex = 2;
             this.label1.Text = "零部件领用单据";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -91,7 +119,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(734, 48);
+            this.label3.Location = new System.Drawing.Point(951, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 21);
             this.label3.TabIndex = 0;
@@ -132,7 +160,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 79);
+            this.groupBox1.Location = new System.Drawing.Point(229, 76);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(986, 122);
             this.groupBox1.TabIndex = 0;
@@ -176,7 +204,7 @@
             "OP20T238"});
             this.LYSB.Location = new System.Drawing.Point(124, 77);
             this.LYSB.Name = "LYSB";
-            this.LYSB.Size = new System.Drawing.Size(144, 29);
+            this.LYSB.Size = new System.Drawing.Size(163, 29);
             this.LYSB.TabIndex = 2;
             // 
             // LYBZ
@@ -193,7 +221,7 @@
             "机动科"});
             this.LYBZ.Location = new System.Drawing.Point(124, 29);
             this.LYBZ.Name = "LYBZ";
-            this.LYBZ.Size = new System.Drawing.Size(144, 29);
+            this.LYBZ.Size = new System.Drawing.Size(163, 29);
             this.LYBZ.TabIndex = 2;
             // 
             // LYR
@@ -262,25 +290,233 @@
             // danhao
             // 
             this.danhao.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.danhao.Location = new System.Drawing.Point(795, 44);
+            this.danhao.Location = new System.Drawing.Point(1012, 41);
             this.danhao.Name = "danhao";
             this.danhao.Size = new System.Drawing.Size(166, 29);
             this.danhao.TabIndex = 1;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbx_cfwz);
+            this.groupBox2.Controls.Add(this.cbx_djgbm);
+            this.groupBox2.Controls.Add(this.cbx_xggx);
+            this.groupBox2.Controls.Add(this.txt_bz);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.txt_kcsl);
+            this.groupBox2.Controls.Add(this.txt_dw1);
+            this.groupBox2.Controls.Add(this.cbx_lyjc);
+            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.btnMXDelete);
-            this.groupBox2.Controls.Add(this.btnMXNew);
-            this.groupBox2.Controls.Add(this.heji);
-            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.btnMXEdit);
             this.groupBox2.Controls.Add(this.lingyongmingxi);
+            this.groupBox2.Controls.Add(this.cbx_lbjxh);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.heji);
+            this.groupBox2.Controls.Add(this.btnMXNew);
+            this.groupBox2.Controls.Add(this.cbx_lbjgg);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.txt_lysl);
+            this.groupBox2.Controls.Add(this.txt_dw2);
+            this.groupBox2.Controls.Add(this.cbx_lbjmc);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(11, 207);
+            this.groupBox2.Location = new System.Drawing.Point(230, 204);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(987, 277);
+            this.groupBox2.Size = new System.Drawing.Size(987, 446);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "领用明细";
+            // 
+            // cbx_cfwz
+            // 
+            this.cbx_cfwz.FormattingEnabled = true;
+            this.cbx_cfwz.Location = new System.Drawing.Point(414, 60);
+            this.cbx_cfwz.Name = "cbx_cfwz";
+            this.cbx_cfwz.Size = new System.Drawing.Size(165, 29);
+            this.cbx_cfwz.TabIndex = 11;
+            this.cbx_cfwz.SelectedIndexChanged += new System.EventHandler(this.cbx_cfwz_SelectedIndexChanged);
+            // 
+            // cbx_djgbm
+            // 
+            this.cbx_djgbm.FormattingEnabled = true;
+            this.cbx_djgbm.Location = new System.Drawing.Point(414, 25);
+            this.cbx_djgbm.Name = "cbx_djgbm";
+            this.cbx_djgbm.Size = new System.Drawing.Size(165, 29);
+            this.cbx_djgbm.TabIndex = 10;
+            this.cbx_djgbm.SelectedIndexChanged += new System.EventHandler(this.cbx_djgbm_SelectedIndexChanged);
+            // 
+            // cbx_xggx
+            // 
+            this.cbx_xggx.AutoCompleteCustomSource.AddRange(new string[] {
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19",
+            "T20"});
+            this.cbx_xggx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbx_xggx.FormattingEnabled = true;
+            this.cbx_xggx.Items.AddRange(new object[] {
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19",
+            "T20"});
+            this.cbx_xggx.Location = new System.Drawing.Point(703, 98);
+            this.cbx_xggx.Name = "cbx_xggx";
+            this.cbx_xggx.Size = new System.Drawing.Size(165, 29);
+            this.cbx_xggx.TabIndex = 3;
+            // 
+            // txt_bz
+            // 
+            this.txt_bz.Location = new System.Drawing.Point(94, 134);
+            this.txt_bz.Name = "txt_bz";
+            this.txt_bz.Size = new System.Drawing.Size(774, 29);
+            this.txt_bz.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 137);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 21);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "备     注：";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(618, 101);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 21);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "相关工序：";
+            // 
+            // txt_kcsl
+            // 
+            this.txt_kcsl.Location = new System.Drawing.Point(414, 98);
+            this.txt_kcsl.Name = "txt_kcsl";
+            this.txt_kcsl.ReadOnly = true;
+            this.txt_kcsl.Size = new System.Drawing.Size(125, 29);
+            this.txt_kcsl.TabIndex = 6;
+            // 
+            // txt_dw1
+            // 
+            this.txt_dw1.Enabled = false;
+            this.txt_dw1.Location = new System.Drawing.Point(545, 98);
+            this.txt_dw1.Name = "txt_dw1";
+            this.txt_dw1.Size = new System.Drawing.Size(34, 29);
+            this.txt_dw1.TabIndex = 5;
+            this.txt_dw1.Text = "件";
+            this.txt_dw1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbx_lyjc
+            // 
+            this.cbx_lyjc.AutoCompleteCustomSource.AddRange(new string[] {
+            "FMS-1#机",
+            "FMS-2#机",
+            "FMS-3#机",
+            "南车床线",
+            "北车床线",
+            "OP20T01",
+            "OP20T40",
+            "OP20T238"});
+            this.cbx_lyjc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbx_lyjc.FormattingEnabled = true;
+            this.cbx_lyjc.Location = new System.Drawing.Point(703, 63);
+            this.cbx_lyjc.Name = "cbx_lyjc";
+            this.cbx_lyjc.Size = new System.Drawing.Size(165, 29);
+            this.cbx_lyjc.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(617, 66);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 21);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "领用机床：";
+            // 
+            // btnMXDelete
+            // 
+            this.btnMXDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnMXDelete.Image = global::kucunTest.Properties.Resources.remove;
+            this.btnMXDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMXDelete.Location = new System.Drawing.Point(892, 128);
+            this.btnMXDelete.Name = "btnMXDelete";
+            this.btnMXDelete.Size = new System.Drawing.Size(75, 35);
+            this.btnMXDelete.TabIndex = 5;
+            this.btnMXDelete.Text = "删 除";
+            this.btnMXDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMXDelete.UseVisualStyleBackColor = true;
+            this.btnMXDelete.Click += new System.EventHandler(this.btnMXDelete_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(329, 101);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(90, 21);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "库存数量：";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(328, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(90, 21);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "具体位置：";
+            // 
+            // btnMXEdit
+            // 
+            this.btnMXEdit.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnMXEdit.Image = global::kucunTest.Properties.Resources.edit;
+            this.btnMXEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMXEdit.Location = new System.Drawing.Point(892, 75);
+            this.btnMXEdit.Name = "btnMXEdit";
+            this.btnMXEdit.Size = new System.Drawing.Size(75, 35);
+            this.btnMXEdit.TabIndex = 5;
+            this.btnMXEdit.Text = "修 改";
+            this.btnMXEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMXEdit.UseVisualStyleBackColor = true;
+            this.btnMXEdit.Click += new System.EventHandler(this.btnMXEdit_Click);
             // 
             // lingyongmingxi
             // 
@@ -301,167 +537,16 @@
             this.jcbm,
             this.gx,
             this.bz});
-            this.lingyongmingxi.Location = new System.Drawing.Point(11, 20);
+            this.lingyongmingxi.Location = new System.Drawing.Point(14, 181);
             this.lingyongmingxi.Name = "lingyongmingxi";
             this.lingyongmingxi.ReadOnly = true;
             this.lingyongmingxi.RowHeadersWidth = 30;
             this.lingyongmingxi.RowTemplate.Height = 23;
             this.lingyongmingxi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.lingyongmingxi.Size = new System.Drawing.Size(970, 210);
+            this.lingyongmingxi.Size = new System.Drawing.Size(953, 224);
             this.lingyongmingxi.TabIndex = 0;
+            this.lingyongmingxi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lingyongmingxi_CellClick);
             this.lingyongmingxi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.lingyongmingxi_RowPostPaint);
-            // 
-            // heji
-            // 
-            this.heji.Enabled = false;
-            this.heji.Location = new System.Drawing.Point(940, 239);
-            this.heji.Name = "heji";
-            this.heji.Size = new System.Drawing.Size(37, 29);
-            this.heji.TabIndex = 1;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(723, 244);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(218, 21);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "合计：本次共领用零部件数量";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.JBR);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(11, 490);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(987, 80);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "操作信息";
-            // 
-            // JBR
-            // 
-            this.JBR.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.JBR.FormattingEnabled = true;
-            this.JBR.Items.AddRange(new object[] {
-            "赵经手",
-            "钱刀管",
-            "孙大帐"});
-            this.JBR.Location = new System.Drawing.Point(811, 28);
-            this.JBR.Name = "JBR";
-            this.JBR.Size = new System.Drawing.Size(166, 29);
-            this.JBR.TabIndex = 2;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Image = global::kucunTest.Properties.Resources.remove;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(523, 599);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(98, 32);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "删除单据";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPrint.Image = global::kucunTest.Properties.Resources.print;
-            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(419, 599);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(98, 32);
-            this.btnPrint.TabIndex = 3;
-            this.btnPrint.Text = "打印单据";
-            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnConfirm.Image = global::kucunTest.Properties.Resources._lock;
-            this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirm.Location = new System.Drawing.Point(315, 599);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(98, 32);
-            this.btnConfirm.TabIndex = 5;
-            this.btnConfirm.Text = "确认领用";
-            this.btnConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(731, 599);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(98, 32);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "领用历史";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.button5.Image = global::kucunTest.Properties.Resources.cancel;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(627, 599);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(98, 32);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "退    出";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // btnMXDelete
-            // 
-            this.btnMXDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnMXDelete.Image = global::kucunTest.Properties.Resources.remove;
-            this.btnMXDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMXDelete.Location = new System.Drawing.Point(102, 236);
-            this.btnMXDelete.Name = "btnMXDelete";
-            this.btnMXDelete.Size = new System.Drawing.Size(75, 29);
-            this.btnMXDelete.TabIndex = 5;
-            this.btnMXDelete.Text = "删 除";
-            this.btnMXDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMXDelete.UseVisualStyleBackColor = true;
-            this.btnMXDelete.Click += new System.EventHandler(this.btnMXDelete_Click);
-            // 
-            // btnMXNew
-            // 
-            this.btnMXNew.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnMXNew.Image = global::kucunTest.Properties.Resources.add;
-            this.btnMXNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMXNew.Location = new System.Drawing.Point(19, 236);
-            this.btnMXNew.Name = "btnMXNew";
-            this.btnMXNew.Size = new System.Drawing.Size(75, 29);
-            this.btnMXNew.TabIndex = 5;
-            this.btnMXNew.Text = "新 增";
-            this.btnMXNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMXNew.UseVisualStyleBackColor = true;
-            this.btnMXNew.Click += new System.EventHandler(this.btnMXNew_Click);
-            // 
-            // btn_save
-            // 
-            this.btn_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_save.Image = global::kucunTest.Properties.Resources.save;
-            this.btn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_save.Location = new System.Drawing.Point(211, 599);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(98, 32);
-            this.btn_save.TabIndex = 5;
-            this.btn_save.Text = "保存单据";
-            this.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // lbjmc
             // 
@@ -557,13 +642,285 @@
             this.bz.Name = "bz";
             this.bz.ReadOnly = true;
             // 
+            // cbx_lbjxh
+            // 
+            this.cbx_lbjxh.FormattingEnabled = true;
+            this.cbx_lbjxh.Location = new System.Drawing.Point(94, 95);
+            this.cbx_lbjxh.Name = "cbx_lbjxh";
+            this.cbx_lbjxh.Size = new System.Drawing.Size(192, 29);
+            this.cbx_lbjxh.TabIndex = 3;
+            this.cbx_lbjxh.SelectedIndexChanged += new System.EventHandler(this.cbx_lbjxh_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(329, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "刀柜编码：";
+            // 
+            // heji
+            // 
+            this.heji.Enabled = false;
+            this.heji.Location = new System.Drawing.Point(930, 411);
+            this.heji.Name = "heji";
+            this.heji.Size = new System.Drawing.Size(37, 29);
+            this.heji.TabIndex = 1;
+            // 
+            // btnMXNew
+            // 
+            this.btnMXNew.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnMXNew.Image = global::kucunTest.Properties.Resources.add;
+            this.btnMXNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMXNew.Location = new System.Drawing.Point(892, 21);
+            this.btnMXNew.Name = "btnMXNew";
+            this.btnMXNew.Size = new System.Drawing.Size(75, 35);
+            this.btnMXNew.TabIndex = 5;
+            this.btnMXNew.Text = "新 增";
+            this.btnMXNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMXNew.UseVisualStyleBackColor = true;
+            this.btnMXNew.Click += new System.EventHandler(this.btnMXNew_Click);
+            // 
+            // cbx_lbjgg
+            // 
+            this.cbx_lbjgg.FormattingEnabled = true;
+            this.cbx_lbjgg.Location = new System.Drawing.Point(94, 60);
+            this.cbx_lbjgg.Name = "cbx_lbjgg";
+            this.cbx_lbjgg.Size = new System.Drawing.Size(192, 29);
+            this.cbx_lbjgg.TabIndex = 3;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.Location = new System.Drawing.Point(713, 416);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(218, 21);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "合计：本次共领用零部件数量";
+            // 
+            // txt_lysl
+            // 
+            this.txt_lysl.Location = new System.Drawing.Point(703, 25);
+            this.txt_lysl.Name = "txt_lysl";
+            this.txt_lysl.Size = new System.Drawing.Size(125, 29);
+            this.txt_lysl.TabIndex = 3;
+            // 
+            // txt_dw2
+            // 
+            this.txt_dw2.Enabled = false;
+            this.txt_dw2.Location = new System.Drawing.Point(834, 25);
+            this.txt_dw2.Name = "txt_dw2";
+            this.txt_dw2.Size = new System.Drawing.Size(34, 29);
+            this.txt_dw2.TabIndex = 3;
+            this.txt_dw2.Text = "件";
+            this.txt_dw2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbx_lbjmc
+            // 
+            this.cbx_lbjmc.FormattingEnabled = true;
+            this.cbx_lbjmc.Location = new System.Drawing.Point(94, 25);
+            this.cbx_lbjmc.Name = "cbx_lbjmc";
+            this.cbx_lbjmc.Size = new System.Drawing.Size(192, 29);
+            this.cbx_lbjmc.TabIndex = 3;
+            this.cbx_lbjmc.SelectedIndexChanged += new System.EventHandler(this.cbx_lbjmc_SelectedIndexChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(617, 28);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(90, 21);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "领用数量：";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(15, 63);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(83, 21);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "规     格：";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label16.Location = new System.Drawing.Point(15, 98);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(83, 21);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "型     号：";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label18.Location = new System.Drawing.Point(15, 28);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(83, 21);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "名     称：";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.JBR);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox3.Location = new System.Drawing.Point(229, 656);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(987, 80);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "操作信息";
+            // 
+            // JBR
+            // 
+            this.JBR.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.JBR.FormattingEnabled = true;
+            this.JBR.Items.AddRange(new object[] {
+            "赵经手",
+            "钱刀管",
+            "孙大帐"});
+            this.JBR.Location = new System.Drawing.Point(811, 28);
+            this.JBR.Name = "JBR";
+            this.JBR.Size = new System.Drawing.Size(166, 29);
+            this.JBR.TabIndex = 2;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button4.Location = new System.Drawing.Point(875, 753);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(98, 32);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "领用历史";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.treeView1);
+            this.groupBox4.Controls.Add(this.btnClose);
+            this.groupBox4.Controls.Add(this.btnAdd);
+            this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox4.Location = new System.Drawing.Point(5, 76);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(219, 660);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "选择零部件";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.treeView1.Location = new System.Drawing.Point(6, 28);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(198, 573);
+            this.treeView1.TabIndex = 7;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnClose.Location = new System.Drawing.Point(107, 611);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(88, 32);
+            this.btnClose.TabIndex = 9;
+            this.btnClose.Text = "关闭";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnAdd.Location = new System.Drawing.Point(7, 611);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(88, 32);
+            this.btnAdd.TabIndex = 10;
+            this.btnAdd.Text = "添加";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.button5.Image = global::kucunTest.Properties.Resources.cancel;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(771, 753);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(98, 32);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "退    出";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // btn_save
+            // 
+            this.btn_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_save.Image = global::kucunTest.Properties.Resources.save;
+            this.btn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_save.Location = new System.Drawing.Point(355, 753);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(98, 32);
+            this.btn_save.TabIndex = 5;
+            this.btn_save.Text = "保存单据";
+            this.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnConfirm.Image = global::kucunTest.Properties.Resources._lock;
+            this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirm.Location = new System.Drawing.Point(459, 753);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(98, 32);
+            this.btnConfirm.TabIndex = 5;
+            this.btnConfirm.Text = "确认领用";
+            this.btnConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnPrint.Image = global::kucunTest.Properties.Resources.print;
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(563, 753);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(98, 32);
+            this.btnPrint.TabIndex = 3;
+            this.btnPrint.Text = "打印单据";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDelete.Image = global::kucunTest.Properties.Resources.remove;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(667, 753);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(98, 32);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "删除单据";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // LBJLY
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1010, 643);
+            this.ClientSize = new System.Drawing.Size(1226, 798);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -579,6 +936,7 @@
             this.Name = "LBJLY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "零部件领用单";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LBJLY_FormClosed);
             this.Load += new System.EventHandler(this.LBJLY_Load);
             this.SizeChanged += new System.EventHandler(this.LBJLY_SizeChanged);
             this.groupBox1.ResumeLayout(false);
@@ -588,6 +946,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lingyongmingxi)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -623,7 +982,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox beizhu;
-        private System.Windows.Forms.Button btnMXDelete;
+        private System.Windows.Forms.Button btnMXEdit;
         private System.Windows.Forms.Button btnMXNew;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox LYSB;
@@ -632,6 +991,33 @@
         private System.Windows.Forms.TextBox heji;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnMXDelete;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt_kcsl;
+        private System.Windows.Forms.TextBox txt_dw1;
+        private System.Windows.Forms.ComboBox cbx_lyjc;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbx_lbjxh;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbx_lbjgg;
+        private System.Windows.Forms.TextBox txt_lysl;
+        private System.Windows.Forms.TextBox txt_dw2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox cbx_lbjmc;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.ComboBox cbx_xggx;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txt_bz;
+        private System.Windows.Forms.ComboBox cbx_cfwz;
+        private System.Windows.Forms.ComboBox cbx_djgbm;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjmc;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjgg;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjxh;
