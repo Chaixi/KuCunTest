@@ -20,6 +20,7 @@ namespace kucunTest.LingBuJian
         string Sqlstr = "";
         int HJ = 0;
         bool zancun = false;
+        bool queren = false;
         string tishi = "";//提示文本
 
         BaseAlex Alex = new BaseAlex();
@@ -75,8 +76,8 @@ namespace kucunTest.LingBuJian
         {
             InitializeComponent();
 
-            //是否暂存单据
-            zancun = true;
+            loadData();
+            cbx_lbjmc.SelectedIndex = -1;
 
             //根据单号查询数据库退还和操作信息
             Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", danjubiao, DHZD, dh);
@@ -85,21 +86,26 @@ namespace kucunTest.LingBuJian
             //给借用信息和操作信息赋值
             danhao.Text = dh;//单号
             LYBZ.Text = ds.Tables[0].Rows[0]["lybz"].ToString();//领用班组
-            LYSB.Text = ds.Tables[0].Rows[0]["lysb"].ToString();//领用班组
+            LYSB.Text = ds.Tables[0].Rows[0]["lysb"].ToString();//领用设备
             LYR.Text = ds.Tables[0].Rows[0]["lyr"].ToString();//领用人
             LYRQ.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["lyrq"].ToString());//领用日期
-            ZJGX.Text = ds.Tables[0].Rows[0]["zjgx"].ToString();
+            ZJGX.Text = ds.Tables[0].Rows[0]["zjgx"].ToString();//制件工序
             beizhu.Text = ds.Tables[0].Rows[0]["beizhu"].ToString();//领用备注
             JBR.Text = ds.Tables[0].Rows[0]["jbr"].ToString();//经办人
             string djzt = ds.Tables[0].Rows[0]["djzt"].ToString();//单据状态
 
             //根据单号查询明细信息
-            Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", mingxibiao, DHZD, dh);
+            //Sqlstr = string.Format("SELECT lbjmc, lbjgg, lbjxh, CONCAT(djgbm, '--', jtwz) AS kcwz, lysl, dw, jcbm, gx, bz FROM {0} WHERE {1} = '{2}'", mingxibiao, DHZD, dh);
+            Sqlstr = string.Format("SELECT mx.lbjmc AS lbjmc, mx.lbjgg AS lbjgg, mx.lbjxh AS lbjxh, CONCAT(mx.djgbm, '--', mx.jtwz) AS kcwz, ls.dskykc AS kcsl, mx.lysl AS lysl, mx.dw AS dw, mx.jcbm AS jcbm, mx.gx AS gx, mx.bz AS bz FROM {0} mx LEFT JOIN {1} ls ON mx.danhao=ls.danhao WHERE mx.lbjxh=ls.lbjxh AND mx.djgbm = ls.djgbm AND mx.jtwz=ls.jtwz AND mx.{2}='{3}'", mingxibiao, liushuibiao, DHZD, dh);
             lymx_db = (SQL.getDataSet(Sqlstr, mingxibiao)).Tables[0];//用全局变量保存查询出来的明细，方便后续可以继续添加
             lingyongmingxi.AutoGenerateColumns = false;
             lingyongmingxi.DataSource = lymx_db.DefaultView;
-
-            HJ = lingyongmingxi.Rows.Count - 1;//更新合计数量
+            
+            //更新合计数量
+            for(int i = 0; i<lymx_db.Rows.Count; i++)
+            {
+                HJ = HJ + Convert.ToInt16(lymx_db.Rows[i]["lysl"].ToString());
+            }
             heji.Text = HJ.ToString();
 
             //若是已完成的单据，则只允许查看，不许修改。
@@ -107,6 +113,12 @@ namespace kucunTest.LingBuJian
             {
                 Alex.DisableAllControl(this);
                 btnPrint.Enabled = true;
+                btnexit.Enabled = true;
+                queren = true;//是已确认单据
+            }
+            else
+            {
+                zancun = true;//是暂存单据
             }
         }
 
@@ -158,16 +170,16 @@ namespace kucunTest.LingBuJian
                 {
                     DataRow rowrow = lymx_db.NewRow();
 
-                    rowrow["lbjmc"] = cbx_lbjmc.Text;//零部件名称
-                    rowrow["lbjgg"] = cbx_lbjgg.Text;//零部件规格
-                    rowrow["lbjxh"] = cbx_lbjxh.Text;//零部件型号
-                    rowrow["lbjxh"] = cbx_djgbm.Text + "--" + cbx_cfwz.Text;//库存位置
-                    rowrow["sl"] = txt_kcsl.Text;//库存数量
-                    rowrow["sl"] = txt_dw1.Text;//单位
-                    rowrow["sl"] = txt_lysl.Text;//领用数量
-                    rowrow["sl"] = cbx_lyjc.Text;//领用机床编码
-                    rowrow["gx"] = cbx_xggx.Text;//相关工序
-                    rowrow["bz"] = txt_bz.Text;//备注
+                    rowrow["lbjmc"] = cbx_lbjmc.Text.ToString();//零部件名称
+                    rowrow["lbjgg"] = cbx_lbjgg.Text.ToString();//零部件规格
+                    rowrow["lbjxh"] = cbx_lbjxh.Text.ToString();//零部件型号
+                    rowrow["kcwz"] = (cbx_djgbm.Text + "--" + cbx_cfwz.Text).ToString();//库存位置
+                    rowrow["kcsl"] = Convert.ToInt16(txt_kcsl.Text);//库存数量
+                    rowrow["lysl"] = Convert.ToInt16(txt_lysl.Text);//领用数量
+                    rowrow["dw"] = txt_dw1.Text;//单位
+                    rowrow["jcbm"] = cbx_lyjc.Text.ToString();//领用机床编码
+                    rowrow["gx"] = cbx_xggx.Text.ToString();//相关工序
+                    rowrow["bz"] = txt_bz.Text.ToString();//备注
 
                     lymx_db.Rows.Add(rowrow);
                 }
@@ -218,7 +230,7 @@ namespace kucunTest.LingBuJian
                 int crtrowindex = lingyongmingxi.CurrentRow.Index;
 
                 //排除从总表勾选得到的明细数据因没有领用数量、机床编码、工序、备注而出错的情况
-                if(lingyongmingxi.Rows[crtrowindex].Cells["lysl"].Value.ToString() != "" || lingyongmingxi.Rows[crtrowindex].Cells["lysl"].Value.ToString() != null)
+                if(lingyongmingxi.Rows[crtrowindex].Cells["lysl"].Value.ToString() != "" && lingyongmingxi.Rows[crtrowindex].Cells["lysl"] != null)
                 {
                     HJ = HJ - Convert.ToInt16(lingyongmingxi.Rows[crtrowindex].Cells["lysl"].Value.ToString());
                 }
@@ -401,20 +413,24 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void lingyongmingxi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int rowindex = lingyongmingxi.CurrentRow.Index;
+
             //选中表头和最后一行不进行填充
-            if (e.RowIndex >= 0 && e.RowIndex < lingyongmingxi.Rows.Count - 1)
+            if (rowindex >= 0 && rowindex < lingyongmingxi.Rows.Count - 1)
             {
                 //选中的行数据格式化
-                string row_mc = lingyongmingxi.Rows[e.RowIndex].Cells["lbjmc"].Value.ToString();//零部件名称
-                string row_gg = lingyongmingxi.Rows[e.RowIndex].Cells["lbjgg"].Value.ToString();//零部件规格
-                string row_xh = lingyongmingxi.Rows[e.RowIndex].Cells["lbjxh"].Value.ToString();//零部件型号
-                string row_kcwz = lingyongmingxi.Rows[e.RowIndex].Cells["kcwz"].Value.ToString();//库存位置
+                string row_mc = lingyongmingxi.Rows[rowindex].Cells["lbjmc"].Value.ToString();//零部件名称
+                string row_gg = lingyongmingxi.Rows[rowindex].Cells["lbjgg"].Value.ToString();//零部件规格
+                string row_xh = lingyongmingxi.Rows[rowindex].Cells["lbjxh"].Value.ToString();//零部件型号
+                string row_kcwz = lingyongmingxi.Rows[rowindex].Cells["kcwz"].Value.ToString();//库存位置
                 string row_djgbm = row_kcwz.Substring(0, row_kcwz.Length - 4);//还原库存位置的刀具柜编码
                 string row_cfwz = row_kcwz.Substring(row_kcwz.Length - 2);//还原库存位置的具体层数
-                string row_sl = lingyongmingxi.Rows[e.RowIndex].Cells["lysl"].Value.ToString();//领用数量
-                string row_jc = lingyongmingxi.Rows[e.RowIndex].Cells["jcbm"].Value.ToString();//领用机床
-                string row_gx = lingyongmingxi.Rows[e.RowIndex].Cells["gx"].Value.ToString();//相关工序
-                string row_bz = lingyongmingxi.Rows[e.RowIndex].Cells["bz"].Value.ToString();//备注
+                string row_kcsl = lingyongmingxi.Rows[rowindex].Cells["kcsl"].Value.ToString();//库存数量
+                string row_dw = lingyongmingxi.Rows[rowindex].Cells["dw"].Value.ToString();//单位
+                string row_sl = lingyongmingxi.Rows[rowindex].Cells["lysl"].Value.ToString();//领用数量
+                string row_jc = lingyongmingxi.Rows[rowindex].Cells["jcbm"].Value.ToString();//领用机床
+                string row_gx = lingyongmingxi.Rows[rowindex].Cells["gx"].Value.ToString();//相关工序
+                string row_bz = lingyongmingxi.Rows[rowindex].Cells["bz"].Value.ToString();//备注
 
                 //数据填充
                 cbx_lbjmc.Text = row_mc;
@@ -422,6 +438,9 @@ namespace kucunTest.LingBuJian
                 cbx_lbjxh.Text = row_xh;
                 cbx_djgbm.Text = row_djgbm;
                 cbx_cfwz.Text = row_cfwz;
+                txt_kcsl.Text = row_kcsl;
+                txt_dw1.Text = row_dw;
+                txt_dw2.Text = row_dw;
                 txt_lysl.Text = row_sl;
                 cbx_lyjc.Text = row_jc;
                 cbx_xggx.Text = row_gx;
@@ -715,19 +734,29 @@ namespace kucunTest.LingBuJian
                             string lbjmc = lingyongmingxi.Rows[rowindex].Cells["lbjmc"].Value.ToString();
                             string lbjgg = lingyongmingxi.Rows[rowindex].Cells["lbjgg"].Value.ToString();
                             string lbjxh = lingyongmingxi.Rows[rowindex].Cells["lbjxh"].Value.ToString();
-                            string sl = lingyongmingxi.Rows[rowindex].Cells["sl"].Value.ToString();
+
+                            string kcwz = lingyongmingxi.Rows[rowindex].Cells["kcwz"].Value.ToString();
+                            string kcwz_wz = kcwz.Substring(0, kcwz.Length - 4);
+                            string kcwz_cs = kcwz.Substring(kcwz.Length - 2);
+
+                            string kcsl = lingyongmingxi.Rows[rowindex].Cells["kcsl"].Value.ToString();
                             string dw = lingyongmingxi.Rows[rowindex].Cells["dw"].Value.ToString();
+                            string lysl = lingyongmingxi.Rows[rowindex].Cells["lysl"].Value.ToString();
                             string jcbm = lingyongmingxi.Rows[rowindex].Cells["jcbm"].Value.ToString();
                             string gx = lingyongmingxi.Rows[rowindex].Cells["gx"].Value.ToString();
                             string beizhu = lingyongmingxi.Rows[rowindex].Cells["bz"].Value.ToString();
 
-                            //明细数据存入数据库明细表
-                            Sqlstr = string.Format("INSERT INTO {0}(danhao, lbjmc, lbjgg, lbjxh, sl, dw, jcbm, gx, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", mingxibiao, dh, lbjmc, lbjgg, lbjxh, sl, dw, jcbm, gx, beizhu);
+                            //存入流水表
+                            Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, lbjmc, lbjgg, lbjxh, djgbm, jtwz, zsl, fsl, dskykc, dw, czsj, jbr, bz) VALUES('{1}', '零部件领用', '{2}', '{3}', '{4}', '{5}', '{6}', '0', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}')", liushuibiao, dh, lbjmc, lbjgg, lbjxh, kcwz_wz, kcwz_cs, lysl, kcsl, dw, DateTime.Now, jbr, beizhu);
+                            row3 = SQL.ExecuteNonQuery(Sqlstr);//执行sql语句,row2为受影响的行数
+
+                            //存入明细表
+                            Sqlstr = string.Format("INSERT INTO {0}(danhao, lbjmc, lbjgg, lbjxh, djgbm, jtwz, lysl, dw, wzbs, jcbm, gx, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}')", mingxibiao, dh, lbjmc, lbjgg, lbjxh, kcwz_wz, kcwz_cs, lysl, dw, 'M', jcbm, gx, beizhu);
                             row2 = SQL.ExecuteNonQuery(Sqlstr);//执行sql语句,row2为受影响的行数
 
-                            //明细信息存入流水表
-                            Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, lbjmc, lbjgg, lbjxh, zsl, fsl, czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}')", liushuibiao, dh, "常规领用", lbjmc, lbjgg, lbjxh, "0", sl, lyrq, jbr, beizhu);
-                            row3 = SQL.ExecuteNonQuery(Sqlstr);
+                            //更新库存表
+                            Sqlstr = string.Format("UPDATE {0} SET {1} = {1} - {2} WHERE {3}='{4}' AND {5}='{6}' AND {7}='{8}' AND {9}='{10}'", lbjbiao, lbjbiao_kcsl, Convert.ToInt16(lysl), lbjbiao_lbjmc, lbjmc, lbjbiao_lbjxh, lbjxh, lbjbiao_djgbm, kcwz_wz, lbjbiao_jtwz, kcwz_cs);
+                            row2 = SQL.ExecuteNonQuery(Sqlstr);//执行sql语句,row2为受影响的行数
                         }
 
                         if (row2 != 0)
@@ -875,6 +904,8 @@ namespace kucunTest.LingBuJian
         /// <returns></returns>
         private int CheckData()
         {
+            //提示内容清空
+            tishi = "";
             if (LYBZ.Text == "" || LYR.Text == "" || JBR.Text == "")
             {
                 if (LYBZ.Text.ToString() == "")
@@ -899,6 +930,18 @@ namespace kucunTest.LingBuJian
             if (lingyongmingxi.Rows.Count == 1)
             {
                 tishi = "领用明细不能为空！";
+            }
+
+            for(int i = 0; i < lingyongmingxi.Rows.Count - 1; i++)//有一行空白行
+            {
+                if(lingyongmingxi.Rows[i].Cells["lysl"].Value.ToString() == "" || lingyongmingxi.Rows[i].Cells["jcbm"].Value.ToString() == "" || lingyongmingxi.Rows[i].Cells["gx"].Value.ToString() == "")
+                {
+                    tishi = "请将明细内容补充完整！";
+                    lingyongmingxi.Rows[i].Selected = true;
+                    lingyongmingxi.CurrentCell = lingyongmingxi.Rows[i].Cells[0];
+                    lingyongmingxi_CellClick(null, null);
+                    break;
+                }
             }
 
             if (tishi != "")

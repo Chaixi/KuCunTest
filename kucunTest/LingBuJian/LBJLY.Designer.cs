@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -92,7 +92,7 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnexit = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -520,8 +520,8 @@
             // 
             // lingyongmingxi
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.lingyongmingxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.lingyongmingxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.lingyongmingxi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -843,19 +843,19 @@
             this.btnAdd.Text = "添加";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnexit
             // 
-            this.button5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.button5.Image = global::kucunTest.Properties.Resources.cancel;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(771, 753);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(98, 32);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "退    出";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnexit.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btnexit.Image = global::kucunTest.Properties.Resources.cancel;
+            this.btnexit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnexit.Location = new System.Drawing.Point(771, 753);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.Size = new System.Drawing.Size(98, 32);
+            this.btnexit.TabIndex = 6;
+            this.btnexit.Text = "退    出";
+            this.btnexit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnexit.UseVisualStyleBackColor = true;
+            this.btnexit.Click += new System.EventHandler(this.button5_Click);
             // 
             // btn_save
             // 
@@ -921,7 +921,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1226, 798);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnexit);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -990,7 +990,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox heji;
         private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnexit;
         private System.Windows.Forms.Button btnMXDelete;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_kcsl;
