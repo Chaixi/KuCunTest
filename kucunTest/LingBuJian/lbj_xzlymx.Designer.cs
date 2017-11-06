@@ -435,7 +435,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAdd);
             this.Name = "lbj_xzlymx";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加领用零部件";
             this.Load += new System.EventHandler(this.lbj_xzlymx_Load);
             this.SizeChanged += new System.EventHandler(this.lbj_xzlymx_SizeChanged);

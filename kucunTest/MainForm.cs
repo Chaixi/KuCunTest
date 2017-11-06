@@ -696,8 +696,6 @@ namespace kucunTest
         private void 零部件库存管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lbj_GuanLi lbjgl = new lbj_GuanLi();
-            //lbjgl.Show();
-
             lbjgl.MdiParent = this;
 
             bool have = false;
@@ -756,19 +754,20 @@ namespace kucunTest
 
             if (!have)
             {
-                TabPage tb_djccd = new TabPage();
-                lbjly.Parent = tb_djccd;
-                tb_djccd.Text = lbjly.Text;
-                tb_djccd.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb_djccd.BackgroundImageLayout = ImageLayout.Stretch;
+                TabPage tb = new TabPage();
+                tb.Name = lbjly.Name;
+                lbjly.Parent = tb;
+                tb.Text = lbjly.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
 
-                this.tabControl1.TabPages.Add(tb_djccd);
-                tabControl1.SelectedTab = tb_djccd;
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
                 lbjly.StartPosition = FormStartPosition.Manual;
                 lbjly.Left = (tabControl1.Width - lbjly.Width) / 4;
-                lbjly.Top = (tb_djccd.Height - lbjly.Height) / 4;
+                lbjly.Top = (tb.Height - lbjly.Height) / 4;
 
                 lbjly.Show();
             }
@@ -797,19 +796,20 @@ namespace kucunTest
 
             if (!have)
             {
-                TabPage tb_djccd = new TabPage();
-                lbjth.Parent = tb_djccd;
-                tb_djccd.Text = lbjth.Text;
-                tb_djccd.BackgroundImage = kucunTest.Properties.Resources.background;
-                tb_djccd.BackgroundImageLayout = ImageLayout.Stretch;
+                TabPage tb = new TabPage();
+                tb.Name = lbjth.Name;
+                lbjth.Parent = tb;
+                tb.Text = lbjth.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
 
-                this.tabControl1.TabPages.Add(tb_djccd);
-                tabControl1.SelectedTab = tb_djccd;
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
                 lbjth.StartPosition = FormStartPosition.Manual;
                 lbjth.Left = (tabControl1.Width - lbjth.Width) / 4;
-                lbjth.Top = (tb_djccd.Height - lbjth.Height) / 4;
+                lbjth.Top = (tb.Height - lbjth.Height) / 4;
 
                 lbjth.Show();
             }

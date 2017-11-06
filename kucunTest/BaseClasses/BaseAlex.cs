@@ -79,7 +79,7 @@ namespace kucunTest.BaseClasses
                     break;
                 case "DJXY"://刀具续用单
                     tjb = "daojuxuyong";
-                    tjzd = "xuyongdanhao";
+                    tjzd = "xydh";
                     break;
             }
 

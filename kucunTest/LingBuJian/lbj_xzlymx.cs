@@ -44,6 +44,16 @@ namespace kucunTest.LingBuJian
             }
         }
 
+        /// <summary>
+        /// 重写构造函数，从单据界面到明细编辑界面
+        /// </summary>
+        /// <param name="type">单据类型，"LBJLY"领用，"LBJTH"退还</param>
+        /// <param name="list">需要修改的list数组</param>
+        public lbj_xzlymx(string type, DataRow row)
+        {
+
+        }
+
         private void lbj_xzlymx_Load(object sender, EventArgs e)
         {
             root.Text = "所有类型";
@@ -55,7 +65,7 @@ namespace kucunTest.LingBuJian
 
             asc.controllInitializeSize(this);
 
-            string sqlstr2 = "select jichuangbianma from jichuang";
+            string sqlstr2 = "SELECT jichuangbianma FROM jichuang";
             jcbm.DataSource = SQL.DataReadList(sqlstr2);
             jcbm.SelectedIndex = -1;
 
