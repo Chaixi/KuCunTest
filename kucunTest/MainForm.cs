@@ -1191,11 +1191,16 @@ namespace kucunTest
                         tabControl1.SelectedTab = tb;
                         tabControl1.Visible = true;
 
-                        historyPage.Left = (tabControl1.Width - historyPage.Width) / 2;
-                        historyPage.Top = (tb.Height - historyPage.Height) / 4;
+                        //historyPage.Left = (tabControl1.Width - historyPage.Width) / 2;
+                        //historyPage.Top = (tb.Height - historyPage.Height) / 4;
+                        historyPage.Size = tb.Size;
 
                         historyPage.Show();
-                        historyPage.Dock = DockStyle.Fill;
+                        //historyPage.Dock = DockStyle.Fill;
+                        historyPage.AutoScaleMode = AutoScaleMode.Font;
+                        historyPage.AutoScroll = true;
+                        historyPage.WindowState = FormWindowState.Maximized;
+
                         historyPage.Refresh();
                     }
 
@@ -1238,10 +1243,11 @@ namespace kucunTest
                 tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
-                djkcmx.Left = (tabControl1.Width - djkcmx.Width) / 2;
-                djkcmx.Top = (tb.Height - djkcmx.Height) / 4;
+                //djkcmx.Left = (tabControl1.Width - djkcmx.Width) / 2;
+                //djkcmx.Top = (tb.Height - djkcmx.Height) / 4;
+                djkcmx.Size = tb.Size;
 
-                djkcmx.Dock = DockStyle.Fill;
+                //djkcmx.Dock = DockStyle.Fill;
                 djkcmx.Show();
                 djkcmx.Refresh_kcmxTable();
             }

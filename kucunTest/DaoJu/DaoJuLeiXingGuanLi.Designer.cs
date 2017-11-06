@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_save = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.grp_jc = new System.Windows.Forms.GroupBox();
@@ -141,7 +141,7 @@
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1121, 54);
+            this.label1.Size = new System.Drawing.Size(1110, 54);
             this.label1.TabIndex = 1;
             this.label1.Text = "刀具类型管理";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -319,14 +319,14 @@
             this.ZuChengMingXi.AllowUserToDeleteRows = false;
             this.ZuChengMingXi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ZuChengMingXi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ZuChengMingXi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ZuChengMingXi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ZuChengMingXi.ColumnHeadersHeight = 32;
             this.ZuChengMingXi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.lbjmc,
@@ -367,8 +367,8 @@
             // sl
             // 
             this.sl.DataPropertyName = "sl";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.sl.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.sl.DefaultCellStyle = dataGridViewCellStyle2;
             this.sl.HeaderText = "数量";
             this.sl.Name = "sl";
             this.sl.ReadOnly = true;
@@ -1072,7 +1072,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1121, 831);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1121, 741);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.grp_zc);
             this.Controls.Add(this.groupBox2);
@@ -1087,6 +1088,7 @@
             this.Name = "DaoJuLeiXingGuanLi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具类型管理";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DaoJuLeiXingGuanLi_FormClosed);
             this.Load += new System.EventHandler(this.DaoJuLeiXingGuanLi_Load);
             this.SizeChanged += new System.EventHandler(this.DaoJuLeiXingGuanLi_SizeChanged);
