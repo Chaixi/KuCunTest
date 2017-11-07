@@ -344,6 +344,12 @@
     <Compile Include="LingBuJian\LBJLY.Designer.cs">
       <DependentUpon>LBJLY.cs</DependentUpon>
     </Compile>
+    <Compile Include="LingBuJian\lbj_xiugaikucun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LingBuJian\lbj_xiugaikucun.Designer.cs">
+      <DependentUpon>lbj_xiugaikucun.cs</DependentUpon>
+    </Compile>
     <Compile Include="LingBuJian\lbj_xzlymx.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -530,6 +536,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LingBuJian\lbj_History.resx">
       <DependentUpon>lbj_History.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LingBuJian\lbj_xiugaikucun.resx">
+      <DependentUpon>lbj_xiugaikucun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LingBuJian\lbj_xzlymx.resx">
       <DependentUpon>lbj_xzlymx.cs</DependentUpon>
