@@ -116,6 +116,28 @@ namespace kucunTest.LingBuJian
         }
 
         /// <summary>
+        /// 刷新按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            //记住刷新前选中的树节点和数据行
+            TreeNode crtnode = treeView1.SelectedNode;
+            int rowindex = lbjxinxi.CurrentRow.Index;
+
+            //清空树节点的选择
+            treeView1.SelectedNode = null;
+            //重新选择节点
+            treeView1.SelectedNode = crtnode;
+
+            //清除默认选择首行
+            lbjxinxi.ClearSelection();
+            //重新选择数据行
+            lbjxinxi.Rows[rowindex].Selected = true;
+        }
+
+        /// <summary>
         /// 零部件领用按钮
         /// </summary>
         /// <param name="sender"></param>
@@ -283,8 +305,9 @@ namespace kucunTest.LingBuJian
             }
             else
             {
-                LBJLY lbjly = new LBJLY();
-                lbjly.ShowDialog();
+                DataRow dr = ((lbjxinxi.CurrentRow).DataBoundItem as DataRowView).Row;
+                lbj_xiugaikucun xgkc = new lbj_xiugaikucun(dr);
+                xgkc.ShowDialog();
             }
 
             if(str != "")

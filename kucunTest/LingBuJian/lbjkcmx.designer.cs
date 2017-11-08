@@ -30,30 +30,36 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbjlx = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.djgmc = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbx_djgmc = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.kcmx = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.czjl = new System.Windows.Forms.DataGridView();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcmx_lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcmx_lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcmx_lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcmx_djgbm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcmx_jtwz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcmx_kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcmx_dw = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbx_lbjmc = new System.Windows.Forms.ComboBox();
+            this.czjl_dh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czjl_dskykc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czjl_zsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czjl_fsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czjl_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czjl_bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czjl_czsj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbx_cs = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kcmx)).BeginInit();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.czjl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +67,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
-            this.label1.Location = new System.Drawing.Point(309, 9);
+            this.label1.Location = new System.Drawing.Point(424, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 30);
             this.label1.TabIndex = 1;
@@ -70,63 +76,58 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbx_lbjmc);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.djgmc);
+            this.groupBox1.Controls.Add(this.cbx_cs);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cbx_djgmc);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lbjlx);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.groupBox1.Location = new System.Drawing.Point(12, 42);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(847, 78);
+            this.groupBox1.Size = new System.Drawing.Size(1058, 78);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "筛选条件";
             // 
-            // label2
+            // button1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label2.Location = new System.Drawing.Point(40, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 21);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "零部件类型";
+            this.button1.Location = new System.Drawing.Point(846, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 30);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "查询";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // lbjlx
+            // cbx_djgmc
             // 
-            this.lbjlx.Location = new System.Drawing.Point(136, 28);
-            this.lbjlx.Name = "lbjlx";
-            this.lbjlx.Size = new System.Drawing.Size(137, 29);
-            this.lbjlx.TabIndex = 1;
+            this.cbx_djgmc.FormattingEnabled = true;
+            this.cbx_djgmc.Location = new System.Drawing.Point(453, 28);
+            this.cbx_djgmc.Name = "cbx_djgmc";
+            this.cbx_djgmc.Size = new System.Drawing.Size(166, 29);
+            this.cbx_djgmc.TabIndex = 3;
+            this.cbx_djgmc.SelectedIndexChanged += new System.EventHandler(this.jcbm_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label3.Location = new System.Drawing.Point(320, 30);
+            this.label3.Location = new System.Drawing.Point(357, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "刀具柜名称";
             // 
-            // djgmc
+            // label2
             // 
-            this.djgmc.FormattingEnabled = true;
-            this.djgmc.Location = new System.Drawing.Point(408, 27);
-            this.djgmc.Name = "djgmc";
-            this.djgmc.Size = new System.Drawing.Size(146, 29);
-            this.djgmc.TabIndex = 3;
-            this.djgmc.SelectedIndexChanged += new System.EventHandler(this.jcbm_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(630, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 28);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "查询";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label2.Location = new System.Drawing.Point(39, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 21);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "零部件名称";
             // 
             // groupBox2
             // 
@@ -134,10 +135,32 @@
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(12, 126);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(847, 237);
+            this.groupBox2.Size = new System.Drawing.Size(1058, 237);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "库存明细";
+            // 
+            // kcmx
+            // 
+            this.kcmx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.kcmx.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.kcmx.ColumnHeadersHeight = 30;
+            this.kcmx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.kcmx_lbjmc,
+            this.kcmx_lbjgg,
+            this.kcmx_lbjxh,
+            this.kcmx_djgbm,
+            this.kcmx_jtwz,
+            this.kcmx_kcsl,
+            this.kcmx_dw});
+            this.kcmx.Location = new System.Drawing.Point(6, 28);
+            this.kcmx.Name = "kcmx";
+            this.kcmx.ReadOnly = true;
+            this.kcmx.RowTemplate.Height = 23;
+            this.kcmx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.kcmx.Size = new System.Drawing.Size(1043, 203);
+            this.kcmx.TabIndex = 0;
+            this.kcmx.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kcmx_CellClick);
             // 
             // groupBox3
             // 
@@ -145,120 +168,176 @@
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(12, 369);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(847, 260);
+            this.groupBox3.Size = new System.Drawing.Size(1058, 260);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "操作记录";
             // 
-            // kcmx
-            // 
-            this.kcmx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.kcmx.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.kcmx.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.kcmx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column5,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.kcmx.Location = new System.Drawing.Point(6, 28);
-            this.kcmx.Name = "kcmx";
-            this.kcmx.ReadOnly = true;
-            this.kcmx.RowTemplate.Height = 23;
-            this.kcmx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.kcmx.Size = new System.Drawing.Size(835, 203);
-            this.kcmx.TabIndex = 0;
-            this.kcmx.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kcmx_CellContentClick);
-            // 
             // czjl
             // 
-            this.czjl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.czjl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.czjl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.czjl.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.czjl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.czjl.ColumnHeadersHeight = 30;
             this.czjl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column6,
+            this.czjl_dh,
             this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11});
+            this.czjl_dskykc,
+            this.czjl_zsl,
+            this.czjl_fsl,
+            this.czjl_jbr,
+            this.czjl_bz,
+            this.czjl_czsj});
             this.czjl.Location = new System.Drawing.Point(6, 28);
             this.czjl.Name = "czjl";
             this.czjl.RowTemplate.Height = 23;
-            this.czjl.Size = new System.Drawing.Size(835, 226);
+            this.czjl.Size = new System.Drawing.Size(1043, 226);
             this.czjl.TabIndex = 1;
             // 
-            // Column5
+            // kcmx_lbjmc
             // 
-            this.Column5.DataPropertyName = "daojuid";
-            this.Column5.HeaderText = "零部件名称";
-            this.Column5.Name = "Column5";
+            this.kcmx_lbjmc.DataPropertyName = "lbjmc";
+            this.kcmx_lbjmc.HeaderText = "零部件名称";
+            this.kcmx_lbjmc.Name = "kcmx_lbjmc";
+            this.kcmx_lbjmc.ReadOnly = true;
+            this.kcmx_lbjmc.Width = 115;
             // 
-            // Column1
+            // kcmx_lbjgg
             // 
-            this.Column1.DataPropertyName = "daojuxinghao";
-            this.Column1.HeaderText = "零部件型号";
-            this.Column1.Name = "Column1";
+            this.kcmx_lbjgg.DataPropertyName = "lbjgg";
+            this.kcmx_lbjgg.HeaderText = "零部件规格";
+            this.kcmx_lbjgg.Name = "kcmx_lbjgg";
+            this.kcmx_lbjgg.ReadOnly = true;
+            this.kcmx_lbjgg.Width = 115;
             // 
-            // Column2
+            // kcmx_lbjxh
             // 
-            this.Column2.DataPropertyName = "daojuguige";
-            this.Column2.HeaderText = "零部件规格";
-            this.Column2.Name = "Column2";
+            this.kcmx_lbjxh.DataPropertyName = "lbjxh";
+            this.kcmx_lbjxh.HeaderText = "零部件型号";
+            this.kcmx_lbjxh.Name = "kcmx_lbjxh";
+            this.kcmx_lbjxh.ReadOnly = true;
+            this.kcmx_lbjxh.Width = 115;
             // 
-            // Column3
+            // kcmx_djgbm
             // 
-            this.Column3.DataPropertyName = "daojuleixing";
-            this.Column3.HeaderText = "零部件类型";
-            this.Column3.Name = "Column3";
+            this.kcmx_djgbm.DataPropertyName = "djgbm";
+            this.kcmx_djgbm.HeaderText = "所在刀柜";
+            this.kcmx_djgbm.Name = "kcmx_djgbm";
+            this.kcmx_djgbm.ReadOnly = true;
+            this.kcmx_djgbm.Width = 99;
             // 
-            // Column4
+            // kcmx_jtwz
             // 
-            this.Column4.DataPropertyName = "kcsl";
-            this.Column4.HeaderText = "可用数量";
-            this.Column4.Name = "Column4";
+            this.kcmx_jtwz.DataPropertyName = "jtwz";
+            this.kcmx_jtwz.HeaderText = "所在层数";
+            this.kcmx_jtwz.Name = "kcmx_jtwz";
+            this.kcmx_jtwz.ReadOnly = true;
+            this.kcmx_jtwz.Width = 99;
             // 
-            // Column6
+            // kcmx_kcsl
             // 
-            this.Column6.DataPropertyName = "danhao";
-            this.Column6.HeaderText = "操作单号";
-            this.Column6.Name = "Column6";
+            this.kcmx_kcsl.DataPropertyName = "kcsl";
+            this.kcmx_kcsl.HeaderText = "库存数量";
+            this.kcmx_kcsl.Name = "kcmx_kcsl";
+            this.kcmx_kcsl.ReadOnly = true;
+            this.kcmx_kcsl.Width = 99;
+            // 
+            // kcmx_dw
+            // 
+            this.kcmx_dw.DataPropertyName = "dw";
+            this.kcmx_dw.HeaderText = "单位";
+            this.kcmx_dw.Name = "kcmx_dw";
+            this.kcmx_dw.ReadOnly = true;
+            this.kcmx_dw.Width = 67;
+            // 
+            // cbx_lbjmc
+            // 
+            this.cbx_lbjmc.FormattingEnabled = true;
+            this.cbx_lbjmc.Location = new System.Drawing.Point(135, 28);
+            this.cbx_lbjmc.Name = "cbx_lbjmc";
+            this.cbx_lbjmc.Size = new System.Drawing.Size(199, 29);
+            this.cbx_lbjmc.TabIndex = 5;
+            // 
+            // czjl_dh
+            // 
+            this.czjl_dh.DataPropertyName = "danhao";
+            this.czjl_dh.HeaderText = "操作单号";
+            this.czjl_dh.Name = "czjl_dh";
+            this.czjl_dh.Width = 99;
             // 
             // Column7
             // 
             this.Column7.DataPropertyName = "dhlx";
             this.Column7.HeaderText = "操作类型";
             this.Column7.Name = "Column7";
+            this.Column7.Width = 99;
             // 
-            // Column8
+            // czjl_dskykc
             // 
-            this.Column8.DataPropertyName = "fsl";
-            this.Column8.HeaderText = "领用数量";
-            this.Column8.Name = "Column8";
+            this.czjl_dskykc.DataPropertyName = "dskykc";
+            this.czjl_dskykc.HeaderText = "当时可用库存";
+            this.czjl_dskykc.Name = "czjl_dskykc";
+            this.czjl_dskykc.Width = 131;
             // 
-            // Column9
+            // czjl_zsl
             // 
-            this.Column9.DataPropertyName = "zsl";
-            this.Column9.HeaderText = "退还数量";
-            this.Column9.Name = "Column9";
+            this.czjl_zsl.DataPropertyName = "zsl";
+            this.czjl_zsl.HeaderText = "库存增加";
+            this.czjl_zsl.Name = "czjl_zsl";
+            this.czjl_zsl.Width = 99;
             // 
-            // Column10
+            // czjl_fsl
             // 
-            this.Column10.DataPropertyName = "czsj";
-            this.Column10.HeaderText = "操作时间";
-            this.Column10.Name = "Column10";
+            this.czjl_fsl.DataPropertyName = "fsl";
+            this.czjl_fsl.HeaderText = "库存减少";
+            this.czjl_fsl.Name = "czjl_fsl";
+            this.czjl_fsl.Width = 99;
             // 
-            // Column11
+            // czjl_jbr
             // 
-            this.Column11.DataPropertyName = "jbr";
-            this.Column11.HeaderText = "经办人";
-            this.Column11.Name = "Column11";
+            this.czjl_jbr.DataPropertyName = "jbr";
+            this.czjl_jbr.HeaderText = "经办人";
+            this.czjl_jbr.Name = "czjl_jbr";
+            this.czjl_jbr.Width = 83;
+            // 
+            // czjl_bz
+            // 
+            this.czjl_bz.DataPropertyName = "bz";
+            this.czjl_bz.HeaderText = "备注";
+            this.czjl_bz.Name = "czjl_bz";
+            this.czjl_bz.Width = 67;
+            // 
+            // czjl_czsj
+            // 
+            this.czjl_czsj.DataPropertyName = "czsj";
+            this.czjl_czsj.HeaderText = "操作时间";
+            this.czjl_czsj.Name = "czjl_czsj";
+            this.czjl_czsj.Width = 99;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label4.Location = new System.Drawing.Point(636, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 21);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "层数";
+            // 
+            // cbx_cs
+            // 
+            this.cbx_cs.FormattingEnabled = true;
+            this.cbx_cs.Location = new System.Drawing.Point(684, 28);
+            this.cbx_cs.Name = "cbx_cs";
+            this.cbx_cs.Size = new System.Drawing.Size(106, 29);
+            this.cbx_cs.TabIndex = 3;
+            this.cbx_cs.SelectedIndexChanged += new System.EventHandler(this.jcbm_SelectedIndexChanged);
             // 
             // lbjkcmx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 641);
+            this.ClientSize = new System.Drawing.Size(1080, 641);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -269,8 +348,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kcmx)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.czjl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -282,24 +361,30 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox lbjlx;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox djgmc;
+        private System.Windows.Forms.ComboBox cbx_djgmc;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView kcmx;
         private System.Windows.Forms.DataGridView czjl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcmx_lbjmc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcmx_lbjgg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcmx_lbjxh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcmx_djgbm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcmx_jtwz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcmx_kcsl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcmx_dw;
+        private System.Windows.Forms.ComboBox cbx_lbjmc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czjl_dh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czjl_dskykc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czjl_zsl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czjl_fsl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czjl_jbr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czjl_bz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn czjl_czsj;
+        private System.Windows.Forms.ComboBox cbx_cs;
+        private System.Windows.Forms.Label label4;
     }
 }

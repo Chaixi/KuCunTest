@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.search_btn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.jichuang = new System.Windows.Forms.ComboBox();
@@ -91,6 +92,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_refresh);
             this.groupBox1.Controls.Add(this.search_btn);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.jichuang);
@@ -107,12 +109,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "筛选条件";
             // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Location = new System.Drawing.Point(1043, 32);
+            this.btn_refresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(77, 33);
+            this.btn_refresh.TabIndex = 6;
+            this.btn_refresh.Text = "刷    新";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
             // search_btn
             // 
-            this.search_btn.Location = new System.Drawing.Point(1023, 32);
+            this.search_btn.Location = new System.Drawing.Point(958, 32);
             this.search_btn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.search_btn.Name = "search_btn";
-            this.search_btn.Size = new System.Drawing.Size(104, 33);
+            this.search_btn.Size = new System.Drawing.Size(77, 33);
             this.search_btn.TabIndex = 6;
             this.search_btn.Text = "查    询";
             this.search_btn.UseVisualStyleBackColor = true;
@@ -971,5 +984,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dw;
         private System.Windows.Forms.DataGridViewTextBoxColumn zxkc;
         private System.Windows.Forms.DataGridViewTextBoxColumn zdkc;
+        private System.Windows.Forms.Button btn_refresh;
     }
 }
