@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -88,10 +88,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.JBR = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnexit = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
@@ -101,7 +97,6 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lingyongmingxi)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -110,7 +105,7 @@
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1226, 77);
+            this.label1.Size = new System.Drawing.Size(1016, 77);
             this.label1.TabIndex = 2;
             this.label1.Text = "零部件领用单据";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -119,7 +114,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(951, 45);
+            this.label3.Location = new System.Drawing.Point(734, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 21);
             this.label3.TabIndex = 0;
@@ -160,7 +155,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(229, 76);
+            this.groupBox1.Location = new System.Drawing.Point(12, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(986, 122);
             this.groupBox1.TabIndex = 0;
@@ -290,7 +285,8 @@
             // danhao
             // 
             this.danhao.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.danhao.Location = new System.Drawing.Point(1012, 41);
+            this.danhao.ForeColor = System.Drawing.Color.Red;
+            this.danhao.Location = new System.Drawing.Point(795, 45);
             this.danhao.Name = "danhao";
             this.danhao.Size = new System.Drawing.Size(166, 29);
             this.danhao.TabIndex = 1;
@@ -326,7 +322,7 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(230, 204);
+            this.groupBox2.Location = new System.Drawing.Point(13, 208);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(987, 446);
             this.groupBox2.TabIndex = 1;
@@ -520,8 +516,8 @@
             // 
             // lingyongmingxi
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
-            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.lingyongmingxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.lingyongmingxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.lingyongmingxi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -771,7 +767,7 @@
             this.groupBox3.Controls.Add(this.JBR);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(229, 656);
+            this.groupBox3.Location = new System.Drawing.Point(12, 660);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(987, 80);
             this.groupBox3.TabIndex = 4;
@@ -794,7 +790,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(875, 753);
+            this.button4.Location = new System.Drawing.Point(727, 754);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(98, 32);
             this.button4.TabIndex = 3;
@@ -802,53 +798,12 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Visible = false;
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.treeView1);
-            this.groupBox4.Controls.Add(this.btnClose);
-            this.groupBox4.Controls.Add(this.btnAdd);
-            this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox4.Location = new System.Drawing.Point(5, 76);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(219, 660);
-            this.groupBox4.TabIndex = 15;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "选择零部件";
-            // 
-            // treeView1
-            // 
-            this.treeView1.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.treeView1.Location = new System.Drawing.Point(6, 28);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(198, 573);
-            this.treeView1.TabIndex = 7;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClose.Location = new System.Drawing.Point(107, 611);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(88, 32);
-            this.btnClose.TabIndex = 9;
-            this.btnClose.Text = "关闭";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(7, 611);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(88, 32);
-            this.btnAdd.TabIndex = 10;
-            this.btnAdd.Text = "添加";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            // 
             // btnexit
             // 
             this.btnexit.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.btnexit.Image = global::kucunTest.Properties.Resources.cancel;
             this.btnexit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnexit.Location = new System.Drawing.Point(771, 753);
+            this.btnexit.Location = new System.Drawing.Point(623, 754);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(98, 32);
             this.btnexit.TabIndex = 6;
@@ -862,7 +817,7 @@
             this.btn_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_save.Image = global::kucunTest.Properties.Resources.save;
             this.btn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_save.Location = new System.Drawing.Point(355, 753);
+            this.btn_save.Location = new System.Drawing.Point(207, 754);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(98, 32);
             this.btn_save.TabIndex = 5;
@@ -876,7 +831,7 @@
             this.btnConfirm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnConfirm.Image = global::kucunTest.Properties.Resources._lock;
             this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirm.Location = new System.Drawing.Point(459, 753);
+            this.btnConfirm.Location = new System.Drawing.Point(311, 754);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(98, 32);
             this.btnConfirm.TabIndex = 5;
@@ -890,7 +845,7 @@
             this.btnPrint.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnPrint.Image = global::kucunTest.Properties.Resources.print;
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(563, 753);
+            this.btnPrint.Location = new System.Drawing.Point(415, 754);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(98, 32);
             this.btnPrint.TabIndex = 3;
@@ -904,7 +859,7 @@
             this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnDelete.Image = global::kucunTest.Properties.Resources.remove;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(667, 753);
+            this.btnDelete.Location = new System.Drawing.Point(519, 754);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(98, 32);
             this.btnDelete.TabIndex = 3;
@@ -919,8 +874,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1226, 798);
-            this.Controls.Add(this.groupBox4);
+            this.ClientSize = new System.Drawing.Size(1016, 798);
             this.Controls.Add(this.btnexit);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -946,7 +900,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lingyongmingxi)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1009,12 +962,8 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ComboBox cbx_xggx;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txt_bz;
         private System.Windows.Forms.ComboBox cbx_cfwz;
         private System.Windows.Forms.ComboBox cbx_djgbm;

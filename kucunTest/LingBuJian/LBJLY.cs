@@ -64,7 +64,9 @@ namespace kucunTest.LingBuJian
             loadData();
             cbx_lbjmc.SelectedIndex = -1;
 
-            lingyongmingxi.AutoGenerateColumns = false;//禁止自动生成行
+            AddColumns();
+            lingyongmingxi.AutoGenerateColumns = false;//禁止自动生成列
+            lingyongmingxi.DataSource = lymx_db.DefaultView;
             lingyongmingxi.CurrentCell = null;
         }
 
@@ -95,8 +97,9 @@ namespace kucunTest.LingBuJian
             string djzt = ds.Tables[0].Rows[0]["djzt"].ToString();//单据状态
 
             //根据单号查询明细信息
-            //Sqlstr = string.Format("SELECT lbjmc, lbjgg, lbjxh, CONCAT(djgbm, '--', jtwz) AS kcwz, lysl, dw, jcbm, gx, bz FROM {0} WHERE {1} = '{2}'", mingxibiao, DHZD, dh);
-            Sqlstr = string.Format("SELECT mx.lbjmc AS lbjmc, mx.lbjgg AS lbjgg, mx.lbjxh AS lbjxh, CONCAT(mx.djgbm, '--', mx.jtwz) AS kcwz, ls.dskykc AS kcsl, mx.lysl AS lysl, mx.dw AS dw, mx.jcbm AS jcbm, mx.gx AS gx, mx.bz AS bz FROM {0} mx LEFT JOIN {1} ls ON mx.danhao=ls.danhao WHERE mx.lbjxh=ls.lbjxh AND mx.djgbm = ls.djgbm AND mx.jtwz=ls.jtwz AND mx.{2}='{3}'", mingxibiao, liushuibiao, DHZD, dh);
+            Sqlstr = string.Format("SELECT l.lbjmc, l.lbjgg, l.lbjxh, CONCAT(l.djgbm, '--', l.jtwz) AS kcwz, j.kcsl AS kcsl, l.lysl, l.dw, l.jcbm, l.gx, l.bz FROM {0} l INNER JOIN {3} j ON l.lbjmc = j.daojuid AND l.lbjxh = j.daojuxinghao AND l.djgbm = j.weizhi AND l.jtwz = j.cengshu WHERE {1} = '{2}'", mingxibiao, DHZD, dh, lbjbiao);
+            //Sqlstr = string.Format("SELECT mx.lbjmc AS lbjmc, mx.lbjgg AS lbjgg, mx.lbjxh AS lbjxh, CONCAT(mx.djgbm, '--', mx.jtwz) AS kcwz, ls.dskykc AS kcsl, mx.lysl AS lysl, mx.dw AS dw, mx.jcbm AS jcbm, mx.gx AS gx, mx.bz AS bz FROM {0} mx LEFT JOIN {1} ls ON mx.danhao=ls.danhao WHERE mx.lbjxh=ls.lbjxh AND mx.djgbm = ls.djgbm AND mx.jtwz=ls.jtwz AND mx.{2}='{3}'", mingxibiao, liushuibiao, DHZD, dh);
+            lymx_db.Reset();//重置数据表
             lymx_db = (SQL.getDataSet(Sqlstr, mingxibiao)).Tables[0];//用全局变量保存查询出来的明细，方便后续可以继续添加
             lingyongmingxi.AutoGenerateColumns = false;
             lingyongmingxi.DataSource = lymx_db.DefaultView;
@@ -166,8 +169,8 @@ namespace kucunTest.LingBuJian
             if(AddDataCheck())//进行数据验证
             {
                 //暂存单据，领用明细datagridview已经绑定数据源
-                if (zancun)
-                {
+                //if (zancun)
+                //{
                     DataRow rowrow = lymx_db.NewRow();
 
                     rowrow["lbjmc"] = cbx_lbjmc.Text.ToString();//零部件名称
@@ -182,25 +185,25 @@ namespace kucunTest.LingBuJian
                     rowrow["bz"] = txt_bz.Text.ToString();//备注
 
                     lymx_db.Rows.Add(rowrow);
-                }
-                else
-                {
-                    DataGridViewRow row = new DataGridViewRow();
-                    row.CreateCells(lingyongmingxi);
+                //}
+                //else
+                //{
+                //    DataGridViewRow row = new DataGridViewRow();
+                //    row.CreateCells(lingyongmingxi);
 
-                    row.Cells[0].Value = cbx_lbjmc.Text;//零部件名称
-                    row.Cells[1].Value = cbx_lbjgg.Text;//零部件规格
-                    row.Cells[2].Value = cbx_lbjxh.Text;//零部件型号
-                    row.Cells[3].Value = cbx_djgbm.Text + "--" + cbx_cfwz.Text;//库存位置
-                    row.Cells[4].Value = txt_kcsl.Text;//库存数量
-                    row.Cells[5].Value = txt_dw1.Text;//单位
-                    row.Cells[6].Value = txt_lysl.Text;//领用数量
-                    row.Cells[7].Value = cbx_lyjc.Text;//领用机床编码
-                    row.Cells[8].Value = cbx_xggx.Text;//相关工序
-                    row.Cells[9].Value = txt_bz.Text;//备注
+                //    row.Cells[0].Value = cbx_lbjmc.Text;//零部件名称
+                //    row.Cells[1].Value = cbx_lbjgg.Text;//零部件规格
+                //    row.Cells[2].Value = cbx_lbjxh.Text;//零部件型号
+                //    row.Cells[3].Value = cbx_djgbm.Text + "--" + cbx_cfwz.Text;//库存位置
+                //    row.Cells[4].Value = txt_kcsl.Text;//库存数量
+                //    row.Cells[5].Value = txt_dw1.Text;//单位
+                //    row.Cells[6].Value = txt_lysl.Text;//领用数量
+                //    row.Cells[7].Value = cbx_lyjc.Text;//领用机床编码
+                //    row.Cells[8].Value = cbx_xggx.Text;//相关工序
+                //    row.Cells[9].Value = txt_bz.Text;//备注
 
-                    lingyongmingxi.Rows.Add(row);
-                }
+                //    lingyongmingxi.Rows.Add(row);
+                //}
 
                 HJ = HJ + Convert.ToInt16(txt_lysl.Text);//合计数量增加
                 heji.Text = HJ.ToString();//更新合计数量
@@ -248,9 +251,10 @@ namespace kucunTest.LingBuJian
 
                 HJ = HJ + Convert.ToInt16(txt_lysl.Text);
                 heji.Text = HJ.ToString();
-            }
 
-            lingyongmingxi.CurrentCell = null;
+                //修改完清除选中行，避免误操作
+                lingyongmingxi.CurrentCell = null;
+            }          
 
         }
 
@@ -275,7 +279,11 @@ namespace kucunTest.LingBuJian
                 DialogResult result = MessageBox.Show("确定删除" + k + "行数据？", "提示", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    HJ = HJ - Convert.ToInt16(lingyongmingxi.Rows[lingyongmingxi.CurrentRow.Index].Cells["lysl"].Value.ToString());//合计数量减去本行领用数量
+                    //排除从总表添加暂未修改领用数量的情况
+                    if (lingyongmingxi.Rows[lingyongmingxi.CurrentRow.Index].Cells["lysl"].Value.ToString() != "" && lingyongmingxi.Rows[lingyongmingxi.CurrentRow.Index].Cells["lysl"].Value.ToString() != null)
+                    {
+                        HJ = HJ - Convert.ToInt16(lingyongmingxi.Rows[lingyongmingxi.CurrentRow.Index].Cells["lysl"].Value.ToString());//合计数量减去本行领用数量
+                    }
                     lingyongmingxi.Rows.RemoveAt(lingyongmingxi.CurrentRow.Index);
                 }
             }
@@ -286,7 +294,11 @@ namespace kucunTest.LingBuJian
                 {
                     for (int i = k; i >= 1; i--)//从下往上删，避免沙漏效应
                     {
-                        HJ = HJ - Convert.ToInt16(lingyongmingxi.Rows[lingyongmingxi.SelectedRows[i - 1].Index].Cells["lysl"].Value.ToString());//合计数量减去本行领用数量
+                        //排除从总表添加暂未修改领用数量的情况
+                        if(lingyongmingxi.Rows[lingyongmingxi.SelectedRows[i - 1].Index].Cells["lysl"].Value.ToString() != "" && lingyongmingxi.Rows[lingyongmingxi.SelectedRows[i - 1].Index].Cells["lysl"].Value.ToString() != null)
+                        {
+                            HJ = HJ - Convert.ToInt16(lingyongmingxi.Rows[lingyongmingxi.SelectedRows[i - 1].Index].Cells["lysl"].Value.ToString());//合计数量减去本行领用数量
+                        }                        
                         lingyongmingxi.Rows.RemoveAt(lingyongmingxi.SelectedRows[i - 1].Index);
                     }
                 }
@@ -432,6 +444,20 @@ namespace kucunTest.LingBuJian
                 string row_gx = lingyongmingxi.Rows[rowindex].Cells["gx"].Value.ToString();//相关工序
                 string row_bz = lingyongmingxi.Rows[rowindex].Cells["bz"].Value.ToString();//备注
 
+                //如果选中行的领用设备和相关工序为空，则默认填充领用信息中的机床和工序信息
+                if (row_jc == "" || row_jc == null)
+                {
+                    row_jc = LYSB.Text;
+                }
+                if (row_gx == "" || row_gx == null)
+                {
+                    row_gx = ZJGX.Text;
+                }
+                if(row_bz == "" || row_bz == null)
+                {
+                    row_bz = beizhu.Text;
+                }
+
                 //数据填充
                 cbx_lbjmc.Text = row_mc;
                 cbx_lbjgg.Text = row_gg;
@@ -445,6 +471,7 @@ namespace kucunTest.LingBuJian
                 cbx_lyjc.Text = row_jc;
                 cbx_xggx.Text = row_gx;
                 txt_bz.Text = row_bz;
+                
             }
         }
 
@@ -793,15 +820,16 @@ namespace kucunTest.LingBuJian
                 table1.TableName = "Table1"; // 一定要设置表名称
 
                 // 添加表中的列
-                table1.Columns.Add("xh", typeof(string));
-                table1.Columns.Add("lbjmc", typeof(string));
-                table1.Columns.Add("lbjgg", typeof(string));
-                table1.Columns.Add("lbjxh", typeof(string));
-                table1.Columns.Add("sl", typeof(string));
-                table1.Columns.Add("dw", typeof(string));
-                table1.Columns.Add("jcbm", typeof(string));
-                table1.Columns.Add("gx", typeof(string));
-                table1.Columns.Add("bz", typeof(string));
+                table1.Columns.Add("xh", typeof(string));//序号
+                table1.Columns.Add("lbjmc", typeof(string));//零部件名称
+                table1.Columns.Add("lbjgg", typeof(string));//零部件规格
+                table1.Columns.Add("lbjxh", typeof(string));//零部件型号
+                table1.Columns.Add("kcwz", typeof(string));//库存位置
+                table1.Columns.Add("lysl", typeof(string));//领用数量
+                table1.Columns.Add("dw", typeof(string));//单位
+                table1.Columns.Add("jcbm", typeof(string));//机床编码
+                table1.Columns.Add("gx", typeof(string));//工序
+                table1.Columns.Add("bz", typeof(string));//备注
 
                 //添加明细数据
                 for (int rowindex = 0; rowindex < lingyongmingxi.Rows.Count - 1; rowindex++)
@@ -810,7 +838,8 @@ namespace kucunTest.LingBuJian
                     string lbjmc = lingyongmingxi.Rows[rowindex].Cells["lbjmc"].Value.ToString();
                     string lbjgg = lingyongmingxi.Rows[rowindex].Cells["lbjgg"].Value.ToString();
                     string lbjxh = lingyongmingxi.Rows[rowindex].Cells["lbjxh"].Value.ToString();
-                    string sl = lingyongmingxi.Rows[rowindex].Cells["sl"].Value.ToString();
+                    string kcwz = lingyongmingxi.Rows[rowindex].Cells["kcwz"].Value.ToString();
+                    string lysl = lingyongmingxi.Rows[rowindex].Cells["lysl"].Value.ToString();
                     string dw = lingyongmingxi.Rows[rowindex].Cells["dw"].Value.ToString();
                     string jcbm = lingyongmingxi.Rows[rowindex].Cells["jcbm"].Value.ToString();
                     string gx = lingyongmingxi.Rows[rowindex].Cells["gx"].Value.ToString();
@@ -821,7 +850,8 @@ namespace kucunTest.LingBuJian
                     row["lbjmc"] = lbjmc;
                     row["lbjgg"] = lbjgg;
                     row["lbjxh"] = lbjxh;
-                    row["sl"] = sl;
+                    row["kcwz"] = kcwz;
+                    row["lysl"] = lysl;
                     row["dw"] = dw;
                     row["jcbm"] = jcbm;
                     row["gx"] = gx;
@@ -969,16 +999,16 @@ namespace kucunTest.LingBuJian
         /// <param name="tb">要新增的明细表部分内容</param>
         public void AddDataFromTable(DataTable tb)
         {
-            lymx_db.Columns.Add("lbjmc", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("lbjgg", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("lbjxh", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("kcwz", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("kcsl", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("dw", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("lysl", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("jcbm", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("gx", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("bz", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("lbjmc", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("lbjgg", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("lbjxh", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("kcwz", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("kcsl", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("dw", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("lysl", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("jcbm", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("gx", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("bz", System.Type.GetType("System.String"));
 
             for (int i = 0; i < tb.Rows.Count; i++)
             {
@@ -1014,6 +1044,23 @@ namespace kucunTest.LingBuJian
                 MainForm mfr = (MainForm)this.Parent.FindForm();
                 mfr.CloseTab(this.Name);
             }
+        }
+
+        /// <summary>
+        /// 为明细表塑造数据源
+        /// </summary>
+        private void AddColumns()
+        {
+            lymx_db.Columns.Add("lbjmc", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("lbjgg", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("lbjxh", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("kcwz", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("kcsl", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("dw", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("lysl", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("jcbm", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("gx", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("bz", System.Type.GetType("System.String"));
         }
 
         #endregion 其他方法结束

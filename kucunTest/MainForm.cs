@@ -28,6 +28,8 @@ namespace kucunTest
     public partial class MainForm : Form
     {
         #region 全局变量
+        public static MainForm MF = new MainForm();
+
         MySql SQL = new MySql();
         string Sqlstr = "";
 
@@ -566,6 +568,11 @@ namespace kucunTest
             刀具管理ToolStripMenuItem_Click(null, null);
         }
 
+        private void linkLabel_lbjgl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            零部件库存管理ToolStripMenuItem_Click(null, null);
+        }
+
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             刀具领用单ToolStripMenuItem_Click(null, null);
@@ -576,7 +583,6 @@ namespace kucunTest
             零部件领用单ToolStripMenuItem_Click(null, null);
         }
         #endregion 首页linklabel部分结束
-
 
         #region 主菜单部分
 
@@ -1268,6 +1274,46 @@ namespace kucunTest
         }
 
         #endregion 其他方法部分结束
+
+        #region 公用方法部分
+        public void showInTabPage(Form fr)
+        {
+            fr.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == fr.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = fr.Name;
+                fr.Parent = tb;
+                tb.Text = fr.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                //fr.Left = (tabControl1.Width - fr.Width) / 2;
+                //fr.Top = (tb.Height - fr.Height) / 4;
+                fr.Size = tb.Size;
+
+                //fr.Dock = DockStyle.Fill;
+                fr.Show();
+            }
+        }
+        #endregion 公用方法部分结束
+
 
     }
 }

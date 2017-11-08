@@ -54,6 +54,7 @@
             this.零部件库存管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.零部件领用单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.零部件退还单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.零部件类型管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刀具柜管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刀具柜管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.机床ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,7 +147,7 @@
             this.closeAll = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.零部件类型管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkLabel_lbjgl = new System.Windows.Forms.LinkLabel();
             this.mainMenu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -241,6 +242,12 @@
             this.零部件退还单ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.零部件退还单ToolStripMenuItem.Text = "零部件退还单";
             this.零部件退还单ToolStripMenuItem.Click += new System.EventHandler(this.零部件退还单ToolStripMenuItem_Click);
+            // 
+            // 零部件类型管理ToolStripMenuItem
+            // 
+            this.零部件类型管理ToolStripMenuItem.Name = "零部件类型管理ToolStripMenuItem";
+            this.零部件类型管理ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.零部件类型管理ToolStripMenuItem.Text = "零部件类型管理";
             // 
             // 刀具柜管理ToolStripMenuItem
             // 
@@ -825,6 +832,7 @@
             this.groupBox2.Controls.Add(this.linkLabel4);
             this.groupBox2.Controls.Add(this.linkLabel3);
             this.groupBox2.Controls.Add(this.linkLabel2);
+            this.groupBox2.Controls.Add(this.linkLabel_lbjgl);
             this.groupBox2.Controls.Add(this.linkLabel1);
             this.groupBox2.Font = new System.Drawing.Font("黑体", 14F);
             this.groupBox2.ForeColor = System.Drawing.Color.Gray;
@@ -838,7 +846,7 @@
             // linkLabel4
             // 
             this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Location = new System.Drawing.Point(435, 44);
+            this.linkLabel4.Location = new System.Drawing.Point(569, 44);
             this.linkLabel4.Name = "linkLabel4";
             this.linkLabel4.Size = new System.Drawing.Size(109, 19);
             this.linkLabel4.TabIndex = 0;
@@ -849,7 +857,7 @@
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(301, 44);
+            this.linkLabel3.Location = new System.Drawing.Point(435, 44);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(89, 19);
             this.linkLabel3.TabIndex = 0;
@@ -860,7 +868,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(167, 44);
+            this.linkLabel2.Location = new System.Drawing.Point(301, 44);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(89, 19);
             this.linkLabel2.TabIndex = 0;
@@ -1202,11 +1210,16 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1184, 722);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // 零部件类型管理ToolStripMenuItem
+            // linkLabel_lbjgl
             // 
-            this.零部件类型管理ToolStripMenuItem.Name = "零部件类型管理ToolStripMenuItem";
-            this.零部件类型管理ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            this.零部件类型管理ToolStripMenuItem.Text = "零部件类型管理";
+            this.linkLabel_lbjgl.AutoSize = true;
+            this.linkLabel_lbjgl.Location = new System.Drawing.Point(150, 44);
+            this.linkLabel_lbjgl.Name = "linkLabel_lbjgl";
+            this.linkLabel_lbjgl.Size = new System.Drawing.Size(109, 19);
+            this.linkLabel_lbjgl.TabIndex = 0;
+            this.linkLabel_lbjgl.TabStop = true;
+            this.linkLabel_lbjgl.Text = "零部件管理";
+            this.linkLabel_lbjgl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_lbjgl_LinkClicked);
             // 
             // MainForm
             // 
@@ -1353,6 +1366,7 @@
 		private System.Windows.Forms.ToolStripMenuItem 工艺卡ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 工艺卡管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 零部件类型管理ToolStripMenuItem;
+        private System.Windows.Forms.LinkLabel linkLabel_lbjgl;
     }
 }
 

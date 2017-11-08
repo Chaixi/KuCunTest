@@ -58,6 +58,9 @@ namespace kucunTest.LingBuJian
             string sqlstr2 = "SELECT jichuangbianma FROM jichuang";
             jichuang.DataSource = SQL.DataReadList(sqlstr2);
             jichuang.SelectedIndex = -1;
+
+            //库存表取得焦点
+            lbjxinxi.Focus();
         }
 
         /// <summary>
@@ -100,6 +103,7 @@ namespace kucunTest.LingBuJian
             RefreshColor();      
         }
 
+        /*--------------------------------------------------------------------------------操作按钮部分--------------------------------------------------------------------------------------------------*/
         #region 操作按钮部分
         /// <summary>
         /// 搜索查询按钮
@@ -166,7 +170,7 @@ namespace kucunTest.LingBuJian
 
             if (rowCheckedCount == 0)
             {
-                str = "请先选择要领用的零部件！";
+                str = "未选择要领用的零部件，是否新建空白零部件领用单据？";
                 flag = false;
             }
 
@@ -178,7 +182,12 @@ namespace kucunTest.LingBuJian
             }
             else
             {
-                MessageBox.Show(str, "提示");
+                DialogResult dr = MessageBox.Show(str, "提示", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    LBJLY lbjly = new LBJLY();
+                    lbjly.ShowDialog();
+                }
             }
         }
 
@@ -189,7 +198,74 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
+            //把当前选择的数据行添加到新的表中作为参数调用刀具退还中的AddDataFromTable()方法
+            bool flag = true;//是否可以领用
+            int rowCheckedCount = 0;//选中行数量
+            string str = "";
+            //string djwz = "";//零部件存放位置
+            //string lbjkcsl = "";//零部件库存数量
+            DataTable tb = new DataTable();//存放选中的数据
+            //DataTable dgv_tb = (DataTable)daojuxinxi.DataSource;//获取dataview 转换成 datatable
+            DataTable dgv_tb = Alex.GetDgvToTable(lbjxinxi);
+            tb = dgv_tb.Copy();
+            tb.Clear();
 
+            lbjxinxi.EndEdit();//如果DataGridView是可编辑的，将数据提交，否则处于编辑状态的行无法取到 
+
+            //循环遍历选中的行
+            for (int i = 0; i < dgv_tb.Rows.Count; i++)
+            {
+                if (dgv_tb.Rows[i]["check"].ToString() == "true")//该行是否选中
+                {
+                    rowCheckedCount++;//选中行+1
+                    tb.Rows.Add(dgv_tb.Rows[i].ItemArray);//也可以是tb.ImportRow(dgv_tb.Rows[i]);但不能直接tb.Rows.Add(row);出错：改行已经在另一个表中
+                    
+                    //截取还原刀具位置
+                    //djwz = dgv_tb.Rows[i]["djwz"].ToString();
+
+                    //取出零部件库存数量
+                    //lbjkcsl = dgv_tb.Rows[i]["kcsl"].ToString();
+
+                    //判断库存数量是否为0
+                    //if (Convert.ToInt32(lbjkcsl) > 0)
+                    //{
+                    //    tb.Rows.Add(dgv_tb.Rows[i].ItemArray);//也可以是tb.ImportRow(dgv_tb.Rows[i]);但不能直接tb.Rows.Add(row);出错：改行已经在另一个表中
+                    //    //DataRow row = ((daojuxinxi.Rows[i]).DataBoundItem as DataRowView).Row;//微软提供的唯一的从DataGridViewRow转换DataRow
+                    //}
+                    //else//没有库存
+                    //{
+                    //    str = lbjxinxi.Rows[i].Cells["djid"].Value.ToString() + "库存不足！";
+                    //    flag = false;
+                    //    break;
+                    //}
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            if (rowCheckedCount == 0)
+            {
+                str = "未选择要退还的零部件，是否新建空白零部件退还单据？";
+                flag = false;
+            }
+
+            if (flag)//可以退还
+            {
+                LBJTH lbjth = new LBJTH();
+                lbjth.AddDataFromTable(tb);
+                lbjth.ShowDialog();
+            }
+            else
+            {
+                DialogResult dr = MessageBox.Show(str, "提示", MessageBoxButtons.YesNo);
+                if(dr == DialogResult.Yes)
+                {
+                    LBJTH lbjth = new LBJTH();
+                    lbjth.ShowDialog();
+                }
+            }
         }
 
         /// <summary>
@@ -197,9 +273,24 @@ namespace kucunTest.LingBuJian
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btn_xzlbj_Click(object sender, EventArgs e)
+        private void btn_xgkxl_Click(object sender, EventArgs e)
         {
+            string str = "";          
 
+            if(lbjxinxi.SelectedRows.Count != 1)
+            {
+                str = "请先选择一行要修改库存量的零部件数据！";
+            }
+            else
+            {
+                LBJLY lbjly = new LBJLY();
+                lbjly.ShowDialog();
+            }
+
+            if(str != "")
+            {
+                DialogResult dr = MessageBox.Show(str, "提示");
+            }
         }
 
         /// <summary>
@@ -232,6 +323,8 @@ namespace kucunTest.LingBuJian
         private void btn_lbjth_Click(object sender, EventArgs e)
         {
             lbj_History lbjth = new lbj_History("LBJTH");
+            //MainForm mf = (MainForm)this.MdiParent;
+            //mf.showInTabPage(lbjth);
             lbjth.Show();
         }        
         #endregion 按钮部分结束
@@ -344,5 +437,6 @@ namespace kucunTest.LingBuJian
         {
             RefreshColor();
         }
+
     }
 }
