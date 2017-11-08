@@ -45,7 +45,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void daojuguanli_Load(object sender, EventArgs e)
         {
-            asc.controllInitializeSize(this);
+            //asc.controllInitializeSize(this);
 
             treeView1.Nodes.Clear();
 
@@ -825,7 +825,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void DaoJuGuanLi_SizeChanged(object sender, EventArgs e)
         {
-            asc.controlAutoSize(this);
+            //asc.controlAutoSize(this);
         }
 
         /// <summary>

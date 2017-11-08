@@ -31,16 +31,29 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv_CRMX = new System.Windows.Forms.DataGridView();
+            this.dataGridViewLinkColumn3 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crmx_djid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crmx_kysl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crmx_jldw = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,7 +99,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_KCTJ = new System.Windows.Forms.DataGridView();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.kctj_djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kctj_sysl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kctj_kysl = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,19 +111,7 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewLinkColumn3 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crmx_djid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crmx_kysl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crmx_jldw = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CRMX)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -183,6 +183,124 @@
             this.dgv_CRMX.Size = new System.Drawing.Size(984, 202);
             this.dgv_CRMX.TabIndex = 0;
             this.dgv_CRMX.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CRMX_CellDoubleClick);
+            // 
+            // dataGridViewLinkColumn3
+            // 
+            this.dataGridViewLinkColumn3.DataPropertyName = "danhao";
+            this.dataGridViewLinkColumn3.HeaderText = "操作单号";
+            this.dataGridViewLinkColumn3.Name = "dataGridViewLinkColumn3";
+            this.dataGridViewLinkColumn3.ReadOnly = true;
+            this.dataGridViewLinkColumn3.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "dhlx";
+            this.dataGridViewTextBoxColumn24.HeaderText = "操作类型";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            this.dataGridViewTextBoxColumn24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn24.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "djgg";
+            this.dataGridViewTextBoxColumn21.HeaderText = "刀具规格";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            this.dataGridViewTextBoxColumn21.Width = 99;
+            // 
+            // crmx_djid
+            // 
+            this.crmx_djid.DataPropertyName = "djid";
+            this.crmx_djid.HeaderText = "刀具ID";
+            this.crmx_djid.Name = "crmx_djid";
+            this.crmx_djid.ReadOnly = true;
+            this.crmx_djid.Width = 84;
+            // 
+            // zsl
+            // 
+            this.zsl.DataPropertyName = "zsl";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.zsl.DefaultCellStyle = dataGridViewCellStyle3;
+            this.zsl.HeaderText = "回库数量";
+            this.zsl.Name = "zsl";
+            this.zsl.ReadOnly = true;
+            this.zsl.Width = 99;
+            // 
+            // fsl
+            // 
+            this.fsl.DataPropertyName = "fsl";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.fsl.DefaultCellStyle = dataGridViewCellStyle4;
+            this.fsl.HeaderText = "领用数量";
+            this.fsl.Name = "fsl";
+            this.fsl.ReadOnly = true;
+            this.fsl.Width = 99;
+            // 
+            // crmx_kysl
+            // 
+            this.crmx_kysl.DataPropertyName = "dskysl";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.crmx_kysl.DefaultCellStyle = dataGridViewCellStyle5;
+            this.crmx_kysl.HeaderText = "当时可用数量";
+            this.crmx_kysl.Name = "crmx_kysl";
+            this.crmx_kysl.ReadOnly = true;
+            this.crmx_kysl.Width = 131;
+            // 
+            // crmx_jldw
+            // 
+            this.crmx_jldw.DataPropertyName = "jldw";
+            this.crmx_jldw.HeaderText = "计量单位";
+            this.crmx_jldw.Name = "crmx_jldw";
+            this.crmx_jldw.ReadOnly = true;
+            this.crmx_jldw.Visible = false;
+            this.crmx_jldw.Width = 99;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "jbr";
+            this.dataGridViewTextBoxColumn26.HeaderText = "经办人";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            this.dataGridViewTextBoxColumn26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn26.Width = 64;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "czsj";
+            this.dataGridViewTextBoxColumn25.HeaderText = "操作时间";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            this.dataGridViewTextBoxColumn25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn25.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "djlx";
+            this.dataGridViewTextBoxColumn19.HeaderText = "刀具类型";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            this.dataGridViewTextBoxColumn19.Width = 99;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "djwz";
+            this.dataGridViewTextBoxColumn23.HeaderText = "刀具位置";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            this.dataGridViewTextBoxColumn23.Visible = false;
+            this.dataGridViewTextBoxColumn23.Width = 99;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "bz";
+            this.dataGridViewTextBoxColumn27.HeaderText = "备注";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            this.dataGridViewTextBoxColumn27.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn27.Visible = false;
+            this.dataGridViewTextBoxColumn27.Width = 48;
             // 
             // dataGridViewLinkColumn1
             // 
@@ -491,11 +609,6 @@
             this.dgv_KCTJ.TabIndex = 0;
             this.dgv_KCTJ.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KCTJ_CellClick);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // kctj_djlx
             // 
             this.kctj_djlx.DataPropertyName = "djlx";
@@ -611,128 +724,16 @@
             this.dataGridViewTextBoxColumn18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn18.Width = 48;
             // 
-            // dataGridViewLinkColumn3
+            // timer1
             // 
-            this.dataGridViewLinkColumn3.DataPropertyName = "danhao";
-            this.dataGridViewLinkColumn3.HeaderText = "操作单号";
-            this.dataGridViewLinkColumn3.Name = "dataGridViewLinkColumn3";
-            this.dataGridViewLinkColumn3.ReadOnly = true;
-            this.dataGridViewLinkColumn3.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "dhlx";
-            this.dataGridViewTextBoxColumn24.HeaderText = "操作类型";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            this.dataGridViewTextBoxColumn24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn24.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "djgg";
-            this.dataGridViewTextBoxColumn21.HeaderText = "刀具规格";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            this.dataGridViewTextBoxColumn21.Width = 99;
-            // 
-            // crmx_djid
-            // 
-            this.crmx_djid.DataPropertyName = "djid";
-            this.crmx_djid.HeaderText = "刀具ID";
-            this.crmx_djid.Name = "crmx_djid";
-            this.crmx_djid.ReadOnly = true;
-            this.crmx_djid.Width = 84;
-            // 
-            // zsl
-            // 
-            this.zsl.DataPropertyName = "zsl";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.zsl.DefaultCellStyle = dataGridViewCellStyle3;
-            this.zsl.HeaderText = "回库数量";
-            this.zsl.Name = "zsl";
-            this.zsl.ReadOnly = true;
-            this.zsl.Width = 99;
-            // 
-            // fsl
-            // 
-            this.fsl.DataPropertyName = "fsl";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.fsl.DefaultCellStyle = dataGridViewCellStyle4;
-            this.fsl.HeaderText = "领用数量";
-            this.fsl.Name = "fsl";
-            this.fsl.ReadOnly = true;
-            this.fsl.Width = 99;
-            // 
-            // crmx_kysl
-            // 
-            this.crmx_kysl.DataPropertyName = "dskysl";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.crmx_kysl.DefaultCellStyle = dataGridViewCellStyle5;
-            this.crmx_kysl.HeaderText = "当时可用数量";
-            this.crmx_kysl.Name = "crmx_kysl";
-            this.crmx_kysl.ReadOnly = true;
-            this.crmx_kysl.Width = 131;
-            // 
-            // crmx_jldw
-            // 
-            this.crmx_jldw.DataPropertyName = "jldw";
-            this.crmx_jldw.HeaderText = "计量单位";
-            this.crmx_jldw.Name = "crmx_jldw";
-            this.crmx_jldw.ReadOnly = true;
-            this.crmx_jldw.Visible = false;
-            this.crmx_jldw.Width = 99;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            this.dataGridViewTextBoxColumn26.DataPropertyName = "jbr";
-            this.dataGridViewTextBoxColumn26.HeaderText = "经办人";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.ReadOnly = true;
-            this.dataGridViewTextBoxColumn26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn26.Width = 64;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.DataPropertyName = "czsj";
-            this.dataGridViewTextBoxColumn25.HeaderText = "操作时间";
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.ReadOnly = true;
-            this.dataGridViewTextBoxColumn25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn25.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "djlx";
-            this.dataGridViewTextBoxColumn19.HeaderText = "刀具类型";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Visible = false;
-            this.dataGridViewTextBoxColumn19.Width = 99;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "djwz";
-            this.dataGridViewTextBoxColumn23.HeaderText = "刀具位置";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            this.dataGridViewTextBoxColumn23.Visible = false;
-            this.dataGridViewTextBoxColumn23.Width = 99;
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            this.dataGridViewTextBoxColumn27.DataPropertyName = "bz";
-            this.dataGridViewTextBoxColumn27.HeaderText = "备注";
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            this.dataGridViewTextBoxColumn27.ReadOnly = true;
-            this.dataGridViewTextBoxColumn27.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn27.Visible = false;
-            this.dataGridViewTextBoxColumn27.Width = 48;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // DJKCMX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1014, 672);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.AllBtn);
@@ -743,6 +744,7 @@
             this.Name = "DJKCMX";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具库存明细";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DJKCMX_FormClosed);
             this.Load += new System.EventHandler(this.DJCZJL_Load);
             this.SizeChanged += new System.EventHandler(this.DJKCMX_SizeChanged);
