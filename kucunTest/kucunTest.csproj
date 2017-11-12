@@ -616,6 +616,8 @@
     <None Include="Resources\2-6.png" />
     <None Include="Resources\2-7.png" />
     <None Include="Resources\cancel.gif" />
+    <None Include="Resources\hsk.png" />
+    <None Include="Resources\jiaodao.png" />
     <Content Include="Resources\loading.gif" />
     <None Include="Resources\lock.png" />
     <None Include="Resources\print.gif" />
@@ -626,10 +628,15 @@
     <None Include="Resources\required.png" />
     <None Include="Resources\required.gif" />
     <None Include="Resources\required1.gif" />
+    <None Include="Resources\qxdp.jpg" />
+    <None Include="Resources\qxdp.png" />
+    <None Include="Resources\weishezhitupian.png" />
+    <None Include="Resources\sizhui.jpg" />
     <Content Include="Resources\xmulogo.png" />
     <Content Include="Resources\xmulogo厦门大学.png" />
     <None Include="Resources\zoller-刀具图片.jpg" />
     <None Include="Resources\YTO.png" />
+    <None Include="Resources\zuantou.jpg" />
     <Content Include="Resources\刀具柜.jpg" />
     <Content Include="Resources\刀具柜1.jpg" />
     <None Include="Resources\background.png" />

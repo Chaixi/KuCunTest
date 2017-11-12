@@ -30,14 +30,15 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbx_lbjmc = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbx_cs = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.cbx_djgmc = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.kcmx = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.czjl = new System.Windows.Forms.DataGridView();
             this.kcmx_lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kcmx_lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kcmx_lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +46,8 @@
             this.kcmx_jtwz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kcmx_kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kcmx_dw = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbx_lbjmc = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.czjl = new System.Windows.Forms.DataGridView();
             this.czjl_dh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czjl_dskykc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,8 +56,6 @@
             this.czjl_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czjl_bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czjl_czsj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbx_cs = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kcmx)).BeginInit();
@@ -86,34 +86,61 @@
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.groupBox1.Location = new System.Drawing.Point(12, 42);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1058, 78);
+            this.groupBox1.Size = new System.Drawing.Size(962, 78);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "筛选条件";
             // 
+            // cbx_lbjmc
+            // 
+            this.cbx_lbjmc.FormattingEnabled = true;
+            this.cbx_lbjmc.Location = new System.Drawing.Point(135, 28);
+            this.cbx_lbjmc.Name = "cbx_lbjmc";
+            this.cbx_lbjmc.Size = new System.Drawing.Size(199, 29);
+            this.cbx_lbjmc.TabIndex = 5;
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(846, 26);
+            this.button1.Location = new System.Drawing.Point(870, 24);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 30);
+            this.button1.Size = new System.Drawing.Size(86, 35);
             this.button1.TabIndex = 4;
             this.button1.Text = "查询";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cbx_cs
+            // 
+            this.cbx_cs.FormattingEnabled = true;
+            this.cbx_cs.Location = new System.Drawing.Point(703, 28);
+            this.cbx_cs.Name = "cbx_cs";
+            this.cbx_cs.Size = new System.Drawing.Size(106, 29);
+            this.cbx_cs.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label4.Location = new System.Drawing.Point(655, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 21);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "层数";
             // 
             // cbx_djgmc
             // 
             this.cbx_djgmc.FormattingEnabled = true;
-            this.cbx_djgmc.Location = new System.Drawing.Point(453, 28);
+            this.cbx_djgmc.Location = new System.Drawing.Point(458, 28);
             this.cbx_djgmc.Name = "cbx_djgmc";
             this.cbx_djgmc.Size = new System.Drawing.Size(166, 29);
             this.cbx_djgmc.TabIndex = 3;
-            this.cbx_djgmc.SelectedIndexChanged += new System.EventHandler(this.jcbm_SelectedIndexChanged);
+            this.cbx_djgmc.SelectedIndexChanged += new System.EventHandler(this.djgbm_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label3.Location = new System.Drawing.Point(357, 31);
+            this.label3.Location = new System.Drawing.Point(362, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 21);
             this.label3.TabIndex = 2;
@@ -135,7 +162,7 @@
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(12, 126);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1058, 237);
+            this.groupBox2.Size = new System.Drawing.Size(962, 268);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "库存明细";
@@ -143,6 +170,7 @@
             // kcmx
             // 
             this.kcmx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.kcmx.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.kcmx.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.kcmx.ColumnHeadersHeight = 30;
             this.kcmx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -154,45 +182,14 @@
             this.kcmx_kcsl,
             this.kcmx_dw});
             this.kcmx.Location = new System.Drawing.Point(6, 28);
+            this.kcmx.MultiSelect = false;
             this.kcmx.Name = "kcmx";
             this.kcmx.ReadOnly = true;
             this.kcmx.RowTemplate.Height = 23;
             this.kcmx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.kcmx.Size = new System.Drawing.Size(1043, 203);
+            this.kcmx.Size = new System.Drawing.Size(950, 234);
             this.kcmx.TabIndex = 0;
             this.kcmx.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kcmx_CellClick);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.czjl);
-            this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 369);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1058, 260);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "操作记录";
-            // 
-            // czjl
-            // 
-            this.czjl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.czjl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.czjl.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.czjl.ColumnHeadersHeight = 30;
-            this.czjl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.czjl_dh,
-            this.Column7,
-            this.czjl_dskykc,
-            this.czjl_zsl,
-            this.czjl_fsl,
-            this.czjl_jbr,
-            this.czjl_bz,
-            this.czjl_czsj});
-            this.czjl.Location = new System.Drawing.Point(6, 28);
-            this.czjl.Name = "czjl";
-            this.czjl.RowTemplate.Height = 23;
-            this.czjl.Size = new System.Drawing.Size(1043, 226);
-            this.czjl.TabIndex = 1;
             // 
             // kcmx_lbjmc
             // 
@@ -250,13 +247,37 @@
             this.kcmx_dw.ReadOnly = true;
             this.kcmx_dw.Width = 67;
             // 
-            // cbx_lbjmc
+            // groupBox3
             // 
-            this.cbx_lbjmc.FormattingEnabled = true;
-            this.cbx_lbjmc.Location = new System.Drawing.Point(135, 28);
-            this.cbx_lbjmc.Name = "cbx_lbjmc";
-            this.cbx_lbjmc.Size = new System.Drawing.Size(199, 29);
-            this.cbx_lbjmc.TabIndex = 5;
+            this.groupBox3.Controls.Add(this.czjl);
+            this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox3.Location = new System.Drawing.Point(12, 400);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(962, 260);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "操作记录";
+            // 
+            // czjl
+            // 
+            this.czjl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.czjl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.czjl.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.czjl.ColumnHeadersHeight = 30;
+            this.czjl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.czjl_dh,
+            this.Column7,
+            this.czjl_dskykc,
+            this.czjl_zsl,
+            this.czjl_fsl,
+            this.czjl_jbr,
+            this.czjl_bz,
+            this.czjl_czsj});
+            this.czjl.Location = new System.Drawing.Point(6, 28);
+            this.czjl.Name = "czjl";
+            this.czjl.RowTemplate.Height = 23;
+            this.czjl.Size = new System.Drawing.Size(950, 226);
+            this.czjl.TabIndex = 1;
             // 
             // czjl_dh
             // 
@@ -314,30 +335,12 @@
             this.czjl_czsj.Name = "czjl_czsj";
             this.czjl_czsj.Width = 99;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label4.Location = new System.Drawing.Point(636, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 21);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "层数";
-            // 
-            // cbx_cs
-            // 
-            this.cbx_cs.FormattingEnabled = true;
-            this.cbx_cs.Location = new System.Drawing.Point(684, 28);
-            this.cbx_cs.Name = "cbx_cs";
-            this.cbx_cs.Size = new System.Drawing.Size(106, 29);
-            this.cbx_cs.TabIndex = 3;
-            this.cbx_cs.SelectedIndexChanged += new System.EventHandler(this.jcbm_SelectedIndexChanged);
-            // 
             // lbjkcmx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 641);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1007, 672);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -345,6 +348,7 @@
             this.Name = "lbjkcmx";
             this.Text = "零部件库存明细";
             this.Load += new System.EventHandler(this.lbjkcmx_Load);
+            this.SizeChanged += new System.EventHandler(this.lbjkcmx_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

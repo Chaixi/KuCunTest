@@ -18,8 +18,22 @@ namespace kucunTest.LingBuJian
         MySql SQL = new MySql();
         String Sqlstr = "";
 
+        //提示文本
+        string tishi = "";
+
         TreeNode root = new TreeNode();
-        string lbj = "jichuxinxi";
+
+        //零部件表
+        string lbjbiao = "jichuxinxi";
+        string lbjbiao_lbjmc = "daojuid";
+        string lbjbiao_lbjgg = "daojuguige";
+        string lbjbiao_lbjxh = "daojuxinghao";
+        string lbjbiao_djgbm = "weizhi";
+        string lbjbiao_jtwz = "cengshu";
+        string lbjbiao_kcsl = "kcsl";
+        string lbjbiao_dw = "danwei";
+        string lbjbiao_zxkc = "zuixiaokucun";
+        string lbjbiao_zdkc = "zuidakucun";
 
         BaseAlex Alex = new BaseAlex();
         AutoSizeFormClass asc = new AutoSizeFormClass();
@@ -41,7 +55,7 @@ namespace kucunTest.LingBuJian
             root.Text = "所有类型";
             treeView1.Nodes.Add(root);
 
-            Sqlstr = string.Format("SELECT DISTINCT daojuid FROM {0} ORDER BY CONVERT(daojuid USING gbk) ASC", lbj);
+            Sqlstr = string.Format("SELECT DISTINCT daojuid FROM {0} ORDER BY CONVERT(daojuid USING gbk) ASC", lbjbiao);
             Alex.BindRoot(Sqlstr, root, true);
             treeView1.Nodes[0].Expand();
             treeView1.SelectedNode = treeView1.Nodes[0];//默认选中所有类型
@@ -51,13 +65,8 @@ namespace kucunTest.LingBuJian
 
             //加载所有刀具柜
             string sqlstr1 = "SELECT djgmc FROM daojugui";
-            djg.DataSource = SQL.DataReadList(sqlstr1);
-            djg.SelectedIndex = -1;
-            
-            //加载所有机床
-            string sqlstr2 = "SELECT jichuangbianma FROM jichuang";
-            jichuang.DataSource = SQL.DataReadList(sqlstr2);
-            jichuang.SelectedIndex = -1;
+            search_djgbm.DataSource = SQL.DataReadList(sqlstr1);
+            search_djgbm.SelectedIndex = -1;
 
             //库存表取得焦点
             lbjxinxi.Focus();
@@ -76,7 +85,7 @@ namespace kucunTest.LingBuJian
                 {
                     TreeNode currentNode = e.Node;
                     currentNode.Nodes[0].Remove();
-                    Sqlstr = string.Format("SELECT DISTINCT daojuxinghao FROM {0} WHERE daojuid = '{1}'", lbj, currentNode.Text);
+                    Sqlstr = string.Format("SELECT DISTINCT daojuxinghao FROM {0} WHERE daojuid = '{1}'", lbjbiao, currentNode.Text);
                     Alex.BindRoot(Sqlstr, currentNode, false);
                 }
             }            
@@ -89,10 +98,18 @@ namespace kucunTest.LingBuJian
         /// <param name="e">当前节点</param>
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            tishi = "";
+
             string where = "";//SQL语句条件。默认为空，即第一层节点：所有类型
             if (treeView1.SelectedNode.Level == 1)//当前选中节点为第二层节点：刀具类型
             {
                 where = "WHERE daojuid = '" + e.Node.Text.ToString() + "'";
+
+                //查该类型下规格数和总数量
+                string sqlstr1 = string.Format("SELECT COUNT(DISTINCT {2}) AS xhs, SUM({3}) AS zsl FROM {0} {1}", lbjbiao, where, lbjbiao_lbjxh, lbjbiao_kcsl);
+                DataTable db = SQL.getDataSet1(sqlstr1).Tables[0];
+                LBJGGS.Text = db.Rows[0]["xhs"].ToString();
+                LBJZSL.Text = db.Rows[0]["zsl"].ToString();
             }
             else if(treeView1.SelectedNode.Level == 2)//当前选中节点为第三层节点：刀具具体型号
             {
@@ -100,7 +117,8 @@ namespace kucunTest.LingBuJian
             }
             Sqlstr = "SELECT daojuid AS lbjmc, daojuxinghao AS lbjxh, daojuguige AS lbjgg, CONCAT(weizhi,'--', cengshu) AS kcwz, kcsl, danwei AS dw, zuixiaokucun AS zxkc, zuidakucun AS zdkc FROM jichuxinxi " + where;
             lbjxinxi.DataSource = SQL.getDataSet1(Sqlstr).Tables[0].DefaultView;
-            RefreshColor();      
+            RefreshColor();            
+              
         }
 
         /*--------------------------------------------------------------------------------操作按钮部分--------------------------------------------------------------------------------------------------*/
@@ -112,7 +130,35 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void search_btn_Click(object sender, EventArgs e)
         {
+            tishi = "";
 
+            if(search_lbjxh.Text != "" || search_djgbm.Text != "" || search_jtwz.Text != "")
+            {
+                string conditions = string.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'", lbjbiao_lbjxh, search_lbjxh.Text.ToString(), lbjbiao_djgbm, search_djgbm.Text.ToString(), lbjbiao_jtwz, search_jtwz.Text.ToString());
+                Sqlstr = string.Format("SELECT {0} AS lbjmc, {1} AS lbjxh, {2} AS lbjgg, CONCAT({3},'--', {4}) AS kcwz, {5} AS kcsl, {6} AS dw, {7} AS zxkc, {8} AS zdkc FROM {9} WHERE {10}", lbjbiao_lbjmc, lbjbiao_lbjxh, lbjbiao_lbjgg, lbjbiao_djgbm, lbjbiao_jtwz, lbjbiao_kcsl, lbjbiao_dw, lbjbiao_zxkc, lbjbiao_zdkc, lbjbiao, conditions);
+                DataTable db_search = SQL.getDataSet1(Sqlstr).Tables[0];
+
+                //判断是否查询到数据
+                if(db_search.Rows.Count > 0 )
+                {
+                    lbjxinxi.DataSource = db_search.DefaultView;
+                    RefreshColor();
+                }
+                else
+                {
+                    tishi = "没有符合条件的数据，请修改查询条件后重试！";
+                }
+            }
+            else
+            {
+                tishi = "请输出组合查询条件";                
+            }
+
+            if(tishi != "")
+            {
+                MessageBox.Show(tishi);
+                search_lbjxh.Focus();
+            }
         }
 
         /// <summary>
@@ -349,29 +395,54 @@ namespace kucunTest.LingBuJian
             //MainForm mf = (MainForm)this.MdiParent;
             //mf.showInTabPage(lbjth);
             lbjth.Show();
-        }        
+        }
         #endregion 按钮部分结束
 
+        /*--------------------------------------------------------------------------------筛选查询&刷新部分----------------------------------------------------------------------------------------*/
         /// <summary>
         /// 刀具柜选择变化
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void djg_SelectedIndexChanged(object sender, EventArgs e)
+        private void search_djgbm_SelectedIndexChanged(object sender, EventArgs e)
         {
-                      
+            if(search_djgbm.SelectedIndex >= 0)
+            {
+                Sqlstr = string.Format("SELECT djgcs FROM daojuguicengshu WHERE djgmc = '{0}' ", search_djgbm.Text);
+                search_jtwz.DataSource = SQL.DataReadList(Sqlstr);
+            }
+            else
+            {
+                search_jtwz.DataSource = null;
+            }
+
+            search_jtwz.SelectedIndex = -1;
+            
         }
 
         /// <summary>
-        /// 机床选择变化
+        /// 刷新表格，根据库存数量和最小最大库存以不同颜色突出显示
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void jichuang_SelectedIndexChanged(object sender, EventArgs e)
-        {          
+        public void RefreshColor()
+        {
+            for (int i = 0; i < lbjxinxi.Rows.Count; i++)
+            {
+                int tb_kcsl = Convert.ToInt16(lbjxinxi.Rows[i].Cells["kcsl"].Value.ToString());
+                int tb_zxkc = Convert.ToInt16(lbjxinxi.Rows[i].Cells["zxkc"].Value.ToString());
+                int tb_zdkc = Convert.ToInt16(lbjxinxi.Rows[i].Cells["zdkc"].Value.ToString());
 
+                if (tb_kcsl < tb_zxkc)
+                {
+                    lbjxinxi.Rows[i].DefaultCellStyle.BackColor = Color.HotPink;
+                }
+                else if (tb_kcsl > tb_zdkc)
+                {
+                    lbjxinxi.Rows[i].DefaultCellStyle.BackColor = Color.LightPink;
+                }
+            }
         }
 
+        /*--------------------------------------------------------------------------------其他方法部分----------------------------------------------------------------------------------------*/
         /// <summary>
         /// 窗体自适应
         /// </summary>
@@ -430,28 +501,6 @@ namespace kucunTest.LingBuJian
         }
 
         /// <summary>
-        /// 刷新表格，根据库存数量和最小最大库存以不同颜色突出显示
-        /// </summary>
-        public void RefreshColor()
-        {
-            for(int i = 0; i < lbjxinxi.Rows.Count; i++)
-            {
-                int tb_kcsl = Convert.ToInt16(lbjxinxi.Rows[i].Cells["kcsl"].Value.ToString());
-                int tb_zxkc = Convert.ToInt16(lbjxinxi.Rows[i].Cells["zxkc"].Value.ToString());
-                int tb_zdkc = Convert.ToInt16(lbjxinxi.Rows[i].Cells["zdkc"].Value.ToString());
-
-                if(tb_kcsl < tb_zxkc)
-                {
-                    lbjxinxi.Rows[i].DefaultCellStyle.BackColor = Color.HotPink;
-                }
-                else if(tb_kcsl > tb_zdkc)
-                {
-                    lbjxinxi.Rows[i].DefaultCellStyle.BackColor = Color.LightPink;
-                }
-            }
-        }
-
-        /// <summary>
         /// 每次表格绑定数据发生变化，重新绘制底色
         /// </summary>
         /// <param name="sender"></param>
@@ -459,6 +508,81 @@ namespace kucunTest.LingBuJian
         private void lbjxinxi_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             RefreshColor();
+        }
+
+        /// <summary>
+        /// 点击单元格，加载刀具图片和相关参数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbjxinxi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow crtrow = lbjxinxi.CurrentRow;
+
+            if(crtrow.Index >= 0)
+            {
+                string lbjmc = crtrow.Cells["lbjmc"].Value.ToString();
+
+                //判断选中行的零部件类型以加载相应参数
+                if(lbjmc.Contains("刀片"))
+                {
+                    //加载图片
+                    LBJTP.Image = kucunTest.Properties.Resources.qxdp1;
+
+                    //加载参数
+                    sjcs_panel_db.Visible = false;
+                    sjcs_panel_dp.Visible = true;
+                }
+                else if (lbjmc.Contains("刀柄"))
+                {
+                    //加载图片
+                    LBJTP.Image = kucunTest.Properties.Resources.hsk;
+
+                    //加载参数
+                    sjcs_panel_db.Visible = true;
+                    sjcs_panel_dp.Visible = false;
+
+                }
+                else if (lbjmc.Contains("铰刀"))
+                {
+                    //加载图片
+                    LBJTP.Image = kucunTest.Properties.Resources.jiaodao;
+
+                    //加载参数
+                    sjcs_panel_db.Visible = false;
+                    sjcs_panel_dp.Visible = true;
+
+                }
+                else if (lbjmc.Contains("丝锥"))
+                {
+                    //加载图片
+                    LBJTP.Image = kucunTest.Properties.Resources.sizhui;
+
+                    //加载参数
+                    sjcs_panel_db.Visible = false;
+                    sjcs_panel_dp.Visible = true;
+
+                }
+                else if (lbjmc.Contains("钻头"))
+                {
+                    //加载图片
+                    LBJTP.Image = kucunTest.Properties.Resources.zuantou;
+
+                    //加载参数
+                    sjcs_panel_db.Visible = false;
+                    sjcs_panel_dp.Visible = true;
+
+                }
+                else
+                {
+                    //加载图片
+                    LBJTP.Image = kucunTest.Properties.Resources.weishezhitupian;
+
+                    //加载参数
+                    sjcs_panel_db.Visible = false;
+                    sjcs_panel_dp.Visible = true;
+                }
+            }
         }
 
     }
