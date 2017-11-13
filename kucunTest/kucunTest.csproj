@@ -39,6 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -92,6 +93,7 @@
     <Compile Include="BaseClasses\AutoSizeFormClass.cs" />
     <Compile Include="BaseClasses\BaseAlex.cs" />
     <Compile Include="BaseClasses\ChinaDate.cs" />
+    <Compile Include="BaseClasses\MysqlTableClass.cs" />
     <Compile Include="BaseClasses\DanJuSheZhi.cs">
       <SubType>Form</SubType>
     </Compile>
