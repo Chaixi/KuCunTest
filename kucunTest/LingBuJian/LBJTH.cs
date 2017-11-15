@@ -137,7 +137,7 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void LBJTH_Load(object sender, EventArgs e)
         {
-            asc.controllInitializeSize(this);
+            //asc.controllInitializeSize(this);
         }
 
         /*----------------------------------------------------------------明细部分-----------------------------------------------------------------------------------------------------------------*/
@@ -1011,7 +1011,7 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void LBJTH_SizeChanged(object sender, EventArgs e)
         {
-            asc.controlAutoSize(this);
+            //asc.controlAutoSize(this);
         }
 
         /// <summary>

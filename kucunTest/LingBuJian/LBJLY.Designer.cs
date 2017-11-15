@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -516,8 +516,8 @@
             // 
             // lingyongmingxi
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.lingyongmingxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.lingyongmingxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.lingyongmingxi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -874,7 +874,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1016, 798);
+            this.ClientSize = new System.Drawing.Size(1033, 741);
             this.Controls.Add(this.btnexit);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);

@@ -728,10 +728,11 @@ namespace kucunTest
                 tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
-                lbjgl.Left = (tabControl1.Width - lbjgl.Width) / 2;
-                lbjgl.Top = (tb.Height - lbjgl.Height) / 4;
+                lbjgl.Size = tb.Size;
+                //lbjgl.Left = (tabControl1.Width - lbjgl.Width) / 2;
+                //lbjgl.Top = (tb.Height - lbjgl.Height) / 4;
 
-                lbjgl.Dock = DockStyle.Fill;
+                //lbjgl.Dock = DockStyle.Fill;
                 lbjgl.Show();
 
             }

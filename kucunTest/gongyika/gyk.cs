@@ -71,7 +71,7 @@ namespace kucunTest.gongyika
         /// <param name="e"></param>
         private void gyk_Load(object sender, EventArgs e)
         {
-            asc.controllInitializeSize(this);            
+            //asc.controllInitializeSize(this);            
         }
 
         #endregion 窗体构造与加载函数结束
@@ -188,6 +188,9 @@ namespace kucunTest.gongyika
             pdxx.DataSource = pd_db.DefaultView;
             //DisplayPDList();//显示所有配刀数据
             SqlStr = "";
+
+            //新数据修改前flag置为false
+            flag = false;
         }
 
         /*--------------------------------------------------------------工艺卡基本信息-------------------------------------------------------------------------------------------------------*/
@@ -1259,7 +1262,7 @@ namespace kucunTest.gongyika
         /// <param name="e"></param>
         private void gyk_SizeChanged(object sender, EventArgs e)
         {
-            asc.controlAutoSize(this);
+            //asc.controlAutoSize(this);
         }
 
         /// <summary>

@@ -132,7 +132,7 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void LBJLY_Load(object sender, EventArgs e)
         {
-            asc.controllInitializeSize(this);//记录窗体及控件初始大小，以便自适应
+            //asc.controllInitializeSize(this);//记录窗体及控件初始大小，以便自适应
         }
 
         #endregion 构造函数与窗体加载部分结束
@@ -990,7 +990,7 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void LBJLY_SizeChanged(object sender, EventArgs e)
         {
-            asc.controlAutoSize(this);
+            //asc.controlAutoSize(this);
         }
 
         /// <summary>
