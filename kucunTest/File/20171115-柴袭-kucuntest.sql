@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2017-11-13 22:35:56
+Date: 2017-11-15 20:51:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1317,27 +1317,28 @@ CREATE TABLE `gongxu` (
   `dbxx` char(20) CHARACTER SET utf8 DEFAULT NULL,
   `djscsj` char(20) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=94 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of gongxu
 -- ----------------------------
-INSERT INTO `gongxu` VALUES ('30', 'GY-001', '工序1', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-1#机', null, null, null);
-INSERT INTO `gongxu` VALUES ('29', 'GY-001', '工序2', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.1', 'FMS-1#机', null, null, null);
-INSERT INTO `gongxu` VALUES ('28', 'GY-001', '工序3', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.2', 'FMS-1#机', null, null, null);
-INSERT INTO `gongxu` VALUES ('27', 'GY-001', '工序4', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.3', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('75', 'GY-001', '工序4', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.3', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('74', 'GY-001', '工序3', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.2', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('73', 'GY-001', '工序2', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.1', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('72', 'GY-001', '工序1', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-1#机', null, null, null);
 INSERT INTO `gongxu` VALUES ('5', 'GY-002', '工序1', '1204.28.101', '两侧半轴面及侧面凸台', '170.5±0.1(两侧)', 'FMS-2#机', '夹具5', '刀柄5', '46分钟');
 INSERT INTO `gongxu` VALUES ('6', 'GY-002', '工序2', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-2#机', '夹具6', '刀柄6', '47分钟');
 INSERT INTO `gongxu` VALUES ('7', 'GY-002', '工序3', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-2#机', '夹具7', '刀柄7', '48分钟');
-INSERT INTO `gongxu` VALUES ('8', 'GY-003', '工序1', '1204.28.101', '两侧半轴面及侧面凸台', '791±0.2', 'FMS-3#机', '夹具8', '刀柄8', '49分钟');
-INSERT INTO `gongxu` VALUES ('9', 'GY-003', '工序2', '1204.28.101', '两侧半轴面及侧面凸台', '791±0.3', 'FMS-3#机', '夹具9', '刀柄9', '50分钟');
-INSERT INTO `gongxu` VALUES ('10', 'GY-003', '工序3', '1204.28.101', '两侧半轴面及侧面凸台', '791±0.4', 'FMS-3#机', '夹具10', '刀柄10', '51分钟');
-INSERT INTO `gongxu` VALUES ('11', 'GY-003', '工序4', '1204.28.101', '两侧半轴面及侧面凸台', '791±0.5', 'FMS-3#机', '夹具11', '刀柄11', '52分钟');
-INSERT INTO `gongxu` VALUES ('12', 'GY-003', '工序5', '1204.28.101', '两侧半轴面及侧面凸台', '791±0.6', 'FMS-3#机', '夹具12', '刀柄12', '53分钟');
-INSERT INTO `gongxu` VALUES ('42', 'GY-00158', '工序2', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.1', 'FMS-1#机', null, null, null);
-INSERT INTO `gongxu` VALUES ('39', 'GY-00158', '工序4', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.3', 'FMS-1#机', null, null, null);
-INSERT INTO `gongxu` VALUES ('41', 'GY-00158', '工序1', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-1#机', null, null, null);
-INSERT INTO `gongxu` VALUES ('40', 'GY-00158', '工序3', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.2', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('81', 'GY-003', '工序15', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('80', 'GY-003', '工序5', '1204.28.101', '两侧半轴面及侧面凸台', '791±0.6', 'FMS-3#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('79', 'GY-003', '工序4', '1204.28.101', '两侧半轴面及侧面凸台', '791±0.5', 'FMS-3#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('78', 'GY-003', '工序3', '1204.28.101', '两侧半轴面及侧面凸台', '791±0.4', 'FMS-3#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('76', 'GY-003', '工序1', '1204.28.101', '两侧半轴面及侧面凸台', '791±0.2', 'FMS-3#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('77', 'GY-003', '工序2', '1204.28.101', '两侧半轴面及侧面凸台', '791±0.3', 'FMS-3#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('93', 'GY-004', '工序4', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.3', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('90', 'GY-004', '工序1', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('91', 'GY-004', '工序2', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.1', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('92', 'GY-004', '工序3', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.2', 'FMS-1#机', null, null, null);
 
 -- ----------------------------
 -- Table structure for `gongxupeidao`
@@ -1357,34 +1358,34 @@ CREATE TABLE `gongxupeidao` (
   `daotaohao` char(20) CHARACTER SET utf8 NOT NULL COMMENT '刀套号',
   `gongjushuoming` varchar(50) CHARACTER SET utf8 DEFAULT NULL COMMENT '工具说明',
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=gbk COMMENT='工序配刀表';
+) ENGINE=MyISAM AUTO_INCREMENT=149 DEFAULT CHARSET=gbk COMMENT='工序配刀表';
 
 -- ----------------------------
 -- Records of gongxupeidao
 -- ----------------------------
-INSERT INTO `gongxupeidao` VALUES ('42', 'GY-001', '工序3', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '2', '套', 'FMS-1#机', 'T06', '');
-INSERT INTO `gongxupeidao` VALUES ('41', 'GY-001', '工序1', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '3', '套', 'FMS-1#机', 'T01', '');
-INSERT INTO `gongxupeidao` VALUES ('39', 'GY-001', '工序4', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '4', '套', 'FMS-1#机', 'T07', '');
-INSERT INTO `gongxupeidao` VALUES ('40', 'GY-001', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-1#机', 'T04', '');
+INSERT INTO `gongxupeidao` VALUES ('122', 'GY-001', '工序4', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '4', '套', 'FMS-1#机', 'T07', '');
+INSERT INTO `gongxupeidao` VALUES ('121', 'GY-001', '工序3', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T05', '');
+INSERT INTO `gongxupeidao` VALUES ('120', 'GY-001', '工序3', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '2', '套', 'FMS-1#机', 'T06', '');
+INSERT INTO `gongxupeidao` VALUES ('119', 'GY-001', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-1#机', 'T04', '');
+INSERT INTO `gongxupeidao` VALUES ('118', 'GY-001', '工序1', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '3', '套', 'FMS-1#机', 'T03', '');
+INSERT INTO `gongxupeidao` VALUES ('117', 'GY-001', '工序1', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '3', '套', 'FMS-1#机', 'T01', '');
 INSERT INTO `gongxupeidao` VALUES ('8', 'GY-002', '工序1', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '1', '套', 'FMS-2#机', 'T08', null);
 INSERT INTO `gongxupeidao` VALUES ('9', 'GY-002', '工序2', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '1', '套', 'FMS-2#机', 'T09', null);
 INSERT INTO `gongxupeidao` VALUES ('10', 'GY-002', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-2#机', 'T10', null);
 INSERT INTO `gongxupeidao` VALUES ('11', 'GY-002', '工序3', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '1', '套', 'FMS-2#机', 'T11', null);
-INSERT INTO `gongxupeidao` VALUES ('12', 'GY-003', '工序1', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '1', '套', 'FMS-3#机', 'T12', null);
-INSERT INTO `gongxupeidao` VALUES ('13', 'GY-003', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-3#机', 'T13', null);
-INSERT INTO `gongxupeidao` VALUES ('14', 'GY-003', '工序3', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '1', '套', 'FMS-3#机', 'T14', null);
-INSERT INTO `gongxupeidao` VALUES ('15', 'GY-003', '工序4', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '1', '套', 'FMS-3#机', 'T15', null);
-INSERT INTO `gongxupeidao` VALUES ('16', 'GY-003', '工序5', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-3#机', 'T16', null);
-INSERT INTO `gongxupeidao` VALUES ('44', 'GY-001', '工序1', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '3', '套', 'FMS-1#机', 'T03', '');
-INSERT INTO `gongxupeidao` VALUES ('43', 'GY-001', '工序3', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T05', '');
-INSERT INTO `gongxupeidao` VALUES ('66', 'GY-00158', '工序3', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '2', '套', 'FMS-1#机', 'T06', '');
-INSERT INTO `gongxupeidao` VALUES ('65', 'GY-00158', '工序4', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '4', '套', 'FMS-1#机', 'T07', '');
-INSERT INTO `gongxupeidao` VALUES ('45', 'GY-001', '工序1', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T02', '');
-INSERT INTO `gongxupeidao` VALUES ('64', 'GY-00158', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-1#机', 'T04', '');
-INSERT INTO `gongxupeidao` VALUES ('63', 'GY-00158', '工序1', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '3', '套', 'FMS-1#机', 'T03', '');
-INSERT INTO `gongxupeidao` VALUES ('61', 'GY-00158', '工序1', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '3', '套', 'FMS-1#机', 'T01', '');
-INSERT INTO `gongxupeidao` VALUES ('62', 'GY-00158', '工序3', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T05', '');
-INSERT INTO `gongxupeidao` VALUES ('60', 'GY-00158', '工序1', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T02', '');
+INSERT INTO `gongxupeidao` VALUES ('127', 'GY-003', '工序5', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-3#机', 'T16', '');
+INSERT INTO `gongxupeidao` VALUES ('126', 'GY-003', '工序4', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '1', '套', 'FMS-3#机', 'T15', '');
+INSERT INTO `gongxupeidao` VALUES ('123', 'GY-003', '工序1', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '1', '套', 'FMS-3#机', 'T12', '');
+INSERT INTO `gongxupeidao` VALUES ('125', 'GY-003', '工序3', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '1', '套', 'FMS-3#机', 'T14', '');
+INSERT INTO `gongxupeidao` VALUES ('124', 'GY-003', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-3#机', 'T13', '');
+INSERT INTO `gongxupeidao` VALUES ('116', 'GY-001', '工序1', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T02', '');
+INSERT INTO `gongxupeidao` VALUES ('142', 'GY-004', '工序1', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T02', '');
+INSERT INTO `gongxupeidao` VALUES ('143', 'GY-004', '工序1', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '3', '套', 'FMS-1#机', 'T03', '');
+INSERT INTO `gongxupeidao` VALUES ('144', 'GY-004', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-1#机', 'T04', '');
+INSERT INTO `gongxupeidao` VALUES ('145', 'GY-004', '工序3', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T05', '');
+INSERT INTO `gongxupeidao` VALUES ('146', 'GY-004', '工序3', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '2', '套', 'FMS-1#机', 'T06', '');
+INSERT INTO `gongxupeidao` VALUES ('147', 'GY-004', '工序4', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '4', '套', 'FMS-1#机', 'T07', '');
+INSERT INTO `gongxupeidao` VALUES ('148', 'GY-004', '工序1', '零部件', '槽铣刀片', '', '328R13-26502-GM1025', '10', '件', 'FMS-1#机', 'T02', '更换刀片');
 
 -- ----------------------------
 -- Table structure for `gongyika`
@@ -1398,15 +1399,15 @@ CREATE TABLE `gongyika` (
   `fbsj` datetime NOT NULL,
   `beizhu` text CHARACTER SET utf8,
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of gongyika
 -- ----------------------------
 INSERT INTO `gongyika` VALUES ('1', 'GY-001', '后传动箱壳体', '', '2017-11-13 12:30:36', '加工');
 INSERT INTO `gongyika` VALUES ('2', 'GY-002', '动箱壳体', null, '2017-11-01 08:32:50', null);
-INSERT INTO `gongyika` VALUES ('3', 'GY-003', '前传动箱壳体', null, '2017-10-01 12:33:15', null);
-INSERT INTO `gongyika` VALUES ('11', 'GY-00158', '后传动箱壳体', null, '2017-11-13 12:30:36', '加工');
+INSERT INTO `gongyika` VALUES ('3', 'GY-003', '前传动箱壳体', null, '2017-10-01 12:33:15', '');
+INSERT INTO `gongyika` VALUES ('11', 'GY-004', '后传动箱壳体', null, '2017-11-13 12:30:36', '加工');
 
 -- ----------------------------
 -- Table structure for `groupbiao`
