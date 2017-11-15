@@ -23,8 +23,8 @@ namespace kucunTest
         public static MySqlConnection My_con;
 
         //定义数据库连接字符串
-        public static string M_str_sqlcon = "Data Source=localhost; Database=kucuntest; Userid=root; PWD=root; port=3036; Charset=utf8";//PC
-        //public static string M_str_sqlcon = "Data Source=localhost; Database=kucuntest; Userid=root; PWD=root; Charset=utf8";//LAB-PC
+        //public static string M_str_sqlcon = "Data Source=localhost; Database=kucuntest; Userid=root; PWD=root; port=3036; Charset=utf8";//PC
+        public static string M_str_sqlcon = "Data Source=localhost; Database=kucuntest; Userid=root; PWD=root; Charset=utf8";//LAB-PC
         //public static string M_str_sqlcon = "Data Source=192.168.1.130; Database=kucuntest; Userid=root; PWD=root; Charset=utf8";//同一局域网内实验室电脑
         public static int Login_n = 0;
 

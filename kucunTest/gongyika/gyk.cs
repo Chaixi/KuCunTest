@@ -71,7 +71,7 @@ namespace kucunTest.gongyika
         /// <param name="e"></param>
         private void gyk_Load(object sender, EventArgs e)
         {
-            //asc.controllInitializeSize(this);            
+            asc.controllInitializeSize(this);
         }
 
         #endregion 窗体构造与加载函数结束
@@ -93,7 +93,7 @@ namespace kucunTest.gongyika
             treeView1.Nodes.Add(node);
             node.Text = "工艺卡编号";
 
-            SqlStr = string.Format("SELECT DISTINCT {1} FROM {0}", GongYiKa.TableName, GongYiKa.gykbh);
+            SqlStr = string.Format("SELECT DISTINCT {1} FROM {0} ORDER BY {1}", GongYiKa.TableName, GongYiKa.gykbh);
             MySqlDataReader scx = SQL.getcom(SqlStr);
             //node.Nodes[0].Remove();//移除刚开始建立的第一个空节点
             while (scx.Read())
@@ -113,7 +113,7 @@ namespace kucunTest.gongyika
         /// <param name="t1"></param>
         private void AddChild(TreeNode t1)
         {
-            SqlStr = string.Format("SELECT {1} FROM {0} WHERE {2} ='{3}'", GongXu.TableName, GongXu.gxbh, GongXu.gykbh, t1.Text.ToString().Trim());
+            SqlStr = string.Format("SELECT {1} FROM {0} WHERE {2} ='{3}' ORDER BY {1}", GongXu.TableName, GongXu.gxbh, GongXu.gykbh, t1.Text.ToString().Trim());
             MySqlDataReader jcbm = SQL.getcom(SqlStr);
             while (jcbm.Read())
             {
@@ -133,18 +133,18 @@ namespace kucunTest.gongyika
             tishi = "";
             string gyk = "";
 
-            //判断是否对上一个做了修改的工艺卡进行保存，提示保存再加载新数据
-            if(flag)
-            {
-                tishi = "工艺卡‘" + GYKBH.Text + "’已修改，是否保存？";
-                DialogResult dr = MessageBox.Show(tishi, "提示", MessageBoxButtons.YesNo);
-                if (dr == DialogResult.Yes)
-                {
-                    btn_gyk_Save_Click(null, null);
+            //判断是否对上一个做了修改的工艺卡进行保存，提示保存再加载新数据：在树节点选中之前判断，避免出现“当前工艺卡号已存在”的错误，因为用的节点名当做crtGykbh
+            //if (flag)
+            //{
+            //    tishi = "工艺卡‘" + GYKBH.Text + "’已修改，是否保存？";
+            //    DialogResult dr = MessageBox.Show(tishi, "提示", MessageBoxButtons.YesNo);
+            //    if (dr == DialogResult.Yes)
+            //    {
+            //        btn_gyk_Save_Click(null, null);
 
-                    return;
-                }
-            }
+            //        return;
+            //    }
+            //}
 
             if (treeView1.SelectedNode.Level == 0)//当前选中节点为根节点：所有工艺卡
             {
@@ -232,6 +232,12 @@ namespace kucunTest.gongyika
                     GYKBH.Focus();
                     GYKBH.SelectAll();
                 }
+            }
+
+            //新增完成，修改标识恢复false
+            if (flag)
+            {
+                flag = false;
             }
         }
 
@@ -322,6 +328,12 @@ namespace kucunTest.gongyika
                             BindRoot();
                         }
 
+                        //新增或更新保存完成，修改标识恢复false
+                        if (flag)
+                        {
+                            flag = false;
+                        }
+
                         #endregion
                     }
                     else//修改后的工艺卡编号已存在，提示并返回
@@ -339,8 +351,13 @@ namespace kucunTest.gongyika
                     UpdateGyk(oldGykbh: crtGykbh);
                     //重新生成树
                     BindRoot();
-                }
 
+                    //更新保存完成，修改标识恢复false
+                    if (flag)
+                    {
+                        flag = false;
+                    }
+                }
                 #endregion
             }
         }
@@ -654,6 +671,12 @@ namespace kucunTest.gongyika
                         //删除此工序
                         gx_db.Rows.Remove(gx_db.Rows[e.RowIndex]);
                         gxxx.DataSource = gx_db.DefaultView;//重新绑定，刷新显示
+
+                        //删除工序，修改标识为true
+                        if (!flag)
+                        {
+                            flag = true;
+                        }
                     }
                 }
             }
@@ -747,6 +770,12 @@ namespace kucunTest.gongyika
             gx_db.Rows.Add(row);
 
             gxxx.DataSource = gx_db.DefaultView;//重新绑定，刷新显示
+
+            //新增工序，修改标识为true
+            if (!flag)
+            {
+                flag = true;
+            }
         }
 
         /// <summary>
@@ -837,6 +866,12 @@ namespace kucunTest.gongyika
             
             //重新绑定，刷新显示
             gxxx.DataSource = gx_db.DefaultView;
+
+            //工序修改，修改标识为true
+            if (!flag)
+            {
+                flag = true;
+            }
         }
 
         /*----------------------------------------------------------------配刀信息-------------------------------------------------------------------------------------------------------*/
@@ -1011,6 +1046,12 @@ namespace kucunTest.gongyika
                     //删除此配刀数据行
                     pd_db.Rows.Remove(pd_db.Rows[e.RowIndex]);
                     pdxx.DataSource = pd_db.DefaultView;//重新绑定，刷新显示
+
+                    //删除配刀清单，修改标识为true
+                    if (!flag)
+                    {
+                        flag = true;
+                    }
                 }
             }
             
@@ -1128,6 +1169,12 @@ namespace kucunTest.gongyika
             pd_db.Rows.Add(row);
 
             pdxx.DataSource = pd_db.DefaultView;//重新绑定，刷新显示
+
+            //新增配刀清单，修改标识为true
+            if (!flag)
+            {
+                flag = true;
+            }
         }
 
         /// <summary>
@@ -1238,6 +1285,12 @@ namespace kucunTest.gongyika
             pd_db.Rows[rowindex]["gjsm"] = gjsm;
 
             pdxx.DataSource = pd_db.DefaultView;//重新绑定，刷新显示
+
+            //修改配刀清单，修改标识为true
+            if (!flag)
+            {
+                flag = true;
+            }
         }
 
         /*------------------------------------------------------------------其他方法-------------------------------------------------------------------------------------------------------*/
@@ -1262,7 +1315,7 @@ namespace kucunTest.gongyika
         /// <param name="e"></param>
         private void gyk_SizeChanged(object sender, EventArgs e)
         {
-            //asc.controlAutoSize(this);
+            asc.controlAutoSize(this);
         }
 
         /// <summary>
@@ -1400,8 +1453,25 @@ namespace kucunTest.gongyika
             }
 
             pdxx.DataSource = display_pd_db.DefaultView;
-        }        
+        }
 
+        private void treeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        {
+            tishi = "";
+
+            //判断是否对上一个做了修改的工艺卡进行保存，提示保存再加载新数据
+            if (flag)
+            {
+                tishi = "工艺卡‘" + GYKBH.Text + "’已修改，是否保存？";
+                DialogResult dr = MessageBox.Show(tishi, "提示", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    btn_gyk_Save_Click(null, null);
+
+                    return;
+                }
+            }
+        }
     }
 
 }
