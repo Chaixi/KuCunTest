@@ -17,13 +17,9 @@ namespace kucunTest.Daojugui
 {
     public partial class daojugui : Form
     {
-        public daojugui()
-        {
-            InitializeComponent();
-        }
-        
         #region 全局变量
         private MySql Sql = new MySql();//MySQL类
+        private BaseAlex Alex = new BaseAlex();
         private AutoSizeFormClass asc = new AutoSizeFormClass();
 
         private string SqlStr = "";
@@ -33,23 +29,69 @@ namespace kucunTest.Daojugui
         string djgtp = "";
         DataSet ds1 = new DataSet();
         DataSet ds2 = new DataSet();
-        private TreeNode node = new TreeNode();//类型树的根节点。
         int i;
+
+        string tishi = "";
         #endregion
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public daojugui()
+        {
+            InitializeComponent();
+                       
+            //生成刀具柜树 
+            BindRoot();
+
+            //关闭表格自动生成列
+            kcmx.AutoGenerateColumns = false;
+        }
+
+        /// <summary>
+        /// 窗体加载函数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void daojugui_Load(object sender, EventArgs e)
+        {
+            //记录窗体初始大小值
+            asc.controllInitializeSize(this);
+        }
+
+        /// <summary>
+        /// 新增刀具柜按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xzdjg_Click(object sender, EventArgs e)
         {
             XZDJG xzd = new XZDJG();
             xzd.ShowDialog();
+
+            if(xzd.DialogResult == DialogResult.OK)
+            {
+                BindRoot();
+            }
         }
 
         #region BindeRoot()方法和AddChild()方法：构造类型（所有类型-->名称-->型号）树
         ///<summary>生成树之生成第一层名称节点</summary>
         private void BindRoot()
         {
+            //刷新时重新建立节点
+            if (treeView1.Nodes.Count != 0)
+            {
+                treeView1.Nodes.Clear();//清空树节点
+            }
 
-            //把数据库中取出所有零部件名称
-            MySqlDataReader djgmc = Sql.getcom("select distinct djgmc from daojugui");
+            TreeNode node = new TreeNode();//类型树的根节点。
+
+            treeView1.Nodes.Add(node);
+            node.Text = "刀具柜";
+
+            //把数据库中取出所有刀具柜名称
+            MySqlDataReader djgmc = Sql.getcom(string.Format("SELECT DISTINCT {1} FROM {0} ORDER BY {1} ASC", DaoJuGui.TableName, DaoJuGui.djgmc));
             //node.Nodes[0].Remove();//移除刚开始建立的第一个空节点
             while (djgmc.Read())
             {
@@ -58,21 +100,22 @@ namespace kucunTest.Daojugui
                 node.Nodes.Add(t1);
                 AddChild(t1);
             }
+
+            treeView1.Nodes[0].Expand();//默认展开第一层节点
         }
 
-         private void AddChild(TreeNode t1)
+        private void AddChild(TreeNode t1)
         {
+            SqlStr = string.Format("SELECT {1} FROM {0} WHERE {2} = '{3}' ORDER BY {1}", DaoJuGuiCengShu.TableName, DaoJuGuiCengShu.djgcs, DaoJuGuiCengShu.djgmc, t1.Text.ToString().Trim());
+            MySqlDataReader djgcs = Sql.getcom(SqlStr);
+            while (djgcs.Read())
+            {
+                TreeNode t2 = new TreeNode();
+                t2.Text = djgcs[0].ToString();
+                t1.Nodes.Add(t2);
+            }
 
-
-        MySqlDataReader djgcs = Sql.getcom("select djgcs from daojuguicengshu where djgmc ='" + t1.Text.ToString().Trim() + "'");
-        while (djgcs.Read())
-         {
-         TreeNode t2 = new TreeNode();
-         t2.Text = djgcs[0].ToString();
-        t1.Nodes.Add(t2);
-         }
-
-         }
+        }
         #endregion
 
         #region treeView1_BeforeExpand()方法：按需展开节点查询并创建子节点
@@ -94,64 +137,57 @@ namespace kucunTest.Daojugui
                 return;
         }
         #endregion
-        
-        private void daojugui_Load(object sender, EventArgs e)
-        {
-            asc.controllInitializeSize(this);
 
-            treeView1.Nodes.Add(node);
-            node.Text = "刀具柜";
-            BindRoot();//生成树的第一层
-            treeView1.Nodes[0].Expand();//默认展开第一层节点
-
-            kcmx.AutoGenerateColumns = false;
-           
-        }
-
-       #region treeView1_AfterSelect()方法：根据选择的树节点进行查询
-            /// <summary>
-            /// 根据选择的树节点进行库存明细查询
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e">当前节点</param>
+        #region treeView1_AfterSelect()方法：根据选择的树节点进行查询
+        /// <summary>
+        /// 根据选择的树节点进行库存明细查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">当前节点</param>
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            string where = "WHERE weizhibiaoshi = 'S'";//SQL语句条件。默认为空，即第一层节点：所有类型
+            string where1 = "WHERE weizhibiaoshi = 'S'";
 
-            string where = "where weizhibiaoshi = 'S'";//SQL语句条件。默认为空，即第一层节点：所有类型
-            string where1 = "where weizhibiaoshi = 'S'";
-            
-            List<string> list1 = new List<string>();
             if (treeView1.SelectedNode.Level == 1)//当前选中节点为第二层节点：
             {
-                djgmmc.Text = e.Node.Text.ToString();
-                djgtp = djgmmc.Text + ".jpg";
-                where = "where weizhi = '" + e.Node.Text.ToString() + "' and weizhibiaoshi = 'S'";
-                where1 = "where weizhi = '" + e.Node.Text.ToString() + "' and weizhibiaoshi = 'S'";
-                SqlStr = "SELECT djgbm,djglx FROM  daojugui where djgmc = '" + e.Node.Text.ToString() +  "'";
-                string str = "select COUNT(*) from daojuguicengshu where djgmc = '" + e.Node.Text.ToString() + "'";
-                string str1 = "select COUNT(*) from daojutemp where weizhi = '" + e.Node.Text.ToString() + "'";
-                string str2 = "select COUNT(*) from jichuxinxi where weizhi = '" + e.Node.Text.ToString() + "'";
-                list1 = Sql.DataReadList2(SqlStr);
-                djgbm.Text = list1[0];
-                djglx.Text = list1[1];
+                DJGMC.Text = e.Node.Text.ToString();
+                djgtp = DJGMC.Text + ".jpg";
+
+                where = "WHERE weizhi = '" + e.Node.Text.ToString() + "' AND weizhibiaoshi = 'S'";
+                where1 = "WHERE weizhi = '" + e.Node.Text.ToString() + "' AND weizhibiaoshi = 'S'";
+
+                //查询刀具柜基础信息
+                SqlStr =  string.Format("SELECT {1} AS djgbm, {2} AS djglx, {3} AS cfsm FROM {0} WHERE {4} = '{5}'", DaoJuGui.TableName, DaoJuGui.djgbm, DaoJuGui.djglx, DaoJuGui.cfsm, DaoJuGui.djgmc, e.Node.Text.ToString());
+
+                //查询当前刀具柜所有层数
+                string str = string.Format("SELECT COUNT(*) FROM {0} WHERE {1} = '{2}'", DaoJuGuiCengShu.TableName, DaoJuGuiCengShu.djgmc, e.Node.Text.ToString());
+                
+                //查询存放于此刀具柜的刀具和零部件
+                string str1 = string.Format("SELECT COUNT(*) FROM {0} WHERE {1} = '{2}'", DaoJuTemp.TableName, DaoJuTemp.weizhibianma, e.Node.Text.ToString());
+                string str2 = string.Format("SELECT COUNT(*) FROM {0} WHERE {1} = '{2}'", LingBuJianBiao.TableName, LingBuJianBiao.weizhibianma, e.Node.Text.ToString());
+
+                DataTable db = Sql.getDataSet(SqlStr, DaoJuGui.TableName).Tables[0];
+                DJGBM.Text = db.Rows[0]["djgbm"].ToString();//刀具柜基础信息--刀具柜编码
+                DJGLX.Text = db.Rows[0]["djglx"].ToString();//刀具柜基础信息--刀具柜类型
+                CFSM.Text = db.Rows[0]["cfsm"].ToString();//刀具柜基础信息--刀具柜存放说明
+
                 Object a = Sql.ExecuteScalar(str);
                 Object b = Sql.ExecuteScalar(str1);
                 Object c = Sql.ExecuteScalar(str2);
                 string x = a.ToString();
                 string y = b.ToString();
                 string z = c.ToString();
-                djgccs.Text = x;
-                djsl.Text = y;
-                lbjsl.Text = z;
-
-                //string sqlstr = "select djgcs from daojuguicengshu where djgmc = '" + e.Node.Text.ToString() + "'";
-                //cscx.DataSource = Sql.DataReadList(sqlstr);
+                DJGZCS.Text = x;
+                DJZSL.Text = y;
+                LBJZSL.Text = z;
 
                 cengshu = "";
                 cengshu2 = "";
-                lxcx.SelectedIndex = 0;
 
+                GJLX.SelectedIndex = 0;
 
+                //刀具柜图片
                 string FileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\";
                 if (File.Exists(FileUrl + djgtp) == false)
                 {
@@ -163,202 +199,135 @@ namespace kucunTest.Daojugui
                 {
                     daojuguitupian.Image = Image.FromFile(FileUrl + djgtp);
                 }
-
-
             }
+
             if (treeView1.SelectedNode.Level == 2)//当前选中节点为第三层节点：层数
             {
                 cengshu = e.Node.Text.ToString();
                 cengshu2 = cengshu.Substring(1);
-                where = "where cengshu = '" + e.Node.Text.ToString() + "' and weizhibiaoshi = 'S' and weizhi = '" + djgmmc.Text.ToString() + "'";
-                where1 = "where cengshu = '" + e.Node.Text.ToString() + "' and weizhibiaoshi = 'S' and weizhi = '" + djgmmc.Text.ToString() + "'";
+                where = "WHERE cengshu = '" + e.Node.Text.ToString() + "' AND weizhibiaoshi = 'S' AND weizhi = '" + DJGMC.Text.ToString() + "'";
+                where1 = "WHERE cengshu = '" + e.Node.Text.ToString() + "' AND weizhibiaoshi = 'S' AND weizhi = '" + DJGMC.Text.ToString() + "'";
 
-                lxcx.SelectedIndex = 0;
-            }
-             //SqlStr = "SELECT * FROM  daojutemp " + where;
-             SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM daojutemp  " + where;
-             SqlStr1 = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM jichuxinxi " + where1;
-             ds1 = Sql.getDataSet1(SqlStr);
-             ds2 = Sql.getDataSet1(SqlStr1);
-             ds1.Merge(ds2, true);
-             kcmx.DataSource = ds1.Tables[0].DefaultView;
-
-            for (i = 0; i < kcmx.Rows.Count - 1; i++)
-            {
-                // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                string sl = kcmx.Rows[i].Cells["Column5"].Value.ToString();
-                string zxsl = kcmx.Rows[i].Cells["Column6"].Value.ToString();
-                int shuliang = int.Parse(sl);
-                int zxshuliang = int.Parse(zxsl);
-                if (shuliang < zxshuliang)
-                {
-                    //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                    kcmx.Rows[i].Cells["Column5"].Style.BackColor = Color.Red;
-                }
-
+                GJLX.SelectedIndex = 0;
             }
 
+            SqlStr = string.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS daojuleixing, {6} AS weizhi, CONCAT({6},'--', {7} ) AS daojuweizhi, {8} AS weizhibiaoshi, {9} AS type, {10} AS kcsl, {11} AS zuixiaokucun, {12} AS zuidakucun, {13} AS beizhu FROM {0} {14}", DaoJuTemp.TableName, DaoJuTemp.xh, DaoJuTemp.id, DaoJuTemp.xinghao, DaoJuTemp.guige, DaoJuTemp.leixing, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, DaoJuTemp.weizhibiaoshi, DaoJuTemp.type, DaoJuTemp.kcsl, DaoJuTemp.zxkc, DaoJuTemp.zdkc, DaoJuTemp.bz, where);
+
+            SqlStr1 = String.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS weizhi, CONCAT({5},'--', {6}) AS daojuweizhi, {7} AS weizhibiaoshi, {8} AS type, {9} AS kcsl, {10} AS zuixiaokucun, {11} AS zuidakucun, {12} AS beizhu FROM {0} {13}",LingBuJianBiao.TableName, LingBuJianBiao.xh, LingBuJianBiao.mc, LingBuJianBiao.xinghao, LingBuJianBiao.gg, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.weizhibiaoshi, LingBuJianBiao.type, LingBuJianBiao.kcsl, LingBuJianBiao.zxkc, LingBuJianBiao.zdkc, LingBuJianBiao.bz, where1);
+
+            //SqlStr = "SELECT xh, daojuid, daojuxinghao, daojuguige, daojuleixing, weizhi, CONCAT(weizhi,'--', cengshu ) AS daojuweizhi, weizhibiaoshi, type, kcsl, zuixiaokucun, zuidakucun, beizhu FROM daojutemp " + where;
+            //SqlStr1 = "SELECT xh, daojuid, daojuxinghao, daojuguige, daojuleixing, weizhi, CONCAT(weizhi,'--', cengshu ) AS daojuweizhi, weizhibiaoshi, type, kcsl, zuixiaokucun, zuidakucun, beizhu FROM jichuxinxi " + where1;
+            DataTable db1 = Sql.getDataSet(SqlStr, DaoJuTemp.TableName).Tables[0];
+            DataTable db2 = Sql.getDataSet(SqlStr1, LingBuJianBiao.TableName).Tables[0];
+
+            //刀具表和零部件表合并
+            db1.Merge(db2);
+            kcmx.DataSource = db1.DefaultView;
+
+            //刷新表格颜色
+            RefreshColor();
         }
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cscx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        //按刀具/零部件进行查询
+        /// <summary>
+        /// 工具类型改变，加载相应的工具名称值
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lxcx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string lxcxqb = "全部";
-            string lxcxdj = "刀具";
-            string lxcxlbj = "零部件";
+            tishi = "";
+
             string cengshu1 = "层";
-           
+
+            if(DJGMC.Text.ToString() == "")
+            {
+                tishi = "请先选择要查询的刀具柜！";
+                MessageBox.Show(tishi);
+
+                return;
+            }
 
             if(cengshu1 != cengshu2)
             {
-                if (lxcx.Text == lxcxqb)
+                if (GJLX.SelectedItem.ToString() == "全部")
                 {
-                    SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM daojutemp  where weizhi = '" + djgmmc.Text.ToString() + "' and weizhibiaoshi = 'S'";
-                    SqlStr1 = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM jichuxinxi  where weizhi = '" + djgmmc.Text.ToString() + "' and weizhibiaoshi = 'S'";
-                    ds1 = Sql.getDataSet1(SqlStr);
-                    ds2 = Sql.getDataSet1(SqlStr1);
-                    ds1.Merge(ds2, true);
-                    kcmx.DataSource = ds1.Tables[0].DefaultView;
+                    SqlStr = string.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS daojuleixing, {6} AS weizhi, CONCAT({6},'--', {7} ) AS daojuweizhi, {8} AS weizhibiaoshi, {9} AS type, {10} AS kcsl, {11} AS zuixiaokucun, {12} AS zuidakucun, {13} AS beizhu FROM {0} WHERE {6} = '{14}' AND {8} = 'S'", DaoJuTemp.TableName, DaoJuTemp.xh, DaoJuTemp.id, DaoJuTemp.xinghao, DaoJuTemp.guige, DaoJuTemp.leixing, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, DaoJuTemp.weizhibiaoshi, DaoJuTemp.type, DaoJuTemp.kcsl, DaoJuTemp.zxkc, DaoJuTemp.zdkc, DaoJuTemp.bz, DJGMC.Text.ToString());
 
-                    for (i = 0; i < kcmx.Rows.Count - 1; i++)
-                    {
-                        // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                        string sl = kcmx.Rows[i].Cells["Column5"].Value.ToString();
-                        string zxsl = kcmx.Rows[i].Cells["Column6"].Value.ToString();
-                        int shuliang = int.Parse(sl);
-                        int zxshuliang = int.Parse(zxsl);
-                        if (shuliang < zxshuliang)
-                        {
-                            //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                            kcmx.Rows[i].Cells["Column5"].Style.BackColor = Color.Red;
+                    SqlStr1 = String.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS weizhi, CONCAT({5},'--', {6}) AS daojuweizhi, {7} AS weizhibiaoshi, {8} AS type, {9} AS kcsl, {10} AS zuixiaokucun, {11} AS zuidakucun, {12} AS beizhu FROM {0} WHERE {5} = '{13}' AND {7} = 'S'", LingBuJianBiao.TableName, LingBuJianBiao.xh, LingBuJianBiao.mc, LingBuJianBiao.xinghao, LingBuJianBiao.gg, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.weizhibiaoshi, LingBuJianBiao.type, LingBuJianBiao.kcsl, LingBuJianBiao.zxkc, LingBuJianBiao.zdkc, LingBuJianBiao.bz, DJGMC.Text.ToString());
 
-                        }
+                    //SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM daojutemp  where weizhi = '" + DJGMC.Text.ToString() + "' AND weizhibiaoshi = 'S'";
+                    //SqlStr1 = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM jichuxinxi  where weizhi = '" + DJGMC.Text.ToString() + "' AND weizhibiaoshi = 'S'";
+                    DataTable db1 = Sql.getDataSet1(SqlStr).Tables[0];
+                    DataTable db2 = Sql.getDataSet1(SqlStr1).Tables[0];
+                    db1.Merge(db2);
+                    kcmx.DataSource = db1.DefaultView;
 
-                    }
+                    RefreshColor();
                 }
-                if (lxcx.Text == lxcxdj)
+                if (GJLX.SelectedItem.ToString() == "刀具")
                 {
-                    SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM daojutemp  where weizhi = '" + djgmmc.Text.ToString() + "' and weizhibiaoshi = 'S'";
+                    SqlStr = string.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS daojuleixing, {6} AS weizhi, CONCAT({6},'--', {7} ) AS daojuweizhi, {8} AS weizhibiaoshi, {9} AS type, {10} AS kcsl, {11} AS zuixiaokucun, {12} AS zuidakucun, {13} AS beizhu FROM {0} WHERE {6} = '{14}' AND {8} = 'S'", DaoJuTemp.TableName, DaoJuTemp.xh, DaoJuTemp.id, DaoJuTemp.xinghao, DaoJuTemp.guige, DaoJuTemp.leixing, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, DaoJuTemp.weizhibiaoshi, DaoJuTemp.type, DaoJuTemp.kcsl, DaoJuTemp.zxkc, DaoJuTemp.zdkc, DaoJuTemp.bz, DJGMC.Text.ToString());
+
+                    //SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM daojutemp  where weizhi = '" + DJGMC.Text.ToString() + "' AND weizhibiaoshi = 'S'";
                     kcmx.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
 
-                    for (i = 0; i < kcmx.Rows.Count - 1; i++)
-                    {
-                        // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                        string sl = kcmx.Rows[i].Cells["Column5"].Value.ToString();
-                        string zxsl = kcmx.Rows[i].Cells["Column6"].Value.ToString();
-                        int shuliang = int.Parse(sl);
-                        int zxshuliang = int.Parse(zxsl);
-                        if (shuliang < zxshuliang)
-                        {
-                            //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                            kcmx.Rows[i].Cells["Column5"].Style.BackColor = Color.Red;
-
-                        }
-
-                    }
+                    RefreshColor();
                 }
-                if (lxcx.Text == lxcxlbj)
+                if (GJLX.SelectedItem.ToString() == "零部件")
                 {
-                    SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM jichuxinxi  where weizhi = '" + djgmmc.Text.ToString() + "' and weizhibiaoshi = 'S'";
+                    SqlStr = String.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS weizhi, CONCAT({5},'--', {6}) AS daojuweizhi, {7} AS weizhibiaoshi, {8} AS type, {9} AS kcsl, {10} AS zuixiaokucun, {11} AS zuidakucun, {12} AS beizhu FROM {0} WHERE {5} = '{13}' AND {7} = 'S'", LingBuJianBiao.TableName, LingBuJianBiao.xh, LingBuJianBiao.mc, LingBuJianBiao.xinghao, LingBuJianBiao.gg, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.weizhibiaoshi, LingBuJianBiao.type, LingBuJianBiao.kcsl, LingBuJianBiao.zxkc, LingBuJianBiao.zdkc, LingBuJianBiao.bz, DJGMC.Text.ToString());
+
+                    //SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM jichuxinxi  where weizhi = '" + DJGMC.Text.ToString() + "' AND weizhibiaoshi = 'S'";
                     kcmx.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
 
-                    for (i = 0; i < kcmx.Rows.Count - 1; i++)
-                    {
-                        // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                        string sl = kcmx.Rows[i].Cells["Column5"].Value.ToString();
-                        string zxsl = kcmx.Rows[i].Cells["Column6"].Value.ToString();
-                        int shuliang = int.Parse(sl);
-                        int zxshuliang = int.Parse(zxsl);
-                        if (shuliang < zxshuliang)
-                        {
-                            //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                            kcmx.Rows[i].Cells["Column5"].Style.BackColor = Color.Red;
-
-                        }
-
-                    }
+                    RefreshColor();
                 }
-            }else
+            }
+            else
             {
-                if (lxcx.Text == lxcxqb)
+                if (GJLX.SelectedItem.ToString() == "全部")
                 {
-                    SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM daojutemp  where weizhi = '" + djgmmc.Text.ToString() + "' and weizhibiaoshi = 'S' and cengshu = '" + cengshu.ToString() + "'";
-                    SqlStr1 = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM jichuxinxi  where weizhi = '" + djgmmc.Text.ToString() + "' and weizhibiaoshi = 'S' and cengshu = '" + cengshu.ToString() + "'";
-                    ds1 = Sql.getDataSet1(SqlStr);
-                    ds2 = Sql.getDataSet1(SqlStr1);
-                    ds1.Merge(ds2, true);
-                    kcmx.DataSource = ds1.Tables[0].DefaultView;
+                    SqlStr = string.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS daojuleixing, {6} AS weizhi, CONCAT({6},'--', {7} ) AS daojuweizhi, {8} AS weizhibiaoshi, {9} AS type, {10} AS kcsl, {11} AS zuixiaokucun, {12} AS zuidakucun, {13} AS beizhu FROM {0} WHERE {6} = '{14}' AND {8} = 'S'", DaoJuTemp.TableName, DaoJuTemp.xh, DaoJuTemp.id, DaoJuTemp.xinghao, DaoJuTemp.guige, DaoJuTemp.leixing, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, DaoJuTemp.weizhibiaoshi, DaoJuTemp.type, DaoJuTemp.kcsl, DaoJuTemp.zxkc, DaoJuTemp.zdkc, DaoJuTemp.bz, DJGMC.Text.ToString());
+
+                    SqlStr1 = String.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS weizhi, CONCAT({5},'--', {6}) AS daojuweizhi, {7} AS weizhibiaoshi, {8} AS type, {9} AS kcsl, {10} AS zuixiaokucun, {11} AS zuidakucun, {12} AS beizhu FROM {0} WHERE {5} = '{13}' AND {7} = 'S'", LingBuJianBiao.TableName, LingBuJianBiao.xh, LingBuJianBiao.mc, LingBuJianBiao.xinghao, LingBuJianBiao.gg, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.weizhibiaoshi, LingBuJianBiao.type, LingBuJianBiao.kcsl, LingBuJianBiao.zxkc, LingBuJianBiao.zdkc, LingBuJianBiao.bz, DJGMC.Text.ToString());
+
+                    //SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM daojutemp  where weizhi = '" + DJGMC.Text.ToString() + "' and weizhibiaoshi = 'S' and cengshu = '" + cengshu.ToString() + "'";
+                    //SqlStr1 = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM jichuxinxi  where weizhi = '" + DJGMC.Text.ToString() + "' and weizhibiaoshi = 'S' and cengshu = '" + cengshu.ToString() + "'";
+                    DataTable db1 = Sql.getDataSet1(SqlStr).Tables[0];
+                    DataTable db2 = Sql.getDataSet1(SqlStr1).Tables[0];
+                    db1.Merge(db2);
+                    kcmx.DataSource = db1.DefaultView;
+
+                    RefreshColor();
+                }
+                if (GJLX.SelectedItem.ToString() == "刀具")
+                {
+                    SqlStr = string.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS daojuleixing, {6} AS weizhi, CONCAT({6},'--', {7} ) AS daojuweizhi, {8} AS weizhibiaoshi, {9} AS type, {10} AS kcsl, {11} AS zuixiaokucun, {12} AS zuidakucun, {13} AS beizhu FROM {0} WHERE {6} = '{14}' AND {8} = 'S'", DaoJuTemp.TableName, DaoJuTemp.xh, DaoJuTemp.id, DaoJuTemp.xinghao, DaoJuTemp.guige, DaoJuTemp.leixing, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, DaoJuTemp.weizhibiaoshi, DaoJuTemp.type, DaoJuTemp.kcsl, DaoJuTemp.zxkc, DaoJuTemp.zdkc, DaoJuTemp.bz, DJGMC.Text.ToString());
+
+                    //SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM daojutemp  where weizhi = '" + DJGMC.Text.ToString() + "' and weizhibiaoshi = 'S' and cengshu = '" + cengshu.ToString() + "'";
+                    kcmx.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
+
+                    RefreshColor();
+                }
+                if (GJLX.SelectedItem.ToString() == "零部件")
+                {
+                    SqlStr = String.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS weizhi, CONCAT({5},'--', {6}) AS daojuweizhi, {7} AS weizhibiaoshi, {8} AS type, {9} AS kcsl, {10} AS zuixiaokucun, {11} AS zuidakucun, {12} AS beizhu FROM {0} WHERE {5} = '{13}' AND {7} = 'S'", LingBuJianBiao.TableName, LingBuJianBiao.xh, LingBuJianBiao.mc, LingBuJianBiao.xinghao, LingBuJianBiao.gg, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.weizhibiaoshi, LingBuJianBiao.type, LingBuJianBiao.kcsl, LingBuJianBiao.zxkc, LingBuJianBiao.zdkc, LingBuJianBiao.bz, DJGMC.Text.ToString());
+
+                    //SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM jichuxinxi  where weizhi = '" + DJGMC.Text.ToString() + "' and weizhibiaoshi = 'S' and cengshu = '" + cengshu.ToString() + "'";
+                    kcmx.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
                     
-                    for (i = 0; i < kcmx.Rows.Count - 1; i++)
-                    {
-                      // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                      string sl = kcmx.Rows[i].Cells["Column5"].Value.ToString();
-                      string zxsl = kcmx.Rows[i].Cells["Column6"].Value.ToString();
-                      int shuliang = int.Parse(sl);
-                      int zxshuliang = int.Parse(zxsl);
-                     if (shuliang < zxshuliang)
-                      {
-                       //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                        kcmx.Rows[i].Cells["Column5"].Style.BackColor = Color.Red;
-
-                      }
-
-                     }
-                }
-                if (lxcx.Text == lxcxdj)
-                {
-                    SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM daojutemp  where weizhi = '" + djgmmc.Text.ToString() + "' and weizhibiaoshi = 'S' and cengshu = '" + cengshu.ToString() + "'";
-                    kcmx.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
-                    for (i = 0; i < kcmx.Rows.Count - 1; i++)
-                    {
-                        // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                        string sl = kcmx.Rows[i].Cells["Column5"].Value.ToString();
-                        string zxsl = kcmx.Rows[i].Cells["Column6"].Value.ToString();
-                        int shuliang = int.Parse(sl);
-                        int zxshuliang = int.Parse(zxsl);
-                        if (shuliang < zxshuliang)
-                        {
-                            //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                            kcmx.Rows[i].Cells["Column5"].Style.BackColor = Color.Red;
-
-                        }
-
-                    }
-                }
-                if (lxcx.Text == lxcxlbj)
-                {
-                    SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM jichuxinxi  where weizhi = '" + djgmmc.Text.ToString() + "' and weizhibiaoshi = 'S' and cengshu = '" + cengshu.ToString() + "'";
-                    kcmx.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
-                    for (i = 0; i < kcmx.Rows.Count - 1; i++)
-                    {
-                        // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                        string sl = kcmx.Rows[i].Cells["Column5"].Value.ToString();
-                        string zxsl = kcmx.Rows[i].Cells["Column6"].Value.ToString();
-                        int shuliang = int.Parse(sl);
-                        int zxshuliang = int.Parse(zxsl);
-                        if (shuliang < zxshuliang)
-                        {
-                            //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
-                            kcmx.Rows[i].Cells["Column5"].Style.BackColor = Color.Red;
-                        }
-
-                    }
+                    RefreshColor();
                 }
             }
         }
 
+        /// <summary>
+        /// 窗体在tabpage页中打开则一并关闭
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void daojugui_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (this.Parent != null)
@@ -368,12 +337,21 @@ namespace kucunTest.Daojugui
             }
         }
 
+        /// <summary>
+        /// 窗体大小变化自适应
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void daojugui_SizeChanged(object sender, EventArgs e)
         {
             asc.controlAutoSize(this);
         }
 
-        //导入刀具柜图片
+        /// <summary>
+        /// 导入图片按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog lvse = new OpenFileDialog())
@@ -399,19 +377,86 @@ namespace kucunTest.Daojugui
                 }
             }
         }
-        //保存图片
+
+        /// <summary>
+        /// 图片保存
+        /// </summary>
+        /// <param name="filename"></param>
         private void Picture_Save(string filename)
         {
 
             Bitmap bit = new Bitmap(daojuguitupian.ClientRectangle.Width, daojuguitupian.ClientRectangle.Height);
             daojuguitupian.DrawToBitmap(bit, daojuguitupian.ClientRectangle);
+
+            //没有文件夹，新建文件夹
             if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images") == false)
             {
                 Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images");
             }
+
             string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\";
+
+            //图片保存：若已存在此命名图片则先删除
+            if (System.IO.File.Exists(str_iniFileUrl + filename))
+            {
+                System.IO.File.Delete(filename);
+            }
             bit.Save(str_iniFileUrl + filename);
 
+        }
+
+        /// <summary>
+        /// 根据库存数量显示不同颜色:低于最小库存的以红色突出显示
+        /// </summary>
+        private void RefreshColor()
+        {
+            for (i = 0; i < kcmx.Rows.Count; i++)
+            {
+                // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                string sl = kcmx.Rows[i].Cells["kcsl"].Value.ToString();
+                string zxkc = kcmx.Rows[i].Cells["zxkc"].Value.ToString();
+                int shuliang = Convert.ToInt32(sl);
+                int zxshuliang = Convert.ToInt32(zxkc);
+                if (shuliang < zxshuliang)
+                {
+                    //this.daojuxinxi.Columns[3].DefaultCellStyle.BackColor = Color.Red;
+                    kcmx.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 删除刀具柜
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            tishi = "";
+            tishi = string.Format("确定删除刀具柜：“{0}”？", DJGMC.Text);
+
+            string mc = DJGMC.Text.ToString();
+            int row = 0;
+
+            if(MessageBox.Show(tishi, "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //判断刀具柜是否有存刀具或零部件
+                //if(Alex.CunZai(DaoJuGuiCengShu.TableName, string.Format("{0} = '{1}'", DaoJuGuiCengShu.djgmc, mc)) != 0)
+                //{
+                    //从刀具柜层数表中删除
+                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuGuiCengShu.TableName, DaoJuGuiCengShu.djgmc, mc);
+                    row = Sql.ExecuteNonQuery(SqlStr);
+                //}                
+
+                //从刀具柜表中删除
+                SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuGui.TableName, DaoJuGui.djgmc, mc);
+                row = Sql.ExecuteNonQuery(SqlStr);
+
+                tishi = "删除成功！";
+                MessageBox.Show(tishi);
+
+                BindRoot();
+            }
         }
     }
 }

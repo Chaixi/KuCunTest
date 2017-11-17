@@ -37,31 +37,39 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zxkc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zdkc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.CFSM = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.daojuguitupian = new System.Windows.Forms.PictureBox();
-            this.djgmmc = new System.Windows.Forms.TextBox();
+            this.DJGMC = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.djgbm = new System.Windows.Forms.TextBox();
+            this.DJGBM = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.djglx = new System.Windows.Forms.TextBox();
+            this.DJGLX = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.lbjsl = new System.Windows.Forms.TextBox();
-            this.djsl = new System.Windows.Forms.TextBox();
-            this.djgccs = new System.Windows.Forms.TextBox();
+            this.LBJZSL = new System.Windows.Forms.TextBox();
+            this.DJZSL = new System.Windows.Forms.TextBox();
+            this.DJGZCS = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.xzdjg = new System.Windows.Forms.Button();
-            this.lxcx = new System.Windows.Forms.ComboBox();
+            this.GJLX = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.查询条件 = new System.Windows.Forms.GroupBox();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.GJXH = new System.Windows.Forms.TextBox();
+            this.GJMC = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kcmx)).BeginInit();
@@ -103,6 +111,8 @@
             // 
             // kcmx
             // 
+            this.kcmx.AllowUserToAddRows = false;
+            this.kcmx.AllowUserToDeleteRows = false;
             this.kcmx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.kcmx.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -119,9 +129,9 @@
             this.Column9,
             this.Column3,
             this.Column8,
-            this.Column5,
-            this.Column6,
-            this.Column1,
+            this.kcsl,
+            this.zxkc,
+            this.zdkc,
             this.Column7});
             this.kcmx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kcmx.Location = new System.Drawing.Point(3, 25);
@@ -160,26 +170,26 @@
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
-            // Column5
+            // kcsl
             // 
-            this.Column5.DataPropertyName = "kcsl";
-            this.Column5.HeaderText = "库存数量";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.kcsl.DataPropertyName = "kcsl";
+            this.kcsl.HeaderText = "库存数量";
+            this.kcsl.Name = "kcsl";
+            this.kcsl.ReadOnly = true;
             // 
-            // Column6
+            // zxkc
             // 
-            this.Column6.DataPropertyName = "zuixiaokucun";
-            this.Column6.HeaderText = "最小库存";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
+            this.zxkc.DataPropertyName = "zuixiaokucun";
+            this.zxkc.HeaderText = "最小库存";
+            this.zxkc.Name = "zxkc";
+            this.zxkc.ReadOnly = true;
             // 
-            // Column1
+            // zdkc
             // 
-            this.Column1.DataPropertyName = "zuidakucun";
-            this.Column1.HeaderText = "最大库存";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.zdkc.DataPropertyName = "zuidakucun";
+            this.zdkc.HeaderText = "最大库存";
+            this.zdkc.Name = "zdkc";
+            this.zdkc.ReadOnly = true;
             // 
             // Column7
             // 
@@ -191,16 +201,18 @@
             // groupBox3
             // 
             this.groupBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox3.Controls.Add(this.CFSM);
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Controls.Add(this.djgmmc);
+            this.groupBox3.Controls.Add(this.DJGMC);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.djgbm);
+            this.groupBox3.Controls.Add(this.DJGBM);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.djglx);
+            this.groupBox3.Controls.Add(this.DJGLX);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.lbjsl);
-            this.groupBox3.Controls.Add(this.djsl);
-            this.groupBox3.Controls.Add(this.djgccs);
+            this.groupBox3.Controls.Add(this.LBJZSL);
+            this.groupBox3.Controls.Add(this.DJZSL);
+            this.groupBox3.Controls.Add(this.DJGZCS);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
@@ -208,109 +220,127 @@
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(233, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(722, 243);
+            this.groupBox3.Size = new System.Drawing.Size(722, 228);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "刀具柜信息";
+            // 
+            // CFSM
+            // 
+            this.CFSM.Location = new System.Drawing.Point(509, 45);
+            this.CFSM.Multiline = true;
+            this.CFSM.Name = "CFSM";
+            this.CFSM.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.CFSM.Size = new System.Drawing.Size(187, 118);
+            this.CFSM.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(434, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 21);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "存放说明";
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.daojuguitupian);
             this.groupBox4.Location = new System.Drawing.Point(12, 23);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(183, 209);
+            this.groupBox4.Size = new System.Drawing.Size(183, 199);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "刀具柜图片";
             // 
             // daojuguitupian
             // 
-            this.daojuguitupian.Location = new System.Drawing.Point(21, 22);
+            this.daojuguitupian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.daojuguitupian.Location = new System.Drawing.Point(3, 25);
             this.daojuguitupian.Name = "daojuguitupian";
-            this.daojuguitupian.Size = new System.Drawing.Size(149, 182);
-            this.daojuguitupian.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.daojuguitupian.Size = new System.Drawing.Size(177, 171);
+            this.daojuguitupian.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.daojuguitupian.TabIndex = 1;
             this.daojuguitupian.TabStop = false;
             // 
-            // djgmmc
+            // DJGMC
             // 
-            this.djgmmc.Location = new System.Drawing.Point(307, 64);
-            this.djgmmc.Name = "djgmmc";
-            this.djgmmc.ReadOnly = true;
-            this.djgmmc.Size = new System.Drawing.Size(103, 29);
-            this.djgmmc.TabIndex = 11;
+            this.DJGMC.Location = new System.Drawing.Point(306, 45);
+            this.DJGMC.Name = "DJGMC";
+            this.DJGMC.ReadOnly = true;
+            this.DJGMC.Size = new System.Drawing.Size(103, 29);
+            this.DJGMC.TabIndex = 11;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(211, 67);
+            this.label10.Location = new System.Drawing.Point(210, 48);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 21);
             this.label10.TabIndex = 10;
             this.label10.Text = "刀具柜名称";
             // 
-            // djgbm
+            // DJGBM
             // 
-            this.djgbm.Location = new System.Drawing.Point(307, 109);
-            this.djgbm.Name = "djgbm";
-            this.djgbm.ReadOnly = true;
-            this.djgbm.Size = new System.Drawing.Size(103, 29);
-            this.djgbm.TabIndex = 9;
+            this.DJGBM.Location = new System.Drawing.Point(306, 90);
+            this.DJGBM.Name = "DJGBM";
+            this.DJGBM.ReadOnly = true;
+            this.DJGBM.Size = new System.Drawing.Size(103, 29);
+            this.DJGBM.TabIndex = 9;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(211, 113);
+            this.label8.Location = new System.Drawing.Point(210, 94);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 21);
             this.label8.TabIndex = 8;
             this.label8.Text = "刀具柜编码";
             // 
-            // djglx
+            // DJGLX
             // 
-            this.djglx.Location = new System.Drawing.Point(307, 153);
-            this.djglx.Name = "djglx";
-            this.djglx.ReadOnly = true;
-            this.djglx.Size = new System.Drawing.Size(103, 29);
-            this.djglx.TabIndex = 7;
+            this.DJGLX.Location = new System.Drawing.Point(306, 134);
+            this.DJGLX.Name = "DJGLX";
+            this.DJGLX.ReadOnly = true;
+            this.DJGLX.Size = new System.Drawing.Size(103, 29);
+            this.DJGLX.TabIndex = 7;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(211, 156);
+            this.label7.Location = new System.Drawing.Point(210, 137);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 21);
             this.label7.TabIndex = 6;
             this.label7.Text = "刀具柜类型";
             // 
-            // lbjsl
+            // LBJZSL
             // 
-            this.lbjsl.Location = new System.Drawing.Point(643, 198);
-            this.lbjsl.Name = "lbjsl";
-            this.lbjsl.ReadOnly = true;
-            this.lbjsl.Size = new System.Drawing.Size(34, 29);
-            this.lbjsl.TabIndex = 5;
+            this.LBJZSL.Location = new System.Drawing.Point(642, 179);
+            this.LBJZSL.Name = "LBJZSL";
+            this.LBJZSL.ReadOnly = true;
+            this.LBJZSL.Size = new System.Drawing.Size(34, 29);
+            this.LBJZSL.TabIndex = 5;
             // 
-            // djsl
+            // DJZSL
             // 
-            this.djsl.Location = new System.Drawing.Point(464, 198);
-            this.djsl.Name = "djsl";
-            this.djsl.ReadOnly = true;
-            this.djsl.Size = new System.Drawing.Size(36, 29);
-            this.djsl.TabIndex = 4;
+            this.DJZSL.Location = new System.Drawing.Point(463, 179);
+            this.DJZSL.Name = "DJZSL";
+            this.DJZSL.ReadOnly = true;
+            this.DJZSL.Size = new System.Drawing.Size(36, 29);
+            this.DJZSL.TabIndex = 4;
             // 
-            // djgccs
+            // DJGZCS
             // 
-            this.djgccs.Location = new System.Drawing.Point(306, 198);
-            this.djgccs.Name = "djgccs";
-            this.djgccs.ReadOnly = true;
-            this.djgccs.Size = new System.Drawing.Size(42, 29);
-            this.djgccs.TabIndex = 3;
+            this.DJGZCS.Location = new System.Drawing.Point(305, 179);
+            this.DJGZCS.Name = "DJGZCS";
+            this.DJGZCS.ReadOnly = true;
+            this.DJGZCS.Size = new System.Drawing.Size(42, 29);
+            this.DJGZCS.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(506, 201);
+            this.label5.Location = new System.Drawing.Point(505, 182);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 21);
             this.label5.TabIndex = 2;
@@ -319,7 +349,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(346, 201);
+            this.label4.Location = new System.Drawing.Point(345, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 21);
             this.label4.TabIndex = 2;
@@ -328,7 +358,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(200, 201);
+            this.label3.Location = new System.Drawing.Point(199, 182);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 21);
             this.label3.TabIndex = 2;
@@ -337,7 +367,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(674, 201);
+            this.label6.Location = new System.Drawing.Point(673, 182);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 21);
             this.label6.TabIndex = 2;
@@ -354,50 +384,109 @@
             this.xzdjg.UseVisualStyleBackColor = true;
             this.xzdjg.Click += new System.EventHandler(this.xzdjg_Click);
             // 
-            // lxcx
+            // GJLX
             // 
-            this.lxcx.FormattingEnabled = true;
-            this.lxcx.Items.AddRange(new object[] {
+            this.GJLX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GJLX.FormattingEnabled = true;
+            this.GJLX.Items.AddRange(new object[] {
             "全部",
             "刀具",
             "零部件"});
-            this.lxcx.Location = new System.Drawing.Point(112, 36);
-            this.lxcx.Name = "lxcx";
-            this.lxcx.Size = new System.Drawing.Size(78, 29);
-            this.lxcx.TabIndex = 3;
-            this.lxcx.SelectedIndexChanged += new System.EventHandler(this.lxcx_SelectedIndexChanged);
+            this.GJLX.Location = new System.Drawing.Point(86, 33);
+            this.GJLX.Name = "GJLX";
+            this.GJLX.Size = new System.Drawing.Size(112, 29);
+            this.GJLX.TabIndex = 3;
+            this.GJLX.SelectedIndexChanged += new System.EventHandler(this.lxcx_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 39);
+            this.label11.Location = new System.Drawing.Point(6, 36);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 21);
+            this.label11.Size = new System.Drawing.Size(74, 21);
             this.label11.TabIndex = 2;
-            this.label11.Text = "按类型查询";
+            this.label11.Text = "工具类型";
             // 
             // 查询条件
             // 
-            this.查询条件.Controls.Add(this.lxcx);
+            this.查询条件.Controls.Add(this.btn_search);
+            this.查询条件.Controls.Add(this.GJXH);
+            this.查询条件.Controls.Add(this.GJMC);
+            this.查询条件.Controls.Add(this.label9);
+            this.查询条件.Controls.Add(this.label1);
+            this.查询条件.Controls.Add(this.GJLX);
             this.查询条件.Controls.Add(this.label11);
             this.查询条件.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.查询条件.Location = new System.Drawing.Point(961, 12);
             this.查询条件.Name = "查询条件";
-            this.查询条件.Size = new System.Drawing.Size(204, 243);
+            this.查询条件.Size = new System.Drawing.Size(204, 228);
             this.查询条件.TabIndex = 6;
             this.查询条件.TabStop = false;
             this.查询条件.Text = "查询条件";
             // 
+            // btn_search
+            // 
+            this.btn_search.Location = new System.Drawing.Point(86, 177);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(75, 31);
+            this.btn_search.TabIndex = 7;
+            this.btn_search.Text = "查    询";
+            this.btn_search.UseVisualStyleBackColor = true;
+            // 
+            // GJXH
+            // 
+            this.GJXH.Location = new System.Drawing.Point(86, 129);
+            this.GJXH.Name = "GJXH";
+            this.GJXH.Size = new System.Drawing.Size(112, 29);
+            this.GJXH.TabIndex = 6;
+            // 
+            // GJMC
+            // 
+            this.GJMC.FormattingEnabled = true;
+            this.GJMC.Location = new System.Drawing.Point(86, 85);
+            this.GJMC.Name = "GJMC";
+            this.GJMC.Size = new System.Drawing.Size(112, 29);
+            this.GJMC.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 132);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 21);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "工具型号";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 21);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "工具名称";
+            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(684, 659);
+            this.button2.Location = new System.Drawing.Point(671, 659);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 29);
             this.button2.TabIndex = 7;
             this.button2.Text = "导入图片";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_delete.Location = new System.Drawing.Point(800, 659);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(109, 29);
+            this.btn_delete.TabIndex = 4;
+            this.btn_delete.Text = "删除刀具柜";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // daojugui
             // 
@@ -407,6 +496,7 @@
             this.ClientSize = new System.Drawing.Size(1173, 700);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.查询条件);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.xzdjg);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -438,32 +528,40 @@
         private System.Windows.Forms.DataGridView kcmx;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox daojuguitupian;
-        private System.Windows.Forms.TextBox lbjsl;
-        private System.Windows.Forms.TextBox djsl;
-        private System.Windows.Forms.TextBox djgccs;
+        private System.Windows.Forms.TextBox LBJZSL;
+        private System.Windows.Forms.TextBox DJZSL;
+        private System.Windows.Forms.TextBox DJGZCS;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button xzdjg;
-        private System.Windows.Forms.TextBox djglx;
+        private System.Windows.Forms.TextBox DJGLX;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox djgbm;
+        private System.Windows.Forms.TextBox DJGBM;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox djgmmc;
+        private System.Windows.Forms.TextBox DJGMC;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox lxcx;
+        private System.Windows.Forms.ComboBox GJLX;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox 查询条件;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox CFSM;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox GJXH;
+        private System.Windows.Forms.ComboBox GJMC;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcsl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zxkc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zdkc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.GroupBox 查询条件;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btn_delete;
     }
 }

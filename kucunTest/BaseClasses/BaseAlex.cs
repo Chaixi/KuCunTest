@@ -249,6 +249,16 @@ namespace kucunTest.BaseClasses
             return i;
         }
 
-        
+        /// <summary>
+        /// 文本框只能输入数字
+        /// </summary>
+        /// <param name="e"></param>
+        public void KeyPress_OnlyNum(KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

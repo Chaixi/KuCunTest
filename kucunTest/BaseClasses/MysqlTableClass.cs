@@ -53,6 +53,30 @@ namespace kucunTest.BaseClasses
     }
 
     /// <summary>
+    /// 刀具柜表
+    /// </summary>
+    public static class DaoJuGui
+    {
+        public static string TableName = "daojugui";//表名
+        public static string xh = "xh";//序号主键
+        public static string djgbm = "djgbm";//刀具柜编码
+        public static string djgmc = "djgmc";//刀具柜名称
+        public static string djglx = "djglx";//刀具柜类型
+        public static string cfsm = "bz";//备注
+    }
+
+    /// <summary>
+    /// 刀具柜层数表
+    /// </summary>
+    public static class DaoJuGuiCengShu
+    {
+        public static string TableName = "daojuguicengshu";//表名
+        public static string xh = "xh";//序号主键
+        public static string djgmc = "djgmc";//刀具柜名称
+        public static string djgcs = "djgcs";//刀具柜层数
+    }
+
+    /// <summary>
     /// 机床表
     /// </summary>
     public static class JiChuangBiao

@@ -601,6 +601,9 @@
     <Content Include="BaseClasses\MyOpaqueLayer.csproj" />
     <Content Include="File\中国一拖+国机集团.jpg" />
     <Content Include="File\中国一拖.jpg" />
+    <None Include="Resources\选择刀具柜图片提示.png" />
+    <None Include="Resources\选择图片.png" />
+    <None Include="Resources\立式刀具柜.jpg" />
     <None Include="Resources\示例机床-监测生产线用.png" />
     <None Include="Resources\中国一拖+国机集团2.42.png" />
     <None Include="Resources\中国一拖+国机集团.png" />

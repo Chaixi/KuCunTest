@@ -523,9 +523,39 @@ namespace kucunTest.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 立式刀具柜 {
+            get {
+                object obj = ResourceManager.GetObject("立式刀具柜", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 立铣刀 {
             get {
                 object obj = ResourceManager.GetObject("立铣刀", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 选择刀具柜图片提示 {
+            get {
+                object obj = ResourceManager.GetObject("选择刀具柜图片提示", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 选择图片 {
+            get {
+                object obj = ResourceManager.GetObject("选择图片", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
