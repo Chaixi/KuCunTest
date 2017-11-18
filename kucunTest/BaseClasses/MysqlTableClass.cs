@@ -86,6 +86,8 @@ namespace kucunTest.BaseClasses
         public static string scx = "shengchanxian";//生产线
         public static string jcbm = "jichuangbianma";//机床编码
         public static string jclx = "jichuangleixing";//机床类型
+        public static string ssbz = "suoshubanzu";//所属班组
+        public static string zcbh = "zichanbianhao";//资产编号
     }
 
     /// <summary>

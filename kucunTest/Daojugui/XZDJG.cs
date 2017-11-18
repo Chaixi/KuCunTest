@@ -21,8 +21,6 @@ namespace kucunTest.Daojugui
         private MySql SQL = new MySql();//MySQL类
         private BaseAlex Alex = new BaseAlex();
         private string SqlStr = "";
-        private string SqlStr1 = "";
-        private string Str = "";
         int j;
 
         private string tishi = "";
@@ -198,12 +196,12 @@ namespace kucunTest.Daojugui
             djgtp.DrawToBitmap(bit, djgtp.ClientRectangle);
 
             //没有文件夹，新建文件夹
-            if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images") == false)
+            if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuGui") == false)
             {
-                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images");
+                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuGui");
             }
 
-            string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\";
+            string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuGui\\";
 
             //图片保存：若已存在此命名图片则先删除
             if (System.IO.File.Exists(str_iniFileUrl + filename))

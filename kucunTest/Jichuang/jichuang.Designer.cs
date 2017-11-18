@@ -31,28 +31,34 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.jcxx = new System.Windows.Forms.GroupBox();
+            this.JCLX = new System.Windows.Forms.ComboBox();
+            this.SSBZ = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.jichuangtupian = new System.Windows.Forms.PictureBox();
-            this.ssscx = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.jclx = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.jcmc = new System.Windows.Forms.TextBox();
+            this.ZCBH = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.JCMC = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.jcdth = new System.Windows.Forms.DataGridView();
+            this.jichuangdaoku = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xzjc = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.SSSCX = new System.Windows.Forms.TextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lab_progbar = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.jcxx.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jichuangtupian)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jcdth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jichuangdaoku)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +75,7 @@
             // 
             // treeView1
             // 
+            this.treeView1.HideSelection = false;
             this.treeView1.Location = new System.Drawing.Point(6, 28);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(169, 479);
@@ -77,106 +84,188 @@
             // 
             // jcxx
             // 
+            this.jcxx.Controls.Add(this.SSSCX);
+            this.jcxx.Controls.Add(this.JCLX);
+            this.jcxx.Controls.Add(this.SSBZ);
+            this.jcxx.Controls.Add(this.label1);
             this.jcxx.Controls.Add(this.groupBox3);
-            this.jcxx.Controls.Add(this.ssscx);
             this.jcxx.Controls.Add(this.label4);
-            this.jcxx.Controls.Add(this.jclx);
             this.jcxx.Controls.Add(this.label3);
-            this.jcxx.Controls.Add(this.jcmc);
+            this.jcxx.Controls.Add(this.ZCBH);
+            this.jcxx.Controls.Add(this.label5);
+            this.jcxx.Controls.Add(this.JCMC);
             this.jcxx.Controls.Add(this.label2);
             this.jcxx.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.jcxx.Location = new System.Drawing.Point(199, 12);
             this.jcxx.Name = "jcxx";
-            this.jcxx.Size = new System.Drawing.Size(781, 194);
+            this.jcxx.Size = new System.Drawing.Size(781, 181);
             this.jcxx.TabIndex = 2;
             this.jcxx.TabStop = false;
             this.jcxx.Text = "机床信息";
             // 
+            // JCLX
+            // 
+            this.JCLX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.JCLX.FormattingEnabled = true;
+            this.JCLX.Items.AddRange(new object[] {
+            "10序组 机",
+            "5序组 机",
+            "大 宇",
+            "惠乐喜乐",
+            "鲁 南",
+            "数控磨",
+            "辛辛那提",
+            "铱 镏",
+            "东 BW",
+            "西 BW",
+            "东 德",
+            "西 德",
+            "东 曼",
+            "西 曼",
+            "东 森",
+            "西 森",
+            "汉 川",
+            "东汉川",
+            "西汉川",
+            "东摇臂钻",
+            "西摇臂钻",
+            "南车",
+            "北车",
+            "桁 架",
+            "南桁架",
+            "北桁架",
+            "南开创",
+            "北开创",
+            "南齐二",
+            "北齐二",
+            "森 一",
+            "森 二",
+            "森 三",
+            "森 四",
+            "森 五",
+            "森 六"});
+            this.JCLX.Location = new System.Drawing.Point(311, 125);
+            this.JCLX.Name = "JCLX";
+            this.JCLX.Size = new System.Drawing.Size(180, 29);
+            this.JCLX.TabIndex = 11;
+            // 
+            // SSBZ
+            // 
+            this.SSBZ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SSBZ.FormattingEnabled = true;
+            this.SSBZ.Items.AddRange(new object[] {
+            "机一车间 1204后箱班",
+            "机一车间 80减速器班",
+            "机一车间 89减速器班",
+            "机一车间 100前箱班",
+            "机一车间 前托架班",
+            "机一车间 综加班"});
+            this.SSBZ.Location = new System.Drawing.Point(311, 39);
+            this.SSBZ.Name = "SSBZ";
+            this.SSBZ.Size = new System.Drawing.Size(180, 29);
+            this.SSBZ.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(231, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 21);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "所属班组";
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.jichuangtupian);
-            this.groupBox3.Location = new System.Drawing.Point(102, 16);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox3.Location = new System.Drawing.Point(3, 25);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(204, 172);
+            this.groupBox3.Size = new System.Drawing.Size(204, 153);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "机床图片";
             // 
             // jichuangtupian
             // 
-            this.jichuangtupian.Location = new System.Drawing.Point(24, 26);
+            this.jichuangtupian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jichuangtupian.Location = new System.Drawing.Point(3, 25);
             this.jichuangtupian.Name = "jichuangtupian";
-            this.jichuangtupian.Size = new System.Drawing.Size(161, 138);
-            this.jichuangtupian.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.jichuangtupian.Size = new System.Drawing.Size(198, 125);
+            this.jichuangtupian.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.jichuangtupian.TabIndex = 2;
             this.jichuangtupian.TabStop = false;
-            // 
-            // ssscx
-            // 
-            this.ssscx.Location = new System.Drawing.Point(455, 134);
-            this.ssscx.Name = "ssscx";
-            this.ssscx.Size = new System.Drawing.Size(122, 29);
-            this.ssscx.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(360, 136);
+            this.label4.Location = new System.Drawing.Point(216, 84);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 21);
             this.label4.TabIndex = 7;
             this.label4.Text = "所属生产线";
             // 
-            // jclx
-            // 
-            this.jclx.Location = new System.Drawing.Point(455, 93);
-            this.jclx.Name = "jclx";
-            this.jclx.Size = new System.Drawing.Size(122, 29);
-            this.jclx.TabIndex = 6;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(376, 97);
+            this.label3.Location = new System.Drawing.Point(232, 128);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "机床类型";
             // 
-            // jcmc
+            // ZCBH
             // 
-            this.jcmc.Location = new System.Drawing.Point(455, 56);
-            this.jcmc.Name = "jcmc";
-            this.jcmc.Size = new System.Drawing.Size(122, 29);
-            this.jcmc.TabIndex = 4;
+            this.ZCBH.Location = new System.Drawing.Point(596, 44);
+            this.ZCBH.Name = "ZCBH";
+            this.ZCBH.ReadOnly = true;
+            this.ZCBH.Size = new System.Drawing.Size(180, 29);
+            this.ZCBH.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(517, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 21);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "资产编号";
+            // 
+            // JCMC
+            // 
+            this.JCMC.Location = new System.Drawing.Point(596, 125);
+            this.JCMC.Name = "JCMC";
+            this.JCMC.ReadOnly = true;
+            this.JCMC.Size = new System.Drawing.Size(180, 29);
+            this.JCMC.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(376, 59);
+            this.label2.Location = new System.Drawing.Point(517, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "机床名称";
             // 
-            // jcdth
+            // jichuangdaoku
             // 
-            this.jcdth.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.jcdth.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.jcdth.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.jcdth.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.jichuangdaoku.AllowUserToAddRows = false;
+            this.jichuangdaoku.AllowUserToDeleteRows = false;
+            this.jichuangdaoku.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.jichuangdaoku.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.jichuangdaoku.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.jichuangdaoku.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column4,
             this.Column3});
-            this.jcdth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jcdth.Location = new System.Drawing.Point(3, 25);
-            this.jcdth.Name = "jcdth";
-            this.jcdth.ReadOnly = true;
-            this.jcdth.RowTemplate.Height = 23;
-            this.jcdth.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.jcdth.Size = new System.Drawing.Size(775, 285);
-            this.jcdth.TabIndex = 1;
+            this.jichuangdaoku.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jichuangdaoku.Location = new System.Drawing.Point(3, 25);
+            this.jichuangdaoku.Name = "jichuangdaoku";
+            this.jichuangdaoku.ReadOnly = true;
+            this.jichuangdaoku.RowTemplate.Height = 23;
+            this.jichuangdaoku.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.jichuangdaoku.Size = new System.Drawing.Size(775, 298);
+            this.jichuangdaoku.TabIndex = 1;
             // 
             // Column1
             // 
@@ -219,25 +308,25 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.jcdth);
+            this.groupBox2.Controls.Add(this.jichuangdaoku);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(199, 212);
+            this.groupBox2.Location = new System.Drawing.Point(199, 199);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(781, 313);
+            this.groupBox2.Size = new System.Drawing.Size(781, 326);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "机床刀具库";
             // 
-            // button1
+            // btn_delete
             // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(488, 539);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 29);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "删除机床";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.xzjc_Click);
+            this.btn_delete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_delete.Location = new System.Drawing.Point(496, 539);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(96, 29);
+            this.btn_delete.TabIndex = 3;
+            this.btn_delete.Text = "删除机床";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // button2
             // 
@@ -250,15 +339,43 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // SSSCX
+            // 
+            this.SSSCX.Location = new System.Drawing.Point(311, 81);
+            this.SSSCX.Name = "SSSCX";
+            this.SSSCX.ReadOnly = true;
+            this.SSSCX.Size = new System.Drawing.Size(180, 29);
+            this.SSSCX.TabIndex = 12;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(18, 531);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(153, 23);
+            this.progressBar1.TabIndex = 6;
+            this.progressBar1.Visible = false;
+            // 
+            // lab_progbar
+            // 
+            this.lab_progbar.AutoSize = true;
+            this.lab_progbar.Location = new System.Drawing.Point(177, 539);
+            this.lab_progbar.Name = "lab_progbar";
+            this.lab_progbar.Size = new System.Drawing.Size(17, 12);
+            this.lab_progbar.TabIndex = 7;
+            this.lab_progbar.Text = "0%";
+            this.lab_progbar.Visible = false;
+            // 
             // jichuang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(996, 580);
+            this.Controls.Add(this.lab_progbar);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.xzjc);
             this.Controls.Add(this.jcxx);
             this.Controls.Add(this.groupBox1);
@@ -273,9 +390,10 @@
             this.jcxx.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.jichuangtupian)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jcdth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jichuangdaoku)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -284,21 +402,27 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox jcxx;
         private System.Windows.Forms.Button xzjc;
-        private System.Windows.Forms.DataGridView jcdth;
+        private System.Windows.Forms.DataGridView jichuangdaoku;
         private System.Windows.Forms.PictureBox jichuangtupian;
-        private System.Windows.Forms.TextBox jcmc;
+        private System.Windows.Forms.TextBox JCMC;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox ssscx;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox jclx;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox JCLX;
+        private System.Windows.Forms.ComboBox SSBZ;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox ZCBH;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox SSSCX;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lab_progbar;
     }
 }

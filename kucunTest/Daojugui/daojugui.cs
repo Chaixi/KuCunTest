@@ -188,11 +188,11 @@ namespace kucunTest.Daojugui
                 GJLX.SelectedIndex = 0;
 
                 //刀具柜图片
-                string FileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\";
+                string FileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuGui\\";
                 if (File.Exists(FileUrl + djgtp) == false)
                 {
                     daojuguitupian.Image = null;
-                    //MessageBox.Show("请导入机床图片！", "信息提示");
+                    //MessageBox.Show("请导入图片！", "信息提示");
                     return;
                 }
                 else
@@ -354,9 +354,16 @@ namespace kucunTest.Daojugui
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
+            if (DJGMC.Text == "")
+            {
+                tishi = "请先选择要删除的刀具柜！";
+                MessageBox.Show(tishi);
+                return;
+            }
+
             using (OpenFileDialog lvse = new OpenFileDialog())
             {
-                lvse.Title = "请选择机床图片";
+                lvse.Title = "请选择刀具柜图片";
                 lvse.InitialDirectory = "";
                 lvse.Filter = "图片文件|*.bmp;*.jpg;*.jpeg;*.gif;*.png";
                 lvse.FilterIndex = 1;
@@ -389,12 +396,12 @@ namespace kucunTest.Daojugui
             daojuguitupian.DrawToBitmap(bit, daojuguitupian.ClientRectangle);
 
             //没有文件夹，新建文件夹
-            if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images") == false)
+            if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuGui") == false)
             {
-                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images");
+                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuGui");
             }
 
-            string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\";
+            string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuGui\\";
 
             //图片保存：若已存在此命名图片则先删除
             if (System.IO.File.Exists(str_iniFileUrl + filename))
@@ -433,6 +440,14 @@ namespace kucunTest.Daojugui
         private void btn_delete_Click(object sender, EventArgs e)
         {
             tishi = "";
+
+            if (DJGMC.Text == "")
+            {
+                tishi = "请先选择要删除的刀具柜！";
+                MessageBox.Show(tishi);
+                return;
+            }
+
             tishi = string.Format("确定删除刀具柜：“{0}”？", DJGMC.Text);
 
             string mc = DJGMC.Text.ToString();
@@ -451,6 +466,13 @@ namespace kucunTest.Daojugui
                 //从刀具柜表中删除
                 SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuGui.TableName, DaoJuGui.djgmc, mc);
                 row = Sql.ExecuteNonQuery(SqlStr);
+
+                //删除图片：若已存在此图片则先删除
+                string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuGui\\";
+                if (System.IO.File.Exists(str_iniFileUrl + mc + ".jpg"))
+                {
+                    System.IO.File.Delete(mc + ".jpg");
+                }
 
                 tishi = "删除成功！";
                 MessageBox.Show(tishi);

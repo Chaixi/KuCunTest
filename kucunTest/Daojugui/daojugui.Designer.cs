@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -115,14 +115,14 @@
             this.kcmx.AllowUserToDeleteRows = false;
             this.kcmx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.kcmx.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.kcmx.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.kcmx.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.kcmx.ColumnHeadersHeight = 30;
             this.kcmx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
@@ -246,9 +246,10 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.daojuguitupian);
-            this.groupBox4.Location = new System.Drawing.Point(12, 23);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox4.Location = new System.Drawing.Point(3, 25);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(183, 199);
+            this.groupBox4.Size = new System.Drawing.Size(190, 200);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             // 
@@ -257,7 +258,7 @@
             this.daojuguitupian.Dock = System.Windows.Forms.DockStyle.Fill;
             this.daojuguitupian.Location = new System.Drawing.Point(3, 25);
             this.daojuguitupian.Name = "daojuguitupian";
-            this.daojuguitupian.Size = new System.Drawing.Size(177, 171);
+            this.daojuguitupian.Size = new System.Drawing.Size(184, 172);
             this.daojuguitupian.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.daojuguitupian.TabIndex = 1;
             this.daojuguitupian.TabStop = false;
@@ -380,7 +381,7 @@
             this.xzdjg.Name = "xzdjg";
             this.xzdjg.Size = new System.Drawing.Size(109, 29);
             this.xzdjg.TabIndex = 4;
-            this.xzdjg.Text = "新增刀具柜";
+            this.xzdjg.Text = "新增刀柜";
             this.xzdjg.UseVisualStyleBackColor = true;
             this.xzdjg.Click += new System.EventHandler(this.xzdjg_Click);
             // 
@@ -469,7 +470,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(671, 659);
+            this.button2.Location = new System.Drawing.Point(801, 659);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 29);
             this.button2.TabIndex = 7;
@@ -480,11 +481,11 @@
             // btn_delete
             // 
             this.btn_delete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_delete.Location = new System.Drawing.Point(800, 659);
+            this.btn_delete.Location = new System.Drawing.Point(671, 659);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(109, 29);
             this.btn_delete.TabIndex = 4;
-            this.btn_delete.Text = "删除刀具柜";
+            this.btn_delete.Text = "删除刀柜";
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
