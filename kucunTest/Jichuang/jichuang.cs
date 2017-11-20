@@ -38,9 +38,6 @@ namespace kucunTest.Jichuang
 
             //关闭自动生成列
             jichuangdaoku.AutoGenerateColumns = false;
-
-            SSBZ.SelectedIndex = -1;
-            JCLX.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -144,23 +141,25 @@ namespace kucunTest.Jichuang
             {
                 crtNode.Expand();
                 treeView1.SelectedNode = crtNode.Nodes[0];
+
+                return;
             }
 
             if (treeView1.SelectedNode.Level == 2)//当前选中节点为第三层节点：机床编码
             {
-                SqlStr = string.Format("SELECT {1} AS ssbz, {2} AS ssscx, {3} AS jclx, {4} AS jcmc, {5} AS zcbh FROM {0} WHERE {4} = '{6}'", JiChuangBiao.TableName, JiChuangBiao.ssbz, JiChuangBiao.scx, JiChuangBiao.jclx, JiChuangBiao.jcbm, JiChuangBiao.zcbh, e.Node.Text.ToString());
+                SqlStr = string.Format("SELECT {1} AS ssbz, {2} AS ssscx, {3} AS jclx, {4} AS jcmc, {5} AS zcbh FROM {0} WHERE {4} = '{6}'", JiChuangBiao.TableName, JiChuangBiao.ssbz, JiChuangBiao.scx, JiChuangBiao.jclx, JiChuangBiao.jcbm, JiChuangBiao.zcbh, treeView1.SelectedNode.Text.ToString());
                 //string str = "select shengchanxian,jichuangleixing from jichuang where jichuangbianma = '" + e.Node.Text.ToString() + "'";
                 DataTable db = SQL.getDataSet(SqlStr, JiChuangBiao.TableName).Tables[0];
-                SSBZ.SelectedItem = db.Rows[0]["ssbz"].ToString();
+                SSBZ.Text = db.Rows[0]["ssbz"].ToString();
                 SSSCX.Text = db.Rows[0]["ssscx"].ToString();
-                JCLX.SelectedItem = db.Rows[0]["jclx"].ToString();
+                JCLX.Text = db.Rows[0]["jclx"].ToString();
                 JCMC.Text = db.Rows[0]["jcmc"].ToString();
                 ZCBH.Text = db.Rows[0]["zcbh"].ToString();
 
                 jctp = JCMC.Text + ".jpg";
 
                 //加载机床刀具库
-                SqlStr = "SELECT djtp.daojuleixing,djtp.daojuid,djtp.daojuguige,jcdjk.jichuangbianma,jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojutemp djtp ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where jcdjk.jichuangbianma =  '" + e.Node.Text.ToString() + "'";
+                SqlStr = "SELECT djtp.daojuleixing,djtp.daojuid,djtp.daojuguige,jcdjk.jichuangbianma,jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojutemp djtp ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where jcdjk.jichuangbianma =  '" + treeView1.SelectedNode.Text.ToString() + "'";
 
                 jichuangdaoku.DataSource = SQL.getDataSet1(SqlStr).Tables[0].DefaultView;
 
@@ -330,6 +329,16 @@ namespace kucunTest.Jichuang
 
                 BindRoot();
             }
+        }
+
+        /// <summary>
+        /// 表格绘制行号
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void jichuangdaoku_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            Alex.RowPostPaint(jichuangdaoku, e);
         }
     }
 

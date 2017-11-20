@@ -1019,7 +1019,7 @@ namespace kucunTest.DaoJu
             string lxcx = cxdjlx.Text.ToString();
             string idcx = cxdjid.Text.ToString();
             string smcx = cxdjsm.Text.ToString();
-            string djgcx = cxdjgmc.SelectedItem.ToString();
+            string djgcx = cxdjgmc.Text.ToString();
 
             if (lxcx == "" && idcx == "" && smcx == "" && djgcx == "")
             {

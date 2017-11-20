@@ -27,9 +27,6 @@ namespace kucunTest.Daojugui
         private string cengshu = "";
         private string cengshu2 = "";
         string djgtp = "";
-        DataSet ds1 = new DataSet();
-        DataSet ds2 = new DataSet();
-        int i;
 
         string tishi = "";
         #endregion
@@ -249,7 +246,26 @@ namespace kucunTest.Daojugui
                 return;
             }
 
-            if(cengshu1 != cengshu2)
+            switch(GJLX.SelectedItem.ToString())
+            {
+                case "全部":
+                    GJMC.DataSource = null;
+                    break;
+                case "刀具":
+                    //加载全部刀具名称
+                    SqlStr = string.Format("SELECT DISTINCT {1} FROM {0}", DaoJuTemp.TableName, DaoJuTemp.leixing);
+                    GJMC.DataSource = Sql.DataReadList(SqlStr);
+                    GJMC.SelectedIndex = -1;
+                    break;
+                case "零部件":
+                    //加载全部零部件名称
+                    SqlStr = string.Format("SELECT DISTINCT {1} FROM {0}", LingBuJianBiao.TableName, LingBuJianBiao.mc);
+                    GJMC.DataSource = Sql.DataReadList(SqlStr);
+                    GJMC.SelectedIndex = -1;
+                    break;
+            }
+            
+            if (cengshu1 != cengshu2)
             {
                 if (GJLX.SelectedItem.ToString() == "全部")
                 {
@@ -265,6 +281,7 @@ namespace kucunTest.Daojugui
                     kcmx.DataSource = db1.DefaultView;
 
                     RefreshColor();
+
                 }
                 if (GJLX.SelectedItem.ToString() == "刀具")
                 {
@@ -273,7 +290,7 @@ namespace kucunTest.Daojugui
                     //SqlStr = "SELECT xh,daojuid,daojuxinghao,daojuguige,daojuleixing,weizhi,concat(weizhi,'--', cengshu ) as daojuweizhi,weizhibiaoshi,type,kcsl,zuixiaokucun,zuidakucun,beizhu FROM daojutemp  where weizhi = '" + DJGMC.Text.ToString() + "' AND weizhibiaoshi = 'S'";
                     kcmx.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
 
-                    RefreshColor();
+                    RefreshColor();                  
                 }
                 if (GJLX.SelectedItem.ToString() == "零部件")
                 {
@@ -301,6 +318,7 @@ namespace kucunTest.Daojugui
                     kcmx.DataSource = db1.DefaultView;
 
                     RefreshColor();
+
                 }
                 if (GJLX.SelectedItem.ToString() == "刀具")
                 {
@@ -320,6 +338,7 @@ namespace kucunTest.Daojugui
                     
                     RefreshColor();
                 }
+
             }
         }
 
@@ -417,7 +436,7 @@ namespace kucunTest.Daojugui
         /// </summary>
         private void RefreshColor()
         {
-            for (i = 0; i < kcmx.Rows.Count; i++)
+            for (int i = 0; i < kcmx.Rows.Count; i++)
             {
                 // this.daojuxinxi.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                 string sl = kcmx.Rows[i].Cells["kcsl"].Value.ToString();
@@ -479,6 +498,46 @@ namespace kucunTest.Daojugui
 
                 BindRoot();
             }
+        }
+
+        /// <summary>
+        /// 查询按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            if(GJLX.SelectedIndex < 0)
+            {
+                GJLX.SelectedIndex = 0;
+            }
+
+            string gjlx = GJLX.SelectedItem.ToString();
+            switch(gjlx)
+            {
+                case "全部":
+                    GJXH.Text = "";
+
+                    SqlStr = string.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS daojuleixing, {6} AS weizhi, CONCAT({6},'--', {7} ) AS daojuweizhi, {8} AS weizhibiaoshi, {9} AS type, {10} AS kcsl, {11} AS zuixiaokucun, {12} AS zuidakucun, {13} AS beizhu FROM {0} WHERE {6} = '{14}' AND {8} = 'S'", DaoJuTemp.TableName, DaoJuTemp.xh, DaoJuTemp.id, DaoJuTemp.xinghao, DaoJuTemp.guige, DaoJuTemp.leixing, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, DaoJuTemp.weizhibiaoshi, DaoJuTemp.type, DaoJuTemp.kcsl, DaoJuTemp.zxkc, DaoJuTemp.zdkc, DaoJuTemp.bz, DJGMC.Text.ToString());
+
+                    SqlStr1 = String.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS weizhi, CONCAT({5},'--', {6}) AS daojuweizhi, {7} AS weizhibiaoshi, {8} AS type, {9} AS kcsl, {10} AS zuixiaokucun, {11} AS zuidakucun, {12} AS beizhu FROM {0} WHERE {5} = '{13}' AND {7} = 'S'", LingBuJianBiao.TableName, LingBuJianBiao.xh, LingBuJianBiao.mc, LingBuJianBiao.xinghao, LingBuJianBiao.gg, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.weizhibiaoshi, LingBuJianBiao.type, LingBuJianBiao.kcsl, LingBuJianBiao.zxkc, LingBuJianBiao.zdkc, LingBuJianBiao.bz, DJGMC.Text.ToString());
+
+                    DataTable db1 = Sql.getDataSet1(SqlStr).Tables[0];
+                    DataTable db2 = Sql.getDataSet1(SqlStr1).Tables[0];
+                    db1.Merge(db2);
+                    kcmx.DataSource = db1.DefaultView;
+                    break;
+                case "刀具":
+                    SqlStr = string.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS daojuleixing, {6} AS weizhi, CONCAT({6},'--', {7} ) AS daojuweizhi, {8} AS weizhibiaoshi, {9} AS type, {10} AS kcsl, {11} AS zuixiaokucun, {12} AS zuidakucun, {13} AS beizhu FROM {0} WHERE {6} = '{14}' AND {8} = 'S' AND {5} LIKE '%{15}%' AND {3} LIKE '%{16}%'", DaoJuTemp.TableName, DaoJuTemp.xh, DaoJuTemp.id, DaoJuTemp.xinghao, DaoJuTemp.guige, DaoJuTemp.leixing, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, DaoJuTemp.weizhibiaoshi, DaoJuTemp.type, DaoJuTemp.kcsl, DaoJuTemp.zxkc, DaoJuTemp.zdkc, DaoJuTemp.bz, DJGMC.Text.ToString(), GJMC.Text, GJXH.Text);
+                    kcmx.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
+                    break;
+                case "零部件":
+                    SqlStr = String.Format("SELECT {1} AS xh, {2} AS daojuid, {3} AS daojuxinghao, {4} AS daojuguige, {5} AS weizhi, CONCAT({5},'--', {6}) AS daojuweizhi, {7} AS weizhibiaoshi, {8} AS type, {9} AS kcsl, {10} AS zuixiaokucun, {11} AS zuidakucun, {12} AS beizhu FROM {0} WHERE {5} = '{13}' AND {7} = 'S' AND {2} LIKE '%{14}%' AND {3} LIKE '%{15}%'", LingBuJianBiao.TableName, LingBuJianBiao.xh, LingBuJianBiao.mc, LingBuJianBiao.xinghao, LingBuJianBiao.gg, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.weizhibiaoshi, LingBuJianBiao.type, LingBuJianBiao.kcsl, LingBuJianBiao.zxkc, LingBuJianBiao.zdkc, LingBuJianBiao.bz, DJGMC.Text.ToString(), GJMC.Text, GJXH.Text);
+                    kcmx.DataSource = Sql.getDataSet1(SqlStr).Tables[0].DefaultView;
+                    break;
+            }
+
+            RefreshColor();
         }
     }
 }

@@ -154,13 +154,6 @@
             // 
             this.SSBZ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SSBZ.FormattingEnabled = true;
-            this.SSBZ.Items.AddRange(new object[] {
-            "机一车间 1204后箱班",
-            "机一车间 80减速器班",
-            "机一车间 89减速器班",
-            "机一车间 100前箱班",
-            "机一车间 前托架班",
-            "机一车间 综加班"});
             this.SSBZ.Location = new System.Drawing.Point(117, 57);
             this.SSBZ.Name = "SSBZ";
             this.SSBZ.Size = new System.Drawing.Size(228, 29);

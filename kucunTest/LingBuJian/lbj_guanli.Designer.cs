@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.search_btn = new System.Windows.Forms.Button();
@@ -105,10 +105,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbx_dplx = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.LBJTP = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.LBJTP = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbjxinxi)).BeginInit();
@@ -117,8 +117,8 @@
             this.sjcs_panel_db.SuspendLayout();
             this.sjcs_panel_dp.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LBJTP)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -297,20 +297,20 @@
             // 
             this.lbjxinxi.AllowUserToAddRows = false;
             this.lbjxinxi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            this.lbjxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.lbjxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.lbjxinxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.lbjxinxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.lbjxinxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.lbjxinxi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.lbjxinxi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.lbjxinxi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.lbjxinxi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.lbjxinxi.ColumnHeadersHeight = 35;
             this.lbjxinxi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.check,
             this.lbjmc,
@@ -324,6 +324,7 @@
             this.lbjxinxi.Location = new System.Drawing.Point(8, 32);
             this.lbjxinxi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbjxinxi.Name = "lbjxinxi";
+            this.lbjxinxi.RowHeadersWidth = 30;
             this.lbjxinxi.RowTemplate.Height = 23;
             this.lbjxinxi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.lbjxinxi.Size = new System.Drawing.Size(997, 310);
@@ -889,6 +890,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "刀体类型";
             // 
+            // LBJTP
+            // 
+            this.LBJTP.ErrorImage = null;
+            this.LBJTP.Image = global::kucunTest.Properties.Resources.qxdp1;
+            this.LBJTP.InitialImage = null;
+            this.LBJTP.Location = new System.Drawing.Point(8, 32);
+            this.LBJTP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.LBJTP.Name = "LBJTP";
+            this.LBJTP.Size = new System.Drawing.Size(285, 204);
+            this.LBJTP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LBJTP.TabIndex = 7;
+            this.LBJTP.TabStop = false;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -920,19 +934,6 @@
             this.treeView1.TabIndex = 0;
             this.treeView1.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeExpand);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
-            // LBJTP
-            // 
-            this.LBJTP.ErrorImage = null;
-            this.LBJTP.Image = global::kucunTest.Properties.Resources.qxdp1;
-            this.LBJTP.InitialImage = null;
-            this.LBJTP.Location = new System.Drawing.Point(8, 32);
-            this.LBJTP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.LBJTP.Name = "LBJTP";
-            this.LBJTP.Size = new System.Drawing.Size(285, 204);
-            this.LBJTP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LBJTP.TabIndex = 7;
-            this.LBJTP.TabStop = false;
             // 
             // lbj_GuanLi
             // 
@@ -966,8 +967,8 @@
             this.sjcs_panel_dp.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LBJTP)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

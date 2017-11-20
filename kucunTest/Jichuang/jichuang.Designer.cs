@@ -31,8 +31,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.jcxx = new System.Windows.Forms.GroupBox();
-            this.JCLX = new System.Windows.Forms.ComboBox();
-            this.SSBZ = new System.Windows.Forms.ComboBox();
+            this.SSSCX = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.jichuangtupian = new System.Windows.Forms.PictureBox();
@@ -51,9 +50,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_delete = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.SSSCX = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lab_progbar = new System.Windows.Forms.Label();
+            this.SSBZ = new System.Windows.Forms.TextBox();
+            this.JCLX = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.jcxx.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -85,12 +85,12 @@
             // jcxx
             // 
             this.jcxx.Controls.Add(this.SSSCX);
-            this.jcxx.Controls.Add(this.JCLX);
-            this.jcxx.Controls.Add(this.SSBZ);
             this.jcxx.Controls.Add(this.label1);
             this.jcxx.Controls.Add(this.groupBox3);
             this.jcxx.Controls.Add(this.label4);
             this.jcxx.Controls.Add(this.label3);
+            this.jcxx.Controls.Add(this.JCLX);
+            this.jcxx.Controls.Add(this.SSBZ);
             this.jcxx.Controls.Add(this.ZCBH);
             this.jcxx.Controls.Add(this.label5);
             this.jcxx.Controls.Add(this.JCMC);
@@ -103,67 +103,13 @@
             this.jcxx.TabStop = false;
             this.jcxx.Text = "机床信息";
             // 
-            // JCLX
+            // SSSCX
             // 
-            this.JCLX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.JCLX.FormattingEnabled = true;
-            this.JCLX.Items.AddRange(new object[] {
-            "10序组 机",
-            "5序组 机",
-            "大 宇",
-            "惠乐喜乐",
-            "鲁 南",
-            "数控磨",
-            "辛辛那提",
-            "铱 镏",
-            "东 BW",
-            "西 BW",
-            "东 德",
-            "西 德",
-            "东 曼",
-            "西 曼",
-            "东 森",
-            "西 森",
-            "汉 川",
-            "东汉川",
-            "西汉川",
-            "东摇臂钻",
-            "西摇臂钻",
-            "南车",
-            "北车",
-            "桁 架",
-            "南桁架",
-            "北桁架",
-            "南开创",
-            "北开创",
-            "南齐二",
-            "北齐二",
-            "森 一",
-            "森 二",
-            "森 三",
-            "森 四",
-            "森 五",
-            "森 六"});
-            this.JCLX.Location = new System.Drawing.Point(311, 125);
-            this.JCLX.Name = "JCLX";
-            this.JCLX.Size = new System.Drawing.Size(180, 29);
-            this.JCLX.TabIndex = 11;
-            // 
-            // SSBZ
-            // 
-            this.SSBZ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SSBZ.FormattingEnabled = true;
-            this.SSBZ.Items.AddRange(new object[] {
-            "机一车间 1204后箱班",
-            "机一车间 80减速器班",
-            "机一车间 89减速器班",
-            "机一车间 100前箱班",
-            "机一车间 前托架班",
-            "机一车间 综加班"});
-            this.SSBZ.Location = new System.Drawing.Point(311, 39);
-            this.SSBZ.Name = "SSBZ";
-            this.SSBZ.Size = new System.Drawing.Size(180, 29);
-            this.SSBZ.TabIndex = 10;
+            this.SSSCX.Location = new System.Drawing.Point(311, 81);
+            this.SSSCX.Name = "SSSCX";
+            this.SSSCX.ReadOnly = true;
+            this.SSSCX.Size = new System.Drawing.Size(180, 29);
+            this.SSSCX.TabIndex = 12;
             // 
             // label1
             // 
@@ -266,6 +212,7 @@
             this.jichuangdaoku.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jichuangdaoku.Size = new System.Drawing.Size(775, 298);
             this.jichuangdaoku.TabIndex = 1;
+            this.jichuangdaoku.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.jichuangdaoku_RowPostPaint);
             // 
             // Column1
             // 
@@ -339,14 +286,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // SSSCX
-            // 
-            this.SSSCX.Location = new System.Drawing.Point(311, 81);
-            this.SSSCX.Name = "SSSCX";
-            this.SSSCX.ReadOnly = true;
-            this.SSSCX.Size = new System.Drawing.Size(180, 29);
-            this.SSSCX.TabIndex = 12;
-            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(18, 531);
@@ -364,6 +303,22 @@
             this.lab_progbar.TabIndex = 7;
             this.lab_progbar.Text = "0%";
             this.lab_progbar.Visible = false;
+            // 
+            // SSBZ
+            // 
+            this.SSBZ.Location = new System.Drawing.Point(311, 39);
+            this.SSBZ.Name = "SSBZ";
+            this.SSBZ.ReadOnly = true;
+            this.SSBZ.Size = new System.Drawing.Size(180, 29);
+            this.SSBZ.TabIndex = 4;
+            // 
+            // JCLX
+            // 
+            this.JCLX.Location = new System.Drawing.Point(311, 125);
+            this.JCLX.Name = "JCLX";
+            this.JCLX.ReadOnly = true;
+            this.JCLX.Size = new System.Drawing.Size(180, 29);
+            this.JCLX.TabIndex = 4;
             // 
             // jichuang
             // 
@@ -416,13 +371,13 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox JCLX;
-        private System.Windows.Forms.ComboBox SSBZ;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox ZCBH;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox SSSCX;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lab_progbar;
+        private System.Windows.Forms.TextBox JCLX;
+        private System.Windows.Forms.TextBox SSBZ;
     }
 }

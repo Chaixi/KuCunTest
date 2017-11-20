@@ -147,4 +147,15 @@ namespace kucunTest.BaseClasses
         public static string dw = "dw";//单位
         public static string gjsm = "gongjushuoming";//工具说明
     }
+
+    /// <summary>
+    /// 班组表
+    /// </summary>
+    public static class BanZu
+    {
+        public static string TableName = "banzu";//表名
+        public static string xh = "xh";//主键序号
+        public static string bzmc = "banzumingcheng";//班组名称
+        public static string scxmc = "shengchanxianmingcheng";//生产线名称
+    }
 }

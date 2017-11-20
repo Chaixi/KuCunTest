@@ -35,6 +35,17 @@ namespace kucunTest.Jichuang
         public xinzengjichuang()
         {
             InitializeComponent();
+
+            //加载班组名称
+            SqlStr = string.Format("SELECT {1} AS bzmc, {2} AS scxmc FROM {0} ", BanZu.TableName, BanZu.bzmc, BanZu.scxmc);
+            DataTable db = SQL.getDataSet(SqlStr, BanZu.TableName).Tables[0];
+            SSBZ.DataSource = db;
+            SSBZ.DisplayMember = "bzmc";
+            //SSBZ.ValueMember = "bzmc";
+            //SSSCX.DataSource = db;
+            //SSSCX.DisplayMember = "scxmc";
+            //SSBZ.DataSource = SQL.DataReadList(SqlStr);
+            //SSBZ.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -118,15 +129,15 @@ namespace kucunTest.Jichuang
             }
 
             //数据预处理
-            string ssbz = SSBZ.SelectedItem.ToString();//所属班组
+            string ssbz = SSBZ.Text.ToString();//所属班组
             string ssscx = SSSCX.Text;//所属生产线
-            string jclx = JCLX.SelectedItem.ToString();//机床类型
+            string jclx = JCLX.Text.ToString();//机床类型
             string zcbh = ZCBH.Text.ToString();//资产编号
             string jcmc = JCMC.Text.ToString().Trim();//机床名称/编码
             int dkrl = Convert.ToInt32(DKRL.Text.ToString().Trim());//刀库容量
 
             //判断机床名称是否已经存在
-            if (Alex.CunZai(JiChuangBiao.TableName, string.Format("{0} = '{1}%'", JiChuangBiao.jcbm, jcmc)) != 0)
+            if (Alex.CunZai(JiChuangBiao.TableName, string.Format("{0} = '{1}'", JiChuangBiao.jcbm, jcmc)) != 0)
             {
                 tishi = "机床名称已存在，请修改机床名称！";
                 MessageBox.Show(tishi);
@@ -213,8 +224,8 @@ namespace kucunTest.Jichuang
                 return;
             }
 
-            int counts = Alex.CunZai(JiChuangBiao.TableName, string.Format("{0} LIKE '{1}%'", JiChuangBiao.jcbm, JCLX.SelectedItem.ToString())) + 1;//若数量为0，从1开始
-            JCMC.Text = JCLX.SelectedItem.ToString() + " #" + counts + "号机";
+            int counts = Alex.CunZai(JiChuangBiao.TableName, string.Format("{0} LIKE '{1}%'", JiChuangBiao.jcbm, JCLX.Text.ToString())) + 1;//若数量为0，从1开始
+            JCMC.Text = JCLX.Text.ToString() + " #" + counts + "号机";
         }
 
         /// <summary>
@@ -234,15 +245,15 @@ namespace kucunTest.Jichuang
         /// <param name="e"></param>
         private void SSBZ_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(SSBZ.SelectedIndex < 0)
+            if (SSBZ.SelectedIndex < 0)
             {
                 SSSCX.Text = "";
 
                 return;
             }
 
-            string bz = SSBZ.SelectedItem.ToString();
-            SSSCX.Text = bz.Substring(5) + "线";
+            string bz = SSBZ.Text.ToString();
+            SSSCX.Text = bz.Substring(5) + "生产线";
         }
 
         /// <summary>
