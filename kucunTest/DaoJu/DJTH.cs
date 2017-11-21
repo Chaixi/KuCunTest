@@ -42,7 +42,8 @@ namespace kucunTest.DaoJu
 
             THDH.Text = Alex.DanHao("DJTH");//自动生成单号
 
-            THBZ.SelectedIndex = 0;
+            THBZ.DataSource = Alex.GetList("bz");
+            THBZ.SelectedIndex = -1;
             JBR.SelectedIndex = 0;
             THYY.Text = "机床常规退还。";//默认退还原因为"机床常规退还。"
             heji.Text = HJ.ToString();

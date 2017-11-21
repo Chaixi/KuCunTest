@@ -61,29 +61,29 @@
             this.Y_DJID = new System.Windows.Forms.ComboBox();
             this.Y_DJCD = new System.Windows.Forms.ComboBox();
             this.Y_DJGG = new System.Windows.Forms.ComboBox();
+            this.Y_DTH = new System.Windows.Forms.ComboBox();
             this.Y_DJLX = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.X_DJID = new System.Windows.Forms.ComboBox();
             this.X_DJLX = new System.Windows.Forms.ComboBox();
             this.X_DJCD = new System.Windows.Forms.ComboBox();
+            this.X_DTH = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.X_DJGG = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.GHLY = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.Y_DTH = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.X_DTH = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -187,6 +187,7 @@
             this.SQBZ.Name = "SQBZ";
             this.SQBZ.Size = new System.Drawing.Size(121, 29);
             this.SQBZ.TabIndex = 2;
+            this.SQBZ.SelectedIndexChanged += new System.EventHandler(this.SQBZ_SelectedIndexChanged);
             // 
             // JGLJ
             // 
@@ -483,6 +484,20 @@
             this.Y_DJGG.TabIndex = 2;
             this.Y_DJGG.SelectedIndexChanged += new System.EventHandler(this.Y_DJGG_SelectedIndexChanged);
             // 
+            // Y_DTH
+            // 
+            this.Y_DTH.AutoCompleteCustomSource.AddRange(new string[] {
+            "先锋一班",
+            "胜利二班",
+            "机动科"});
+            this.Y_DTH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Y_DTH.FormattingEnabled = true;
+            this.Y_DTH.Location = new System.Drawing.Point(102, 202);
+            this.Y_DTH.Name = "Y_DTH";
+            this.Y_DTH.Size = new System.Drawing.Size(121, 29);
+            this.Y_DTH.TabIndex = 2;
+            this.Y_DTH.SelectedIndexChanged += new System.EventHandler(this.Y_DTH_SelectedIndexChanged);
+            // 
             // Y_DJLX
             // 
             this.Y_DJLX.AutoCompleteCustomSource.AddRange(new string[] {
@@ -532,6 +547,15 @@
             this.label21.Size = new System.Drawing.Size(75, 21);
             this.label21.TabIndex = 0;
             this.label21.Text = "刀具ID：";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(32, 205);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 21);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "刀套号：";
             // 
             // groupBox5
             // 
@@ -600,6 +624,19 @@
             this.X_DJCD.Size = new System.Drawing.Size(121, 29);
             this.X_DJCD.TabIndex = 2;
             // 
+            // X_DTH
+            // 
+            this.X_DTH.AutoCompleteCustomSource.AddRange(new string[] {
+            "先锋一班",
+            "胜利二班",
+            "机动科"});
+            this.X_DTH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.X_DTH.FormattingEnabled = true;
+            this.X_DTH.Location = new System.Drawing.Point(105, 203);
+            this.X_DTH.Name = "X_DTH";
+            this.X_DTH.Size = new System.Drawing.Size(121, 29);
+            this.X_DTH.TabIndex = 2;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -649,6 +686,15 @@
             this.label22.Size = new System.Drawing.Size(75, 21);
             this.label22.TabIndex = 0;
             this.label22.Text = "刀具ID：";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(32, 206);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(74, 21);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "刀套号：";
             // 
             // groupBox6
             // 
@@ -702,51 +748,6 @@
             this.button3.Text = "退    出";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(32, 205);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(74, 21);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "刀套号：";
-            // 
-            // Y_DTH
-            // 
-            this.Y_DTH.AutoCompleteCustomSource.AddRange(new string[] {
-            "先锋一班",
-            "胜利二班",
-            "机动科"});
-            this.Y_DTH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.Y_DTH.FormattingEnabled = true;
-            this.Y_DTH.Location = new System.Drawing.Point(102, 202);
-            this.Y_DTH.Name = "Y_DTH";
-            this.Y_DTH.Size = new System.Drawing.Size(121, 29);
-            this.Y_DTH.TabIndex = 2;
-            this.Y_DTH.SelectedIndexChanged += new System.EventHandler(this.Y_DTH_SelectedIndexChanged);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(32, 206);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(74, 21);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "刀套号：";
-            // 
-            // X_DTH
-            // 
-            this.X_DTH.AutoCompleteCustomSource.AddRange(new string[] {
-            "先锋一班",
-            "胜利二班",
-            "机动科"});
-            this.X_DTH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.X_DTH.FormattingEnabled = true;
-            this.X_DTH.Location = new System.Drawing.Point(105, 203);
-            this.X_DTH.Name = "X_DTH";
-            this.X_DTH.Size = new System.Drawing.Size(121, 29);
-            this.X_DTH.TabIndex = 2;
             // 
             // DJGH
             // 

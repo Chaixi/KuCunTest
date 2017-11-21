@@ -43,13 +43,14 @@ namespace kucunTest.DaoJu
             SQSJ.Text = DateTime.Now.ToString();
 
             //刀具信息默认值
-            string Sqlstr1 = "select distinct daojuleixing from daojutemp";
-            Y_DJLX.DataSource = SQL.DataReadList(Sqlstr1);
+            Y_DJLX.DataSource = Alex.GetList("djlx");
+            //string Sqlstr1 = "select distinct daojuleixing from daojutemp";
+            //Y_DJLX.DataSource = SQL.DataReadList(Sqlstr1);
             Y_DJLX.SelectedIndex = -1;
             //Y_DJCD.SelectedIndex = 0;
 
             //X_DJLX.DataSource = Y_DJLX.DataSource;//此处会让新刀具类型与原刀具类型同步更改
-            X_DJLX.DataSource = SQL.DataReadList(Sqlstr1);//此处会让新刀具类型与原刀具类型独立更改
+            X_DJLX.DataSource = Alex.GetList("djlx");//此处会让新刀具类型与原刀具类型独立更改
             X_DJLX.SelectedIndex = -1;
             //X_DJCD.SelectedIndex = 0;
 
@@ -57,6 +58,10 @@ namespace kucunTest.DaoJu
             SPLD.SelectedIndex = 0;
             SPYJ.Text = "同意。";
             JBR.SelectedIndex = 0;
+
+            //加载申请班组
+            SQBZ.DataSource = Alex.GetList("bz");
+            SQBZ.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -559,6 +564,22 @@ namespace kucunTest.DaoJu
         private void Y_DTH_SelectedIndexChanged(object sender, EventArgs e)
         {
             X_DTH.Text = Y_DTH.Text;
+        }
+
+        /// <summary>
+        /// 申请班组变化加载相应机床数据源
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SQBZ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(SQBZ.SelectedIndex < 0)
+            {
+                SQSB.DataSource = null;
+                return;
+            }
+
+            SQSB.DataSource = Alex.GetJCofBZ(SQBZ.Text);
         }
     }
 }

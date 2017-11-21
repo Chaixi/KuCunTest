@@ -8,12 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.BaseClasses;
+
 namespace kucunTest.DaoJu
 {
     public partial class xzccmx : Form
     {
         #region 全局变量
         MySql SQL = new MySql();
+
+        BaseAlex Alex = new BaseAlex();
         String sqlstr = "";
         String sqlstr1 = "";
         #endregion
@@ -30,27 +34,32 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void xzccmx_Load(object sender, EventArgs e)
         {
-            sqlstr = "select distinct daojuleixing from daojutemp";
-            djlx.DataSource = SQL.DataReadList(sqlstr);
+            //加载所有刀具类型
+            djlx.DataSource = Alex.GetList("djlx");
+            //sqlstr = "select distinct daojuleixing from daojutemp";
+            //djlx.DataSource = SQL.DataReadList(sqlstr);
             djlx.SelectedIndex = -1;
-            sqlstr1 = "select jichuangbianma from jichuang";
-            jcbm.DataSource = SQL.DataReadList(sqlstr1);
+
+            //加载所有机床编码/名称
+            jcbm.DataSource = Alex.GetList("jc");
+            //sqlstr1 = "select jichuangbianma from jichuang";
+            //jcbm.DataSource = SQL.DataReadList(sqlstr1);
             jcbm.SelectedIndex = -1;
         }
 
         #region 刀具信息三级联动
         private void djxh_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(djlx.Text == "")
+            if(djlx.SelectedIndex < 0)
             {
-                djgg.Text = "";
+                djgg.DataSource = null;
                 return;
             }
             else
             {
                 sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'";
                 djgg.DataSource = SQL.DataReadList(sqlstr);
-                djgg.SelectedIndex = 0;//默认为空
+                djgg.SelectedIndex = -1;//默认为空
             }
             
         }
@@ -60,9 +69,9 @@ namespace kucunTest.DaoJu
             //sqlstr = "select daojuid from daojutemp where daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'" + " and daojuguige = '" + djgg.SelectedItem.ToString().Trim() + "'";
             //djid.DataSource = SQL.DataReadList(sqlstr);
             //djid.SelectedIndex = 0;//默认选择第一项
-            if(djgg.Text == "")
+            if(djgg.SelectedIndex < 0)
             {
-                djid.Text = "";
+                djid.DataSource = null;
                 return;
             }
             else
@@ -75,11 +84,12 @@ namespace kucunTest.DaoJu
                 list = SQL.DataReadList(sqlstr);
                 if (list.Count == 0)
                 {
-                    MessageBox.Show("该规格下没有空闲刀具，是否现在进行装配刀具？", "提示", MessageBoxButtons.YesNo);//是否进行刀具装配
+                    MessageBox.Show("该规格下没有空闲刀具，请装配刀具？", "提示");//是否进行刀具装配
                 }
                 else
                 {
                     djid.DataSource = list;
+
                 }
             }            
         }
@@ -156,9 +166,15 @@ namespace kucunTest.DaoJu
 
         private void jcbm_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(jcbm.SelectedIndex < 0)
+            {
+                dth.DataSource = null;
+                return;
+            }
+
             sqlstr = "SELECT jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojutemp djtp ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where djtp.daojuid is NULL and jcdjk.jichuangbianma = '" + jcbm.SelectedItem.ToString().Trim() + "'";
             dth.DataSource = SQL.DataReadList(sqlstr);
-            dth.SelectedIndex = 0;
+            dth.SelectedIndex = -1;
         }
     }
 }

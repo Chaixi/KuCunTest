@@ -56,7 +56,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(627, 54);
+            this.label1.Size = new System.Drawing.Size(627, 69);
             this.label1.TabIndex = 0;
             this.label1.Text = "新增机床";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 236);
+            this.label2.Location = new System.Drawing.Point(35, 251);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 21);
@@ -73,7 +73,7 @@
             // 
             // JCMC
             // 
-            this.JCMC.Location = new System.Drawing.Point(117, 233);
+            this.JCMC.Location = new System.Drawing.Point(118, 248);
             this.JCMC.Margin = new System.Windows.Forms.Padding(5);
             this.JCMC.Name = "JCMC";
             this.JCMC.Size = new System.Drawing.Size(228, 29);
@@ -82,7 +82,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 148);
+            this.label3.Location = new System.Drawing.Point(35, 163);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 21);
@@ -92,7 +92,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 105);
+            this.label4.Location = new System.Drawing.Point(19, 120);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 21);
@@ -102,7 +102,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 280);
+            this.label5.Location = new System.Drawing.Point(35, 295);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 21);
@@ -111,7 +111,7 @@
             // 
             // DKRL
             // 
-            this.DKRL.Location = new System.Drawing.Point(117, 277);
+            this.DKRL.Location = new System.Drawing.Point(118, 292);
             this.DKRL.Margin = new System.Windows.Forms.Padding(5);
             this.DKRL.Name = "DKRL";
             this.DKRL.Size = new System.Drawing.Size(228, 29);
@@ -120,7 +120,7 @@
             // 
             // btn_confirm
             // 
-            this.btn_confirm.Location = new System.Drawing.Point(206, 331);
+            this.btn_confirm.Location = new System.Drawing.Point(207, 346);
             this.btn_confirm.Margin = new System.Windows.Forms.Padding(5);
             this.btn_confirm.Name = "btn_confirm";
             this.btn_confirm.Size = new System.Drawing.Size(99, 34);
@@ -131,7 +131,7 @@
             // 
             // btn_cansel
             // 
-            this.btn_cansel.Location = new System.Drawing.Point(336, 331);
+            this.btn_cansel.Location = new System.Drawing.Point(337, 346);
             this.btn_cansel.Margin = new System.Windows.Forms.Padding(5);
             this.btn_cansel.Name = "btn_cansel";
             this.btn_cansel.Size = new System.Drawing.Size(99, 34);
@@ -143,7 +143,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 57);
+            this.label6.Location = new System.Drawing.Point(35, 72);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 21);
@@ -154,7 +154,7 @@
             // 
             this.SSBZ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SSBZ.FormattingEnabled = true;
-            this.SSBZ.Location = new System.Drawing.Point(117, 57);
+            this.SSBZ.Location = new System.Drawing.Point(118, 72);
             this.SSBZ.Name = "SSBZ";
             this.SSBZ.Size = new System.Drawing.Size(228, 29);
             this.SSBZ.TabIndex = 10;
@@ -163,7 +163,7 @@
             // SSSCX
             // 
             this.SSSCX.FormattingEnabled = true;
-            this.SSSCX.Location = new System.Drawing.Point(117, 102);
+            this.SSSCX.Location = new System.Drawing.Point(118, 117);
             this.SSSCX.Name = "SSSCX";
             this.SSSCX.Size = new System.Drawing.Size(228, 29);
             this.SSSCX.TabIndex = 10;
@@ -209,7 +209,7 @@
             "森 四",
             "森 五",
             "森 六"});
-            this.JCLX.Location = new System.Drawing.Point(117, 148);
+            this.JCLX.Location = new System.Drawing.Point(118, 163);
             this.JCLX.Name = "JCLX";
             this.JCLX.Size = new System.Drawing.Size(228, 29);
             this.JCLX.TabIndex = 10;
@@ -218,7 +218,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.JCTP);
-            this.groupBox1.Location = new System.Drawing.Point(360, 57);
+            this.groupBox1.Location = new System.Drawing.Point(361, 72);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(252, 249);
             this.groupBox1.TabIndex = 11;
@@ -240,7 +240,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 196);
+            this.label7.Location = new System.Drawing.Point(35, 211);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 21);
             this.label7.TabIndex = 12;
@@ -248,7 +248,7 @@
             // 
             // ZCBH
             // 
-            this.ZCBH.Location = new System.Drawing.Point(117, 193);
+            this.ZCBH.Location = new System.Drawing.Point(118, 208);
             this.ZCBH.Name = "ZCBH";
             this.ZCBH.Size = new System.Drawing.Size(228, 29);
             this.ZCBH.TabIndex = 13;
@@ -257,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 379);
+            this.ClientSize = new System.Drawing.Size(627, 398);
             this.Controls.Add(this.ZCBH);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
