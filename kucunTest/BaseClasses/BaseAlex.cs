@@ -304,5 +304,26 @@ namespace kucunTest.BaseClasses
             Sqlstr = string.Format("SELECT {1} FROM {0} WHERE {2} = '{3}'", JiChuangBiao.TableName, JiChuangBiao.jcbm, JiChuangBiao.ssbz, bz);
             return SQL.DataReadList(Sqlstr);
         }
+
+        /// <summary>
+        /// datarow对象组转换为datata
+        /// </summary>
+        /// <param name="rows">要进行转换的datarow对象组</param>
+        /// <returns>返回已转换的datatable</returns>
+        public DataTable DataRowToDataTable(DataRow[] rows)
+        {
+            if (rows == null || rows.Length == 0)
+                return null;
+
+            DataTable tmp = rows[0].Table.Clone(); // 复制DataRow的表结构
+
+            foreach (DataRow row in rows)
+            {
+                tmp.ImportRow(row); // 将DataRow添加到DataTable中
+            }
+
+            return tmp;
+        }
+
     }
 }
