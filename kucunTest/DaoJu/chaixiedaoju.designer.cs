@@ -34,12 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbjmx = new System.Windows.Forms.DataGridView();
-            this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dw = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -49,6 +43,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.daojuxinghao = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbjgg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dw = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcwz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lbjmx)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -58,18 +59,18 @@
             // 
             this.daojuid.Enabled = false;
             this.daojuid.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.daojuid.Location = new System.Drawing.Point(444, 80);
+            this.daojuid.Location = new System.Drawing.Point(473, 80);
             this.daojuid.Margin = new System.Windows.Forms.Padding(5);
             this.daojuid.Name = "daojuid";
             this.daojuid.ReadOnly = true;
-            this.daojuid.Size = new System.Drawing.Size(177, 29);
+            this.daojuid.Size = new System.Drawing.Size(201, 29);
             this.daojuid.TabIndex = 15;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label3.Location = new System.Drawing.Point(360, 86);
+            this.label3.Location = new System.Drawing.Point(389, 86);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 21);
@@ -94,7 +95,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(704, 52);
+            this.label1.Size = new System.Drawing.Size(742, 52);
             this.label1.TabIndex = 11;
             this.label1.Text = "拆卸刀具";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -120,15 +121,127 @@
             this.lbjgg,
             this.sl,
             this.dw,
-            this.kcsl});
-            this.lbjmx.Location = new System.Drawing.Point(10, 32);
+            this.kcsl,
+            this.kcwz});
+            this.lbjmx.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbjmx.Location = new System.Drawing.Point(5, 27);
             this.lbjmx.Margin = new System.Windows.Forms.Padding(5);
             this.lbjmx.Name = "lbjmx";
             this.lbjmx.ReadOnly = true;
             this.lbjmx.RowTemplate.Height = 23;
             this.lbjmx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.lbjmx.Size = new System.Drawing.Size(656, 204);
+            this.lbjmx.Size = new System.Drawing.Size(704, 214);
             this.lbjmx.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(391, 453);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(125, 40);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "取消拆卸";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(232, 453);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 40);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "拆卸刀具";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lbjmx);
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Location = new System.Drawing.Point(14, 193);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox1.Size = new System.Drawing.Size(714, 246);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "零部件信息";
+            // 
+            // daojuleixing
+            // 
+            this.daojuleixing.Enabled = false;
+            this.daojuleixing.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.daojuleixing.Location = new System.Drawing.Point(108, 33);
+            this.daojuleixing.Margin = new System.Windows.Forms.Padding(5);
+            this.daojuleixing.Name = "daojuleixing";
+            this.daojuleixing.ReadOnly = true;
+            this.daojuleixing.Size = new System.Drawing.Size(183, 29);
+            this.daojuleixing.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label4.Location = new System.Drawing.Point(389, 36);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 21);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "刀具规格";
+            // 
+            // daojuguige
+            // 
+            this.daojuguige.Enabled = false;
+            this.daojuguige.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.daojuguige.Location = new System.Drawing.Point(473, 33);
+            this.daojuguige.Margin = new System.Windows.Forms.Padding(5);
+            this.daojuguige.Name = "daojuguige";
+            this.daojuguige.ReadOnly = true;
+            this.daojuguige.Size = new System.Drawing.Size(201, 29);
+            this.daojuguige.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label5.Location = new System.Drawing.Point(24, 83);
+            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 21);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "刀具型号";
+            // 
+            // daojuxinghao
+            // 
+            this.daojuxinghao.Enabled = false;
+            this.daojuxinghao.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.daojuxinghao.Location = new System.Drawing.Point(108, 80);
+            this.daojuxinghao.Margin = new System.Windows.Forms.Padding(5);
+            this.daojuxinghao.Name = "daojuxinghao";
+            this.daojuxinghao.ReadOnly = true;
+            this.daojuxinghao.Size = new System.Drawing.Size(183, 29);
+            this.daojuxinghao.TabIndex = 22;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.daojuxinghao);
+            this.groupBox2.Controls.Add(this.daojuid);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.daojuleixing);
+            this.groupBox2.Controls.Add(this.daojuguige);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox2.Location = new System.Drawing.Point(14, 55);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(714, 121);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "刀具信息";
             // 
             // lbjmc
             // 
@@ -182,121 +295,19 @@
             this.kcsl.ReadOnly = true;
             this.kcsl.Width = 99;
             // 
-            // button2
+            // kcwz
             // 
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(354, 449);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 40);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "取消拆卸";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(195, 449);
-            this.button1.Margin = new System.Windows.Forms.Padding(5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 40);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "拆卸刀具";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lbjmx);
-            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(14, 193);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Size = new System.Drawing.Size(676, 246);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "零部件信息";
-            // 
-            // daojuleixing
-            // 
-            this.daojuleixing.Enabled = false;
-            this.daojuleixing.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.daojuleixing.Location = new System.Drawing.Point(108, 33);
-            this.daojuleixing.Margin = new System.Windows.Forms.Padding(5);
-            this.daojuleixing.Name = "daojuleixing";
-            this.daojuleixing.ReadOnly = true;
-            this.daojuleixing.Size = new System.Drawing.Size(183, 29);
-            this.daojuleixing.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label4.Location = new System.Drawing.Point(360, 36);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 21);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "刀具规格";
-            // 
-            // daojuguige
-            // 
-            this.daojuguige.Enabled = false;
-            this.daojuguige.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.daojuguige.Location = new System.Drawing.Point(444, 33);
-            this.daojuguige.Margin = new System.Windows.Forms.Padding(5);
-            this.daojuguige.Name = "daojuguige";
-            this.daojuguige.ReadOnly = true;
-            this.daojuguige.Size = new System.Drawing.Size(177, 29);
-            this.daojuguige.TabIndex = 20;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label5.Location = new System.Drawing.Point(24, 83);
-            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 21);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "刀具型号";
-            // 
-            // daojuxinghao
-            // 
-            this.daojuxinghao.Enabled = false;
-            this.daojuxinghao.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.daojuxinghao.Location = new System.Drawing.Point(108, 80);
-            this.daojuxinghao.Margin = new System.Windows.Forms.Padding(5);
-            this.daojuxinghao.Name = "daojuxinghao";
-            this.daojuxinghao.ReadOnly = true;
-            this.daojuxinghao.Size = new System.Drawing.Size(183, 29);
-            this.daojuxinghao.TabIndex = 22;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.daojuxinghao);
-            this.groupBox2.Controls.Add(this.daojuid);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.daojuleixing);
-            this.groupBox2.Controls.Add(this.daojuguige);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(14, 55);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(676, 121);
-            this.groupBox2.TabIndex = 23;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "刀具信息";
+            this.kcwz.DataPropertyName = "kcwz";
+            this.kcwz.HeaderText = "库存位置";
+            this.kcwz.Name = "kcwz";
+            this.kcwz.ReadOnly = true;
+            this.kcwz.Width = 99;
             // 
             // chaixiedaoju
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 507);
+            this.ClientSize = new System.Drawing.Size(742, 507);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -328,12 +339,13 @@
         private System.Windows.Forms.TextBox daojuguige;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox daojuxinghao;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjmc;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjxh;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjgg;
         private System.Windows.Forms.DataGridViewTextBoxColumn sl;
         private System.Windows.Forms.DataGridViewTextBoxColumn dw;
         private System.Windows.Forms.DataGridViewTextBoxColumn kcsl;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kcwz;
     }
 }

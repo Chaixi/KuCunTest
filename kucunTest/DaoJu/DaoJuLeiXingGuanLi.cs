@@ -25,6 +25,8 @@ namespace kucunTest.DaoJu
         TreeNode root = new TreeNode();
         TreeNode CrtNode = new TreeNode();
 
+        DataTable lbjmx = new DataTable();//存放零部件明细数据
+
         string DaoJuBiao = "daoju";//数据表
         string lbj = "lbj_temp";
         string CanShuBiao = "jichucanshu";
@@ -50,15 +52,7 @@ namespace kucunTest.DaoJu
         public DaoJuLeiXingGuanLi()
         {
             InitializeComponent();
-        }
 
-        /// <summary>
-        /// 窗体加载
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DaoJuLeiXingGuanLi_Load(object sender, EventArgs e)
-        {
             //加载前都先清空,避免重复加载
             treeView1.Nodes.Clear();
 
@@ -70,12 +64,10 @@ namespace kucunTest.DaoJu
 
             treeView1.Nodes[0].Expand();
 
-            //asc.controllInitializeSize(this);
-
             //所有单位加载默认值
             foreach (Control c in grp_cs.Controls)
             {
-                if(c is ComboBox)
+                if (c is ComboBox)
                 {
                     ComboBox cb = (ComboBox)c;
                     cb.SelectedIndex = 0;
@@ -85,6 +77,27 @@ namespace kucunTest.DaoJu
                     continue;
                 }
             }
+
+            //加载零部件列表
+            cbx_lbjmc.DataSource = Alex.GetList("lbjmc");
+            cbx_lbjmc.SelectedIndex = -1;
+
+            //为lbjmx表添加列
+            lbjmx.Columns.Add("lbjmc", System.Type.GetType("System.String"));
+            lbjmx.Columns.Add("lbjgg", System.Type.GetType("System.String"));
+            lbjmx.Columns.Add("lbjxh", System.Type.GetType("System.String"));
+            lbjmx.Columns.Add("sl", System.Type.GetType("System.Int32"));
+            lbjmx.Columns.Add("dw", System.Type.GetType("System.String"));
+        }
+
+        /// <summary>
+        /// 窗体加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DaoJuLeiXingGuanLi_Load(object sender, EventArgs e)
+        {         
+            asc.controllInitializeSize(this);          
         }
 
         /// <summary>
@@ -131,11 +144,8 @@ namespace kucunTest.DaoJu
             {
                 if(e.Node.Level == 1)
                 {
-                    DJLX.Text = e.Node.Text;
-
-                   
-                    pic_dj.Image = null;
-               
+                    DJLX.Text = e.Node.Text;                   
+                    pic_dj.Image = null;               
                 }
                 else if (e.Node.Level == 2)
                 {
@@ -148,45 +158,20 @@ namespace kucunTest.DaoJu
 
                     //加载图片
                     picmc = DJXH.Text + ".jpg";
-
                     if (File.Exists(str_iniFileUrl + picmc) == false)
                     {
                         pic_dj.Image = null;
                         //MessageBox.Show("请导入机床图片！", "信息提示");
-                        return;
                     }
                     else
                     {
                         pic_dj.Image = Image.FromFile(str_iniFileUrl + picmc);
                     }
 
-                    ////加载图片
-                    //string pic = db1.Rows[0][djtpzd].ToString();
-                    //try
-                    //{
-                    //    // pic=........这一句换成从数据库里读取就可以了
-                    //    // 判断是否为空，为空时的不执行
-                    //    if (!string.IsNullOrEmpty(pic))
-                    //    {
-                    //        // 直接返Base64码转成数组
-                    //        byte[] imageBytes = Convert.FromBase64String(pic);
-                    //        // 读入MemoryStream对象
-                    //        MemoryStream memoryStream = new MemoryStream(imageBytes, 0, imageBytes.Length);
-                    //        memoryStream.Write(imageBytes, 0, imageBytes.Length);
-                    //        // 转成图片
-                    //        Image image = Image.FromStream(memoryStream);
-
-                    //        //memoryStream.Close(); //不要加上这一句否则就不对了
-
-                    //        // 将图片放置在 PictureBox 中
-                    //        pic_dj.Image = image;
-                    //    }
-                    //}
-                    //catch { }
-
                     //加载刀具参数信息
                     Sqlstr = string.Format("SELECT csdm, csz FROM {0} WHERE ssfm = '{1}'", CanShuBiao, DJXH.Text);
                     DataTable db2 = SQL.getDataSet(Sqlstr, CanShuBiao).Tables[0];
+
                     //赋值
                     if (db2.Rows.Count > 0)
                     {
@@ -232,9 +217,11 @@ namespace kucunTest.DaoJu
                     }
 
                     //加载零部件信息
-                    Sqlstr = string.Format("SELECT * FROM {0} WHERE djxh = '{1}'", GuanLianBiao, DJXH.Text);
+                    Sqlstr = string.Format("SELECT gl.lbjmc, gl.lbjxh, gl.lbjgg, gl.sl, gl.dw FROM daojulingbujian gl WHERE gl.djxh = '{0}'", DJXH.Text.ToString());
+                    //Sqlstr = string.Format("SELECT * FROM {0} WHERE djxh = '{1}'", GuanLianBiao, DJXH.Text);
+                    lbjmx = SQL.getDataSet(Sqlstr, GuanLianBiao).Tables[0].Copy();
                     ZuChengMingXi.AutoGenerateColumns = false;
-                    ZuChengMingXi.DataSource = SQL.getDataSet(Sqlstr, GuanLianBiao).Tables[0].DefaultView;
+                    ZuChengMingXi.DataSource = lbjmx.DefaultView;
                 }
             }
         }
@@ -488,6 +475,22 @@ namespace kucunTest.DaoJu
                 int rows = SQL.ExecuteNonQuery(Sqlstr);
             }
 
+            //零部件明细表存入数据库
+            for(int rowindex = 0; rowindex < ZuChengMingXi.Rows.Count; rowindex++)
+            {
+                //数据预处理
+                string lbjmc = ZuChengMingXi.Rows[rowindex].Cells["lbjmc"].Value.ToString();
+                string lbjgg = ZuChengMingXi.Rows[rowindex].Cells["lbjgg"].Value.ToString();
+                string lbjxh = ZuChengMingXi.Rows[rowindex].Cells["lbjxh"].Value.ToString();
+                string sl = ZuChengMingXi.Rows[rowindex].Cells["sl"].Value.ToString();
+                string dw = ZuChengMingXi.Rows[rowindex].Cells["dw"].Value.ToString();
+
+                //存入数据库
+                Sqlstr = string.Format("INSERT INTO {0}({1}, {2}, {3}, {4}, {5}, {6}, {7}) VALUES({8}, {9}, {10}, {11}, {12}, {13}, {14})", DaoJuLingBuJian.TableName, DaoJuLingBuJian.djlx, DaoJuLingBuJian.djxh, DaoJuLingBuJian.lbjmc, DaoJuLingBuJian.lbjgg, DaoJuLingBuJian.lbjxh, DaoJuLingBuJian.sl, DaoJuLingBuJian.dw, djlx, djxh, lbjmc, lbjgg, lbjxh, sl, dw);
+
+                int rows = SQL.ExecuteNonQuery(Sqlstr);
+            }
+
             MessageBox.Show("保存成功！");
             CrtNode = treeView1.SelectedNode;
 
@@ -588,7 +591,11 @@ namespace kucunTest.DaoJu
             }
         }
 
-        //导入图片
+        /// <summary>
+        /// 导入图片按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
 
@@ -621,8 +628,11 @@ namespace kucunTest.DaoJu
                 }
             }
         }
-        //保存图片
 
+        /// <summary>
+        /// 保存图片
+        /// </summary>
+        /// <param name="filename"></param>
         private void Picture_Save(string filename)
         {
             Bitmap bit = new Bitmap(pic_dj.ClientRectangle.Width, pic_dj.ClientRectangle.Height);
@@ -637,11 +647,182 @@ namespace kucunTest.DaoJu
             //图片保存：若已存在此命名图片则先删除
             if (System.IO.File.Exists(str_iniFileUrl + filename))
             {
-                System.IO.File.Delete(filename);
+                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images\\daojuleixing");
             }
 
             bit.Save(str_iniFileUrl + filename);
 
+        }
+
+        /// <summary>
+        /// 刀具组成明细新增按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (DJLX.Text == "" && DJXH.Text == "")
+            {
+                MessageBox.Show("请填写刀具类型或刀具型号！");
+                DJLX.Focus();
+
+                return;
+            }
+            if (cbx_lbjmc.Text == "")
+            {
+                MessageBox.Show("请先选择要添加的零部件名称！");
+                cbx_lbjmc.DroppedDown = true;
+
+                return;
+            }
+
+            if (cbx_lbjxh.Text == "")
+            {
+                MessageBox.Show("请先选择要添加的零部件型号！");
+                cbx_lbjxh.DroppedDown = true;
+
+                return;
+            }
+
+            if (sxsl.Text == "" || Convert.ToInt32(sxsl.Text) < 0 || Convert.ToInt32(sxsl.Text) > 50)
+            {
+                MessageBox.Show("请填写装配刀具“" + DJXH.Text + "”所需要的“" + cbx_lbjxh.Text + "”的数量！\n注：填写数量为1-50的整数。");
+                sxsl.Focus();
+                sxsl.SelectAll();
+
+                return;
+            }
+
+            DataRow row = lbjmx.NewRow();
+
+            row["lbjmc"] = cbx_lbjmc.Text;
+            row["lbjgg"] = cbx_lbjgg.Text;
+            row["lbjxh"] = cbx_lbjxh.Text;
+            row["sl"] = Convert.ToInt32(sxsl.Text);
+            row["dw"] = textbox_dw.Text;
+
+            lbjmx.Rows.Add(row);
+            ZuChengMingXi.DataSource = lbjmx.DefaultView;
+
+            //DataGridViewRow row = new DataGridViewRow();
+            //row.CreateCells(ZuChengMingXi);
+
+            //row.Cells[0].Value = cbx_lbjmc.Text;
+            //row.Cells[1].Value = cbx_lbjgg.Text;
+            //row.Cells[2].Value = cbx_lbjxh.Text;
+            //row.Cells[3].Value = sxsl.Text;
+            //row.Cells[4].Value = textbox_dw.Text;
+
+            //ZuChengMingXi.Rows.Add(row);
+        }
+
+        /// <summary>
+        /// 刀具组成明细删除按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(ZuChengMingXi.CurrentRow == null || ZuChengMingXi.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("请先选择要删除的数据行！");
+
+                return;
+            }
+
+            //移除选中行
+            ZuChengMingXi.Rows.RemoveAt(ZuChengMingXi.CurrentRow.Index);
+        }
+
+        /// <summary>
+        /// 选中零部件数据行加载零部件图片
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ZuChengMingXi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                //加载零部件图片，如果存在的话
+                string lbjxh = ZuChengMingXi.Rows[e.RowIndex].Cells["lbjxh"].Value.ToString();
+                LoadLBJPic(lbjxh);                
+
+                //填充右侧数据块
+                cbx_lbjmc.Text = ZuChengMingXi.Rows[e.RowIndex].Cells["lbjmc"].Value.ToString();
+                cbx_lbjgg.Text = ZuChengMingXi.Rows[e.RowIndex].Cells["lbjgg"].Value.ToString();
+                cbx_lbjxh.Text = ZuChengMingXi.Rows[e.RowIndex].Cells["lbjxh"].Value.ToString();
+                sxsl.Text = ZuChengMingXi.Rows[e.RowIndex].Cells["sl"].Value.ToString();
+                textbox_dw.Text = ZuChengMingXi.Rows[e.RowIndex].Cells["dw"].Value.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 根据零部件型号加载零部件图片，如果存在的话
+        /// </summary>
+        /// <param name="lbjxh">要加载图片的零部件型号</param>
+        private void LoadLBJPic(string lbjxh)
+        {
+            string filename = lbjxh + ".jpg";
+            string FileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\LingBuJian\\";
+
+            if (File.Exists(FileUrl + filename))
+            {
+                pic_lbj.Image = Image.FromFile(FileUrl + filename);
+            }
+            else
+            {
+                pic_lbj.Image = null;
+            }
+        }
+
+        /// <summary>
+        /// 零部件名称选择变化，加载相应的零部件规格和型号
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbx_lbjmc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbx_lbjmc.SelectedIndex < 0)
+            {
+                cbx_lbjgg.DataSource = null;
+                cbx_lbjxh.DataSource = null;
+
+                return;
+            }
+
+            Sqlstr = string.Format("SELECT {1} AS lbjgg, {2} AS lbjxh, {3} AS dw FROM {0} WHERE {4} = '{5}'", LingBuJianBiao.TableName, LingBuJianBiao.gg, LingBuJianBiao.xinghao, LingBuJianBiao.dw, LingBuJianBiao.mc, cbx_lbjmc.Text);
+            DataTable db = SQL.getDataSet(Sqlstr, LingBuJianBiao.TableName).Tables[0];
+            DataTable db1 = db.Copy();
+
+            cbx_lbjgg.DataSource = db;
+            cbx_lbjgg.DisplayMember = "lbjgg";
+            cbx_lbjgg.SelectedIndex = -1;
+
+            cbx_lbjxh.DataSource = db1;
+            cbx_lbjxh.DisplayMember = "lbjxh";
+            cbx_lbjxh.ValueMember = "dw";
+            cbx_lbjxh.SelectedIndex = -1;
+        }
+
+        /// <summary>
+        /// 零部件型号选择变化加载相应图片和单位
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbx_lbjxh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbx_lbjxh.SelectedIndex < 0)
+            {
+                pic_lbj.Image = null;
+                textbox_dw.Text = "";
+
+                return;
+            }
+
+            string xh = cbx_lbjxh.Text.ToString();
+            textbox_dw.Text = cbx_lbjxh.SelectedValue.ToString();
+
+            LoadLBJPic(xh);
         }
     }
 }

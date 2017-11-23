@@ -69,7 +69,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(139, 587);
+            this.btnAdd.Location = new System.Drawing.Point(158, 587);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 32);
             this.btnAdd.TabIndex = 1;
@@ -189,6 +189,7 @@
             // 
             // lbjxh
             // 
+            this.lbjxh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lbjxh.FormattingEnabled = true;
             this.lbjxh.Location = new System.Drawing.Point(107, 93);
             this.lbjxh.Name = "lbjxh";
@@ -197,6 +198,7 @@
             // 
             // lbjgg
             // 
+            this.lbjgg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lbjgg.FormattingEnabled = true;
             this.lbjgg.Location = new System.Drawing.Point(107, 58);
             this.lbjgg.Name = "lbjgg";
@@ -222,6 +224,7 @@
             // 
             // lbjmc
             // 
+            this.lbjmc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lbjmc.FormattingEnabled = true;
             this.lbjmc.Location = new System.Drawing.Point(107, 23);
             this.lbjmc.Name = "lbjmc";
@@ -283,7 +286,7 @@
             "T18",
             "T19",
             "T20"});
-            this.gx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.gx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.gx.FormattingEnabled = true;
             this.gx.Items.AddRange(new object[] {
             "T1",
@@ -322,7 +325,7 @@
             "OP20T01",
             "OP20T40",
             "OP20T238"});
-            this.jcbm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.jcbm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.jcbm.FormattingEnabled = true;
             this.jcbm.Location = new System.Drawing.Point(107, 31);
             this.jcbm.Name = "jcbm";
@@ -332,7 +335,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClose.Location = new System.Drawing.Point(239, 587);
+            this.btnClose.Location = new System.Drawing.Point(258, 587);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(88, 32);
             this.btnClose.TabIndex = 1;

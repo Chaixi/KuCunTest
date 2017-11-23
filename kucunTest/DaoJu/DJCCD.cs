@@ -91,8 +91,10 @@ namespace kucunTest.DaoJu
         {
             asc.controllInitializeSize(this);//记录窗体及控件初始大小，以便自适应
 
-            string sqlstr2 = "select jichuangbianma from jichuang";
-            LYSB.DataSource = SQL.DataReadList(sqlstr2);
+            LYBZ.DataSource = Alex.GetList("bz");
+            LYBZ.SelectedIndex = -1;
+            //string sqlstr2 = "select jichuangbianma from jichuang";
+            LYSB.DataSource = Alex.GetList("jc");
             LYSB.SelectedIndex = -1;
         }
 
@@ -636,6 +638,22 @@ namespace kucunTest.DaoJu
 
             lingyongmingxi.DataSource = lymx_db.DefaultView;
             heji.Text = HJ.ToString();
+        }
+
+        /// <summary>
+        /// 领用班组变化，领用设备数据源相应变化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LYBZ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(LYBZ.SelectedIndex < 0)
+            {
+                LYSB.DataSource = null;
+                return;
+            }
+
+            LYSB.DataSource = Alex.GetJCofBZ(LYBZ.Text);
         }
     }
 }

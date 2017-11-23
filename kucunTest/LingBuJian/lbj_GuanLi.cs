@@ -40,6 +40,9 @@ namespace kucunTest.LingBuJian
 
         #endregion
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public lbj_GuanLi()
         {
             InitializeComponent();
@@ -64,8 +67,9 @@ namespace kucunTest.LingBuJian
             lbjxinxi.AutoGenerateColumns = false;
 
             //加载所有刀具柜
-            string sqlstr1 = "SELECT djgmc FROM daojugui";
-            search_djgbm.DataSource = SQL.DataReadList(sqlstr1);
+            search_djgbm.DataSource = Alex.GetList("djg");
+            //string sqlstr1 = "SELECT djgmc FROM daojugui";
+            //search_djgbm.DataSource = SQL.DataReadList(sqlstr1);
             search_djgbm.SelectedIndex = -1;
 
             //库存表取得焦点

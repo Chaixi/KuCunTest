@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.BaseClasses;
+
 namespace kucunTest.DaoJu
 {
     public partial class xzwjmx : Form
     {
         #region 全局变量
         MySql SQL = new MySql();
+        BaseAlex Alex = new BaseAlex();
         String sqlstr = "";
         String sqlstr1 = "";
         #endregion
@@ -31,27 +34,40 @@ namespace kucunTest.DaoJu
         private void xzwjmx_Load(object sender, EventArgs e)
         {
             //加载所有刀具，并选择第一条数据
-            sqlstr = "select distinct daojuleixing from daojutemp";
-            djlx.DataSource = SQL.DataReadList(sqlstr);
-            djlx.SelectedIndex = 0;
+            djlx.DataSource = Alex.GetList("djlx");
+            djlx.SelectedIndex = -1;
 
-            djzt.SelectedIndex = 0;
+            djzt.SelectedIndex = -1;
 
-            sqlstr1 = "select jichuangbianma from jichuang";
-            jcbm.DataSource = SQL.DataReadList(sqlstr1);
-            jcbm.SelectedIndex = 0;
+            //加载所有机床
+            jcbm.DataSource = Alex.GetList("jc");
+            jcbm.SelectedIndex = -1;
         }
 
         #region 刀具信息三级联动
         private void djlx_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(djlx.SelectedIndex < 0)
+            {
+                djgg.DataSource = null;
+                return;
+            }
+
             sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'";
             djgg.DataSource = SQL.DataReadList(sqlstr);
-            //djgg.SelectedIndex = 0;//默认选择第一项
+            djgg.SelectedIndex = -1;//默认选择第一项
         }
 
         private void djgg_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(djgg.SelectedIndex < 0)
+            {
+                djid.DataSource = null;
+                return;
+            }
+
+            djid.DataSource = null;
+
             sqlstr = "select daojuid from daojutemp where daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'" + " and daojuguige = '" + djgg.SelectedItem.ToString().Trim() + "'";
             djid.DataSource = SQL.DataReadList(sqlstr);
             //djid.SelectedIndex = 0;//默认选择第一项
@@ -128,6 +144,12 @@ namespace kucunTest.DaoJu
 
         private void jcbm_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(jcbm.SelectedIndex < 0)
+            {
+                dth.DataSource = null;
+                return;
+            }
+
             sqlstr = "SELECT jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojutemp djtp ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where djtp.daojuid is NULL and jcdjk.jichuangbianma = '" + jcbm.SelectedItem.ToString().Trim() + "'";
             dth.DataSource = SQL.DataReadList(sqlstr);
             dth.SelectedIndex = 0;
