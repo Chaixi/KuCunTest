@@ -37,7 +37,7 @@ namespace kucunTest.DaoJu
 
         string DJPIC = "";
         string picmc = "";
-        string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\daojuleixing\\";
+        string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuLeiXing\\";
 
         string conditions = "";//数据库查询条件，用于Alex.CunZai()
         bool HaveNewNode = false;
@@ -70,10 +70,10 @@ namespace kucunTest.DaoJu
 
             treeView1.Nodes[0].Expand();
 
-            asc.controllInitializeSize(this);
+            //asc.controllInitializeSize(this);
 
             //所有单位加载默认值
-            foreach(Control c in grp_cs.Controls)
+            foreach (Control c in grp_cs.Controls)
             {
                 if(c is ComboBox)
                 {
@@ -571,7 +571,7 @@ namespace kucunTest.DaoJu
 
         private void DaoJuLeiXingGuanLi_SizeChanged(object sender, EventArgs e)
         {
-            asc.controlAutoSize(this);
+            //asc.controlAutoSize(this);
         }
 
         /// <summary>
@@ -588,13 +588,19 @@ namespace kucunTest.DaoJu
             }
         }
 
-
         //导入图片
         private void button5_Click(object sender, EventArgs e)
         {
+
+            if (DJXH.Text == "")
+            {
+                MessageBox.Show("请先填写刀具型号");
+                return;
+            }
+
             using (OpenFileDialog lvse = new OpenFileDialog())
             {
-                lvse.Title = "请选择机床图片";
+                lvse.Title = "请选择刀具图片";
                 lvse.InitialDirectory = "";
                 lvse.Filter = "图片文件|*.bmp;*.jpg;*.jpeg;*.gif;*.png";
                 lvse.FilterIndex = 1;
@@ -619,13 +625,21 @@ namespace kucunTest.DaoJu
 
         private void Picture_Save(string filename)
         {
-
             Bitmap bit = new Bitmap(pic_dj.ClientRectangle.Width, pic_dj.ClientRectangle.Height);
             pic_dj.DrawToBitmap(bit, pic_dj.ClientRectangle);
-            if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images\\daojuleixing") == false)
+
+            //没有文件夹，新建文件夹
+            if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuLeiXing") == false)
             {
-                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images\\daojuleixing");
+                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuLeiXing");
             }
+
+            //图片保存：若已存在此命名图片则先删除
+            if (System.IO.File.Exists(str_iniFileUrl + filename))
+            {
+                System.IO.File.Delete(filename);
+            }
+
             bit.Save(str_iniFileUrl + filename);
 
         }
