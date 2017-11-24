@@ -229,7 +229,7 @@ namespace kucunTest.Jichuang
         {
             if(JCMC.Text == "")
             {
-                tishi = "请先选择机床！";
+                tishi = "请先选择要删除的机床！";
                 MessageBox.Show(tishi);
                 return;
             }
