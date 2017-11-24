@@ -75,6 +75,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\文件归档\引用dll文件\NPinyin.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI, Version=1.2.4.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\文件归档\引用dll文件\NPOI 2.2.1 binary package\Release\Net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\..\文件归档\引用dll文件\NPOI 2.2.1 binary package\Release\Net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\..\文件归档\引用dll文件\NPOI 2.2.1 binary package\Release\Net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\..\文件归档\引用dll文件\NPOI 2.2.1 binary package\Release\Net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -310,6 +323,12 @@
     <Compile Include="Jichuang\xinzengjichuang.Designer.cs">
       <DependentUpon>xinzengjichuang.cs</DependentUpon>
     </Compile>
+    <Compile Include="JiChuZiLiao\shujudaorudaochu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JiChuZiLiao\shujudaorudaochu.Designer.cs">
+      <DependentUpon>shujudaorudaochu.cs</DependentUpon>
+    </Compile>
     <Compile Include="KuCun\KCMingXi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -520,6 +539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Jichuang\xinzengjichuang.resx">
       <DependentUpon>xinzengjichuang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JiChuZiLiao\shujudaorudaochu.resx">
+      <DependentUpon>shujudaorudaochu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KuCun\KCMingXi.resx">
       <DependentUpon>KCMingXi.cs</DependentUpon>

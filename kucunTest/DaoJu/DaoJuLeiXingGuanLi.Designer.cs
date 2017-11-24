@@ -33,9 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_save = new System.Windows.Forms.Button();
             this.grp_jc = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pic_dj = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.pic_dj = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -102,6 +103,16 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.grp_zc = new System.Windows.Forms.GroupBox();
+            this.textbox_dw = new System.Windows.Forms.TextBox();
+            this.sxsl = new System.Windows.Forms.TextBox();
+            this.cbx_lbjxh = new System.Windows.Forms.ComboBox();
+            this.cbx_lbjgg = new System.Windows.Forms.ComboBox();
+            this.cbx_lbjmc = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pic_lbj = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -115,18 +126,20 @@
             this.btn_cansel = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.grp_jc.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_dj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZuChengMingXi)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.grp_cs.SuspendLayout();
             this.grp_zc.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_lbj)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(412, 745);
+            this.btn_save.Location = new System.Drawing.Point(410, 752);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(104, 29);
             this.btn_save.TabIndex = 0;
@@ -134,11 +147,22 @@
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("宋体", 22F);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1272, 54);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "刀具类型管理";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // grp_jc
             // 
+            this.grp_jc.Controls.Add(this.groupBox1);
             this.grp_jc.Controls.Add(this.label14);
             this.grp_jc.Controls.Add(this.label22);
-            this.grp_jc.Controls.Add(this.pic_dj);
             this.grp_jc.Controls.Add(this.label3);
             this.grp_jc.Controls.Add(this.label21);
             this.grp_jc.Controls.Add(this.label20);
@@ -155,15 +179,35 @@
             this.grp_jc.Controls.Add(this.smbjyz);
             this.grp_jc.Location = new System.Drawing.Point(253, 14);
             this.grp_jc.Name = "grp_jc";
-            this.grp_jc.Size = new System.Drawing.Size(845, 251);
+            this.grp_jc.Size = new System.Drawing.Size(1007, 216);
             this.grp_jc.TabIndex = 3;
             this.grp_jc.TabStop = false;
             this.grp_jc.Text = "基础信息";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pic_dj);
+            this.groupBox1.Location = new System.Drawing.Point(787, 25);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(214, 176);
+            this.groupBox1.TabIndex = 37;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "刀具图片";
+            // 
+            // pic_dj
+            // 
+            this.pic_dj.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pic_dj.Location = new System.Drawing.Point(3, 25);
+            this.pic_dj.Name = "pic_dj";
+            this.pic_dj.Size = new System.Drawing.Size(208, 148);
+            this.pic_dj.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_dj.TabIndex = 2;
+            this.pic_dj.TabStop = false;
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(47, 119);
+            this.label14.Location = new System.Drawing.Point(47, 123);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(74, 21);
             this.label14.TabIndex = 19;
@@ -172,25 +216,16 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(15, 158);
+            this.label22.Location = new System.Drawing.Point(279, 123);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(106, 21);
             this.label22.TabIndex = 19;
             this.label22.Text = "刀具用途介绍";
             // 
-            // pic_dj
-            // 
-            this.pic_dj.Location = new System.Drawing.Point(558, 119);
-            this.pic_dj.Name = "pic_dj";
-            this.pic_dj.Size = new System.Drawing.Size(282, 126);
-            this.pic_dj.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_dj.TabIndex = 2;
-            this.pic_dj.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(554, 79);
+            this.label3.Location = new System.Drawing.Point(511, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 21);
             this.label3.TabIndex = 19;
@@ -199,7 +234,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(586, 35);
+            this.label21.Location = new System.Drawing.Point(543, 35);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(74, 21);
             this.label21.TabIndex = 1;
@@ -208,7 +243,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(313, 38);
+            this.label20.Location = new System.Drawing.Point(279, 38);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(74, 21);
             this.label20.TabIndex = 1;
@@ -233,7 +268,7 @@
             // 
             // sccj
             // 
-            this.sccj.Location = new System.Drawing.Point(127, 116);
+            this.sccj.Location = new System.Drawing.Point(127, 120);
             this.sccj.Name = "sccj";
             this.sccj.Size = new System.Drawing.Size(136, 29);
             this.sccj.TabIndex = 21;
@@ -248,7 +283,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(313, 79);
+            this.label4.Location = new System.Drawing.Point(279, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 21);
             this.label4.TabIndex = 16;
@@ -266,46 +301,46 @@
             // DJXH
             // 
             this.DJXH.Enabled = false;
-            this.DJXH.Location = new System.Drawing.Point(666, 35);
+            this.DJXH.Location = new System.Drawing.Point(623, 35);
             this.DJXH.Name = "DJXH";
-            this.DJXH.Size = new System.Drawing.Size(174, 29);
+            this.DJXH.Size = new System.Drawing.Size(148, 29);
             this.DJXH.TabIndex = 36;
             // 
             // DJGG
             // 
             this.DJGG.Enabled = false;
-            this.DJGG.Location = new System.Drawing.Point(395, 35);
+            this.DJGG.Location = new System.Drawing.Point(361, 35);
             this.DJGG.Name = "DJGG";
             this.DJGG.Size = new System.Drawing.Size(134, 29);
             this.DJGG.TabIndex = 36;
             // 
             // djyssm
             // 
-            this.djyssm.Location = new System.Drawing.Point(395, 76);
+            this.djyssm.Location = new System.Drawing.Point(361, 76);
             this.djyssm.Name = "djyssm";
             this.djyssm.Size = new System.Drawing.Size(134, 29);
             this.djyssm.TabIndex = 22;
             // 
             // djytjs
             // 
-            this.djytjs.Location = new System.Drawing.Point(127, 158);
+            this.djytjs.Location = new System.Drawing.Point(391, 123);
             this.djytjs.Multiline = true;
             this.djytjs.Name = "djytjs";
-            this.djytjs.Size = new System.Drawing.Size(402, 78);
+            this.djytjs.Size = new System.Drawing.Size(380, 78);
             this.djytjs.TabIndex = 26;
             // 
             // smbjyz
             // 
-            this.smbjyz.Location = new System.Drawing.Point(666, 76);
+            this.smbjyz.Location = new System.Drawing.Point(623, 76);
             this.smbjyz.Name = "smbjyz";
-            this.smbjyz.Size = new System.Drawing.Size(174, 29);
+            this.smbjyz.Size = new System.Drawing.Size(148, 29);
             this.smbjyz.TabIndex = 26;
             // 
             // ZuChengMingXi
             // 
             this.ZuChengMingXi.AllowUserToAddRows = false;
             this.ZuChengMingXi.AllowUserToDeleteRows = false;
-            this.ZuChengMingXi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ZuChengMingXi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ZuChengMingXi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -327,8 +362,9 @@
             this.ZuChengMingXi.ReadOnly = true;
             this.ZuChengMingXi.RowTemplate.Height = 23;
             this.ZuChengMingXi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ZuChengMingXi.Size = new System.Drawing.Size(546, 150);
+            this.ZuChengMingXi.Size = new System.Drawing.Size(529, 193);
             this.ZuChengMingXi.TabIndex = 4;
+            this.ZuChengMingXi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ZuChengMingXi_CellClick);
             this.ZuChengMingXi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.ZuChengMingXi_RowPostPaint);
             // 
             // lbjmc
@@ -337,6 +373,7 @@
             this.lbjmc.HeaderText = "零部件名称";
             this.lbjmc.Name = "lbjmc";
             this.lbjmc.ReadOnly = true;
+            this.lbjmc.Width = 115;
             // 
             // lbjgg
             // 
@@ -344,6 +381,7 @@
             this.lbjgg.HeaderText = "规格";
             this.lbjgg.Name = "lbjgg";
             this.lbjgg.ReadOnly = true;
+            this.lbjgg.Width = 67;
             // 
             // lbjxh
             // 
@@ -351,6 +389,7 @@
             this.lbjxh.HeaderText = "型号";
             this.lbjxh.Name = "lbjxh";
             this.lbjxh.ReadOnly = true;
+            this.lbjxh.Width = 67;
             // 
             // sl
             // 
@@ -360,6 +399,7 @@
             this.sl.HeaderText = "数量";
             this.sl.Name = "sl";
             this.sl.ReadOnly = true;
+            this.sl.Width = 67;
             // 
             // dw
             // 
@@ -367,6 +407,7 @@
             this.dw.HeaderText = "单位";
             this.dw.Name = "dw";
             this.dw.ReadOnly = true;
+            this.dw.Width = 67;
             // 
             // djddsl
             // 
@@ -389,7 +430,7 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 25);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(229, 682);
+            this.treeView1.Size = new System.Drawing.Size(229, 656);
             this.treeView1.TabIndex = 0;
             this.treeView1.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeExpand);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -400,7 +441,7 @@
             this.groupBox2.Controls.Add(this.treeView1);
             this.groupBox2.Location = new System.Drawing.Point(12, 14);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(235, 710);
+            this.groupBox2.Size = new System.Drawing.Size(235, 684);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "刀具类型";
@@ -449,9 +490,9 @@
             this.grp_cs.Controls.Add(this.label9);
             this.grp_cs.Controls.Add(this.label17);
             this.grp_cs.Controls.Add(this.label10);
-            this.grp_cs.Location = new System.Drawing.Point(253, 271);
+            this.grp_cs.Location = new System.Drawing.Point(253, 279);
             this.grp_cs.Name = "grp_cs";
-            this.grp_cs.Size = new System.Drawing.Size(845, 229);
+            this.grp_cs.Size = new System.Drawing.Size(1007, 229);
             this.grp_cs.TabIndex = 3;
             this.grp_cs.TabStop = false;
             this.grp_cs.Text = "参数信息";
@@ -941,48 +982,147 @@
             // 
             // grp_zc
             // 
+            this.grp_zc.Controls.Add(this.textbox_dw);
+            this.grp_zc.Controls.Add(this.sxsl);
+            this.grp_zc.Controls.Add(this.cbx_lbjxh);
+            this.grp_zc.Controls.Add(this.cbx_lbjgg);
+            this.grp_zc.Controls.Add(this.cbx_lbjmc);
+            this.grp_zc.Controls.Add(this.label26);
+            this.grp_zc.Controls.Add(this.label25);
+            this.grp_zc.Controls.Add(this.label24);
+            this.grp_zc.Controls.Add(this.label23);
+            this.grp_zc.Controls.Add(this.groupBox3);
             this.grp_zc.Controls.Add(this.ZuChengMingXi);
-            this.grp_zc.Controls.Add(this.pic_lbj);
             this.grp_zc.Controls.Add(this.button3);
             this.grp_zc.Controls.Add(this.button2);
-            this.grp_zc.Location = new System.Drawing.Point(253, 506);
+            this.grp_zc.Location = new System.Drawing.Point(253, 514);
             this.grp_zc.Name = "grp_zc";
-            this.grp_zc.Size = new System.Drawing.Size(845, 221);
+            this.grp_zc.Size = new System.Drawing.Size(1007, 227);
             this.grp_zc.TabIndex = 3;
             this.grp_zc.TabStop = false;
             this.grp_zc.Text = "组成明细";
             // 
+            // textbox_dw
+            // 
+            this.textbox_dw.Location = new System.Drawing.Point(738, 144);
+            this.textbox_dw.Name = "textbox_dw";
+            this.textbox_dw.ReadOnly = true;
+            this.textbox_dw.Size = new System.Drawing.Size(40, 29);
+            this.textbox_dw.TabIndex = 8;
+            this.textbox_dw.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // sxsl
+            // 
+            this.sxsl.Location = new System.Drawing.Point(646, 145);
+            this.sxsl.Name = "sxsl";
+            this.sxsl.Size = new System.Drawing.Size(86, 29);
+            this.sxsl.TabIndex = 8;
+            // 
+            // cbx_lbjxh
+            // 
+            this.cbx_lbjxh.FormattingEnabled = true;
+            this.cbx_lbjxh.Location = new System.Drawing.Point(646, 109);
+            this.cbx_lbjxh.Name = "cbx_lbjxh";
+            this.cbx_lbjxh.Size = new System.Drawing.Size(131, 29);
+            this.cbx_lbjxh.TabIndex = 7;
+            this.cbx_lbjxh.SelectedIndexChanged += new System.EventHandler(this.cbx_lbjxh_SelectedIndexChanged);
+            // 
+            // cbx_lbjgg
+            // 
+            this.cbx_lbjgg.FormattingEnabled = true;
+            this.cbx_lbjgg.Location = new System.Drawing.Point(646, 69);
+            this.cbx_lbjgg.Name = "cbx_lbjgg";
+            this.cbx_lbjgg.Size = new System.Drawing.Size(131, 29);
+            this.cbx_lbjgg.TabIndex = 7;
+            // 
+            // cbx_lbjmc
+            // 
+            this.cbx_lbjmc.FormattingEnabled = true;
+            this.cbx_lbjmc.Location = new System.Drawing.Point(646, 29);
+            this.cbx_lbjmc.Name = "cbx_lbjmc";
+            this.cbx_lbjmc.Size = new System.Drawing.Size(131, 29);
+            this.cbx_lbjmc.TabIndex = 7;
+            this.cbx_lbjmc.SelectedIndexChanged += new System.EventHandler(this.cbx_lbjmc_SelectedIndexChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(566, 148);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(74, 21);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "所需数量";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(550, 112);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(90, 21);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "零部件型号";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(550, 72);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(90, 21);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "零部件规格";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(550, 32);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(90, 21);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "零部件名称";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.pic_lbj);
+            this.groupBox3.Location = new System.Drawing.Point(790, 18);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(208, 203);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "零部件图片";
+            // 
             // pic_lbj
             // 
-            this.pic_lbj.Location = new System.Drawing.Point(558, 28);
+            this.pic_lbj.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pic_lbj.Location = new System.Drawing.Point(3, 25);
             this.pic_lbj.Name = "pic_lbj";
-            this.pic_lbj.Size = new System.Drawing.Size(282, 150);
+            this.pic_lbj.Size = new System.Drawing.Size(202, 175);
+            this.pic_lbj.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_lbj.TabIndex = 2;
             this.pic_lbj.TabStop = false;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(87, 184);
+            this.button3.Location = new System.Drawing.Point(683, 186);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(58, 31);
+            this.button3.Size = new System.Drawing.Size(66, 32);
             this.button3.TabIndex = 0;
-            this.button3.Text = "删除";
+            this.button3.Text = "移除";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(23, 184);
+            this.button2.Location = new System.Drawing.Point(594, 186);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(58, 31);
+            this.button2.Size = new System.Drawing.Size(66, 32);
             this.button2.TabIndex = 0;
             this.button2.Text = "新增";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(694, 745);
+            this.button4.Location = new System.Drawing.Point(692, 752);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(125, 32);
             this.button4.TabIndex = 0;
@@ -1038,7 +1178,7 @@
             // 
             // btn_cansel
             // 
-            this.btn_cansel.Location = new System.Drawing.Point(560, 745);
+            this.btn_cansel.Location = new System.Drawing.Point(558, 752);
             this.btn_cansel.Name = "btn_cansel";
             this.btn_cansel.Size = new System.Drawing.Size(104, 29);
             this.btn_cansel.TabIndex = 0;
@@ -1048,7 +1188,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(843, 745);
+            this.button5.Location = new System.Drawing.Point(841, 752);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(109, 32);
             this.button5.TabIndex = 4;
@@ -1061,7 +1201,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1121, 741);
+            this.ClientSize = new System.Drawing.Size(1289, 741);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.grp_zc);
             this.Controls.Add(this.groupBox2);
@@ -1081,12 +1221,15 @@
             this.SizeChanged += new System.EventHandler(this.DaoJuLeiXingGuanLi_SizeChanged);
             this.grp_jc.ResumeLayout(false);
             this.grp_jc.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_dj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZuChengMingXi)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.grp_cs.ResumeLayout(false);
             this.grp_cs.PerformLayout();
             this.grp_zc.ResumeLayout(false);
+            this.grp_zc.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_lbj)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1178,5 +1321,16 @@
         private System.Windows.Forms.Button btn_cansel;
         private System.Windows.Forms.ToolStripMenuItem 刷新ToolStripMenuItem;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textbox_dw;
+        private System.Windows.Forms.TextBox sxsl;
+        private System.Windows.Forms.ComboBox cbx_lbjxh;
+        private System.Windows.Forms.ComboBox cbx_lbjgg;
+        private System.Windows.Forms.ComboBox cbx_lbjmc;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
     }
 }

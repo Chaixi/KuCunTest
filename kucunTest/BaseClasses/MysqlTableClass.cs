@@ -158,4 +158,20 @@ namespace kucunTest.BaseClasses
         public static string bzmc = "banzumingcheng";//班组名称
         public static string scxmc = "shengchanxianmingcheng";//生产线名称
     }
+
+    /// <summary>
+    /// 刀具零部件关联表
+    /// </summary>
+    public static class DaoJuLingBuJian
+    {
+        public static string TableName = "daojulingbujian";//表名
+        public static string xh = "xh";//序号主键
+        public static string djlx = "gykbh";//刀具类型
+        public static string djxh = "gxh";//刀具型号
+        public static string lbjmc = "gjlx";//零部件名称
+        public static string lbjgg = "gongjumingcheng";//零部件规格
+        public static string lbjxh = "gongjuguige";//零部件型号
+        public static string sl = "sl";//数量
+        public static string dw = "dw";//单位
+    }
 }

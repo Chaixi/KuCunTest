@@ -260,5 +260,70 @@ namespace kucunTest.BaseClasses
                 e.Handled = true;
             }
         }
+
+        /// <summary>
+        /// 加载所有名称或编码，如刀具柜、班组、机床等，返回字符串list
+        /// </summary>
+        /// <param name="type">班组：bz, 机床：jc, 刀具柜：djg, 生产线：ssx, 刀具类型：djlx, 零部件名称：lbjmc,</param>
+        /// <returns></returns>
+        public List<string> GetList(string type)
+        {
+            Sqlstr = "";
+
+            switch(type)
+            {
+                case "bz":
+                    Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0}", BanZu.TableName, BanZu.bzmc);
+                    break;
+                case "ssx":
+                    Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0}", BanZu.TableName, BanZu.scxmc);
+                    break;
+                case "jc":
+                    Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0}", JiChuangBiao.TableName, JiChuangBiao.jcbm);
+                    break;
+                case "djg":
+                    Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0}", DaoJuGui.TableName, DaoJuGui.djgmc);
+                    break;
+                case "djlx":
+                    Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0}", DaoJuTemp.TableName, DaoJuTemp.leixing);
+                    break;
+                case "lbjmc":
+                    Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0}", LingBuJianBiao.TableName, LingBuJianBiao.mc);
+                    break;
+            }
+
+            return SQL.DataReadList(Sqlstr);
+        }
+
+        /// <summary>
+        /// 班组变化，设备数据源相应变化,根据班组名返回该班组下所有机床名
+        /// </summary>
+        /// <param name="bz">班组名称</param>
+        public List<string> GetJCofBZ(string bz)
+        {
+            Sqlstr = string.Format("SELECT {1} FROM {0} WHERE {2} = '{3}'", JiChuangBiao.TableName, JiChuangBiao.jcbm, JiChuangBiao.ssbz, bz);
+            return SQL.DataReadList(Sqlstr);
+        }
+
+        /// <summary>
+        /// datarow对象组转换为datata
+        /// </summary>
+        /// <param name="rows">要进行转换的datarow对象组</param>
+        /// <returns>返回已转换的datatable</returns>
+        public DataTable DataRowToDataTable(DataRow[] rows)
+        {
+            if (rows == null || rows.Length == 0)
+                return null;
+
+            DataTable tmp = rows[0].Table.Clone(); // 复制DataRow的表结构
+
+            foreach (DataRow row in rows)
+            {
+                tmp.ImportRow(row); // 将DataRow添加到DataTable中
+            }
+
+            return tmp;
+        }
+
     }
 }
