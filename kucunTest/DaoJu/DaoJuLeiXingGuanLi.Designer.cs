@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_save = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.grp_jc = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -127,24 +126,13 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(412, 790);
+            this.btn_save.Location = new System.Drawing.Point(412, 745);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(104, 29);
             this.btn_save.TabIndex = 0;
             this.btn_save.Text = "保    存";
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("宋体", 22F);
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1110, 54);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "刀具类型管理";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // grp_jc
             // 
@@ -165,9 +153,9 @@
             this.grp_jc.Controls.Add(this.djyssm);
             this.grp_jc.Controls.Add(this.djytjs);
             this.grp_jc.Controls.Add(this.smbjyz);
-            this.grp_jc.Location = new System.Drawing.Point(253, 57);
+            this.grp_jc.Location = new System.Drawing.Point(253, 14);
             this.grp_jc.Name = "grp_jc";
-            this.grp_jc.Size = new System.Drawing.Size(857, 251);
+            this.grp_jc.Size = new System.Drawing.Size(845, 251);
             this.grp_jc.TabIndex = 3;
             this.grp_jc.TabStop = false;
             this.grp_jc.Text = "基础信息";
@@ -410,7 +398,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.treeView1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 57);
+            this.groupBox2.Location = new System.Drawing.Point(12, 14);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(235, 710);
             this.groupBox2.TabIndex = 3;
@@ -461,9 +449,9 @@
             this.grp_cs.Controls.Add(this.label9);
             this.grp_cs.Controls.Add(this.label17);
             this.grp_cs.Controls.Add(this.label10);
-            this.grp_cs.Location = new System.Drawing.Point(253, 314);
+            this.grp_cs.Location = new System.Drawing.Point(253, 271);
             this.grp_cs.Name = "grp_cs";
-            this.grp_cs.Size = new System.Drawing.Size(857, 229);
+            this.grp_cs.Size = new System.Drawing.Size(845, 229);
             this.grp_cs.TabIndex = 3;
             this.grp_cs.TabStop = false;
             this.grp_cs.Text = "参数信息";
@@ -957,9 +945,9 @@
             this.grp_zc.Controls.Add(this.pic_lbj);
             this.grp_zc.Controls.Add(this.button3);
             this.grp_zc.Controls.Add(this.button2);
-            this.grp_zc.Location = new System.Drawing.Point(253, 546);
+            this.grp_zc.Location = new System.Drawing.Point(253, 506);
             this.grp_zc.Name = "grp_zc";
-            this.grp_zc.Size = new System.Drawing.Size(857, 221);
+            this.grp_zc.Size = new System.Drawing.Size(845, 221);
             this.grp_zc.TabIndex = 3;
             this.grp_zc.TabStop = false;
             this.grp_zc.Text = "组成明细";
@@ -994,7 +982,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(694, 790);
+            this.button4.Location = new System.Drawing.Point(694, 745);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(125, 32);
             this.button4.TabIndex = 0;
@@ -1050,7 +1038,7 @@
             // 
             // btn_cansel
             // 
-            this.btn_cansel.Location = new System.Drawing.Point(560, 790);
+            this.btn_cansel.Location = new System.Drawing.Point(560, 745);
             this.btn_cansel.Name = "btn_cansel";
             this.btn_cansel.Size = new System.Drawing.Size(104, 29);
             this.btn_cansel.TabIndex = 0;
@@ -1060,7 +1048,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(843, 790);
+            this.button5.Location = new System.Drawing.Point(843, 745);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(109, 32);
             this.button5.TabIndex = 4;
@@ -1078,7 +1066,6 @@
             this.Controls.Add(this.grp_zc);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grp_cs);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.grp_jc);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btn_cansel);
@@ -1109,7 +1096,6 @@
         #endregion
 
         private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pic_dj;
         private System.Windows.Forms.GroupBox grp_jc;
         private System.Windows.Forms.TreeView treeView1;
