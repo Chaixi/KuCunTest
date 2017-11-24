@@ -8,16 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using kucunTest.BaseClasses;
-
 namespace kucunTest.DaoJu
 {
     public partial class xzthmx : Form
     {
         #region 全局变量
         MySql SQL = new MySql();
-
-        BaseAlex Alex = new BaseAlex();
         String sqlstr = "";
         String sqlstr1 = "";
         #endregion
@@ -37,39 +33,39 @@ namespace kucunTest.DaoJu
         private void xzthmx_Load(object sender, EventArgs e)
         {
             //加载所有刀具，并选择第一条数据
-            djlx.DataSource = Alex.GetList("djlx");
-            //sqlstr = "select distinct daojuleixing from daojutemp";
-            //djlx.DataSource = SQL.DataReadList(sqlstr);
-            djlx.SelectedIndex = -1;
+            sqlstr = "select distinct daojuleixing from daojutemp";
+            djlx.DataSource = SQL.DataReadList(sqlstr);
+            djlx.SelectedIndex = 0;
             //djcd.SelectedIndex = 0;
             //djzt.SelectedIndex = 0;
 
-            //加载刀具柜
-            djgbm.DataSource = Alex.GetList("djg");
+            sqlstr1 = "select djgmc from daojugui";
+            djgbm.DataSource = SQL.DataReadList(sqlstr1);
             djgbm.SelectedIndex = 0;
         }
 
         #region 刀具信息三级联动
         private void djlx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(djlx.SelectedIndex < 0)
+            if(djlx.Text == "")
             {
-                djgg.DataSource = null;
+                djgg.Text = "";
                 return;
             }
             else
             {
                 sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'";
                 djgg.DataSource = SQL.DataReadList(sqlstr);
-                djgg.SelectedIndex = -1;//默认选择第一项
-            }            
+                djgg.SelectedIndex = 0;//默认选择第一项
+            }
+            
         }
 
         private void djgg_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(djgg.SelectedIndex < 0)
+            if(djgg.Text == "")
             {
-                djid.DataSource = null;
+                djid.Text = "";
                 return;
             }
             else
@@ -79,14 +75,19 @@ namespace kucunTest.DaoJu
                 //djid.SelectedIndex = 0;//默认选择第一项
 
                 djid.DataSource = null;
-                sqlstr = "SELECT dj.daojuid FROM daojutemp dj WHERE dj.weizhibiaoshi = 'M' AND dj.daojuleixing = '" + djlx.Text + "'" + " AND dj.daojuguige = '" + djgg.Text + "'";
-                djid.DataSource = SQL.DataReadList(sqlstr);
+
+                sqlstr = "SELECT dj.daojuid FROM daojutemp dj WHERE dj.weizhibiaoshi = 'M' AND dj.daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'" + " AND dj.daojuguige = '" + djgg.SelectedItem.ToString().Trim() + "'";
+                List<string> list3 = new List<string>();
+                list3 = SQL.DataReadList(sqlstr);
+
+                djid.DataSource = list3;
+                djid.SelectedIndex = -1;
             }
         }
 
         private void djid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(djid.SelectedIndex < 0)
+            if(djid.Text == "")
             {
                 jcbm.Text = "";
                 dth.Text = "";

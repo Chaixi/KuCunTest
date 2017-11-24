@@ -47,21 +47,22 @@ namespace kucunTest.LingBuJian
             InitializeComponent();
 
             //加载零部件名称
-            cbx_lbjmc.DataSource = Alex.GetList("lbjmc");
-            //Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0} ORDER BY {1} ASC", lbjbiao, lbjbiao_lbjmc);
-            //cbx_lbjmc.DataSource = SQL.DataReadList(Sqlstr);
+            Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0} ORDER BY {1} ASC", lbjbiao, lbjbiao_lbjmc);
+            cbx_lbjmc.DataSource = SQL.DataReadList(Sqlstr);
             cbx_lbjmc.SelectedIndex = -1;
             Sqlstr = "";
 
             //加载刀具柜名称
-            cbx_djgmc.DataSource = Alex.GetList("djg");
-            //Sqlstr = string.Format("SELECT djgmc FROM daojugui ORDER BY djgmc ASC");
-            //cbx_djgmc.DataSource = SQL.DataReadList(Sqlstr);
+            Sqlstr = string.Format("SELECT djgmc FROM daojugui ORDER BY djgmc ASC");
+            cbx_djgmc.DataSource = SQL.DataReadList(Sqlstr);
             cbx_djgmc.SelectedIndex = -1;
             Sqlstr = "";
 
-            // 加载库存明细
-            LoadAllKCMX();
+            //加载库存明细
+            Sqlstr = string.Format("SELECT {1} AS lbjmc, {2} AS lbjgg, {3} AS lbjxh, {4} AS djgbm, {5} AS jtwz, {6} AS kcsl, {7} AS dw FROM {0}", lbjbiao, lbjbiao_lbjmc, lbjbiao_lbjgg, lbjbiao_lbjxh, lbjbiao_djgbm, lbjbiao_jtwz, lbjbiao_kcsl, lbjbiao_dw);
+            kcmx.AutoGenerateColumns = false;
+            kcmx.DataSource = SQL.getDataSet(Sqlstr, lbjbiao).Tables[0].DefaultView;
+            Sqlstr = "";
         }
 
         /// <summary>
@@ -84,12 +85,13 @@ namespace kucunTest.LingBuJian
             if (cbx_djgmc.SelectedIndex < 0)
             {
                 cbx_cs.DataSource = null;
-                return;
             }
-
-            Sqlstr = string.Format("SELECT djgcs FROM daojuguicengshu where djgmc = '{0}'", cbx_djgmc.SelectedValue.ToString());
-            cbx_cs.DataSource = SQL.DataReadList(Sqlstr);
-            cbx_cs.SelectedIndex = -1;
+            else
+            {
+                Sqlstr = string.Format("SELECT djgcs FROM daojuguicengshu where djgmc = '{0}'", cbx_djgmc.SelectedValue.ToString());
+                cbx_cs.DataSource = SQL.DataReadList(Sqlstr);
+                cbx_cs.SelectedIndex = -1;
+            }
         }
 
         /// <summary>
@@ -104,7 +106,6 @@ namespace kucunTest.LingBuJian
             if(cbx_lbjmc.Text != "" || cbx_djgmc.Text != "" || cbx_cs.Text != "")
             {
                 string conditions = string.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'", lbjbiao_lbjmc, cbx_lbjmc.Text.ToString(), lbjbiao_djgbm, cbx_djgmc.Text.ToString(), lbjbiao_jtwz, cbx_cs.Text.ToString());
-
                 //加载库存明细
                 Sqlstr = string.Format("SELECT {1} AS lbjmc, {2} AS lbjgg, {3} AS lbjxh, {4} AS djgbm, {5} AS jtwz, {6} AS kcsl, {7} AS dw FROM {0} WHERE {8}", lbjbiao, lbjbiao_lbjmc, lbjbiao_lbjgg, lbjbiao_lbjxh, lbjbiao_djgbm, lbjbiao_jtwz, lbjbiao_kcsl, lbjbiao_dw, conditions);
                 DataTable db_search = SQL.getDataSet1(Sqlstr).Tables[0];
@@ -122,16 +123,15 @@ namespace kucunTest.LingBuJian
             }
             else
             {
-                //tishi = "请选择组合查询条件";
-                LoadAllKCMX();//查询条件为空则加载全部库存明细
+                tishi = "请输出组合查询条件";
             }
 
             if (tishi != "")
             {
                 MessageBox.Show(tishi);
                 cbx_lbjmc.Focus();
-                cbx_lbjmc.DroppedDown = true;
             }
+            
         }
 
         /// <summary>
@@ -141,12 +141,6 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void kcmx_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex < 0)
-            {
-                czjl.DataSource = null;
-                return;
-            }
-
             int rowindex = kcmx.CurrentRow.Index;
             DataRow dr = ((kcmx.Rows[rowindex]).DataBoundItem as DataRowView).Row;//微软提供的唯一的从DataGridViewRow转换DataRow
 
@@ -155,25 +149,9 @@ namespace kucunTest.LingBuJian
             czjl.DataSource = SQL.getDataSet(Sqlstr, liushuibiao).Tables[0].DefaultView;
         }
 
-        /// <summary>
-        /// 窗口大小变化自适应
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void lbjkcmx_SizeChanged(object sender, EventArgs e)
         {
             asc.controlAutoSize(this);
-        }
-
-        /// <summary>
-        /// 加载所有库存明细
-        /// </summary>
-        private void LoadAllKCMX()
-        {
-            Sqlstr = string.Format("SELECT {1} AS lbjmc, {2} AS lbjgg, {3} AS lbjxh, {4} AS djgbm, {5} AS jtwz, {6} AS kcsl, {7} AS dw FROM {0} ORDER BY {1} ASC", lbjbiao, lbjbiao_lbjmc, lbjbiao_lbjgg, lbjbiao_lbjxh, lbjbiao_djgbm, lbjbiao_jtwz, lbjbiao_kcsl, lbjbiao_dw);
-            kcmx.AutoGenerateColumns = false;
-            kcmx.DataSource = SQL.getDataSet(Sqlstr, lbjbiao).Tables[0].DefaultView;
-            Sqlstr = "";
         }
     }
 }

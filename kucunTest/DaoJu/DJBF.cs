@@ -44,9 +44,8 @@ namespace kucunTest.DaoJu
             SQSJ.Text = DateTime.Now.ToString();
 
             //刀具信息默认值
-            DJLX.DataSource = Alex.GetList("djlx");
-            //string Sqlstr1 = "select distinct daojuleixing from daojutemp";
-            //DJLX.DataSource = SQL.DataReadList(Sqlstr1);
+            string Sqlstr1 = "select distinct daojuleixing from daojutemp";
+            DJLX.DataSource = SQL.DataReadList(Sqlstr1);
             DJLX.SelectedIndex = -1;
             DJCD.SelectedIndex = -1;
 
@@ -55,16 +54,14 @@ namespace kucunTest.DaoJu
             SPYJ.Text = "情况属实。";
             JBR.SelectedIndex = 0;
 
-            //加载所有班组
-            SQBZ.DataSource = Alex.GetList("bz");
-            //Sqlstr = string.Format("SELECT jichuangbianma FROM jichuang");
-            //SQSB.DataSource = SQL.DataReadList(Sqlstr);
+            //加载所有设备
+            Sqlstr = string.Format("SELECT jichuangbianma FROM jichuang");
+            SQSB.DataSource = SQL.DataReadList(Sqlstr);
             SQSB.SelectedIndex = -1;
 
             //加载所有刀具柜，刀具报废后暂存位置和具体位置
-            BFZCWZ.DataSource = Alex.GetList("djg");
-            //Sqlstr = string.Format("SELECT djgmc FROM daojugui");
-            //BFZCWZ.DataSource = SQL.DataReadList(Sqlstr);
+            Sqlstr = string.Format("SELECT djgmc FROM daojugui");
+            BFZCWZ.DataSource = SQL.DataReadList(Sqlstr);
             BFZCWZ.SelectedIndex = -1;
         }
 
@@ -610,17 +607,6 @@ namespace kucunTest.DaoJu
             {
                 JTWZ.DataSource = null;
             }
-        }
-
-        private void SQBZ_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (SQBZ.SelectedIndex < 0)
-            {
-                SQSB.DataSource = null;
-                return;
-            }
-
-            SQSB.DataSource = Alex.GetJCofBZ(SQBZ.Text);
         }
     }
 }

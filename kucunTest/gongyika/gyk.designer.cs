@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -151,7 +151,7 @@
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.groupBox2.Location = new System.Drawing.Point(222, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1059, 129);
+            this.groupBox2.Size = new System.Drawing.Size(1071, 129);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "工艺卡基本信息";
@@ -168,7 +168,7 @@
             this.btn_gyk_Delete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_gyk_Delete.Image = global::kucunTest.Properties.Resources.remove;
             this.btn_gyk_Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_gyk_Delete.Location = new System.Drawing.Point(960, 93);
+            this.btn_gyk_Delete.Location = new System.Drawing.Point(980, 93);
             this.btn_gyk_Delete.Name = "btn_gyk_Delete";
             this.btn_gyk_Delete.Size = new System.Drawing.Size(75, 27);
             this.btn_gyk_Delete.TabIndex = 10;
@@ -182,7 +182,7 @@
             this.btn_gyk_Save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_gyk_Save.Image = global::kucunTest.Properties.Resources.save;
             this.btn_gyk_Save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_gyk_Save.Location = new System.Drawing.Point(960, 60);
+            this.btn_gyk_Save.Location = new System.Drawing.Point(980, 60);
             this.btn_gyk_Save.Name = "btn_gyk_Save";
             this.btn_gyk_Save.Size = new System.Drawing.Size(75, 27);
             this.btn_gyk_Save.TabIndex = 11;
@@ -196,7 +196,7 @@
             this.btn_gyk_New.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_gyk_New.Image = global::kucunTest.Properties.Resources.add;
             this.btn_gyk_New.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_gyk_New.Location = new System.Drawing.Point(960, 25);
+            this.btn_gyk_New.Location = new System.Drawing.Point(980, 25);
             this.btn_gyk_New.Name = "btn_gyk_New";
             this.btn_gyk_New.Size = new System.Drawing.Size(75, 27);
             this.btn_gyk_New.TabIndex = 12;
@@ -280,7 +280,7 @@
             this.gx.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gx.Location = new System.Drawing.Point(222, 147);
             this.gx.Name = "gx";
-            this.gx.Size = new System.Drawing.Size(1059, 323);
+            this.gx.Size = new System.Drawing.Size(1071, 323);
             this.gx.TabIndex = 3;
             this.gx.TabStop = false;
             this.gx.Text = "工序信息";
@@ -372,7 +372,7 @@
             this.btn_gx_Edit.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_gx_Edit.Image = global::kucunTest.Properties.Resources.edit;
             this.btn_gx_Edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_gx_Edit.Location = new System.Drawing.Point(960, 65);
+            this.btn_gx_Edit.Location = new System.Drawing.Point(980, 66);
             this.btn_gx_Edit.Name = "btn_gx_Edit";
             this.btn_gx_Edit.Size = new System.Drawing.Size(75, 32);
             this.btn_gx_Edit.TabIndex = 11;
@@ -385,19 +385,19 @@
             // 
             this.gxxx.AllowUserToAddRows = false;
             this.gxxx.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.gxxx.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
+            this.gxxx.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.gxxx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gxxx.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gxxx.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gxxx.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gxxx.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gxxx.ColumnHeadersHeight = 32;
             this.gxxx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
@@ -418,7 +418,7 @@
             this.gxxx.ReadOnly = true;
             this.gxxx.RowTemplate.Height = 23;
             this.gxxx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gxxx.Size = new System.Drawing.Size(1053, 211);
+            this.gxxx.Size = new System.Drawing.Size(1065, 211);
             this.gxxx.TabIndex = 0;
             this.gxxx.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gxxx_CellClick);
             this.gxxx.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellMouseLeave);
@@ -523,7 +523,7 @@
             this.btn_gx_New.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_gx_New.Image = global::kucunTest.Properties.Resources.add;
             this.btn_gx_New.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_gx_New.Location = new System.Drawing.Point(960, 24);
+            this.btn_gx_New.Location = new System.Drawing.Point(980, 25);
             this.btn_gx_New.Name = "btn_gx_New";
             this.btn_gx_New.Size = new System.Drawing.Size(75, 32);
             this.btn_gx_New.TabIndex = 12;
@@ -557,7 +557,7 @@
             this.pd.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.pd.Location = new System.Drawing.Point(222, 476);
             this.pd.Name = "pd";
-            this.pd.Size = new System.Drawing.Size(1059, 318);
+            this.pd.Size = new System.Drawing.Size(1068, 318);
             this.pd.TabIndex = 4;
             this.pd.TabStop = false;
             this.pd.Text = "配刀信息";
@@ -566,7 +566,7 @@
             // 
             this.GJXH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GJXH.FormattingEnabled = true;
-            this.GJXH.Location = new System.Drawing.Point(803, 28);
+            this.GJXH.Location = new System.Drawing.Point(813, 28);
             this.GJXH.Name = "GJXH";
             this.GJXH.Size = new System.Drawing.Size(143, 29);
             this.GJXH.TabIndex = 16;
@@ -576,7 +576,7 @@
             // 
             this.GJGG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GJGG.FormattingEnabled = true;
-            this.GJGG.Location = new System.Drawing.Point(595, 28);
+            this.GJGG.Location = new System.Drawing.Point(605, 28);
             this.GJGG.Name = "GJGG";
             this.GJGG.Size = new System.Drawing.Size(121, 29);
             this.GJGG.TabIndex = 16;
@@ -585,7 +585,7 @@
             // 
             this.GJMC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GJMC.FormattingEnabled = true;
-            this.GJMC.Location = new System.Drawing.Point(355, 28);
+            this.GJMC.Location = new System.Drawing.Point(365, 28);
             this.GJMC.Name = "GJMC";
             this.GJMC.Size = new System.Drawing.Size(143, 29);
             this.GJMC.TabIndex = 16;
@@ -595,14 +595,14 @@
             // 
             this.DTH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DTH.FormattingEnabled = true;
-            this.DTH.Location = new System.Drawing.Point(355, 63);
+            this.DTH.Location = new System.Drawing.Point(365, 63);
             this.DTH.Name = "DTH";
             this.DTH.Size = new System.Drawing.Size(143, 29);
             this.DTH.TabIndex = 16;
             // 
             // DW
             // 
-            this.DW.Location = new System.Drawing.Point(682, 63);
+            this.DW.Location = new System.Drawing.Point(692, 63);
             this.DW.Name = "DW";
             this.DW.ReadOnly = true;
             this.DW.Size = new System.Drawing.Size(34, 29);
@@ -612,7 +612,7 @@
             // 
             this.GJShuoMing.Location = new System.Drawing.Point(102, 98);
             this.GJShuoMing.Name = "GJShuoMing";
-            this.GJShuoMing.Size = new System.Drawing.Size(844, 29);
+            this.GJShuoMing.Size = new System.Drawing.Size(854, 29);
             this.GJShuoMing.TabIndex = 15;
             // 
             // JCBM
@@ -640,7 +640,7 @@
             // 
             // SXSL
             // 
-            this.SXSL.Location = new System.Drawing.Point(595, 63);
+            this.SXSL.Location = new System.Drawing.Point(605, 63);
             this.SXSL.Name = "SXSL";
             this.SXSL.Size = new System.Drawing.Size(81, 29);
             this.SXSL.TabIndex = 15;
@@ -648,7 +648,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(730, 31);
+            this.label17.Location = new System.Drawing.Point(740, 31);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(74, 21);
             this.label17.TabIndex = 14;
@@ -657,7 +657,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(291, 66);
+            this.label19.Location = new System.Drawing.Point(301, 66);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(58, 21);
             this.label19.TabIndex = 14;
@@ -666,7 +666,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(515, 31);
+            this.label16.Location = new System.Drawing.Point(525, 31);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(74, 21);
             this.label16.TabIndex = 14;
@@ -675,7 +675,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(515, 66);
+            this.label10.Location = new System.Drawing.Point(525, 66);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 21);
             this.label10.TabIndex = 13;
@@ -702,7 +702,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(275, 31);
+            this.label15.Location = new System.Drawing.Point(285, 31);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(74, 21);
             this.label15.TabIndex = 14;
@@ -722,7 +722,7 @@
             this.btn_pd_Edit.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_pd_Edit.Image = global::kucunTest.Properties.Resources.edit;
             this.btn_pd_Edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_pd_Edit.Location = new System.Drawing.Point(960, 86);
+            this.btn_pd_Edit.Location = new System.Drawing.Point(977, 86);
             this.btn_pd_Edit.Name = "btn_pd_Edit";
             this.btn_pd_Edit.Size = new System.Drawing.Size(75, 37);
             this.btn_pd_Edit.TabIndex = 11;
@@ -735,19 +735,19 @@
             // 
             this.pdxx.AllowUserToAddRows = false;
             this.pdxx.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            this.pdxx.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gainsboro;
+            this.pdxx.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.pdxx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.pdxx.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.pdxx.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.pdxx.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pdxx.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.pdxx.ColumnHeadersHeight = 32;
             this.pdxx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
@@ -770,7 +770,7 @@
             this.pdxx.ReadOnly = true;
             this.pdxx.RowTemplate.Height = 23;
             this.pdxx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.pdxx.Size = new System.Drawing.Size(1053, 182);
+            this.pdxx.Size = new System.Drawing.Size(1062, 182);
             this.pdxx.TabIndex = 0;
             this.pdxx.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pdxx_CellClick);
             this.pdxx.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellMouseLeave);
@@ -888,7 +888,7 @@
             this.btn_pd_New.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_pd_New.Image = global::kucunTest.Properties.Resources.add;
             this.btn_pd_New.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_pd_New.Location = new System.Drawing.Point(960, 32);
+            this.btn_pd_New.Location = new System.Drawing.Point(977, 32);
             this.btn_pd_New.Name = "btn_pd_New";
             this.btn_pd_New.Size = new System.Drawing.Size(75, 37);
             this.btn_pd_New.TabIndex = 12;
@@ -903,7 +903,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1303, 733);
+            this.ClientSize = new System.Drawing.Size(1305, 733);
             this.Controls.Add(this.pd);
             this.Controls.Add(this.gx);
             this.Controls.Add(this.groupBox2);

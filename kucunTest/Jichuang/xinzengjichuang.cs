@@ -37,11 +37,10 @@ namespace kucunTest.Jichuang
             InitializeComponent();
 
             //加载班组名称
-            SSBZ.DataSource = Alex.GetList("bz");
-            //SqlStr = string.Format("SELECT {1} AS bzmc, {2} AS scxmc FROM {0} ", BanZu.TableName, BanZu.bzmc, BanZu.scxmc);
-            //DataTable db = SQL.getDataSet(SqlStr, BanZu.TableName).Tables[0];
-            //SSBZ.DataSource = db;
-            //SSBZ.DisplayMember = "bzmc";
+            SqlStr = string.Format("SELECT {1} AS bzmc, {2} AS scxmc FROM {0} ", BanZu.TableName, BanZu.bzmc, BanZu.scxmc);
+            DataTable db = SQL.getDataSet(SqlStr, BanZu.TableName).Tables[0];
+            SSBZ.DataSource = db;
+            SSBZ.DisplayMember = "bzmc";
             //SSBZ.ValueMember = "bzmc";
             //SSSCX.DataSource = db;
             //SSSCX.DisplayMember = "scxmc";

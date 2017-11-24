@@ -56,12 +56,8 @@ namespace kucunTest.LingBuJian
             InitializeComponent();
 
             danhao.Text = Alex.DanHao("LBJLY");//自动生成单号
-
-            //加载班组
-            LYBZ.DataSource = Alex.GetList("bz");
-            LYBZ.SelectedIndex = -1;
-
             LYRQ.Value = DateTime.Now;
+            LYBZ.SelectedIndex = 0;
             JBR.SelectedIndex = 0;
             heji.Text = HJ.ToString();
 
@@ -1068,23 +1064,5 @@ namespace kucunTest.LingBuJian
         }
 
         #endregion 其他方法结束
-
-        /// <summary>
-        /// 领用班组选择变化，加载相应领用设备
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LYBZ_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(LYBZ.SelectedIndex < 0)
-            {
-                LYSB.DataSource = Alex.GetList("jc");
-                LYSB.SelectedIndex = -1;
-                return;
-            }
-
-            LYSB.DataSource = Alex.GetJCofBZ(LYBZ.Text);
-            LYSB.DroppedDown = true;
-        }
     }
 }

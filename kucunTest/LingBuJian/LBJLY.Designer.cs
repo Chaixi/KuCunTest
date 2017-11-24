@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -186,7 +186,7 @@
             "先锋一班",
             "胜利二班",
             "机动科"});
-            this.LYSB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LYSB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.LYSB.FormattingEnabled = true;
             this.LYSB.Items.AddRange(new object[] {
             "FMS-1#机",
@@ -208,13 +208,16 @@
             "先锋一班",
             "胜利二班",
             "机动科"});
-            this.LYBZ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LYBZ.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.LYBZ.FormattingEnabled = true;
+            this.LYBZ.Items.AddRange(new object[] {
+            "先锋一班",
+            "胜利二班",
+            "机动科"});
             this.LYBZ.Location = new System.Drawing.Point(124, 29);
             this.LYBZ.Name = "LYBZ";
             this.LYBZ.Size = new System.Drawing.Size(163, 29);
             this.LYBZ.TabIndex = 2;
-            this.LYBZ.SelectedIndexChanged += new System.EventHandler(this.LYBZ_SelectedIndexChanged);
             // 
             // LYR
             // 
@@ -328,7 +331,6 @@
             // 
             // cbx_cfwz
             // 
-            this.cbx_cfwz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_cfwz.FormattingEnabled = true;
             this.cbx_cfwz.Location = new System.Drawing.Point(414, 60);
             this.cbx_cfwz.Name = "cbx_cfwz";
@@ -338,7 +340,6 @@
             // 
             // cbx_djgbm
             // 
-            this.cbx_djgbm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_djgbm.FormattingEnabled = true;
             this.cbx_djgbm.Location = new System.Drawing.Point(414, 25);
             this.cbx_djgbm.Name = "cbx_djgbm";
@@ -451,7 +452,7 @@
             "OP20T01",
             "OP20T40",
             "OP20T238"});
-            this.cbx_lyjc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_lyjc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbx_lyjc.FormattingEnabled = true;
             this.cbx_lyjc.Location = new System.Drawing.Point(703, 63);
             this.cbx_lyjc.Name = "cbx_lyjc";
@@ -515,8 +516,8 @@
             // 
             // lingyongmingxi
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightGray;
-            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.lingyongmingxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.lingyongmingxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.lingyongmingxi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -639,7 +640,6 @@
             // 
             // cbx_lbjxh
             // 
-            this.cbx_lbjxh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_lbjxh.FormattingEnabled = true;
             this.cbx_lbjxh.Location = new System.Drawing.Point(94, 95);
             this.cbx_lbjxh.Name = "cbx_lbjxh";
@@ -680,7 +680,6 @@
             // 
             // cbx_lbjgg
             // 
-            this.cbx_lbjgg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_lbjgg.FormattingEnabled = true;
             this.cbx_lbjgg.Location = new System.Drawing.Point(94, 60);
             this.cbx_lbjgg.Name = "cbx_lbjgg";
@@ -716,7 +715,6 @@
             // 
             // cbx_lbjmc
             // 
-            this.cbx_lbjmc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_lbjmc.FormattingEnabled = true;
             this.cbx_lbjmc.Location = new System.Drawing.Point(94, 25);
             this.cbx_lbjmc.Name = "cbx_lbjmc";

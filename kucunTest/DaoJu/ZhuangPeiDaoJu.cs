@@ -52,7 +52,7 @@ namespace kucunTest.DaoJu
         string DJGG = "";
         string DJXH = "";
 
-        bool ZP = true;//判断所需数量是否小于库存数量，true为可装配；
+        bool ZP = true;
         #endregion 全局变量结束
 
         /// <summary>
@@ -75,7 +75,10 @@ namespace kucunTest.DaoJu
             string sql = "select djgmc from daojugui";
             djgbm.DataSource = SQL.DataReadList(sql);
             djgbm.SelectedIndex = 0;
-                       
+
+
+
+           
         }
         
         /// <summary>
@@ -100,6 +103,8 @@ namespace kucunTest.DaoJu
             djgg.DataSource = SQL.DataReadList(Sqlstr);
         }
 
+
+
         /// <summary>
         /// datagridview事件，绘制行号
         /// </summary>
@@ -121,7 +126,7 @@ namespace kucunTest.DaoJu
             DJXH = SQL.ExecuteScalar(Sqlstr).ToString();
             //DJXH = SQL.getDataSet(Sqlstr, DaoJuBiao).Tables[0].Rows[0][djb_djxh].ToString();
 
-            Sqlstr = string.Format("SELECT gl.lbjmc, gl.lbjxh, gl.lbjgg, gl.sl, gl.dw, lbj.kcsl, CONCAT(lbj.weizhi,'--',lbj.cengshu) AS kcwz FROM daojulingbujian gl LEFT JOIN jichuxinxi lbj ON gl.lbjxh = lbj.daojuxinghao WHERE gl.djxh = '{0}'", DJXH);
+            Sqlstr = string.Format("SELECT gl.lbjmc, gl.lbjxh, gl.lbjgg, gl.sl, gl.dw, lbj.kcsl FROM daojulingbujian gl LEFT JOIN jichuxinxi lbj ON gl.lbjxh = lbj.daojuxinghao WHERE gl.djxh = '{0}'", DJXH);
             DataSet ds = SQL.getDataSet1(Sqlstr);
             lbjmx.AutoGenerateColumns = false;
             lbjmx.DataSource = ds.Tables[0].DefaultView;
@@ -140,7 +145,8 @@ namespace kucunTest.DaoJu
                         ZP = false;
                     }
                 }
-            }            
+            }
+            
         }
 
         /// <summary>
@@ -196,7 +202,7 @@ namespace kucunTest.DaoJu
                         for (int i = 0; i < lbjmx.Rows.Count; i++)
                         {
                             int xsl = Convert.ToInt16(lbjmx.Rows[i].Cells["kcsl"].Value.ToString()) - Convert.ToInt16(lbjmx.Rows[i].Cells["sl"].Value.ToString());
-                            Sqlstr = string.Format("UPDATE jichuxinxi SET kcsl = '{0}' WHERE daojuxinghao = '{1}' AND CONCAT(weizhi,'--',cengshu) = '{2}'", xsl.ToString(), lbjmx.Rows[i].Cells["lbjxh"].Value.ToString(), lbjmx.Rows[i].Cells["kcwz"].Value.ToString());
+                            Sqlstr = string.Format("UPDATE jichuxinxi SET kcsl = '{0}' WHERE daojuxinghao = '{1}'", xsl.ToString(), lbjmx.Rows[i].Cells["lbjxh"].Value.ToString());
                             row = SQL.ExecuteNonQuery(Sqlstr);
 
                         }
@@ -205,17 +211,15 @@ namespace kucunTest.DaoJu
                     {
                         for (int i = 0; i < lbjmx.Rows.Count; i++)
                         {
-                            //数据预处理
-                            string lbjkcwz = lbjmx.Rows[i].Cells["kcwz"].Value.ToString();
-                            string lbjwz = lbjkcwz.Substring(0, lbjkcwz.Length - 4);
-                            string lbjcs = lbjkcwz.Substring(lbjkcwz.Length - 2);
 
                             int sl = Convert.ToInt16(lbjmx.Rows[i].Cells["sl"].Value.ToString());
-                            Sqlstr1 = "INSERT INTO lbj_liushui(dhlx, lbjmc, lbjgg, lbjxh, djgbm, jtwz, zsl, fsl, dskykc, dw, czsj, bz) VALUES( '装配领用' , '" + lbjmx.Rows[i].Cells["lbjmc"].Value.ToString() + "' , '" + lbjmx.Rows[i].Cells["lbjgg"].Value.ToString() + "' , '" + lbjmx.Rows[i].Cells["lbjxh"].Value.ToString() + "','" + lbjwz + "','" + lbjcs + "' , '0' , '" + sl.ToString() + "','" + lbjmx.Rows[i].Cells["kcsl"].Value.ToString() + "','" + lbjmx.Rows[i].Cells["dw"].Value.ToString() +"','" + DateTime.Now + "','" + djid.Text + "') ";
+                            Sqlstr1 = "INSERT INTO lbj_liushui(dhlx, lbjmc, lbjgg, lbjxh, zsl, fsl, czsj) VALUES( '装配领用' , '" + lbjmx.Rows[i].Cells["lbjmc"].Value.ToString() + "' , '" + lbjmx.Rows[i].Cells["lbjgg"].Value.ToString() + "' , '" + lbjmx.Rows[i].Cells["lbjxh"].Value.ToString() + "' , '0' , '" + sl.ToString() + "','" + DateTime.Now + "') ";
                             SQL.ExecuteNonQuery(Sqlstr1);
                         }
                     }
-                    
+
+
+
                     MessageBox.Show("装配成功！", "提示");
                     this.Close();
                     this.DialogResult = DialogResult.OK;

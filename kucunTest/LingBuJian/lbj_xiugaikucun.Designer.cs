@@ -51,8 +51,8 @@
             this.rb_sub = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.JBR = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.JBR = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -314,6 +314,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "操作信息";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(56, 164);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 21);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "经办人";
+            // 
             // JBR
             // 
             this.JBR.FormattingEnabled = true;
@@ -326,16 +336,6 @@
             this.JBR.Name = "JBR";
             this.JBR.Size = new System.Drawing.Size(147, 29);
             this.JBR.TabIndex = 4;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(56, 164);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 21);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "经办人";
             // 
             // lbj_xiugaikucun
             // 

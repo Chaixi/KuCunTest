@@ -36,23 +36,18 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cxdjsm = new System.Windows.Forms.TextBox();
             this.cxdjid = new System.Windows.Forms.TextBox();
-            this.cbx_ssjc = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbx_ssdg = new System.Windows.Forms.ComboBox();
+            this.cxdjlx = new System.Windows.Forms.TextBox();
+            this.cxdjgmc = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbx_qtwzdj = new System.Windows.Forms.CheckBox();
-            this.cbx_smyjdj = new System.Windows.Forms.CheckBox();
-            this.cbx_dgkxdj = new System.Windows.Forms.CheckBox();
-            this.cbx_jczydj = new System.Windows.Forms.CheckBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.djxy = new System.Windows.Forms.Button();
             this.kccx = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -83,35 +78,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.scxmc = new System.Windows.Forms.Label();
-            this.scx_panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.scx_panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.scx_panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -119,38 +86,57 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.scx_panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.scx_panel2 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dgv_jcdk = new System.Windows.Forms.DataGridView();
+            this.jcdk_dth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcdk_djxh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jcdk_djtp = new System.Windows.Forms.DataGridViewImageColumn();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dgv_jcdk = new System.Windows.Forms.DataGridView();
-            this.jcdk_dth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcdk_djid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jcdk_djtp = new System.Windows.Forms.DataGridViewImageColumn();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.daojuxinxi)).BeginInit();
             this.grpBox_parameter.SuspendLayout();
-            this.scx_panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.scx_panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.scx_panel3.SuspendLayout();
+            this.scx_panel1.SuspendLayout();
+            this.scx_panel2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_jcdk)).BeginInit();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
@@ -158,21 +144,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_jcdk)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.cxdjsm);
             this.groupBox1.Controls.Add(this.cxdjid);
-            this.groupBox1.Controls.Add(this.cbx_ssjc);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cbx_ssdg);
+            this.groupBox1.Controls.Add(this.cxdjlx);
+            this.groupBox1.Controls.Add(this.cxdjgmc);
             this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(226, 14);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
@@ -180,7 +177,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1414, 90);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "关键字查询";
+            this.groupBox1.Text = "搜索条件";
             // 
             // button5
             // 
@@ -204,78 +201,84 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cxdjsm
+            // 
+            this.cxdjsm.Location = new System.Drawing.Point(666, 41);
+            this.cxdjsm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cxdjsm.Name = "cxdjsm";
+            this.cxdjsm.Size = new System.Drawing.Size(130, 29);
+            this.cxdjsm.TabIndex = 5;
+            // 
             // cxdjid
             // 
-            this.cxdjid.Location = new System.Drawing.Point(107, 35);
+            this.cxdjid.Location = new System.Drawing.Point(382, 41);
             this.cxdjid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cxdjid.Name = "cxdjid";
-            this.cxdjid.Size = new System.Drawing.Size(168, 29);
+            this.cxdjid.Size = new System.Drawing.Size(130, 29);
             this.cxdjid.TabIndex = 5;
             // 
-            // cbx_ssjc
+            // cxdjlx
             // 
-            this.cbx_ssjc.FormattingEnabled = true;
-            this.cbx_ssjc.Location = new System.Drawing.Point(765, 35);
-            this.cbx_ssjc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbx_ssjc.Name = "cbx_ssjc";
-            this.cbx_ssjc.Size = new System.Drawing.Size(183, 29);
-            this.cbx_ssjc.TabIndex = 5;
-            this.cbx_ssjc.Visible = false;
+            this.cxdjlx.Location = new System.Drawing.Point(156, 41);
+            this.cxdjlx.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cxdjlx.Name = "cxdjlx";
+            this.cxdjlx.Size = new System.Drawing.Size(91, 29);
+            this.cxdjlx.TabIndex = 4;
             // 
-            // label2
+            // cxdjgmc
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(683, 38);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "所在机床";
-            this.label2.Visible = false;
-            // 
-            // cbx_ssdg
-            // 
-            this.cbx_ssdg.FormattingEnabled = true;
-            this.cbx_ssdg.Location = new System.Drawing.Point(417, 35);
-            this.cbx_ssdg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbx_ssdg.Name = "cbx_ssdg";
-            this.cbx_ssdg.Size = new System.Drawing.Size(192, 29);
-            this.cbx_ssdg.TabIndex = 5;
-            this.cbx_ssdg.Visible = false;
+            this.cxdjgmc.FormattingEnabled = true;
+            this.cxdjgmc.Location = new System.Drawing.Point(943, 41);
+            this.cxdjgmc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cxdjgmc.Name = "cxdjgmc";
+            this.cxdjgmc.Size = new System.Drawing.Size(131, 29);
+            this.cxdjgmc.TabIndex = 3;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(330, 38);
+            this.label19.Location = new System.Drawing.Point(829, 44);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(74, 21);
+            this.label19.Size = new System.Drawing.Size(106, 21);
             this.label19.TabIndex = 2;
-            this.label19.Text = "所在刀柜";
-            this.label19.Visible = false;
+            this.label19.Text = "按刀具柜查询";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(536, 44);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 21);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "按刀具寿命查询";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 38);
+            this.label3.Location = new System.Drawing.Point(273, 44);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 21);
+            this.label3.Size = new System.Drawing.Size(107, 21);
             this.label3.TabIndex = 1;
-            this.label3.Text = "刀具ID";
+            this.label3.Text = "按刀具ID查询";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 44);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 21);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "按刀具类型查询";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbx_qtwzdj);
-            this.groupBox2.Controls.Add(this.cbx_smyjdj);
-            this.groupBox2.Controls.Add(this.cbx_dgkxdj);
-            this.groupBox2.Controls.Add(this.cbx_jczydj);
-            this.groupBox2.Controls.Add(this.label36);
-            this.groupBox2.Controls.Add(this.label32);
-            this.groupBox2.Controls.Add(this.label31);
-            this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.djxy);
             this.groupBox2.Controls.Add(this.kccx);
+            this.groupBox2.Controls.Add(this.label24);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.button2);
@@ -295,119 +298,10 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(1414, 480);
+            this.groupBox2.Size = new System.Drawing.Size(1414, 454);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "刀具信息";
-            // 
-            // cbx_qtwzdj
-            // 
-            this.cbx_qtwzdj.AutoSize = true;
-            this.cbx_qtwzdj.Checked = true;
-            this.cbx_qtwzdj.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbx_qtwzdj.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.cbx_qtwzdj.Location = new System.Drawing.Point(354, 446);
-            this.cbx_qtwzdj.Name = "cbx_qtwzdj";
-            this.cbx_qtwzdj.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbx_qtwzdj.Size = new System.Drawing.Size(118, 24);
-            this.cbx_qtwzdj.TabIndex = 7;
-            this.cbx_qtwzdj.Text = "其他位置刀具";
-            this.cbx_qtwzdj.UseVisualStyleBackColor = true;
-            this.cbx_qtwzdj.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-            // 
-            // cbx_smyjdj
-            // 
-            this.cbx_smyjdj.AutoSize = true;
-            this.cbx_smyjdj.Checked = true;
-            this.cbx_smyjdj.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbx_smyjdj.Enabled = false;
-            this.cbx_smyjdj.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.cbx_smyjdj.Location = new System.Drawing.Point(523, 446);
-            this.cbx_smyjdj.Name = "cbx_smyjdj";
-            this.cbx_smyjdj.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbx_smyjdj.Size = new System.Drawing.Size(118, 24);
-            this.cbx_smyjdj.TabIndex = 7;
-            this.cbx_smyjdj.Text = "寿命预警刀具";
-            this.cbx_smyjdj.UseVisualStyleBackColor = true;
-            this.cbx_smyjdj.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-            // 
-            // cbx_dgkxdj
-            // 
-            this.cbx_dgkxdj.AutoSize = true;
-            this.cbx_dgkxdj.Checked = true;
-            this.cbx_dgkxdj.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbx_dgkxdj.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.cbx_dgkxdj.Location = new System.Drawing.Point(189, 446);
-            this.cbx_dgkxdj.Name = "cbx_dgkxdj";
-            this.cbx_dgkxdj.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbx_dgkxdj.Size = new System.Drawing.Size(118, 24);
-            this.cbx_dgkxdj.TabIndex = 7;
-            this.cbx_dgkxdj.Text = "刀柜空闲刀具";
-            this.cbx_dgkxdj.UseVisualStyleBackColor = true;
-            this.cbx_dgkxdj.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-            // 
-            // cbx_jczydj
-            // 
-            this.cbx_jczydj.AutoSize = true;
-            this.cbx_jczydj.Checked = true;
-            this.cbx_jczydj.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbx_jczydj.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.cbx_jczydj.Location = new System.Drawing.Point(29, 446);
-            this.cbx_jczydj.Name = "cbx_jczydj";
-            this.cbx_jczydj.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbx_jczydj.Size = new System.Drawing.Size(118, 24);
-            this.cbx_jczydj.TabIndex = 7;
-            this.cbx_jczydj.Text = "机床在用刀具";
-            this.cbx_jczydj.UseVisualStyleBackColor = true;
-            this.cbx_jczydj.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.BackColor = System.Drawing.Color.Red;
-            this.label36.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label36.ForeColor = System.Drawing.Color.Red;
-            this.label36.Location = new System.Drawing.Point(500, 449);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(20, 17);
-            this.label36.TabIndex = 13;
-            this.label36.Text = "刀";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.BackColor = System.Drawing.Color.HotPink;
-            this.label32.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label32.ForeColor = System.Drawing.Color.HotPink;
-            this.label32.Location = new System.Drawing.Point(331, 450);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(20, 17);
-            this.label32.TabIndex = 13;
-            this.label32.Text = "刀";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.BackColor = System.Drawing.Color.Gray;
-            this.label31.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label31.ForeColor = System.Drawing.Color.Gray;
-            this.label31.Location = new System.Drawing.Point(7, 450);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(20, 17);
-            this.label31.TabIndex = 13;
-            this.label31.Text = "刀";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label20.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label20.ForeColor = System.Drawing.Color.DarkSeaGreen;
-            this.label20.Location = new System.Drawing.Point(167, 450);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(20, 17);
-            this.label20.TabIndex = 13;
-            this.label20.Text = "刀";
             // 
             // djxy
             // 
@@ -431,6 +325,17 @@
             this.kccx.UseVisualStyleBackColor = true;
             this.kccx.Click += new System.EventHandler(this.kccx_Click);
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label24.Location = new System.Drawing.Point(1239, 428);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(42, 21);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "把。";
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(1293, 358);
@@ -446,12 +351,12 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label21.Location = new System.Drawing.Point(683, 445);
+            this.label21.Location = new System.Drawing.Point(649, 428);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(218, 21);
+            this.label21.Size = new System.Drawing.Size(122, 21);
             this.label21.TabIndex = 6;
-            this.label21.Text = "统计信息：该类型刀具数量共";
+            this.label21.Text = "该类型刀具总共";
             // 
             // button2
             // 
@@ -467,12 +372,12 @@
             // jcsl
             // 
             this.jcsl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.jcsl.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.jcsl.Location = new System.Drawing.Point(1293, 446);
+            this.jcsl.Font = new System.Drawing.Font("微软雅黑", 15F);
+            this.jcsl.Location = new System.Drawing.Point(1195, 424);
             this.jcsl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jcsl.Name = "jcsl";
             this.jcsl.ReadOnly = true;
-            this.jcsl.Size = new System.Drawing.Size(36, 22);
+            this.jcsl.Size = new System.Drawing.Size(40, 27);
             this.jcsl.TabIndex = 9;
             this.jcsl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -490,12 +395,12 @@
             // djgsl
             // 
             this.djgsl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.djgsl.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.djgsl.Location = new System.Drawing.Point(1095, 446);
+            this.djgsl.Font = new System.Drawing.Font("微软雅黑", 15F);
+            this.djgsl.Location = new System.Drawing.Point(992, 424);
             this.djgsl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.djgsl.Name = "djgsl";
             this.djgsl.ReadOnly = true;
-            this.djgsl.Size = new System.Drawing.Size(35, 22);
+            this.djgsl.Size = new System.Drawing.Size(42, 27);
             this.djgsl.TabIndex = 10;
             this.djgsl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -513,12 +418,12 @@
             // djzs
             // 
             this.djzs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.djzs.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.djzs.Location = new System.Drawing.Point(900, 446);
+            this.djzs.Font = new System.Drawing.Font("微软雅黑", 15F);
+            this.djzs.Location = new System.Drawing.Point(775, 424);
             this.djzs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.djzs.Name = "djzs";
             this.djzs.ReadOnly = true;
-            this.djzs.Size = new System.Drawing.Size(46, 22);
+            this.djzs.Size = new System.Drawing.Size(41, 27);
             this.djzs.TabIndex = 11;
             this.djzs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -537,12 +442,12 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label22.Location = new System.Drawing.Point(944, 446);
+            this.label22.Location = new System.Drawing.Point(820, 428);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(154, 21);
+            this.label22.Size = new System.Drawing.Size(170, 21);
             this.label22.TabIndex = 7;
-            this.label22.Text = "，其中刀具柜中数量";
+            this.label22.Text = "把，其中刀具柜中存有";
             // 
             // button4
             // 
@@ -570,12 +475,12 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label23.Location = new System.Drawing.Point(1131, 446);
+            this.label23.Location = new System.Drawing.Point(1038, 428);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(154, 21);
             this.label23.TabIndex = 8;
-            this.label23.Text = "，机床刀具库中数量";
+            this.label23.Text = "把，机床刀具库中有";
             // 
             // daojuxinxi
             // 
@@ -612,7 +517,7 @@
             this.daojuxinxi.Name = "daojuxinxi";
             this.daojuxinxi.RowTemplate.Height = 23;
             this.daojuxinxi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.daojuxinxi.Size = new System.Drawing.Size(1278, 407);
+            this.daojuxinxi.Size = new System.Drawing.Size(1278, 398);
             this.daojuxinxi.TabIndex = 0;
             this.daojuxinxi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.daojuxinxi_CellClick);
             this.daojuxinxi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.daojuxinxi_CellDoubleClick);
@@ -683,7 +588,6 @@
             this.zzdj.DataPropertyName = "zzdj";
             this.zzdj.HeaderText = "组装刀具";
             this.zzdj.Name = "zzdj";
-            this.zzdj.ReadOnly = true;
             this.zzdj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // lingyongdanhao
@@ -709,7 +613,6 @@
             this.weizhibiaoshi.DataPropertyName = "weizhibiaoshi";
             this.weizhibiaoshi.HeaderText = "位置标识";
             this.weizhibiaoshi.Name = "weizhibiaoshi";
-            this.weizhibiaoshi.ReadOnly = true;
             this.weizhibiaoshi.Visible = false;
             // 
             // cxdj
@@ -728,10 +631,10 @@
             this.grpBox_parameter.Controls.Add(this.comboBox2);
             this.grpBox_parameter.Controls.Add(this.label1);
             this.grpBox_parameter.Controls.Add(this.scxmc);
+            this.grpBox_parameter.Controls.Add(this.scx_panel3);
             this.grpBox_parameter.Controls.Add(this.scx_panel1);
             this.grpBox_parameter.Controls.Add(this.scx_panel2);
-            this.grpBox_parameter.Controls.Add(this.scx_panel3);
-            this.grpBox_parameter.Location = new System.Drawing.Point(226, 620);
+            this.grpBox_parameter.Location = new System.Drawing.Point(226, 576);
             this.grpBox_parameter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grpBox_parameter.Name = "grpBox_parameter";
             this.grpBox_parameter.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -744,6 +647,16 @@
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "1# 1204后箱加工线",
+            "2# 1204前箱加工线",
+            "3# 前托架加工线",
+            "4# 80加速器壳体加工线",
+            "5# 80传动箱壳体加工线",
+            "6# 系列箱体加工线",
+            "7# 差速器轴承座加工线",
+            "8# 制动器活塞加工线",
+            "9# 中小件加工线"});
             this.comboBox2.Location = new System.Drawing.Point(139, 49);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(211, 29);
@@ -774,330 +687,6 @@
             this.scxmc.Text = "生产线名称";
             this.scxmc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // scx_panel1
-            // 
-            this.scx_panel1.Controls.Add(this.pictureBox2);
-            this.scx_panel1.Controls.Add(this.pictureBox3);
-            this.scx_panel1.Controls.Add(this.label11);
-            this.scx_panel1.Controls.Add(this.label10);
-            this.scx_panel1.Controls.Add(this.label9);
-            this.scx_panel1.Controls.Add(this.label8);
-            this.scx_panel1.Controls.Add(this.label7);
-            this.scx_panel1.Controls.Add(this.label6);
-            this.scx_panel1.Controls.Add(this.pictureBox1);
-            this.scx_panel1.Controls.Add(this.pictureBox4);
-            this.scx_panel1.Controls.Add(this.pictureBox6);
-            this.scx_panel1.Controls.Add(this.pictureBox5);
-            this.scx_panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.scx_panel1.Location = new System.Drawing.Point(4, 120);
-            this.scx_panel1.Name = "scx_panel1";
-            this.scx_panel1.Size = new System.Drawing.Size(1077, 221);
-            this.scx_panel1.TabIndex = 11;
-            this.scx_panel1.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
-            this.pictureBox2.Location = new System.Drawing.Point(92, 47);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Tag = "FMS-1#机";
-            this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
-            this.pictureBox3.Location = new System.Drawing.Point(254, 47);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Tag = "FMS-2#机";
-            this.pictureBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label11.Location = new System.Drawing.Point(870, 165);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(119, 21);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "FMS-6#机";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label10.Location = new System.Drawing.Point(714, 165);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(119, 21);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "FMS-5#机";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label9.Location = new System.Drawing.Point(562, 165);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 21);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "FMS-4#机";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label8.Location = new System.Drawing.Point(409, 165);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(119, 21);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "FMS-3#机";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label7.Location = new System.Drawing.Point(254, 165);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 21);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "FMS-2#机";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label6.Location = new System.Drawing.Point(92, 165);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 21);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "FMS-1#机";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
-            this.pictureBox1.Location = new System.Drawing.Point(870, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
-            this.pictureBox4.Location = new System.Drawing.Point(409, 47);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 9;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Tag = "FMS-3#机";
-            this.pictureBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox6.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
-            this.pictureBox6.Location = new System.Drawing.Point(714, 47);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 9;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox5.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
-            this.pictureBox5.Location = new System.Drawing.Point(562, 47);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 9;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // scx_panel2
-            // 
-            this.scx_panel2.Controls.Add(this.pictureBox13);
-            this.scx_panel2.Controls.Add(this.pictureBox14);
-            this.scx_panel2.Controls.Add(this.label18);
-            this.scx_panel2.Controls.Add(this.label25);
-            this.scx_panel2.Controls.Add(this.label26);
-            this.scx_panel2.Controls.Add(this.label27);
-            this.scx_panel2.Controls.Add(this.label28);
-            this.scx_panel2.Controls.Add(this.label29);
-            this.scx_panel2.Controls.Add(this.pictureBox15);
-            this.scx_panel2.Controls.Add(this.pictureBox16);
-            this.scx_panel2.Controls.Add(this.pictureBox17);
-            this.scx_panel2.Controls.Add(this.pictureBox18);
-            this.scx_panel2.Location = new System.Drawing.Point(4, 114);
-            this.scx_panel2.Name = "scx_panel2";
-            this.scx_panel2.Size = new System.Drawing.Size(1077, 221);
-            this.scx_panel2.TabIndex = 13;
-            this.scx_panel2.Visible = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox13.Image = global::kucunTest.Properties.Resources._1_1;
-            this.pictureBox13.Location = new System.Drawing.Point(92, 47);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox13.TabIndex = 9;
-            this.pictureBox13.TabStop = false;
-            this.pictureBox13.Tag = "FMS-1#机";
-            this.pictureBox13.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox14.Image = global::kucunTest.Properties.Resources._1_2;
-            this.pictureBox14.Location = new System.Drawing.Point(254, 47);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox14.TabIndex = 9;
-            this.pictureBox14.TabStop = false;
-            this.pictureBox14.Tag = "FMS-2#机";
-            this.pictureBox14.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // label18
-            // 
-            this.label18.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label18.Location = new System.Drawing.Point(870, 165);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(119, 21);
-            this.label18.TabIndex = 6;
-            this.label18.Text = "FMS-6#机";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            this.label25.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label25.Location = new System.Drawing.Point(714, 165);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(119, 21);
-            this.label25.TabIndex = 6;
-            this.label25.Text = "FMS-5#机";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label26
-            // 
-            this.label26.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label26.Location = new System.Drawing.Point(562, 165);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(119, 21);
-            this.label26.TabIndex = 6;
-            this.label26.Text = "FMS-4#机";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label27
-            // 
-            this.label27.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label27.Location = new System.Drawing.Point(409, 165);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(119, 21);
-            this.label27.TabIndex = 6;
-            this.label27.Text = "FMS-3#机";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label28
-            // 
-            this.label28.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label28.Location = new System.Drawing.Point(254, 165);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(119, 21);
-            this.label28.TabIndex = 6;
-            this.label28.Text = "FMS-2#机";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label29
-            // 
-            this.label29.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label29.Location = new System.Drawing.Point(92, 165);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(119, 21);
-            this.label29.TabIndex = 6;
-            this.label29.Text = "FMS-1#机";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox15.Image = global::kucunTest.Properties.Resources._1_6;
-            this.pictureBox15.Location = new System.Drawing.Point(870, 47);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox15.TabIndex = 9;
-            this.pictureBox15.TabStop = false;
-            this.pictureBox15.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox16.Image = global::kucunTest.Properties.Resources._1_3;
-            this.pictureBox16.Location = new System.Drawing.Point(409, 47);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox16.TabIndex = 9;
-            this.pictureBox16.TabStop = false;
-            this.pictureBox16.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox17.Image = global::kucunTest.Properties.Resources._1_5;
-            this.pictureBox17.Location = new System.Drawing.Point(714, 47);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox17.TabIndex = 9;
-            this.pictureBox17.TabStop = false;
-            this.pictureBox17.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox18.Image = global::kucunTest.Properties.Resources._1_4;
-            this.pictureBox18.Location = new System.Drawing.Point(562, 47);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox18.TabIndex = 9;
-            this.pictureBox18.TabStop = false;
-            this.pictureBox18.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
             // scx_panel3
             // 
             this.scx_panel3.Controls.Add(this.pictureBox7);
@@ -1119,33 +708,6 @@
             this.scx_panel3.Size = new System.Drawing.Size(1077, 221);
             this.scx_panel3.TabIndex = 12;
             this.scx_panel3.Visible = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Image = global::kucunTest.Properties.Resources._2_1;
-            this.pictureBox7.Location = new System.Drawing.Point(52, 47);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 9;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Tag = "FMS-1#机";
-            this.pictureBox7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Image = global::kucunTest.Properties.Resources._2_2;
-            this.pictureBox8.Location = new System.Drawing.Point(228, 47);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(119, 115);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 9;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Tag = "FMS-2#机";
-            this.pictureBox8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
             // label30
             // 
@@ -1224,6 +786,322 @@
             this.label17.Text = "FMS-1#机";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // scx_panel1
+            // 
+            this.scx_panel1.Controls.Add(this.pictureBox2);
+            this.scx_panel1.Controls.Add(this.pictureBox3);
+            this.scx_panel1.Controls.Add(this.label11);
+            this.scx_panel1.Controls.Add(this.label10);
+            this.scx_panel1.Controls.Add(this.label9);
+            this.scx_panel1.Controls.Add(this.label8);
+            this.scx_panel1.Controls.Add(this.label7);
+            this.scx_panel1.Controls.Add(this.label6);
+            this.scx_panel1.Controls.Add(this.pictureBox1);
+            this.scx_panel1.Controls.Add(this.pictureBox4);
+            this.scx_panel1.Controls.Add(this.pictureBox6);
+            this.scx_panel1.Controls.Add(this.pictureBox5);
+            this.scx_panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.scx_panel1.Location = new System.Drawing.Point(4, 120);
+            this.scx_panel1.Name = "scx_panel1";
+            this.scx_panel1.Size = new System.Drawing.Size(1077, 221);
+            this.scx_panel1.TabIndex = 11;
+            this.scx_panel1.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label11.Location = new System.Drawing.Point(870, 165);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(119, 21);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "FMS-6#机";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label10.Location = new System.Drawing.Point(714, 165);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(119, 21);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "FMS-5#机";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label9.Location = new System.Drawing.Point(562, 165);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 21);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "FMS-4#机";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label8.Location = new System.Drawing.Point(409, 165);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(119, 21);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "FMS-3#机";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label7.Location = new System.Drawing.Point(254, 165);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(119, 21);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "FMS-2#机";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label6.Location = new System.Drawing.Point(92, 165);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 21);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "FMS-1#机";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // scx_panel2
+            // 
+            this.scx_panel2.Controls.Add(this.pictureBox13);
+            this.scx_panel2.Controls.Add(this.pictureBox14);
+            this.scx_panel2.Controls.Add(this.label18);
+            this.scx_panel2.Controls.Add(this.label25);
+            this.scx_panel2.Controls.Add(this.label26);
+            this.scx_panel2.Controls.Add(this.label27);
+            this.scx_panel2.Controls.Add(this.label28);
+            this.scx_panel2.Controls.Add(this.label29);
+            this.scx_panel2.Controls.Add(this.pictureBox15);
+            this.scx_panel2.Controls.Add(this.pictureBox16);
+            this.scx_panel2.Controls.Add(this.pictureBox17);
+            this.scx_panel2.Controls.Add(this.pictureBox18);
+            this.scx_panel2.Location = new System.Drawing.Point(4, 114);
+            this.scx_panel2.Name = "scx_panel2";
+            this.scx_panel2.Size = new System.Drawing.Size(1077, 221);
+            this.scx_panel2.TabIndex = 13;
+            this.scx_panel2.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label18.Location = new System.Drawing.Point(870, 165);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(119, 21);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "FMS-6#机";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label25.Location = new System.Drawing.Point(714, 165);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(119, 21);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "FMS-5#机";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label26
+            // 
+            this.label26.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label26.Location = new System.Drawing.Point(562, 165);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(119, 21);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "FMS-4#机";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label27
+            // 
+            this.label27.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label27.Location = new System.Drawing.Point(409, 165);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(119, 21);
+            this.label27.TabIndex = 6;
+            this.label27.Text = "FMS-3#机";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label28
+            // 
+            this.label28.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label28.Location = new System.Drawing.Point(254, 165);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(119, 21);
+            this.label28.TabIndex = 6;
+            this.label28.Text = "FMS-2#机";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label29
+            // 
+            this.label29.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label29.Location = new System.Drawing.Point(92, 165);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(119, 21);
+            this.label29.TabIndex = 6;
+            this.label29.Text = "FMS-1#机";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dgv_jcdk);
+            this.groupBox5.Location = new System.Drawing.Point(1318, 576);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(322, 346);
+            this.groupBox5.TabIndex = 10;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "机床刀库";
+            // 
+            // dgv_jcdk
+            // 
+            this.dgv_jcdk.AllowUserToAddRows = false;
+            this.dgv_jcdk.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            this.dgv_jcdk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_jcdk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_jcdk.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_jcdk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_jcdk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_jcdk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.jcdk_dth,
+            this.jcdk_djxh,
+            this.jcdk_djtp});
+            this.dgv_jcdk.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_jcdk.Location = new System.Drawing.Point(3, 25);
+            this.dgv_jcdk.MultiSelect = false;
+            this.dgv_jcdk.Name = "dgv_jcdk";
+            this.dgv_jcdk.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_jcdk.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv_jcdk.RowHeadersWidth = 31;
+            this.dgv_jcdk.RowTemplate.Height = 23;
+            this.dgv_jcdk.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_jcdk.Size = new System.Drawing.Size(316, 318);
+            this.dgv_jcdk.TabIndex = 0;
+            this.dgv_jcdk.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.RowPostPaint);
+            // 
+            // jcdk_dth
+            // 
+            this.jcdk_dth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.jcdk_dth.DataPropertyName = "daotaohao";
+            this.jcdk_dth.FillWeight = 60.78487F;
+            this.jcdk_dth.HeaderText = "刀套号";
+            this.jcdk_dth.Name = "jcdk_dth";
+            this.jcdk_dth.ReadOnly = true;
+            this.jcdk_dth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.jcdk_dth.Width = 64;
+            // 
+            // jcdk_djxh
+            // 
+            this.jcdk_djxh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.jcdk_djxh.DataPropertyName = "daojuid";
+            this.jcdk_djxh.FillWeight = 110.2811F;
+            this.jcdk_djxh.HeaderText = "刀具ID";
+            this.jcdk_djxh.Name = "jcdk_djxh";
+            this.jcdk_djxh.ReadOnly = true;
+            this.jcdk_djxh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // jcdk_djtp
+            // 
+            this.jcdk_djtp.FillWeight = 128.934F;
+            this.jcdk_djtp.HeaderText = "刀具图片";
+            this.jcdk_djtp.Name = "jcdk_djtp";
+            this.jcdk_djtp.ReadOnly = true;
+            this.jcdk_djtp.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.jcdk_djtp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.jcdk_djtp.Visible = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.treeView1);
+            this.groupBox4.Location = new System.Drawing.Point(7, 14);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox4.Size = new System.Drawing.Size(211, 908);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "刀具类型";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.HotTracking = true;
+            this.treeView1.Location = new System.Drawing.Point(4, 27);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(203, 876);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(59, 927);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 21);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "正在加载……";
+            this.label5.Visible = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.Image = global::kucunTest.Properties.Resources._2_1;
+            this.pictureBox7.Location = new System.Drawing.Point(52, 47);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 9;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Tag = "FMS-1#机";
+            this.pictureBox7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox8.Image = global::kucunTest.Properties.Resources._2_2;
+            this.pictureBox8.Location = new System.Drawing.Point(228, 47);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 9;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Tag = "FMS-2#机";
+            this.pictureBox8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
+            // 
             // pictureBox19
             // 
             this.pictureBox19.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1284,122 +1162,155 @@
             this.pictureBox12.TabStop = false;
             this.pictureBox12.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // groupBox5
+            // pictureBox2
             // 
-            this.groupBox5.Controls.Add(this.dgv_jcdk);
-            this.groupBox5.Location = new System.Drawing.Point(1318, 620);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(322, 346);
-            this.groupBox5.TabIndex = 10;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "机床刀库";
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
+            this.pictureBox2.Location = new System.Drawing.Point(92, 47);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Tag = "FMS-1#机";
+            this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // dgv_jcdk
+            // pictureBox3
             // 
-            this.dgv_jcdk.AllowUserToAddRows = false;
-            this.dgv_jcdk.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            this.dgv_jcdk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_jcdk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_jcdk.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_jcdk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_jcdk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_jcdk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.jcdk_dth,
-            this.jcdk_djid,
-            this.jcdk_djtp});
-            this.dgv_jcdk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_jcdk.Location = new System.Drawing.Point(3, 25);
-            this.dgv_jcdk.MultiSelect = false;
-            this.dgv_jcdk.Name = "dgv_jcdk";
-            this.dgv_jcdk.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_jcdk.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv_jcdk.RowHeadersWidth = 31;
-            this.dgv_jcdk.RowTemplate.Height = 23;
-            this.dgv_jcdk.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_jcdk.Size = new System.Drawing.Size(316, 318);
-            this.dgv_jcdk.TabIndex = 0;
-            this.dgv_jcdk.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jcdk_CellClick);
-            this.dgv_jcdk.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.RowPostPaint);
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
+            this.pictureBox3.Location = new System.Drawing.Point(254, 47);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "FMS-2#机";
+            this.pictureBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // jcdk_dth
+            // pictureBox1
             // 
-            this.jcdk_dth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.jcdk_dth.DataPropertyName = "daotaohao";
-            this.jcdk_dth.FillWeight = 60.78487F;
-            this.jcdk_dth.HeaderText = "刀套号";
-            this.jcdk_dth.Name = "jcdk_dth";
-            this.jcdk_dth.ReadOnly = true;
-            this.jcdk_dth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.jcdk_dth.Width = 64;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
+            this.pictureBox1.Location = new System.Drawing.Point(870, 47);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // jcdk_djid
+            // pictureBox4
             // 
-            this.jcdk_djid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.jcdk_djid.DataPropertyName = "daojuid";
-            this.jcdk_djid.FillWeight = 110.2811F;
-            this.jcdk_djid.HeaderText = "刀具ID";
-            this.jcdk_djid.Name = "jcdk_djid";
-            this.jcdk_djid.ReadOnly = true;
-            this.jcdk_djid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
+            this.pictureBox4.Location = new System.Drawing.Point(409, 47);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 9;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // jcdk_djtp
+            // pictureBox6
             // 
-            this.jcdk_djtp.FillWeight = 128.934F;
-            this.jcdk_djtp.HeaderText = "刀具图片";
-            this.jcdk_djtp.Name = "jcdk_djtp";
-            this.jcdk_djtp.ReadOnly = true;
-            this.jcdk_djtp.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.jcdk_djtp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.jcdk_djtp.Visible = false;
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox6.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
+            this.pictureBox6.Location = new System.Drawing.Point(714, 47);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 9;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // groupBox4
+            // pictureBox5
             // 
-            this.groupBox4.Controls.Add(this.treeView1);
-            this.groupBox4.Location = new System.Drawing.Point(7, 14);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox4.Size = new System.Drawing.Size(211, 908);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "刀具类型";
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox5.Image = global::kucunTest.Properties.Resources.示例机床_监测生产线用;
+            this.pictureBox5.Location = new System.Drawing.Point(562, 47);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 9;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // treeView1
+            // pictureBox13
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.HotTracking = true;
-            this.treeView1.Location = new System.Drawing.Point(4, 27);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(203, 876);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.pictureBox13.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox13.Image = global::kucunTest.Properties.Resources._1_1;
+            this.pictureBox13.Location = new System.Drawing.Point(92, 47);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox13.TabIndex = 9;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.Tag = "FMS-1#机";
+            this.pictureBox13.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // label5
+            // pictureBox14
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(59, 927);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 21);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "正在加载……";
-            this.label5.Visible = false;
+            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox14.Image = global::kucunTest.Properties.Resources._1_2;
+            this.pictureBox14.Location = new System.Drawing.Point(254, 47);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox14.TabIndex = 9;
+            this.pictureBox14.TabStop = false;
+            this.pictureBox14.Tag = "FMS-2#机";
+            this.pictureBox14.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox15.Image = global::kucunTest.Properties.Resources._1_6;
+            this.pictureBox15.Location = new System.Drawing.Point(870, 47);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox15.TabIndex = 9;
+            this.pictureBox15.TabStop = false;
+            this.pictureBox15.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox16.Image = global::kucunTest.Properties.Resources._1_3;
+            this.pictureBox16.Location = new System.Drawing.Point(409, 47);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox16.TabIndex = 9;
+            this.pictureBox16.TabStop = false;
+            this.pictureBox16.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox17.Image = global::kucunTest.Properties.Resources._1_5;
+            this.pictureBox17.Location = new System.Drawing.Point(714, 47);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox17.TabIndex = 9;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox18.Image = global::kucunTest.Properties.Resources._1_4;
+            this.pictureBox18.Location = new System.Drawing.Point(562, 47);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox18.TabIndex = 9;
+            this.pictureBox18.TabStop = false;
+            this.pictureBox18.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
             // DaoJuGuanLi
             // 
@@ -1430,21 +1341,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.daojuxinxi)).EndInit();
             this.grpBox_parameter.ResumeLayout(false);
             this.grpBox_parameter.PerformLayout();
-            this.scx_panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.scx_panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.scx_panel3.ResumeLayout(false);
+            this.scx_panel1.ResumeLayout(false);
+            this.scx_panel2.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_jcdk)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
@@ -1452,9 +1354,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_jcdk)).EndInit();
-            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1462,9 +1373,12 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox cxdjid;
+        private System.Windows.Forms.TextBox cxdjlx;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView daojuxinxi;
         private System.Windows.Forms.GroupBox grpBox_parameter;
@@ -1473,13 +1387,14 @@
         private System.Windows.Forms.Button zpdj;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button djly;
-        private System.Windows.Forms.ComboBox cbx_ssdg;
+        private System.Windows.Forms.ComboBox cxdjgmc;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button kccx;
         private System.Windows.Forms.Button btn_djgh;
         private System.Windows.Forms.Button btn_djwj;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox jcsl;
         private System.Windows.Forms.TextBox djgsl;
@@ -1504,6 +1419,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcdk_dth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jcdk_djxh;
+        private System.Windows.Forms.DataGridViewImageColumn jcdk_djtp;
         private System.Windows.Forms.Button djxy;
         private System.Windows.Forms.Button cxdj;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -1536,13 +1454,7 @@
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.PictureBox pictureBox19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcdk_dth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jcdk_djid;
-        private System.Windows.Forms.DataGridViewImageColumn jcdk_djtp;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox cxdjsm;
         private System.Windows.Forms.DataGridViewCheckBoxColumn check;
         private System.Windows.Forms.DataGridViewTextBoxColumn djid;
         private System.Windows.Forms.DataGridViewTextBoxColumn djxh;
@@ -1554,11 +1466,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lingyongdanhao;
         private System.Windows.Forms.DataGridViewTextBoxColumn lingyongriqi;
         private System.Windows.Forms.DataGridViewTextBoxColumn weizhibiaoshi;
-        private System.Windows.Forms.CheckBox cbx_qtwzdj;
-        private System.Windows.Forms.CheckBox cbx_smyjdj;
-        private System.Windows.Forms.CheckBox cbx_dgkxdj;
-        private System.Windows.Forms.CheckBox cbx_jczydj;
-        private System.Windows.Forms.ComboBox cbx_ssjc;
-        private System.Windows.Forms.Label label2;
     }
 }

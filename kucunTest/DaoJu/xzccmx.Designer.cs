@@ -54,7 +54,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(182, 320);
+            this.button1.Location = new System.Drawing.Point(152, 321);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 32);
             this.button1.TabIndex = 1;
@@ -74,7 +74,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(289, 74);
+            this.label2.Location = new System.Drawing.Point(18, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 21);
             this.label2.TabIndex = 2;
@@ -83,7 +83,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(289, 33);
+            this.label3.Location = new System.Drawing.Point(18, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 21);
             this.label3.TabIndex = 2;
@@ -101,7 +101,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(292, 34);
+            this.label5.Location = new System.Drawing.Point(256, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 21);
             this.label5.TabIndex = 2;
@@ -110,7 +110,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 78);
+            this.label7.Location = new System.Drawing.Point(18, 69);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(138, 21);
             this.label7.TabIndex = 2;
@@ -118,9 +118,9 @@
             // 
             // bz
             // 
-            this.bz.Location = new System.Drawing.Point(162, 75);
+            this.bz.Location = new System.Drawing.Point(162, 66);
             this.bz.Name = "bz";
-            this.bz.Size = new System.Drawing.Size(375, 29);
+            this.bz.Size = new System.Drawing.Size(295, 29);
             this.bz.TabIndex = 3;
             // 
             // groupBox1
@@ -136,59 +136,55 @@
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(567, 115);
+            this.groupBox1.Size = new System.Drawing.Size(488, 149);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "刀具信息";
             // 
             // djcd
             // 
-            this.djcd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.djcd.FormattingEnabled = true;
             this.djcd.Items.AddRange(new object[] {
             "50",
             "100",
             "150",
             "200"});
-            this.djcd.Location = new System.Drawing.Point(111, 71);
+            this.djcd.Location = new System.Drawing.Point(346, 69);
             this.djcd.Name = "djcd";
-            this.djcd.Size = new System.Drawing.Size(147, 29);
+            this.djcd.Size = new System.Drawing.Size(111, 29);
             this.djcd.TabIndex = 3;
             this.djcd.SelectedIndexChanged += new System.EventHandler(this.djgg_SelectedIndexChanged);
             // 
             // djgg
             // 
-            this.djgg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.djgg.FormattingEnabled = true;
-            this.djgg.Location = new System.Drawing.Point(382, 30);
+            this.djgg.Location = new System.Drawing.Point(111, 66);
             this.djgg.Name = "djgg";
-            this.djgg.Size = new System.Drawing.Size(155, 29);
+            this.djgg.Size = new System.Drawing.Size(121, 29);
             this.djgg.TabIndex = 3;
             this.djgg.SelectedIndexChanged += new System.EventHandler(this.djgg_SelectedIndexChanged);
             // 
             // djid
             // 
-            this.djid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.djid.FormattingEnabled = true;
-            this.djid.Location = new System.Drawing.Point(382, 71);
+            this.djid.Location = new System.Drawing.Point(111, 101);
             this.djid.Name = "djid";
-            this.djid.Size = new System.Drawing.Size(155, 29);
+            this.djid.Size = new System.Drawing.Size(121, 29);
             this.djid.TabIndex = 3;
             // 
             // djlx
             // 
-            this.djlx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.djlx.FormattingEnabled = true;
             this.djlx.Location = new System.Drawing.Point(111, 30);
             this.djlx.Name = "djlx";
-            this.djlx.Size = new System.Drawing.Size(147, 29);
+            this.djlx.Size = new System.Drawing.Size(346, 29);
             this.djlx.TabIndex = 3;
             this.djlx.SelectedIndexChanged += new System.EventHandler(this.djxh_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 71);
+            this.label8.Location = new System.Drawing.Point(250, 69);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 21);
             this.label8.TabIndex = 2;
@@ -203,9 +199,9 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 173);
+            this.groupBox2.Location = new System.Drawing.Point(12, 207);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(567, 124);
+            this.groupBox2.Size = new System.Drawing.Size(488, 107);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "位置信息";
@@ -233,7 +229,7 @@
             "T18",
             "T19",
             "T20"});
-            this.dth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dth.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.dth.FormattingEnabled = true;
             this.dth.Items.AddRange(new object[] {
             "T1",
@@ -256,9 +252,9 @@
             "T18",
             "T19",
             "T20"});
-            this.dth.Location = new System.Drawing.Point(382, 31);
+            this.dth.Location = new System.Drawing.Point(346, 31);
             this.dth.Name = "dth";
-            this.dth.Size = new System.Drawing.Size(155, 29);
+            this.dth.Size = new System.Drawing.Size(111, 29);
             this.dth.TabIndex = 3;
             // 
             // jcbm
@@ -272,7 +268,7 @@
             "OP20T01",
             "OP20T40",
             "OP20T238"});
-            this.jcbm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.jcbm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.jcbm.FormattingEnabled = true;
             this.jcbm.Items.AddRange(new object[] {
             "FMS-1#机",
@@ -285,14 +281,14 @@
             "OP20T238"});
             this.jcbm.Location = new System.Drawing.Point(111, 31);
             this.jcbm.Name = "jcbm";
-            this.jcbm.Size = new System.Drawing.Size(147, 29);
+            this.jcbm.Size = new System.Drawing.Size(121, 29);
             this.jcbm.TabIndex = 3;
             this.jcbm.SelectedIndexChanged += new System.EventHandler(this.jcbm_SelectedIndexChanged);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(282, 320);
+            this.button2.Location = new System.Drawing.Point(252, 321);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 32);
             this.button2.TabIndex = 1;
@@ -302,20 +298,19 @@
             // 
             // label6
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("宋体", 20F);
-            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Location = new System.Drawing.Point(170, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(591, 49);
+            this.label6.Size = new System.Drawing.Size(174, 27);
             this.label6.TabIndex = 6;
             this.label6.Text = "添加领用刀具";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // xzccmx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 364);
+            this.ClientSize = new System.Drawing.Size(512, 364);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -330,6 +325,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

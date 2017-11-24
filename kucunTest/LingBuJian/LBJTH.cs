@@ -59,10 +59,7 @@ namespace kucunTest.LingBuJian
 
             THDH.Text = Alex.DanHao("LBJTH");//自动生成单号
 
-            //加载班组
-            THBZ.DataSource = Alex.GetList("bz");
-            THBZ.SelectedIndex = -1;
-
+            THBZ.SelectedIndex = 0;
             JBR.SelectedIndex = 0;
             THYY.Text = "机床退还。";//默认退还原因为"机床常规退还。"
             heji.Text = HJ.ToString();
@@ -308,15 +305,14 @@ namespace kucunTest.LingBuJian
         private void loadData()
         {
             //加载所有设备
-            //string sqlstr2 = "SELECT jichuangbianma FROM jichuang";
-            //List<string> list_sb = SQL.DataReadList(sqlstr2);
-            cbx_ssjc.DataSource = Alex.GetList("jc");
+            string sqlstr2 = "SELECT jichuangbianma FROM jichuang";
+            List<string> list_sb = SQL.DataReadList(sqlstr2);
+            cbx_ssjc.DataSource = list_sb;
             cbx_ssjc.SelectedIndex = -1;
 
             //加载所有零部件名称
-            cbx_lbjmc.DataSource = Alex.GetList("lbjmc");
-            //sqlstr2 = string.Format("SELECT DISTINCT {0} FROM {1} ORDER BY CONVERT({2} USING gbk) ASC", lbjbiao_lbjmc, lbjbiao, lbjbiao_lbjmc);
-            //cbx_lbjmc.DataSource = SQL.DataReadList(sqlstr2);
+            sqlstr2 = string.Format("SELECT DISTINCT {0} FROM {1} ORDER BY CONVERT({2} USING gbk) ASC", lbjbiao_lbjmc, lbjbiao, lbjbiao_lbjmc);
+            cbx_lbjmc.DataSource = SQL.DataReadList(sqlstr2);
         }
 
         /// <summary>

@@ -84,14 +84,13 @@
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(242, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1019, 67);
+            this.label1.Size = new System.Drawing.Size(343, 30);
             this.label1.TabIndex = 2;
             this.label1.Text = "外借刀具申请表暨领用单";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -106,7 +105,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(726, 38);
+            this.label3.Location = new System.Drawing.Point(591, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 21);
             this.label3.TabIndex = 0;
@@ -115,7 +114,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(682, 27);
+            this.label4.Location = new System.Drawing.Point(547, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 21);
             this.label4.TabIndex = 0;
@@ -124,7 +123,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(363, 27);
+            this.label5.Location = new System.Drawing.Point(290, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 21);
             this.label5.TabIndex = 0;
@@ -133,7 +132,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(364, 31);
+            this.label8.Location = new System.Drawing.Point(291, 31);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 21);
             this.label8.TabIndex = 0;
@@ -156,25 +155,25 @@
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(981, 122);
+            this.groupBox1.Size = new System.Drawing.Size(826, 122);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "借用信息";
             // 
             // JYYY
             // 
-            this.JYYY.Location = new System.Drawing.Point(767, 58);
+            this.JYYY.Location = new System.Drawing.Point(632, 58);
             this.JYYY.Multiline = true;
             this.JYYY.Name = "JYYY";
-            this.JYYY.Size = new System.Drawing.Size(186, 58);
+            this.JYYY.Size = new System.Drawing.Size(157, 58);
             this.JYYY.TabIndex = 5;
             // 
             // YDGHSJ
             // 
             this.YDGHSJ.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.YDGHSJ.Location = new System.Drawing.Point(767, 21);
+            this.YDGHSJ.Location = new System.Drawing.Point(632, 21);
             this.YDGHSJ.Name = "YDGHSJ";
-            this.YDGHSJ.Size = new System.Drawing.Size(186, 29);
+            this.YDGHSJ.Size = new System.Drawing.Size(157, 29);
             this.YDGHSJ.TabIndex = 4;
             this.YDGHSJ.Value = new System.DateTime(2017, 5, 2, 0, 0, 0, 0);
             // 
@@ -189,9 +188,9 @@
             this.DWLD.FormattingEnabled = true;
             this.DWLD.Items.AddRange(new object[] {
             "李科长"});
-            this.DWLD.Location = new System.Drawing.Point(449, 24);
+            this.DWLD.Location = new System.Drawing.Point(376, 24);
             this.DWLD.Name = "DWLD";
-            this.DWLD.Size = new System.Drawing.Size(170, 29);
+            this.DWLD.Size = new System.Drawing.Size(121, 29);
             this.DWLD.TabIndex = 2;
             // 
             // JYDW
@@ -206,26 +205,26 @@
             "工艺部"});
             this.JYDW.Location = new System.Drawing.Point(125, 24);
             this.JYDW.Name = "JYDW";
-            this.JYDW.Size = new System.Drawing.Size(187, 29);
+            this.JYDW.Size = new System.Drawing.Size(121, 29);
             this.JYDW.TabIndex = 2;
             // 
             // JYR
             // 
             this.JYR.Location = new System.Drawing.Point(125, 71);
             this.JYR.Name = "JYR";
-            this.JYR.Size = new System.Drawing.Size(187, 29);
+            this.JYR.Size = new System.Drawing.Size(121, 29);
             this.JYR.TabIndex = 1;
             // 
             // LXDH
             // 
-            this.LXDH.Location = new System.Drawing.Point(449, 71);
+            this.LXDH.Location = new System.Drawing.Point(376, 71);
             this.LXDH.Name = "LXDH";
-            this.LXDH.Size = new System.Drawing.Size(170, 29);
+            this.LXDH.Size = new System.Drawing.Size(121, 29);
             this.LXDH.TabIndex = 1;
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(682, 74);
+            this.label13.Location = new System.Drawing.Point(547, 74);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(90, 26);
             this.label13.TabIndex = 0;
@@ -243,7 +242,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(363, 74);
+            this.label7.Location = new System.Drawing.Point(290, 74);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 21);
             this.label7.TabIndex = 0;
@@ -252,9 +251,9 @@
             // WJDH
             // 
             this.WJDH.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.WJDH.Location = new System.Drawing.Point(779, 35);
+            this.WJDH.Location = new System.Drawing.Point(644, 35);
             this.WJDH.Name = "WJDH";
-            this.WJDH.Size = new System.Drawing.Size(186, 29);
+            this.WJDH.Size = new System.Drawing.Size(157, 29);
             this.WJDH.TabIndex = 1;
             // 
             // groupBox2
@@ -267,7 +266,7 @@
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(12, 198);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(982, 272);
+            this.groupBox2.Size = new System.Drawing.Size(827, 251);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "刀具信息";
@@ -276,7 +275,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.WaiJieMingXi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.WaiJieMingXi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.WaiJieMingXi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.WaiJieMingXi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -296,14 +295,13 @@
             this.jcbm,
             this.dth,
             this.bz});
-            this.WaiJieMingXi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.WaiJieMingXi.Location = new System.Drawing.Point(3, 25);
+            this.WaiJieMingXi.Location = new System.Drawing.Point(11, 20);
             this.WaiJieMingXi.Name = "WaiJieMingXi";
             this.WaiJieMingXi.ReadOnly = true;
             this.WaiJieMingXi.RowHeadersWidth = 30;
             this.WaiJieMingXi.RowTemplate.Height = 23;
             this.WaiJieMingXi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.WaiJieMingXi.Size = new System.Drawing.Size(976, 194);
+            this.WaiJieMingXi.Size = new System.Drawing.Size(805, 194);
             this.WaiJieMingXi.TabIndex = 0;
             this.WaiJieMingXi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.WaiJieMingXi_RowPostPaint);
             // 
@@ -315,7 +313,6 @@
             this.djlx.Name = "djlx";
             this.djlx.ReadOnly = true;
             this.djlx.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.djlx.Width = 99;
             // 
             // djgg
             // 
@@ -325,7 +322,6 @@
             this.djgg.Name = "djgg";
             this.djgg.ReadOnly = true;
             this.djgg.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.djgg.Width = 99;
             // 
             // djID
             // 
@@ -334,7 +330,6 @@
             this.djID.HeaderText = "刀具ID";
             this.djID.Name = "djID";
             this.djID.ReadOnly = true;
-            this.djID.Width = 84;
             // 
             // djzt
             // 
@@ -342,7 +337,6 @@
             this.djzt.HeaderText = "刀具状态";
             this.djzt.Name = "djzt";
             this.djzt.ReadOnly = true;
-            this.djzt.Width = 99;
             // 
             // sl
             // 
@@ -351,7 +345,6 @@
             this.sl.HeaderText = "数量";
             this.sl.Name = "sl";
             this.sl.ReadOnly = true;
-            this.sl.Width = 67;
             // 
             // jcbm
             // 
@@ -361,7 +354,6 @@
             this.jcbm.Name = "jcbm";
             this.jcbm.ReadOnly = true;
             this.jcbm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.jcbm.Width = 99;
             // 
             // dth
             // 
@@ -371,7 +363,6 @@
             this.dth.Name = "dth";
             this.dth.ReadOnly = true;
             this.dth.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dth.Width = 83;
             // 
             // bz
             // 
@@ -380,13 +371,12 @@
             this.bz.HeaderText = "备注";
             this.bz.Name = "bz";
             this.bz.ReadOnly = true;
-            this.bz.Width = 67;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(86, 226);
+            this.button3.Location = new System.Drawing.Point(91, 220);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 36);
+            this.button3.Size = new System.Drawing.Size(65, 27);
             this.button3.TabIndex = 5;
             this.button3.Text = "删除";
             this.button3.UseVisualStyleBackColor = true;
@@ -394,9 +384,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(6, 225);
+            this.button2.Location = new System.Drawing.Point(11, 219);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 36);
+            this.button2.Size = new System.Drawing.Size(64, 27);
             this.button2.TabIndex = 5;
             this.button2.Text = "新增";
             this.button2.UseVisualStyleBackColor = true;
@@ -405,7 +395,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(739, 233);
+            this.label15.Location = new System.Drawing.Point(579, 223);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(202, 21);
             this.label15.TabIndex = 0;
@@ -414,7 +404,7 @@
             // heji
             // 
             this.heji.Enabled = false;
-            this.heji.Location = new System.Drawing.Point(947, 230);
+            this.heji.Location = new System.Drawing.Point(787, 220);
             this.heji.Name = "heji";
             this.heji.Size = new System.Drawing.Size(29, 29);
             this.heji.TabIndex = 1;
@@ -430,9 +420,9 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 476);
+            this.groupBox3.Location = new System.Drawing.Point(12, 455);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(981, 116);
+            this.groupBox3.Size = new System.Drawing.Size(826, 109);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "操作信息";
@@ -448,9 +438,9 @@
             // JCSJ
             // 
             this.JCSJ.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.JCSJ.Location = new System.Drawing.Point(767, 23);
+            this.JCSJ.Location = new System.Drawing.Point(632, 25);
             this.JCSJ.Name = "JCSJ";
-            this.JCSJ.Size = new System.Drawing.Size(186, 29);
+            this.JCSJ.Size = new System.Drawing.Size(157, 29);
             this.JCSJ.TabIndex = 4;
             this.JCSJ.Value = new System.DateTime(2017, 5, 2, 0, 0, 0, 0);
             // 
@@ -461,7 +451,7 @@
             "周主任"});
             this.SPLD.Location = new System.Drawing.Point(125, 28);
             this.SPLD.Name = "SPLD";
-            this.SPLD.Size = new System.Drawing.Size(187, 29);
+            this.SPLD.Size = new System.Drawing.Size(121, 29);
             this.SPLD.TabIndex = 2;
             // 
             // label6
@@ -480,9 +470,9 @@
             "赵经办",
             "钱刀管",
             "孙大帐"});
-            this.JBR.Location = new System.Drawing.Point(449, 28);
+            this.JBR.Location = new System.Drawing.Point(376, 28);
             this.JBR.Name = "JBR";
-            this.JBR.Size = new System.Drawing.Size(170, 29);
+            this.JBR.Size = new System.Drawing.Size(121, 29);
             this.JBR.TabIndex = 2;
             // 
             // label9
@@ -497,7 +487,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(682, 29);
+            this.label11.Location = new System.Drawing.Point(547, 31);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(90, 21);
             this.label11.TabIndex = 0;
@@ -506,9 +496,9 @@
             // cancel
             // 
             this.cancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cancel.Location = new System.Drawing.Point(461, 598);
+            this.cancel.Location = new System.Drawing.Point(461, 574);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(89, 38);
+            this.cancel.Size = new System.Drawing.Size(89, 31);
             this.cancel.TabIndex = 3;
             this.cancel.Text = "删除单据";
             this.cancel.UseVisualStyleBackColor = true;
@@ -517,9 +507,9 @@
             // print
             // 
             this.print.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.print.Location = new System.Drawing.Point(366, 598);
+            this.print.Location = new System.Drawing.Point(366, 574);
             this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(89, 38);
+            this.print.Size = new System.Drawing.Size(89, 31);
             this.print.TabIndex = 3;
             this.print.Text = "打印单据";
             this.print.UseVisualStyleBackColor = true;
@@ -528,9 +518,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(271, 598);
+            this.button1.Location = new System.Drawing.Point(271, 574);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 38);
+            this.button1.Size = new System.Drawing.Size(89, 31);
             this.button1.TabIndex = 5;
             this.button1.Text = "确认外借";
             this.button1.UseVisualStyleBackColor = true;
@@ -539,9 +529,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(755, 598);
+            this.button4.Location = new System.Drawing.Point(755, 574);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(89, 38);
+            this.button4.Size = new System.Drawing.Size(89, 31);
             this.button4.TabIndex = 3;
             this.button4.Text = "外借历史";
             this.button4.UseVisualStyleBackColor = true;
@@ -551,9 +541,9 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button5.Location = new System.Drawing.Point(660, 598);
+            this.button5.Location = new System.Drawing.Point(660, 574);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(89, 38);
+            this.button5.Size = new System.Drawing.Size(89, 31);
             this.button5.TabIndex = 3;
             this.button5.Text = "单据设置";
             this.button5.UseVisualStyleBackColor = true;
@@ -563,9 +553,9 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button6.Location = new System.Drawing.Point(176, 598);
+            this.button6.Location = new System.Drawing.Point(176, 574);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(89, 38);
+            this.button6.Size = new System.Drawing.Size(89, 31);
             this.button6.TabIndex = 5;
             this.button6.Text = "保存单据";
             this.button6.UseVisualStyleBackColor = true;
@@ -574,9 +564,9 @@
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button7.Location = new System.Drawing.Point(556, 598);
+            this.button7.Location = new System.Drawing.Point(556, 574);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(89, 38);
+            this.button7.Size = new System.Drawing.Size(89, 31);
             this.button7.TabIndex = 8;
             this.button7.Text = "退    出";
             this.button7.UseVisualStyleBackColor = true;
@@ -588,8 +578,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1019, 648);
+            this.ClientSize = new System.Drawing.Size(849, 617);
             this.Controls.Add(this.button7);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -601,7 +592,6 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
             this.Name = "DJWJ";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具外借申请表暨领用单";

@@ -70,7 +70,6 @@ namespace kucunTest
             cmd.CommandText = SQLstr;
             cmd.CommandType = CommandType.Text;
             int rows = Convert.ToInt32(cmd.ExecuteNonQuery());
-            con_close();
             return rows;
         }
         #endregion
@@ -86,7 +85,6 @@ namespace kucunTest
             cmd.CommandText = SQLstr;
             cmd.CommandType = CommandType.Text;
             object val = cmd.ExecuteScalar();
-            con_close();
             return val;
         }
         #endregion
@@ -105,7 +103,6 @@ namespace kucunTest
             MySqlCommand My_com = My_con.CreateCommand();
             My_com.CommandText = SQLstr;
             MySqlDataReader My_read = My_com.ExecuteReader();  //执行SQL语句，生成一个SqlDataReader对象
-            //con_close();
             return My_read;
         }
         #endregion
@@ -157,7 +154,7 @@ namespace kucunTest
             MySqlDataAdapter SQLda = new MySqlDataAdapter(SQLstr, My_con);
             DataSet My_DataSet = new DataSet();
             SQLda.Fill(My_DataSet, tableName);
-            //con_close();
+            con_close();
             return My_DataSet;  //返回DataSet对象的信息
         }
         #endregion
@@ -174,7 +171,7 @@ namespace kucunTest
             MySqlDataAdapter SQLda = new MySqlDataAdapter(SQLstr, My_con);
             DataSet My_DataSet = new DataSet();
             SQLda.Fill(My_DataSet);  //未知表结构，直接fill Dataset
-            //con_close();
+            con_close();
             return My_DataSet;  //返回DataSet对象的信息
         }
         #endregion
@@ -191,9 +188,8 @@ namespace kucunTest
             MySqlDataAdapter SQLda = new MySqlDataAdapter(SQLstr, My_con);
             DataSet My_DataSet = new DataSet();
             SQLda.Fill(My_DataSet, tableName);
-            int i = My_DataSet.Tables[0].Rows.Count;
             con_close();
-            return i; //返回查询到的数据的行数
+            return My_DataSet.Tables[0].Rows.Count;  //返回查询到的数据的行数
         }
 
         #region 返回list

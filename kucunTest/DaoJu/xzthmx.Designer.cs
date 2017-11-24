@@ -60,9 +60,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(207, 402);
+            this.button1.Location = new System.Drawing.Point(154, 364);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 36);
+            this.button1.Size = new System.Drawing.Size(79, 30);
             this.button1.TabIndex = 1;
             this.button1.Text = "添加";
             this.button1.UseVisualStyleBackColor = true;
@@ -80,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(308, 78);
+            this.label2.Location = new System.Drawing.Point(235, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 21);
             this.label2.TabIndex = 2;
@@ -89,7 +89,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 78);
+            this.label3.Location = new System.Drawing.Point(18, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 21);
             this.label3.TabIndex = 2;
@@ -107,7 +107,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(314, 34);
+            this.label5.Location = new System.Drawing.Point(241, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 21);
             this.label5.TabIndex = 2;
@@ -128,7 +128,7 @@
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(561, 162);
+            this.groupBox1.Size = new System.Drawing.Size(475, 142);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "刀具信息";
@@ -139,28 +139,26 @@
             this.djzt.Items.AddRange(new object[] {
             "旧",
             "新"});
-            this.djzt.Location = new System.Drawing.Point(394, 118);
+            this.djzt.Location = new System.Drawing.Point(321, 104);
             this.djzt.Name = "djzt";
-            this.djzt.Size = new System.Drawing.Size(161, 29);
+            this.djzt.Size = new System.Drawing.Size(121, 29);
             this.djzt.TabIndex = 3;
             // 
             // djgg
             // 
-            this.djgg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.djgg.FormattingEnabled = true;
-            this.djgg.Location = new System.Drawing.Point(104, 75);
+            this.djgg.Location = new System.Drawing.Point(104, 66);
             this.djgg.Name = "djgg";
-            this.djgg.Size = new System.Drawing.Size(170, 29);
+            this.djgg.Size = new System.Drawing.Size(121, 29);
             this.djgg.TabIndex = 3;
             this.djgg.SelectedIndexChanged += new System.EventHandler(this.djgg_SelectedIndexChanged);
             // 
             // djid
             // 
-            this.djid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.djid.FormattingEnabled = true;
-            this.djid.Location = new System.Drawing.Point(104, 118);
+            this.djid.Location = new System.Drawing.Point(104, 104);
             this.djid.Name = "djid";
-            this.djid.Size = new System.Drawing.Size(170, 29);
+            this.djid.Size = new System.Drawing.Size(121, 29);
             this.djid.TabIndex = 3;
             this.djid.SelectedIndexChanged += new System.EventHandler(this.djid_SelectedIndexChanged);
             // 
@@ -172,25 +170,24 @@
             "100",
             "150",
             "200"});
-            this.djcd.Location = new System.Drawing.Point(394, 75);
+            this.djcd.Location = new System.Drawing.Point(321, 66);
             this.djcd.Name = "djcd";
-            this.djcd.Size = new System.Drawing.Size(161, 29);
+            this.djcd.Size = new System.Drawing.Size(121, 29);
             this.djcd.TabIndex = 3;
             // 
             // djlx
             // 
-            this.djlx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.djlx.FormattingEnabled = true;
             this.djlx.Location = new System.Drawing.Point(104, 30);
             this.djlx.Name = "djlx";
-            this.djlx.Size = new System.Drawing.Size(451, 29);
+            this.djlx.Size = new System.Drawing.Size(338, 29);
             this.djlx.TabIndex = 3;
             this.djlx.SelectedIndexChanged += new System.EventHandler(this.djlx_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(308, 121);
+            this.label8.Location = new System.Drawing.Point(235, 107);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 21);
             this.label8.TabIndex = 2;
@@ -199,7 +196,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(23, 121);
+            this.label12.Location = new System.Drawing.Point(23, 107);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 21);
             this.label12.TabIndex = 2;
@@ -218,9 +215,9 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 220);
+            this.groupBox2.Location = new System.Drawing.Point(12, 200);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(561, 163);
+            this.groupBox2.Size = new System.Drawing.Size(475, 145);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "位置信息";
@@ -248,20 +245,12 @@
             "T18",
             "T19",
             "T20"});
-            this.cfwz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cfwz.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cfwz.FormattingEnabled = true;
-            this.cfwz.Location = new System.Drawing.Point(394, 71);
+            this.cfwz.Location = new System.Drawing.Point(321, 71);
             this.cfwz.Name = "cfwz";
-            this.cfwz.Size = new System.Drawing.Size(161, 29);
+            this.cfwz.Size = new System.Drawing.Size(121, 29);
             this.cfwz.TabIndex = 3;
-            // 
-            // dth
-            // 
-            this.dth.Location = new System.Drawing.Point(394, 31);
-            this.dth.Name = "dth";
-            this.dth.ReadOnly = true;
-            this.dth.Size = new System.Drawing.Size(161, 29);
-            this.dth.TabIndex = 5;
             // 
             // djgbm
             // 
@@ -274,33 +263,25 @@
             "OP20T01",
             "OP20T40",
             "OP20T238"});
-            this.djgbm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.djgbm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.djgbm.FormattingEnabled = true;
             this.djgbm.Location = new System.Drawing.Point(104, 71);
             this.djgbm.Name = "djgbm";
-            this.djgbm.Size = new System.Drawing.Size(170, 29);
+            this.djgbm.Size = new System.Drawing.Size(121, 29);
             this.djgbm.TabIndex = 3;
             this.djgbm.SelectedIndexChanged += new System.EventHandler(this.djgbm_SelectedIndexChanged);
             // 
             // bz
             // 
-            this.bz.Location = new System.Drawing.Point(102, 118);
+            this.bz.Location = new System.Drawing.Point(102, 106);
             this.bz.Name = "bz";
-            this.bz.Size = new System.Drawing.Size(453, 29);
+            this.bz.Size = new System.Drawing.Size(340, 29);
             this.bz.TabIndex = 3;
-            // 
-            // jcbm
-            // 
-            this.jcbm.Location = new System.Drawing.Point(104, 31);
-            this.jcbm.Name = "jcbm";
-            this.jcbm.ReadOnly = true;
-            this.jcbm.Size = new System.Drawing.Size(170, 29);
-            this.jcbm.TabIndex = 4;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 121);
+            this.label10.Location = new System.Drawing.Point(18, 109);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 21);
             this.label10.TabIndex = 2;
@@ -318,7 +299,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(308, 74);
+            this.label9.Location = new System.Drawing.Point(235, 74);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(90, 21);
             this.label9.TabIndex = 2;
@@ -327,9 +308,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(324, 402);
+            this.button2.Location = new System.Drawing.Point(245, 364);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(79, 36);
+            this.button2.Size = new System.Drawing.Size(79, 30);
             this.button2.TabIndex = 1;
             this.button2.Text = "关闭";
             this.button2.UseVisualStyleBackColor = true;
@@ -337,25 +318,40 @@
             // 
             // label6
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("宋体", 20F);
-            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Location = new System.Drawing.Point(163, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(585, 58);
+            this.label6.Size = new System.Drawing.Size(174, 27);
             this.label6.TabIndex = 6;
             this.label6.Text = "添加退还刀具";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // jcbm
+            // 
+            this.jcbm.Location = new System.Drawing.Point(104, 31);
+            this.jcbm.Name = "jcbm";
+            this.jcbm.ReadOnly = true;
+            this.jcbm.Size = new System.Drawing.Size(121, 29);
+            this.jcbm.TabIndex = 4;
+            // 
+            // dth
+            // 
+            this.dth.Location = new System.Drawing.Point(321, 31);
+            this.dth.Name = "dth";
+            this.dth.ReadOnly = true;
+            this.dth.Size = new System.Drawing.Size(121, 29);
+            this.dth.TabIndex = 5;
             // 
             // xzthmx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 450);
+            this.ClientSize = new System.Drawing.Size(499, 406);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label6);
             this.Name = "xzthmx";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "添加退还刀具";
@@ -365,6 +361,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

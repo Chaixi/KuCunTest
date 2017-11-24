@@ -29,10 +29,6 @@ namespace kucunTest.LingBuJian
 
         #endregion
 
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        /// <param name="type"></param>
         public lbj_xzlymx(string type)
         {
             InitializeComponent();
@@ -69,10 +65,8 @@ namespace kucunTest.LingBuJian
 
             asc.controllInitializeSize(this);
 
-            //记载机床编码
-            jcbm.DataSource = Alex.GetList("jc");
-            //string sqlstr2 = "SELECT jichuangbianma FROM jichuang";
-            //jcbm.DataSource = SQL.DataReadList(sqlstr2);
+            string sqlstr2 = "SELECT jichuangbianma FROM jichuang";
+            jcbm.DataSource = SQL.DataReadList(sqlstr2);
             jcbm.SelectedIndex = -1;
 
         }
