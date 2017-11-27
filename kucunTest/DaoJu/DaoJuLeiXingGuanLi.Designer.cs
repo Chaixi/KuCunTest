@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_save = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.grp_jc = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pic_dj = new System.Windows.Forms.PictureBox();
@@ -177,7 +178,7 @@
             this.grp_jc.Controls.Add(this.djyssm);
             this.grp_jc.Controls.Add(this.djytjs);
             this.grp_jc.Controls.Add(this.smbjyz);
-            this.grp_jc.Location = new System.Drawing.Point(253, 14);
+            this.grp_jc.Location = new System.Drawing.Point(253, 57);
             this.grp_jc.Name = "grp_jc";
             this.grp_jc.Size = new System.Drawing.Size(1007, 216);
             this.grp_jc.TabIndex = 3;
@@ -439,7 +440,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.treeView1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 14);
+            this.groupBox2.Location = new System.Drawing.Point(12, 57);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(235, 684);
             this.groupBox2.TabIndex = 3;
@@ -1206,6 +1207,7 @@
             this.Controls.Add(this.grp_zc);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grp_cs);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.grp_jc);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btn_cansel);
@@ -1239,6 +1241,7 @@
         #endregion
 
         private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pic_dj;
         private System.Windows.Forms.GroupBox grp_jc;
         private System.Windows.Forms.TreeView treeView1;

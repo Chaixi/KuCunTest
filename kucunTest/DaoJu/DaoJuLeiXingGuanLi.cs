@@ -574,7 +574,7 @@ namespace kucunTest.DaoJu
 
         private void DaoJuLeiXingGuanLi_SizeChanged(object sender, EventArgs e)
         {
-            //asc.controlAutoSize(this);
+            asc.controlAutoSize(this);
         }
 
         /// <summary>
@@ -598,13 +598,6 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
-
-            if (DJXH.Text == "")
-            {
-                MessageBox.Show("请先填写刀具型号");
-                return;
-            }
-
             using (OpenFileDialog lvse = new OpenFileDialog())
             {
                 lvse.Title = "请选择刀具图片";
@@ -637,19 +630,10 @@ namespace kucunTest.DaoJu
         {
             Bitmap bit = new Bitmap(pic_dj.ClientRectangle.Width, pic_dj.ClientRectangle.Height);
             pic_dj.DrawToBitmap(bit, pic_dj.ClientRectangle);
-
-            //没有文件夹，新建文件夹
             if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuLeiXing") == false)
             {
                 Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuLeiXing");
             }
-
-            //图片保存：若已存在此命名图片则先删除
-            if (System.IO.File.Exists(str_iniFileUrl + filename))
-            {
-                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images\\daojuleixing");
-            }
-
             bit.Save(str_iniFileUrl + filename);
 
         }
