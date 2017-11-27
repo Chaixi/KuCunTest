@@ -308,103 +308,10 @@ namespace kucunTest.JiChuZiLiao
                 return;
             }
 
-            if(chx_all.Checked)//导出全部数据
-            {
-
-            }
-            else
-            {
-
-            }
-
             if(SaveAs())
             {
                 MessageBox.Show("导出数据成功！");
             }
-        }
-
-        /// <summary>
-        /// 浏览按钮，加载excel文件路径
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_open_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFD = new OpenFileDialog();
-            openFD.DefaultExt = "xls";
-            openFD.Filter = "Excel 文件 xlsx|*.xlsx|xls|*.xls;";
-            openFD.FilterIndex = 0;
-            openFD.Title = "选择excel文件";
-            if(openFD.ShowDialog() == DialogResult.OK)
-            {
-                if(openFD.FileName != "")
-                {
-                    filePath.Text = openFD.FileName;
-                }
-            }
-            
-        }
-
-        /// <summary>
-        /// 导入按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_input_Click(object sender, EventArgs e)
-        {
-            if(filePath.Text == "")
-            {
-                MessageBox.Show("请先选择要导入的数据文件！");
-                btn_open.Focus();
-                return;
-            }
-
-            comboBox1.Items.Clear();
-            table_name.Clear();
-
-            string FileName = filePath.Text.ToString();
-            dgv.DataSource = null;
-            DateTime f_time = DateTime.Now;
-
-            DataSet ds = ExcelToSet(FileName);
-            if (ds.Tables.Count == 0) return;
-            try
-            {
-                foreach (string str in table_name)
-                {
-                    comboBox1.Items.Add(str);
-                    //comboBoxEx_Item.Items.Add(str);
-                }
-                //comboBoxEx_Item.DataSource = table_name;
-                //comboBoxEx_Item.DataBind();
-
-                comboBox1.SelectedIndex = 0;
-                //d_table = Get_Table(ds.Tables[0], txt_index.Text);
-                //Record_Total = Get_Record_Count(d_table);
-                //info_refresh(d_table);
-
-                //Add_Sch_Item();
-                //Thread add_sch = new Thread(Add_Sch_Item);
-                //add_sch.Start();
-                //DGV_Search_info.DataSource =
-
-                dgv.DataSource = ds.Tables[0].DefaultView;
-            }
-            catch
-            {
-
-            }
-
-        }
-
-        /// <summary>
-        /// 保存按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_save_Click(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -487,6 +394,69 @@ namespace kucunTest.JiChuZiLiao
         }
 
         /// <summary>
+        /// 浏览按钮，加载excel文件路径
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_open_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFD = new OpenFileDialog();
+            openFD.DefaultExt = "xls";
+            openFD.Filter = "Excel 文件 xlsx|*.xlsx|xls|*.xls;";
+            openFD.FilterIndex = 0;
+            openFD.Title = "选择excel文件";
+            if(openFD.ShowDialog() == DialogResult.OK)
+            {
+                if(openFD.FileName != "")
+                {
+                    filePath.Text = openFD.FileName;
+                }
+            }
+            
+        }
+
+        /// <summary>
+        /// 导入按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_input_Click(object sender, EventArgs e)
+        {
+            if(filePath.Text == "")
+            {
+                MessageBox.Show("请先选择要导入的数据文件！");
+                btn_open.Focus();
+                return;
+            }
+
+            choseSheet.Items.Clear();
+            table_name.Clear();
+
+            string FileName = filePath.Text.ToString();
+            dgv.DataSource = null;
+            DateTime f_time = DateTime.Now;
+
+            DataSet ds = ExcelToSet(FileName);
+            if (ds.Tables.Count == 0) return;
+            try
+            {
+                foreach (string str in table_name)
+                {
+                    choseSheet.Items.Add(str);
+                }
+
+                choseSheet.SelectedIndex = 0;
+
+                dgv.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch
+            {
+
+            }
+
+        }
+
+        /// <summary>
         /// excel转换成dataset，来自Excel_Operate
         /// </summary>
         /// <param name="file"></param>
@@ -502,8 +472,23 @@ namespace kucunTest.JiChuZiLiao
                 using (FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read))
                 {
                     //XSSFWorkbook 适用XLSX格式，HSSFWorkbook 适用XLS格式
-                    if (fileExt == ".xlsx") { workbook = new XSSFWorkbook(fs); } else if (fileExt == ".xls") { workbook = new HSSFWorkbook(fs); } else { workbook = null; }
-                    if (workbook == null) { return null; }
+                    if (fileExt == ".xlsx")
+                    {
+                        workbook = new XSSFWorkbook(fs);
+                    }
+                    else if (fileExt == ".xls")
+                    {
+                        workbook = new HSSFWorkbook(fs);
+                    }
+                    else
+                    {
+                        workbook = null;
+                    }
+
+                    if (workbook == null)
+                    {
+                        return null;
+                    }
 
                     for (int count = 0; count < workbook.NumberOfSheets; count++)
                     {
@@ -521,12 +506,14 @@ namespace kucunTest.JiChuZiLiao
                             for (int i = 0; i < header.LastCellNum; i++)
                             {
                                 object obj = GetValueType(header.GetCell(i));
+
                                 if (obj == null || obj.ToString() == string.Empty)
                                 {
                                     dt.Columns.Add(new DataColumn("Columns" + i.ToString()));
                                 }
                                 else
                                     dt.Columns.Add(new DataColumn(obj.ToString()));
+
                                 columns.Add(i);
                             }
                         }
@@ -594,6 +581,196 @@ namespace kucunTest.JiChuZiLiao
         }
 
         /// <summary>
+        /// 保存按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            if(cbx_inputDataType.SelectedItem == null || cbx_inputDataType.Text == "")
+            {
+                MessageBox.Show("请先选择要导入的数据类型！");
+                cbx_inputDataType.DroppedDown = true;
+                return;
+            }
+
+            string inputDataType = "";
+            switch(cbx_inputDataType.SelectedItem.ToString())
+            {
+                case "刀具信息"://导入数据为刀具信息
+                    inputDataType = "dj";
+                    break;
+                case "零部件信息"://导入数据为零部件信息
+                    inputDataType = "lbj";
+                    break;
+                case "刀具柜信息"://导入数据为刀具柜信息
+                    inputDataType = "djg";
+                    break;
+                case "机床信息"://导入数据为班组列表
+                    inputDataType = "jc";
+                    break;
+            }
+        }
+
+        private void SaveToDatabase(string dataType)
+        {
+            if(dgv.Rows.Count <= 0)
+            {
+                MessageBox.Show("导入数据不可为空！");
+                return;
+            }
+
+            string tablename = "";
+            string columns = "";
+            string values = "";
+            int i = 1;
+            switch (dataType)
+            {
+                case "dj"://导入数据为刀具信息
+                    tablename = DaoJuTemp.TableName;
+                    if (dgvAddColumnName("刀具ID", "djid"))
+                    {
+                        columns += DaoJuTemp.id;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("刀具型号", "djxh"))
+                    {
+                        columns += DaoJuTemp.xinghao;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("刀具规格", "djgg"))
+                    {
+                        columns += DaoJuTemp.guige;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("刀具类型", "djlx"))
+                    {
+                        columns += DaoJuTemp.leixing;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("刀具寿命", "djsm"))
+                    {
+                        columns += DaoJuTemp.shouming;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("刀具位置", "djwz"))
+                    {
+                        columns += DaoJuTemp.weizhibianma;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("层数或者刀套号", "cs"))
+                    {
+                        columns += DaoJuTemp.csordth;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("位置标识", "wzbs"))
+                    {
+                        columns += DaoJuTemp.weizhibiaoshi;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("类型", "lx"))
+                    {
+                        columns += DaoJuTemp.type;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("库存数量", "kcsl"))
+                    {
+                        columns += DaoJuTemp.kcsl;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("最小库存", "zxkc"))
+                    {
+                        columns += DaoJuTemp.zxkc;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("最大库存", "zdkc"))
+                    {
+                        columns += DaoJuTemp.zdkc;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("备注", "beizhu"))
+                    {
+                        columns += DaoJuTemp.bz;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    //columns = string.Format("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}", DaoJuTemp.id, DaoJuTemp.xinghao, DaoJuTemp.guige, DaoJuTemp.leixing, DaoJuTemp.shouming, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, DaoJuTemp.weizhibiaoshi, DaoJuTemp.type, DaoJuTemp.kcsl, DaoJuTemp.zxkc, DaoJuTemp.zdkc, DaoJuTemp.bz);
+                    //values = "'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}'";
+                    break;
+                case "lbj"://导入数据为零部件信息
+                    tablename = LingBuJianBiao.TableName;
+                    columns = string.Format("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}", LingBuJianBiao.mc, LingBuJianBiao.xinghao, LingBuJianBiao.gg, LingBuJianBiao.shouming, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.weizhibiaoshi, LingBuJianBiao.type, LingBuJianBiao.kcsl, LingBuJianBiao.dw, LingBuJianBiao.zxkc, LingBuJianBiao.zdkc, LingBuJianBiao.bz);
+                    values = "'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}'";
+                    break;
+                case "djg"://导入数据为刀具柜信息
+                    tablename = DaoJuGui.TableName;
+
+                    if (dgvAddColumnName("刀具柜名称", "djgmc"))
+                    {
+                        columns += DaoJuGui.djgmc;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    if (dgvAddColumnName("刀具柜类型", "djglx"))
+                    {
+                        columns += DaoJuGui.djglx;
+                        values += "'{" + i.ToString() + "}'";
+                        i++;
+                    }
+                    //columns = string.Format("{0}, {1}", DaoJuGui.djgmc, DaoJuGui.djglx);
+                    //values = "'{1}', '{2}'";
+                    break;
+                case "jc"://导入数据为班组列表
+                    tablename = JiChuangBiao.TableName;
+                    columns = string.Format("{0}, {1}, {2}, {3}, {4}", JiChuangBiao.ssbz, JiChuangBiao.scx, JiChuangBiao.jcbm, JiChuangBiao.jclx, JiChuangBiao.zcbh);
+                    values = "'{1}', '{2}', '{3}', '{4}', '{5}'";
+                    break;
+            }
+
+            SqlStr = "";
+            string value = "";
+            for (int j = 0; j < dgv.Rows.Count; j++)
+            {
+                value = "";
+
+                SqlStr += string.Format("INSERT INTO {0}(" + columns + ") VALUES(" + values + ");", tablename);
+            }
+        }
+
+        /// <summary>
+        /// 判断datagridview是否存在表头名为headertext的列，若存在，则将其名字改为name
+        /// </summary>
+        /// <param name="headertext">表头名称</param>
+        /// <param name="name">要修改的列名</param>
+        /// <returns>存在且修改成功返回true，否则返回false</returns>
+        private bool dgvAddColumnName(string headertext, string name)
+        {
+            for(int i = 0; i < dgv.Columns.Count; i++)
+            {
+                if(dgv.Columns[i].HeaderText == headertext)
+                {
+                    dgv.Columns[i].Name = name;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+               
+
+        /// <summary>
         /// 表格绘制行号
         /// </summary>
         /// <param name="sender"></param>
@@ -602,6 +779,59 @@ namespace kucunTest.JiChuZiLiao
         {
             Alex.RowPostPaint(dgv, e);
         }
-        
+
+        /// <summary>
+        /// 工作表选择变化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void choseSheet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //txt_index.Text = "";
+            //try
+            //{
+            //    DataTable d_table = Get_Table(ds.Tables[choseSheet.SelectedIndex], txt_index.Text);
+            //    info_refresh(d_table);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.ToString());
+            //}
+        }
+
+        /// <summary>
+        /// tabpage页选择变化，还原上一次选择状态
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //表格数据源清空
+            dgv.DataSource = null;
+
+            if(tabControl1.SelectedTab.Text == "数据导出")
+            {
+                groupBox3.Visible = true;
+                if(SJLX.Text != "")
+                {
+                    string sxtj = SXTJ.Text;
+
+                    //加载数据
+                    comboBox1_SelectedIndexChanged(null, null);
+
+                    //还原筛选状态
+                    if(sxtj != "全部")
+                    {
+                        SXTJ.SelectedItem = sxtj;
+                        SXTJ_SelectedIndexChanged(null, null);
+                    }
+                }
+            }
+            else if(tabControl1.SelectedTab.Text == "数据导入")
+            {
+                groupBox3.Visible = false;
+
+            }
+        }
     }
 }
