@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2017-11-22 19:58:44
+Date: 2017-11-29 20:28:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -73,12 +73,12 @@ INSERT INTO `celiangcanshu` VALUES ('7', 'ZT-0001', '2017-11-20 13:36:12', '3', 
 DROP TABLE IF EXISTS `daoju`;
 CREATE TABLE `daoju` (
   `xh` int(20) NOT NULL AUTO_INCREMENT,
-  `djxh` varchar(50) DEFAULT NULL,
-  `djlx` varchar(50) DEFAULT NULL,
-  `djgg` varchar(50) DEFAULT NULL,
-  `djtp` blob,
+  `djxh` varchar(50) DEFAULT NULL COMMENT '刀具型号',
+  `djlx` varchar(50) DEFAULT NULL COMMENT '刀具类型',
+  `djgg` varchar(50) DEFAULT NULL COMMENT '刀具规格',
+  `djtp` blob COMMENT '刀具图片',
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=225 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=230 DEFAULT CHARSET=utf8 COMMENT='刀具所有类型表';
 
 -- ----------------------------
 -- Records of daoju
@@ -297,6 +297,7 @@ INSERT INTO `daoju` VALUES ('212', 'φ520 中心钻', '中心钻', 'φ520', null
 INSERT INTO `daoju` VALUES ('214', 'φ520 铣槽刀', '铣槽刀', 'φ520', null);
 INSERT INTO `daoju` VALUES ('216', 'φ520H212 枪钻', '枪钻', 'φ520H212', null);
 INSERT INTO `daoju` VALUES ('224', '212-测试刀具', '212lab', '112', '');
+INSERT INTO `daoju` VALUES ('225', '20171127测试', '212lab', '1127', '');
 
 -- ----------------------------
 -- Table structure for `daojubaofei`
@@ -304,28 +305,28 @@ INSERT INTO `daoju` VALUES ('224', '212-测试刀具', '212lab', '112', '');
 DROP TABLE IF EXISTS `daojubaofei`;
 CREATE TABLE `daojubaofei` (
   `xh` int(20) NOT NULL AUTO_INCREMENT,
-  `danhao` char(20) NOT NULL,
-  `djzt` int(2) DEFAULT NULL,
-  `sqbz` varchar(20) NOT NULL,
-  `sqr` varchar(10) NOT NULL,
-  `sqsb` varchar(20) NOT NULL,
-  `sqsj` date NOT NULL,
-  `jglj` varchar(20) NOT NULL,
-  `gx` varchar(20) NOT NULL,
-  `djlx` char(50) NOT NULL,
-  `djgg` char(20) NOT NULL,
-  `djcd` char(10) DEFAULT NULL,
-  `djid` char(20) DEFAULT NULL,
-  `bfyy` text NOT NULL,
-  `spld` varchar(20) NOT NULL,
-  `spyj` text NOT NULL,
-  `spsj` date NOT NULL,
-  `jbr` varchar(10) NOT NULL,
-  `bfzcwz` varchar(50) DEFAULT NULL,
-  `jtwz` varchar(50) DEFAULT NULL,
+  `danhao` char(20) NOT NULL COMMENT '单号',
+  `djzt` int(2) DEFAULT NULL COMMENT '单据状态',
+  `sqbz` varchar(20) NOT NULL COMMENT '申请班组',
+  `sqr` varchar(10) NOT NULL COMMENT '申请人',
+  `sqsb` varchar(20) NOT NULL COMMENT '申请设备',
+  `sqsj` date NOT NULL COMMENT '申请时间',
+  `jglj` varchar(20) NOT NULL COMMENT '加工零件',
+  `gx` varchar(20) NOT NULL COMMENT '工序',
+  `djlx` char(50) NOT NULL COMMENT '刀具类型',
+  `djgg` char(20) NOT NULL COMMENT '刀具规格',
+  `djcd` char(10) DEFAULT NULL COMMENT '刀具长度',
+  `djid` char(20) DEFAULT NULL COMMENT '刀具id',
+  `bfyy` text NOT NULL COMMENT '报废原因',
+  `spld` varchar(20) NOT NULL COMMENT '审批领导',
+  `spyj` text NOT NULL COMMENT '审批意见',
+  `spsj` date NOT NULL COMMENT '审批时间',
+  `jbr` varchar(10) NOT NULL COMMENT '经办人',
+  `bfzcwz` varchar(50) DEFAULT NULL COMMENT '报废暂存位置',
+  `jtwz` varchar(50) DEFAULT NULL COMMENT '具体位置',
   PRIMARY KEY (`xh`),
   UNIQUE KEY `danhao` (`danhao`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='刀具报废单据表';
 
 -- ----------------------------
 -- Records of daojubaofei
@@ -360,7 +361,7 @@ CREATE TABLE `daojugenghuan` (
   `jbr` varchar(10) NOT NULL,
   PRIMARY KEY (`xh`),
   UNIQUE KEY `danhao` (`danhao`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of daojugenghuan
@@ -372,15 +373,15 @@ CREATE TABLE `daojugenghuan` (
 DROP TABLE IF EXISTS `daojugui`;
 CREATE TABLE `daojugui` (
   `xh` int(10) NOT NULL AUTO_INCREMENT,
-  `djgbm` int(10) NOT NULL,
-  `djgmc` varchar(50) NOT NULL,
-  `djglx` char(20) NOT NULL,
+  `djgbm` varchar(20) DEFAULT NULL,
+  `djgmc` varchar(50) DEFAULT NULL,
+  `djglx` char(20) DEFAULT NULL,
   `cjbm` int(10) DEFAULT NULL,
   `djglxid` int(10) DEFAULT NULL,
   `bz` tinytext,
   PRIMARY KEY (`xh`),
   UNIQUE KEY `daojugui_ix1` (`djgbm`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of daojugui
@@ -401,7 +402,7 @@ CREATE TABLE `daojuguicengshu` (
   `djgmc` char(20) CHARACTER SET utf8 NOT NULL,
   `djgcs` char(20) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of daojuguicengshu
@@ -460,7 +461,7 @@ CREATE TABLE `daojulingbujian` (
   `sl` int(10) NOT NULL COMMENT '数量',
   `dw` varchar(10) CHARACTER SET utf8 DEFAULT NULL COMMENT '单位',
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=669 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=684 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of daojulingbujian
@@ -871,6 +872,8 @@ INSERT INTO `daojulingbujian` VALUES ('665', null, 'Φ72 精镗 (T66)', '鹰嘴'
 INSERT INTO `daojulingbujian` VALUES ('666', null, 'Φ11 硬钻(T88)', '整体硬钻', '5510 11.100看不到', '', '1', '个');
 INSERT INTO `daojulingbujian` VALUES ('667', null, 'Φ11 硬钻(T88)', '热胀刀柄', '4736 12.100', '', '1', '个');
 INSERT INTO `daojulingbujian` VALUES ('668', null, 'Φ11 硬钻(T88)', '冷却管', '4949 24.100', '', '1', '个');
+INSERT INTO `daojulingbujian` VALUES ('672', '212lab', '20171127测试', '槽铣刀片', '328R13-26502-GM1025', '', '2', '件');
+INSERT INTO `daojulingbujian` VALUES ('671', '212lab', '20171127测试', '中心刀片', 'R216.2-07T3SM30', '', '12', '件');
 
 -- ----------------------------
 -- Table structure for `daojulingyong`
@@ -890,12 +893,12 @@ CREATE TABLE `daojulingyong` (
   `danjuzhuangtai` int(2) NOT NULL,
   PRIMARY KEY (`xh`),
   UNIQUE KEY `daojuchucang_ix1` (`chucangdanhao`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of daojulingyong
 -- ----------------------------
-INSERT INTO `daojulingyong` VALUES ('23', 'DJCC_171002001', '常规领用', '先锋一班', 'FMS-2#机', '123', '12', '2017-10-02', '', '赵经手', '0');
+INSERT INTO `daojulingyong` VALUES ('23', 'DJCC_171002001', '常规领用', '机一车间_前托架班', '北车床线', '123', '12', '2017-10-02', '', '赵经手', '0');
 
 -- ----------------------------
 -- Table structure for `daojulingyongmingxi`
@@ -915,34 +918,34 @@ CREATE TABLE `daojulingyongmingxi` (
   `daotaohao` char(20) DEFAULT NULL,
   `beizhu` tinytext,
   PRIMARY KEY (`xh`)
-) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=152 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of daojulingyongmingxi
 -- ----------------------------
-INSERT INTO `daojulingyongmingxi` VALUES ('147', 'DJCC_171002001', '钻头', 'Φ10.4', '', 'ZT-0014', '1', '套', 'M', 'FMS-1#机', 'T05', '');
+INSERT INTO `daojulingyongmingxi` VALUES ('149', 'DJCC_171002001', '钻头', 'Φ10.4', '', 'ZT-0014', '1', '套', 'M', 'FMS-1#机', 'T05', '');
 
 -- ----------------------------
 -- Table structure for `daojuliushui`
 -- ----------------------------
 DROP TABLE IF EXISTS `daojuliushui`;
 CREATE TABLE `daojuliushui` (
-  `xh` int(20) NOT NULL AUTO_INCREMENT,
-  `danhao` char(20) DEFAULT NULL,
-  `dhlx` varchar(10) DEFAULT NULL,
-  `djlx` varchar(20) DEFAULT NULL,
-  `djgg` char(20) DEFAULT NULL,
-  `djid` char(20) DEFAULT NULL,
-  `zsl` int(2) DEFAULT NULL,
-  `fsl` int(2) DEFAULT NULL,
-  `dskysl` int(2) DEFAULT NULL,
-  `wzbm` varchar(20) DEFAULT NULL,
-  `jtwz` varchar(20) DEFAULT NULL,
-  `czsj` datetime DEFAULT NULL,
-  `jbr` varchar(10) DEFAULT NULL,
-  `bz` varchar(50) DEFAULT NULL,
+  `xh` int(20) NOT NULL AUTO_INCREMENT COMMENT '序号主键',
+  `danhao` char(20) DEFAULT NULL COMMENT '单号',
+  `dhlx` varchar(10) DEFAULT NULL COMMENT '单据类型',
+  `djlx` varchar(20) DEFAULT NULL COMMENT '刀具类型',
+  `djgg` char(20) DEFAULT NULL COMMENT '刀具规格',
+  `djid` char(20) DEFAULT NULL COMMENT '刀具id',
+  `zsl` int(2) DEFAULT NULL COMMENT '库存增加的数量',
+  `fsl` int(2) DEFAULT NULL COMMENT '库存减少的数量',
+  `dskysl` int(2) DEFAULT NULL COMMENT '当时可用库存',
+  `wzbm` varchar(20) DEFAULT NULL COMMENT '位置编码',
+  `jtwz` varchar(20) DEFAULT NULL COMMENT '具体位置',
+  `czsj` datetime DEFAULT NULL COMMENT '操作时间',
+  `jbr` varchar(10) DEFAULT NULL COMMENT '经办人',
+  `bz` varchar(50) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of daojuliushui
@@ -951,6 +954,7 @@ INSERT INTO `daojuliushui` VALUES ('87', null, '刀具装配', '钻头', 'Φ10.4
 INSERT INTO `daojuliushui` VALUES ('88', null, '刀具装配', '钻头', 'Φ10.4', 'ZT-0016', '1', '0', '11', 'kardex 1号柜', '1层', '2017-11-20 14:43:49', null, null);
 INSERT INTO `daojuliushui` VALUES ('89', null, '刀具拆卸', '钻头', 'Φ10.4', 'ZT-0016', '0', '1', '10', null, null, '2017-11-20 14:54:32', null, null);
 INSERT INTO `daojuliushui` VALUES ('90', null, '刀具拆卸', '钻头', 'Φ10.4', 'ZT-0015', '0', '1', '9', null, null, '2017-11-20 14:55:47', null, null);
+INSERT INTO `daojuliushui` VALUES ('91', null, '刀具装配', '钻头', 'Φ10.4', 'ZT-0015', '1', '0', '10', 'kardex 1号柜', '1层', '2017-11-29 14:05:10', null, null);
 
 -- ----------------------------
 -- Table structure for `daojutemp`
@@ -974,7 +978,7 @@ CREATE TABLE `daojutemp` (
   `beizhu` tinytext,
   PRIMARY KEY (`xh`),
   UNIQUE KEY `daojutemp_ix1` (`daojuid`)
-) ENGINE=InnoDB AUTO_INCREMENT=226 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of daojutemp
@@ -1188,6 +1192,7 @@ INSERT INTO `daojutemp` VALUES ('206', 'UZ-0001', 'Φ25U钻(T1057)', 'Φ25', 'U�
 INSERT INTO `daojutemp` VALUES ('207', 'UZ-0002', 'Φ20.5U钻(T1100)', 'Φ20.5', 'U钻', '200', '箱式 2号柜', '05层', 'S', '刀具', '1', '1', '1', '', 'T1101');
 INSERT INTO `daojutemp` VALUES ('208', 'UZ-0003', 'φ37U钻（T1102）', 'φ37', 'U钻', '200', 'FMS-1#机', 'T03', 'M', '刀具', '1', '1', '1', '', 'T1103');
 INSERT INTO `daojutemp` VALUES ('223', 'ZT-0014', 'Φ10.4 钻头(T38)', 'Φ10.4', '钻头', '2000', '箱式 2号柜', '01层', 'S', '刀具', '1', '1', '1', '组装刀', null);
+INSERT INTO `daojutemp` VALUES ('226', 'ZT-0015', 'Φ10.4 钻头(T38)', 'Φ10.4', '钻头', '2000', 'kardex 1号柜', '1层', 'S', '刀具', '1', '1', '1', '组装刀', null);
 
 -- ----------------------------
 -- Table structure for `daojutuihuan`
@@ -1196,16 +1201,16 @@ DROP TABLE IF EXISTS `daojutuihuan`;
 CREATE TABLE `daojutuihuan` (
   `xh` int(20) NOT NULL AUTO_INCREMENT,
   `danhao` char(20) NOT NULL,
-  `thbz` varchar(20) NOT NULL,
-  `thr` varchar(10) NOT NULL,
-  `thrq` date NOT NULL,
+  `thbz` varchar(20) DEFAULT NULL,
+  `thr` varchar(10) DEFAULT NULL,
+  `thrq` date DEFAULT NULL,
   `thyy` text,
-  `jbr` varchar(10) NOT NULL,
-  `jbrq` date NOT NULL,
+  `jbr` varchar(10) DEFAULT NULL,
+  `jbrq` date DEFAULT NULL,
   `djzt` int(2) DEFAULT NULL,
   PRIMARY KEY (`xh`),
   UNIQUE KEY `danhao` (`danhao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of daojutuihuan
@@ -1230,7 +1235,7 @@ CREATE TABLE `daojutuihuanmingxi` (
   `cfwz` varchar(20) DEFAULT NULL,
   `bz` tinytext,
   PRIMARY KEY (`xh`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of daojutuihuanmingxi
@@ -1255,7 +1260,7 @@ CREATE TABLE `daojuwaijie` (
   `ydghsj` date DEFAULT NULL,
   `djzt` int(2) DEFAULT NULL,
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of daojuwaijie
@@ -1277,7 +1282,7 @@ CREATE TABLE `daojuwaijiemingxi` (
   `dth` char(10) NOT NULL,
   `bz` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of daojuwaijiemingxi
@@ -1294,16 +1299,17 @@ CREATE TABLE `daojuxuyong` (
   `xyr` varchar(20) CHARACTER SET utf8 DEFAULT NULL COMMENT '续用人',
   `xyrq` date DEFAULT NULL COMMENT '续用日期',
   `beizhu` tinytext CHARACTER SET utf8 COMMENT '备注',
-  `spr` varchar(20) DEFAULT NULL COMMENT '审批人',
+  `spr` varchar(20) CHARACTER SET utf8 DEFAULT NULL COMMENT '审批人',
   `jbr` char(20) CHARACTER SET utf8 DEFAULT NULL COMMENT '经办人',
   `djzt` int(2) DEFAULT NULL COMMENT '单据状态',
   PRIMARY KEY (`xh`),
   UNIQUE KEY `xuyongdanhao` (`xydh`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=gbk COMMENT='刀具续用单据表';
 
 -- ----------------------------
 -- Records of daojuxuyong
 -- ----------------------------
+INSERT INTO `daojuxuyong` VALUES ('6', 'DJXY_171129001', '先锋一班', '15245', '2017-11-29', '12456', '赵经手', '赵经手', '0');
 
 -- ----------------------------
 -- Table structure for `daojuxuyongmingxi`
@@ -1319,15 +1325,16 @@ CREATE TABLE `daojuxuyongmingxi` (
   `jggx` char(20) CHARACTER SET utf8 DEFAULT NULL COMMENT '加工工序',
   `jcbm` varchar(20) CHARACTER SET utf8 DEFAULT NULL COMMENT '机床编码',
   `dth` varchar(20) CHARACTER SET utf8 DEFAULT NULL COMMENT '刀套号',
-  `xygx` varchar(50) DEFAULT NULL COMMENT '续用工序',
-  `xyjcbm` varchar(20) DEFAULT NULL COMMENT '续用机床编码',
-  `xydth` varchar(20) DEFAULT NULL COMMENT '续用刀套号',
+  `xygx` varchar(50) CHARACTER SET utf8 DEFAULT NULL COMMENT '续用工序',
+  `xyjcbm` varchar(20) CHARACTER SET utf8 DEFAULT NULL COMMENT '续用机床编码',
+  `xydth` varchar(20) CHARACTER SET utf8 DEFAULT NULL COMMENT '续用刀套号',
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of daojuxuyongmingxi
 -- ----------------------------
+INSERT INTO `daojuxuyongmingxi` VALUES ('8', 'DJXY_171129001', '钻头', 'Φ22', 'ZT-0003', '1', '', 'FMS-1#机', 'T06', null, null, null);
 
 -- ----------------------------
 -- Table structure for `gongxu`
@@ -1345,15 +1352,15 @@ CREATE TABLE `gongxu` (
   `dbxx` char(20) CHARACTER SET utf8 DEFAULT NULL,
   `djscsj` char(20) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=94 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=102 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of gongxu
 -- ----------------------------
-INSERT INTO `gongxu` VALUES ('75', 'GY-001', '工序4', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.3', 'FMS-1#机', null, null, null);
-INSERT INTO `gongxu` VALUES ('74', 'GY-001', '工序3', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.2', 'FMS-1#机', null, null, null);
-INSERT INTO `gongxu` VALUES ('73', 'GY-001', '工序2', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.1', 'FMS-1#机', null, null, null);
-INSERT INTO `gongxu` VALUES ('72', 'GY-001', '工序1', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('97', 'GY-001', '工序4', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.3', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('96', 'GY-001', '工序3', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.2', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('95', 'GY-001', '工序2', '1204.28.101', '两侧半轴面及侧面凸台', '30.5±0.1', 'FMS-1#机', null, null, null);
+INSERT INTO `gongxu` VALUES ('94', 'GY-001', '工序1', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-1#机', null, null, null);
 INSERT INTO `gongxu` VALUES ('5', 'GY-002', '工序1', '1204.28.101', '两侧半轴面及侧面凸台', '170.5±0.1(两侧)', 'FMS-2#机', '夹具5', '刀柄5', '46分钟');
 INSERT INTO `gongxu` VALUES ('6', 'GY-002', '工序2', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-2#机', '夹具6', '刀柄6', '47分钟');
 INSERT INTO `gongxu` VALUES ('7', 'GY-002', '工序3', '1204.28.101', '两侧半轴面及侧面凸台', '粗铣两侧半轴面', 'FMS-2#机', '夹具7', '刀柄7', '48分钟');
@@ -1386,17 +1393,11 @@ CREATE TABLE `gongxupeidao` (
   `daotaohao` char(20) CHARACTER SET utf8 NOT NULL COMMENT '刀套号',
   `gongjushuoming` varchar(50) CHARACTER SET utf8 DEFAULT NULL COMMENT '工具说明',
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=149 DEFAULT CHARSET=gbk COMMENT='工序配刀表';
+) ENGINE=MyISAM AUTO_INCREMENT=163 DEFAULT CHARSET=gbk COMMENT='工序配刀表';
 
 -- ----------------------------
 -- Records of gongxupeidao
 -- ----------------------------
-INSERT INTO `gongxupeidao` VALUES ('122', 'GY-001', '工序4', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '4', '套', 'FMS-1#机', 'T07', '');
-INSERT INTO `gongxupeidao` VALUES ('121', 'GY-001', '工序3', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T05', '');
-INSERT INTO `gongxupeidao` VALUES ('120', 'GY-001', '工序3', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '2', '套', 'FMS-1#机', 'T06', '');
-INSERT INTO `gongxupeidao` VALUES ('119', 'GY-001', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-1#机', 'T04', '');
-INSERT INTO `gongxupeidao` VALUES ('118', 'GY-001', '工序1', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '3', '套', 'FMS-1#机', 'T03', '');
-INSERT INTO `gongxupeidao` VALUES ('117', 'GY-001', '工序1', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '3', '套', 'FMS-1#机', 'T01', '');
 INSERT INTO `gongxupeidao` VALUES ('8', 'GY-002', '工序1', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '1', '套', 'FMS-2#机', 'T08', null);
 INSERT INTO `gongxupeidao` VALUES ('9', 'GY-002', '工序2', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '1', '套', 'FMS-2#机', 'T09', null);
 INSERT INTO `gongxupeidao` VALUES ('10', 'GY-002', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-2#机', 'T10', null);
@@ -1406,7 +1407,13 @@ INSERT INTO `gongxupeidao` VALUES ('126', 'GY-003', '工序4', '刀具', '中心
 INSERT INTO `gongxupeidao` VALUES ('123', 'GY-003', '工序1', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '1', '套', 'FMS-3#机', 'T12', '');
 INSERT INTO `gongxupeidao` VALUES ('125', 'GY-003', '工序3', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '1', '套', 'FMS-3#机', 'T14', '');
 INSERT INTO `gongxupeidao` VALUES ('124', 'GY-003', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-3#机', 'T13', '');
-INSERT INTO `gongxupeidao` VALUES ('116', 'GY-001', '工序1', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T02', '');
+INSERT INTO `gongxupeidao` VALUES ('149', 'GY-001', '工序1', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '3', '套', 'FMS-1#机', 'T03', '');
+INSERT INTO `gongxupeidao` VALUES ('150', 'GY-001', '工序1', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '3', '套', 'FMS-1#机', 'T01', '');
+INSERT INTO `gongxupeidao` VALUES ('151', 'GY-001', '工序1', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T02', '');
+INSERT INTO `gongxupeidao` VALUES ('152', 'GY-001', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-1#机', 'T04', '');
+INSERT INTO `gongxupeidao` VALUES ('153', 'GY-001', '工序3', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T05', '');
+INSERT INTO `gongxupeidao` VALUES ('154', 'GY-001', '工序3', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '2', '套', 'FMS-1#机', 'T06', '');
+INSERT INTO `gongxupeidao` VALUES ('155', 'GY-001', '工序4', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '4', '套', 'FMS-1#机', 'T07', '');
 INSERT INTO `gongxupeidao` VALUES ('142', 'GY-004', '工序1', '刀具', '玉米铣', 'Φ100', 'Φ100玉米铣(T1055)', '2', '套', 'FMS-1#机', 'T02', '');
 INSERT INTO `gongxupeidao` VALUES ('143', 'GY-004', '工序1', '刀具', '中心钻', 'φ16', 'φ16 中心钻(T117)', '3', '套', 'FMS-1#机', 'T03', '');
 INSERT INTO `gongxupeidao` VALUES ('144', 'GY-004', '工序2', '刀具', '钻头', 'Φ22', 'Φ22 钻头(T49)', '1', '套', 'FMS-1#机', 'T04', '');
@@ -1427,12 +1434,12 @@ CREATE TABLE `gongyika` (
   `fbsj` datetime NOT NULL,
   `beizhu` text CHARACTER SET utf8,
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of gongyika
 -- ----------------------------
-INSERT INTO `gongyika` VALUES ('1', 'GY-001', '后传动箱壳体', '', '2017-11-13 12:30:36', '加工');
+INSERT INTO `gongyika` VALUES ('1', 'GY-001', '后传动箱壳体', '', '2017-11-13 12:30:36', '加工后传动箱壳体');
 INSERT INTO `gongyika` VALUES ('2', 'GY-002', '动箱壳体', null, '2017-11-01 08:32:50', null);
 INSERT INTO `gongyika` VALUES ('3', 'GY-003', '前传动箱壳体', null, '2017-10-01 12:33:15', '');
 INSERT INTO `gongyika` VALUES ('11', 'GY-004', '后传动箱壳体', null, '2017-11-13 12:30:36', '加工');
@@ -1467,7 +1474,7 @@ CREATE TABLE `jcdaojuku` (
   `jichuangbianma` char(20) CHARACTER SET utf8 NOT NULL,
   `daotaohao` char(20) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=523 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=524 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of jcdaojuku
@@ -1997,7 +2004,7 @@ CREATE TABLE `jichuang` (
   `zichanbianhao` char(50) CHARACTER SET utf8 DEFAULT NULL COMMENT '资产编号',
   PRIMARY KEY (`xh`),
   UNIQUE KEY `jichuangbianma` (`jichuangbianma`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of jichuang
@@ -2039,12 +2046,12 @@ INSERT INTO `jichuang` VALUES ('37', '机一车间_综加班', '综加班生产�
 DROP TABLE IF EXISTS `jichucanshu`;
 CREATE TABLE `jichucanshu` (
   `xh` int(20) NOT NULL AUTO_INCREMENT,
-  `csm` varchar(50) DEFAULT NULL,
-  `csdm` varchar(50) NOT NULL,
-  `csz` varchar(100) NOT NULL,
-  `ssfm` varchar(50) NOT NULL,
+  `csm` varchar(50) DEFAULT NULL COMMENT '参数名',
+  `csdm` varchar(50) NOT NULL COMMENT '参数代码',
+  `csz` varchar(100) NOT NULL COMMENT '参数值',
+  `ssfm` varchar(50) NOT NULL COMMENT '所属父母',
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=377 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=511 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of jichucanshu
@@ -2270,6 +2277,25 @@ INSERT INTO `jichucanshu` VALUES ('373', null, 'djyhbj', '', '212-测试刀具')
 INSERT INTO `jichucanshu` VALUES ('374', null, 'cdsgc', '', '212-测试刀具');
 INSERT INTO `jichucanshu` VALUES ('375', null, 'bjsgc', '', '212-测试刀具');
 INSERT INTO `jichucanshu` VALUES ('376', null, 'djbzcd', '', '212-测试刀具');
+INSERT INTO `jichucanshu` VALUES ('434', null, 'sccj', '海韵园', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('416', null, 'djclph', 'GS', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('417', null, 'djyssm', '212', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('418', null, 'djytjs', '20171127测试系统日志', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('419', null, 'smbjyz', '12', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('420', null, 'jxtdfw', '0.05', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('421', null, 'djfpj', '30', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('422', null, 'dmtdfw', '0.05', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('423', null, 'yhbjxgc', '5', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('424', null, 'djzpj', '30', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('425', null, 'djbzbj', '50', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('426', null, 'yhbjsgc', '5', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('427', null, 'djddsl', '3', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('428', null, 'cdxgc', '5', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('429', null, 'bjxgc', '5', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('430', null, 'djyhbj', '15', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('431', null, 'cdsgc', '5', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('432', null, 'bjsgc', '5', '20171127测试');
+INSERT INTO `jichucanshu` VALUES ('433', null, 'djbzcd', '100', '20171127测试');
 
 -- ----------------------------
 -- Table structure for `jichuxinxi`
@@ -2499,11 +2525,11 @@ INSERT INTO `jichuxinxi` VALUES ('289', '刀片', 'TCMT16T308-KR3210', '', '', '
 INSERT INTO `jichuxinxi` VALUES ('293', '精镗刀片', 'TCMT09T204-KF3215', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '10', '件', '10', '99', '');
 INSERT INTO `jichuxinxi` VALUES ('315', '中心钻', '723 16.0(看不到）', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '47', '件', '10', '99', '');
 INSERT INTO `jichuxinxi` VALUES ('316', '热涨刀柄', 'GM3004736 116.100', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '18', '件', '10', '99', '');
-INSERT INTO `jichuxinxi` VALUES ('317', '冷却管', '4949 24.100', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '12', '件', '10', '99', '');
+INSERT INTO `jichuxinxi` VALUES ('317', '冷却管', '4949 24.100', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '11', '件', '10', '99', '');
 INSERT INTO `jichuxinxi` VALUES ('318', '立铣刀', '4736.120.100(看不到）', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '35', '件', '10', '99', '');
 INSERT INTO `jichuxinxi` VALUES ('319', '热涨刀柄', 'HSK100A 20.00', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '43', '件', '10', '99', '');
-INSERT INTO `jichuxinxi` VALUES ('320', '热胀刀柄', '4736 112.100', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '14', '件', '10', '99', '');
-INSERT INTO `jichuxinxi` VALUES ('322', '引导钻', '5510 10.4', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '10', '件', '10', '99', '');
+INSERT INTO `jichuxinxi` VALUES ('320', '热胀刀柄', '4736 112.100', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '13', '件', '10', '99', '');
+INSERT INTO `jichuxinxi` VALUES ('322', '引导钻', '5510 10.4', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '9', '件', '10', '99', '');
 INSERT INTO `jichuxinxi` VALUES ('323', '主刀柄', 'C8-390.410-100 120A', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '10', '件', '10', '99', '');
 INSERT INTO `jichuxinxi` VALUES ('324', '刀盘', 'R390-100C8-71M', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '15', '件', '10', '99', '');
 INSERT INTO `jichuxinxi` VALUES ('325', '刀片', 'R390-180608M-KM', '', '', '100', '箱式 2号柜', '6层', 'S', '零部件', '18', '件', '10', '99', '');
@@ -2549,7 +2575,7 @@ CREATE TABLE `lbj_lingyong` (
   `djzt` int(2) NOT NULL,
   PRIMARY KEY (`xh`),
   UNIQUE KEY `daojuchucang_ix1` (`danhao`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lbj_lingyong
@@ -2579,7 +2605,7 @@ CREATE TABLE `lbj_lingyongmingxi` (
   `gx` char(20) DEFAULT NULL COMMENT '工序',
   `bz` tinytext COMMENT '备注',
   PRIMARY KEY (`xh`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='零部件领用明细表';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='零部件领用明细表';
 
 -- ----------------------------
 -- Records of lbj_lingyongmingxi
@@ -2623,7 +2649,7 @@ CREATE TABLE `lbj_liushui` (
   `jbr` varchar(10) DEFAULT NULL COMMENT '经办人',
   `bz` varchar(50) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=129 DEFAULT CHARSET=utf8 COMMENT='零部件库存操作流水表\r\n';
+) ENGINE=MyISAM AUTO_INCREMENT=134 DEFAULT CHARSET=utf8 COMMENT='零部件库存操作流水表\r\n';
 
 -- ----------------------------
 -- Records of lbj_liushui
@@ -2655,6 +2681,11 @@ INSERT INTO `lbj_liushui` VALUES ('125', null, '拆卸退还', '引导钻', '', 
 INSERT INTO `lbj_liushui` VALUES ('126', null, '拆卸退还', '冷却管', '', '4949 24.100', '箱式 2号柜', '6层', '1', '0', '11', '个', '2017-11-20 14:55:47', null, 'ZT-0015');
 INSERT INTO `lbj_liushui` VALUES ('127', null, '拆卸退还', '热胀刀柄', '', '4736 112.100', '箱式 2号柜', '6层', '1', '0', '13', '个', '2017-11-20 14:55:47', null, 'ZT-0015');
 INSERT INTO `lbj_liushui` VALUES ('128', null, '拆卸退还', '引导钻', '', '5510 10.4', '箱式 2号柜', '6层', '1', '0', '9', '个', '2017-11-20 14:55:47', null, 'ZT-0015');
+INSERT INTO `lbj_liushui` VALUES ('129', null, '装配领用', '冷却管', '', '4949 24.100', '箱式 2号柜', '6层', '0', '1', '12', '个', '2017-11-29 14:05:10', null, 'ZT-0015');
+INSERT INTO `lbj_liushui` VALUES ('130', null, '装配领用', '热胀刀柄', '', '4736 112.100', '箱式 2号柜', '6层', '0', '1', '14', '个', '2017-11-29 14:05:10', null, 'ZT-0015');
+INSERT INTO `lbj_liushui` VALUES ('131', null, '装配领用', '引导钻', '', '5510 10.4', '箱式 2号柜', '6层', '0', '1', '10', '个', '2017-11-29 14:05:10', null, 'ZT-0015');
+INSERT INTO `lbj_liushui` VALUES ('132', '', '库存修改', '中心刀片', '', '880-040305H-C-GM 104', '箱式 2号柜', '6层', '1', '0', '10', '件', '2017-11-29 18:00:41', '赵一', '测试日志');
+INSERT INTO `lbj_liushui` VALUES ('133', '', '库存修改', '中心刀片', '', '880-040305H-C-GM 104', '箱式 2号柜', '6层', '0', '1', '11', '件', '2017-11-29 18:01:20', '赵一', '测试日志');
 
 -- ----------------------------
 -- Table structure for `lbj_temp`
@@ -3018,7 +3049,7 @@ CREATE TABLE `lbj_tuihuan` (
   `djzt` int(2) DEFAULT NULL,
   PRIMARY KEY (`xh`),
   UNIQUE KEY `danhao` (`danhao`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lbj_tuihuan
@@ -3046,7 +3077,7 @@ CREATE TABLE `lbj_tuihuanmingxi` (
   `cfwz` varchar(20) DEFAULT NULL,
   `bz` tinytext,
   PRIMARY KEY (`xh`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lbj_tuihuanmingxi
@@ -3056,9 +3087,9 @@ INSERT INTO `lbj_tuihuanmingxi` VALUES ('19', 'LBJTH_171108002', '切槽刀片',
 INSERT INTO `lbj_tuihuanmingxi` VALUES ('22', 'LBJTH_171108001', '中心刀片', '', '880-040305H-C-GM 104', '1', '件', '', '', '箱式 2号柜', '6层', '');
 INSERT INTO `lbj_tuihuanmingxi` VALUES ('23', 'LBJTH_171108001', '切槽刀片', '', '327R12-2221502-GM102', '2', '件', '', '', '箱式 2号柜', '6层', '');
 INSERT INTO `lbj_tuihuanmingxi` VALUES ('24', 'LBJTH_171108003', '槽铣刀片', '', '328R13-26502-GM1025', '2', '件', '', '', '箱式 2号柜', '6层', '');
-INSERT INTO `lbj_tuihuanmingxi` VALUES ('25', 'LBJTH_171112001', '107车刀片', '', 'TCMT110304-KFH13A', '1', '件', 'OP20T01', '20171112', '箱式 2号柜', '6层', '');
-INSERT INTO `lbj_tuihuanmingxi` VALUES ('26', 'LBJTH_171112001', '490铣刀刀片', '', '490R-08T308M-KM3040', '1', '件', 'OP20T01', '20171112', 'kardex 2号柜', '2层', '');
-INSERT INTO `lbj_tuihuanmingxi` VALUES ('27', 'LBJTH_171112001', 'CD8804刃刀片', '', '880-0503W06H-P-GR404', '2', '件', 'OP20T01', '20171112', '箱式 2号柜', '6层', '');
+INSERT INTO `lbj_tuihuanmingxi` VALUES ('28', 'LBJTH_171112001', 'CD8804刃刀片', '', '880-0503W06H-P-GR404', '3', '件', 'OP20T01', '20171112', '箱式 2号柜', '6层', '');
+INSERT INTO `lbj_tuihuanmingxi` VALUES ('29', 'LBJTH_171112001', '107车刀片', '', 'TCMT110304-KFH13A', '1', '件', 'OP20T01', '20171112', '箱式 2号柜', '6层', '');
+INSERT INTO `lbj_tuihuanmingxi` VALUES ('30', 'LBJTH_171112001', '490铣刀刀片', '', '490R-08T308M-KM3040', '1', '件', 'OP20T01', '20171112', 'kardex 2号柜', '2层', '');
 
 -- ----------------------------
 -- Table structure for `lingbujian`
