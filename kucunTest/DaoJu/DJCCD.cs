@@ -21,11 +21,13 @@ namespace kucunTest.DaoJu
         DataSet lymx_ds = new DataSet();
         DataTable lymx_db = new DataTable();
 
-        string danjubiao = "daojulingyong";
-        string mingxibiao = "daojulingyongmingxi";
-        string liushuibiao = "daojuliushui";
-        string daojutemp = "daojutemp";
-        string DHZD = "chucangdanhao";
+        string LogType = "刀具领用";
+        string LogMessage = "";
+        //string danjubiao = "daojulingyong";
+        //string mingxibiao = "daojulingyongmingxi";
+        //string liushuibiao = "daojuliushui";
+        //string daojutemp = "daojutemp";
+        //string DHZD = "chucangdanhao";
         #endregion
 
         /// <summary>
@@ -36,6 +38,13 @@ namespace kucunTest.DaoJu
             InitializeComponent();
 
             danhao.Text = Alex.DanHao("DJCC");//自动生成单号
+
+            LYBZ.DataSource = Alex.GetList("bz");
+            LYBZ.SelectedIndex = -1;
+            //string sqlstr2 = "select jichuangbianma from jichuang";
+            LYSB.DataSource = Alex.GetList("jc");
+            LYSB.SelectedIndex = -1;
+
             LYRQ.Value = DateTime.Now;
             LYBZ.SelectedIndex = 0;
             JBR.SelectedIndex = 0;
@@ -52,22 +61,40 @@ namespace kucunTest.DaoJu
         {
             InitializeComponent();//
 
+            //班组和机床设置数据源
+            LYBZ.DataSource = Alex.GetList("bz");
+            LYSB.DataSource = Alex.GetList("jc");
+
             lingyongmingxi.AutoGenerateColumns = false;//禁止自动生成行
 
             //danhao.Text = dh;
 
             danhao.Text = list[0];//list[0] 领用单号
-            ZJGX.Text = list[1];//list[1] 制件工序
-            LYBZ.Text = list[2];//list[2] 领用班组
-            LYSB.Text = list[3];//list[3] 领用设备
-            LYR.Text = list[4];//list[4] 领用人
-            LYRQ.Value = Convert.ToDateTime(list[5]);//list[5] 领用日期
-            JBR.Text = list[6];//list[6] 经办人
-            beizhu.Text = list[7];//list[7] 备注
-            string danjuzhuangtai = list[8]; //list[8] 单据状态
 
-            Sqlstr = "select daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu  from " + mingxibiao + " where chucangdanhao = '" +danhao.Text.ToString().Trim() +  "'";
-            lymx_ds = SQL.getDataSet(Sqlstr, mingxibiao);
+            Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", DaoJuLingYong.TableName, DaoJuLingYong.danhao, list[0].ToString());
+            DataTable dbinfo = SQL.getDataSet(Sqlstr, DaoJuLingYong.TableName).Tables[0];
+            ZJGX.Text = dbinfo.Rows[0][DaoJuLingYong.jggy].ToString();
+            LYBZ.Text = dbinfo.Rows[0][DaoJuLingYong.lybz].ToString();
+            LYSB.Text = dbinfo.Rows[0][DaoJuLingYong.lysb].ToString();
+            LYR.Text = dbinfo.Rows[0][DaoJuLingYong.lyr].ToString();
+            LYRQ.Value = Convert.ToDateTime(dbinfo.Rows[0][DaoJuLingYong.lysj].ToString());
+            JBR.Text = dbinfo.Rows[0][DaoJuLingYong.jbr].ToString();
+            beizhu.Text = dbinfo.Rows[0][DaoJuLingYong.bz].ToString();
+            string danjuzhuangtai = dbinfo.Rows[0][DaoJuLingYong.djzt].ToString();
+            Sqlstr = "";
+
+            //ZJGX.Text = list[1];//list[1] 制件工序
+            //LYBZ.Text = list[2];//list[2] 领用班组
+            //LYSB.Text = list[3];//list[3] 领用设备
+            //LYR.Text = list[4];//list[4] 领用人
+            //LYRQ.Value = Convert.ToDateTime(list[5]);//list[5] 领用日期
+            //JBR.Text = list[6];//list[6] 经办人
+            //beizhu.Text = list[7];//list[7] 备注
+            //string danjuzhuangtai = list[8]; //list[8] 单据状态
+
+            Sqlstr = string.Format("SELECT {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}  FROM {0} WHERE {9} = '{10}'", DaoJuLingYongMingXi.TableName, DaoJuLingYongMingXi.djlx, DaoJuLingYongMingXi.djgg, DaoJuLingYongMingXi.djcd, DaoJuLingYongMingXi.djid, DaoJuLingYongMingXi.sl, DaoJuLingYongMingXi.jcbm, DaoJuLingYongMingXi.dth, DaoJuLingYongMingXi.bz, DaoJuLingYongMingXi.danhao, danhao.Text.ToString().Trim());
+            //Sqlstr = "select daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu  from " + DaoJuLingYongMingXi.TableName + " where chucangdanhao = '" +danhao.Text.ToString().Trim() +  "'";
+            lymx_ds = SQL.getDataSet(Sqlstr, DaoJuLingYongMingXi.TableName);
             lymx_db = lymx_ds.Tables[0];
             lingyongmingxi.DataSource = lymx_db.DefaultView;
 
@@ -89,13 +116,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void DJCCD_Load(object sender, EventArgs e)
         {
-            asc.controllInitializeSize(this);//记录窗体及控件初始大小，以便自适应
-
-            LYBZ.DataSource = Alex.GetList("bz");
-            LYBZ.SelectedIndex = -1;
-            //string sqlstr2 = "select jichuangbianma from jichuang";
-            LYSB.DataSource = Alex.GetList("jc");
-            LYSB.SelectedIndex = -1;
+            asc.controllInitializeSize(this);//记录窗体及控件初始大小，以便自适应           
         }
 
         #region 明细部分
@@ -224,16 +245,16 @@ namespace kucunTest.DaoJu
             else
             {
                 //将领用和操作数据存入数据库daojuchucang表
-                if (Alex.CunZai(danhao.Text.ToString(), DHZD, danjubiao) != 0)//判断此单号在单据表中是否已存在
+                if (Alex.CunZai(danhao.Text.ToString(), DaoJuLingYong.danhao, DaoJuLingYong.TableName) != 0)//判断此单号在单据表中是否已存在
                 {
                     //使用update语句
                     //Sqlstr = "UPDATE daojuchucang SET (chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "0" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
-                    Sqlstr = string.Format("UPDATE {0} SET lingyongbanzu = '{1}', lingyongren = '{2}', lingyongshebei = '{3}', jiagonggongyi = '{4}', chucangriqi = '{5}', beizhu = '{6}', caozuoyuan = '{7}' where chucangdanhao = '{8}'", danjubiao, LYBZ.Text.ToString().Trim(), LYR.Text.ToString().Trim(), LYSB.Text.ToString().Trim(), ZJGX.Text.ToString().Trim(), LYRQ.Text, beizhu.Text.ToString().Trim(), JBR.Text.ToString().Trim(), danhao.Text.ToString().Trim());
+                    Sqlstr = string.Format("UPDATE {0} SET lingyongbanzu = '{1}', lingyongren = '{2}', lingyongshebei = '{3}', jiagonggongyi = '{4}', chucangriqi = '{5}', beizhu = '{6}', caozuoyuan = '{7}' where chucangdanhao = '{8}'", DaoJuLingYong.TableName, LYBZ.Text.ToString().Trim(), LYR.Text.ToString().Trim(), LYSB.Text.ToString().Trim(), ZJGX.Text.ToString().Trim(), LYRQ.Text, beizhu.Text.ToString().Trim(), JBR.Text.ToString().Trim(), danhao.Text.ToString().Trim());
                 }
                 else
                 {
                     //直接使用insert语句
-                    Sqlstr = "insert into " + danjubiao + "(chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, lingyongshebei, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "0" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + LYSB.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
+                    Sqlstr = "insert into " + DaoJuLingYong.TableName + "(chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, lingyongshebei, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "0" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + LYSB.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
                 }
 
                 //执行sql语句,row1为受影响的行数
@@ -243,10 +264,10 @@ namespace kucunTest.DaoJu
                 int row2 = 0;
                 if (row1 != 0)
                 {
-                    if (Alex.CunZai(danhao.Text.ToString(), DHZD, mingxibiao) != 0)//判断此单号在明细表中是否已存在
+                    if (Alex.CunZai(danhao.Text.ToString(), DaoJuLingYongMingXi.danhao, DaoJuLingYongMingXi.TableName) != 0)//判断此单号在明细表中是否已存在
                     {
                         //使用delete语句删除已存在的明细
-                        Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", mingxibiao, danhao.Text.ToString().Trim());
+                        Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuLingYongMingXi.TableName, DaoJuLingYongMingXi.danhao, danhao.Text.ToString().Trim());
                         row2 = SQL.ExecuteNonQuery(Sqlstr);
                     }
                     //出仓明细数据格式化
@@ -261,7 +282,7 @@ namespace kucunTest.DaoJu
                         string dth = lingyongmingxi.Rows[rowindex].Cells["dth"].Value.ToString();
                         string bz = lingyongmingxi.Rows[rowindex].Cells["bz"].Value.ToString();
 
-                        Sqlstr = "insert into " + mingxibiao + "(chucangdanhao, daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu) values('" + danhao.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + bz + "')";
+                        Sqlstr = "insert into " + DaoJuLingYongMingXi.TableName + "(chucangdanhao, daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu) values('" + danhao.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + bz + "')";
                         row2 = SQL.ExecuteNonQuery(Sqlstr);//执行sql语句,row2为受影响的行数
                     }
 
@@ -269,6 +290,12 @@ namespace kucunTest.DaoJu
                     if (row2 != 0)
                     {
                         MessageBox.Show("单据保存成功，可再次修改确认！", "提示", MessageBoxButtons.OK);
+
+                        //日志记录
+                        LogMessage = string.Format("成功保存1张单据编号为{0}的刀具领用暂存单据。", danhao.Text);
+                        Program.WriteLog(LogType, LogMessage);
+                        LogMessage = "";
+
                         //this.InitializeComponent();
                         //this.OnLoad(null);
                         this.DialogResult = DialogResult.OK;
@@ -301,16 +328,16 @@ namespace kucunTest.DaoJu
                 else
                 {
                     //将出仓和操作数据存入数据库daojuchucang表
-                    if (Alex.CunZai(danhao.Text.ToString(), DHZD, danjubiao) != 0)//判断此单号在单据表中是否已存在
+                    if (Alex.CunZai(danhao.Text.ToString(), DaoJuLingYong.TableName, DaoJuLingYong.TableName) != 0)//判断此单号在单据表中是否已存在
                     {
                         //使用update语句
                         //Sqlstr = "UPDATE daojuchucang SET (chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "0" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
-                        Sqlstr = string.Format("UPDATE {0} SET lingyongbanzu = '{1}', lingyongren = '{2}', lingyongshebei = '{3}', jiagonggongyi = '{4}', chucangriqi = '{5}', beizhu = '{6}', caozuoyuan = '{7}', danjuzhuangtai = '{8}' where chucangdanhao = '{9}'", danjubiao, LYBZ.Text.ToString().Trim(), LYR.Text.ToString().Trim(), LYSB.Text.ToString().Trim(), ZJGX.Text.ToString().Trim(), LYRQ.Text, beizhu.Text.ToString().Trim(), JBR.Text.ToString().Trim(), "1",  danhao.Text.ToString().Trim());
+                        Sqlstr = string.Format("UPDATE {0} SET lingyongbanzu = '{1}', lingyongren = '{2}', lingyongshebei = '{3}', jiagonggongyi = '{4}', chucangriqi = '{5}', beizhu = '{6}', caozuoyuan = '{7}', danjuzhuangtai = '{8}' where chucangdanhao = '{9}'", DaoJuLingYong.TableName, LYBZ.Text.ToString().Trim(), LYR.Text.ToString().Trim(), LYSB.Text.ToString().Trim(), ZJGX.Text.ToString().Trim(), LYRQ.Text, beizhu.Text.ToString().Trim(), JBR.Text.ToString().Trim(), "1",  danhao.Text.ToString().Trim());
                     }
                     else
                     {
                         //直接使用insert语句
-                        Sqlstr = "insert into " + danjubiao + "(chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, lingyongshebei, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "1" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + LYSB.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
+                        Sqlstr = "insert into " + DaoJuLingYong.TableName + "(chucangdanhao, chucangleixing, danjuzhuangtai, lingyongbanzu, lingyongren, lingyongshebei, jiagonggongyi, chucangriqi, beizhu, caozuoyuan) values('" + danhao.Text.ToString().Trim() + "', '" + "常规领用" + "', '" + "1" + "', '" + LYBZ.Text.ToString().Trim() + "', '" + LYR.Text.ToString().Trim() + "', '" + LYSB.Text.ToString().Trim() + "', '" + ZJGX.Text.ToString().Trim() + "', '" + LYRQ.Text + "', '" + beizhu.Text.ToString().Trim() + "', '" + JBR.Text.ToString().Trim() + "')";
                     }
 
                     int row1 = SQL.ExecuteNonQuery(Sqlstr);
@@ -323,10 +350,10 @@ namespace kucunTest.DaoJu
 
                     if (row1 != 0)
                     {
-                        if (Alex.CunZai(danhao.Text.ToString(), DHZD, mingxibiao) != 0)//判断此单号在明细表中是否已存在
+                        if (Alex.CunZai(danhao.Text.ToString(), DaoJuLingYongMingXi.danhao, DaoJuLingYongMingXi.TableName) != 0)//判断此单号在明细表中是否已存在
                         {
                             //使用delete语句删除已存在的明细
-                            Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", mingxibiao, danhao.Text.ToString().Trim());
+                            Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", DaoJuLingYongMingXi.TableName, danhao.Text.ToString().Trim());
                             row2 = SQL.ExecuteNonQuery(Sqlstr);
                         }
 
@@ -346,15 +373,15 @@ namespace kucunTest.DaoJu
                             dskysl = (Alex.Count_djsl(djlx, "kysl") - 1).ToString();
 
                             //明细数据存入数据库明细表
-                            Sqlstr = "insert into " + mingxibiao + "(chucangdanhao, daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu) values('" + danhao.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + bz + "')";
+                            Sqlstr = "insert into " + DaoJuLingYongMingXi.TableName + "(chucangdanhao, daojuleixing, daojuguige, changdu, daojuid, shuliang, jichuangbianma, daotaohao, beizhu) values('" + danhao.Text.ToString().Trim() + "', '" + djlx + "', '" + djgg + "', '" + djcd + "','" + djid + "', '" + sl + "', '" + jcbm + "', '" + dth + "', '" + bz + "')";
                             row2 = SQL.ExecuteNonQuery(Sqlstr);
 
                             //明细信息存入流水表
-                            Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", liushuibiao, danhao.Text.ToString().Trim(), "常规领用", djlx, djgg, djid, "0", sl, dskysl, jcbm, dth, LYRQ.Value.ToString().Trim(), JBR.Text.ToString().Trim() ,bz);
+                            Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", DaoJuLiuShui.TableName, danhao.Text.ToString().Trim(), "常规领用", djlx, djgg, djid, "0", sl, dskysl, jcbm, dth, LYRQ.Value.ToString().Trim(), JBR.Text.ToString().Trim() ,bz);
                             row3 = SQL.ExecuteNonQuery(Sqlstr);
 
                             //更新刀具位置寿命监测表
-                            Sqlstr = string.Format("UPDATE {0} dj SET dj.weizhibiaoshi = 'M', dj.weizhi = '{1}', dj.cengshu = '{2}' WHERE dj.daojuid = '{3}'", daojutemp, jcbm, dth, djid);
+                            Sqlstr = string.Format("UPDATE {0} dj SET dj.weizhibiaoshi = 'M', dj.weizhi = '{1}', dj.cengshu = '{2}' WHERE dj.daojuid = '{3}'", DaoJuTemp.TableName, jcbm, dth, djid);
                             row4 = SQL.ExecuteNonQuery(Sqlstr);
                         }
 
@@ -363,6 +390,12 @@ namespace kucunTest.DaoJu
                         if (row2 != 0)
                         {
                             MessageBox.Show("刀具领用完成！", "提示", MessageBoxButtons.OK);
+
+                            //日志记录
+                            LogMessage = string.Format("成功确认1张单据编号为{0}的刀具领用单据。", danhao.Text);
+                            Program.WriteLog(LogType, LogMessage);
+                            LogMessage = "";
+
                             //this.InitializeComponent();
                             //this.OnLoad(null);
                             this.DialogResult = DialogResult.OK;
@@ -461,6 +494,11 @@ namespace kucunTest.DaoJu
                 FReport.Prepare();
                 FReport.ShowPrepared();
                 //FReport.Show();
+
+                //日志记录
+                LogMessage = string.Format("成功打印1张单据编号为{0}的刀具领用单据。", danhao.Text);
+                Program.WriteLog(LogType, LogMessage);
+                LogMessage = "";
             }
         }
 
@@ -486,18 +524,23 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void cancel_Click(object sender, EventArgs e)
         {
-            if(Alex.CunZai(danhao.Text.ToString().Trim(), DHZD ,danjubiao) != 0 )
+            if(Alex.CunZai(danhao.Text.ToString().Trim(), DaoJuLingYong.danhao ,DaoJuLingYong.TableName) != 0 )
             {
                 DialogResult dr = MessageBox.Show("确认删除此单据？", "删除确认", MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
                     //删除刀具领用表中的数据
-                    Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", danjubiao, danhao.Text.ToString().Trim());
+                    Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", DaoJuLingYong.TableName, danhao.Text.ToString().Trim());
                     int row1 = SQL.ExecuteNonQuery(Sqlstr);
 
-                    Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", mingxibiao, danhao.Text.ToString().Trim());
+                    Sqlstr = string.Format("DELETE FROM {0} WHERE chucangdanhao = '{1}'", DaoJuLingYongMingXi.TableName, danhao.Text.ToString().Trim());
                     int row2 = SQL.ExecuteNonQuery(Sqlstr);
                     MessageBox.Show("成功删除一张单据和" + row2 + "条明细记录！");
+
+                    //日志记录
+                    LogMessage = "成功删除1张刀具领用单据和" + row2 + "条明细记录！";
+                    Program.WriteLog(LogType, LogMessage);
+                    LogMessage = "";
 
                     this.DialogResult = DialogResult.OK;
                     this.Close();

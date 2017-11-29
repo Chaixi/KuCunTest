@@ -20,6 +20,8 @@ using kucunTest.Daojugui;
 using kucunTest.Jichuang;
 using kucunTest.gongyika;
 using kucunTest.quanxianguanli;
+using kucunTest.XiTongGuanLi;
+using kucunTest.JiChuZiLiao;
 
 using System.Runtime.InteropServices;
 
@@ -1000,7 +1002,39 @@ namespace kucunTest
         #endregion 主菜单——工艺卡结束
 
         #region 主菜单——基础资料
+        private void 数据导入导出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            shujudaorudaochu sjdrdc = new shujudaorudaochu();
+            sjdrdc.MdiParent = this;
 
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == sjdrdc.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = sjdrdc.Name;
+                sjdrdc.Parent = tb;
+                tb.Text = sjdrdc.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                sjdrdc.Size = tb.Size;
+                sjdrdc.Show();
+            }
+        }
         #endregion 主菜单——基础资料结束
 
         #region 主菜单——系统管理
@@ -1012,8 +1046,7 @@ namespace kucunTest
         /// <param name="e"></param>
         private void 系统管理ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            qxguanli qxgl = new qxguanli();
-            qxgl.Show();
+            
         }
 
         /// <summary>
@@ -1023,7 +1056,8 @@ namespace kucunTest
         /// <param name="e"></param>
         private void 权限管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            qxguanli qxgl = new qxguanli();
+            qxgl.Show();
         }
 
         /// <summary>
@@ -1033,7 +1067,40 @@ namespace kucunTest
         /// <param name="e"></param>
         private void 系统日志ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Log LogFrm = new Log();
+            LogFrm.MdiParent = this;
 
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == LogFrm.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = LogFrm.Name;
+                LogFrm.Parent = tb;
+                tb.Text = LogFrm.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                //jc.Left = (tabControl1.Width - jc.Width) / 2;
+                //jc.Top = (tb.Height - jc.Height) / 4;
+                LogFrm.Size = tb.Size;
+
+                LogFrm.Show();
+                //jc.Dock = DockStyle.Fill;
+            }
         }
 
         /// <summary>
@@ -1319,8 +1386,9 @@ namespace kucunTest
                 fr.Show();
             }
         }
+
         #endregion 公用方法部分结束
 
-
+        
     }
 }

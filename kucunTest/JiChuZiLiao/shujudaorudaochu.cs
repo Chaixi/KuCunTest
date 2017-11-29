@@ -28,6 +28,9 @@ namespace kucunTest.JiChuZiLiao
 
         private string tishi = "";//提示文本
 
+        private string LogType = "数据导入导出";
+        private string LogMessage = "";
+
         private bool AutoCheckFlag = true;
 
         //不同数据类型对应不同筛选条件列表
@@ -310,7 +313,7 @@ namespace kucunTest.JiChuZiLiao
 
             if(SaveAs())
             {
-                MessageBox.Show("导出数据成功！");
+                MessageBox.Show("导出数据成功！");               
             }
         }
 
@@ -373,6 +376,11 @@ namespace kucunTest.JiChuZiLiao
                     }
                     sw.Close();
                     myStream.Close();
+
+                    //日志记录
+                    LogMessage = string.Format("成功导出{0}到{1}。", SJLX.Text, saveFileDialog.FileName);
+                    Program.WriteLog(LogType, LogMessage);
+                    LogMessage = "";
 
                     return true;
                 }

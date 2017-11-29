@@ -64,6 +64,7 @@
             this.基础资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.车间管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刀具类型管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据导入导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.权限管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,7 +149,6 @@
             this.closeAll = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.数据导入导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -276,7 +276,7 @@
             // 机床管理ToolStripMenuItem
             // 
             this.机床管理ToolStripMenuItem.Name = "机床管理ToolStripMenuItem";
-            this.机床管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.机床管理ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.机床管理ToolStripMenuItem.Text = "机床管理";
             this.机床管理ToolStripMenuItem.Click += new System.EventHandler(this.机床管理ToolStripMenuItem_Click);
             // 
@@ -316,6 +316,13 @@
             this.刀具类型管理ToolStripMenuItem.Name = "刀具类型管理ToolStripMenuItem";
             this.刀具类型管理ToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
             this.刀具类型管理ToolStripMenuItem.Text = "刀具类型管理";
+            // 
+            // 数据导入导出ToolStripMenuItem
+            // 
+            this.数据导入导出ToolStripMenuItem.Name = "数据导入导出ToolStripMenuItem";
+            this.数据导入导出ToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
+            this.数据导入导出ToolStripMenuItem.Text = "数据导入/导出";
+            this.数据导入导出ToolStripMenuItem.Click += new System.EventHandler(this.数据导入导出ToolStripMenuItem_Click);
             // 
             // 系统管理ToolStripMenuItem
             // 
@@ -1222,12 +1229,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1184, 722);
             this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // 数据导入导出ToolStripMenuItem
-            // 
-            this.数据导入导出ToolStripMenuItem.Name = "数据导入导出ToolStripMenuItem";
-            this.数据导入导出ToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
-            this.数据导入导出ToolStripMenuItem.Text = "数据导入/导出";
             // 
             // MainForm
             // 

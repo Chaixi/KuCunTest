@@ -25,6 +25,9 @@ namespace kucunTest.Jichuang
         private string SqlStr = "";
         string jctp = "";//机床图片名称
         string tishi = "";
+
+        string LogType = "机床";
+        string LogMessage = "";
         #endregion
 
         /// <summary>
@@ -253,6 +256,12 @@ namespace kucunTest.Jichuang
                     }
                     Thread.Sleep(200);
                     jichuangtupian.Image = Image.FromFile(lvse.FileName);
+
+                    //日志记录
+                    LogMessage = string.Format("成功加载{0}的机床图片。", JCMC.Text);
+                    Program.WriteLog(LogType, LogMessage);
+                    LogMessage = "";
+
                     Picture_Save(jctp);
                 }
             }
@@ -276,10 +285,14 @@ namespace kucunTest.Jichuang
             string str_iniFileUrl = System.Windows.Forms.Application.StartupPath + "\\Images\\JiChuang\\";
             if (System.IO.File.Exists(str_iniFileUrl + filename))
             {
-                System.IO.File.Delete(filename);
+                System.IO.File.Delete(str_iniFileUrl + filename);
             }
             bit.Save(str_iniFileUrl + filename);
-          
+
+            //日志记录
+            LogMessage = string.Format("成功保存{0}的机床图片到{1}", JCMC.Text, str_iniFileUrl + filename);
+            Program.WriteLog(LogType, LogMessage);
+            LogMessage = "";
         }
 
         /// <summary>
@@ -325,6 +338,12 @@ namespace kucunTest.Jichuang
                 }
 
                 tishi = "删除成功！";
+                
+                //日志记录
+                LogMessage = string.Format("成功删除机床：{0}", mc);
+                Program.WriteLog(LogType, LogMessage);
+                LogMessage = "";
+
                 MessageBox.Show(tishi);
 
                 BindRoot();

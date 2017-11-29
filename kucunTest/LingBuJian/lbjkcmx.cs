@@ -23,18 +23,18 @@ namespace kucunTest.LingBuJian
         AutoSizeFormClass asc = new AutoSizeFormClass();//窗口自适应类
 
         //零部件表
-        string lbjbiao = "jichuxinxi";
-        string lbjbiao_lbjmc = "daojuid";
-        string lbjbiao_lbjgg = "daojuguige";
-        string lbjbiao_lbjxh = "daojuxinghao";
-        string lbjbiao_djgbm = "weizhi";
-        string lbjbiao_jtwz = "cengshu";
-        string lbjbiao_kcsl = "kcsl";
-        string lbjbiao_dw = "danwei";
+        //string lbjbiao = "jichuxinxi";
+        //string lbjbiao_lbjmc = "daojuid";
+        //string lbjbiao_lbjgg = "daojuguige";
+        //string lbjbiao_lbjxh = "daojuxinghao";
+        //string lbjbiao_djgbm = "weizhi";
+        //string lbjbiao_jtwz = "cengshu";
+        //string lbjbiao_kcsl = "kcsl";
+        //string lbjbiao_dw = "danwei";
 
         //流水表
-        string liushuibiao = "lbj_liushui";
-        string DHZD = "danhao";
+        //string liushuibiao = "lbj_liushui";
+        //string DHZD = "danhao";
 
         string TYPE = "LBJLY";
         #endregion
@@ -103,10 +103,10 @@ namespace kucunTest.LingBuJian
 
             if(cbx_lbjmc.Text != "" || cbx_djgmc.Text != "" || cbx_cs.Text != "")
             {
-                string conditions = string.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'", lbjbiao_lbjmc, cbx_lbjmc.Text.ToString(), lbjbiao_djgbm, cbx_djgmc.Text.ToString(), lbjbiao_jtwz, cbx_cs.Text.ToString());
+                string conditions = string.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'", LingBuJianBiao.mc, cbx_lbjmc.Text.ToString(), LingBuJianBiao.weizhibianma, cbx_djgmc.Text.ToString(), LingBuJianBiao.cengshu, cbx_cs.Text.ToString());
 
                 //加载库存明细
-                Sqlstr = string.Format("SELECT {1} AS lbjmc, {2} AS lbjgg, {3} AS lbjxh, {4} AS djgbm, {5} AS jtwz, {6} AS kcsl, {7} AS dw FROM {0} WHERE {8}", lbjbiao, lbjbiao_lbjmc, lbjbiao_lbjgg, lbjbiao_lbjxh, lbjbiao_djgbm, lbjbiao_jtwz, lbjbiao_kcsl, lbjbiao_dw, conditions);
+                Sqlstr = string.Format("SELECT {1} AS lbjmc, {2} AS lbjgg, {3} AS lbjxh, {4} AS djgbm, {5} AS jtwz, {6} AS kcsl, {7} AS dw FROM {0} WHERE {8}", LingBuJianBiao.TableName, LingBuJianBiao.mc, LingBuJianBiao.gg, LingBuJianBiao.xinghao, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.kcsl, LingBuJianBiao.dw, conditions);
                 DataTable db_search = SQL.getDataSet1(Sqlstr).Tables[0];
 
                 //判断是否查询到数据
@@ -150,9 +150,9 @@ namespace kucunTest.LingBuJian
             int rowindex = kcmx.CurrentRow.Index;
             DataRow dr = ((kcmx.Rows[rowindex]).DataBoundItem as DataRowView).Row;//微软提供的唯一的从DataGridViewRow转换DataRow
 
-            Sqlstr = string.Format("SELECT * FROM {0} WHERE lbjmc = '{1}' AND lbjxh = '{2}' AND djgbm = '{3}' AND jtwz = '{4}' ORDER BY czsj ASC", liushuibiao, dr["lbjmc"].ToString(), dr["lbjxh"].ToString(), dr["djgbm"].ToString(), dr["jtwz"].ToString());
+            Sqlstr = string.Format("SELECT * FROM {0} WHERE lbjmc = '{1}' AND lbjxh = '{2}' AND djgbm = '{3}' AND jtwz = '{4}' ORDER BY czsj ASC", lbjLiuShui.TableName, dr["lbjmc"].ToString(), dr["lbjxh"].ToString(), dr["djgbm"].ToString(), dr["jtwz"].ToString());
             czjl.AutoGenerateColumns = false;
-            czjl.DataSource = SQL.getDataSet(Sqlstr, liushuibiao).Tables[0].DefaultView;
+            czjl.DataSource = SQL.getDataSet(Sqlstr, lbjLiuShui.TableName).Tables[0].DefaultView;
         }
 
         /// <summary>
@@ -170,9 +170,9 @@ namespace kucunTest.LingBuJian
         /// </summary>
         private void LoadAllKCMX()
         {
-            Sqlstr = string.Format("SELECT {1} AS lbjmc, {2} AS lbjgg, {3} AS lbjxh, {4} AS djgbm, {5} AS jtwz, {6} AS kcsl, {7} AS dw FROM {0} ORDER BY {1} ASC", lbjbiao, lbjbiao_lbjmc, lbjbiao_lbjgg, lbjbiao_lbjxh, lbjbiao_djgbm, lbjbiao_jtwz, lbjbiao_kcsl, lbjbiao_dw);
+            Sqlstr = string.Format("SELECT {1} AS lbjmc, {2} AS lbjgg, {3} AS lbjxh, {4} AS djgbm, {5} AS jtwz, {6} AS kcsl, {7} AS dw FROM {0} ORDER BY {1} ASC", LingBuJianBiao.TableName, LingBuJianBiao.mc, LingBuJianBiao.gg, LingBuJianBiao.xinghao, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.kcsl, LingBuJianBiao.dw);
             kcmx.AutoGenerateColumns = false;
-            kcmx.DataSource = SQL.getDataSet(Sqlstr, lbjbiao).Tables[0].DefaultView;
+            kcmx.DataSource = SQL.getDataSet(Sqlstr, LingBuJianBiao.TableName).Tables[0].DefaultView;
             Sqlstr = "";
         }
     }

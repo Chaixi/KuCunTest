@@ -57,11 +57,10 @@ namespace kucunTest.DaoJu
             }
             else
             {
-                sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'";
+                sqlstr = string.Format("SELECT DISTINCT {1} FROM {0} WHERE {2} = '{3}'", DaoJuTemp.TableName, DaoJuTemp.guige, DaoJuTemp.leixing, djlx.SelectedItem.ToString().Trim());
                 djgg.DataSource = SQL.DataReadList(sqlstr);
                 djgg.SelectedIndex = -1;//默认为空
-            }
-            
+            }            
         }
 
         private void djgg_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,7 +77,7 @@ namespace kucunTest.DaoJu
             {
                 djid.DataSource = null;
 
-                sqlstr = "SELECT dj.daojuid FROM daojutemp dj WHERE dj.weizhibiaoshi = 'S' AND dj.daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'" + " AND dj.daojuguige = '" + djgg.SelectedItem.ToString().Trim() + "'";
+                sqlstr = string.Format("SELECT dj.{1} FROM {0} dj WHERE dj.{2} = 'S' AND dj.{3} = '{4}' AND dj.{5} = '{6}'", DaoJuTemp.TableName, DaoJuTemp.id, DaoJuTemp.weizhibiaoshi, DaoJuTemp.leixing, djlx.SelectedItem.ToString().Trim(), DaoJuTemp.guige, djgg.SelectedItem.ToString().Trim());
 
                 List<string> list = new List<string>();
                 list = SQL.DataReadList(sqlstr);
@@ -89,7 +88,6 @@ namespace kucunTest.DaoJu
                 else
                 {
                     djid.DataSource = list;
-
                 }
             }            
         }
@@ -172,7 +170,7 @@ namespace kucunTest.DaoJu
                 return;
             }
 
-            sqlstr = "SELECT jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojutemp djtp ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where djtp.daojuid is NULL and jcdjk.jichuangbianma = '" + jcbm.SelectedItem.ToString().Trim() + "'";
+            sqlstr = string.Format("SELECT jcdjk.{2} FROM {0} jcdjk LEFT JOIN {1} djtp ON CONCAT(djtp.{3},'-', djtp.{4} ) = CONCAT(jcdjk.{5},'-', jcdjk.{2} ) WHERE djtp.{6} IS NULL AND jcdjk.{5} = '{7}'", JiChuangDaoJuKu.TableName, DaoJuTemp.TableName, JiChuangDaoJuKu.dth, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, JiChuangDaoJuKu.jcbm, DaoJuTemp.id, jcbm.SelectedItem.ToString().Trim());
             dth.DataSource = SQL.DataReadList(sqlstr);
             dth.SelectedIndex = -1;
         }

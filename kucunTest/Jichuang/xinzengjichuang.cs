@@ -26,6 +26,9 @@ namespace kucunTest.Jichuang
 
         //是否选择刀具柜图片
         bool flag = false;
+
+        string LogType = "机床";
+        string LogMessage = "";
         
         #endregion
 
@@ -181,6 +184,12 @@ namespace kucunTest.Jichuang
             }
 
             tishi = "新增机床完成。";
+
+            //日志记录
+            LogMessage = string.Format("成功新增机床：{0}", jcmc);
+            Program.WriteLog(LogType, LogMessage);
+            LogMessage = "";
+
             MessageBox.Show(tishi);
             //this.DialogResult = DialogResult.OK;
             //this.Close();
@@ -276,6 +285,11 @@ namespace kucunTest.Jichuang
                     Thread.Sleep(200);
                     JCTP.Image = Image.FromFile(lvse.FileName);
                     flag = true;
+
+                    //日志记录
+                    LogMessage = string.Format("成功加载{0}的机床图片.", JCMC.Text);
+                    Program.WriteLog(LogType, LogMessage);
+                    LogMessage = "";
                 }
             }
         }
@@ -303,6 +317,11 @@ namespace kucunTest.Jichuang
                 System.IO.File.Delete(filename);
             }
             bit.Save(str_iniFileUrl + filename);
+
+            //日志记录
+            LogMessage = string.Format("成功保存{0}的机床图片到{1}", JCMC.Text, str_iniFileUrl + filename);
+            Program.WriteLog(LogType, LogMessage);
+            LogMessage = "";
         }
     }
 }

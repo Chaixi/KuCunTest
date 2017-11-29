@@ -24,16 +24,16 @@ namespace kucunTest.LingBuJian
         TreeNode root = new TreeNode();
 
         //零部件表
-        string lbjbiao = "jichuxinxi";
-        string lbjbiao_lbjmc = "daojuid";
-        string lbjbiao_lbjgg = "daojuguige";
-        string lbjbiao_lbjxh = "daojuxinghao";
-        string lbjbiao_djgbm = "weizhi";
-        string lbjbiao_jtwz = "cengshu";
-        string lbjbiao_kcsl = "kcsl";
-        string lbjbiao_dw = "danwei";
-        string lbjbiao_zxkc = "zuixiaokucun";
-        string lbjbiao_zdkc = "zuidakucun";
+        //string lbjbiao = "jichuxinxi";
+        //string lbjbiao_lbjmc = "daojuid";
+        //string lbjbiao_lbjgg = "daojuguige";
+        //string lbjbiao_lbjxh = "daojuxinghao";
+        //string lbjbiao_djgbm = "weizhi";
+        //string lbjbiao_jtwz = "cengshu";
+        //string lbjbiao_kcsl = "kcsl";
+        //string lbjbiao_dw = "danwei";
+        //string lbjbiao_zxkc = "zuixiaokucun";
+        //string lbjbiao_zdkc = "zuidakucun";
 
         BaseAlex Alex = new BaseAlex();
         AutoSizeFormClass asc = new AutoSizeFormClass();
@@ -58,7 +58,7 @@ namespace kucunTest.LingBuJian
             root.Text = "所有类型";
             treeView1.Nodes.Add(root);
 
-            Sqlstr = string.Format("SELECT DISTINCT daojuid FROM {0} ORDER BY CONVERT(daojuid USING gbk) ASC", lbjbiao);
+            Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0} ORDER BY CONVERT({1} USING gbk) ASC", LingBuJianBiao.TableName, LingBuJianBiao.mc);
             Alex.BindRoot(Sqlstr, root, true);
             treeView1.Nodes[0].Expand();
             treeView1.SelectedNode = treeView1.Nodes[0];//默认选中所有类型
@@ -89,7 +89,7 @@ namespace kucunTest.LingBuJian
                 {
                     TreeNode currentNode = e.Node;
                     currentNode.Nodes[0].Remove();
-                    Sqlstr = string.Format("SELECT DISTINCT daojuxinghao FROM {0} WHERE daojuid = '{1}'", lbjbiao, currentNode.Text);
+                    Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0} WHERE {2} = '{3}'", LingBuJianBiao.TableName, LingBuJianBiao.xinghao, LingBuJianBiao.mc, currentNode.Text);
                     Alex.BindRoot(Sqlstr, currentNode, false);
                 }
             }            
@@ -107,19 +107,19 @@ namespace kucunTest.LingBuJian
             string where = "";//SQL语句条件。默认为空，即第一层节点：所有类型
             if (treeView1.SelectedNode.Level == 1)//当前选中节点为第二层节点：刀具类型
             {
-                where = "WHERE daojuid = '" + e.Node.Text.ToString() + "'";
+                where = string.Format("WHERE {0} = '{1}'", LingBuJianBiao.mc, e.Node.Text.ToString());
 
                 //查该类型下规格数和总数量
-                string sqlstr1 = string.Format("SELECT COUNT(DISTINCT {2}) AS xhs, SUM({3}) AS zsl FROM {0} {1}", lbjbiao, where, lbjbiao_lbjxh, lbjbiao_kcsl);
+                string sqlstr1 = string.Format("SELECT COUNT(DISTINCT {2}) AS xhs, SUM({3}) AS zsl FROM {0} {1}", LingBuJianBiao.TableName, where, LingBuJianBiao.xinghao, LingBuJianBiao.kcsl);
                 DataTable db = SQL.getDataSet1(sqlstr1).Tables[0];
                 LBJGGS.Text = db.Rows[0]["xhs"].ToString();
                 LBJZSL.Text = db.Rows[0]["zsl"].ToString();
             }
             else if(treeView1.SelectedNode.Level == 2)//当前选中节点为第三层节点：刀具具体型号
             {
-                where = string.Format("WHERE daojuid = '{0}' AND daojuxinghao = '{1}'", e.Node.Parent.Text.ToString(), e.Node.Text.ToString());
+                where = string.Format("WHERE {0} = '{1}' AND {2} = '{3}'", LingBuJianBiao.mc, e.Node.Parent.Text.ToString(), LingBuJianBiao.xinghao, e.Node.Text.ToString());
             }
-            Sqlstr = "SELECT daojuid AS lbjmc, daojuxinghao AS lbjxh, daojuguige AS lbjgg, CONCAT(weizhi,'--', cengshu) AS kcwz, kcsl, danwei AS dw, zuixiaokucun AS zxkc, zuidakucun AS zdkc FROM jichuxinxi " + where;
+            Sqlstr = string.Format("SELECT {1} AS lbjmc, {2} AS lbjxh, {3} AS lbjgg, CONCAT({4},'--', {5}) AS kcwz, {6} AS kcsl, {7} AS dw, {8} AS zxkc, {9} AS zdkc FROM {0} {10}", LingBuJianBiao.TableName, LingBuJianBiao.mc, LingBuJianBiao.xinghao, LingBuJianBiao.gg, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.kcsl, LingBuJianBiao.dw, LingBuJianBiao.zxkc, LingBuJianBiao.zdkc, where);
             lbjxinxi.DataSource = SQL.getDataSet1(Sqlstr).Tables[0].DefaultView;
             RefreshColor();            
               
@@ -138,8 +138,8 @@ namespace kucunTest.LingBuJian
 
             if(search_lbjxh.Text != "" || search_djgbm.Text != "" || search_jtwz.Text != "")
             {
-                string conditions = string.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'", lbjbiao_lbjxh, search_lbjxh.Text.ToString(), lbjbiao_djgbm, search_djgbm.Text.ToString(), lbjbiao_jtwz, search_jtwz.Text.ToString());
-                Sqlstr = string.Format("SELECT {0} AS lbjmc, {1} AS lbjxh, {2} AS lbjgg, CONCAT({3},'--', {4}) AS kcwz, {5} AS kcsl, {6} AS dw, {7} AS zxkc, {8} AS zdkc FROM {9} WHERE {10}", lbjbiao_lbjmc, lbjbiao_lbjxh, lbjbiao_lbjgg, lbjbiao_djgbm, lbjbiao_jtwz, lbjbiao_kcsl, lbjbiao_dw, lbjbiao_zxkc, lbjbiao_zdkc, lbjbiao, conditions);
+                string conditions = string.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'", LingBuJianBiao.xinghao, search_lbjxh.Text.ToString(), LingBuJianBiao.weizhibianma, search_djgbm.Text.ToString(), LingBuJianBiao.cengshu, search_jtwz.Text.ToString());
+                Sqlstr = string.Format("SELECT {0} AS lbjmc, {1} AS lbjxh, {2} AS lbjgg, CONCAT({3},'--', {4}) AS kcwz, {5} AS kcsl, {6} AS dw, {7} AS zxkc, {8} AS zdkc FROM {9} WHERE {10}", LingBuJianBiao.mc, LingBuJianBiao.xinghao, LingBuJianBiao.gg, LingBuJianBiao.weizhibianma, LingBuJianBiao.cengshu, LingBuJianBiao.kcsl, LingBuJianBiao.dw, LingBuJianBiao.zxkc, LingBuJianBiao.zdkc, LingBuJianBiao.TableName, conditions);
                 DataTable db_search = SQL.getDataSet1(Sqlstr).Tables[0];
 
                 //判断是否查询到数据
@@ -412,7 +412,7 @@ namespace kucunTest.LingBuJian
         {
             if(search_djgbm.SelectedIndex >= 0)
             {
-                Sqlstr = string.Format("SELECT djgcs FROM daojuguicengshu WHERE djgmc = '{0}' ", search_djgbm.Text);
+                Sqlstr = string.Format("SELECT {1} FROM {0} WHERE {2} = '{3}' ", DaoJuGuiCengShu.TableName, DaoJuGuiCengShu.djgcs, DaoJuGuiCengShu.djgmc, search_djgbm.Text);
                 search_jtwz.DataSource = SQL.DataReadList(Sqlstr);
             }
             else

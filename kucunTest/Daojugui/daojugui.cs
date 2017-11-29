@@ -29,6 +29,9 @@ namespace kucunTest.Daojugui
         string djgtp = "";
 
         string tishi = "";
+
+        string LogType = "刀具柜";
+        string LogMessage = "";
         #endregion
 
         /// <summary>
@@ -375,7 +378,7 @@ namespace kucunTest.Daojugui
         {
             if (DJGMC.Text == "")
             {
-                tishi = "请先选择要删除的刀具柜！";
+                tishi = "请先选择刀具柜！";
                 MessageBox.Show(tishi);
                 return;
             }
@@ -399,6 +402,12 @@ namespace kucunTest.Daojugui
                     }
                     Thread.Sleep(200);
                     daojuguitupian.Image = Image.FromFile(lvse.FileName);
+
+                    //日志记录
+                    LogMessage = string.Format("成功加载{0}的刀具柜图片。", DJGMC.Text);
+                    Program.WriteLog(LogType, LogMessage);
+                    LogMessage = "";
+
                     Picture_Save(djgtp);
                 }
             }
@@ -429,6 +438,10 @@ namespace kucunTest.Daojugui
             }
             bit.Save(str_iniFileUrl + filename);
 
+            //日志记录
+            LogMessage = string.Format("成功保存{0}的刀具柜图片到{1}", DJGMC.Text, str_iniFileUrl + filename);
+            Program.WriteLog(LogType, LogMessage);
+            LogMessage = "";
         }
 
         /// <summary>
@@ -495,6 +508,11 @@ namespace kucunTest.Daojugui
 
                 tishi = "删除成功！";
                 MessageBox.Show(tishi);
+
+                //日志记录
+                LogMessage = string.Format("成功删除刀具柜：{0}", mc);
+                Program.WriteLog(LogType, LogMessage);
+                LogMessage = "";
 
                 BindRoot();
             }

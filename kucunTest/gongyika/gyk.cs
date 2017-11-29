@@ -30,6 +30,8 @@ namespace kucunTest.gongyika
 
         bool flag = false;//工艺卡是否修改，默认为false没有修改
 
+        string LogType = "工艺卡";
+        string LogMessage = "";
         #endregion
 
         /*--------------------------------------------窗体构造与加载-------------------------------------------------------------------------------------------------------*/
@@ -463,6 +465,11 @@ namespace kucunTest.gongyika
             row = SQL.ExecuteNonQuery(SqlStr);
             SqlStr = "";
             #endregion 插入工艺卡表结束
+
+            //日志记录
+            LogMessage = string.Format("成功新增工艺卡：{0}", gykbh);
+            Program.WriteLog(LogType, LogMessage);
+            LogMessage = "";
         }
 
         /// <summary>
@@ -566,6 +573,11 @@ namespace kucunTest.gongyika
             row = SQL.ExecuteNonQuery(SqlStr);
             SqlStr = "";
             #endregion 更新工艺卡表结束
+
+            //日志记录
+            LogMessage = string.Format("成功更新工艺卡：{0}", newGykbh);
+            Program.WriteLog(LogType, LogMessage);
+            LogMessage = "";
         }
 
         /// <summary>
@@ -612,6 +624,11 @@ namespace kucunTest.gongyika
                 //从工艺卡表中删除
                 SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", GongYiKa.TableName, GongYiKa.gykbh, gykbh);
                 row = SQL.ExecuteNonQuery(SqlStr);
+
+                //日志记录
+                LogMessage = string.Format("成功删除工艺卡：{0}", gykbh);
+                Program.WriteLog(LogType, LogMessage);
+                LogMessage = "";
             }
 
             //刷新树节点

@@ -27,14 +27,17 @@ namespace kucunTest.DaoJu
         List<string> list1 = new List<string>();
         List<string> list = new List<string>();
 
-        string daojutemp = "daojutemp";
-        string danjubiao = "daojuxuyong";
-        string mingxibiao = "daojuxuyongmingxi";
-        string liushuibiao = "daojuliushui";
-        string DHZD = "xydh";
+        string LogType = "刀具续用";
+        string LogMessage = "";
+        //string daojutemp = "daojutemp";
+        //string danjubiao = "daojuxuyong";
+        //string mingxibiao = "daojuxuyongmingxi";
+        //string liushuibiao = "daojuliushui";
+        //string DHZD = "xydh";
 
         #endregion
 
+        /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         /// <summary>
         /// 默认构造函数
         /// </summary>
@@ -44,7 +47,9 @@ namespace kucunTest.DaoJu
 
             danhao.Text = Alex.DanHao("DJXY");//自动生成单号
             XYRQ.Value = DateTime.Now;
-            XYBZ.SelectedIndex = 0;
+
+            XYBZ.DataSource = Alex.GetList("bz");
+            XYBZ.SelectedIndex = -1;
             //XYR.SelectedIndex = 0;
             heji.Text = HJ.ToString();
 
@@ -70,12 +75,13 @@ namespace kucunTest.DaoJu
             //ygx.Text = list1[2];//要续用刀具原加工工序
 
             //加载所有机床名称以供选择要续用的设备，并默认选择原设备
-            string sqlstr1 = "SELECT jichuangbianma FROM jichuang";
-            xyinfo_xyjcbm.DataSource = SQL.DataReadList(sqlstr1);
+            //string sqlstr1 = "SELECT jichuangbianma FROM jichuang";
+            //xyinfo_xyjcbm.DataSource = SQL.DataReadList(sqlstr1);
+            xyinfo_xyjcbm.DataSource = Alex.GetList("jc");
             xyinfo_xyjcbm.SelectedIndex = -1;
 
             //加载所有在机床上的刀具ID（位置标识为M）
-            Sqlstr = string.Format("SELECT dj.daojuid FROM {0} dj WHERE dj.weizhibiaoshi = 'M'", daojutemp);
+            Sqlstr = string.Format("SELECT dj.{1} FROM {0} dj WHERE dj.{2} = 'M'", DaoJuTemp.TableName, DaoJuTemp.id, DaoJuTemp.weizhibiaoshi);
             xyinfo_djid.DataSource = SQL.DataReadList(Sqlstr);
             xyinfo_djid.SelectedIndex = -1;
 
@@ -87,6 +93,8 @@ namespace kucunTest.DaoJu
             //新工序默认为原工序，不变
             //xgx.Text = ygx.Text;
         }
+
+        /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
         #region 续用明细部分
         /// <summary>
@@ -127,9 +135,6 @@ namespace kucunTest.DaoJu
 
             this.xuyongmingxi.CurrentCell = null;//默认不要选中
         }
-
-        
-
 
         /// <summary>
         /// 选中行发生,加载具体刀具信息和续用信息
@@ -208,14 +213,11 @@ namespace kucunTest.DaoJu
             //string sql = "SELECT jcdjk.daotaohao FROM jcdaojuku jcdjk LEFT JOIN daojutemp djtp ON concat(djtp.weizhi,'-', djtp.cengshu ) = concat(jcdjk.jichuangbianma,'-', jcdjk.daotaohao ) where djtp.daojuid is NULL and jcdjk.jichuangbianma = '" + xjcbm.SelectedItem.ToString().Trim() + "'";
 
             //加载所有刀套号
-            Sqlstr = string.Format("SELECT jcdjk.daotaohao FROM jcdaojuku jcdjk WHERE jcdjk.jichuangbianma = '{0}'", xyinfo_xyjcbm.Text.Trim());
+            Sqlstr = string.Format("SELECT jcdjk.{1} FROM {0} jcdjk WHERE jcdjk.{2} = '{3}'", JiChuangDaoJuKu.TableName, JiChuangDaoJuKu.dth, JiChuangDaoJuKu.jcbm, xyinfo_xyjcbm.Text.Trim());
             xyinfo_xydth.DataSource = SQL.DataReadList(Sqlstr);
             xyinfo_xydth.SelectedIndex = -1;
         }
 
-        #endregion 续用明细部分结束
-
-        #region 按钮部分
         /// <summary>
         /// 新增续用明细按钮
         /// </summary>
@@ -237,9 +239,9 @@ namespace kucunTest.DaoJu
             if (this.xuyongmingxi.Rows.Count > 0 && this.xuyongmingxi.SelectedRows.Count > 0)
             {
                 crtrowindex = this.xuyongmingxi.CurrentRow.Index;
-            }            
+            }
 
-            if(crtrowindex < 0)
+            if (crtrowindex < 0)
             {
                 MessageBox.Show("请选择一条续用明细数据！", "提示");
                 return;
@@ -249,7 +251,7 @@ namespace kucunTest.DaoJu
             //    MessageBox.Show("请填写续用工序！", "提示");
             //    return;
             //}
-            if(xyinfo_xyjcbm.Text.ToString().Trim() == null || xyinfo_xydth.Text.ToString().Trim() == "")
+            if (xyinfo_xyjcbm.Text.ToString().Trim() == null || xyinfo_xydth.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("请选择续用机床和续用刀套号！", "提示");
                 return;
@@ -258,7 +260,6 @@ namespace kucunTest.DaoJu
             this.xuyongmingxi.Rows[crtrowindex].Cells["xygx"].Value = xyinfo_xygx.Text.ToString().Trim();
             this.xuyongmingxi.Rows[crtrowindex].Cells["xyjcbm"].Value = xyinfo_xyjcbm.SelectedItem.ToString().Trim();
             this.xuyongmingxi.Rows[crtrowindex].Cells["xydth"].Value = xyinfo_xydth.SelectedItem.ToString().Trim();
-
         }
 
         /// <summary>
@@ -302,6 +303,10 @@ namespace kucunTest.DaoJu
             heji.Text = HJ.ToString();//更新合计数量
         }
 
+        #endregion 续用明细部分结束
+
+        /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        #region 按钮部分
         /// <summary>
         /// 保存单据按钮
         /// </summary>
@@ -325,15 +330,18 @@ namespace kucunTest.DaoJu
                 string jbr = JBR.Text.Trim();
 
                 //将续用信息存入数据库daojuxuyong表，单据状态为0，可再次更改
-                if (Alex.CunZai(danhao.Text.ToString(), DHZD, danjubiao) != 0)//判断此单号在单据表中是否已存在
+                if (Alex.CunZai(danhao.Text.ToString(), DaoJuXuYong.danhao, DaoJuXuYong.TableName) != 0)//判断此单号在单据表中是否已存在
                 {
                     //使用UPDATE语句
-                    Sqlstr = string.Format("UPDATE {0} SET xydh='{1}', xybz='{2}', xyr='{3}', xyrq='{4}', beizhu='{5}', spr='{6}', jbr='{7}', djzt='{8}'", danjubiao, xydh, xybz, xyr, xyrq, xysm, spr, jbr, '0');
+                    Sqlstr = string.Format("UPDATE {0} SET xydh='{1}', xybz='{2}', xyr='{3}', xyrq='{4}', beizhu='{5}', spr='{6}', jbr='{7}', djzt='{8}'", DaoJuXuYong.TableName, xydh, xybz, xyr, xyrq, xysm, spr, jbr, '0');
+                    LogMessage = string.Format("成功更新1张单据编号为{0}的刀具续用暂存单据。", xydh);
                 }
                 else
                 {
                     //直接使用INSERT语句
-                    Sqlstr = string.Format("INSERT INTO {0}(xydh, xybz, xyr, xyrq, beizhu, spr, jbr, djzt) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '0')", danjubiao, xydh, xybz, xyr, xyrq, xysm, spr, jbr);
+                    Sqlstr = string.Format("INSERT INTO {0}(xydh, xybz, xyr, xyrq, beizhu, spr, jbr, djzt) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '0')", DaoJuXuYong.TableName, xydh, xybz, xyr, xyrq, xysm, spr, jbr);
+                    LogMessage = string.Format("成功保存1张单据编号为{0}的刀具续用新单据。", xydh);
+
                 }
 
                 //执行sql语句,row1为受影响的行数
@@ -343,10 +351,10 @@ namespace kucunTest.DaoJu
                 int row2 = 0;
                 if (row1 != 0)
                 {
-                    if (Alex.CunZai(danhao.Text.ToString(), DHZD, mingxibiao) != 0)//判断此单号在明细表中是否已存在
+                    if (Alex.CunZai(danhao.Text.ToString(), DaoJuXuYongMingXi.danhao, DaoJuXuYongMingXi.TableName) != 0)//判断此单号在明细表中是否已存在
                     {
                         //使用DELETE语句删除已存在的明细
-                        Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", mingxibiao, DHZD, xydh);
+                        Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuXuYongMingXi.TableName, DaoJuXuYongMingXi.danhao, xydh);
                         row2 = SQL.ExecuteNonQuery(Sqlstr);
                     }
 
@@ -369,13 +377,18 @@ namespace kucunTest.DaoJu
                         jcbm = this.xuyongmingxi.Rows[rowindex].Cells["jcbm"].Value.ToString();
                         dth = this.xuyongmingxi.Rows[rowindex].Cells["dth"].Value.ToString();
 
-                        Sqlstr = string.Format("INSERT INTO {0}(xydh, djlx, djgg, djid, sl, jggx, jcbm, dth) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", mingxibiao, xydh, djlx, djgg, djid, sl, jggx, jcbm, dth);
+                        Sqlstr = string.Format("INSERT INTO {0}(xydh, djlx, djgg, djid, sl, jggx, jcbm, dth) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", DaoJuXuYongMingXi.TableName, xydh, djlx, djgg, djid, sl, jggx, jcbm, dth);
                         row2 = SQL.ExecuteNonQuery(Sqlstr);//执行sql语句,row2为受影响的行数
                     }
 
                     if (row2 != 0)
                     {
                         MessageBox.Show("单据保存成功，可再次修改确认！", "提示", MessageBoxButtons.OK);
+
+                        //日志记录
+                        Program.WriteLog(LogType, LogMessage);
+                        LogMessage = "";
+
                         //this.InitializeComponent();
                         //this.OnLoad(null);
                         this.DialogResult = DialogResult.OK;
@@ -415,15 +428,19 @@ namespace kucunTest.DaoJu
                     string jbr = JBR.Text.Trim();
 
                     //将续用信息存入数据库daojuxuyong表，单据状态为1，不可更改
-                    if (Alex.CunZai(danhao.Text.ToString(), DHZD, danjubiao) != 0)//判断此单号在单据表中是否已存在
+                    if (Alex.CunZai(danhao.Text.ToString(), DaoJuXuYong.danhao, DaoJuXuYong.TableName) != 0)//判断此单号在单据表中是否已存在
                     {
                         //使用UPDATE语句
-                        Sqlstr = string.Format("UPDATE {0} SET xydh='{1}', xybz='{2}', xyr='{3}', xyrq='{4}', beizhu='{5}', spr='{6}', jbr='{7}', djzt='{8}'", danjubiao, xydh, xybz, xyr, xyrq, xysm, spr, jbr, '1');
+                        Sqlstr = string.Format("UPDATE {0} SET xydh='{1}', xybz='{2}', xyr='{3}', xyrq='{4}', beizhu='{5}', spr='{6}', jbr='{7}', djzt='{8}'", DaoJuXuYong.TableName, xydh, xybz, xyr, xyrq, xysm, spr, jbr, '1');
+                        LogMessage = string.Format("成功更确认1张单据编号为{0}的刀具续用暂存单据。", xydh);
+
                     }
                     else
                     {
                         //直接使用INSERT语句
-                        Sqlstr = string.Format("INSERT INTO {0}(xydh, xybz, xyr, xyrq, beizhu, spr, jbr, djzt) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '1')", danjubiao, xydh, xybz, xyr, xyrq, xysm, spr, jbr);
+                        Sqlstr = string.Format("INSERT INTO {0}(xydh, xybz, xyr, xyrq, beizhu, spr, jbr, djzt) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '1')", DaoJuXuYong.TableName, xydh, xybz, xyr, xyrq, xysm, spr, jbr);
+                        LogMessage = string.Format("成功确认1张单据编号为{0}的刀具续用新单据。", xydh);
+
                     }
 
                     //执行sql语句,row1为受影响的行数
@@ -437,10 +454,10 @@ namespace kucunTest.DaoJu
 
                     if (row1 != 0)
                     {
-                        if (Alex.CunZai(danhao.Text.ToString(), DHZD, mingxibiao) != 0)//判断此单号在明细表中是否已存在
+                        if (Alex.CunZai(danhao.Text.ToString(), DaoJuXuYongMingXi.danhao, DaoJuXuYongMingXi.TableName) != 0)//判断此单号在明细表中是否已存在
                         {
                             //使用DELETE语句删除已存在的明细
-                            Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", mingxibiao, DHZD, xydh);
+                            Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuXuYongMingXi.TableName, DaoJuXuYongMingXi.danhao, xydh);
                             row2 = SQL.ExecuteNonQuery(Sqlstr);
                         }
 
@@ -467,21 +484,26 @@ namespace kucunTest.DaoJu
                             dskysl = (Alex.Count_djsl(djlx, "kysl")).ToString();
 
                             //明细数据存入明细表
-                            Sqlstr = string.Format("INSERT INTO {0}(xydh, djlx, djgg, djid, sl, jggx, jcbm, dth) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", mingxibiao, xydh, djlx, djgg, djid, sl, jggx, jcbm, dth);
+                            Sqlstr = string.Format("INSERT INTO {0}(xydh, djlx, djgg, djid, sl, jggx, jcbm, dth) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", DaoJuXuYongMingXi.TableName, xydh, djlx, djgg, djid, sl, jggx, jcbm, dth);
                             row2 = SQL.ExecuteNonQuery(Sqlstr);//执行sql语句,row2为受影响的行数
 
                             //明细信息存入流水表
-                            Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", liushuibiao, xydh, "刀具续用", djlx, djgg, djid, "0", "0", dskysl, jcbm, dth, xyrq, jbr, xysm);
+                            Sqlstr = string.Format("INSERT INTO {0}(danhao, dhlx, djlx, djgg, djid, zsl, fsl, dskysl, wzbm, jtwz ,czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}')", DaoJuLiuShui.TableName, xydh, "刀具续用", djlx, djgg, djid, "0", "0", dskysl, jcbm, dth, xyrq, jbr, xysm);
                             row3 = SQL.ExecuteNonQuery(Sqlstr);
 
                             //更新刀具位置寿命监测表
-                            Sqlstr = string.Format("UPDATE {0} dj SET dj.weizhibiaoshi = 'M', dj.weizhi = '{1}', dj.cengshu = '{2}' WHERE dj.daojuid = '{3}'", daojutemp, jcbm, dth, djid);
+                            Sqlstr = string.Format("UPDATE {0} dj SET dj.weizhibiaoshi = 'M', dj.weizhi = '{1}', dj.cengshu = '{2}' WHERE dj.daojuid = '{3}'", DaoJuTemp.TableName, jcbm, dth, djid);
                             row4 = SQL.ExecuteNonQuery(Sqlstr);
                         }
 
                         if (row2 != 0)
                         {
                             MessageBox.Show("刀具续用单据已确认，不可修改！", "提示", MessageBoxButtons.OK);
+
+                            //日志记录
+                            Program.WriteLog(LogType, LogMessage);
+                            LogMessage = "";
+
                             //this.InitializeComponent();
                             //this.OnLoad(null);
                             this.DialogResult = DialogResult.OK;
@@ -507,7 +529,10 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void print_Click(object sender, EventArgs e)
         {
-
+            //日志记录
+            LogMessage = string.Format("成功打印1张单据编号为{0}的刀具续用单据。", danhao.Text);
+            Program.WriteLog(LogType, LogMessage);
+            LogMessage = "";
         }
 
         /// <summary>
@@ -517,19 +542,24 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void cancel_Click(object sender, EventArgs e)
         {
-            if (Alex.CunZai(danhao.Text.ToString().Trim(), DHZD, danjubiao) != 0)
+            if (Alex.CunZai(danhao.Text.ToString().Trim(), DaoJuXuYong.danhao, DaoJuXuYong.TableName) != 0)
             {
                 DialogResult dr = MessageBox.Show("确认删除此单据？", "删除确认", MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
                     //删除续用表daojuxuyong中的数据
-                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", danjubiao, DHZD, danhao.Text.ToString().Trim());
+                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuXuYong.TableName, DaoJuXuYong.danhao, danhao.Text.ToString().Trim());
                     int row1 = SQL.ExecuteNonQuery(Sqlstr);
 
                     //删除续用明细表djxuyongmingxi中的数据
-                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", mingxibiao, DHZD, danhao.Text.ToString().Trim());
+                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuXuYongMingXi.TableName, DaoJuWaiJieMingXi.danhao, danhao.Text.ToString().Trim());
                     int row2 = SQL.ExecuteNonQuery(Sqlstr);
                     MessageBox.Show("成功删除一张单据和" + row2 + "条明细记录！");
+
+                    //日志记录
+                    LogMessage = string.Format("成功删除一张单据和{0}条明细记录！", row2);
+                    Program.WriteLog(LogType, LogMessage);
+                    LogMessage = "";
 
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -564,8 +594,8 @@ namespace kucunTest.DaoJu
 
         #endregion 按钮部分结束
 
+        /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         #region 其他方法部分
-
         /// <summary>
         /// AddData函数，向datagridview中增加一行数据
         /// </summary>

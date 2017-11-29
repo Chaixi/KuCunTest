@@ -54,7 +54,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(602, 47);
+            this.label1.Size = new System.Drawing.Size(605, 47);
             this.label1.TabIndex = 0;
             this.label1.Text = "新增刀具柜";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,7 +108,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(216, 355);
+            this.button1.Location = new System.Drawing.Point(199, 355);
             this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 31);
@@ -119,7 +119,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(335, 355);
+            this.button2.Location = new System.Drawing.Point(318, 355);
             this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(92, 31);
@@ -201,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 400);
+            this.ClientSize = new System.Drawing.Size(605, 396);
             this.Controls.Add(this.djglx);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label6);

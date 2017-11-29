@@ -30,6 +30,10 @@ namespace kucunTest.DaoJu
         string[] CP = new string[11];//全局变量，存储初始从数据库加载的测量值，用于与新数据对比,也是已经保存的最新测量数据
         #endregion
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="id"></param>
         public DaoJuCanShuXinXi(string id)
         {
             InitializeComponent();
@@ -47,8 +51,9 @@ namespace kucunTest.DaoJu
             asc.controllInitializeSize(this);
 
             //查询刀具表中对应刀具类型和刀具规格
-            Sqlstr = string.Format("SELECT daojuleixing, daojuguige, daojuxinghao FROM {0} WHERE daojuid = '{1}'", daojubiao, ID);
-            DataTable db1 = SQL.getDataSet(Sqlstr, daojubiao).Tables[0];
+            Sqlstr = string.Format("SELECT {1}, {2}, {3} FROM {0} WHERE {4} = '{5}'", DaoJuTemp.TableName, DaoJuTemp.leixing, DaoJuTemp.guige, DaoJuTemp.xinghao, DaoJuTemp.id, ID);
+            DataTable db1 = SQL.getDataSet(Sqlstr, DaoJuTemp.TableName).Tables[0];
+
             //赋值
             djlx.Text = db1.Rows[0]["daojuleixing"].ToString();
             djgg.Text = db1.Rows[0]["daojuguige"].ToString();
@@ -56,8 +61,9 @@ namespace kucunTest.DaoJu
             djid.Text = ID;
 
             //查询基础参数表中刀具基础信息
-            Sqlstr = string.Format("SELECT csdm, csz FROM {0} WHERE ssfm = '{1}'", jichucanshubiao , djxh);
-            DataTable db2 = SQL.getDataSet(Sqlstr, jichucanshubiao).Tables[0];
+            Sqlstr = string.Format("SELECT {1}, {2} FROM {0} WHERE {3} = '{4}'", DaoJuCanShu.TableName, DaoJuCanShu.csdm, DaoJuCanShu.csz, DaoJuCanShu.ssfm, djxh);
+            DataTable db2 = SQL.getDataSet(Sqlstr, DaoJuCanShu.TableName).Tables[0];
+
             //遍历基础参数
             if(db2.Rows.Count > 0)
             {
@@ -156,6 +162,9 @@ namespace kucunTest.DaoJu
                         MessageBox.Show("测量数据保存成功！");
                         CP = str;//更新最新测量值
                         //this.Close();
+
+                        //日志记录
+                        Program.WriteLog("刀具测量", string.Format("刀具ID为{0}的{1}测量参数更新成功。", ID, djlx.Text.ToString()));
                     }
                 }
                 else
@@ -176,6 +185,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
+            /*
             //刀具的objId和StepId ? 用于查找测量数据
             string ObjId = "";//刀具ID?
             string StepId = "";//刀段号?
@@ -198,6 +208,12 @@ namespace kucunTest.DaoJu
 
             //测量数据填补进系统界面中
             DataTable db = ds.Tables[0].Copy();
+            */
+
+            MessageBox.Show("暂时不支持从ZOLLER对刀仪获取刀具测量数据，请手动输入。", Program.tishiTitle);
+
+            //日志记录
+            Program.WriteLog("刀具测量", "获取测量数据失败：暂不支持从ZOLLER对刀仪获取刀具测量数据。");
             
         }
 

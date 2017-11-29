@@ -27,15 +27,15 @@ namespace kucunTest.DaoJu
 
         DataTable lbjmx = new DataTable();//存放零部件明细数据
 
-        string DaoJuBiao = "daoju";//数据表
-        string lbj = "lbj_temp";
-        string CanShuBiao = "jichucanshu";
-        string GuanLianBiao = "daojulingbujian";
-        string JiChuCanShu = "jichucanshu";
-        string djxhzd = "djxh";//DaoJuBiao数据表字段
-        string djlxzd = "djlx";
-        string djggzd = "djgg";
-        string djtpzd = "djtp";
+        //string DaoJuBiao = "daoju";//数据表
+        //string lbj = "lbj_temp";
+        //string CanShuBiao = "jichucanshu";
+        //string GuanLianBiao = "daojulingbujian";
+        //string JiChuCanShu = "jichucanshu";
+        //string djxhzd = "djxh";//DaoJuBiao数据表字段
+        //string djlxzd = "djlx";
+        //string djggzd = "djgg";
+        //string djtpzd = "djtp";
 
         string DJPIC = "";
         string picmc = "";
@@ -59,7 +59,7 @@ namespace kucunTest.DaoJu
             root.Text = "所有类型";
             treeView1.Nodes.Add(root);
 
-            Sqlstr = string.Format("SELECT DISTINCT {0} FROM {1}", djlxzd, DaoJuBiao);
+            Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0}", DaoJuLeiXing.TableName, DaoJuLeiXing.djlx);
             Alex.BindRoot(Sqlstr, root, true);
 
             treeView1.Nodes[0].Expand();
@@ -114,7 +114,7 @@ namespace kucunTest.DaoJu
                 {
                     TreeNode currentNode = e.Node;
                     currentNode.Nodes[0].Remove();
-                    Sqlstr = string.Format("SELECT {0} FROM {1} WHERE {2} = '{3}'", djxhzd, DaoJuBiao, djlxzd, currentNode.Text);
+                    Sqlstr = string.Format("SELECT {1} FROM {0} WHERE {2} = '{3}'", DaoJuLeiXing.TableName, DaoJuLeiXing.djxh, DaoJuLeiXing.djlx, currentNode.Text);
                     Alex.BindRoot(Sqlstr, currentNode, false);
                 }
             }
@@ -129,7 +129,8 @@ namespace kucunTest.DaoJu
         {
             //清空历史值以加载新数据或空白数据
             Alex.ClearText(this);
-            ZuChengMingXi.DataSource = null;
+            lbjmx.Clear();
+            ZuChengMingXi.DataSource = lbjmx;
 
             if(e.Node.Tag != null && e.Node.Tag.ToString() == "new")
             {
@@ -150,11 +151,11 @@ namespace kucunTest.DaoJu
                 else if (e.Node.Level == 2)
                 {
                     //加载刀具基础信息:刀具类型，刀具规格，刀具型号/工装编号
-                    Sqlstr = string.Format("SELECT {0}, {1}, {2}, {3} FROM {4} WHERE {5} = '{6}'", djlxzd, djggzd, djxhzd, djtpzd, DaoJuBiao, djxhzd, e.Node.Text);
-                    DataTable db1 = SQL.getDataSet(Sqlstr, DaoJuBiao).Tables[0];
-                    DJLX.Text = db1.Rows[0][djlxzd].ToString();
-                    DJGG.Text = db1.Rows[0][djggzd].ToString();
-                    DJXH.Text = db1.Rows[0][djxhzd].ToString();
+                    Sqlstr = string.Format("SELECT {1}, {2}, {3}, {4} FROM {0} WHERE {3} = '{5}'", DaoJuLeiXing.TableName, DaoJuLeiXing.djlx, DaoJuLeiXing.djgg, DaoJuLeiXing.djxh, DaoJuLeiXing.djtp, e.Node.Text);
+                    DataTable db1 = SQL.getDataSet(Sqlstr, DaoJuLeiXing.TableName).Tables[0];
+                    DJLX.Text = db1.Rows[0][DaoJuLeiXing.djlx].ToString();
+                    DJGG.Text = db1.Rows[0][DaoJuLeiXing.djgg].ToString();
+                    DJXH.Text = db1.Rows[0][DaoJuLeiXing.djxh].ToString();
 
                     //加载图片
                     picmc = DJXH.Text + ".jpg";
@@ -169,8 +170,8 @@ namespace kucunTest.DaoJu
                     }
 
                     //加载刀具参数信息
-                    Sqlstr = string.Format("SELECT csdm, csz FROM {0} WHERE ssfm = '{1}'", CanShuBiao, DJXH.Text);
-                    DataTable db2 = SQL.getDataSet(Sqlstr, CanShuBiao).Tables[0];
+                    Sqlstr = string.Format("SELECT {1}, {2} FROM {0} WHERE {3} = '{4}'", DaoJuCanShu.TableName, DaoJuCanShu.csdm, DaoJuCanShu.csz, DaoJuCanShu.ssfm, DJXH.Text);
+                    DataTable db2 = SQL.getDataSet(Sqlstr, DaoJuCanShu.TableName).Tables[0];
 
                     //赋值
                     if (db2.Rows.Count > 0)
@@ -217,9 +218,10 @@ namespace kucunTest.DaoJu
                     }
 
                     //加载零部件信息
-                    Sqlstr = string.Format("SELECT gl.lbjmc, gl.lbjxh, gl.lbjgg, gl.sl, gl.dw FROM daojulingbujian gl WHERE gl.djxh = '{0}'", DJXH.Text.ToString());
+                    //Sqlstr = string.Format("SELECT {1}, {2}, {3], {4}, {5} FROM {0} WHERE {6} = '{7}'", DaoJuLingBuJian.TableName, DaoJuLingBuJian.lbjmc, DaoJuLingBuJian.lbjxh, DaoJuLingBuJian.lbjgg, DaoJuLingBuJian.sl, DaoJuLingBuJian.dw, DaoJuLingBuJian.djxh, DJXH.Text.ToString());
+                    Sqlstr = string.Format("SELECT {1}, {2}, {3}, {4}, {5} FROM {0} WHERE {6} = '{7}'", DaoJuLingBuJian.TableName, DaoJuLingBuJian.lbjmc, DaoJuLingBuJian.lbjxh, DaoJuLingBuJian.lbjgg, DaoJuLingBuJian.sl, DaoJuLingBuJian.dw, DaoJuLingBuJian.djxh, DJXH.Text.ToString());
                     //Sqlstr = string.Format("SELECT * FROM {0} WHERE djxh = '{1}'", GuanLianBiao, DJXH.Text);
-                    lbjmx = SQL.getDataSet(Sqlstr, GuanLianBiao).Tables[0].Copy();
+                    lbjmx = SQL.getDataSet(Sqlstr, DaoJuLingBuJian.TableName).Tables[0].Copy();
                     ZuChengMingXi.AutoGenerateColumns = false;
                     ZuChengMingXi.DataSource = lbjmx.DefaultView;
                 }
@@ -321,15 +323,23 @@ namespace kucunTest.DaoJu
             string tishi = "";
             string Sqlstr1 = "";
             int row = 0;
+            string LogMessage = "";
             switch (CrtNode.Level.ToString())
             {
-                case "1"://删除整个类型
+                case "1"://删除整个类型及其零部件组成明细
                     tishi = "确定要删除" + CrtNode.Text.ToString() + "以及" + CrtNode.Text.ToString() + "下所有规格？";
-                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuBiao, djlxzd, CrtNode.Text);
+                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}';", DaoJuLeiXing.TableName, DaoJuLeiXing.djlx, CrtNode.Text);
+                    Sqlstr += string.Format("DELETE FROM {0} WHERE {1} = '{2}';", DaoJuLingBuJian.TableName, DaoJuLingBuJian.djlx, CrtNode.Text);
+
+                    LogMessage = string.Format("成功从数据库中删除“{0}”类型以及{0}下所有规格。", CrtNode.Text.ToString());
                     break;
-                case "2"://删除某一规格
+                case "2"://删除某一规格及其零部件组成明细
                     tishi = "确定要删除" + CrtNode.Text.ToString() + "？";
-                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuBiao, djxhzd, CrtNode.Text);
+                    Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}';", DaoJuLeiXing.TableName, DaoJuLeiXing.djxh, CrtNode.Text);
+                    string djxhtemp = SQL.getDataSet(string.Format("SELECT * FROM {0} WHERE {1} = '{2}' AND {3} = '{4}'", DaoJuLeiXing.TableName, DaoJuLeiXing.djlx, CrtNode.Parent.Text, DaoJuLeiXing.djgg, CrtNode.Text), DaoJuLeiXing.TableName).Tables[0].Rows[0][DaoJuLeiXing.djxh].ToString();
+                    Sqlstr += string.Format("DELETE FROM {0} WHERE {1} = '{2}' AND {3} = '{4}';", DaoJuLingBuJian.TableName, DaoJuLingBuJian.djlx, CrtNode.Parent.Text, DaoJuLingBuJian.djxh, djxhtemp);
+
+                    LogMessage = string.Format("成功从数据库中删除规格为“{0}”的“{1}”类型。", CrtNode.Text.ToString(), CrtNode.Parent.Text.ToString());
                     break;
             }
 
@@ -339,17 +349,23 @@ namespace kucunTest.DaoJu
                 switch(CrtNode.Level.ToString())
                 {
                     case "1":
-                        if (SQL.ExecuteScalar(string.Format("SELECT COUNT(*) FROM {0} jccs LEFT JOIN {1} dj ON jccs.ssfm = dj.djxh WHERE dj.djlx = '{2}'", JiChuCanShu, DaoJuBiao, CrtNode.Text)).ToString() != "0")
+                        if (SQL.ExecuteScalar(string.Format("SELECT COUNT(*) FROM {0} jccs LEFT JOIN {1} dj ON jccs.{2} = dj.{3} WHERE dj.{4} = '{5}'", DaoJuCanShu.TableName, DaoJuLeiXing.TableName, DaoJuCanShu.ssfm, DaoJuLeiXing.djxh, DaoJuLeiXing.djlx, CrtNode.Text)).ToString() != "0")
                         {
-                            Sqlstr1 = string.Format("DELETE jccs FROM {0} jccs LEFT JOIN {1} dj ON jccs.ssfm = dj.djxh WHERE dj.djlx = '{2}'", JiChuCanShu, DaoJuBiao, CrtNode.Text);
+                            Sqlstr1 = string.Format("DELETE jccs FROM {0} jccs LEFT JOIN {1} dj ON jccs.{2} = dj.{3} WHERE dj.{4} = '{5}'", DaoJuCanShu.TableName, DaoJuLeiXing.TableName, DaoJuCanShu.ssfm, DaoJuLeiXing.djxh, DaoJuLeiXing.djlx, CrtNode.Text);
                             row = SQL.ExecuteNonQuery(Sqlstr1);
+
+                            //记录系统日志
+                            Program.WriteLog("删除刀具类型", string.Format("成功从数据库删除“{0}”的{1}种刀具类型参数。", CrtNode.Text, row));
                         }
                         break;
                     case "2":
-                        if (SQL.ExecuteScalar(string.Format("SELECT COUNT(*) FROM {0} WHERE ssfm = '{1}'", JiChuCanShu, CrtNode.Text)).ToString() != "0")
+                        if (SQL.ExecuteScalar(string.Format("SELECT COUNT(*) FROM {0} WHERE {1} = '{2}'", DaoJuCanShu.TableName, DaoJuCanShu.ssfm, CrtNode.Text)).ToString() != "0")
                         {
-                            Sqlstr1 = string.Format("DELETE FROM {0} WHERE ssfm = '{1}'", JiChuCanShu, CrtNode.Text);
+                            Sqlstr1 = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuCanShu.TableName, DaoJuCanShu.ssfm, CrtNode.Text);
                             row = SQL.ExecuteNonQuery(Sqlstr1);
+
+                            //记录系统日志
+                            Program.WriteLog("删除刀具类型", string.Format("成功从数据库删除{2}种规格为“{0}”的“{1}”刀具类型参数。", CrtNode.Text, CrtNode.Parent.Text.ToString(), row));
                         }
                         break;
                 }
@@ -357,6 +373,9 @@ namespace kucunTest.DaoJu
                 //再从刀具类型数据库表中删除
                 int rows = SQL.ExecuteNonQuery(Sqlstr);
                 Sqlstr = "";
+
+                //记录系统日志
+                Program.WriteLog("删除刀具类型", LogMessage);
 
                 //树中移除
                 treeView1.Nodes.Remove(CrtNode);
@@ -379,15 +398,18 @@ namespace kucunTest.DaoJu
             string djlx = DJLX.Text.ToString();
             string djgg = DJGG.Text.ToString();
             string djxh = DJXH.Text.ToString();
-            conditions = string.Format("{0} = '{1}' AND {2} = '{3}' AND {4} = '{5}'", djlxzd, djlx, djggzd, djgg, djxhzd, djxh);
+            conditions = string.Format("{0} = '{1}' AND {2} = '{3}' AND {4} = '{5}'", DaoJuLeiXing.djlx, djlx, DaoJuLeiXing.djgg, djgg, DaoJuLeiXing.djxh, djxh);
             if (djlx != "" && djgg != "" && djxh != "")
             {
-                if (Alex.CunZai(DaoJuBiao, conditions) == 0)//新类型OR新规格
+                if (Alex.CunZai(DaoJuLeiXing.TableName, conditions) == 0)//新类型OR新规格
                 {
                     //存入数据库
-                    Sqlstr = string.Format("INSERT INTO {0}({1}, {2}, {3}, {4}) VALUES('{5}', '{6}', '{7}', '{8}')", DaoJuBiao, djlxzd, djggzd, djxhzd, djtpzd, djlx, djgg, djxh, DJPIC);
+                    Sqlstr = string.Format("INSERT INTO {0}({1}, {2}, {3}, {4}) VALUES('{5}', '{6}', '{7}', '{8}')", DaoJuLeiXing.TableName, DaoJuLeiXing.djlx, DaoJuLeiXing.djgg, DaoJuLeiXing.djxh, DaoJuLeiXing.djtp, djlx, djgg, djxh, DJPIC);
                     int row1 = SQL.ExecuteNonQuery(Sqlstr);
                     HaveNewNode = true;
+
+                    //日志记录
+                    Program.WriteLog("添加刀具类型", string.Format("成功添加刀具规格“{0}”的新刀具类型“{1}”。", djgg, djlx));
                 }
                 //else
                 //{
@@ -463,20 +485,25 @@ namespace kucunTest.DaoJu
                 string csdm = tb.Rows[i]["csdm"].ToString();
                 string csz = tb.Rows[i]["csz"].ToString();
                 string ssfm = tb.Rows[i]["ssfm"].ToString();
-                string conditions = string.Format("ssfm = '{0}' AND csdm = '{1}'", ssfm, csdm);
-                if (Alex.CunZai(JiChuCanShu, conditions) != 0)
+                string conditions = string.Format("{0} = '{1}' AND {2} = '{3}'", DaoJuCanShu.ssfm, ssfm, DaoJuCanShu.csdm, csdm);
+                if (Alex.CunZai(DaoJuCanShu.TableName, conditions) != 0)
                 {
-                    Sqlstr = string.Format("UPDATE {0} SET csz = '{1}' WHERE " + conditions, JiChuCanShu, csz);
+                    Sqlstr = string.Format("UPDATE {0} SET {1} = '{2}' WHERE " + conditions, DaoJuCanShu.TableName, DaoJuCanShu.csz, csz);
                 }
                 else
                 {
-                    Sqlstr = string.Format("INSERT INTO {0}(csdm, csz, ssfm) VALUES('{1}', '{2}', '{3}')", JiChuCanShu, csdm, csz, ssfm);
+                    Sqlstr = string.Format("INSERT INTO {0}({1}, {2}, {3}) VALUES('{4}', '{5}', '{6}')", DaoJuCanShu.TableName, DaoJuCanShu.csdm, DaoJuCanShu.csz, DaoJuCanShu.ssfm, csdm, csz, ssfm);
                 }
                 int rows = SQL.ExecuteNonQuery(Sqlstr);
             }
+            //日志记录
+            Program.WriteLog("添加刀具类型", string.Format("成功保存规格为“{0}”的“{1}”刀具类型参数。", djgg, djlx));
 
-            //零部件明细表存入数据库
-            for(int rowindex = 0; rowindex < ZuChengMingXi.Rows.Count; rowindex++)
+            //零部件明细表存入数据库:要先删除已有的数据在保存新的数据
+            Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}' AND {3} = '{4}'", DaoJuLingBuJian.TableName, DaoJuLingBuJian.djlx, djlx, DaoJuLingBuJian.djxh, djxh);
+            SQL.ExecuteNonQuery(Sqlstr);
+
+            for (int rowindex = 0; rowindex < ZuChengMingXi.Rows.Count; rowindex++)
             {
                 //数据预处理
                 string lbjmc = ZuChengMingXi.Rows[rowindex].Cells["lbjmc"].Value.ToString();
@@ -486,12 +513,19 @@ namespace kucunTest.DaoJu
                 string dw = ZuChengMingXi.Rows[rowindex].Cells["dw"].Value.ToString();
 
                 //存入数据库
-                Sqlstr = string.Format("INSERT INTO {0}({1}, {2}, {3}, {4}, {5}, {6}, {7}) VALUES({8}, {9}, {10}, {11}, {12}, {13}, {14})", DaoJuLingBuJian.TableName, DaoJuLingBuJian.djlx, DaoJuLingBuJian.djxh, DaoJuLingBuJian.lbjmc, DaoJuLingBuJian.lbjgg, DaoJuLingBuJian.lbjxh, DaoJuLingBuJian.sl, DaoJuLingBuJian.dw, djlx, djxh, lbjmc, lbjgg, lbjxh, sl, dw);
+                Sqlstr = string.Format("INSERT INTO {0}({1}, {2}, {3}, {4}, {5}, {6}, {7}) VALUES('{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}')", DaoJuLingBuJian.TableName, DaoJuLingBuJian.djlx, DaoJuLingBuJian.djxh, DaoJuLingBuJian.lbjmc, DaoJuLingBuJian.lbjgg, DaoJuLingBuJian.lbjxh, DaoJuLingBuJian.sl, DaoJuLingBuJian.dw, djlx, djxh, lbjmc, lbjgg, lbjxh, sl, dw);
 
-                int rows = SQL.ExecuteNonQuery(Sqlstr);
+                int rows = SQL.ExecuteNonQuery(Sqlstr);                
             }
 
+            //日志记录
+            Program.WriteLog("添加刀具类型", string.Format("成功保存规格为“{0}”的“{1}”零部件组成明细。", djgg, djlx));
+
             MessageBox.Show("保存成功！");
+
+            //日志记录
+            Program.WriteLog("添加刀具类型", string.Format("添加规格为“{0}”的“{1}”刀具类型完毕。", djgg, djlx));
+
             CrtNode = treeView1.SelectedNode;
 
             if(HaveNewNode)
@@ -607,8 +641,6 @@ namespace kucunTest.DaoJu
 
                 if (lvse.ShowDialog() == DialogResult.OK)
                 {
-                    //MySQL_Helper mysql = new MySQL_Helper();
-                    //mysql.Record_Insert(MySQL_Helper.base_mode, this.Tag.ToString(), MySQL_Helper.type_operate, "36", "");
                     if (pic_dj.Image != null)
                     {
                         Image img = pic_dj.Image;
@@ -617,6 +649,14 @@ namespace kucunTest.DaoJu
                     }
                     Thread.Sleep(200);
                     pic_dj.Image = Image.FromFile(lvse.FileName);
+
+                    if(DJXH.Text.ToString() == "")
+                    {
+                        MessageBox.Show("请填写刀具型号！");
+                        return;
+                    }
+
+                    picmc = DJXH.Text.ToString() + ".jpg";
                     Picture_Save(picmc);
                 }
             }
@@ -630,11 +670,21 @@ namespace kucunTest.DaoJu
         {
             Bitmap bit = new Bitmap(pic_dj.ClientRectangle.Width, pic_dj.ClientRectangle.Height);
             pic_dj.DrawToBitmap(bit, pic_dj.ClientRectangle);
+
             if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuLeiXing") == false)
             {
                 Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\Images\\DaoJuLeiXing");
             }
+
+            if(File.Exists(str_iniFileUrl + filename))
+            {
+                File.Delete(str_iniFileUrl + filename);
+            }
+
             bit.Save(str_iniFileUrl + filename);
+
+            //日志记录
+            Program.WriteLog("导入刀具类型图片", string.Format("成功导入刀具类型图片“{0}”。", filename));
 
         }
 

@@ -24,8 +24,8 @@ namespace kucunTest.DaoJu
         private AutoSizeFormClass asc = new AutoSizeFormClass();
 
         //private string canshubiao = "jichucanshu";
-        private string jichuangdaojuku = "jcdaojuku";
-        private string daojubiao = "daojutemp";
+        //private string jichuangdaojuku = "jcdaojuku";
+        //private string daojubiao = "daojutemp";
         Panel scx_panel = new Panel();//生产线机床排布全局变量
 
         //沫
@@ -62,8 +62,7 @@ namespace kucunTest.DaoJu
             cbx_ssjc.DataSource = Alex.GetList(type: "jc");
             cbx_ssjc.SelectedIndex = -1;
         }
-
-
+        
         /// <summary>
         /// 窗体加载
         /// </summary>
@@ -95,7 +94,7 @@ namespace kucunTest.DaoJu
             //treeView1.Nodes.Add(node);
 
             //把数据库中取出所有零部件名称
-            MySqlDataReader djlx = SQL.getcom("select distinct daojuleixing from daojutemp");
+            MySqlDataReader djlx = SQL.getcom(string.Format("SELECT DISTINCT {1} FROM {0}", DaoJuTemp.TableName, DaoJuTemp.leixing));
             //node.Nodes[0].Remove();//移除刚开始建立的第一个空节点
             while (djlx.Read())
             {
@@ -111,8 +110,8 @@ namespace kucunTest.DaoJu
 
             //更改进度条并隐藏
             label5.Text = "加载完成！";
-
         }
+
         private void AddChild(TreeNode t1)
         {
             label5.Text = "正在加载……";
@@ -120,7 +119,7 @@ namespace kucunTest.DaoJu
             //progressBar1.Visible = true;           
             //progressBar1.Value = 0;//重置进度条
 
-            MySqlDataReader djid = SQL.getcom("select daojuid from daojutemp where daojuleixing='" + t1.Text.ToString().Trim() + "'");
+            MySqlDataReader djid = SQL.getcom(string.Format("SELECT {1} FROM {0} WHERE {2}='{3}'", DaoJuTemp.TableName, DaoJuTemp.id, DaoJuTemp.leixing, t1.Text.ToString().Trim()));
             while (djid.Read())
             {
                 TreeNode t2 = new TreeNode();
@@ -167,14 +166,14 @@ namespace kucunTest.DaoJu
             string where = "";//SQL语句条件。默认为空，即第一层节点：所有类型
             if (treeView1.SelectedNode.Level == 1)//当前选中节点为第二层节点：刀具类型
             {
-                where = "WHERE dj.daojuleixing = '" + e.Node.Text.ToString() + "'";
+                where = string.Format("WHERE dj.{0} = '{1}'", DaoJuTemp.leixing, e.Node.Text.ToString());
 
                 //查询所有刀具数量
-                SqlStr = "SELECT COUNT(*) FROM daojutemp dj WHERE dj.daojuleixing = '" + e.Node.Text.ToString() + "'";
+                SqlStr = string.Format("SELECT COUNT(*) FROM {0} dj WHERE dj.{1} = '{2}'", DaoJuTemp.TableName, DaoJuTemp.leixing, e.Node.Text.ToString());
                 //SqlStr1 = "SELECT COUNT(djmx.weizhibiaoshi) FROM daojutemp dj LEFT JOIN daojulingyongmingxi djmx ON dj.daojuid = djmx.daojuid where dj.daojuleixing =  '" + e.Node.Text.ToString() + "'";
                 
                 //查询领用到机床的刀具数量
-                SqlStr1 = string.Format("SELECT COUNT(*) FROM {0} dj WHERE dj.daojuleixing = '{1}' AND dj.weizhibiaoshi = 'M'", daojubiao, e.Node.Text.ToString());
+                SqlStr1 = string.Format("SELECT COUNT(*) FROM {0} dj WHERE dj.{1} = '{2}' AND dj.{3} = 'M'", DaoJuTemp.TableName, DaoJuTemp.leixing, e.Node.Text.ToString(), DaoJuTemp.weizhibiaoshi);
 
                 Object a = SQL.ExecuteScalar(SqlStr);
                 Object b = SQL.ExecuteScalar(SqlStr1);
@@ -904,7 +903,7 @@ namespace kucunTest.DaoJu
                         dgv_jcdk.DataSource = null;
                         if (crt_pb.Tag != null)
                         {
-                            SqlStr = string.Format("SELECT j.daotaohao AS daotaohao, d.daojuid AS daojuid FROM {0} j LEFT JOIN {1} d ON j.jichuangbianma = d.weizhi AND j.daotaohao = d.cengshu WHERE j.jichuangbianma = '{2}' ORDER BY j.daotaohao ", jichuangdaojuku, daojubiao, crt_pb.Tag.ToString());
+                            SqlStr = string.Format("SELECT j.{2} AS daotaohao, d.{3} AS daojuid FROM {0} j LEFT JOIN {1} d ON j.{4} = d.{5} AND j.{2} = d.{6} WHERE j.{4} = '{7}' ORDER BY j.{2} ", JiChuangDaoJuKu.TableName, DaoJuTemp.TableName, JiChuangDaoJuKu.dth, DaoJuTemp.id, JiChuangDaoJuKu.jcbm, DaoJuTemp.weizhibianma, DaoJuTemp.csordth,  crt_pb.Tag.ToString());
                             DataSet ds = SQL.getDataSet1(SqlStr);
 
                             dgv_jcdk.AutoGenerateColumns = false;
@@ -1023,7 +1022,7 @@ namespace kucunTest.DaoJu
             dgv_jcdk.DataSource = null;
             if(crt_pb.Tag != null)
             {
-                SqlStr = string.Format("SELECT j.daotaohao AS daotaohao, d.daojuid AS daojuid FROM {0} j LEFT JOIN {1} d ON j.jichuangbianma = d.weizhi AND j.daotaohao = d.cengshu WHERE j.jichuangbianma = '{2}' ORDER BY j.daotaohao ", jichuangdaojuku, daojubiao, crt_pb.Tag.ToString());
+                SqlStr = string.Format("SELECT j.{2} AS daotaohao, d.{3} AS daojuid FROM {0} j LEFT JOIN {1} d ON j.{4} = d.{5} AND j.{2} = d.{6} WHERE j.{4} = '{7}' ORDER BY j.{2} ", JiChuangDaoJuKu.TableName, DaoJuTemp.TableName, JiChuangDaoJuKu.dth, DaoJuTemp.id, JiChuangDaoJuKu.jcbm, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, crt_pb.Tag.ToString());
                 DataSet ds = SQL.getDataSet1(SqlStr);
 
                 dgv_jcdk.AutoGenerateColumns = false;

@@ -31,21 +31,24 @@ namespace kucunTest.LingBuJian
         bool queren = false;//是否是已确认单据
         string tishi = "";//提示文本
 
+        string LogType = "零部件退还";
+        string LogMessage = "";
+
         //和数据库查询有关的表名、字段名
-        string DanJuBiao = "lbj_tuihuan";
-        string MingXiBiao = "lbj_tuihuanmingxi";
-        string DanHaoZD = "danhao";
-        string LiuShuiBiao = "lbj_liushui";
+        //string DanJuBiao = "lbj_tuihuan";
+        //string MingXiBiao = "lbj_tuihuanmingxi";
+        //string DanHaoZD = "danhao";
+        //string LiuShuiBiao = "lbj_liushui";
 
         //零部件表
-        string lbjbiao = "jichuxinxi";
-        string lbjbiao_lbjmc = "daojuid";
-        string lbjbiao_lbjgg = "daojuguige";
-        string lbjbiao_lbjxh = "daojuxinghao";
-        string lbjbiao_djgbm = "weizhi";
-        string lbjbiao_jtwz = "cengshu";
-        string lbjbiao_kcsl = "kcsl";
-        string lbjbiao_dw = "danwei";
+        //string lbjbiao = "jichuxinxi";
+        //string lbjbiao_lbjmc = "daojuid";
+        //string lbjbiao_lbjgg = "daojuguige";
+        //string lbjbiao_lbjxh = "daojuxinghao";
+        //string lbjbiao_djgbm = "weizhi";
+        //string lbjbiao_jtwz = "cengshu";
+        //string lbjbiao_kcsl = "kcsl";
+        //string lbjbiao_dw = "danwei";
 
         #endregion
 
@@ -89,8 +92,8 @@ namespace kucunTest.LingBuJian
             cbx_lbjmc.SelectedIndex = -1;
 
             //根据单号查询数据库退还和操作信息
-            SqlStr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHaoZD, dh);
-            DataSet ds = SQL.getDataSet(SqlStr, DanJuBiao);
+            SqlStr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", lbjTuiHuan.TableName, lbjTuiHuan.danhao, dh);
+            DataSet ds = SQL.getDataSet(SqlStr, lbjTuiHuan.TableName);
 
             //给退还信息和操作信息赋值
             THDH.Text = dh;//单号
@@ -103,12 +106,12 @@ namespace kucunTest.LingBuJian
             string djzt = ds.Tables[0].Rows[0]["djzt"].ToString();//单据状态
 
             //根据单号查询明细信息
-            SqlStr = string.Format("SELECT t.lbjmc, t.lbjgg, t.lbjxh, t.jcbm, t.gx, CONCAT(t.djgbm, '--', t.cfwz) AS kcwz, j.kcsl AS kcsl, t.sl AS thsl, t.dw, t.bz FROM {0} t INNER JOIN {3} j ON t.lbjmc = j.daojuid AND t.lbjxh = j.daojuxinghao AND t.djgbm = j.weizhi AND t.cfwz = j.cengshu WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, dh, lbjbiao);
+            SqlStr = string.Format("SELECT t.lbjmc, t.lbjgg, t.lbjxh, t.jcbm, t.gx, CONCAT(t.djgbm, '--', t.cfwz) AS kcwz, j.kcsl AS kcsl, t.sl AS thsl, t.dw, t.bz FROM {0} t INNER JOIN {3} j ON t.lbjmc = j.daojuid AND t.lbjxh = j.daojuxinghao AND t.djgbm = j.weizhi AND t.cfwz = j.cengshu WHERE {1} = '{2}'", lbjTuiHuanMingXi.TableName, lbjTuiHuanMingXi.danhao, dh, LingBuJianBiao.TableName);
             //SqlStr = string.Format("SELECT lbjmc, lbjgg, lbjxh, CONCAT(djgbm, '--', cfwz) AS kcwz, sl AS thsl, dw, jcbm, gx, bz FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, dh);
             //SqlStr = string.Format("SELECT mx.lbjmc AS lbjmc, mx.lbjgg AS lbjgg, mx.lbjxh AS lbjxh, CONCAT(mx.djgbm, '--', mx.cfwz) AS kcwz, ls.dskykc AS kcsl, mx.sl AS thsl, mx.dw AS dw, mx.jcbm AS jcbm, mx.gx AS gx, mx.bz AS bz FROM {0} mx LEFT JOIN {1} ls ON mx.danhao=ls.danhao WHERE mx.lbjxh=ls.lbjxh AND mx.djgbm = ls.djgbm AND mx.cfwz=ls.jtwz AND mx.{2}='{3}'", MingXiBiao, LiuShuiBiao, DanHaoZD, dh);
 
             thmx_db.Reset();//重置数据表
-            thmx_db = (SQL.getDataSet(SqlStr, MingXiBiao)).Tables[0];//用全局变量保存查询出来的明细，方便后续可以继续添加
+            thmx_db = (SQL.getDataSet(SqlStr, lbjTuiHuanMingXi.TableName)).Tables[0];//用全局变量保存查询出来的明细，方便后续可以继续添加
             TuiHuanMingXi.AutoGenerateColumns = false;
             TuiHuanMingXi.DataSource = thmx_db.DefaultView;
 
@@ -329,11 +332,11 @@ namespace kucunTest.LingBuJian
             if (cbx_lbjmc.SelectedIndex >= 0)
             {
                 //加载所有规格
-                SqlStr = string.Format("SELECT DISTINCT {0} FROM {1} WHERE {2}='{3}'", lbjbiao_lbjgg, lbjbiao, lbjbiao_lbjmc, cbx_lbjmc.Text);
+                SqlStr = string.Format("SELECT DISTINCT {0} FROM {1} WHERE {2}='{3}'", LingBuJianBiao.gg, LingBuJianBiao.TableName, LingBuJianBiao.mc, cbx_lbjmc.Text);
                 cbx_lbjgg.DataSource = SQL.DataReadList(SqlStr);
 
                 //加载所有型号
-                SqlStr = string.Format("SELECT DISTINCT {0} FROM {1} WHERE {2}='{3}'", lbjbiao_lbjxh, lbjbiao, lbjbiao_lbjmc, cbx_lbjmc.Text);
+                SqlStr = string.Format("SELECT DISTINCT {0} FROM {1} WHERE {2}='{3}'", LingBuJianBiao.xinghao, LingBuJianBiao.TableName, LingBuJianBiao.mc, cbx_lbjmc.Text);
                 cbx_lbjxh.DataSource = SQL.DataReadList(SqlStr);
 
             }
@@ -357,7 +360,7 @@ namespace kucunTest.LingBuJian
         {
             if (cbx_lbjxh.SelectedIndex >= 0)
             {
-                SqlStr = string.Format("SELECT DISTINCT {0} FROM {1} WHERE {2}='{3}' AND {4} = '{5}'", lbjbiao_djgbm, lbjbiao, lbjbiao_lbjmc, cbx_lbjmc.Text, lbjbiao_lbjxh, cbx_lbjxh.Text);
+                SqlStr = string.Format("SELECT DISTINCT {0} FROM {1} WHERE {2}='{3}' AND {4} = '{5}'", LingBuJianBiao.weizhibianma, LingBuJianBiao.TableName, LingBuJianBiao.mc, cbx_lbjmc.Text, LingBuJianBiao.xinghao, cbx_lbjxh.Text);
                 cbx_djgbm.DataSource = SQL.DataReadList(SqlStr);
             }
             else
@@ -376,7 +379,7 @@ namespace kucunTest.LingBuJian
         {
             if (cbx_djgbm.SelectedIndex >= 0)
             {
-                SqlStr = string.Format("SELECT DISTINCT {0} FROM {1} WHERE {2}='{3}' AND {4} = '{5}' AND {6}='{7}'", lbjbiao_jtwz, lbjbiao, lbjbiao_lbjmc, cbx_lbjmc.Text, lbjbiao_lbjxh, cbx_lbjxh.Text, lbjbiao_djgbm, cbx_djgbm.Text);
+                SqlStr = string.Format("SELECT DISTINCT {0} FROM {1} WHERE {2}='{3}' AND {4} = '{5}' AND {6}='{7}'", LingBuJianBiao.cengshu, LingBuJianBiao.TableName, LingBuJianBiao.mc, cbx_lbjmc.Text, LingBuJianBiao.xinghao, cbx_lbjxh.Text, LingBuJianBiao.weizhibianma, cbx_djgbm.Text);
                 cbx_cfwz.DataSource = SQL.DataReadList(SqlStr);
             }
             else
@@ -394,8 +397,8 @@ namespace kucunTest.LingBuJian
         {
             if (cbx_cfwz.SelectedIndex >= 0)
             {
-                SqlStr = string.Format("SELECT {0} AS kcsl, {1} AS dw FROM {2} WHERE {3}='{4}' AND {5}='{6}' AND {7}='{8}' AND {9}='{10}'", lbjbiao_kcsl, lbjbiao_dw, lbjbiao, lbjbiao_lbjmc, cbx_lbjmc.Text, lbjbiao_lbjxh, cbx_lbjxh.Text, lbjbiao_djgbm, cbx_djgbm.Text, lbjbiao_jtwz, cbx_cfwz.Text);
-                DataTable db = (SQL.getDataSet(SqlStr, lbjbiao)).Tables[0];
+                SqlStr = string.Format("SELECT {0} AS kcsl, {1} AS dw FROM {2} WHERE {3}='{4}' AND {5}='{6}' AND {7}='{8}' AND {9}='{10}'", LingBuJianBiao.kcsl, LingBuJianBiao.dw, LingBuJianBiao.TableName, LingBuJianBiao.mc, cbx_lbjmc.Text, LingBuJianBiao.xinghao, cbx_lbjxh.Text, LingBuJianBiao.weizhibianma, cbx_djgbm.Text, LingBuJianBiao.cengshu, cbx_cfwz.Text);
+                DataTable db = (SQL.getDataSet(SqlStr, LingBuJianBiao.TableName)).Tables[0];
                 txt_kcsl.Text = db.Rows[0]["kcsl"].ToString();
                 txt_dw1.Text = db.Rows[0]["dw"].ToString();
                 txt_dw2.Text = txt_dw1.Text;
@@ -625,13 +628,17 @@ namespace kucunTest.LingBuJian
                 string jbrq = JBRQ.Value.ToString();//经办日期
 
                 //判断是否是暂存单据，存入刀具退还数据库daojutuihuan
-                if (Alex.CunZai(dh, DanHaoZD, DanJuBiao) != 0)
+                if (Alex.CunZai(dh, lbjTuiHuan.danhao, lbjTuiHuan.TableName) != 0)
                 {
-                    SqlStr = string.Format("UPDATE {0} SET djzt = '{1}', thbz = '{2}', thr = '{3}', thrq = '{4}', thyy = '{5}', jbr = '{6}', jbrq = '{7}' WHERE {8} = '{9}'", DanJuBiao, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq, DanHaoZD, dh);
+                    SqlStr = string.Format("UPDATE {0} SET djzt = '{1}', thbz = '{2}', thr = '{3}', thrq = '{4}', thyy = '{5}', jbr = '{6}', jbrq = '{7}' WHERE {8} = '{9}'", lbjTuiHuan.TableName, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq, lbjTuiHuan.danhao, dh);
+
+                    LogMessage = string.Format("成功更新1张单据编号为{0}的零部件退还暂存单据。", dh);
                 }
                 else
                 {
-                    SqlStr = string.Format("INSERT INTO {0}(danhao, djzt, thbz, thr, thrq, thyy, jbr, jbrq) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", DanJuBiao, dh, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq);
+                    SqlStr = string.Format("INSERT INTO {0}(danhao, djzt, thbz, thr, thrq, thyy, jbr, jbrq) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", lbjTuiHuan.TableName, dh, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq);
+
+                    LogMessage = string.Format("成功保存1张单据编号为{0}的零部件退还新单据。", dh);
                 }
                 int row1 = SQL.ExecuteNonQuery(SqlStr);
 
@@ -639,10 +646,10 @@ namespace kucunTest.LingBuJian
                 int row2 = 0;
 
                 //判断此单号在明细表中是否已存在,如果存在则一并删除，重新保存
-                if (Alex.CunZai(THDH.Text.ToString().Trim(), DanHaoZD, MingXiBiao) != 0)
+                if (Alex.CunZai(THDH.Text.ToString().Trim(), lbjTuiHuanMingXi.danhao, lbjTuiHuanMingXi.TableName) != 0)
                 {
                     //delete语句删除已经存在的明细记录
-                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, THDH.Text.ToString().Trim());
+                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", lbjTuiHuanMingXi.TableName, lbjTuiHuanMingXi.danhao, THDH.Text.ToString().Trim());
                     row2 = SQL.ExecuteNonQuery(SqlStr);
                 }
 
@@ -666,7 +673,7 @@ namespace kucunTest.LingBuJian
                             string bz = TuiHuanMingXi.Rows[rowindex].Cells["mx_bz"].Value.ToString();//备注
 
                             //退还明细数据存入数据库退还明细表
-                            SqlStr = string.Format("INSERT INTO {0}(danhao, lbjmc, lbjgg, lbjxh, dw, sl, jcbm, gx, djgbm, cfwz, bz) values('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", MingXiBiao, dh, lbjmc, lbjgg, lbjxh, dw, sl, jcbm, gx, djgbm, cfwz, bz);
+                            SqlStr = string.Format("INSERT INTO {0}(danhao, lbjmc, lbjgg, lbjxh, dw, sl, jcbm, gx, djgbm, cfwz, bz) values('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", lbjTuiHuanMingXi.TableName, dh, lbjmc, lbjgg, lbjxh, dw, sl, jcbm, gx, djgbm, cfwz, bz);
                             //SqlStr = "INSERT INTO lbj_tuihuanmingxi(danhao, lbjmc, lbjgg, lbjxh, dw, sl, jcbm, gx, djgbm, cfwz, bz) values('" + dh + "', '" + lbjmc + "', '" + lbjgg + "', '" + lbjxh + "','" + dw + "','" + sl + "', '" + jcbm + "', '" + gx + "', '" + djgbm + "', '" + cfwz + "', '" + bz + "')";
                             row2 = SQL.ExecuteNonQuery(SqlStr);
                         }
@@ -674,6 +681,11 @@ namespace kucunTest.LingBuJian
                 }
 
                 MessageBox.Show("单据保存成功！可再次修改确认。", "提示", MessageBoxButtons.OK);
+
+                //日志记录
+                Program.WriteLog(LogType, LogMessage);
+                LogMessage = "";
+
                 this.DialogResult = DialogResult.OK;
                 //this.Close();
             }
@@ -708,13 +720,18 @@ namespace kucunTest.LingBuJian
                     string jbrq = JBRQ.Value.ToString();//经办日期
 
                     //判断是否是暂存单据，存入刀具退还数据库lbj_tuihuan
-                    if (Alex.CunZai(dh, DanHaoZD, DanJuBiao) != 0)
+                    if (Alex.CunZai(dh, lbjTuiHuan.danhao, lbjTuiHuan.TableName) != 0)
                     {
-                        SqlStr = string.Format("UPDATE {0} SET djzt = '{1}', thbz = '{2}', thr = '{3}', thrq = '{4}', thyy = '{5}', jbr = '{6}', jbrq = '{7}' WHERE {8} = '{9}'", DanJuBiao, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq, DanHaoZD, dh);
+                        SqlStr = string.Format("UPDATE {0} SET djzt = '{1}', thbz = '{2}', thr = '{3}', thrq = '{4}', thyy = '{5}', jbr = '{6}', jbrq = '{7}' WHERE {8} = '{9}'", lbjTuiHuan.TableName, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq, lbjTuiHuan.danhao, dh);
+
+                        LogMessage = string.Format("成功确认1张单据编号为{0}的零部件退还暂存单据。", dh);
                     }
                     else
                     {
-                        SqlStr = string.Format("INSERT INTO {0}(danhao, djzt, thbz, thr, thrq, thyy, jbr, jbrq) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", DanJuBiao, dh, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq);
+                        SqlStr = string.Format("INSERT INTO {0}(danhao, djzt, thbz, thr, thrq, thyy, jbr, jbrq) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", lbjTuiHuan.TableName, dh, danjuzhuangtai, thbz, thr, thrq, thyy, jbr, jbrq);
+
+                        LogMessage = string.Format("成功确认1张单据编号为{0}的零部件退还新单据。", dh);
+
                     }
                     int row1 = SQL.ExecuteNonQuery(SqlStr);
 
@@ -723,10 +740,10 @@ namespace kucunTest.LingBuJian
                     if (row1 != 0)
                     {
                         //判断此单号在明细表中是否已存在,如果存在则一并删除，重新保存
-                        if (Alex.CunZai(THDH.Text.ToString().Trim(), DanHaoZD, MingXiBiao) != 0)
+                        if (Alex.CunZai(THDH.Text.ToString().Trim(), lbjTuiHuanMingXi.danhao, lbjTuiHuanMingXi.TableName) != 0)
                         {
                             //delete语句删除已经存在的明细记录
-                            SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, THDH.Text.ToString().Trim());
+                            SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", lbjTuiHuanMingXi.TableName, lbjTuiHuanMingXi.danhao, THDH.Text.ToString().Trim());
                             row2 = SQL.ExecuteNonQuery(SqlStr);
                         }
 
@@ -747,21 +764,26 @@ namespace kucunTest.LingBuJian
                             string bz = TuiHuanMingXi.Rows[rowindex].Cells["mx_bz"].Value.ToString();//备注
 
                             //退还明细数据存入数据库退还明细表
-                            SqlStr = string.Format("INSERT INTO {0}(danhao, lbjmc, lbjgg, lbjxh, dw, sl, jcbm, gx, djgbm, cfwz, bz) values('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", MingXiBiao, dh, lbjmc, lbjgg, lbjxh, dw, sl, jcbm, gx, djgbm, cfwz, bz);
+                            SqlStr = string.Format("INSERT INTO {0}(danhao, lbjmc, lbjgg, lbjxh, dw, sl, jcbm, gx, djgbm, cfwz, bz) values('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", lbjTuiHuanMingXi.TableName, dh, lbjmc, lbjgg, lbjxh, dw, sl, jcbm, gx, djgbm, cfwz, bz);
                             row2 = SQL.ExecuteNonQuery(SqlStr);
 
                             //明细信息存入流水表
-                            SqlStr = string.Format("INSERT INTO {0}(danhao, dhlx, lbjmc, lbjgg, lbjxh, djgbm, jtwz, zsl, fsl, dskykc, dw, czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}')", LiuShuiBiao, dh, "零部件退还", lbjmc, lbjgg, lbjxh, djgbm, cfwz, sl, "0", dskykc, dw, jbrq, jbr, bz);
+                            SqlStr = string.Format("INSERT INTO {0}(danhao, dhlx, lbjmc, lbjgg, lbjxh, djgbm, jtwz, zsl, fsl, dskykc, dw, czsj, jbr, bz) VALUES('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,'{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}')", lbjLiuShui.TableName, dh, "零部件退还", lbjmc, lbjgg, lbjxh, djgbm, cfwz, sl, "0", dskykc, dw, jbrq, jbr, bz);
                             int row3 = SQL.ExecuteNonQuery(SqlStr);
 
                             //更新库存表
-                            SqlStr = string.Format("UPDATE {0} j SET j.{1} = j.{1} + {2}  WHERE j.{3} = '{4}' AND j.{5} = '{6}' AND j.{7} = '{8}' AND j.{9} = '{10}'", lbjbiao, lbjbiao_kcsl, Convert.ToInt16(sl), lbjbiao_lbjmc, lbjmc, lbjbiao_lbjxh, lbjxh, lbjbiao_djgbm, djgbm, lbjbiao_jtwz, cfwz);
+                            SqlStr = string.Format("UPDATE {0} j SET j.{1} = j.{1} + {2}  WHERE j.{3} = '{4}' AND j.{5} = '{6}' AND j.{7} = '{8}' AND j.{9} = '{10}'", LingBuJianBiao.TableName, LingBuJianBiao.kcsl, Convert.ToInt16(sl), LingBuJianBiao.mc, lbjmc, LingBuJianBiao.xinghao, lbjxh, LingBuJianBiao.weizhibianma, djgbm, LingBuJianBiao.cengshu, cfwz);
                             int row4 = SQL.ExecuteNonQuery(SqlStr);
                         }
 
                         if (row2 != 0)
                         {
                             MessageBox.Show("单据确认成功！", "提示", MessageBoxButtons.OK);
+
+                            //日志记录
+                            Program.WriteLog(LogType, LogMessage);
+                            LogMessage = "";
+
                             this.DialogResult = DialogResult.OK;
                             this.Close();
                         }
@@ -863,6 +885,11 @@ namespace kucunTest.LingBuJian
                 FReport.Prepare();
                 FReport.ShowPrepared();
                 //FReport.Show();
+
+                //日志记录
+                LogMessage = string.Format("成功打印1张单据编号为{0}的零部件退还单据。", THDH.Text);
+                Program.WriteLog(LogType, LogMessage);
+                LogMessage = "";
             }
         }
 
@@ -873,19 +900,24 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void button_delete_Click(object sender, EventArgs e)
         {
-            if (Alex.CunZai(THDH.Text.ToString().Trim(), DanHaoZD, DanJuBiao) != 0)
+            if (Alex.CunZai(THDH.Text.ToString().Trim(), lbjTuiHuan.danhao, lbjTuiHuan.TableName) != 0)
             {
                 DialogResult dr = MessageBox.Show("确认删除此单据？", "删除确认", MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
                     //删除刀具退还表中的数据
-                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DanJuBiao, DanHaoZD, THDH.Text.ToString().Trim());
+                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", lbjTuiHuan.TableName, lbjTuiHuan.danhao, THDH.Text.ToString().Trim());
                     int row1 = SQL.ExecuteNonQuery(SqlStr);
 
                     //删除明细
-                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", MingXiBiao, DanHaoZD, THDH.Text.ToString().Trim());
+                    SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", lbjTuiHuanMingXi.TableName, lbjTuiHuanMingXi.danhao, THDH.Text.ToString().Trim());
                     int row2 = SQL.ExecuteNonQuery(SqlStr);
                     MessageBox.Show("成功删除一张单据和" + row2 + "条明细记录！");
+
+                    //日志记录
+                    LogMessage = string.Format("成功删除一张单据和" + row2 + "条明细记录！");
+                    Program.WriteLog(LogType, LogMessage);
+                    LogMessage = "";
 
                     this.DialogResult = DialogResult.OK;
                     this.Close();

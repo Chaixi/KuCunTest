@@ -14,11 +14,6 @@ namespace kucunTest.DaoJu
 {
     public partial class chaixiedaoju : Form
     {
-        public chaixiedaoju()
-        {
-            InitializeComponent();
-        }
-
         #region 全局变量
         MySql SQL = new MySql();
         BaseAlex Alex = new BaseAlex();
@@ -26,6 +21,7 @@ namespace kucunTest.DaoJu
         string Sqlstr = "";
         string Sqlstr1 = "";
 
+        //全局刀具信息
         string DJLX = "";
         string DJGG = "";
         string DJID = "";
@@ -34,21 +30,36 @@ namespace kucunTest.DaoJu
         #endregion 全局变量结束
 
         /// <summary>
-        /// 窗体构造函数
+        /// 构造函数
         /// </summary>
-        /// <param name="daojulx"></param>
-        /// <param name="daojugg"></param>
-        public chaixiedaoju(string daojulx, string daojugg, string daojuid,string daojuxh)
+        public chaixiedaoju()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// 窗体构造函数，根据刀具类型、刀具规格、刀具ID和刀具型号
+        /// </summary>
+        /// <param name="daojulx">刀具类型</param>
+        /// <param name="daojugg">刀具规格</param>
+        /// <param name="daojuid">刀具ID</param>
+        /// <param name="daojuxh">刀具型号</param>
+        public chaixiedaoju(string daojulx, string daojugg, string daojuid, string daojuxh)
         {
             InitializeComponent();
 
+            //填充数据
             DJLX = daojulx;
             DJGG = daojugg;
             DJID = daojuid;
             DJXH = daojuxh;
-           
         }
 
+        /// <summary>
+        /// 窗体加载函数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chaixiedaoju_Load(object sender, EventArgs e)
         {
             daojuleixing.Text = DJLX;
@@ -79,19 +90,29 @@ namespace kucunTest.DaoJu
 
         }
 
+        /// <summary>
+        /// 取消拆卸按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// 拆卸刀具按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             //删除刀具temp表中的刀具
-            Sqlstr = string.Format("DELETE FROM daojutemp WHERE daojuid = '" + daojuid.Text.ToString() + "'");
+            Sqlstr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'", DaoJuTemp.TableName, DaoJuTemp.id, daojuid.Text.ToString());
             int row = SQL.ExecuteNonQuery(Sqlstr);
 
             string dskysl = "";//此类型刀具的当时可用数量！！！当时可用数量为单据操作后的刀具可用数量
-            
+
             //查询此类型刀具当时可用数量, 刀具拆卸可用数量不变，直接为daojutemp表查出来的数量，因为先删除后查询
             dskysl = Alex.Count_djsl(daojuleixing.Text.ToString().Trim(), "kysl").ToString();
 
@@ -107,7 +128,6 @@ namespace kucunTest.DaoJu
                     int xsl = Convert.ToInt16(lbjmx.Rows[i].Cells["kcsl"].Value.ToString()) + Convert.ToInt16(lbjmx.Rows[i].Cells["sl"].Value.ToString());
                     Sqlstr = string.Format("UPDATE jichuxinxi SET kcsl = '{0}' WHERE daojuxinghao = '{1}' AND CONCAT(weizhi,'--',cengshu) = '{2}'", xsl.ToString(), lbjmx.Rows[i].Cells["lbjxh"].Value.ToString(), lbjmx.Rows[i].Cells["kcwz"].Value.ToString());
                     row = SQL.ExecuteNonQuery(Sqlstr);
-
                 }
             }
             if (lbjmx.Rows.Count > 0)
@@ -120,15 +140,18 @@ namespace kucunTest.DaoJu
                     string lbjcs = lbjkcwz.Substring(lbjkcwz.Length - 2);
 
                     int sl = Convert.ToInt16(lbjmx.Rows[i].Cells["sl"].Value.ToString());
-                    Sqlstr1 = "INSERT INTO lbj_liushui(dhlx, lbjmc, lbjgg, lbjxh, djgbm, jtwz, zsl, fsl, dskykc, dw, czsj, bz) VALUES( '拆卸退还' , '" + lbjmx.Rows[i].Cells["lbjmc"].Value.ToString() + "' , '" + lbjmx.Rows[i].Cells["lbjgg"].Value.ToString() + "' , '" + lbjmx.Rows[i].Cells["lbjxh"].Value.ToString() + "' , '"+ lbjwz + "' , '" + lbjcs + "' , '" + sl.ToString() + "','0','" + lbjmx.Rows[i].Cells["kcsl"].Value.ToString() + "','" + lbjmx.Rows[i].Cells["dw"].Value.ToString() + "','" + DateTime.Now + "' , '" + daojuid.Text + "')";
+                    Sqlstr1 = "INSERT INTO lbj_liushui(dhlx, lbjmc, lbjgg, lbjxh, djgbm, jtwz, zsl, fsl, dskykc, dw, czsj, bz) VALUES( '拆卸退还' , '" + lbjmx.Rows[i].Cells["lbjmc"].Value.ToString() + "' , '" + lbjmx.Rows[i].Cells["lbjgg"].Value.ToString() + "' , '" + lbjmx.Rows[i].Cells["lbjxh"].Value.ToString() + "' , '" + lbjwz + "' , '" + lbjcs + "' , '" + sl.ToString() + "','0','" + lbjmx.Rows[i].Cells["kcsl"].Value.ToString() + "','" + lbjmx.Rows[i].Cells["dw"].Value.ToString() + "','" + DateTime.Now + "' , '" + daojuid.Text + "')";
                     SQL.ExecuteNonQuery(Sqlstr1);
                 }
             }
 
             MessageBox.Show("拆卸成功！", "提示");
+
+            //记录系统日志
+            Program.WriteLog("拆卸刀具", string.Format("成功拆卸刀具ID为{0}的刀具。", daojuid.Text.ToString()));
+
             this.Close();
             this.DialogResult = DialogResult.OK;
-      
-    }
+        }
     }
 }

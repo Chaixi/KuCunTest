@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.BaseClasses;
+
 namespace kucunTest.LingBuJian
 {
     public partial class lbj_xiugaikucun : Form
@@ -18,18 +20,20 @@ namespace kucunTest.LingBuJian
         string SqlStr_kc = "";
         MySql SQL = new MySql();
 
-        //零部件表
-        string lbjbiao = "jichuxinxi";
-        string lbjbiao_lbjmc = "daojuid";
-        string lbjbiao_lbjgg = "daojuguige";
-        string lbjbiao_lbjxh = "daojuxinghao";
-        string lbjbiao_djgbm = "weizhi";
-        string lbjbiao_jtwz = "cengshu";
-        string lbjbiao_kcsl = "kcsl";
-        string lbjbiao_dw = "danwei";
+        string LogType = "零部件";
+        string LogMessage = "";
 
-        string liushuibiao = "lbj_liushui";
-        string DHZD = "danhao";
+        //零部件表
+        //string lbjbiao = "jichuxinxi";
+        //string lbjbiao_lbjmc = "daojuid";
+        //string lbjbiao_lbjgg = "daojuguige";
+        //string lbjbiao_lbjxh = "daojuxinghao";
+        //string lbjbiao_djgbm = "weizhi";
+        //string lbjbiao_jtwz = "cengshu";
+        //string lbjbiao_kcsl = "kcsl";
+        //string lbjbiao_dw = "danwei";
+
+        //string liushuibiao = "lbj_liushui";
 
         #endregion 全局变量结束
 
@@ -75,18 +79,22 @@ namespace kucunTest.LingBuJian
                 if (rb_add.Checked)//库存增加
                 {
                     //存入流水表
-                    SqlStr_ls = string.Format("INSERT INTO {0}(danhao, dhlx, lbjmc, lbjgg, lbjxh, djgbm, jtwz, zsl, fsl, dskykc, dw, czsj, jbr, bz) VALUES('{1}', '库存修改', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '0', '{8}', '{9}', '{10}', '{11}', '{12}')", liushuibiao, "", lbjmc, lbjgg, lbjxh, kcwz_wz, kcwz_cs, xgsl, kcsl, dw, DateTime.Now, jbr, beizhu);
+                    SqlStr_ls = string.Format("INSERT INTO {0}(danhao, dhlx, lbjmc, lbjgg, lbjxh, djgbm, jtwz, zsl, fsl, dskykc, dw, czsj, jbr, bz) VALUES('{1}', '库存修改', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '0', '{8}', '{9}', '{10}', '{11}', '{12}')", lbjLiuShui.TableName, "", lbjmc, lbjgg, lbjxh, kcwz_wz, kcwz_cs, xgsl, kcsl, dw, DateTime.Now, jbr, beizhu);
 
                     //更新库存表（jichuxinxi）
-                    SqlStr_kc = string.Format("UPDATE {0} SET {1} = {1} + {2} WHERE {3}='{4}' AND {5}='{6}' AND {7}='{8}' AND {9}='{10}'", lbjbiao, lbjbiao_kcsl, xgsl, lbjbiao_lbjmc, lbjmc, lbjbiao_lbjxh, lbjxh, lbjbiao_djgbm, kcwz_wz, lbjbiao_jtwz, kcwz_cs);
+                    SqlStr_kc = string.Format("UPDATE {0} SET {1} = {1} + {2} WHERE {3}='{4}' AND {5}='{6}' AND {7}='{8}' AND {9}='{10}'", LingBuJianBiao.TableName, LingBuJianBiao.kcsl, xgsl, LingBuJianBiao.mc, lbjmc, LingBuJianBiao.xinghao, lbjxh, LingBuJianBiao.weizhibianma, kcwz_wz, LingBuJianBiao.cengshu, kcwz_cs);
+
+                    LogMessage = string.Format("{0}的库存量成功增加{1}", lbjmc, xgsl);
                 }
                 else//库存减少
                 {
                     //存入流水表
-                    SqlStr_ls = string.Format("INSERT INTO {0}(danhao, dhlx, lbjmc, lbjgg, lbjxh, djgbm, jtwz, zsl, fsl, dskykc, dw, czsj, jbr, bz) VALUES('{1}', '库存修改', '{2}', '{3}', '{4}', '{5}', '{6}', '0', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}')", liushuibiao, "", lbjmc, lbjgg, lbjxh, kcwz_wz, kcwz_cs, xgsl, kcsl, dw, DateTime.Now, jbr, beizhu);
+                    SqlStr_ls = string.Format("INSERT INTO {0}(danhao, dhlx, lbjmc, lbjgg, lbjxh, djgbm, jtwz, zsl, fsl, dskykc, dw, czsj, jbr, bz) VALUES('{1}', '库存修改', '{2}', '{3}', '{4}', '{5}', '{6}', '0', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}')", lbjLiuShui.TableName, "", lbjmc, lbjgg, lbjxh, kcwz_wz, kcwz_cs, xgsl, kcsl, dw, DateTime.Now, jbr, beizhu);
 
                     //更新库存表（jichuxinxi）
-                    SqlStr_kc = string.Format("UPDATE {0} SET {1} = {1} - {2} WHERE {3}='{4}' AND {5}='{6}' AND {7}='{8}' AND {9}='{10}'", lbjbiao, lbjbiao_kcsl, xgsl, lbjbiao_lbjmc, lbjmc, lbjbiao_lbjxh, lbjxh, lbjbiao_djgbm, kcwz_wz, lbjbiao_jtwz, kcwz_cs);
+                    SqlStr_kc = string.Format("UPDATE {0} SET {1} = {1} - {2} WHERE {3}='{4}' AND {5}='{6}' AND {7}='{8}' AND {9}='{10}'", LingBuJianBiao.TableName, LingBuJianBiao.kcsl, xgsl, LingBuJianBiao.mc, lbjmc, LingBuJianBiao.xinghao, lbjxh, LingBuJianBiao.weizhibianma, kcwz_wz, LingBuJianBiao.cengshu, kcwz_cs);
+
+                    LogMessage = string.Format("{0}的库存量成功减少{1}", lbjmc, xgsl);
                 }
 
                 //数据库操作
@@ -104,6 +112,11 @@ namespace kucunTest.LingBuJian
             if (tishi == "")
             {
                 tishi = "更新成功！";
+
+                //日志记录
+                Program.WriteLog(LogType, LogMessage);
+                LogMessage = "";
+
                 MessageBox.Show(tishi, "提示");
                 this.Close();
             }

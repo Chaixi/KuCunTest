@@ -27,6 +27,9 @@ namespace kucunTest.Daojugui
 
         //是否选择刀具柜图片
         bool flag = false;
+
+        string LogType = "刀具柜";
+        string LogMessage = "";
         #endregion
 
         /// <summary>
@@ -158,6 +161,12 @@ namespace kucunTest.Daojugui
             if (row != 0)
             {
                 MessageBox.Show("新增刀具柜完成！", "提示", MessageBoxButtons.OK);
+
+                //日志记录
+                LogMessage = string.Format("成功新增刀具柜层数为{0}层的{1}。", cs, mc);
+                Program.WriteLog(LogType, LogMessage);
+                LogMessage = "";
+
                 //this.Close();
                 this.DialogResult = DialogResult.OK;
             }
@@ -182,6 +191,11 @@ namespace kucunTest.Daojugui
                     Thread.Sleep(200);
                     djgtp.Image = Image.FromFile(lvse.FileName);
                     flag = true;
+
+                    //日志记录
+                    LogMessage = string.Format("成功加载{0}的刀具柜图片。", djgmc.Text);
+                    Program.WriteLog(LogType, LogMessage);
+                    LogMessage = "";
                 }
             }
         }
@@ -209,6 +223,11 @@ namespace kucunTest.Daojugui
                 System.IO.File.Delete(filename);
             }
             bit.Save(str_iniFileUrl + filename);
+
+            //日志记录
+            LogMessage = string.Format("成功保存{0}的刀具柜图片到{1}", djgmc.Text, str_iniFileUrl + filename);
+            Program.WriteLog(LogType, LogMessage);
+            LogMessage = "";
         }
 
         /// <summary>

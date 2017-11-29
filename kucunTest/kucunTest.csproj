@@ -435,6 +435,12 @@
     <Compile Include="test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
+    <Compile Include="XiTongGuanLi\Log.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XiTongGuanLi\Log.Designer.cs">
+      <DependentUpon>Log.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BaseClasses\DanJuSheZhi.resx">
       <DependentUpon>DanJuSheZhi.cs</DependentUpon>
     </EmbeddedResource>
@@ -595,6 +601,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="test.resx">
       <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XiTongGuanLi\Log.resx">
+      <DependentUpon>Log.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="File\刀具外借单.frx" />

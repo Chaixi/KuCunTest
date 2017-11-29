@@ -59,7 +59,7 @@ namespace kucunTest.DaoJu
             }
             else
             {
-                sqlstr = "select distinct daojuguige from daojutemp where daojuleixing = '" + djlx.SelectedItem.ToString().Trim() + "'";
+                sqlstr = string.Format("SELECT DISTINCT {1} FROM {0} WHERE {2} = '{3}'", DaoJuTemp.TableName, DaoJuTemp.guige, DaoJuTemp.leixing, djlx.SelectedItem.ToString().Trim());
                 djgg.DataSource = SQL.DataReadList(sqlstr);
                 djgg.SelectedIndex = -1;//默认选择第一项
             }            
@@ -79,7 +79,7 @@ namespace kucunTest.DaoJu
                 //djid.SelectedIndex = 0;//默认选择第一项
 
                 djid.DataSource = null;
-                sqlstr = "SELECT dj.daojuid FROM daojutemp dj WHERE dj.weizhibiaoshi = 'M' AND dj.daojuleixing = '" + djlx.Text + "'" + " AND dj.daojuguige = '" + djgg.Text + "'";
+                sqlstr = string.Format("SELECT dj.{1} FROM {0} dj WHERE dj.{2} = 'M' AND dj.{3} = '{4}' AND dj.{5} = '{6}'", DaoJuTemp.TableName, DaoJuTemp.id, DaoJuTemp.weizhibiaoshi, DaoJuTemp.leixing, djlx.Text, DaoJuTemp.guige, djgg.Text);
                 djid.DataSource = SQL.DataReadList(sqlstr);
             }
         }
@@ -96,12 +96,12 @@ namespace kucunTest.DaoJu
             {
                // jcbm.DataSource = null;
 
-                sqlstr = "SELECT dj.weizhi, dj.cengshu FROM daojutemp dj WHERE dj.daojuid = '" + djid.SelectedItem.ToString().Trim() + "'";
-                DataTable db = SQL.getDataSet(sqlstr, "daojutemp").Tables[0];
+                sqlstr = string.Format("SELECT dj.{1}, dj.{2} FROM {0} dj WHERE dj.{3} = '{4}'", DaoJuTemp.TableName, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, DaoJuTemp.id, djid.SelectedItem.ToString().Trim());
+                DataTable db = SQL.getDataSet(sqlstr, DaoJuTemp.TableName).Tables[0];
 
-                jcbm.Text = db.Rows[0]["weizhi"].ToString();
+                jcbm.Text = db.Rows[0][DaoJuTemp.weizhibianma].ToString();
                 jcbm.Enabled = false;
-                dth.Text = db.Rows[0]["cengshu"].ToString();
+                dth.Text = db.Rows[0][DaoJuTemp.csordth].ToString();
                 dth.Enabled = false;
             }
         }
@@ -180,7 +180,7 @@ namespace kucunTest.DaoJu
 
         private void djgbm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            sqlstr = "SELECT djgcs from daojuguicengshu where djgmc = '" + djgbm.SelectedItem.ToString().Trim() + "'";
+            sqlstr = string.Format("SELECT {1} FROM {0} WHERE {2} = '{3}'", DaoJuGuiCengShu.TableName, DaoJuGuiCengShu.djgcs, DaoJuGuiCengShu.djgmc, djgbm.SelectedItem.ToString().Trim());
             cfwz.DataSource = SQL.DataReadList(sqlstr);
             cfwz.SelectedIndex = 0;
         }

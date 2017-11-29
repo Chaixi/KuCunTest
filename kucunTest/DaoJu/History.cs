@@ -48,8 +48,8 @@ namespace kucunTest.DaoJu
             switch(type)
             {
                 case "DJCCD"://刀具领用单
-                    danjubiao = "daojulingyong";
-                    mingxibiao = "daojulingyongmingxi";
+                    danjubiao = DaoJuLingYong.TableName;
+                    mingxibiao = DaoJuLingYongMingXi.TableName;
                     LS_dgv = LS_djccd;
                     MX_dgv = MX_djccd;
                     DH = "chucangdanhao";
@@ -60,8 +60,8 @@ namespace kucunTest.DaoJu
                     Cells = "LS_djzt";
                     break;
                 case "DJWJ"://刀具外借申请单
-                    danjubiao = "daojuwaijie";
-                    mingxibiao = "daojuwaijiemingxi";
+                    danjubiao = DaoJuWaiJie.TableName;
+                    mingxibiao = DaoJuWaiJieMingXi.TableName;
                     LS_dgv = LS_djwj;
                     MX_dgv = MX_djwj;
                     DH = "danhao";
@@ -72,8 +72,8 @@ namespace kucunTest.DaoJu
                     Cells = "LS_djwj_djzt";
                     break;
                 case "DJGH"://刀具更换申请单，明细表为空
-                    danjubiao = "daojugenghuan";
-                    mingxibiao = "daojugenghuan";//在点击更换单号时可用到
+                    danjubiao = DaoJuGengHuan.TableName;
+                    mingxibiao = DaoJuGengHuan.TableName;//在点击更换单号时可用到
                     LS_dgv = LS_djgh;
                     DH = "danhao";
                     RQ = "sqsj";
@@ -83,8 +83,8 @@ namespace kucunTest.DaoJu
                     Cells = "LS_djgh_djzt";
                     break;
                 case "DJBF"://刀具报废申请单，明细表为空
-                    danjubiao = "daojubaofei";
-                    mingxibiao = "daojubaofei";
+                    danjubiao = DaoJuBaoFei.TableName;
+                    mingxibiao = DaoJuBaoFei.TableName;
                     LS_dgv = LS_djbf;
                     DH = "danhao";
                     RQ = "sqsj";//审批时间字段
@@ -94,8 +94,8 @@ namespace kucunTest.DaoJu
                     Cells = "LS_djbf_djzt";
                     break;
                 case "DJTH"://刀具退还单
-                    danjubiao = "daojutuihuan";
-                    mingxibiao = "daojutuihuanmingxi";
+                    danjubiao = DaoJuTuiHuan.TableName;
+                    mingxibiao = DaoJuTuiHuanMingXi.TableName;
                     LS_dgv = LS_djth;
                     MX_dgv = MX_djth;
                     DH = "danhao";

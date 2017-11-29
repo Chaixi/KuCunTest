@@ -154,7 +154,7 @@
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1272, 54);
+            this.label1.Size = new System.Drawing.Size(1289, 54);
             this.label1.TabIndex = 1;
             this.label1.Text = "刀具类型管理";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1202,7 +1202,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1289, 741);
+            this.ClientSize = new System.Drawing.Size(1306, 741);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.grp_zc);
             this.Controls.Add(this.groupBox2);

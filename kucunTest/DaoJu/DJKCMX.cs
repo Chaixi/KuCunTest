@@ -20,8 +20,7 @@ namespace kucunTest.DaoJu
         private BaseAlex Alex = new BaseAlex();
         private AutoSizeFormClass asc = new AutoSizeFormClass();
 
-        private string DanJuBiao = "daojuliushui";
-        private string DJID = "";
+        //private string DJID = "";
         private DataGridView dgv = new DataGridView();
 
         private DataTable kcmx_db = new DataTable();
@@ -48,13 +47,13 @@ namespace kucunTest.DaoJu
             //Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl, COUNT(dt.daojuleixing) + SUM(d.zsl) - SUM(d.fsl) AS kysl FROM daojutemp dt LEFT JOIN daojuliushui d ON dt.daojuid = d.djid GROUP BY dt.daojuleixing";
 
             //窗体自适应
-            asc.controllInitializeSize(this);
+            //asc.controllInitializeSize(this);
 
             //计时归零
             time_count = 0;
 
             //刀具类型下所有刀具数量
-            Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl FROM daojutemp dt GROUP BY dt.daojuleixing";
+            Sqlstr = string.Format("SELECT dt.{1} AS djlx, COUNT(DISTINCT dt.{2}) AS sysl FROM {0} dt GROUP BY dt.{1}", DaoJuTemp.TableName, DaoJuTemp.leixing, DaoJuTemp.id);
             dgv_KCTJ.AutoGenerateColumns = false;
             DataSet ds = SQL.getDataSet1(Sqlstr);
             kcmx_db = ds.Tables[0];
@@ -73,8 +72,8 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            //Sqlstr = string.Format("SELECT * FROM {0} WHERE djlx LIKE '%{1}%' AND djgg LIKE '%{2}%' AND djid LIKE '%{3}%' ORDER BY czsj DESC", DanJuBiao, djlxCX.Text.ToString().Trim(), kyslCX.Text.ToString().Trim(), djidCX.Text.ToString().Trim());
-            //DataSet ds = SQL.getDataSet(Sqlstr, DanJuBiao);
+            //Sqlstr = string.Format("SELECT * FROM {0} WHERE djlx LIKE '%{1}%' AND djgg LIKE '%{2}%' AND djid LIKE '%{3}%' ORDER BY czsj DESC", DaoJuLiuShui.TableName, djlxCX.Text.ToString().Trim(), kyslCX.Text.ToString().Trim(), djidCX.Text.ToString().Trim());
+            //DataSet ds = SQL.getDataSet(Sqlstr, DaoJuLiuShui.TableName);
 
             //liushuibiao.DataSource = ds.Tables[0].DefaultView;
         }
@@ -89,9 +88,9 @@ namespace kucunTest.DaoJu
             if(e.RowIndex >= 0)
             {
                 //加载流水表中此类型所有刀具操作记录
-                Sqlstr = string.Format("SELECT * FROM {0} WHERE djlx = '{1}' ORDER BY czsj ASC", DanJuBiao, dgv_KCTJ.Rows[e.RowIndex].Cells["kctj_djlx"].Value.ToString());
+                Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}' ORDER BY {3} ASC", DaoJuLiuShui.TableName, DaoJuLiuShui.djlx, dgv_KCTJ.Rows[e.RowIndex].Cells["kctj_djlx"].Value.ToString(), DaoJuLiuShui.czsj);
                 dgv_CRMX.AutoGenerateColumns = false;
-                dgv_CRMX.DataSource = (SQL.getDataSet(Sqlstr, DanJuBiao)).Tables[0].DefaultView;
+                dgv_CRMX.DataSource = (SQL.getDataSet(Sqlstr, DaoJuLiuShui.TableName)).Tables[0].DefaultView;
 
                 //int sskysl = 0;//当时可用数量
                 //int sskysl = Convert.ToInt32(dgv_KCTJ.Rows[e.RowIndex].Cells["kctj_sysl"].Value);//当时可用数量,默认数量为车间中所有数量。问题在于这是当前可用数量不是！当时！可用数量
@@ -122,7 +121,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void DJKCMX_SizeChanged(object sender, EventArgs e)
         {
-            asc.controlAutoSize(this);   
+            //asc.controlAutoSize(this);   
         }
 
         /// <summary>
@@ -147,7 +146,7 @@ namespace kucunTest.DaoJu
             for (int rowindex = 0; rowindex < dgv_KCTJ.Rows.Count; rowindex++)
             {
                 //当前可用数量
-                Sqlstr = "SELECT COUNT(dt.daojuid) FROM daojutemp dt WHERE dt.daojuleixing = '" + dgv_KCTJ.Rows[rowindex].Cells["kctj_djlx"].Value.ToString().Trim() + "'" + " AND dt.weizhibiaoshi = 'S' ";
+                Sqlstr = string.Format("SELECT COUNT(dt.{1}) FROM {0} dt WHERE dt.{2} = '{3}' AND dt.{4} = 'S'", DaoJuTemp.TableName, DaoJuTemp.id, DaoJuTemp.leixing, dgv_KCTJ.Rows[rowindex].Cells["kctj_djlx"].Value.ToString().Trim(), DaoJuTemp.weizhibiaoshi);
                 int kysl = Convert.ToInt32(SQL.ExecuteScalar(Sqlstr).ToString());
 
                 kcmx_db.Rows[rowindex]["kysl"] = kysl.ToString();

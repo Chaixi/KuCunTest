@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -105,7 +105,7 @@
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1016, 77);
+            this.label1.Size = new System.Drawing.Size(1033, 77);
             this.label1.TabIndex = 2;
             this.label1.Text = "零部件领用单据";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -515,8 +515,8 @@
             // 
             // lingyongmingxi
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightGray;
-            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.lingyongmingxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.lingyongmingxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.lingyongmingxi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -876,7 +876,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1033, 741);
+            this.ClientSize = new System.Drawing.Size(1050, 741);
             this.Controls.Add(this.btnexit);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
