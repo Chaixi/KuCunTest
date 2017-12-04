@@ -154,6 +154,7 @@
             this.Name = "Log";
             this.Text = "查看系统日志";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Log_FormClosed);
+            this.Load += new System.EventHandler(this.Log_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

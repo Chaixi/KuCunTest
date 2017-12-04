@@ -532,5 +532,57 @@ namespace kucunTest.BaseClasses
         public static string scxmc = "shengchanxianmingcheng";//生产线名称
     }
 
-    
+    /// <summary>
+    /// 用户表
+    /// </summary>
+    public static class User
+    {
+        public static string TableName = "user";//表名
+        public static string xh = "xh";//主键序号
+        public static string name = "name";//用户名
+        public static string pwd = "pwd";//密码
+        public static string xingming = "xingming";//用户姓名
+        public static string type = "type";//用户类型
+        public static string groupName = "groupname";//所属小组名
+        public static string bumen = "bumen";//用户所属部门
+        public static string bz = "beizhu";//备注
+
+    }
+
+    /// <summary>
+    /// 用户组表
+    /// </summary>
+    public static class UserGroup
+    {
+        public static string TableName = "usergroup";//表名
+        public static string xh = "xh";//主键序号
+        public static string name = "name";//用户名
+        public static string groupName = "groupname";//所属小组名
+        public static string bz = "beizhu";//备注
+    }
+
+    /// <summary>
+    /// 权限组表
+    /// </summary>
+    public static class QuanXianGroup
+    {
+        public static string TableName = "qxgroup";//表名
+        public static string xh = "xh";//主键序号
+        public static string quanXianMingCheng = "quanxianmc";//权限名称
+        public static string groupName = "groupname";//所属小组名
+        public static string bz = "beizhu";//备注
+    }
+
+    /// <summary>
+    /// 权限表
+    /// </summary>
+    public static class QuanXian
+    {
+        public static string TableName = "quanxianbiao";//表名
+        public static string xh = "xh";//主键序号
+        public static string quanXianMingCheng = "quanxianmc";//权限名称
+        public static string quanxianym = "quanxianym";//所属小组名
+        public static string quanxiandaima = "qxdm";//主键序号
+        public static string bz = "beizhu";//备注
+    }
 }

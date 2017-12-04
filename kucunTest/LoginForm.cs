@@ -22,19 +22,31 @@ namespace kucunTest
         BaseAlex Alex = new BaseAlex();
         private MyOpaqueLayer.MyOpaqueLayer m_OpaqueLayer = null;//半透明蒙板层
 
-        string userTable = "user";//用户表
-        string userTb_name = "name";//用户名字段
-        string userTb_type = "type";//用户类型字段
-        string userTb_pwd = "pwd";//密码字段
+        //string userTable = "user";//用户表
+        //string userTb_name = "name";//用户名字段
+        //string userTb_type = "type";//用户类型字段
+        //string userTb_pwd = "pwd";//密码字段
 
-        string crt_username = "";
-        string crt_pwd = "";
+        private string crt_username = "";
+        //private string crt_pwd = "";
 
         #endregion
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
+
+            chejian.SelectedIndex = 0;
+            UserType.Text = "";
+
+            panel2.BackColor = Color.FromArgb(128, Color.WhiteSmoke);
+
+            UserName.Select();
+            UserName.Text = "xmu";
+            pwd.Text = "123";
         }
 
         /// <summary>
@@ -44,14 +56,7 @@ namespace kucunTest
         /// <param name="e"></param>
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            chejian.SelectedIndex = 0;
-            UserType.Text = "";
-
-            panel2.BackColor = Color.FromArgb(128, Color.WhiteSmoke);
-
-            UserName.Select();
-            UserName.Text = "xmu";
-            pwd.Text = "123";
+            
         }
 
         /// <summary>
@@ -74,7 +79,7 @@ namespace kucunTest
         {
             if(UserName.Text != "")
             {
-                Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", userTable, userTb_name, UserName.Text.Trim());
+                Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", User.TableName, User.name, UserName.Text.Trim());
                 DataTable db = (SQL.getDataSet1(Sqlstr)).Tables[0];
 
                 if(db.Rows.Count == 0)
@@ -85,7 +90,7 @@ namespace kucunTest
                 }
                 else
                 {
-                    UserType.Text = "（" + db.Rows[0][userTb_type].ToString() + "）";
+                    UserType.Text = "（" + db.Rows[0][User.type].ToString() + "）";
                 }
             }
             else
@@ -109,11 +114,14 @@ namespace kucunTest
             {
                 this.ShowOpaqueLayer(this.panel1, 125, true);//显示遮罩层
 
-                Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}' AND {3} = '{4}'", userTable, userTb_name, UserName.Text.Trim(), userTb_pwd, pwd.Text.Trim());
+                Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}' AND {3} = '{4}'", User.TableName, User.name, UserName.Text.Trim(), User.pwd, pwd.Text.Trim());
                 DataTable db = (SQL.getDataSet1(Sqlstr)).Tables[0];
 
+                //登录成功
                 if (db.Rows.Count != 0)
                 {
+                    Program.CurrentUserName = UserName.Text.ToString();
+
                     MainForm mainfrm = new MainForm();
                     mainfrm.Show();
 

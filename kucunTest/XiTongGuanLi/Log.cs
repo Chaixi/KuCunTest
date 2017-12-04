@@ -31,6 +31,16 @@ namespace kucunTest.XiTongGuanLi
         }
 
         /// <summary>
+        /// 窗体加载函数，默认加载当前日期的日志
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Log_Load(object sender, EventArgs e)
+        {
+            btn_loadLog_Click(null, null);
+        }
+
+        /// <summary>
         /// 加载日志按钮
         /// </summary>
         /// <param name="sender"></param>
@@ -126,5 +136,6 @@ namespace kucunTest.XiTongGuanLi
             }
         }
 
+        
     }
 }

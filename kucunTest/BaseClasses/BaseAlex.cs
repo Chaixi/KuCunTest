@@ -16,7 +16,7 @@ namespace kucunTest.BaseClasses
         #region 全局变量
         private MySql SQL = new MySql();
         private string Sqlstr = "";
-        
+
         #endregion
 
         /// <summary>

@@ -36,6 +36,8 @@ namespace kucunTest
         string Sqlstr = "";
 
         private AutoSizeFormClass asc = new AutoSizeFormClass();
+        private BaseAlex Alex = new BaseAlex();
+        private Authorize Authorize = new Authorize();
 
         private string nongli = "";//农历日期
 
@@ -45,18 +47,6 @@ namespace kucunTest
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// 窗体加载
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            asc.controllInitializeSize(this);//记录窗体大小，以便进行窗口自适应
-            this.WindowState = FormWindowState.Maximized;//窗口默认最大化
-            Win32.AnimateWindow(this.Handle, 2000, Win32.AW_BLEND);//窗体淡入效果
 
             menu_treeView.ExpandAll();
             menu_treeView.SelectedNode = null;
@@ -85,7 +75,25 @@ namespace kucunTest
             //toolStripStatusLabel_TimeNow.Text =DateTime.Now.ToString("yyyy年M月d日 dddd HH:mm:ss") + nongli;//日期格式形如：2017年8月10日 星期四 14:17:20 农历 
             toolStripStatusLabel_TimeNow.Text = DateTime.Now.ToString("yyyy年M月d日 dddd [") + nongli + DateTime.Now.ToString("] HH:mm:ss");//日期格式形如：2017年8月10日 星期四 14:17:20
 
-            this.timer1.Start();//计时器开始计时，每秒更新时间
+            this.timer1.Start();//计时器开始计时，每秒更新时间   
+
+            //收起左侧面板
+            this.splitContainer1.Panel1Collapsed = true;
+
+        }
+
+        /// <summary>
+        /// 窗体加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            asc.controllInitializeSize(this);//记录窗体大小，以便进行窗口自适应
+            this.WindowState = FormWindowState.Maximized;//窗口默认最大化
+            Win32.AnimateWindow(this.Handle, 2000, Win32.AW_BLEND);//窗体淡入效果
+
+            this.Authorize.setAuthority(this, this.Name);
         }
 
         #region 其他
@@ -1057,7 +1065,36 @@ namespace kucunTest
         private void 权限管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             qxguanli qxgl = new qxguanli();
-            qxgl.Show();
+            qxgl.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == qxgl.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = qxgl.Name;
+                qxgl.Parent = tb;
+                tb.Text = qxgl.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                qxgl.Size = tb.Size;
+
+                qxgl.Show();
+            }
         }
 
         /// <summary>
@@ -1165,13 +1202,38 @@ namespace kucunTest
         }
 
         /// <summary>
-        /// 窗体淡出
+        /// 窗体关闭前询问且淡出
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Win32.AnimateWindow(this.Handle, 2000, Win32.AW_SLIDE | Win32.AW_HIDE | Win32.AW_BLEND);
+            if(MessageBox.Show("确认退出系统？", Program.tishiTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Win32.AnimateWindow(this.Handle, 2000, Win32.AW_SLIDE | Win32.AW_HIDE | Win32.AW_BLEND);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        /// <summary>
+        /// 系统关闭后打开登录界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormCollection fc = Application.OpenForms;
+
+            foreach (Form frm in fc)
+            {
+                if (frm.Visible == false && frm.Name == "LoginForm")
+                {
+                    frm.Show();
+                }
+            }
         }
 
         /// <summary>
@@ -1230,10 +1292,50 @@ namespace kucunTest
             }
             else if (menu_treeView.SelectedNode.Level == 1)
             {
-                //刀具续用单据暂时不作操作
                 if (menu_treeView.SelectedNode.Tag.ToString() == "DJXY")
                 {
                     return;
+                    //DJXY xyls = new DJXY();
+                    ////this.showInTabPage(xyls);
+                    //xyls.MdiParent = this;
+
+                    //bool have = false;
+                    //foreach (TabPage tp in tabControl1.TabPages)
+                    //{
+                    //    if (tp.Text == xyls.Text)
+                    //    {
+                    //        tabControl1.SelectedTab = tp;
+                    //        have = true;
+                    //        return;
+                    //    }
+                    //}
+
+                    //if (!have)
+                    //{
+                    //    TabPage tb = new TabPage();
+                    //    tb.Name = xyls.Name;
+                    //    xyls.Parent = tb;
+                    //    tb.Text = xyls.Text;
+                    //    tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                    //    tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                    //    this.tabControl1.TabPages.Add(tb);
+                    //    tabControl1.SelectedTab = tb;
+                    //    tabControl1.Visible = true;
+
+                    //    //historyPage.Left = (tabControl1.Width - historyPage.Width) / 2;
+                    //    //historyPage.Top = (tb.Height - historyPage.Height) / 4;
+                    //    //xyls.Size = tb.Size;
+
+                    //    xyls.Show();
+                    //    //historyPage.Dock = DockStyle.Fill;
+                    //    //xyls.AutoScaleMode = AutoScaleMode.Font;
+                    //    //xyls.AutoScroll = true;
+                    //    //xyls.WindowState = FormWindowState.Maximized;
+
+                    //    //xyls.Refresh();
+                    //}
+
                 }
 
                 else
@@ -1386,6 +1488,7 @@ namespace kucunTest
                 fr.Show();
             }
         }
+
 
         #endregion 公用方法部分结束
 

@@ -17,6 +17,8 @@ namespace kucunTest
 
         public static string tishiTitle = "刀具管理系统提示";
 
+        private static string crtusername;
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -26,11 +28,26 @@ namespace kucunTest
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Program.WriteLog("登录", "用户"+ "厦门大学（超级管理员）" +"登录成功，打开主窗体。");
-            Application.Run(new MainForm());
-            Program.WriteLog("退出", "关闭主窗体。");
-            //Application.Run(new LoginForm());
+            //Application.Run(new MainForm());
+            Application.Run(new LoginForm());
             //Application.Run(new test());
             //Application.Run(new shujudaorudaochu());
+            Program.WriteLog("退出", "关闭主窗体。");            
+        }
+
+        /// <summary>
+        /// 用户名全局变量
+        /// </summary>
+        public static string CurrentUserName
+        {
+            get
+            {
+                return crtusername;
+            }
+            set
+            {
+                crtusername = value;
+            }
         }
 
         /// <summary>

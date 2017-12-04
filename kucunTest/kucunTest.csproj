@@ -398,6 +398,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="quanxianguanli\Authorize.cs" />
     <Compile Include="quanxianguanli\qxguanli.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -606,6 +607,7 @@
       <DependentUpon>Log.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="File\刀具外借单.frx" />
     <None Include="File\刀具报废单.frx" />
     <None Include="File\刀具更换申请单.frx" />

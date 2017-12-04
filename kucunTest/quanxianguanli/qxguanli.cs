@@ -15,18 +15,13 @@ namespace kucunTest.quanxianguanli
 {
     public partial class qxguanli : Form
     {
-        public qxguanli()
-        {
-            InitializeComponent();
-        }
-
 
         #region 全局变量
         private MySql Sql = new MySql();//MySQL类
         private AutoSizeFormClass asc = new AutoSizeFormClass();
 
         private string SqlStr = "";
-        private string  xzyhstr = "";
+        private string xzyhstr = "";
         private string xzyhstr1 = "";
         private string groupqx = "";
         private string groupqx1 = "";
@@ -43,9 +38,11 @@ namespace kucunTest.quanxianguanli
         List<string> list = new List<string>();
         #endregion
 
-
-
-
+        public qxguanli()
+        {
+            InitializeComponent();
+        }
+                
         private void qxguanli_Load(object sender, EventArgs e)
         {
             node.Nodes.Clear();
@@ -85,7 +82,7 @@ namespace kucunTest.quanxianguanli
             //小组管理界面禁用
             treeView_quanxian.Nodes[0].Expand();
 
-           
+            asc.controllInitializeSize(this);
 
         }
 
@@ -94,8 +91,6 @@ namespace kucunTest.quanxianguanli
         ///<summary>生成树之生成第一层名称节点</summary>
         private void BindRoot()
         {
-            
-
             MySqlDataReader scx = Sql.getcom("select name from user order by xh");
             while (scx.Read())
             {
@@ -107,8 +102,7 @@ namespace kucunTest.quanxianguanli
 
 
         }
-
-
+        
         #endregion
 
       
@@ -116,8 +110,7 @@ namespace kucunTest.quanxianguanli
         ///<summary>生成树之生成第一层名称节点</summary>
         private void BindRoot1()
         {
-
-            MySqlDataReader scx1 = Sql.getcom("select groupname from groupbiao order by groupid");
+            MySqlDataReader scx1 = Sql.getcom("select groupname from groupbiao order by xh");
             while (scx1.Read())
             {
                 TreeNode t2 = new TreeNode();
@@ -136,8 +129,6 @@ namespace kucunTest.quanxianguanli
         ///<summary>生成树之生成第一层名称节点</summary>
         private void BindRoot2()
         {
-
-
             MySqlDataReader scx2 = Sql.getcom("select name from user order by xh ASC");
             while (scx2.Read())
             {
@@ -145,13 +136,8 @@ namespace kucunTest.quanxianguanli
                 t2.Text = scx2[0].ToString();
                 node2.Nodes.Add(t2);
             }
-
-
         }
-
-
         #endregion
-
 
         #region treeView1_AfterSelect()方法：根据选择的树节点进行用户信息查询
         /// <summary>
@@ -164,7 +150,7 @@ namespace kucunTest.quanxianguanli
             List<string> list1 = new List<string>();
             if (treeView1.SelectedNode.Level == 1)
             {
-                string str = "select xh,xingming,type,bumen,beizhu,pwd from user where name = '" + e.Node.Text.ToString() + "'";
+                string str = "select xh,xingming,type,bumen,beizhu,pwd, groupname from user where name = '" + e.Node.Text.ToString() + "'";
                 MySqlDataReader My_read = Sql.getcom(str);  
                 while (My_read.Read())
                 {
@@ -174,6 +160,7 @@ namespace kucunTest.quanxianguanli
                     list1.Add(My_read[3].ToString());
                     list1.Add(My_read[4].ToString());
                     list1.Add(My_read[5].ToString());
+                    list1.Add(My_read[6].ToString());
                 }
                 xh.Text = list1[0];
                 yhm.Text = e.Node.Text.ToString();
@@ -182,6 +169,7 @@ namespace kucunTest.quanxianguanli
                 ssbm.Text = list1[3];
                 beizhu.Text = list1[4];
                 pwd.Text = list1[5];
+                ssxiaozu.Text = list1[6];
 
                 //切换用户时重新禁止编辑
                 yhm.ReadOnly = true;
@@ -278,8 +266,6 @@ namespace kucunTest.quanxianguanli
         //修改密码
         private void btn_xgmm_Click(object sender, EventArgs e)
         {
-
-            
              ysmm.ReadOnly = false;
              xmm.ReadOnly = false;
              qrxmm.ReadOnly = false;
@@ -389,7 +375,7 @@ namespace kucunTest.quanxianguanli
                 MessageBox.Show("请填写完整的用户信息！", "消息");
                 return;
             }
-            SqlStr = "update user set name = '" + yhm.Text + "',xingming = '" + yhxm.Text + "',type = '" + ssjs.Text + "',bumen = '" + ssbm.Text + "',beizhu = '"+ beizhu.Text+"' where xh = '"+ xh.Text +"'";
+            SqlStr = "update `user` set name = '" + yhm.Text + "',xingming = '" + yhxm.Text + "',type = '" + ssjs.Text + "',bumen = '" + ssbm.Text + "',beizhu = '"+ beizhu.Text+"' where xh = '"+ xh.Text +"'";
             j = Sql.ExecuteNonQuery(SqlStr);
             if (j != 0)
             {
@@ -415,11 +401,7 @@ namespace kucunTest.quanxianguanli
 
             }
         }
-
-
-
-
-
+        
         #endregion
 
 
@@ -630,7 +612,7 @@ namespace kucunTest.quanxianguanli
         ///<summary>生成树之生成第一层名称节点</summary>
         private void BindRoot4()
         {
-            MySqlDataReader scx4 = Sql.getcom("SELECT us.name FROM user us LEFT JOIN  usergroup usg on us.name = usg.name where groupname is NULL");
+            MySqlDataReader scx4 = Sql.getcom("SELECT us.`name` FROM `user` us LEFT JOIN  usergroup usg on us.`name` = usg.`name` where us.groupname is NULL");
             while (scx4.Read())
             {
                 TreeNode t4 = new TreeNode();
@@ -653,19 +635,20 @@ namespace kucunTest.quanxianguanli
             if (treeView4.SelectedNode.Level == 1)
             {
 
-                string str = "select groupid,groupinfo,beizhu from groupbiao where groupname = '" + e.Node.Text.ToString() + "'";
-                MySqlDataReader My_read = Sql.getcom(str);
-                while (My_read.Read())
-                {
-                    list.Add(My_read[0].ToString());
-                    list.Add(My_read[1].ToString());
-                    list.Add(My_read[2].ToString());
+                string str = "select xh,groupinfo,beizhu from groupbiao where groupname = '" + e.Node.Text.ToString() + "'";
+                DataTable db = Sql.getDataSet1(str).Tables[0];
+                //MySqlDataReader My_read = Sql.getcom(str);
+                //while (My_read.Read())
+                //{
+                //    list.Add(My_read[0].ToString());
+                //    list.Add(My_read[1].ToString());
+                //    list.Add(My_read[2].ToString());
           
-                }
+                //}
                 //xh.Text = list[0];
                 xiaozuming.Text = e.Node.Text.ToString();
-                xiaozujj.Text = list[1];
-                xiaozubeizhu.Text = list[2];
+                xiaozujj.Text = db.Rows[0]["groupinfo"].ToString();
+                xiaozubeizhu.Text = db.Rows[0]["beizhu"].ToString();
 
                 //小组成员的树结构
                 node3.Nodes.Clear();
@@ -676,7 +659,6 @@ namespace kucunTest.quanxianguanli
                 treeView2.Nodes[0].Expand();//默认展开第一层节点
                 nodenum = treeView2.Nodes[0].Nodes.Count;
                 
-
                 //用户树结构，需要判断
                 if (nodenum == 0)
                 {
@@ -762,7 +744,7 @@ namespace kucunTest.quanxianguanli
         ///<summary>生成树之生成第一层名称节点</summary>
         private void BindRoot5()
         {
-            MySqlDataReader scx5 = Sql.getcom("SELECT quanxianmc FROM quanxianbiao order by quanxianid ASC");
+            MySqlDataReader scx5 = Sql.getcom("SELECT quanxianmc FROM quanxianbiao order by xh ASC");
             while (scx5.Read())
             {
                 TreeNode t5 = new TreeNode();
@@ -786,6 +768,9 @@ namespace kucunTest.quanxianguanli
             }
         }
 
-
+        private void qxguanli_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
+        }
     }
 }
