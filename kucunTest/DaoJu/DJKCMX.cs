@@ -210,5 +210,35 @@ namespace kucunTest.DaoJu
         {
             time_count++;
         }
+
+        /// <summary>
+        /// 查看全部按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AllBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 打印记录按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 单把刀具操作记录按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

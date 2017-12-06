@@ -30,7 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.bnt_czmm = new System.Windows.Forms.Button();
+            this.bntResetPwd = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ycqrxmm = new System.Windows.Forms.TextBox();
             this.ycxmm = new System.Windows.Forms.TextBox();
@@ -42,10 +42,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btn_qrxg = new System.Windows.Forms.Button();
-            this.btn_xgmm = new System.Windows.Forms.Button();
-            this.btn_bcxx = new System.Windows.Forms.Button();
-            this.btn_bjyh = new System.Windows.Forms.Button();
+            this.btnConfirmEditPwd = new System.Windows.Forms.Button();
+            this.btnEditPwd = new System.Windows.Forms.Button();
+            this.btnSaveInfo = new System.Windows.Forms.Button();
+            this.btnEditUser = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ssxiaozu = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -62,21 +62,21 @@
             this.yhm = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.btnAddUser = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.treeViewUserList = new System.Windows.Forms.TreeView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btn_bcqxsz = new System.Windows.Forms.Button();
-            this.btn_yhsc = new System.Windows.Forms.Button();
-            this.btn_yhtj = new System.Windows.Forms.Button();
+            this.btnSaveSettings = new System.Windows.Forms.Button();
+            this.btnDeleteUserfromGroup = new System.Windows.Forms.Button();
+            this.btnAddUsertoGroup = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.treeView5 = new System.Windows.Forms.TreeView();
+            this.treeViewUsernotinGroup = new System.Windows.Forms.TreeView();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.treeView2 = new System.Windows.Forms.TreeView();
-            this.btn_bjxz = new System.Windows.Forms.Button();
+            this.treeViewUserinGroup = new System.Windows.Forms.TreeView();
+            this.btnEditGroup = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.treeView_quanxian = new System.Windows.Forms.TreeView();
+            this.treeViewAuthorityList = new System.Windows.Forms.TreeView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.xiaozujj = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -84,10 +84,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.xiaozuming = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_scxz = new System.Windows.Forms.Button();
-            this.btn_xjxz = new System.Windows.Forms.Button();
+            this.btnDeleteGroup = new System.Windows.Forms.Button();
+            this.btnAddGroup = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.treeView4 = new System.Windows.Forms.TreeView();
+            this.treeviewGroupList = new System.Windows.Forms.TreeView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -107,41 +107,41 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.tabControl1.Location = new System.Drawing.Point(3, 1);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(898, 587);
+            this.tabControl1.Size = new System.Drawing.Size(898, 553);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.Controls.Add(this.bnt_czmm);
+            this.tabPage1.Controls.Add(this.bntResetPwd);
             this.tabPage1.Controls.Add(this.groupBox4);
-            this.tabPage1.Controls.Add(this.btn_bcxx);
-            this.tabPage1.Controls.Add(this.btn_bjyh);
+            this.tabPage1.Controls.Add(this.btnSaveInfo);
+            this.tabPage1.Controls.Add(this.btnEditUser);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnDeleteUser);
+            this.tabPage1.Controls.Add(this.btnAddUser);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(890, 553);
+            this.tabPage1.Size = new System.Drawing.Size(890, 519);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "用户管理";
             // 
-            // bnt_czmm
+            // bntResetPwd
             // 
-            this.bnt_czmm.Location = new System.Drawing.Point(596, 462);
-            this.bnt_czmm.Name = "bnt_czmm";
-            this.bnt_czmm.Size = new System.Drawing.Size(84, 39);
-            this.bnt_czmm.TabIndex = 14;
-            this.bnt_czmm.Text = "重置密码";
-            this.bnt_czmm.UseVisualStyleBackColor = true;
-            this.bnt_czmm.Click += new System.EventHandler(this.bnt_czmm_Click);
+            this.bntResetPwd.Location = new System.Drawing.Point(596, 462);
+            this.bntResetPwd.Name = "bntResetPwd";
+            this.bntResetPwd.Size = new System.Drawing.Size(84, 39);
+            this.bntResetPwd.TabIndex = 14;
+            this.bntResetPwd.Text = "重置密码";
+            this.bntResetPwd.UseVisualStyleBackColor = true;
+            this.bntResetPwd.Click += new System.EventHandler(this.bnt_czmm_Click);
             // 
             // groupBox4
             // 
@@ -155,8 +155,8 @@
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.btn_qrxg);
-            this.groupBox4.Controls.Add(this.btn_xgmm);
+            this.groupBox4.Controls.Add(this.btnConfirmEditPwd);
+            this.groupBox4.Controls.Add(this.btnEditPwd);
             this.groupBox4.Location = new System.Drawing.Point(631, 160);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(256, 276);
@@ -260,45 +260,45 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "原 密 码";
             // 
-            // btn_qrxg
+            // btnConfirmEditPwd
             // 
-            this.btn_qrxg.Location = new System.Drawing.Point(152, 221);
-            this.btn_qrxg.Name = "btn_qrxg";
-            this.btn_qrxg.Size = new System.Drawing.Size(84, 36);
-            this.btn_qrxg.TabIndex = 11;
-            this.btn_qrxg.Text = "确认修改";
-            this.btn_qrxg.UseVisualStyleBackColor = true;
-            this.btn_qrxg.Click += new System.EventHandler(this.btn_czmm_Click);
+            this.btnConfirmEditPwd.Location = new System.Drawing.Point(152, 221);
+            this.btnConfirmEditPwd.Name = "btnConfirmEditPwd";
+            this.btnConfirmEditPwd.Size = new System.Drawing.Size(84, 36);
+            this.btnConfirmEditPwd.TabIndex = 11;
+            this.btnConfirmEditPwd.Text = "确认修改";
+            this.btnConfirmEditPwd.UseVisualStyleBackColor = true;
+            this.btnConfirmEditPwd.Click += new System.EventHandler(this.btn_czmm_Click);
             // 
-            // btn_xgmm
+            // btnEditPwd
             // 
-            this.btn_xgmm.Location = new System.Drawing.Point(58, 221);
-            this.btn_xgmm.Name = "btn_xgmm";
-            this.btn_xgmm.Size = new System.Drawing.Size(86, 36);
-            this.btn_xgmm.TabIndex = 10;
-            this.btn_xgmm.Text = "修改密码";
-            this.btn_xgmm.UseVisualStyleBackColor = true;
-            this.btn_xgmm.Click += new System.EventHandler(this.btn_xgmm_Click);
+            this.btnEditPwd.Location = new System.Drawing.Point(58, 221);
+            this.btnEditPwd.Name = "btnEditPwd";
+            this.btnEditPwd.Size = new System.Drawing.Size(86, 36);
+            this.btnEditPwd.TabIndex = 10;
+            this.btnEditPwd.Text = "修改密码";
+            this.btnEditPwd.UseVisualStyleBackColor = true;
+            this.btnEditPwd.Click += new System.EventHandler(this.btn_xgmm_Click);
             // 
-            // btn_bcxx
+            // btnSaveInfo
             // 
-            this.btn_bcxx.Location = new System.Drawing.Point(496, 462);
-            this.btn_bcxx.Name = "btn_bcxx";
-            this.btn_bcxx.Size = new System.Drawing.Size(84, 39);
-            this.btn_bcxx.TabIndex = 12;
-            this.btn_bcxx.Text = "保存信息";
-            this.btn_bcxx.UseVisualStyleBackColor = true;
-            this.btn_bcxx.Click += new System.EventHandler(this.btn_bcxx_Click);
+            this.btnSaveInfo.Location = new System.Drawing.Point(496, 462);
+            this.btnSaveInfo.Name = "btnSaveInfo";
+            this.btnSaveInfo.Size = new System.Drawing.Size(84, 39);
+            this.btnSaveInfo.TabIndex = 12;
+            this.btnSaveInfo.Text = "保存更改";
+            this.btnSaveInfo.UseVisualStyleBackColor = true;
+            this.btnSaveInfo.Click += new System.EventHandler(this.btn_bcxx_Click);
             // 
-            // btn_bjyh
+            // btnEditUser
             // 
-            this.btn_bjyh.Location = new System.Drawing.Point(392, 462);
-            this.btn_bjyh.Name = "btn_bjyh";
-            this.btn_bjyh.Size = new System.Drawing.Size(90, 40);
-            this.btn_bjyh.TabIndex = 6;
-            this.btn_bjyh.Text = "编辑用户";
-            this.btn_bjyh.UseVisualStyleBackColor = true;
-            this.btn_bjyh.Click += new System.EventHandler(this.btn_bjyh_Click);
+            this.btnEditUser.Location = new System.Drawing.Point(392, 462);
+            this.btnEditUser.Name = "btnEditUser";
+            this.btnEditUser.Size = new System.Drawing.Size(90, 40);
+            this.btnEditUser.TabIndex = 6;
+            this.btnEditUser.Text = "编辑用户";
+            this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btn_bjyh_Click);
             // 
             // groupBox3
             // 
@@ -451,29 +451,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "用户名";
             // 
-            // button2
+            // btnDeleteUser
             // 
-            this.button2.Location = new System.Drawing.Point(286, 462);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 40);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "删除用户";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnDeleteUser.Location = new System.Drawing.Point(286, 462);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(90, 40);
+            this.btnDeleteUser.TabIndex = 2;
+            this.btnDeleteUser.Text = "删除用户";
+            this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnAddUser
             // 
-            this.button1.Location = new System.Drawing.Point(184, 462);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 40);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "添加用户";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddUser.Location = new System.Drawing.Point(184, 462);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(88, 40);
+            this.btnAddUser.TabIndex = 1;
+            this.btnAddUser.Text = "添加用户";
+            this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.treeView1);
+            this.groupBox1.Controls.Add(this.treeViewUserList);
             this.groupBox1.Location = new System.Drawing.Point(11, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(184, 433);
@@ -481,72 +481,72 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "用户列表";
             // 
-            // treeView1
+            // treeViewUserList
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(3, 25);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(178, 405);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.treeViewUserList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewUserList.Location = new System.Drawing.Point(3, 25);
+            this.treeViewUserList.Name = "treeViewUserList";
+            this.treeViewUserList.Size = new System.Drawing.Size(178, 405);
+            this.treeViewUserList.TabIndex = 0;
+            this.treeViewUserList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewUserList_AfterSelect);
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage3.Controls.Add(this.btn_bcqxsz);
-            this.tabPage3.Controls.Add(this.btn_yhsc);
-            this.tabPage3.Controls.Add(this.btn_yhtj);
+            this.tabPage3.Controls.Add(this.btnSaveSettings);
+            this.tabPage3.Controls.Add(this.btnDeleteUserfromGroup);
+            this.tabPage3.Controls.Add(this.btnAddUsertoGroup);
             this.tabPage3.Controls.Add(this.groupBox9);
             this.tabPage3.Controls.Add(this.groupBox8);
-            this.tabPage3.Controls.Add(this.btn_bjxz);
+            this.tabPage3.Controls.Add(this.btnEditGroup);
             this.tabPage3.Controls.Add(this.groupBox7);
             this.tabPage3.Controls.Add(this.groupBox6);
-            this.tabPage3.Controls.Add(this.btn_scxz);
-            this.tabPage3.Controls.Add(this.btn_xjxz);
+            this.tabPage3.Controls.Add(this.btnDeleteGroup);
+            this.tabPage3.Controls.Add(this.btnAddGroup);
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(890, 553);
+            this.tabPage3.Size = new System.Drawing.Size(890, 519);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "小组管理";
             // 
-            // btn_bcqxsz
+            // btnSaveSettings
             // 
-            this.btn_bcqxsz.Enabled = false;
-            this.btn_bcqxsz.Location = new System.Drawing.Point(535, 468);
-            this.btn_bcqxsz.Name = "btn_bcqxsz";
-            this.btn_bcqxsz.Size = new System.Drawing.Size(90, 41);
-            this.btn_bcqxsz.TabIndex = 11;
-            this.btn_bcqxsz.Text = "保存设置";
-            this.btn_bcqxsz.UseVisualStyleBackColor = true;
-            this.btn_bcqxsz.Click += new System.EventHandler(this.btn_bcqxsz_Click);
+            this.btnSaveSettings.Enabled = false;
+            this.btnSaveSettings.Location = new System.Drawing.Point(535, 468);
+            this.btnSaveSettings.Name = "btnSaveSettings";
+            this.btnSaveSettings.Size = new System.Drawing.Size(90, 41);
+            this.btnSaveSettings.TabIndex = 11;
+            this.btnSaveSettings.Text = "保存更改";
+            this.btnSaveSettings.UseVisualStyleBackColor = true;
+            this.btnSaveSettings.Click += new System.EventHandler(this.btn_bcqxsz_Click);
             // 
-            // btn_yhsc
+            // btnDeleteUserfromGroup
             // 
-            this.btn_yhsc.Enabled = false;
-            this.btn_yhsc.Location = new System.Drawing.Point(378, 350);
-            this.btn_yhsc.Name = "btn_yhsc";
-            this.btn_yhsc.Size = new System.Drawing.Size(59, 32);
-            this.btn_yhsc.TabIndex = 10;
-            this.btn_yhsc.Text = "移除";
-            this.btn_yhsc.UseVisualStyleBackColor = true;
-            this.btn_yhsc.Click += new System.EventHandler(this.btn_yhsc_Click);
+            this.btnDeleteUserfromGroup.Enabled = false;
+            this.btnDeleteUserfromGroup.Location = new System.Drawing.Point(378, 350);
+            this.btnDeleteUserfromGroup.Name = "btnDeleteUserfromGroup";
+            this.btnDeleteUserfromGroup.Size = new System.Drawing.Size(59, 32);
+            this.btnDeleteUserfromGroup.TabIndex = 10;
+            this.btnDeleteUserfromGroup.Text = "移除";
+            this.btnDeleteUserfromGroup.UseVisualStyleBackColor = true;
+            this.btnDeleteUserfromGroup.Click += new System.EventHandler(this.btn_yhsc_Click);
             // 
-            // btn_yhtj
+            // btnAddUsertoGroup
             // 
-            this.btn_yhtj.Enabled = false;
-            this.btn_yhtj.Location = new System.Drawing.Point(378, 290);
-            this.btn_yhtj.Name = "btn_yhtj";
-            this.btn_yhtj.Size = new System.Drawing.Size(59, 32);
-            this.btn_yhtj.TabIndex = 9;
-            this.btn_yhtj.Text = "添加";
-            this.btn_yhtj.UseVisualStyleBackColor = true;
-            this.btn_yhtj.Click += new System.EventHandler(this.btn_yhtj_Click);
+            this.btnAddUsertoGroup.Enabled = false;
+            this.btnAddUsertoGroup.Location = new System.Drawing.Point(378, 290);
+            this.btnAddUsertoGroup.Name = "btnAddUsertoGroup";
+            this.btnAddUsertoGroup.Size = new System.Drawing.Size(59, 32);
+            this.btnAddUsertoGroup.TabIndex = 9;
+            this.btnAddUsertoGroup.Text = "添加";
+            this.btnAddUsertoGroup.UseVisualStyleBackColor = true;
+            this.btnAddUsertoGroup.Click += new System.EventHandler(this.btn_yhtj_Click);
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.treeView5);
+            this.groupBox9.Controls.Add(this.treeViewUsernotinGroup);
             this.groupBox9.Location = new System.Drawing.Point(443, 199);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(178, 244);
@@ -554,19 +554,19 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "其他用户";
             // 
-            // treeView5
+            // treeViewUsernotinGroup
             // 
-            this.treeView5.CheckBoxes = true;
-            this.treeView5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView5.Enabled = false;
-            this.treeView5.Location = new System.Drawing.Point(3, 25);
-            this.treeView5.Name = "treeView5";
-            this.treeView5.Size = new System.Drawing.Size(172, 216);
-            this.treeView5.TabIndex = 0;
+            this.treeViewUsernotinGroup.CheckBoxes = true;
+            this.treeViewUsernotinGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewUsernotinGroup.Enabled = false;
+            this.treeViewUsernotinGroup.Location = new System.Drawing.Point(3, 25);
+            this.treeViewUsernotinGroup.Name = "treeViewUsernotinGroup";
+            this.treeViewUsernotinGroup.Size = new System.Drawing.Size(172, 216);
+            this.treeViewUsernotinGroup.TabIndex = 0;
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.treeView2);
+            this.groupBox8.Controls.Add(this.treeViewUserinGroup);
             this.groupBox8.Location = new System.Drawing.Point(194, 199);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(178, 244);
@@ -574,28 +574,29 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "小组成员";
             // 
-            // treeView2
+            // treeViewUserinGroup
             // 
-            this.treeView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView2.Enabled = false;
-            this.treeView2.Location = new System.Drawing.Point(3, 25);
-            this.treeView2.Name = "treeView2";
-            this.treeView2.Size = new System.Drawing.Size(172, 216);
-            this.treeView2.TabIndex = 5;
+            this.treeViewUserinGroup.CheckBoxes = true;
+            this.treeViewUserinGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewUserinGroup.Enabled = false;
+            this.treeViewUserinGroup.Location = new System.Drawing.Point(3, 25);
+            this.treeViewUserinGroup.Name = "treeViewUserinGroup";
+            this.treeViewUserinGroup.Size = new System.Drawing.Size(172, 216);
+            this.treeViewUserinGroup.TabIndex = 5;
             // 
-            // btn_bjxz
+            // btnEditGroup
             // 
-            this.btn_bjxz.Location = new System.Drawing.Point(420, 468);
-            this.btn_bjxz.Name = "btn_bjxz";
-            this.btn_bjxz.Size = new System.Drawing.Size(90, 41);
-            this.btn_bjxz.TabIndex = 5;
-            this.btn_bjxz.Text = "编辑小组";
-            this.btn_bjxz.UseVisualStyleBackColor = true;
-            this.btn_bjxz.Click += new System.EventHandler(this.btn_bjxz_Click);
+            this.btnEditGroup.Location = new System.Drawing.Point(420, 468);
+            this.btnEditGroup.Name = "btnEditGroup";
+            this.btnEditGroup.Size = new System.Drawing.Size(90, 41);
+            this.btnEditGroup.TabIndex = 5;
+            this.btnEditGroup.Text = "编辑小组";
+            this.btnEditGroup.UseVisualStyleBackColor = true;
+            this.btnEditGroup.Click += new System.EventHandler(this.btn_bjxz_Click);
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.treeView_quanxian);
+            this.groupBox7.Controls.Add(this.treeViewAuthorityList);
             this.groupBox7.Location = new System.Drawing.Point(627, 6);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(257, 437);
@@ -603,15 +604,15 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "权限设置";
             // 
-            // treeView_quanxian
+            // treeViewAuthorityList
             // 
-            this.treeView_quanxian.CheckBoxes = true;
-            this.treeView_quanxian.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView_quanxian.Enabled = false;
-            this.treeView_quanxian.Location = new System.Drawing.Point(3, 25);
-            this.treeView_quanxian.Name = "treeView_quanxian";
-            this.treeView_quanxian.Size = new System.Drawing.Size(251, 409);
-            this.treeView_quanxian.TabIndex = 1;
+            this.treeViewAuthorityList.CheckBoxes = true;
+            this.treeViewAuthorityList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewAuthorityList.Location = new System.Drawing.Point(3, 25);
+            this.treeViewAuthorityList.Name = "treeViewAuthorityList";
+            this.treeViewAuthorityList.Size = new System.Drawing.Size(251, 409);
+            this.treeViewAuthorityList.TabIndex = 1;
+            this.treeViewAuthorityList.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewAuthorityList_AfterCheck);
             // 
             // groupBox6
             // 
@@ -680,30 +681,30 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "小组名称";
             // 
-            // btn_scxz
+            // btnDeleteGroup
             // 
-            this.btn_scxz.Enabled = false;
-            this.btn_scxz.Location = new System.Drawing.Point(303, 467);
-            this.btn_scxz.Name = "btn_scxz";
-            this.btn_scxz.Size = new System.Drawing.Size(90, 42);
-            this.btn_scxz.TabIndex = 2;
-            this.btn_scxz.Text = "删除小组";
-            this.btn_scxz.UseVisualStyleBackColor = true;
-            this.btn_scxz.Click += new System.EventHandler(this.btn_scxz_Click);
+            this.btnDeleteGroup.Enabled = false;
+            this.btnDeleteGroup.Location = new System.Drawing.Point(303, 467);
+            this.btnDeleteGroup.Name = "btnDeleteGroup";
+            this.btnDeleteGroup.Size = new System.Drawing.Size(90, 42);
+            this.btnDeleteGroup.TabIndex = 2;
+            this.btnDeleteGroup.Text = "删除小组";
+            this.btnDeleteGroup.UseVisualStyleBackColor = true;
+            this.btnDeleteGroup.Click += new System.EventHandler(this.btn_scxz_Click);
             // 
-            // btn_xjxz
+            // btnAddGroup
             // 
-            this.btn_xjxz.Location = new System.Drawing.Point(188, 467);
-            this.btn_xjxz.Name = "btn_xjxz";
-            this.btn_xjxz.Size = new System.Drawing.Size(90, 42);
-            this.btn_xjxz.TabIndex = 1;
-            this.btn_xjxz.Text = "新建小组";
-            this.btn_xjxz.UseVisualStyleBackColor = true;
-            this.btn_xjxz.Click += new System.EventHandler(this.btn_xjxz_Click);
+            this.btnAddGroup.Location = new System.Drawing.Point(188, 467);
+            this.btnAddGroup.Name = "btnAddGroup";
+            this.btnAddGroup.Size = new System.Drawing.Size(90, 42);
+            this.btnAddGroup.TabIndex = 1;
+            this.btnAddGroup.Text = "添加小组";
+            this.btnAddGroup.UseVisualStyleBackColor = true;
+            this.btnAddGroup.Click += new System.EventHandler(this.btn_xjxz_Click);
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.treeView4);
+            this.groupBox5.Controls.Add(this.treeviewGroupList);
             this.groupBox5.Location = new System.Drawing.Point(6, 6);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(182, 437);
@@ -711,20 +712,20 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "小组列表";
             // 
-            // treeView4
+            // treeviewGroupList
             // 
-            this.treeView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView4.Location = new System.Drawing.Point(3, 25);
-            this.treeView4.Name = "treeView4";
-            this.treeView4.Size = new System.Drawing.Size(176, 409);
-            this.treeView4.TabIndex = 0;
-            this.treeView4.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView4_AfterSelect);
+            this.treeviewGroupList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeviewGroupList.Location = new System.Drawing.Point(3, 25);
+            this.treeviewGroupList.Name = "treeviewGroupList";
+            this.treeviewGroupList.Size = new System.Drawing.Size(176, 409);
+            this.treeviewGroupList.TabIndex = 0;
+            this.treeviewGroupList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeviewGroupList_AfterSelect);
             // 
             // qxguanli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 552);
+            this.ClientSize = new System.Drawing.Size(921, 573);
             this.Controls.Add(this.tabControl1);
             this.Name = "qxguanli";
             this.Text = "系统管理";
@@ -754,8 +755,8 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDeleteUser;
+        private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -764,20 +765,20 @@
         private System.Windows.Forms.TextBox yhm;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView treeViewUserList;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button btn_scxz;
-        private System.Windows.Forms.Button btn_xjxz;
+        private System.Windows.Forms.Button btnDeleteGroup;
+        private System.Windows.Forms.Button btnAddGroup;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox xiaozubeizhu;
         private System.Windows.Forms.TextBox xiaozuming;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.TreeView treeView_quanxian;
-        private System.Windows.Forms.TreeView treeView2;
-        private System.Windows.Forms.TreeView treeView4;
-        private System.Windows.Forms.Button btn_bjyh;
-        private System.Windows.Forms.Button btn_bjxz;
+        private System.Windows.Forms.TreeView treeViewAuthorityList;
+        private System.Windows.Forms.TreeView treeViewUserinGroup;
+        private System.Windows.Forms.TreeView treeviewGroupList;
+        private System.Windows.Forms.Button btnEditUser;
+        private System.Windows.Forms.Button btnEditGroup;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox beizhu;
         private System.Windows.Forms.Label label10;
@@ -785,9 +786,9 @@
         private System.Windows.Forms.TextBox ssjs;
         private System.Windows.Forms.TextBox ssbm;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btn_qrxg;
-        private System.Windows.Forms.Button btn_xgmm;
-        private System.Windows.Forms.Button btn_bcxx;
+        private System.Windows.Forms.Button btnConfirmEditPwd;
+        private System.Windows.Forms.Button btnEditPwd;
+        private System.Windows.Forms.Button btnSaveInfo;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox qrxmm;
         private System.Windows.Forms.TextBox xmm;
@@ -801,16 +802,16 @@
         private System.Windows.Forms.TextBox ycxmm;
         private System.Windows.Forms.TextBox xh;
         private System.Windows.Forms.TextBox pwd;
-        private System.Windows.Forms.Button bnt_czmm;
+        private System.Windows.Forms.Button bntResetPwd;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btn_yhsc;
-        private System.Windows.Forms.Button btn_yhtj;
+        private System.Windows.Forms.Button btnDeleteUserfromGroup;
+        private System.Windows.Forms.Button btnAddUsertoGroup;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.TreeView treeView5;
+        private System.Windows.Forms.TreeView treeViewUsernotinGroup;
         private System.Windows.Forms.TextBox xiaozujj;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btn_bcqxsz;
+        private System.Windows.Forms.Button btnSaveSettings;
         private System.Windows.Forms.TextBox ssxiaozu;
     }
 }

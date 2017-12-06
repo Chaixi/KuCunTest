@@ -69,13 +69,13 @@
             this.JBR = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.cancel = new System.Windows.Forms.Button();
-            this.print = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_print = new System.Windows.Forms.Button();
+            this.btn_confirm = new System.Windows.Forms.Button();
+            this.btn_history = new System.Windows.Forms.Button();
+            this.btn_set = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WaiJieMingXi)).BeginInit();
@@ -503,84 +503,84 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "借出时间：";
             // 
-            // cancel
+            // btn_delete
             // 
-            this.cancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cancel.Location = new System.Drawing.Point(461, 598);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(89, 38);
-            this.cancel.TabIndex = 3;
-            this.cancel.Text = "删除单据";
-            this.cancel.UseVisualStyleBackColor = true;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
+            this.btn_delete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_delete.Location = new System.Drawing.Point(461, 598);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(89, 38);
+            this.btn_delete.TabIndex = 3;
+            this.btn_delete.Text = "删除单据";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.cancel_Click);
             // 
-            // print
+            // btn_print
             // 
-            this.print.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.print.Location = new System.Drawing.Point(366, 598);
-            this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(89, 38);
-            this.print.TabIndex = 3;
-            this.print.Text = "打印单据";
-            this.print.UseVisualStyleBackColor = true;
-            this.print.Click += new System.EventHandler(this.print_Click);
+            this.btn_print.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_print.Location = new System.Drawing.Point(366, 598);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(89, 38);
+            this.btn_print.TabIndex = 3;
+            this.btn_print.Text = "打印单据";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.print_Click);
             // 
-            // button1
+            // btn_confirm
             // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(271, 598);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 38);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "确认外借";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_confirm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_confirm.Location = new System.Drawing.Point(271, 598);
+            this.btn_confirm.Name = "btn_confirm";
+            this.btn_confirm.Size = new System.Drawing.Size(89, 38);
+            this.btn_confirm.TabIndex = 5;
+            this.btn_confirm.Text = "确认外借";
+            this.btn_confirm.UseVisualStyleBackColor = true;
+            this.btn_confirm.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button4
+            // btn_history
             // 
-            this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(755, 598);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(89, 38);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "外借历史";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_history.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_history.Location = new System.Drawing.Point(755, 598);
+            this.btn_history.Name = "btn_history";
+            this.btn_history.Size = new System.Drawing.Size(89, 38);
+            this.btn_history.TabIndex = 3;
+            this.btn_history.Text = "外借历史";
+            this.btn_history.UseVisualStyleBackColor = true;
+            this.btn_history.Visible = false;
+            this.btn_history.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // btn_set
             // 
-            this.button5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button5.Location = new System.Drawing.Point(660, 598);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(89, 38);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "单据设置";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btn_set.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_set.Location = new System.Drawing.Point(660, 598);
+            this.btn_set.Name = "btn_set";
+            this.btn_set.Size = new System.Drawing.Size(89, 38);
+            this.btn_set.TabIndex = 3;
+            this.btn_set.Text = "单据设置";
+            this.btn_set.UseVisualStyleBackColor = true;
+            this.btn_set.Visible = false;
+            this.btn_set.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // btn_save
             // 
-            this.button6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button6.Location = new System.Drawing.Point(176, 598);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(89, 38);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "保存单据";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btn_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_save.Location = new System.Drawing.Point(176, 598);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(89, 38);
+            this.btn_save.TabIndex = 5;
+            this.btn_save.Text = "保存单据";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
+            // btn_exit
             // 
-            this.button7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button7.Location = new System.Drawing.Point(556, 598);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(89, 38);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "退    出";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btn_exit.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_exit.Location = new System.Drawing.Point(556, 598);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(89, 38);
+            this.btn_exit.TabIndex = 8;
+            this.btn_exit.Text = "退    出";
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.button7_Click);
             // 
             // DJWJ
             // 
@@ -589,17 +589,17 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1019, 648);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.print);
+            this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.btn_confirm);
+            this.Controls.Add(this.btn_history);
+            this.Controls.Add(this.btn_print);
             this.Controls.Add(this.WJDH);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.cancel);
+            this.Controls.Add(this.btn_set);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "DJWJ";
@@ -634,9 +634,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button print;
-        private System.Windows.Forms.Button cancel;
+        public System.Windows.Forms.Button btn_confirm;
+        public System.Windows.Forms.Button btn_print;
+        public System.Windows.Forms.Button btn_delete;
         //表格：DataGridView
         private System.Windows.Forms.DataGridView WaiJieMingXi;
         //下拉框、文本框、日期控件
@@ -652,7 +652,7 @@
         private System.Windows.Forms.TextBox JYYY;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_history;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox SPLD;
         private System.Windows.Forms.Label label9;
@@ -663,9 +663,9 @@
         private System.Windows.Forms.DateTimePicker JCSJ;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button5;
+        public System.Windows.Forms.Button btn_set;
         private System.Windows.Forms.ComboBox DWLD;
-        private System.Windows.Forms.Button button6;
+        public System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.DataGridViewTextBoxColumn djlx;
         private System.Windows.Forms.DataGridViewTextBoxColumn djgg;
         private System.Windows.Forms.DataGridViewTextBoxColumn djID;
@@ -674,6 +674,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jcbm;
         private System.Windows.Forms.DataGridViewTextBoxColumn dth;
         private System.Windows.Forms.DataGridViewTextBoxColumn bz;
-        private System.Windows.Forms.Button button7;
+        public System.Windows.Forms.Button btn_exit;
     }
 }

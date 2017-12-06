@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-using kucunTest.KuCun;
+using kucunTest.quanxianguanli;
 using kucunTest.BaseClasses;
 
 namespace kucunTest.DaoJu
@@ -22,7 +22,7 @@ namespace kucunTest.DaoJu
         private BaseAlex Alex = new BaseAlex();//自定义公共方法类
         private TreeNode node = new TreeNode();//类型树的根节点。
         private AutoSizeFormClass asc = new AutoSizeFormClass();
-
+        private Authorize Authorise = new Authorize();
         //private string canshubiao = "jichucanshu";
         //private string jichuangdaojuku = "jcdaojuku";
         //private string daojubiao = "daojutemp";
@@ -61,8 +61,9 @@ namespace kucunTest.DaoJu
             //加载所有机床
             cbx_ssjc.DataSource = Alex.GetList(type: "jc");
             cbx_ssjc.SelectedIndex = -1;
+
         }
-        
+
         /// <summary>
         /// 窗体加载
         /// </summary>
@@ -70,7 +71,11 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void daojuguanli_Load(object sender, EventArgs e)
         {
-            //asc.controllInitializeSize(this);   
+            //asc.controllInitializeSize(this);
+
+            //设置权限
+            this.Authorise.setAuthority(this, AuthoritiesString.FormName.djglFrm);
+
         }
 
         #region 树有关的方法

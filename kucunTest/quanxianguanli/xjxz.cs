@@ -18,47 +18,62 @@ namespace kucunTest.quanxianguanli
             InitializeComponent();
         }
 
-
         #region 全局变量
         private MySql Sql = new MySql();//MySQL类
         private AutoSizeFormClass asc = new AutoSizeFormClass();
+        private BaseAlex Alex = new BaseAlex();
 
         private string SqlStr = "";
+
+        private string LogType = "权限管理";
+        private string LogMessage = "";
         #endregion
 
+        /// <summary>
+        /// 确认添加按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_xjxz_Click(object sender, EventArgs e)
+        {
+            if (xzm.Text == "" || xzxx.Text == "")
+            {
+                MessageBox.Show("请输入完整的小组信息！", Program.tishiTitle);
+            }
 
+            if(Alex.CunZai(UserGroup.TableName, string.Format("{0} = '{1}'", UserGroup.groupName, xzm.Text.ToString())) != 0)
+            {
+                MessageBox.Show(string.Format("小组名：{0} 已存在！请修改后重新添加。", xzm.Text.ToString()), Program.tishiTitle);
+                xzm.Focus();
+                return;
+            }
 
-        //取消新建
+            SqlStr = string.Format("INSERT INTO {0}({1}, {2}, {3}, {4}) VALUES ('{5}', '{6}', '{7}', '{8}')", UserGroup.TableName, UserGroup.groupName, UserGroup.groupInfo, UserGroup.time, UserGroup.bz, xzm.Text, xzxx.Text, DateTime.Now.ToString(), xzbeizhu.Text);
+            Sql.ExecuteNonQuery(SqlStr);
+
+            //日志记录
+            LogMessage = string.Format("成功添加小组：{0}！", xzm.Text);
+            Program.WriteLog(LogType, LogMessage);
+            LogMessage = "";
+
+            MessageBox.Show(string.Format("成功添加小组：{0}！", xzm.Text), Program.tishiTitle, MessageBoxButtons.OK);
+            this.Close();
+            this.DialogResult = DialogResult.OK;
+        }
+
+        /// <summary>
+        /// 取消添加按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_qxxj_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("确认取消新建小组？", "取消确认", MessageBoxButtons.OKCancel);
+            DialogResult dr = MessageBox.Show("确认取消添加小组？", Program.tishiTitle);
             if (dr == DialogResult.OK)
             {
                 this.Close();
             }
         }
-
-        private void btn_xjxz_Click(object sender, EventArgs e)
-        {
-            int row = 0;
-            if (xzm.Text == "" || xzxx.Text == "" )
-            {
-                MessageBox.Show("请输入完整的小组信息！", "提示");
-            }
-            if (xzm.Text != "" && xzxx.Text != "")
-            {
-                SqlStr = "insert into groupbiao (groupname,groupinfo,time,beizhu) VALUES ('"+ xzm.Text +"','"+ xzxx.Text +"','"+ DateTime.Now +"','"+ xzbeizhu.Text +"')";
-                row = Sql.ExecuteNonQuery(SqlStr);
-            }
-            if (row != 0)
-            {
-                MessageBox.Show("新建小组完成！", "提示", MessageBoxButtons.OK);
-                this.Close();
-                this.DialogResult = DialogResult.OK;
-            }
-        }
-
-        //确认新建
 
     }
 }

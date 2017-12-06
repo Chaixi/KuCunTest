@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
 using FastReport;
+using kucunTest.quanxianguanli;
 
 namespace kucunTest.DaoJu
 {
@@ -21,6 +22,7 @@ namespace kucunTest.DaoJu
 
         BaseAlex Alex = new BaseAlex();
         AutoSizeFormClass asc = new AutoSizeFormClass();
+        private Authorize Authorise = new Authorize();
 
         DataTable thmx_db = new DataTable();
 
@@ -88,7 +90,7 @@ namespace kucunTest.DaoJu
             if (djzt == "1")
             {
                 Alex.DisableAllControl(this);
-                button_print.Enabled = true;
+                btn_print.Enabled = true;
             }
         }
 
@@ -100,6 +102,9 @@ namespace kucunTest.DaoJu
         private void DJTH_Load(object sender, EventArgs e)
         {
             asc.controllInitializeSize(this);
+
+            //设置权限
+            this.Authorise.setAuthority(this, AuthoritiesString.FormName.djthFrm);
         }
 
         #region 明细部分

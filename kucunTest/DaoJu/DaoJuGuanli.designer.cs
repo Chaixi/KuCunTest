@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_shuaxin = new System.Windows.Forms.Button();
+            this.btn_chaxun = new System.Windows.Forms.Button();
             this.cxdjid = new System.Windows.Forms.TextBox();
             this.cbx_ssjc = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,20 +51,20 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.djxy = new System.Windows.Forms.Button();
-            this.kccx = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_djxy = new System.Windows.Forms.Button();
+            this.btn_kcmx = new System.Windows.Forms.Button();
+            this.btn_djth = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_djbf = new System.Windows.Forms.Button();
             this.jcsl = new System.Windows.Forms.TextBox();
             this.btn_djwj = new System.Windows.Forms.Button();
             this.djgsl = new System.Windows.Forms.TextBox();
             this.btn_djgh = new System.Windows.Forms.Button();
             this.djzs = new System.Windows.Forms.TextBox();
-            this.djly = new System.Windows.Forms.Button();
+            this.btn_djly = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.zpdj = new System.Windows.Forms.Button();
+            this.btn_djcl = new System.Windows.Forms.Button();
+            this.btn_zpdj = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.daojuxinxi = new System.Windows.Forms.DataGridView();
             this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -78,7 +78,7 @@
             this.lingyongdanhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lingyongriqi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weizhibiaoshi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cxdj = new System.Windows.Forms.Button();
+            this.btn_cxdj = new System.Windows.Forms.Button();
             this.grpBox_parameter = new System.Windows.Forms.GroupBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -165,8 +165,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btn_shuaxin);
+            this.groupBox1.Controls.Add(this.btn_chaxun);
             this.groupBox1.Controls.Add(this.cxdjid);
             this.groupBox1.Controls.Add(this.cbx_ssjc);
             this.groupBox1.Controls.Add(this.label2);
@@ -182,27 +182,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "关键字查询";
             // 
-            // button5
+            // btn_shuaxin
             // 
-            this.button5.Location = new System.Drawing.Point(1278, 38);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(112, 32);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "刷    新";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btn_shuaxin.Location = new System.Drawing.Point(1278, 38);
+            this.btn_shuaxin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_shuaxin.Name = "btn_shuaxin";
+            this.btn_shuaxin.Size = new System.Drawing.Size(112, 32);
+            this.btn_shuaxin.TabIndex = 6;
+            this.btn_shuaxin.Text = "刷    新";
+            this.btn_shuaxin.UseVisualStyleBackColor = true;
+            this.btn_shuaxin.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button1
+            // btn_chaxun
             // 
-            this.button1.Location = new System.Drawing.Point(1158, 38);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 32);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "查    询";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_chaxun.Location = new System.Drawing.Point(1158, 38);
+            this.btn_chaxun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_chaxun.Name = "btn_chaxun";
+            this.btn_chaxun.Size = new System.Drawing.Size(112, 32);
+            this.btn_chaxun.TabIndex = 6;
+            this.btn_chaxun.Text = "查    询";
+            this.btn_chaxun.UseVisualStyleBackColor = true;
+            this.btn_chaxun.Click += new System.EventHandler(this.button1_Click);
             // 
             // cxdjid
             // 
@@ -274,23 +274,23 @@
             this.groupBox2.Controls.Add(this.label32);
             this.groupBox2.Controls.Add(this.label31);
             this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.djxy);
-            this.groupBox2.Controls.Add(this.kccx);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btn_djxy);
+            this.groupBox2.Controls.Add(this.btn_kcmx);
+            this.groupBox2.Controls.Add(this.btn_djth);
             this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.btn_djbf);
             this.groupBox2.Controls.Add(this.jcsl);
             this.groupBox2.Controls.Add(this.btn_djwj);
             this.groupBox2.Controls.Add(this.djgsl);
             this.groupBox2.Controls.Add(this.btn_djgh);
             this.groupBox2.Controls.Add(this.djzs);
-            this.groupBox2.Controls.Add(this.djly);
+            this.groupBox2.Controls.Add(this.btn_djly);
             this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.zpdj);
+            this.groupBox2.Controls.Add(this.btn_djcl);
+            this.groupBox2.Controls.Add(this.btn_zpdj);
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.daojuxinxi);
-            this.groupBox2.Controls.Add(this.cxdj);
+            this.groupBox2.Controls.Add(this.btn_cxdj);
             this.groupBox2.Location = new System.Drawing.Point(226, 114);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
@@ -409,38 +409,38 @@
             this.label20.TabIndex = 13;
             this.label20.Text = "刀";
             // 
-            // djxy
+            // btn_djxy
             // 
-            this.djxy.Location = new System.Drawing.Point(1293, 232);
-            this.djxy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.djxy.Name = "djxy";
-            this.djxy.Size = new System.Drawing.Size(112, 32);
-            this.djxy.TabIndex = 8;
-            this.djxy.Text = "刀具续用";
-            this.djxy.UseVisualStyleBackColor = true;
-            this.djxy.Click += new System.EventHandler(this.djxy_Click);
+            this.btn_djxy.Location = new System.Drawing.Point(1293, 232);
+            this.btn_djxy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_djxy.Name = "btn_djxy";
+            this.btn_djxy.Size = new System.Drawing.Size(112, 32);
+            this.btn_djxy.TabIndex = 8;
+            this.btn_djxy.Text = "刀具续用";
+            this.btn_djxy.UseVisualStyleBackColor = true;
+            this.btn_djxy.Click += new System.EventHandler(this.djxy_Click);
             // 
-            // kccx
+            // btn_kcmx
             // 
-            this.kccx.Location = new System.Drawing.Point(1293, 106);
-            this.kccx.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.kccx.Name = "kccx";
-            this.kccx.Size = new System.Drawing.Size(112, 32);
-            this.kccx.TabIndex = 8;
-            this.kccx.Text = "库存明细";
-            this.kccx.UseVisualStyleBackColor = true;
-            this.kccx.Click += new System.EventHandler(this.kccx_Click);
+            this.btn_kcmx.Location = new System.Drawing.Point(1293, 106);
+            this.btn_kcmx.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_kcmx.Name = "btn_kcmx";
+            this.btn_kcmx.Size = new System.Drawing.Size(112, 32);
+            this.btn_kcmx.TabIndex = 8;
+            this.btn_kcmx.Text = "库存明细";
+            this.btn_kcmx.UseVisualStyleBackColor = true;
+            this.btn_kcmx.Click += new System.EventHandler(this.kccx_Click);
             // 
-            // button3
+            // btn_djth
             // 
-            this.button3.Location = new System.Drawing.Point(1293, 358);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 32);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "刀具退还";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.btn_djth.Location = new System.Drawing.Point(1293, 358);
+            this.btn_djth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_djth.Name = "btn_djth";
+            this.btn_djth.Size = new System.Drawing.Size(112, 32);
+            this.btn_djth.TabIndex = 7;
+            this.btn_djth.Text = "刀具退还";
+            this.btn_djth.UseVisualStyleBackColor = true;
+            this.btn_djth.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // label21
             // 
@@ -453,16 +453,16 @@
             this.label21.TabIndex = 6;
             this.label21.Text = "统计信息：该类型刀具数量共";
             // 
-            // button2
+            // btn_djbf
             // 
-            this.button2.Location = new System.Drawing.Point(1293, 400);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 32);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "刀具报废";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.btn_djbf.Location = new System.Drawing.Point(1293, 400);
+            this.btn_djbf.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_djbf.Name = "btn_djbf";
+            this.btn_djbf.Size = new System.Drawing.Size(112, 32);
+            this.btn_djbf.TabIndex = 7;
+            this.btn_djbf.Text = "刀具报废";
+            this.btn_djbf.UseVisualStyleBackColor = true;
+            this.btn_djbf.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // jcsl
             // 
@@ -522,16 +522,16 @@
             this.djzs.TabIndex = 11;
             this.djzs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // djly
+            // btn_djly
             // 
-            this.djly.Location = new System.Drawing.Point(1293, 190);
-            this.djly.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.djly.Name = "djly";
-            this.djly.Size = new System.Drawing.Size(112, 32);
-            this.djly.TabIndex = 7;
-            this.djly.Text = "刀具领用";
-            this.djly.UseVisualStyleBackColor = true;
-            this.djly.Click += new System.EventHandler(this.button3_Click);
+            this.btn_djly.Location = new System.Drawing.Point(1293, 190);
+            this.btn_djly.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_djly.Name = "btn_djly";
+            this.btn_djly.Size = new System.Drawing.Size(112, 32);
+            this.btn_djly.TabIndex = 7;
+            this.btn_djly.Text = "刀具领用";
+            this.btn_djly.UseVisualStyleBackColor = true;
+            this.btn_djly.Click += new System.EventHandler(this.button3_Click);
             // 
             // label22
             // 
@@ -544,27 +544,27 @@
             this.label22.TabIndex = 7;
             this.label22.Text = "，其中刀具柜中数量";
             // 
-            // button4
+            // btn_djcl
             // 
-            this.button4.Location = new System.Drawing.Point(1293, 148);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 32);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "刀具测量";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_djcl.Location = new System.Drawing.Point(1293, 148);
+            this.btn_djcl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_djcl.Name = "btn_djcl";
+            this.btn_djcl.Size = new System.Drawing.Size(112, 32);
+            this.btn_djcl.TabIndex = 5;
+            this.btn_djcl.Text = "刀具测量";
+            this.btn_djcl.UseVisualStyleBackColor = true;
+            this.btn_djcl.Click += new System.EventHandler(this.button4_Click);
             // 
-            // zpdj
+            // btn_zpdj
             // 
-            this.zpdj.Location = new System.Drawing.Point(1293, 25);
-            this.zpdj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.zpdj.Name = "zpdj";
-            this.zpdj.Size = new System.Drawing.Size(112, 32);
-            this.zpdj.TabIndex = 5;
-            this.zpdj.Text = "装配刀具";
-            this.zpdj.UseVisualStyleBackColor = true;
-            this.zpdj.Click += new System.EventHandler(this.button2_Click);
+            this.btn_zpdj.Location = new System.Drawing.Point(1293, 25);
+            this.btn_zpdj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_zpdj.Name = "btn_zpdj";
+            this.btn_zpdj.Size = new System.Drawing.Size(112, 32);
+            this.btn_zpdj.TabIndex = 5;
+            this.btn_zpdj.Text = "装配刀具";
+            this.btn_zpdj.UseVisualStyleBackColor = true;
+            this.btn_zpdj.Click += new System.EventHandler(this.button2_Click);
             // 
             // label23
             // 
@@ -581,19 +581,19 @@
             // 
             this.daojuxinxi.AllowUserToAddRows = false;
             this.daojuxinxi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.daojuxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
+            this.daojuxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.daojuxinxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.daojuxinxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.daojuxinxi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.daojuxinxi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.daojuxinxi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.daojuxinxi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.daojuxinxi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.check,
@@ -712,16 +712,16 @@
             this.weizhibiaoshi.ReadOnly = true;
             this.weizhibiaoshi.Visible = false;
             // 
-            // cxdj
+            // btn_cxdj
             // 
-            this.cxdj.Location = new System.Drawing.Point(1293, 64);
-            this.cxdj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cxdj.Name = "cxdj";
-            this.cxdj.Size = new System.Drawing.Size(112, 32);
-            this.cxdj.TabIndex = 12;
-            this.cxdj.Text = "拆卸刀具";
-            this.cxdj.UseVisualStyleBackColor = true;
-            this.cxdj.Click += new System.EventHandler(this.cxdj_Click);
+            this.btn_cxdj.Location = new System.Drawing.Point(1293, 64);
+            this.btn_cxdj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_cxdj.Name = "btn_cxdj";
+            this.btn_cxdj.Size = new System.Drawing.Size(112, 32);
+            this.btn_cxdj.TabIndex = 12;
+            this.btn_cxdj.Text = "拆卸刀具";
+            this.btn_cxdj.UseVisualStyleBackColor = true;
+            this.btn_cxdj.Click += new System.EventHandler(this.cxdj_Click);
             // 
             // grpBox_parameter
             // 
@@ -1298,18 +1298,18 @@
             // 
             this.dgv_jcdk.AllowUserToAddRows = false;
             this.dgv_jcdk.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            this.dgv_jcdk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            this.dgv_jcdk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_jcdk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_jcdk.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_jcdk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_jcdk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_jcdk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_jcdk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.jcdk_dth,
@@ -1320,14 +1320,14 @@
             this.dgv_jcdk.MultiSelect = false;
             this.dgv_jcdk.Name = "dgv_jcdk";
             this.dgv_jcdk.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_jcdk.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_jcdk.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_jcdk.RowHeadersWidth = 31;
             this.dgv_jcdk.RowTemplate.Height = 23;
             this.dgv_jcdk.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1463,23 +1463,23 @@
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_chaxun;
         private System.Windows.Forms.TextBox cxdjid;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView daojuxinxi;
         private System.Windows.Forms.GroupBox grpBox_parameter;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.Button zpdj;
+        public System.Windows.Forms.Button btn_zpdj;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button djly;
+        public System.Windows.Forms.Button btn_djly;
         private System.Windows.Forms.ComboBox cbx_ssdg;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button kccx;
-        private System.Windows.Forms.Button btn_djgh;
-        private System.Windows.Forms.Button btn_djwj;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button btn_kcmx;
+        public System.Windows.Forms.Button btn_djgh;
+        public System.Windows.Forms.Button btn_djwj;
+        public System.Windows.Forms.Button btn_djbf;
+        public System.Windows.Forms.Button btn_djth;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox jcsl;
         private System.Windows.Forms.TextBox djgsl;
@@ -1502,10 +1502,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button djxy;
-        private System.Windows.Forms.Button cxdj;
+        public System.Windows.Forms.Button btn_djcl;
+        private System.Windows.Forms.Button btn_shuaxin;
+        public System.Windows.Forms.Button btn_djxy;
+        public System.Windows.Forms.Button btn_cxdj;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel scx_panel3;

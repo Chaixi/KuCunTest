@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.djsymx = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgv_czdh = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dgv_czlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_djlx = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,27 +40,31 @@
             this.dgv_czsj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_jbr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.djsymx)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // djsymx
             // 
             this.djsymx.AllowUserToAddRows = false;
             this.djsymx.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.djsymx.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.djsymx.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.djsymx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.djsymx.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.djsymx.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.djsymx.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.djsymx.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.djsymx.ColumnHeadersHeight = 30;
             this.djsymx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgv_czdh,
@@ -74,37 +76,16 @@
             this.dgv_czsj,
             this.dgv_jbr,
             this.dgv_bz});
-            this.djsymx.Location = new System.Drawing.Point(10, 32);
-            this.djsymx.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.djsymx.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.djsymx.Location = new System.Drawing.Point(5, 27);
+            this.djsymx.Margin = new System.Windows.Forms.Padding(5);
             this.djsymx.MultiSelect = false;
             this.djsymx.Name = "djsymx";
             this.djsymx.ReadOnly = true;
             this.djsymx.RowTemplate.Height = 30;
             this.djsymx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.djsymx.Size = new System.Drawing.Size(963, 221);
+            this.djsymx.Size = new System.Drawing.Size(1239, 310);
             this.djsymx.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.djsymx);
-            this.groupBox1.Location = new System.Drawing.Point(14, 44);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.groupBox1.Size = new System.Drawing.Size(981, 264);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "刀具使用明细";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 22F);
-            this.label1.Location = new System.Drawing.Point(406, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 30);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "刀具操作记录";
             // 
             // dgv_czdh
             // 
@@ -175,22 +156,60 @@
             this.dgv_bz.ReadOnly = true;
             this.dgv_bz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.djsymx);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(5, 55);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox1.Size = new System.Drawing.Size(1249, 342);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "刀具使用明细";
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("宋体", 22F);
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1253, 50);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "单把刀具操作记录";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1259, 402);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
             // DJCZJL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 319);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1259, 402);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "DJCZJL";
             this.Text = "刀具操作记录";
             this.Load += new System.EventHandler(this.DJCZJL_Load);
             ((System.ComponentModel.ISupportInitialize)(this.djsymx)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -207,5 +226,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv_czsj;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv_jbr;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv_bz;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

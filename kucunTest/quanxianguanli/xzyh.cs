@@ -21,53 +21,92 @@ namespace kucunTest.quanxianguanli
         #region 全局变量
         private MySql Sql = new MySql();//MySQL类
         private AutoSizeFormClass asc = new AutoSizeFormClass();
+        private BaseAlex Alex = new BaseAlex();
 
         private string SqlStr = "";
+
+        private string LogType = "权限管理";
+        private string LogMessage = "";
         #endregion
 
+        /// <summary>
+        /// 窗体加载函数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xzyh_Load(object sender, EventArgs e)
         {
-
+            //加载已有小组
+            SqlStr = string.Format("SELECT DISTINCT {1} FROM {0}", UserGroup.TableName, UserGroup.groupName);
+            ssxz.DataSource = Sql.DataReadList(SqlStr);
+            ssxz.SelectedIndex = -1;
         }
 
-        //取消添加
+        /// <summary>
+        /// 确认添加按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int row = 0;
+            if (yhm.Text == "" || xingming.Text == "" || pwd1.Text == "" || pwd2.Text == "" || ssxz.Text == "" || bumen.Text == "")
+            {
+                MessageBox.Show("请输入完整的用户信息！", Program.tishiTitle);
+                return;
+            }
+
+            if (pwd1.Text.Length < 6)
+            {
+                MessageBox.Show("密码长度需为6到10位！", Program.tishiTitle);
+                return;
+            }
+
+            if (pwd1.Text != pwd2.Text)
+            {
+                MessageBox.Show("两次密码输入不一致！", Program.tishiTitle);
+                return;
+            }
+
+            if(Alex.CunZai(User.TableName, string.Format("{0} = '{1}'", User.name, yhm.Text)) != 0)
+            {
+                MessageBox.Show(string.Format("用户名：{0}已存在！", yhm.Text), Program.tishiTitle);
+                yhm.Focus();
+                return;
+            }
+
+            SqlStr = string.Format("INSERT INTO `{0}`({1}, {2}, {3}, {4}, {5}, {6}, {7}) VALUES ('{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}')", User.TableName, User.name, User.pwd, User.xingming, User.type, User.groupName, User.bumen, User.bz, yhm.Text, pwd1.Text, xingming.Text, ssxz.Text, ssxz.Text, bumen.Text, beizhu.Text);
+            row = Sql.ExecuteNonQuery(SqlStr);
+
+            //日志记录
+            LogMessage = string.Format("成功添加用户：{0}！", yhm.Text);
+            Program.WriteLog(LogType, LogMessage);
+            LogMessage = "";
+
+            MessageBox.Show(string.Format("成功添加用户：{0}！", yhm.Text), Program.tishiTitle, MessageBoxButtons.OK);
+            this.Close();
+            this.DialogResult = DialogResult.OK;
+        }
+
+        /// <summary>
+        /// 取消添加按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("确认取消添加用户？", "取消确认", MessageBoxButtons.OKCancel);
+            DialogResult dr = MessageBox.Show("确认取消添加用户？", Program.tishiTitle, MessageBoxButtons.OKCancel);
             if (dr == DialogResult.OK)
             {
                 this.Close();
             }
         }
 
-        //确认添加
-        private void button1_Click(object sender, EventArgs e)
-        {
-            int row = 0;
-            if ( yhm.Text == "" || xingming.Text == "" || pwd.Text == "" || juese.SelectedItem.ToString() == "" || bumen.SelectedItem.ToString() == "")
-            {
-                MessageBox.Show("请输入完整的信息！", "提示");
-                return;
-            }
-            if (pwd.Text.Length < 6)
-            {
-                MessageBox.Show("密码长度需为6到10位！", "提示");
-                return;
-            }
-            if (yhm.Text != "" && xingming.Text != "" && pwd.Text != "" && juese.SelectedItem.ToString() != "" && bumen.SelectedItem.ToString() != "" && pwd.Text.Length >5 && pwd.Text != "")
-            {
-                SqlStr = "insert into user (name,pwd,xingming,type,bumen,beizhu) VALUES ('" + yhm.Text + "','" + pwd.Text + "','" + xingming.Text + "','" + juese.Text + "','" + bumen.Text + "','" + beizhu.Text + "')";
-                row = Sql.ExecuteNonQuery(SqlStr);
-            }
-            if (row != 0)
-            {
-                MessageBox.Show("添加用户完成！", "提示", MessageBoxButtons.OK);
-                this.Close();
-                this.DialogResult = DialogResult.OK;
-            }
-
-        }
-
+        /// <summary>
+        /// 密码输入判断
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pwd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z')
@@ -79,7 +118,7 @@ namespace kucunTest.quanxianguanli
             else
             {
                 e.Handled = true;
-                MessageBox.Show("请输入字母或者数字！", "提示");
+                MessageBox.Show("请输入字母或者数字！", Program.tishiTitle);
             }
         }
     }

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
+using kucunTest.quanxianguanli;
+
 
 namespace kucunTest.DaoJu
 {
@@ -21,6 +23,7 @@ namespace kucunTest.DaoJu
         int HJ = 0;
         BaseAlex Alex = new BaseAlex();
         AutoSizeFormClass asc = new AutoSizeFormClass();//窗口自适应类
+        private Authorize Authorise = new Authorize();
 
         DataSet lymx_ds = new DataSet();
         DataTable xymx_db = new DataTable();
@@ -92,6 +95,9 @@ namespace kucunTest.DaoJu
 
             //新工序默认为原工序，不变
             //xgx.Text = ygx.Text;
+
+            //设置权限
+            this.Authorise.setAuthority(this, AuthoritiesString.FormName.djxyFrm);
         }
 
         /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -104,14 +104,14 @@
             this.lbjmx.AllowUserToDeleteRows = false;
             this.lbjmx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.lbjmx.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.lbjmx.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.lbjmx.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.lbjmx.ColumnHeadersHeight = 32;
             this.lbjmx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.lbjmc,
@@ -189,7 +189,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 98);
+            this.label3.Location = new System.Drawing.Point(57, 99);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 21);
@@ -200,7 +200,7 @@
             // 
             this.djid.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.djid.Enabled = false;
-            this.djid.Location = new System.Drawing.Point(180, 94);
+            this.djid.Location = new System.Drawing.Point(180, 95);
             this.djid.Margin = new System.Windows.Forms.Padding(5);
             this.djid.Name = "djid";
             this.djid.Size = new System.Drawing.Size(201, 29);
@@ -234,7 +234,7 @@
             // 
             this.djlx.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.djlx.FormattingEnabled = true;
-            this.djlx.Location = new System.Drawing.Point(180, 7);
+            this.djlx.Location = new System.Drawing.Point(180, 12);
             this.djlx.Margin = new System.Windows.Forms.Padding(5);
             this.djlx.Name = "djlx";
             this.djlx.Size = new System.Drawing.Size(201, 29);
@@ -256,7 +256,7 @@
             // 
             this.djgg.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.djgg.FormattingEnabled = true;
-            this.djgg.Location = new System.Drawing.Point(592, 7);
+            this.djgg.Location = new System.Drawing.Point(592, 12);
             this.djgg.Margin = new System.Windows.Forms.Padding(5);
             this.djgg.Name = "djgg";
             this.djgg.Size = new System.Drawing.Size(201, 29);
@@ -267,7 +267,7 @@
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel3.SetColumnSpan(this.button3, 3);
-            this.button3.Location = new System.Drawing.Point(469, 92);
+            this.button3.Location = new System.Drawing.Point(469, 93);
             this.button3.Margin = new System.Windows.Forms.Padding(5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(115, 33);
@@ -280,7 +280,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 54);
+            this.label5.Location = new System.Drawing.Point(57, 55);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 21);
@@ -291,7 +291,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(469, 54);
+            this.label6.Location = new System.Drawing.Point(469, 55);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 21);
@@ -302,7 +302,7 @@
             // 
             this.jtwz.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.jtwz.FormattingEnabled = true;
-            this.jtwz.Location = new System.Drawing.Point(592, 50);
+            this.jtwz.Location = new System.Drawing.Point(592, 56);
             this.jtwz.Margin = new System.Windows.Forms.Padding(5);
             this.jtwz.Name = "jtwz";
             this.jtwz.Size = new System.Drawing.Size(201, 29);
@@ -313,7 +313,7 @@
             // 
             this.djgbm.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.djgbm.FormattingEnabled = true;
-            this.djgbm.Location = new System.Drawing.Point(178, 50);
+            this.djgbm.Location = new System.Drawing.Point(178, 56);
             this.djgbm.Name = "djgbm";
             this.djgbm.Size = new System.Drawing.Size(203, 29);
             this.djgbm.TabIndex = 10;

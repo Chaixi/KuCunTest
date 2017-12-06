@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
 using FastReport;
+using kucunTest.quanxianguanli;
 
 namespace kucunTest.DaoJu
 {
@@ -21,6 +22,7 @@ namespace kucunTest.DaoJu
 
         BaseAlex Alex = new BaseAlex();
         AutoSizeFormClass asc = new AutoSizeFormClass();
+        private Authorize Authorise = new Authorize();
 
         //string DanJuBiao = "daojubaofei";
         //string DanHaoZD = "danhao";
@@ -107,7 +109,7 @@ namespace kucunTest.DaoJu
             if (djzt == "1")
             {
                 Alex.DisableAllControl(this);
-                BtnPrint.Enabled = true;
+                btn_print.Enabled = true;
             }
         }
 
@@ -119,6 +121,10 @@ namespace kucunTest.DaoJu
         private void DJBF_Load(object sender, EventArgs e)
         {
             asc.controllInitializeSize(this);
+
+            //设置权限
+            this.Authorise.setAuthority(this, AuthoritiesString.FormName.djbfFrm);
+
         }
 
         #region 刀具信息三级联动

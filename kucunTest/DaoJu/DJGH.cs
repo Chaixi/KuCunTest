@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
 using FastReport;
+using kucunTest.quanxianguanli;
+
 
 namespace kucunTest.DaoJu
 {
@@ -21,6 +23,7 @@ namespace kucunTest.DaoJu
 
         BaseAlex Alex = new BaseAlex();
         AutoSizeFormClass asc = new AutoSizeFormClass();
+        private Authorize Authorise = new Authorize();
 
         string LogType = "刀具更换";
         string LogMessage = "";
@@ -115,6 +118,9 @@ namespace kucunTest.DaoJu
         private void DJGH_Load(object sender, EventArgs e)
         {
             asc.controllInitializeSize(this);
+
+            //设置权限
+            this.Authorise.setAuthority(this, AuthoritiesString.FormName.djghFrm);
         }
 
         #region 刀具信息三级联动

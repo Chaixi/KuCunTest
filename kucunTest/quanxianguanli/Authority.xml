@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<Node Name="dj" Text="刀具" value="">
+		<Node Name="dj_lxgl" Text="刀具类型管理" value=""></Node>
+		<Node Name="dj_kcmx" Text="刀具库存明细" value=""></Node>
+		<Node Name="dj_zpdj" Text="装配刀具" value=""></Node>
+		<Node Name="dj_cxdj" Text="拆卸刀具" value=""></Node>
+		<Node Name="dj_djcl" Text="刀具测量" value="">
+			<Node Name="dj_djcl_bcsj" Text="保存数据" value=""></Node>
+			<Node Name="dj_djcl_hqclsj" Text="获取测量数据" value=""></Node>
+		</Node>
+		<Node Name="dj_djly" Text="刀具领用单" value="">
+			<Node Name="dj_djly_djlsjl" Text="单据历史记录" value=""></Node>
+			<Node Name="dj_djly_bc" Text="保存" value=""></Node>
+			<Node Name="dj_djly_qr" Text="确认" value=""></Node>
+			<Node Name="dj_djly_dy" Text="打印" value=""></Node>
+			<Node Name="dj_djly_sc" Text="删除" value=""></Node>
+		</Node>
+		<Node Name="dj_djxy" Text="刀具续用单" value="">
+			<Node Name="dj_djxy_djlsjl" Text="单据历史记录" value=""></Node>
+			<Node Name="dj_djxy_bc" Text="保存" value=""></Node>
+			<Node Name="dj_djxy_qr" Text="确认" value=""></Node>
+			<Node Name="dj_djxy_dy" Text="打印" value=""></Node>
+			<Node Name="dj_djxy_sc" Text="删除" value=""></Node>
+		</Node>
+		<Node Name="dj_djgh" Text="刀具更换单" value="">
+			<Node Name="dj_djgh_djlsjl" Text="单据历史记录" value=""></Node>
+			<Node Name="dj_djgh_bc" Text="保存" value=""></Node>
+			<Node Name="dj_djgh_qr" Text="确认" value=""></Node>
+			<Node Name="dj_djgh_dy" Text="打印" value=""></Node>
+			<Node Name="dj_djgh_sc" Text="删除" value=""></Node>
+		</Node>
+		<Node Name="dj_djwj" Text="刀具外借单" value="">
+			<Node Name="dj_djwj_djlsjl" Text="单据历史记录" value=""></Node>
+			<Node Name="dj_djwj_bc" Text="保存" value=""></Node>
+			<Node Name="dj_djwj_qr" Text="确认" value=""></Node>
+			<Node Name="dj_djwj_dy" Text="打印" value=""></Node>
+			<Node Name="dj_djwj_sc" Text="删除" value=""></Node>
+		</Node>
+		<Node Name="dj_djth" Text="刀具退还单" value="">
+			<Node Name="dj_djth_djlsjl" Text="单据历史记录" value=""></Node>
+			<Node Name="dj_djth_bc" Text="保存" value=""></Node>
+			<Node Name="dj_djth_qr" Text="确认" value=""></Node>
+			<Node Name="dj_djth_dy" Text="打印" value=""></Node>
+			<Node Name="dj_djth_sc" Text="删除" value=""></Node>
+		</Node>
+		<Node Name="dj_djbf" Text="刀具报废单" value="">
+			<Node Name="dj_djbf_djlsjl" Text="单据历史记录" value=""></Node>
+			<Node Name="dj_djbf_bc" Text="保存" value=""></Node>
+			<Node Name="dj_djbf_qr" Text="确认" value=""></Node>
+			<Node Name="dj_djbf_dy" Text="打印" value=""></Node>
+			<Node Name="dj_djbf_sc" Text="删除" value=""></Node>
+		</Node>
+	</Node>
+	
+	<Node Name="lbj" Text="零部件" value="">
+		<Node Name="lbj_kcmx" Text="零部件库存明细" value=""></Node>		
+		<Node Name="lbj_xgkcl" Text="零部件修改库存量" value=""></Node>		
+		<Node Name="lbj_lbjly" Text="零部件领用单据" value="">
+			<Node Name="lbj_lbjly_djlsjl" Text="单据历史记录" value=""></Node>
+			<Node Name="lbj_lbjly_mxxz" Text="明细--新增" value=""></Node>
+			<Node Name="lbj_lbjly_mxxg" Text="明细--修改" value=""></Node>
+			<Node Name="lbj_lbjly_mxsc" Text="明细--删除" value=""></Node>
+			<Node Name="lbj_lbjly_bc" Text="保存" value=""></Node>
+			<Node Name="lbj_lbjly_qr" Text="确认" value=""></Node>
+			<Node Name="lbj_lbjly_dy" Text="打印" value=""></Node>
+			<Node Name="lbj_lbjly_sc" Text="删除" value=""></Node>
+			<Node Name="lbj_lbjly_tc" Text="退出" value=""></Node>
+		</Node>		
+		<Node Name="lbj_lbjth" Text="零部件退还单据" value="">
+			<Node Name="lbj_lbjth_djlsjl" Text="单据历史记录" value=""></Node>
+			<Node Name="lbj_lbjth_mxxz" Text="明细--新增" value=""></Node>
+			<Node Name="lbj_lbjth_mxxg" Text="明细--修改" value=""></Node>
+			<Node Name="lbj_lbjth_mxsc" Text="明细--删除" value=""></Node>
+			<Node Name="lbj_lbjth_bc" Text="保存" value=""></Node>
+			<Node Name="lbj_lbjth_qr" Text="确认" value=""></Node>
+			<Node Name="lbj_lbjth_dy" Text="打印" value=""></Node>
+			<Node Name="lbj_lbjth_sc" Text="删除" value=""></Node>
+			<Node Name="lbj_lbjth_tc" Text="退出" value=""></Node>
+		</Node>
+	</Node>
+
+	<Node Name="djg" Text="刀具柜" value="">		
+		<Node Name="djg_xzdjg" Text="新增刀具柜" value=""></Node>
+		<Node Name="djg_scdjg" Text="删除刀具柜" value=""></Node>
+		<Node Name="djg_drtp" Text="导入图片" value=""></Node>		
+	</Node>
+
+	<Node Name="jc" Text="机床" value="">
+		<Node Name="jc_xzjc" Text="新增机床" value=""></Node>
+		<Node Name="jc_scjc" Text="删除机床" value=""></Node>
+		<Node Name="jc_drtp" Text="导入图片" value=""></Node>		
+	</Node>
+
+	<Node Name="gyk" Text="工艺卡" value="">
+		<Node Name="gyk_xz" Text="工艺卡--新增" value=""></Node>
+		<Node Name="gyk_bc" Text="工艺卡--保存" value=""></Node>
+		<Node Name="gyk_sc" Text="工艺卡--删除" value=""></Node>
+		<Node Name="gyk_gxxz" Text="工序--新增" value=""></Node>
+		<Node Name="gyk_gxxg" Text="工序--修改" value=""></Node>
+		<Node Name="gyk_pdxz" Text="配刀--新增" value=""></Node>
+		<Node Name="gyk_pdsc" Text="配刀--删除" value=""></Node>
+	</Node>
+
+	<Node Name="jczl" Text="基础资料" value="">
+		<Node Name="jczl_sjdc" Text="数据导出" value=""></Node>
+		<Node Name="jczl_sjdr" Text="数据导入" value=""></Node>
+	</Node>
+
+	<Node Name="xtgl" Text="系统管理" value="">
+		<Node Name="xtgl_qxgl" Text="权限管理" value="">
+			<Node Name="xtgl_qxgl_yhgl" Text="用户管理" value="">
+				<Node Name="xtgl_qxgl_yhgl_xgmm" Text="修改密码" value=""></Node>
+				<Node Name="xtgl_qxgl_yhgl_qrxg" Text="确认修改" value=""></Node>
+				<Node Name="xtgl_qxgl_yhgl_tjyh" Text="添加用户" value=""></Node>
+				<Node Name="xtgl_qxgl_yhgl_scyh" Text="删除用户" value=""></Node>
+				<Node Name="xtgl_qxgl_yhgl_bjyh" Text="编辑用户" value=""></Node>
+				<Node Name="xtgl_qxgl_yhgl_bcxx" Text="保存信息" value=""></Node>
+				<Node Name="xtgl_qxgl_yhgl_czmm" Text="重置密码" value=""></Node>
+			</Node>
+			
+			<Node Name="xtgl_qxgl_xzgl" Text="小组管理" value="">
+				<Node Name="xtgl_qxgl_xzgl_tjxzcy" Text="添加小组成员" value=""></Node>
+				<Node Name="xtgl_qxgl_xzgl_ycxzcy" Text="移除小组成员" value=""></Node>
+				<Node Name="xtgl_qxgl_xzgl_xjxz" Text="新建小组" value=""></Node>
+				<Node Name="xtgl_qxgl_xzgl_scxz" Text="删除小组" value=""></Node>
+				<Node Name="xtgl_qxgl_xzgl_bjxz" Text="编辑小组" value=""></Node>
+				<Node Name="xtgl_qxgl_xzgl_bcsz" Text="保存设置" value=""></Node>
+			</Node>
+		</Node>
+				
+		<Node Name="xtgl_xtrz" Text="系统日志" value="">
+			<Node Name="xtgl_xtrz_jzrz" Text="加载日志" value=""></Node>
+			<Node Name="xtgl_xtrz_zwjjzck" Text="在文件夹中查看" value=""></Node>
+		</Node>		
+	</Node>
+</root>

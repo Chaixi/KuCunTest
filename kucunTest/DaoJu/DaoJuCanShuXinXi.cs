@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 using kucunTest.BaseClasses;
+using kucunTest.quanxianguanli;
 
 namespace kucunTest.DaoJu
 {
@@ -20,6 +21,7 @@ namespace kucunTest.DaoJu
         string Sqlstr = "";
 
         AutoSizeFormClass asc = new AutoSizeFormClass();
+        private Authorize Authorize = new Authorize();
 
         string ID = "";//刀具ID
         string daojubiao = "daojutemp";
@@ -138,6 +140,8 @@ namespace kucunTest.DaoJu
             //Sqlstr = string.Format("SELECT lbjmc, lbjxh, lbjgg, sl, dw FROM {0} t1 LEFT JOIN {1} t2 ON t1.djxh = t2.daojuxinghao WHERE t2.daojuid = '{2}'", guanlianbiao, daojubiao, ID);
             //lingbujianzucheng.AutoGenerateColumns = false;
             //lingbujianzucheng.DataSource = SQL.getDataSet1(Sqlstr).Tables[0].DefaultView;
+
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.djclFrm);
 
         }
 

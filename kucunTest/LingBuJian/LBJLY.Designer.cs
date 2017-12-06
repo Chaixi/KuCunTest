@@ -105,7 +105,7 @@
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1033, 77);
+            this.label1.Size = new System.Drawing.Size(1015, 59);
             this.label1.TabIndex = 2;
             this.label1.Text = "零部件领用单据";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -114,7 +114,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(734, 49);
+            this.label3.Location = new System.Drawing.Point(734, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 21);
             this.label3.TabIndex = 0;
@@ -155,7 +155,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 80);
+            this.groupBox1.Location = new System.Drawing.Point(12, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(986, 122);
             this.groupBox1.TabIndex = 0;
@@ -283,7 +283,7 @@
             // 
             this.danhao.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.danhao.ForeColor = System.Drawing.Color.Red;
-            this.danhao.Location = new System.Drawing.Point(795, 45);
+            this.danhao.Location = new System.Drawing.Point(795, 30);
             this.danhao.Name = "danhao";
             this.danhao.Size = new System.Drawing.Size(166, 29);
             this.danhao.TabIndex = 1;
@@ -319,7 +319,7 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 208);
+            this.groupBox2.Location = new System.Drawing.Point(12, 193);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(987, 446);
             this.groupBox2.TabIndex = 1;
@@ -769,7 +769,7 @@
             this.groupBox3.Controls.Add(this.JBR);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 660);
+            this.groupBox3.Location = new System.Drawing.Point(12, 645);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(987, 80);
             this.groupBox3.TabIndex = 4;
@@ -792,7 +792,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(727, 754);
+            this.button4.Location = new System.Drawing.Point(729, 741);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(98, 32);
             this.button4.TabIndex = 3;
@@ -805,7 +805,7 @@
             this.btnexit.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.btnexit.Image = global::kucunTest.Properties.Resources.cancel;
             this.btnexit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnexit.Location = new System.Drawing.Point(623, 754);
+            this.btnexit.Location = new System.Drawing.Point(625, 741);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(98, 32);
             this.btnexit.TabIndex = 6;
@@ -819,7 +819,7 @@
             this.btn_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_save.Image = global::kucunTest.Properties.Resources.save;
             this.btn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_save.Location = new System.Drawing.Point(207, 754);
+            this.btn_save.Location = new System.Drawing.Point(209, 741);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(98, 32);
             this.btn_save.TabIndex = 5;
@@ -833,7 +833,7 @@
             this.btnConfirm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnConfirm.Image = global::kucunTest.Properties.Resources._lock;
             this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirm.Location = new System.Drawing.Point(311, 754);
+            this.btnConfirm.Location = new System.Drawing.Point(313, 741);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(98, 32);
             this.btnConfirm.TabIndex = 5;
@@ -847,7 +847,7 @@
             this.btnPrint.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnPrint.Image = global::kucunTest.Properties.Resources.print;
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(415, 754);
+            this.btnPrint.Location = new System.Drawing.Point(417, 741);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(98, 32);
             this.btnPrint.TabIndex = 3;
@@ -861,7 +861,7 @@
             this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnDelete.Image = global::kucunTest.Properties.Resources.remove;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(519, 754);
+            this.btnDelete.Location = new System.Drawing.Point(521, 741);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(98, 32);
             this.btnDelete.TabIndex = 3;
@@ -876,7 +876,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1050, 741);
+            this.ClientSize = new System.Drawing.Size(1015, 786);
             this.Controls.Add(this.btnexit);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);

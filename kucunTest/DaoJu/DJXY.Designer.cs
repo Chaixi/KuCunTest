@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.beizhu = new System.Windows.Forms.TextBox();
@@ -79,12 +79,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.danhao = new System.Windows.Forms.TextBox();
-            this.button_save = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
             this.btn_confirm = new System.Windows.Forms.Button();
-            this.print = new System.Windows.Forms.Button();
+            this.btn_print = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.cancel = new System.Windows.Forms.Button();
-            this.button_history = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_history = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -92,16 +92,16 @@
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button5
+            // btn_exit
             // 
-            this.button5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.button5.Location = new System.Drawing.Point(749, 687);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(83, 29);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "退    出";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btn_exit.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btn_exit.Location = new System.Drawing.Point(749, 687);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(83, 29);
+            this.btn_exit.TabIndex = 18;
+            this.btn_exit.Text = "退    出";
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.button5_Click);
             // 
             // label1
             // 
@@ -627,16 +627,16 @@
             this.danhao.Size = new System.Drawing.Size(157, 29);
             this.danhao.TabIndex = 10;
             // 
-            // button_save
+            // btn_save
             // 
-            this.button_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_save.Location = new System.Drawing.Point(242, 686);
-            this.button_save.Name = "button_save";
-            this.button_save.Size = new System.Drawing.Size(83, 29);
-            this.button_save.TabIndex = 16;
-            this.button_save.Text = "保存单据";
-            this.button_save.UseVisualStyleBackColor = true;
-            this.button_save.Click += new System.EventHandler(this.button_save_Click);
+            this.btn_save.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_save.Location = new System.Drawing.Point(242, 686);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(83, 29);
+            this.btn_save.TabIndex = 16;
+            this.btn_save.Text = "保存单据";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.button_save_Click);
             // 
             // btn_confirm
             // 
@@ -649,16 +649,16 @@
             this.btn_confirm.UseVisualStyleBackColor = true;
             this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
             // 
-            // print
+            // btn_print
             // 
-            this.print.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.print.Location = new System.Drawing.Point(442, 686);
-            this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(83, 29);
-            this.print.TabIndex = 13;
-            this.print.Text = "打印单据";
-            this.print.UseVisualStyleBackColor = true;
-            this.print.Click += new System.EventHandler(this.print_Click);
+            this.btn_print.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_print.Location = new System.Drawing.Point(442, 686);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(83, 29);
+            this.btn_print.TabIndex = 13;
+            this.btn_print.Text = "打印单据";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.print_Click);
             // 
             // label3
             // 
@@ -670,44 +670,44 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "单号：";
             // 
-            // cancel
+            // btn_delete
             // 
-            this.cancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cancel.Location = new System.Drawing.Point(547, 686);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(83, 29);
-            this.cancel.TabIndex = 14;
-            this.cancel.Text = "删除单据";
-            this.cancel.UseVisualStyleBackColor = true;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
+            this.btn_delete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_delete.Location = new System.Drawing.Point(547, 686);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(83, 29);
+            this.btn_delete.TabIndex = 14;
+            this.btn_delete.Text = "删除单据";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.cancel_Click);
             // 
-            // button_history
+            // btn_history
             // 
-            this.button_history.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.button_history.Location = new System.Drawing.Point(649, 686);
-            this.button_history.Name = "button_history";
-            this.button_history.Size = new System.Drawing.Size(83, 29);
-            this.button_history.TabIndex = 19;
-            this.button_history.Text = "续用历史";
-            this.button_history.UseVisualStyleBackColor = true;
-            this.button_history.Click += new System.EventHandler(this.button_history_Click);
+            this.btn_history.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btn_history.Location = new System.Drawing.Point(649, 686);
+            this.btn_history.Name = "btn_history";
+            this.btn_history.Size = new System.Drawing.Size(83, 29);
+            this.btn_history.TabIndex = 19;
+            this.btn_history.Text = "续用历史";
+            this.btn_history.UseVisualStyleBackColor = true;
+            this.btn_history.Click += new System.EventHandler(this.button_history_Click);
             // 
             // DJXY
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 735);
-            this.Controls.Add(this.button_history);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btn_history);
+            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.danhao);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button_save);
+            this.Controls.Add(this.btn_save);
             this.Controls.Add(this.btn_confirm);
-            this.Controls.Add(this.print);
-            this.Controls.Add(this.cancel);
+            this.Controls.Add(this.btn_print);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.label1);
             this.Name = "DJXY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -729,7 +729,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox beizhu;
@@ -752,11 +752,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox danhao;
-        private System.Windows.Forms.Button button_save;
-        private System.Windows.Forms.Button btn_confirm;
-        private System.Windows.Forms.Button print;
+        public System.Windows.Forms.Button btn_save;
+        public System.Windows.Forms.Button btn_confirm;
+        public System.Windows.Forms.Button btn_print;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button cancel;
+        public System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.ComboBox xyinfo_xydth;
         private System.Windows.Forms.ComboBox xyinfo_xyjcbm;
         private System.Windows.Forms.Label label18;
@@ -769,7 +769,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button_history;
+        private System.Windows.Forms.Button btn_history;
         private System.Windows.Forms.Button btn_edit_xymx;
         private System.Windows.Forms.Button btn_new_xymx;
         private System.Windows.Forms.Button btn_delete_xymx;

@@ -93,7 +93,7 @@ namespace kucunTest
             this.WindowState = FormWindowState.Maximized;//窗口默认最大化
             Win32.AnimateWindow(this.Handle, 2000, Win32.AW_BLEND);//窗体淡入效果
 
-            this.Authorize.setAuthority(this, this.Name);
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.mainFrm);
         }
 
         #region 其他

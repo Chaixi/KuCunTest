@@ -140,7 +140,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(410, 752);
+            this.btn_save.Location = new System.Drawing.Point(412, 765);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(104, 29);
             this.btn_save.TabIndex = 0;
@@ -154,7 +154,7 @@
             this.label1.Font = new System.Drawing.Font("宋体", 22F);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1289, 54);
+            this.label1.Size = new System.Drawing.Size(1306, 54);
             this.label1.TabIndex = 1;
             this.label1.Text = "刀具类型管理";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1123,7 +1123,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(692, 752);
+            this.button4.Location = new System.Drawing.Point(694, 765);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(125, 32);
             this.button4.TabIndex = 0;
@@ -1179,7 +1179,7 @@
             // 
             // btn_cansel
             // 
-            this.btn_cansel.Location = new System.Drawing.Point(558, 752);
+            this.btn_cansel.Location = new System.Drawing.Point(560, 765);
             this.btn_cansel.Name = "btn_cansel";
             this.btn_cansel.Size = new System.Drawing.Size(104, 29);
             this.btn_cansel.TabIndex = 0;
@@ -1189,7 +1189,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(841, 752);
+            this.button5.Location = new System.Drawing.Point(843, 765);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(109, 32);
             this.button5.TabIndex = 4;
@@ -1202,7 +1202,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1306, 741);
+            this.ClientSize = new System.Drawing.Size(1306, 809);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.grp_zc);
             this.Controls.Add(this.groupBox2);

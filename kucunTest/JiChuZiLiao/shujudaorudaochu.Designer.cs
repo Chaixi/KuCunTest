@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(shujudaorudaochu));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.checkColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -95,8 +95,8 @@
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv.ColumnHeadersHeight = 35;
@@ -129,10 +129,11 @@
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.groupBox1.Controls.Add(this.chx_selected);
             this.groupBox1.Controls.Add(this.chx_all);
-            this.groupBox1.Location = new System.Drawing.Point(419, 8);
+            this.groupBox1.Location = new System.Drawing.Point(419, 32);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tableLayoutPanel3.SetRowSpan(this.groupBox1, 2);
             this.groupBox1.Size = new System.Drawing.Size(327, 59);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -447,8 +448,9 @@
             // btn_output
             // 
             this.btn_output.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_output.Location = new System.Drawing.Point(753, 20);
+            this.btn_output.Location = new System.Drawing.Point(753, 45);
             this.btn_output.Name = "btn_output";
+            this.tableLayoutPanel3.SetRowSpan(this.btn_output, 2);
             this.btn_output.Size = new System.Drawing.Size(102, 34);
             this.btn_output.TabIndex = 3;
             this.btn_output.Text = "导    出";
@@ -459,8 +461,9 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 27);
+            this.label1.Location = new System.Drawing.Point(3, 51);
             this.label1.Name = "label1";
+            this.tableLayoutPanel3.SetRowSpan(this.label1, 2);
             this.label1.Size = new System.Drawing.Size(106, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "导出数据类型";
@@ -469,8 +472,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(338, 27);
+            this.label2.Location = new System.Drawing.Point(338, 51);
             this.label2.Name = "label2";
+            this.tableLayoutPanel3.SetRowSpan(this.label2, 2);
             this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 0;
             this.label2.Text = "导出设置";
@@ -485,8 +489,9 @@
             "零部件信息",
             "刀具柜信息",
             "机床信息"});
-            this.SJLX.Location = new System.Drawing.Point(115, 27);
+            this.SJLX.Location = new System.Drawing.Point(115, 47);
             this.SJLX.Name = "SJLX";
+            this.tableLayoutPanel3.SetRowSpan(this.SJLX, 2);
             this.SJLX.Size = new System.Drawing.Size(217, 29);
             this.SJLX.TabIndex = 1;
             this.SJLX.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -561,7 +566,7 @@
             this.btn_input.Name = "btn_input";
             this.btn_input.Size = new System.Drawing.Size(83, 34);
             this.btn_input.TabIndex = 4;
-            this.btn_input.Text = "导    入";
+            this.btn_input.Text = "加     载";
             this.btn_input.UseVisualStyleBackColor = true;
             this.btn_input.Click += new System.EventHandler(this.btn_input_Click);
             // 
@@ -586,7 +591,7 @@
             "零部件信息",
             "刀具柜信息",
             "机床信息"});
-            this.cbx_inputDataType.Location = new System.Drawing.Point(115, 23);
+            this.cbx_inputDataType.Location = new System.Drawing.Point(115, 28);
             this.cbx_inputDataType.Name = "cbx_inputDataType";
             this.cbx_inputDataType.Size = new System.Drawing.Size(217, 29);
             this.cbx_inputDataType.TabIndex = 3;
@@ -625,7 +630,7 @@
             this.choseSheet.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.choseSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.choseSheet.FormattingEnabled = true;
-            this.choseSheet.Location = new System.Drawing.Point(115, 85);
+            this.choseSheet.Location = new System.Drawing.Point(115, 90);
             this.choseSheet.Name = "choseSheet";
             this.choseSheet.Size = new System.Drawing.Size(217, 29);
             this.choseSheet.TabIndex = 8;

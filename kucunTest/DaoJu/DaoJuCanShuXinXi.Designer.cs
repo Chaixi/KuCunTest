@@ -89,8 +89,8 @@
             this.cp1 = new System.Windows.Forms.TextBox();
             this.cp2 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_bcsj = new System.Windows.Forms.Button();
+            this.btn_hqclsj = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.djid = new System.Windows.Forms.TextBox();
             this.刀具id = new System.Windows.Forms.Label();
@@ -676,27 +676,27 @@
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label33.SizeChanged += new System.EventHandler(this.label33_SizeChanged);
             // 
-            // button1
+            // btn_bcsj
             // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(299, 641);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 37);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "保存数据";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_bcsj.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_bcsj.Location = new System.Drawing.Point(299, 641);
+            this.btn_bcsj.Name = "btn_bcsj";
+            this.btn_bcsj.Size = new System.Drawing.Size(141, 37);
+            this.btn_bcsj.TabIndex = 3;
+            this.btn_bcsj.Text = "保存数据";
+            this.btn_bcsj.UseVisualStyleBackColor = true;
+            this.btn_bcsj.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_hqclsj
             // 
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(448, 641);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 37);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "获取测量数据";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_hqclsj.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_hqclsj.Location = new System.Drawing.Point(448, 641);
+            this.btn_hqclsj.Name = "btn_hqclsj";
+            this.btn_hqclsj.Size = new System.Drawing.Size(139, 37);
+            this.btn_hqclsj.TabIndex = 3;
+            this.btn_hqclsj.Text = "获取测量数据";
+            this.btn_hqclsj.UseVisualStyleBackColor = true;
+            this.btn_hqclsj.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 
@@ -771,8 +771,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 690);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_hqclsj);
+            this.Controls.Add(this.btn_bcsj);
             this.Controls.Add(this.grp_cl);
             this.Controls.Add(this.grp_jc);
             this.Controls.Add(this.label33);
@@ -852,8 +852,8 @@
         private System.Windows.Forms.TextBox cp11;
         private System.Windows.Forms.TextBox cp10;
         private System.Windows.Forms.TextBox cp9;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btn_bcsj;
+        public System.Windows.Forms.Button btn_hqclsj;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox djid;
         private System.Windows.Forms.Label 刀具id;

@@ -533,7 +533,7 @@ namespace kucunTest.BaseClasses
     }
 
     /// <summary>
-    /// 用户表
+    /// 用户表[User]
     /// </summary>
     public static class User
     {
@@ -546,43 +546,69 @@ namespace kucunTest.BaseClasses
         public static string groupName = "groupname";//所属小组名
         public static string bumen = "bumen";//用户所属部门
         public static string bz = "beizhu";//备注
-
     }
 
+    ///// <summary>
+    ///// 小组信息表
+    ///// </summary>
+    //public static class UserGroup
+    //{
+    //    public static string TableName = "usergroup";//表名
+    //    public static string xh = "xh";//主键序号
+    //    public static string name = "name";//用户名
+    //    public static string groupName = "groupname";//所属小组名
+    //    public static string bz = "beizhu";//备注
+    //}
+
     /// <summary>
-    /// 用户组表
+    /// 小组信息表
     /// </summary>
     public static class UserGroup
     {
-        public static string TableName = "usergroup";//表名
+        public static string TableName = "groupbiao";//表名
         public static string xh = "xh";//主键序号
-        public static string name = "name";//用户名
-        public static string groupName = "groupname";//所属小组名
+        public static string groupName = "groupname";//小组名
+        public static string groupInfo = "groupinfo";//小组信息
+        public static string time = "time";//创建时间
         public static string bz = "beizhu";//备注
     }
 
-    /// <summary>
-    /// 权限组表
-    /// </summary>
-    public static class QuanXianGroup
-    {
-        public static string TableName = "qxgroup";//表名
-        public static string xh = "xh";//主键序号
-        public static string quanXianMingCheng = "quanxianmc";//权限名称
-        public static string groupName = "groupname";//所属小组名
-        public static string bz = "beizhu";//备注
-    }
+    ///// <summary>
+    ///// 权限组表
+    ///// </summary>
+    //public static class QuanXianGroup
+    //{
+    //    public static string TableName = "qxgroup";//表名
+    //    public static string xh = "xh";//主键序号
+    //    public static string quanXianMingCheng = "quanxianmc";//权限名称
+    //    public static string groupName = "groupname";//所属小组名
+    //    public static string bz = "beizhu";//备注
+    //}
+
+    ///// <summary>
+    ///// 小组权限表
+    ///// </summary>
+    //public static class QuanXian
+    //{
+    //    public static string TableName = "quanxianbiao";//表名
+    //    public static string xh = "xh";//主键序号
+    //    public static string quanXianMingCheng = "quanxianmc";//权限名称
+    //    public static string quanxianym = "quanxianym";//所属小组名
+    //    public static string quanxiandaima = "qxdm";//主键序号
+    //    public static string bz = "beizhu";//备注
+    //}
 
     /// <summary>
-    /// 权限表
+    /// 小组权限表[quanxian]
     /// </summary>
     public static class QuanXian
     {
-        public static string TableName = "quanxianbiao";//表名
+        public static string TableName = "quanxian";//表名
         public static string xh = "xh";//主键序号
-        public static string quanXianMingCheng = "quanxianmc";//权限名称
-        public static string quanxianym = "quanxianym";//所属小组名
-        public static string quanxiandaima = "qxdm";//主键序号
-        public static string bz = "beizhu";//备注
+        public static string mc = "qxmc";//权限名称
+        public static string dm = "qxdm";//权限代码
+        public static string fm = "qxfm";//权限父母
+        public static string zt = "qxzt";//权限状态
+        public static string qxgroup = "qxgroup";//所属小组名
     }
 }

@@ -221,12 +221,6 @@
     <Compile Include="DaoJu\History.Designer.cs">
       <DependentUpon>History.cs</DependentUpon>
     </Compile>
-    <Compile Include="DaoJu\DJCCRC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DaoJu\DJCCRC.Designer.cs">
-      <DependentUpon>DJCCRC.cs</DependentUpon>
-    </Compile>
     <Compile Include="DaoJu\DJGH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,36 +232,6 @@
     </Compile>
     <Compile Include="DaoJu\DJWJ.Designer.cs">
       <DependentUpon>DJWJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DaoJu\DJZPCC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DaoJu\DJZPCC.Designer.cs">
-      <DependentUpon>DJZPCC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DaoJu\DJCL.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DaoJu\DJCL.Designer.cs">
-      <DependentUpon>DJCL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DaoJu\DJGL.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DaoJu\DJGL.Designer.cs">
-      <DependentUpon>DJGL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DaoJu\DJJC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DaoJu\DJJC.Designer.cs">
-      <DependentUpon>DJJC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DaoJu\PDQDGL.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DaoJu\PDQDGL.Designer.cs">
-      <DependentUpon>PDQDGL.cs</DependentUpon>
     </Compile>
     <Compile Include="DaoJu\XYLS.cs">
       <SubType>Form</SubType>
@@ -398,6 +362,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="quanxianguanli\AuthoritiesString.cs" />
     <Compile Include="quanxianguanli\Authorize.cs" />
     <Compile Include="quanxianguanli\qxguanli.cs">
       <SubType>Form</SubType>
@@ -496,29 +461,11 @@
     <EmbeddedResource Include="DaoJu\History.resx">
       <DependentUpon>History.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DaoJu\DJCCRC.resx">
-      <DependentUpon>DJCCRC.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DJGH.resx">
       <DependentUpon>DJGH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DJWJ.resx">
       <DependentUpon>DJWJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DaoJu\DJZPCC.resx">
-      <DependentUpon>DJZPCC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DaoJu\DJCL.resx">
-      <DependentUpon>DJCL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DaoJu\DJGL.resx">
-      <DependentUpon>DJGL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DaoJu\DJJC.resx">
-      <DependentUpon>DJJC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DaoJu\PDQDGL.resx">
-      <DependentUpon>PDQDGL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\XYLS.resx">
       <DependentUpon>XYLS.cs</DependentUpon>
@@ -656,6 +603,7 @@
     <None Include="Resources\cancel.gif" />
     <None Include="Resources\hsk.png" />
     <None Include="Resources\jiaodao.png" />
+    <Content Include="quanxianguanli\Authority.xml" />
     <Content Include="Resources\loading.gif" />
     <None Include="Resources\lock.png" />
     <None Include="Resources\print.gif" />
