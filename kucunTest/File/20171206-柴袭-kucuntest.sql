@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2017-11-29 20:28:16
+Date: 2017-12-06 17:08:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1449,21 +1449,22 @@ INSERT INTO `gongyika` VALUES ('11', 'GY-004', '后传动箱壳体', null, '2017
 -- ----------------------------
 DROP TABLE IF EXISTS `groupbiao`;
 CREATE TABLE `groupbiao` (
-  `groupid` int(4) NOT NULL AUTO_INCREMENT,
+  `xh` int(4) NOT NULL AUTO_INCREMENT,
   `groupname` char(20) CHARACTER SET utf8 NOT NULL,
   `groupinfo` char(50) CHARACTER SET utf8 NOT NULL,
   `time` date NOT NULL,
   `beizhu` char(100) CHARACTER SET utf8 DEFAULT NULL,
-  PRIMARY KEY (`groupid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=gbk;
+  PRIMARY KEY (`xh`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of groupbiao
 -- ----------------------------
-INSERT INTO `groupbiao` VALUES ('1', '系统管理组', '负责管理系统', '2017-09-12', '');
-INSERT INTO `groupbiao` VALUES ('2', '工艺部', '负责管理工艺卡', '2017-09-12', '');
-INSERT INTO `groupbiao` VALUES ('3', '刀管中心', '负责管理车间刀具/零部件', '2017-09-12', '');
+INSERT INTO `groupbiao` VALUES ('1', '系统管理组', '负责管理系统', '2017-09-12', '全部权限');
+INSERT INTO `groupbiao` VALUES ('2', '工艺部', '负责管理工艺卡', '2017-09-12', '拥有全部权限');
+INSERT INTO `groupbiao` VALUES ('3', '刀管中心', '负责管理车间刀具/零部件', '2017-09-12', '刀管中心可操作刀具、零部件、刀具柜模块，以及系统日志的查看');
 INSERT INTO `groupbiao` VALUES ('9', '车间工作小组', '负责车间的加工任务', '2017-09-14', '一拖第三装配厂机一车间');
+INSERT INTO `groupbiao` VALUES ('10', '测试组1', '0000', '2017-12-06', '1111∵');
 
 -- ----------------------------
 -- Table structure for `jcdaojuku`
@@ -3150,16 +3151,569 @@ INSERT INTO `lingbujian` VALUES ('41', 'C6-390.410-100110A', '主刀柄', '3846.
 INSERT INTO `lingbujian` VALUES ('42', ' C4-390.410-100090A', 'HSK Capto刀柄', '3476.50', '100.00', null, null, '');
 
 -- ----------------------------
+-- Table structure for `quanxian`
+-- ----------------------------
+DROP TABLE IF EXISTS `quanxian`;
+CREATE TABLE `quanxian` (
+  `xh` int(20) NOT NULL AUTO_INCREMENT,
+  `qxmc` varchar(50) DEFAULT NULL COMMENT '权限名称',
+  `qxdm` varchar(50) DEFAULT NULL COMMENT '权限代码',
+  `qxfm` varchar(20) DEFAULT NULL COMMENT '权限级别',
+  `qxzt` int(2) DEFAULT NULL COMMENT '权限状态',
+  `qxgroup` varchar(20) DEFAULT NULL COMMENT '权限小组',
+  PRIMARY KEY (`xh`)
+) ENGINE=MyISAM AUTO_INCREMENT=1927 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of quanxian
+-- ----------------------------
+INSERT INTO `quanxian` VALUES ('1926', '在文件夹中查看', 'xtgl_xtrz_zwjjzck', 'xtgl_xtrz', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1924', '系统日志', 'xtgl_xtrz', 'xtgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1925', '加载日志', 'xtgl_xtrz_jzrz', 'xtgl_xtrz', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1922', '编辑小组', 'xtgl_qxgl_xzgl_bjxz', 'xtgl_qxgl_xzgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1918', '添加小组成员', 'xtgl_qxgl_xzgl_tjxzcy', 'xtgl_qxgl_xzgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1919', '移除小组成员', 'xtgl_qxgl_xzgl_ycxzcy', 'xtgl_qxgl_xzgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1920', '新建小组', 'xtgl_qxgl_xzgl_xjxz', 'xtgl_qxgl_xzgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1921', '删除小组', 'xtgl_qxgl_xzgl_scxz', 'xtgl_qxgl_xzgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1281', '保存设置', 'xtgl_qxgl_xzgl_bcsz', 'xtgl_qxgl_xzgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1280', '编辑小组', 'xtgl_qxgl_xzgl_bjxz', 'xtgl_qxgl_xzgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1279', '删除小组', 'xtgl_qxgl_xzgl_scxz', 'xtgl_qxgl_xzgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1278', '新建小组', 'xtgl_qxgl_xzgl_xjxz', 'xtgl_qxgl_xzgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1277', '移除小组成员', 'xtgl_qxgl_xzgl_ycxzcy', 'xtgl_qxgl_xzgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1276', '添加小组成员', 'xtgl_qxgl_xzgl_tjxzcy', 'xtgl_qxgl_xzgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1275', '小组管理', 'xtgl_qxgl_xzgl', 'xtgl_qxgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1273', '保存信息', 'xtgl_qxgl_yhgl_bcxx', 'xtgl_qxgl_yhgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1274', '重置密码', 'xtgl_qxgl_yhgl_czmm', 'xtgl_qxgl_yhgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1272', '编辑用户', 'xtgl_qxgl_yhgl_bjyh', 'xtgl_qxgl_yhgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1270', '添加用户', 'xtgl_qxgl_yhgl_tjyh', 'xtgl_qxgl_yhgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1271', '删除用户', 'xtgl_qxgl_yhgl_scyh', 'xtgl_qxgl_yhgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1268', '修改密码', 'xtgl_qxgl_yhgl_xgmm', 'xtgl_qxgl_yhgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1269', '确认修改', 'xtgl_qxgl_yhgl_qrxg', 'xtgl_qxgl_yhgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1267', '用户管理', 'xtgl_qxgl_yhgl', 'xtgl_qxgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1266', '权限管理', 'xtgl_qxgl', 'xtgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1265', '系统管理', 'xtgl', 'AllAuthorities', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1264', '数据导入', 'jczl_sjdr', 'jczl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1263', '数据导出', 'jczl_sjdc', 'jczl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1261', '配刀--删除', 'gyk_pdsc', 'gyk', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1262', '基础资料', 'jczl', 'AllAuthorities', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1260', '配刀--新增', 'gyk_pdxz', 'gyk', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1259', '工序--修改', 'gyk_gxxg', 'gyk', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1258', '工序--新增', 'gyk_gxxz', 'gyk', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1257', '工艺卡--删除', 'gyk_sc', 'gyk', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1256', '工艺卡--保存', 'gyk_bc', 'gyk', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1255', '工艺卡--新增', 'gyk_xz', 'gyk', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1254', '工艺卡', 'gyk', 'AllAuthorities', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1253', '导入图片', 'jc_drtp', 'jc', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1252', '删除机床', 'jc_scjc', 'jc', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1251', '新增机床', 'jc_xzjc', 'jc', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1250', '机床', 'jc', 'AllAuthorities', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1249', '导入图片', 'djg_drtp', 'djg', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1245', '退出', 'lbj_lbjth_tc', 'lbj_lbjth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1246', '刀具柜', 'djg', 'AllAuthorities', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1247', '新增刀具柜', 'djg_xzdjg', 'djg', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1248', '删除刀具柜', 'djg_scdjg', 'djg', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1244', '删除', 'lbj_lbjth_sc', 'lbj_lbjth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1243', '打印', 'lbj_lbjth_dy', 'lbj_lbjth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1242', '确认', 'lbj_lbjth_qr', 'lbj_lbjth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1241', '保存', 'lbj_lbjth_bc', 'lbj_lbjth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1240', '明细--删除', 'lbj_lbjth_mxsc', 'lbj_lbjth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1239', '明细--修改', 'lbj_lbjth_mxxg', 'lbj_lbjth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1238', '明细--新增', 'lbj_lbjth_mxxz', 'lbj_lbjth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1237', '单据历史记录', 'lbj_lbjth_djlsjl', 'lbj_lbjth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1234', '删除', 'lbj_lbjly_sc', 'lbj_lbjly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1235', '退出', 'lbj_lbjly_tc', 'lbj_lbjly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1236', '零部件退还单据', 'lbj_lbjth', 'lbj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1233', '打印', 'lbj_lbjly_dy', 'lbj_lbjly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1232', '确认', 'lbj_lbjly_qr', 'lbj_lbjly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1231', '保存', 'lbj_lbjly_bc', 'lbj_lbjly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1230', '明细--删除', 'lbj_lbjly_mxsc', 'lbj_lbjly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1229', '明细--修改', 'lbj_lbjly_mxxg', 'lbj_lbjly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1228', '明细--新增', 'lbj_lbjly_mxxz', 'lbj_lbjly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1227', '单据历史记录', 'lbj_lbjly_djlsjl', 'lbj_lbjly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1226', '零部件领用单据', 'lbj_lbjly', 'lbj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1225', '零部件修改库存量', 'lbj_xgkcl', 'lbj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1224', '零部件库存明细', 'lbj_kcmx', 'lbj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1223', '零部件', 'lbj', 'AllAuthorities', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1222', '删除', 'dj_djbf_sc', 'dj_djbf', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1221', '打印', 'dj_djbf_dy', 'dj_djbf', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1220', '确认', 'dj_djbf_qr', 'dj_djbf', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1219', '保存', 'dj_djbf_bc', 'dj_djbf', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1218', '单据历史记录', 'dj_djbf_djlsjl', 'dj_djbf', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1217', '刀具报废单', 'dj_djbf', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1216', '删除', 'dj_djth_sc', 'dj_djth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1215', '打印', 'dj_djth_dy', 'dj_djth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1214', '确认', 'dj_djth_qr', 'dj_djth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1213', '保存', 'dj_djth_bc', 'dj_djth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1212', '单据历史记录', 'dj_djth_djlsjl', 'dj_djth', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1209', '打印', 'dj_djwj_dy', 'dj_djwj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1211', '刀具退还单', 'dj_djth', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1210', '删除', 'dj_djwj_sc', 'dj_djwj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1208', '确认', 'dj_djwj_qr', 'dj_djwj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1206', '单据历史记录', 'dj_djwj_djlsjl', 'dj_djwj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1207', '保存', 'dj_djwj_bc', 'dj_djwj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1205', '刀具外借单', 'dj_djwj', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1204', '删除', 'dj_djgh_sc', 'dj_djgh', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1203', '打印', 'dj_djgh_dy', 'dj_djgh', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1202', '确认', 'dj_djgh_qr', 'dj_djgh', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1201', '保存', 'dj_djgh_bc', 'dj_djgh', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1198', '删除', 'dj_djxy_sc', 'dj_djxy', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1200', '单据历史记录', 'dj_djgh_djlsjl', 'dj_djgh', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1199', '刀具更换单', 'dj_djgh', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1197', '打印', 'dj_djxy_dy', 'dj_djxy', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1196', '确认', 'dj_djxy_qr', 'dj_djxy', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1195', '保存', 'dj_djxy_bc', 'dj_djxy', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1189', '保存', 'dj_djly_bc', 'dj_djly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1190', '确认', 'dj_djly_qr', 'dj_djly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1191', '打印', 'dj_djly_dy', 'dj_djly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1192', '删除', 'dj_djly_sc', 'dj_djly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1193', '刀具续用单', 'dj_djxy', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1194', '单据历史记录', 'dj_djxy_djlsjl', 'dj_djxy', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1188', '单据历史记录', 'dj_djly_djlsjl', 'dj_djly', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1187', '刀具领用单', 'dj_djly', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1184', '刀具测量', 'dj_djcl', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1185', '保存数据', 'dj_djcl_bcsj', 'dj_djcl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1186', '获取测量数据', 'dj_djcl_hqclsj', 'dj_djcl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1183', '拆卸刀具', 'dj_cxdj', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1182', '装配刀具', 'dj_zpdj', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1180', '刀具类型管理', 'dj_lxgl', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1181', '刀具库存明细', 'dj_kcmx', 'dj', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1179', '刀具', 'dj', 'AllAuthorities', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1178', '全部模块', 'AllAuthorities', 'AllAuthorities', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1386', '删除小组', 'xtgl_qxgl_xzgl_scxz', 'xtgl_qxgl_xzgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1385', '新建小组', 'xtgl_qxgl_xzgl_xjxz', 'xtgl_qxgl_xzgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1384', '移除小组成员', 'xtgl_qxgl_xzgl_ycxzcy', 'xtgl_qxgl_xzgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1383', '添加小组成员', 'xtgl_qxgl_xzgl_tjxzcy', 'xtgl_qxgl_xzgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1382', '小组管理', 'xtgl_qxgl_xzgl', 'xtgl_qxgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1381', '重置密码', 'xtgl_qxgl_yhgl_czmm', 'xtgl_qxgl_yhgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1380', '保存信息', 'xtgl_qxgl_yhgl_bcxx', 'xtgl_qxgl_yhgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1379', '编辑用户', 'xtgl_qxgl_yhgl_bjyh', 'xtgl_qxgl_yhgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1378', '删除用户', 'xtgl_qxgl_yhgl_scyh', 'xtgl_qxgl_yhgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1377', '添加用户', 'xtgl_qxgl_yhgl_tjyh', 'xtgl_qxgl_yhgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1376', '确认修改', 'xtgl_qxgl_yhgl_qrxg', 'xtgl_qxgl_yhgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1375', '修改密码', 'xtgl_qxgl_yhgl_xgmm', 'xtgl_qxgl_yhgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1374', '用户管理', 'xtgl_qxgl_yhgl', 'xtgl_qxgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1372', '系统管理', 'xtgl', 'AllAuthorities', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1373', '权限管理', 'xtgl_qxgl', 'xtgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1371', '数据导入', 'jczl_sjdr', 'jczl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1369', '基础资料', 'jczl', 'AllAuthorities', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1370', '数据导出', 'jczl_sjdc', 'jczl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1368', '配刀--删除', 'gyk_pdsc', 'gyk', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1366', '工序--修改', 'gyk_gxxg', 'gyk', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1367', '配刀--新增', 'gyk_pdxz', 'gyk', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1365', '工序--新增', 'gyk_gxxz', 'gyk', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1363', '工艺卡--保存', 'gyk_bc', 'gyk', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1364', '工艺卡--删除', 'gyk_sc', 'gyk', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1362', '工艺卡--新增', 'gyk_xz', 'gyk', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1361', '工艺卡', 'gyk', 'AllAuthorities', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1359', '删除机床', 'jc_scjc', 'jc', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1360', '导入图片', 'jc_drtp', 'jc', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1358', '新增机床', 'jc_xzjc', 'jc', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1357', '机床', 'jc', 'AllAuthorities', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1355', '删除刀具柜', 'djg_scdjg', 'djg', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1356', '导入图片', 'djg_drtp', 'djg', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1354', '新增刀具柜', 'djg_xzdjg', 'djg', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1352', '退出', 'lbj_lbjth_tc', 'lbj_lbjth', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1353', '刀具柜', 'djg', 'AllAuthorities', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1351', '删除', 'lbj_lbjth_sc', 'lbj_lbjth', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1350', '打印', 'lbj_lbjth_dy', 'lbj_lbjth', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1348', '保存', 'lbj_lbjth_bc', 'lbj_lbjth', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1349', '确认', 'lbj_lbjth_qr', 'lbj_lbjth', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1347', '明细--删除', 'lbj_lbjth_mxsc', 'lbj_lbjth', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1346', '明细--修改', 'lbj_lbjth_mxxg', 'lbj_lbjth', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1345', '明细--新增', 'lbj_lbjth_mxxz', 'lbj_lbjth', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1344', '单据历史记录', 'lbj_lbjth_djlsjl', 'lbj_lbjth', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1343', '零部件退还单据', 'lbj_lbjth', 'lbj', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1342', '退出', 'lbj_lbjly_tc', 'lbj_lbjly', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1341', '删除', 'lbj_lbjly_sc', 'lbj_lbjly', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1340', '打印', 'lbj_lbjly_dy', 'lbj_lbjly', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1339', '确认', 'lbj_lbjly_qr', 'lbj_lbjly', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1338', '保存', 'lbj_lbjly_bc', 'lbj_lbjly', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1337', '明细--删除', 'lbj_lbjly_mxsc', 'lbj_lbjly', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1336', '明细--修改', 'lbj_lbjly_mxxg', 'lbj_lbjly', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1335', '明细--新增', 'lbj_lbjly_mxxz', 'lbj_lbjly', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1334', '单据历史记录', 'lbj_lbjly_djlsjl', 'lbj_lbjly', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1333', '零部件领用单据', 'lbj_lbjly', 'lbj', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1332', '零部件修改库存量', 'lbj_xgkcl', 'lbj', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1331', '零部件库存明细', 'lbj_kcmx', 'lbj', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1330', '零部件', 'lbj', 'AllAuthorities', '1', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1328', '打印', 'dj_djbf_dy', 'dj_djbf', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1329', '删除', 'dj_djbf_sc', 'dj_djbf', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1327', '确认', 'dj_djbf_qr', 'dj_djbf', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1326', '保存', 'dj_djbf_bc', 'dj_djbf', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1325', '单据历史记录', 'dj_djbf_djlsjl', 'dj_djbf', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1324', '刀具报废单', 'dj_djbf', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1323', '删除', 'dj_djth_sc', 'dj_djth', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1322', '打印', 'dj_djth_dy', 'dj_djth', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1321', '确认', 'dj_djth_qr', 'dj_djth', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1320', '保存', 'dj_djth_bc', 'dj_djth', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1319', '单据历史记录', 'dj_djth_djlsjl', 'dj_djth', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1318', '刀具退还单', 'dj_djth', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1317', '删除', 'dj_djwj_sc', 'dj_djwj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1316', '打印', 'dj_djwj_dy', 'dj_djwj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1315', '确认', 'dj_djwj_qr', 'dj_djwj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1314', '保存', 'dj_djwj_bc', 'dj_djwj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1313', '单据历史记录', 'dj_djwj_djlsjl', 'dj_djwj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1312', '刀具外借单', 'dj_djwj', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1311', '删除', 'dj_djgh_sc', 'dj_djgh', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1309', '确认', 'dj_djgh_qr', 'dj_djgh', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1310', '打印', 'dj_djgh_dy', 'dj_djgh', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1308', '保存', 'dj_djgh_bc', 'dj_djgh', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1307', '单据历史记录', 'dj_djgh_djlsjl', 'dj_djgh', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1282', '系统日志', 'xtgl_xtrz', 'xtgl', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1923', '保存设置', 'xtgl_qxgl_xzgl_bcsz', 'xtgl_qxgl_xzgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1916', '重置密码', 'xtgl_qxgl_yhgl_czmm', 'xtgl_qxgl_yhgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1917', '小组管理', 'xtgl_qxgl_xzgl', 'xtgl_qxgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1915', '保存信息', 'xtgl_qxgl_yhgl_bcxx', 'xtgl_qxgl_yhgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1914', '编辑用户', 'xtgl_qxgl_yhgl_bjyh', 'xtgl_qxgl_yhgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1913', '删除用户', 'xtgl_qxgl_yhgl_scyh', 'xtgl_qxgl_yhgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1910', '修改密码', 'xtgl_qxgl_yhgl_xgmm', 'xtgl_qxgl_yhgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1912', '添加用户', 'xtgl_qxgl_yhgl_tjyh', 'xtgl_qxgl_yhgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1911', '确认修改', 'xtgl_qxgl_yhgl_qrxg', 'xtgl_qxgl_yhgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1909', '用户管理', 'xtgl_qxgl_yhgl', 'xtgl_qxgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1908', '权限管理', 'xtgl_qxgl', 'xtgl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1907', '系统管理', 'xtgl', 'AllAuthorities', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1906', '数据导入', 'jczl_sjdr', 'jczl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1905', '数据导出', 'jczl_sjdc', 'jczl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1904', '基础资料', 'jczl', 'AllAuthorities', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1903', '配刀--删除', 'gyk_pdsc', 'gyk', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1902', '配刀--新增', 'gyk_pdxz', 'gyk', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1901', '工序--修改', 'gyk_gxxg', 'gyk', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1900', '工序--新增', 'gyk_gxxz', 'gyk', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1899', '工艺卡--删除', 'gyk_sc', 'gyk', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1898', '工艺卡--保存', 'gyk_bc', 'gyk', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1897', '工艺卡--新增', 'gyk_xz', 'gyk', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1896', '工艺卡', 'gyk', 'AllAuthorities', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1895', '导入图片', 'jc_drtp', 'jc', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1894', '删除机床', 'jc_scjc', 'jc', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1893', '新增机床', 'jc_xzjc', 'jc', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1892', '机床', 'jc', 'AllAuthorities', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1891', '导入图片', 'djg_drtp', 'djg', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1890', '删除刀具柜', 'djg_scdjg', 'djg', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1889', '新增刀具柜', 'djg_xzdjg', 'djg', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1888', '刀具柜', 'djg', 'AllAuthorities', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1887', '退出', 'lbj_lbjth_tc', 'lbj_lbjth', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1886', '删除', 'lbj_lbjth_sc', 'lbj_lbjth', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1885', '打印', 'lbj_lbjth_dy', 'lbj_lbjth', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1884', '确认', 'lbj_lbjth_qr', 'lbj_lbjth', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1883', '保存', 'lbj_lbjth_bc', 'lbj_lbjth', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1882', '明细--删除', 'lbj_lbjth_mxsc', 'lbj_lbjth', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1881', '明细--修改', 'lbj_lbjth_mxxg', 'lbj_lbjth', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1880', '明细--新增', 'lbj_lbjth_mxxz', 'lbj_lbjth', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1878', '零部件退还单据', 'lbj_lbjth', 'lbj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1879', '单据历史记录', 'lbj_lbjth_djlsjl', 'lbj_lbjth', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1877', '退出', 'lbj_lbjly_tc', 'lbj_lbjly', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1875', '打印', 'lbj_lbjly_dy', 'lbj_lbjly', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1876', '删除', 'lbj_lbjly_sc', 'lbj_lbjly', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1872', '明细--删除', 'lbj_lbjly_mxsc', 'lbj_lbjly', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1873', '保存', 'lbj_lbjly_bc', 'lbj_lbjly', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1874', '确认', 'lbj_lbjly_qr', 'lbj_lbjly', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1867', '零部件修改库存量', 'lbj_xgkcl', 'lbj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1868', '零部件领用单据', 'lbj_lbjly', 'lbj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1869', '单据历史记录', 'lbj_lbjly_djlsjl', 'lbj_lbjly', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1870', '明细--新增', 'lbj_lbjly_mxxz', 'lbj_lbjly', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1871', '明细--修改', 'lbj_lbjly_mxxg', 'lbj_lbjly', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1866', '零部件库存明细', 'lbj_kcmx', 'lbj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1865', '零部件', 'lbj', 'AllAuthorities', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1864', '删除', 'dj_djbf_sc', 'dj_djbf', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1863', '打印', 'dj_djbf_dy', 'dj_djbf', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1859', '刀具报废单', 'dj_djbf', 'dj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1860', '单据历史记录', 'dj_djbf_djlsjl', 'dj_djbf', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1861', '保存', 'dj_djbf_bc', 'dj_djbf', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1862', '确认', 'dj_djbf_qr', 'dj_djbf', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1858', '删除', 'dj_djth_sc', 'dj_djth', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1857', '打印', 'dj_djth_dy', 'dj_djth', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1856', '确认', 'dj_djth_qr', 'dj_djth', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1855', '保存', 'dj_djth_bc', 'dj_djth', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1854', '单据历史记录', 'dj_djth_djlsjl', 'dj_djth', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1853', '刀具退还单', 'dj_djth', 'dj', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1852', '删除', 'dj_djwj_sc', 'dj_djwj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1851', '打印', 'dj_djwj_dy', 'dj_djwj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1850', '确认', 'dj_djwj_qr', 'dj_djwj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1849', '保存', 'dj_djwj_bc', 'dj_djwj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1848', '单据历史记录', 'dj_djwj_djlsjl', 'dj_djwj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1847', '刀具外借单', 'dj_djwj', 'dj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1846', '删除', 'dj_djgh_sc', 'dj_djgh', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1845', '打印', 'dj_djgh_dy', 'dj_djgh', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1843', '保存', 'dj_djgh_bc', 'dj_djgh', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1844', '确认', 'dj_djgh_qr', 'dj_djgh', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1841', '刀具更换单', 'dj_djgh', 'dj', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1842', '单据历史记录', 'dj_djgh_djlsjl', 'dj_djgh', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1840', '删除', 'dj_djxy_sc', 'dj_djxy', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1839', '打印', 'dj_djxy_dy', 'dj_djxy', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1838', '确认', 'dj_djxy_qr', 'dj_djxy', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1837', '保存', 'dj_djxy_bc', 'dj_djxy', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1836', '单据历史记录', 'dj_djxy_djlsjl', 'dj_djxy', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1835', '刀具续用单', 'dj_djxy', 'dj', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1834', '删除', 'dj_djly_sc', 'dj_djly', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1833', '打印', 'dj_djly_dy', 'dj_djly', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1832', '确认', 'dj_djly_qr', 'dj_djly', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1831', '保存', 'dj_djly_bc', 'dj_djly', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1830', '单据历史记录', 'dj_djly_djlsjl', 'dj_djly', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1827', '保存数据', 'dj_djcl_bcsj', 'dj_djcl', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1829', '刀具领用单', 'dj_djly', 'dj', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1828', '获取测量数据', 'dj_djcl_hqclsj', 'dj_djcl', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1826', '刀具测量', 'dj_djcl', 'dj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1825', '拆卸刀具', 'dj_cxdj', 'dj', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1824', '装配刀具', 'dj_zpdj', 'dj', '1', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1823', '刀具库存明细', 'dj_kcmx', 'dj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1822', '刀具类型管理', 'dj_lxgl', 'dj', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1821', '刀具', 'dj', 'AllAuthorities', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1820', '全部模块', 'AllAuthorities', 'AllAuthorities', '0', '系统管理组');
+INSERT INTO `quanxian` VALUES ('1387', '编辑小组', 'xtgl_qxgl_xzgl_bjxz', 'xtgl_qxgl_xzgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1306', '刀具更换单', 'dj_djgh', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1305', '删除', 'dj_djxy_sc', 'dj_djxy', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1304', '打印', 'dj_djxy_dy', 'dj_djxy', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1303', '确认', 'dj_djxy_qr', 'dj_djxy', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1302', '保存', 'dj_djxy_bc', 'dj_djxy', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1301', '单据历史记录', 'dj_djxy_djlsjl', 'dj_djxy', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1300', '刀具续用单', 'dj_djxy', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1299', '删除', 'dj_djly_sc', 'dj_djly', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1298', '打印', 'dj_djly_dy', 'dj_djly', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1297', '确认', 'dj_djly_qr', 'dj_djly', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1296', '保存', 'dj_djly_bc', 'dj_djly', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1295', '单据历史记录', 'dj_djly_djlsjl', 'dj_djly', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1294', '刀具领用单', 'dj_djly', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1293', '获取测量数据', 'dj_djcl_hqclsj', 'dj_djcl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1292', '保存数据', 'dj_djcl_bcsj', 'dj_djcl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1291', '刀具测量', 'dj_djcl', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1290', '拆卸刀具', 'dj_cxdj', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1289', '装配刀具', 'dj_zpdj', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1288', '刀具库存明细', 'dj_kcmx', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1287', '刀具类型管理', 'dj_lxgl', 'dj', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1286', '刀具', 'dj', 'AllAuthorities', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1285', '全部模块', 'AllAuthorities', 'AllAuthorities', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1283', '加载日志', 'xtgl_xtrz_jzrz', 'xtgl_xtrz', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1284', '在文件夹中查看', 'xtgl_xtrz_zwjjzck', 'xtgl_xtrz', '1', '测试组1');
+INSERT INTO `quanxian` VALUES ('1388', '保存设置', 'xtgl_qxgl_xzgl_bcsz', 'xtgl_qxgl_xzgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1389', '系统日志', 'xtgl_xtrz', 'xtgl', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1390', '加载日志', 'xtgl_xtrz_jzrz', 'xtgl_xtrz', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1391', '在文件夹中查看', 'xtgl_xtrz_zwjjzck', 'xtgl_xtrz', '0', '车间工作小组');
+INSERT INTO `quanxian` VALUES ('1392', '全部模块', 'AllAuthorities', 'AllAuthorities', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1393', '刀具', 'dj', 'AllAuthorities', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1394', '刀具类型管理', 'dj_lxgl', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1395', '刀具库存明细', 'dj_kcmx', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1396', '装配刀具', 'dj_zpdj', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1397', '拆卸刀具', 'dj_cxdj', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1398', '刀具测量', 'dj_djcl', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1399', '保存数据', 'dj_djcl_bcsj', 'dj_djcl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1400', '获取测量数据', 'dj_djcl_hqclsj', 'dj_djcl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1401', '刀具领用单', 'dj_djly', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1402', '单据历史记录', 'dj_djly_djlsjl', 'dj_djly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1403', '保存', 'dj_djly_bc', 'dj_djly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1404', '确认', 'dj_djly_qr', 'dj_djly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1405', '打印', 'dj_djly_dy', 'dj_djly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1406', '删除', 'dj_djly_sc', 'dj_djly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1407', '刀具续用单', 'dj_djxy', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1408', '单据历史记录', 'dj_djxy_djlsjl', 'dj_djxy', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1409', '保存', 'dj_djxy_bc', 'dj_djxy', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1410', '确认', 'dj_djxy_qr', 'dj_djxy', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1411', '打印', 'dj_djxy_dy', 'dj_djxy', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1412', '删除', 'dj_djxy_sc', 'dj_djxy', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1413', '刀具更换单', 'dj_djgh', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1414', '单据历史记录', 'dj_djgh_djlsjl', 'dj_djgh', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1415', '保存', 'dj_djgh_bc', 'dj_djgh', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1416', '确认', 'dj_djgh_qr', 'dj_djgh', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1417', '打印', 'dj_djgh_dy', 'dj_djgh', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1418', '删除', 'dj_djgh_sc', 'dj_djgh', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1419', '刀具外借单', 'dj_djwj', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1420', '单据历史记录', 'dj_djwj_djlsjl', 'dj_djwj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1421', '保存', 'dj_djwj_bc', 'dj_djwj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1422', '确认', 'dj_djwj_qr', 'dj_djwj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1423', '打印', 'dj_djwj_dy', 'dj_djwj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1424', '删除', 'dj_djwj_sc', 'dj_djwj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1425', '刀具退还单', 'dj_djth', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1426', '单据历史记录', 'dj_djth_djlsjl', 'dj_djth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1427', '保存', 'dj_djth_bc', 'dj_djth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1428', '确认', 'dj_djth_qr', 'dj_djth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1429', '打印', 'dj_djth_dy', 'dj_djth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1430', '删除', 'dj_djth_sc', 'dj_djth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1431', '刀具报废单', 'dj_djbf', 'dj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1432', '单据历史记录', 'dj_djbf_djlsjl', 'dj_djbf', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1433', '保存', 'dj_djbf_bc', 'dj_djbf', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1434', '确认', 'dj_djbf_qr', 'dj_djbf', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1435', '打印', 'dj_djbf_dy', 'dj_djbf', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1436', '删除', 'dj_djbf_sc', 'dj_djbf', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1437', '零部件', 'lbj', 'AllAuthorities', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1438', '零部件库存明细', 'lbj_kcmx', 'lbj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1439', '零部件修改库存量', 'lbj_xgkcl', 'lbj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1440', '零部件领用单据', 'lbj_lbjly', 'lbj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1441', '单据历史记录', 'lbj_lbjly_djlsjl', 'lbj_lbjly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1442', '明细--新增', 'lbj_lbjly_mxxz', 'lbj_lbjly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1443', '明细--修改', 'lbj_lbjly_mxxg', 'lbj_lbjly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1444', '明细--删除', 'lbj_lbjly_mxsc', 'lbj_lbjly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1445', '保存', 'lbj_lbjly_bc', 'lbj_lbjly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1446', '确认', 'lbj_lbjly_qr', 'lbj_lbjly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1447', '打印', 'lbj_lbjly_dy', 'lbj_lbjly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1448', '删除', 'lbj_lbjly_sc', 'lbj_lbjly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1449', '退出', 'lbj_lbjly_tc', 'lbj_lbjly', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1450', '零部件退还单据', 'lbj_lbjth', 'lbj', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1451', '单据历史记录', 'lbj_lbjth_djlsjl', 'lbj_lbjth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1452', '明细--新增', 'lbj_lbjth_mxxz', 'lbj_lbjth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1453', '明细--修改', 'lbj_lbjth_mxxg', 'lbj_lbjth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1454', '明细--删除', 'lbj_lbjth_mxsc', 'lbj_lbjth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1455', '保存', 'lbj_lbjth_bc', 'lbj_lbjth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1456', '确认', 'lbj_lbjth_qr', 'lbj_lbjth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1457', '打印', 'lbj_lbjth_dy', 'lbj_lbjth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1458', '删除', 'lbj_lbjth_sc', 'lbj_lbjth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1459', '退出', 'lbj_lbjth_tc', 'lbj_lbjth', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1460', '刀具柜', 'djg', 'AllAuthorities', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1461', '新增刀具柜', 'djg_xzdjg', 'djg', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1462', '删除刀具柜', 'djg_scdjg', 'djg', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1463', '导入图片', 'djg_drtp', 'djg', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1464', '机床', 'jc', 'AllAuthorities', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1465', '新增机床', 'jc_xzjc', 'jc', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1466', '删除机床', 'jc_scjc', 'jc', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1467', '导入图片', 'jc_drtp', 'jc', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1468', '工艺卡', 'gyk', 'AllAuthorities', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1469', '工艺卡--新增', 'gyk_xz', 'gyk', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1470', '工艺卡--保存', 'gyk_bc', 'gyk', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1471', '工艺卡--删除', 'gyk_sc', 'gyk', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1472', '工序--新增', 'gyk_gxxz', 'gyk', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1473', '工序--修改', 'gyk_gxxg', 'gyk', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1474', '配刀--新增', 'gyk_pdxz', 'gyk', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1475', '配刀--删除', 'gyk_pdsc', 'gyk', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1476', '基础资料', 'jczl', 'AllAuthorities', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1477', '数据导出', 'jczl_sjdc', 'jczl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1478', '数据导入', 'jczl_sjdr', 'jczl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1479', '系统管理', 'xtgl', 'AllAuthorities', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1480', '权限管理', 'xtgl_qxgl', 'xtgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1481', '用户管理', 'xtgl_qxgl_yhgl', 'xtgl_qxgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1482', '修改密码', 'xtgl_qxgl_yhgl_xgmm', 'xtgl_qxgl_yhgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1483', '确认修改', 'xtgl_qxgl_yhgl_qrxg', 'xtgl_qxgl_yhgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1484', '添加用户', 'xtgl_qxgl_yhgl_tjyh', 'xtgl_qxgl_yhgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1485', '删除用户', 'xtgl_qxgl_yhgl_scyh', 'xtgl_qxgl_yhgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1486', '编辑用户', 'xtgl_qxgl_yhgl_bjyh', 'xtgl_qxgl_yhgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1487', '保存信息', 'xtgl_qxgl_yhgl_bcxx', 'xtgl_qxgl_yhgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1488', '重置密码', 'xtgl_qxgl_yhgl_czmm', 'xtgl_qxgl_yhgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1489', '小组管理', 'xtgl_qxgl_xzgl', 'xtgl_qxgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1490', '添加小组成员', 'xtgl_qxgl_xzgl_tjxzcy', 'xtgl_qxgl_xzgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1491', '移除小组成员', 'xtgl_qxgl_xzgl_ycxzcy', 'xtgl_qxgl_xzgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1492', '新建小组', 'xtgl_qxgl_xzgl_xjxz', 'xtgl_qxgl_xzgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1493', '删除小组', 'xtgl_qxgl_xzgl_scxz', 'xtgl_qxgl_xzgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1494', '编辑小组', 'xtgl_qxgl_xzgl_bjxz', 'xtgl_qxgl_xzgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1495', '保存设置', 'xtgl_qxgl_xzgl_bcsz', 'xtgl_qxgl_xzgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1496', '系统日志', 'xtgl_xtrz', 'xtgl', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1497', '加载日志', 'xtgl_xtrz_jzrz', 'xtgl_xtrz', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1498', '在文件夹中查看', 'xtgl_xtrz_zwjjzck', 'xtgl_xtrz', '1', '工艺部');
+INSERT INTO `quanxian` VALUES ('1499', '全部模块', 'AllAuthorities', 'AllAuthorities', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1500', '刀具', 'dj', 'AllAuthorities', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1501', '刀具类型管理', 'dj_lxgl', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1502', '刀具库存明细', 'dj_kcmx', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1503', '装配刀具', 'dj_zpdj', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1504', '拆卸刀具', 'dj_cxdj', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1505', '刀具测量', 'dj_djcl', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1506', '保存数据', 'dj_djcl_bcsj', 'dj_djcl', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1507', '获取测量数据', 'dj_djcl_hqclsj', 'dj_djcl', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1508', '刀具领用单', 'dj_djly', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1509', '单据历史记录', 'dj_djly_djlsjl', 'dj_djly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1510', '保存', 'dj_djly_bc', 'dj_djly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1511', '确认', 'dj_djly_qr', 'dj_djly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1512', '打印', 'dj_djly_dy', 'dj_djly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1513', '删除', 'dj_djly_sc', 'dj_djly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1514', '刀具续用单', 'dj_djxy', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1515', '单据历史记录', 'dj_djxy_djlsjl', 'dj_djxy', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1516', '保存', 'dj_djxy_bc', 'dj_djxy', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1517', '确认', 'dj_djxy_qr', 'dj_djxy', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1518', '打印', 'dj_djxy_dy', 'dj_djxy', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1519', '删除', 'dj_djxy_sc', 'dj_djxy', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1520', '刀具更换单', 'dj_djgh', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1521', '单据历史记录', 'dj_djgh_djlsjl', 'dj_djgh', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1522', '保存', 'dj_djgh_bc', 'dj_djgh', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1523', '确认', 'dj_djgh_qr', 'dj_djgh', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1524', '打印', 'dj_djgh_dy', 'dj_djgh', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1525', '删除', 'dj_djgh_sc', 'dj_djgh', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1526', '刀具外借单', 'dj_djwj', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1527', '单据历史记录', 'dj_djwj_djlsjl', 'dj_djwj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1528', '保存', 'dj_djwj_bc', 'dj_djwj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1529', '确认', 'dj_djwj_qr', 'dj_djwj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1530', '打印', 'dj_djwj_dy', 'dj_djwj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1531', '删除', 'dj_djwj_sc', 'dj_djwj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1532', '刀具退还单', 'dj_djth', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1533', '单据历史记录', 'dj_djth_djlsjl', 'dj_djth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1534', '保存', 'dj_djth_bc', 'dj_djth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1535', '确认', 'dj_djth_qr', 'dj_djth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1536', '打印', 'dj_djth_dy', 'dj_djth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1537', '删除', 'dj_djth_sc', 'dj_djth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1538', '刀具报废单', 'dj_djbf', 'dj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1539', '单据历史记录', 'dj_djbf_djlsjl', 'dj_djbf', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1540', '保存', 'dj_djbf_bc', 'dj_djbf', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1541', '确认', 'dj_djbf_qr', 'dj_djbf', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1542', '打印', 'dj_djbf_dy', 'dj_djbf', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1543', '删除', 'dj_djbf_sc', 'dj_djbf', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1544', '零部件', 'lbj', 'AllAuthorities', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1545', '零部件库存明细', 'lbj_kcmx', 'lbj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1546', '零部件修改库存量', 'lbj_xgkcl', 'lbj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1547', '零部件领用单据', 'lbj_lbjly', 'lbj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1548', '单据历史记录', 'lbj_lbjly_djlsjl', 'lbj_lbjly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1549', '明细--新增', 'lbj_lbjly_mxxz', 'lbj_lbjly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1550', '明细--修改', 'lbj_lbjly_mxxg', 'lbj_lbjly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1551', '明细--删除', 'lbj_lbjly_mxsc', 'lbj_lbjly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1552', '保存', 'lbj_lbjly_bc', 'lbj_lbjly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1553', '确认', 'lbj_lbjly_qr', 'lbj_lbjly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1554', '打印', 'lbj_lbjly_dy', 'lbj_lbjly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1555', '删除', 'lbj_lbjly_sc', 'lbj_lbjly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1556', '退出', 'lbj_lbjly_tc', 'lbj_lbjly', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1557', '零部件退还单据', 'lbj_lbjth', 'lbj', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1558', '单据历史记录', 'lbj_lbjth_djlsjl', 'lbj_lbjth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1559', '明细--新增', 'lbj_lbjth_mxxz', 'lbj_lbjth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1560', '明细--修改', 'lbj_lbjth_mxxg', 'lbj_lbjth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1561', '明细--删除', 'lbj_lbjth_mxsc', 'lbj_lbjth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1562', '保存', 'lbj_lbjth_bc', 'lbj_lbjth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1563', '确认', 'lbj_lbjth_qr', 'lbj_lbjth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1564', '打印', 'lbj_lbjth_dy', 'lbj_lbjth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1565', '删除', 'lbj_lbjth_sc', 'lbj_lbjth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1566', '退出', 'lbj_lbjth_tc', 'lbj_lbjth', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1567', '刀具柜', 'djg', 'AllAuthorities', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1568', '新增刀具柜', 'djg_xzdjg', 'djg', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1569', '删除刀具柜', 'djg_scdjg', 'djg', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1570', '导入图片', 'djg_drtp', 'djg', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1571', '机床', 'jc', 'AllAuthorities', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1572', '新增机床', 'jc_xzjc', 'jc', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1573', '删除机床', 'jc_scjc', 'jc', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1574', '导入图片', 'jc_drtp', 'jc', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1575', '工艺卡', 'gyk', 'AllAuthorities', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1576', '工艺卡--新增', 'gyk_xz', 'gyk', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1577', '工艺卡--保存', 'gyk_bc', 'gyk', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1578', '工艺卡--删除', 'gyk_sc', 'gyk', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1579', '工序--新增', 'gyk_gxxz', 'gyk', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1580', '工序--修改', 'gyk_gxxg', 'gyk', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1581', '配刀--新增', 'gyk_pdxz', 'gyk', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1582', '配刀--删除', 'gyk_pdsc', 'gyk', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1583', '基础资料', 'jczl', 'AllAuthorities', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1584', '数据导出', 'jczl_sjdc', 'jczl', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1585', '数据导入', 'jczl_sjdr', 'jczl', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1586', '系统管理', 'xtgl', 'AllAuthorities', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1587', '权限管理', 'xtgl_qxgl', 'xtgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1588', '用户管理', 'xtgl_qxgl_yhgl', 'xtgl_qxgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1589', '修改密码', 'xtgl_qxgl_yhgl_xgmm', 'xtgl_qxgl_yhgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1590', '确认修改', 'xtgl_qxgl_yhgl_qrxg', 'xtgl_qxgl_yhgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1591', '添加用户', 'xtgl_qxgl_yhgl_tjyh', 'xtgl_qxgl_yhgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1592', '删除用户', 'xtgl_qxgl_yhgl_scyh', 'xtgl_qxgl_yhgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1593', '编辑用户', 'xtgl_qxgl_yhgl_bjyh', 'xtgl_qxgl_yhgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1594', '保存信息', 'xtgl_qxgl_yhgl_bcxx', 'xtgl_qxgl_yhgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1595', '重置密码', 'xtgl_qxgl_yhgl_czmm', 'xtgl_qxgl_yhgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1596', '小组管理', 'xtgl_qxgl_xzgl', 'xtgl_qxgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1597', '添加小组成员', 'xtgl_qxgl_xzgl_tjxzcy', 'xtgl_qxgl_xzgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1598', '移除小组成员', 'xtgl_qxgl_xzgl_ycxzcy', 'xtgl_qxgl_xzgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1599', '新建小组', 'xtgl_qxgl_xzgl_xjxz', 'xtgl_qxgl_xzgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1600', '删除小组', 'xtgl_qxgl_xzgl_scxz', 'xtgl_qxgl_xzgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1601', '编辑小组', 'xtgl_qxgl_xzgl_bjxz', 'xtgl_qxgl_xzgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1602', '保存设置', 'xtgl_qxgl_xzgl_bcsz', 'xtgl_qxgl_xzgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1603', '系统日志', 'xtgl_xtrz', 'xtgl', '0', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1604', '加载日志', 'xtgl_xtrz_jzrz', 'xtgl_xtrz', '1', '刀管中心');
+INSERT INTO `quanxian` VALUES ('1605', '在文件夹中查看', 'xtgl_xtrz_zwjjzck', 'xtgl_xtrz', '0', '刀管中心');
+
+-- ----------------------------
 -- Table structure for `quanxianbiao`
 -- ----------------------------
 DROP TABLE IF EXISTS `quanxianbiao`;
 CREATE TABLE `quanxianbiao` (
-  `quanxianid` int(10) NOT NULL AUTO_INCREMENT,
+  `xh` int(10) NOT NULL AUTO_INCREMENT,
   `quanxianmc` char(20) CHARACTER SET utf8 NOT NULL,
   `quanxianyw` char(20) CHARACTER SET utf8 NOT NULL,
   `qxdm` int(4) NOT NULL,
   `beizhu` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
-  PRIMARY KEY (`quanxianid`)
+  PRIMARY KEY (`xh`)
 ) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
@@ -3186,11 +3740,11 @@ INSERT INTO `quanxianbiao` VALUES ('44', '管理工艺卡', 'guanligy', '9', '')
 -- ----------------------------
 DROP TABLE IF EXISTS `qxgroup`;
 CREATE TABLE `qxgroup` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `xh` int(10) NOT NULL AUTO_INCREMENT,
   `quanxianmc` char(20) CHARACTER SET utf8 NOT NULL,
   `groupname` char(20) CHARACTER SET utf8 NOT NULL,
   `beizhu` varchar(100) CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`xh`)
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
@@ -3216,18 +3770,23 @@ CREATE TABLE `user` (
   `pwd` char(50) DEFAULT NULL,
   `xingming` char(20) NOT NULL,
   `type` char(50) DEFAULT NULL,
+  `groupname` varchar(50) DEFAULT NULL,
   `bumen` char(20) NOT NULL,
   `beizhu` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`xh`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'xmu', '123', '厦门大学', '管理员', '刀管中心', '系统超级管理员');
-INSERT INTO `user` VALUES ('2', 'chenmoliang', '123456', '陈沫良', '普通用户', '车间', '车间工人');
-INSERT INTO `user` VALUES ('5', 'admin', '123456', '小王', '管理员', '刀管中心', '');
+INSERT INTO `user` VALUES ('1', 'xmu', '123', '厦门大学', '管理员', '系统管理组', '刀管中心', '系统超级管理员');
+INSERT INTO `user` VALUES ('2', 'chenmoliang', '123456', '陈沫良', '普通用户', '车间工作小组', '车间', '车间工人');
+INSERT INTO `user` VALUES ('5', 'admin', '123456', '小王', '管理员', '系统管理组', '刀管中心', '');
+INSERT INTO `user` VALUES ('13', 'xmu155', '123456', '485', '系统管理组', '', '刀管中心', '156');
+INSERT INTO `user` VALUES ('14', 'test', '123456', '111', '测试组', '测试组1', '125', '测试用户');
+INSERT INTO `user` VALUES ('15', 'gongyibu', '123456', '工艺部用户', '工艺部', '工艺部', '工艺部', '工艺部用户');
+INSERT INTO `user` VALUES ('16', '刀管中心', '123456', '刀管中心用户', '刀管中心', '刀管中心', '刀管中心', '刀管中心的用户，拥有部分权限');
 
 -- ----------------------------
 -- Table structure for `usergroup`
@@ -3239,13 +3798,15 @@ CREATE TABLE `usergroup` (
   `groupname` char(20) CHARACTER SET utf8 NOT NULL,
   `beizhu` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`xh`)
-) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of usergroup
 -- ----------------------------
 INSERT INTO `usergroup` VALUES ('57', 'admin', '车间工作小组', null);
 INSERT INTO `usergroup` VALUES ('53', 'chenmoliang', '车间工作小组', null);
+INSERT INTO `usergroup` VALUES ('60', 'xmu', '系统管理组', null);
+INSERT INTO `usergroup` VALUES ('61', 'xmu', '工艺部', null);
 
 -- ----------------------------
 -- Table structure for `zuchengmingxi`
