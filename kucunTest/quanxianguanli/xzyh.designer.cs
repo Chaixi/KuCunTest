@@ -45,6 +45,7 @@
             this.beizhu = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pwd2 = new System.Windows.Forms.TextBox();
+            this.label_yhmcz = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +55,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(354, 56);
+            this.label1.Size = new System.Drawing.Size(417, 56);
             this.label1.TabIndex = 0;
             this.label1.Text = "添加用户";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -117,16 +118,17 @@
             // yhm
             // 
             this.yhm.Location = new System.Drawing.Point(99, 70);
-            this.yhm.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.yhm.Margin = new System.Windows.Forms.Padding(5);
             this.yhm.MaxLength = 20;
             this.yhm.Name = "yhm";
             this.yhm.Size = new System.Drawing.Size(226, 29);
             this.yhm.TabIndex = 6;
+            this.yhm.Leave += new System.EventHandler(this.yhm_Leave);
             // 
             // xingming
             // 
             this.xingming.Location = new System.Drawing.Point(99, 109);
-            this.xingming.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.xingming.Margin = new System.Windows.Forms.Padding(5);
             this.xingming.Name = "xingming";
             this.xingming.Size = new System.Drawing.Size(226, 29);
             this.xingming.TabIndex = 7;
@@ -134,7 +136,7 @@
             // pwd1
             // 
             this.pwd1.Location = new System.Drawing.Point(99, 148);
-            this.pwd1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pwd1.Margin = new System.Windows.Forms.Padding(5);
             this.pwd1.MaxLength = 10;
             this.pwd1.Name = "pwd1";
             this.pwd1.Size = new System.Drawing.Size(226, 29);
@@ -147,7 +149,7 @@
             this.ssxz.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ssxz.FormattingEnabled = true;
             this.ssxz.Location = new System.Drawing.Point(99, 226);
-            this.ssxz.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ssxz.Margin = new System.Windows.Forms.Padding(5);
             this.ssxz.Name = "ssxz";
             this.ssxz.Size = new System.Drawing.Size(226, 29);
             this.ssxz.TabIndex = 9;
@@ -159,7 +161,7 @@
             "刀管中心",
             "工艺部"});
             this.bumen.Location = new System.Drawing.Point(99, 265);
-            this.bumen.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bumen.Margin = new System.Windows.Forms.Padding(5);
             this.bumen.Name = "bumen";
             this.bumen.Size = new System.Drawing.Size(226, 29);
             this.bumen.TabIndex = 10;
@@ -168,7 +170,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(50, 423);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 42);
             this.button1.TabIndex = 11;
@@ -180,7 +182,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.Location = new System.Drawing.Point(184, 423);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 42);
             this.button2.TabIndex = 12;
@@ -202,7 +204,7 @@
             // beizhu
             // 
             this.beizhu.Location = new System.Drawing.Point(99, 304);
-            this.beizhu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.beizhu.Margin = new System.Windows.Forms.Padding(5);
             this.beizhu.Multiline = true;
             this.beizhu.Name = "beizhu";
             this.beizhu.Size = new System.Drawing.Size(226, 96);
@@ -222,18 +224,30 @@
             // pwd2
             // 
             this.pwd2.Location = new System.Drawing.Point(99, 187);
-            this.pwd2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pwd2.Margin = new System.Windows.Forms.Padding(5);
             this.pwd2.MaxLength = 10;
             this.pwd2.Name = "pwd2";
             this.pwd2.Size = new System.Drawing.Size(226, 29);
             this.pwd2.TabIndex = 8;
             this.pwd2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwd_KeyPress);
             // 
+            // label_yhmcz
+            // 
+            this.label_yhmcz.AutoSize = true;
+            this.label_yhmcz.ForeColor = System.Drawing.Color.Red;
+            this.label_yhmcz.Location = new System.Drawing.Point(327, 73);
+            this.label_yhmcz.Name = "label_yhmcz";
+            this.label_yhmcz.Size = new System.Drawing.Size(90, 21);
+            this.label_yhmcz.TabIndex = 15;
+            this.label_yhmcz.Text = "（已存在）";
+            this.label_yhmcz.Visible = false;
+            // 
             // xzyh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 483);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(417, 483);
             this.Controls.Add(this.beizhu);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
@@ -251,9 +265,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_yhmcz);
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "xzyh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加用户";
             this.Load += new System.EventHandler(this.xzyh_Load);
             this.ResumeLayout(false);
@@ -280,5 +296,6 @@
         private System.Windows.Forms.TextBox beizhu;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox pwd2;
+        private System.Windows.Forms.Label label_yhmcz;
     }
 }

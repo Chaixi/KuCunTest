@@ -178,37 +178,37 @@ namespace kucunTest
 
         private void 刀具测量ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DJCL djclFrm = new DJCL();
-            djclFrm.MdiParent = this;
-            djclFrm.Show();
+            //DJCL djclFrm = new DJCL();
+            //djclFrm.MdiParent = this;
+            //djclFrm.Show();
         }
 
         private void 刀具监测ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DJJC djjcFrm = new DJJC();
-            djjcFrm.MdiParent = this;
-            djjcFrm.Show();
+            //DJJC djjcFrm = new DJJC();
+            //djjcFrm.MdiParent = this;
+            //djjcFrm.Show();
         }
 
         private void 配刀清单管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PDQDGL pdqdglFrm = new PDQDGL();
-            pdqdglFrm.MdiParent = this;
-            pdqdglFrm.Show();
+            //PDQDGL pdqdglFrm = new PDQDGL();
+            //pdqdglFrm.MdiParent = this;
+            //pdqdglFrm.Show();
         }
 
         private void 刀具装配ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DJZPCC djccFrm = new DJZPCC();
-            djccFrm.MdiParent = this;
-            djccFrm.Show();
+            //DJZPCC djccFrm = new DJZPCC();
+            //djccFrm.MdiParent = this;
+            //djccFrm.Show();
         }
 
         private void 刀具拆卸入仓ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DJCCRC djccrcFrm = new DJCCRC();
-            djccrcFrm.MdiParent = this;
-            djccrcFrm.Show();
+            //DJCCRC djccrcFrm = new DJCCRC();
+            //djccrcFrm.MdiParent = this;
+            //djccrcFrm.Show();
         }
 
         private void 新建采购需求ToolStripMenuItem1_Click(object sender, EventArgs e)

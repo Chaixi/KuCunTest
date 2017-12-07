@@ -121,5 +121,31 @@ namespace kucunTest.quanxianguanli
                 MessageBox.Show("请输入字母或者数字！", Program.tishiTitle);
             }
         }
+
+        /// <summary>
+        /// 用户名文本框是去焦点判断用户名是否已经存在
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void yhm_Leave(object sender, EventArgs e)
+        {
+            if(yhm.Text == null || yhm.Text == "")
+            {
+                label_yhmcz.Visible = false;
+                return;
+            }
+
+            if (Alex.CunZai(User.TableName, string.Format("{0} = '{1}'", User.name, yhm.Text)) != 0)
+            {
+                label_yhmcz.Visible = true;
+                yhm.Focus();
+                yhm.SelectAll();
+                return;
+            }
+            else
+            {
+                label_yhmcz.Visible = false;
+            }
+        }
     }
 }

@@ -119,24 +119,6 @@
     <Compile Include="BaseClasses\RoundPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CaiGou\CGXQ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CaiGou\CGXQ.Designer.cs">
-      <DependentUpon>CGXQ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ChuCang\CCHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChuCang\CCHistory.Designer.cs">
-      <DependentUpon>CCHistory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ChuCang\NewCC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChuCang\NewCC.Designer.cs">
-      <DependentUpon>NewCC.cs</DependentUpon>
-    </Compile>
     <Compile Include="Daojugui\daojugui.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,12 +245,6 @@
     <Compile Include="DaoJu\ZhuangPeiDaoJu.designer.cs">
       <DependentUpon>ZhuangPeiDaoJu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FastReport\FastReport测试.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FastReport\FastReport测试.Designer.cs">
-      <DependentUpon>FastReport测试.cs</DependentUpon>
-    </Compile>
     <Compile Include="gongyika\gyk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -382,18 +358,6 @@
     <Compile Include="quanxianguanli\xzyh.designer.cs">
       <DependentUpon>xzyh.cs</DependentUpon>
     </Compile>
-    <Compile Include="RuCang\NewRC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RuCang\NewRC.Designer.cs">
-      <DependentUpon>NewRC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RuCang\RCHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RuCang\RCHistory.Designer.cs">
-      <DependentUpon>RCHistory.cs</DependentUpon>
-    </Compile>
     <Compile Include="src\BianMa.cs" />
     <Compile Include="test.cs">
       <SubType>Form</SubType>
@@ -409,15 +373,6 @@
     </Compile>
     <EmbeddedResource Include="BaseClasses\DanJuSheZhi.resx">
       <DependentUpon>DanJuSheZhi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CaiGou\CGXQ.resx">
-      <DependentUpon>CGXQ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChuCang\CCHistory.resx">
-      <DependentUpon>CCHistory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChuCang\NewCC.resx">
-      <DependentUpon>NewCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Daojugui\daojugui.resx">
       <DependentUpon>daojugui.cs</DependentUpon>
@@ -482,9 +437,6 @@
     <EmbeddedResource Include="DaoJu\ZhuangPeiDaoJu.resx">
       <DependentUpon>ZhuangPeiDaoJu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FastReport\FastReport测试.resx">
-      <DependentUpon>FastReport测试.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="gongyika\gyk.resx">
       <DependentUpon>gyk.cs</DependentUpon>
     </EmbeddedResource>
@@ -540,12 +492,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="quanxianguanli\xzyh.resx">
       <DependentUpon>xzyh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RuCang\NewRC.resx">
-      <DependentUpon>NewRC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RuCang\RCHistory.resx">
-      <DependentUpon>RCHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="test.resx">
       <DependentUpon>test.cs</DependentUpon>

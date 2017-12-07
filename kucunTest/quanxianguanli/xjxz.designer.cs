@@ -37,12 +37,13 @@
             this.labelxzxx = new System.Windows.Forms.Label();
             this.labelxzm = new System.Windows.Forms.Label();
             this.labelxz = new System.Windows.Forms.Label();
+            this.label_xzmcz = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // xzbeizhu
             // 
-            this.xzbeizhu.Location = new System.Drawing.Point(105, 173);
-            this.xzbeizhu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.xzbeizhu.Location = new System.Drawing.Point(109, 163);
+            this.xzbeizhu.Margin = new System.Windows.Forms.Padding(5);
             this.xzbeizhu.Multiline = true;
             this.xzbeizhu.Name = "xzbeizhu";
             this.xzbeizhu.Size = new System.Drawing.Size(262, 83);
@@ -52,7 +53,7 @@
             // 
             this.labelbeizhu.AutoSize = true;
             this.labelbeizhu.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelbeizhu.Location = new System.Drawing.Point(23, 176);
+            this.labelbeizhu.Location = new System.Drawing.Point(27, 166);
             this.labelbeizhu.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelbeizhu.Name = "labelbeizhu";
             this.labelbeizhu.Size = new System.Drawing.Size(74, 21);
@@ -62,8 +63,8 @@
             // btn_qxxj
             // 
             this.btn_qxxj.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_qxxj.Location = new System.Drawing.Point(199, 283);
-            this.btn_qxxj.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_qxxj.Location = new System.Drawing.Point(247, 269);
+            this.btn_qxxj.Margin = new System.Windows.Forms.Padding(5);
             this.btn_qxxj.Name = "btn_qxxj";
             this.btn_qxxj.Size = new System.Drawing.Size(129, 42);
             this.btn_qxxj.TabIndex = 27;
@@ -74,8 +75,8 @@
             // btn_xjxz
             // 
             this.btn_xjxz.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_xjxz.Location = new System.Drawing.Point(41, 283);
-            this.btn_xjxz.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_xjxz.Location = new System.Drawing.Point(95, 269);
+            this.btn_xjxz.Margin = new System.Windows.Forms.Padding(5);
             this.btn_xjxz.Name = "btn_xjxz";
             this.btn_xjxz.Size = new System.Drawing.Size(129, 42);
             this.btn_xjxz.TabIndex = 26;
@@ -85,8 +86,8 @@
             // 
             // xzxx
             // 
-            this.xzxx.Location = new System.Drawing.Point(105, 121);
-            this.xzxx.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.xzxx.Location = new System.Drawing.Point(109, 111);
+            this.xzxx.Margin = new System.Windows.Forms.Padding(5);
             this.xzxx.Multiline = true;
             this.xzxx.Name = "xzxx";
             this.xzxx.Size = new System.Drawing.Size(262, 33);
@@ -94,18 +95,19 @@
             // 
             // xzm
             // 
-            this.xzm.Location = new System.Drawing.Point(105, 71);
-            this.xzm.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.xzm.Location = new System.Drawing.Point(109, 61);
+            this.xzm.Margin = new System.Windows.Forms.Padding(5);
             this.xzm.MaxLength = 20;
             this.xzm.Name = "xzm";
             this.xzm.Size = new System.Drawing.Size(262, 29);
             this.xzm.TabIndex = 21;
+            this.xzm.Leave += new System.EventHandler(this.xzm_Leave);
             // 
             // labelxzxx
             // 
             this.labelxzxx.AutoSize = true;
             this.labelxzxx.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.labelxzxx.Location = new System.Drawing.Point(23, 124);
+            this.labelxzxx.Location = new System.Drawing.Point(27, 114);
             this.labelxzxx.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelxzxx.Name = "labelxzxx";
             this.labelxzxx.Size = new System.Drawing.Size(74, 21);
@@ -116,7 +118,7 @@
             // 
             this.labelxzm.AutoSize = true;
             this.labelxzm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelxzm.Location = new System.Drawing.Point(23, 74);
+            this.labelxzm.Location = new System.Drawing.Point(27, 64);
             this.labelxzm.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelxzm.Name = "labelxzm";
             this.labelxzm.Size = new System.Drawing.Size(74, 21);
@@ -126,20 +128,33 @@
             // labelxz
             // 
             this.labelxz.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelxz.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelxz.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelxz.Location = new System.Drawing.Point(0, 0);
             this.labelxz.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelxz.Name = "labelxz";
-            this.labelxz.Size = new System.Drawing.Size(408, 56);
+            this.labelxz.Size = new System.Drawing.Size(468, 56);
             this.labelxz.TabIndex = 15;
             this.labelxz.Text = "添加小组";
             this.labelxz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_xzmcz
+            // 
+            this.label_xzmcz.AutoSize = true;
+            this.label_xzmcz.ForeColor = System.Drawing.Color.Red;
+            this.label_xzmcz.Location = new System.Drawing.Point(374, 64);
+            this.label_xzmcz.Name = "label_xzmcz";
+            this.label_xzmcz.Size = new System.Drawing.Size(90, 21);
+            this.label_xzmcz.TabIndex = 30;
+            this.label_xzmcz.Text = "（已存在）";
+            this.label_xzmcz.Visible = false;
             // 
             // xjxz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 357);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(468, 334);
+            this.Controls.Add(this.label_xzmcz);
             this.Controls.Add(this.xzbeizhu);
             this.Controls.Add(this.labelbeizhu);
             this.Controls.Add(this.btn_qxxj);
@@ -150,8 +165,9 @@
             this.Controls.Add(this.labelxzm);
             this.Controls.Add(this.labelxz);
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "xjxz";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "新建小组";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,5 +185,6 @@
         private System.Windows.Forms.Label labelxzxx;
         private System.Windows.Forms.Label labelxzm;
         private System.Windows.Forms.Label labelxz;
+        private System.Windows.Forms.Label label_xzmcz;
     }
 }

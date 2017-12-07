@@ -68,12 +68,38 @@ namespace kucunTest.quanxianguanli
         /// <param name="e"></param>
         private void btn_qxxj_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("确认取消添加小组？", Program.tishiTitle);
-            if (dr == DialogResult.OK)
-            {
-                this.Close();
-            }
+            //DialogResult dr = MessageBox.Show("确认取消添加小组？", Program.tishiTitle);
+            //if (dr == DialogResult.OK)
+            //{
+            //    this.Close();
+            //}
+            this.Close();
         }
 
+        /// <summary>
+        /// 小组名文本框是去焦点判断小组名是否已经存在
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void xzm_Leave(object sender, EventArgs e)
+        {
+            if (xzm.Text == null || xzm.Text == "")
+            {
+                label_xzmcz.Visible = false;
+                return;
+            }
+
+            if (Alex.CunZai(UserGroup.TableName, string.Format("{0} = '{1}'", UserGroup.groupName, xzm.Text.ToString())) != 0)
+            {
+                label_xzmcz.Visible = true;
+                xzm.Focus();
+                xzm.SelectAll();
+                return;
+            }
+            else
+            {
+                label_xzmcz.Visible = false;
+            }
+        }
     }
 }
