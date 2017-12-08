@@ -628,7 +628,38 @@ namespace kucunTest
         /// <param name="e"></param>
         private void tsmi_dj_djghd_Click(object sender, EventArgs e)
         {
+            DJGHHistory djghd = new DJGHHistory();
+            djghd.MdiParent = this;
 
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djghd.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djghd.Name;
+                djghd.Parent = tb;
+                tb.Text = djghd.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djghd.Size = tb.Size;
+                //djccd.WindowState = FormWindowState.Maximized;
+
+                djghd.Show();
+            }
         }
 
         /// <summary>
@@ -638,7 +669,38 @@ namespace kucunTest
         /// <param name="e"></param>
         private void tsmi_dj_djwjd_Click(object sender, EventArgs e)
         {
+            DJWJHistory djwjd = new DJWJHistory();
+            djwjd.MdiParent = this;
 
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djwjd.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djwjd.Name;
+                djwjd.Parent = tb;
+                tb.Text = djwjd.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djwjd.Size = tb.Size;
+                //djccd.WindowState = FormWindowState.Maximized;
+
+                djwjd.Show();
+            }
         }
 
         /// <summary>
@@ -648,7 +710,38 @@ namespace kucunTest
         /// <param name="e"></param>
         private void tsmi_dj_djthd_Click(object sender, EventArgs e)
         {
+            DJTHHistory djthd = new DJTHHistory();
+            djthd.MdiParent = this;
 
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djthd.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djthd.Name;
+                djthd.Parent = tb;
+                tb.Text = djthd.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djthd.Size = tb.Size;
+                //djccd.WindowState = FormWindowState.Maximized;
+
+                djthd.Show();
+            }
         }
 
         /// <summary>
@@ -658,7 +751,38 @@ namespace kucunTest
         /// <param name="e"></param>
         private void tsmi_dj_djbfd_Click(object sender, EventArgs e)
         {
+            DJBFHistory djbfd = new DJBFHistory();
+            djbfd.MdiParent = this;
 
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djbfd.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djbfd.Name;
+                djbfd.Parent = tb;
+                tb.Text = djbfd.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djbfd.Size = tb.Size;
+                //djccd.WindowState = FormWindowState.Maximized;
+
+                djbfd.Show();
+            }
         }
 
         /// <summary>
@@ -1155,6 +1279,7 @@ namespace kucunTest
         }
 
         #endregion 主菜单——系统管理结束
+
         #endregion 主菜单部分结束
 
 

@@ -78,26 +78,26 @@ namespace kucunTest
         /// <param name="e"></param>
         private void UserName_Leave(object sender, EventArgs e)
         {
-            if(UserName.Text != "")
-            {
-                Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", User.TableName, User.name, UserName.Text.Trim());
-                DataTable db = (SQL.getDataSet1(Sqlstr)).Tables[0];
+            //if(UserName.Text != "")
+            //{
+            //    Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}'", User.TableName, User.name, UserName.Text.Trim());
+            //    DataTable db = (SQL.getDataSet1(Sqlstr)).Tables[0];
 
-                if(db.Rows.Count == 0)
-                {
-                    UserType.Text = "用户名不存在！";
-                    UserName.Select();
-                    UserName.SelectAll();
-                }
-                else
-                {
-                    UserType.Text = "（" + db.Rows[0][User.type].ToString() + "）";
-                }
-            }
-            else
-            {
-                UserType.Text = "";
-            }
+            //    if(db.Rows.Count == 0)
+            //    {
+            //        UserType.Text = "用户名不存在！";
+            //        UserName.Focus();
+            //        UserName.SelectAll();
+            //    }
+            //    else
+            //    {
+            //        UserType.Text = "（" + db.Rows[0][User.type].ToString() + "）";
+            //    }
+            //}
+            //else
+            //{
+            //    UserType.Text = "";
+            //}
         }
 
         /// <summary>
@@ -129,11 +129,11 @@ namespace kucunTest
 
                     this.HideOpaqueLayer();//隐藏遮罩层
                     this.Hide();
-
                 }
                 else
                 {
                     MessageBox.Show("密码错误，请重试！", "提示");
+                    this.HideOpaqueLayer();//隐藏遮罩层
                     return;
                 }
             }

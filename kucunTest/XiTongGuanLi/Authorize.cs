@@ -344,9 +344,10 @@ namespace kucunTest.quanxianguanli
                 frm.btn_djbf.Enabled = false;
             }
         }
-
+        
+        #region 刀具相关单据权限设置
         /// <summary>
-        /// 刀具领用窗体权限设置
+        /// 刀具领用
         /// </summary>
         /// <param name="frm"></param>
         private void setDJLYForm(DJLY frm)
@@ -376,6 +377,10 @@ namespace kucunTest.quanxianguanli
             }
         }
 
+        /// <summary>
+        /// 刀具续用
+        /// </summary>
+        /// <param name="frm"></param>
         private void setDJXYForm(DJXY frm)
         {
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
@@ -403,6 +408,10 @@ namespace kucunTest.quanxianguanli
             }
         }
 
+        /// <summary>
+        /// 刀具更换
+        /// </summary>
+        /// <param name="frm"></param>
         private void setDJGHForm(DJGH frm)
         {
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
@@ -430,6 +439,10 @@ namespace kucunTest.quanxianguanli
             }
         }
 
+        /// <summary>
+        /// 刀具外借
+        /// </summary>
+        /// <param name="frm"></param>
         private void setDJWJForm(DJWJ frm)
         {
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
@@ -457,6 +470,10 @@ namespace kucunTest.quanxianguanli
             }
         }
 
+        /// <summary>
+        /// 刀具退还
+        /// </summary>
+        /// <param name="frm"></param>
         private void setDJTHForm(DJTH frm)
         {
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
@@ -484,6 +501,10 @@ namespace kucunTest.quanxianguanli
             }
         }
 
+        /// <summary>
+        /// 刀具报废
+        /// </summary>
+        /// <param name="frm"></param>
         private void setDJBFForm(DJBF frm)
         {
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
@@ -511,6 +532,10 @@ namespace kucunTest.quanxianguanli
             }
         }
 
+        /// <summary>
+        /// 刀具测量
+        /// </summary>
+        /// <param name="frm"></param>
         private void setDJCLForm(DaoJuCanShuXinXi frm)
         {
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
@@ -529,5 +554,7 @@ namespace kucunTest.quanxianguanli
                 frm.btn_hqclsj.Enabled = false;
             }           
         }
+
+        #endregion 刀具相关单据权限设置结束
     }
 }

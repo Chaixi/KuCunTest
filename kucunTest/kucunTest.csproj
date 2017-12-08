@@ -161,6 +161,18 @@
     <Compile Include="DaoJu\DJBF.Designer.cs">
       <DependentUpon>DJBF.cs</DependentUpon>
     </Compile>
+    <Compile Include="DaoJu\DJBFHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoJu\DJBFHistory.Designer.cs">
+      <DependentUpon>DJBFHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoJu\DJGHHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoJu\DJGHHistory.Designer.cs">
+      <DependentUpon>DJGHHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaoJu\DJLY.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +202,18 @@
     </Compile>
     <Compile Include="DaoJu\DJTH.Designer.cs">
       <DependentUpon>DJTH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoJu\DJTHHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoJu\DJTHHistory.Designer.cs">
+      <DependentUpon>DJTHHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaoJu\DJWJHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaoJu\DJWJHistory.Designer.cs">
+      <DependentUpon>DJWJHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="DaoJu\DJXY.cs">
       <SubType>Form</SubType>
@@ -287,11 +311,23 @@
     <Compile Include="LingBuJian\lbjkcmx.designer.cs">
       <DependentUpon>lbjkcmx.cs</DependentUpon>
     </Compile>
+    <Compile Include="LingBuJian\LBJLYHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LingBuJian\LBJLYHistory.Designer.cs">
+      <DependentUpon>LBJLYHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="LingBuJian\LBJTH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LingBuJian\LBJTH.Designer.cs">
       <DependentUpon>LBJTH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LingBuJian\LBJTHHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LingBuJian\LBJTHHistory.Designer.cs">
+      <DependentUpon>LBJTHHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="LingBuJian\lbj_GuanLi.cs">
       <SubType>Form</SubType>
@@ -407,6 +443,12 @@
     <EmbeddedResource Include="DaoJu\DJBF.resx">
       <DependentUpon>DJBF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DaoJu\DJBFHistory.resx">
+      <DependentUpon>DJBFHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoJu\DJGHHistory.resx">
+      <DependentUpon>DJGHHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DJLY.resx">
       <DependentUpon>DJLY.cs</DependentUpon>
     </EmbeddedResource>
@@ -421,6 +463,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DJTH.resx">
       <DependentUpon>DJTH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoJu\DJTHHistory.resx">
+      <DependentUpon>DJTHHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaoJu\DJWJHistory.resx">
+      <DependentUpon>DJWJHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\DJXY.resx">
       <DependentUpon>DJXY.cs</DependentUpon>

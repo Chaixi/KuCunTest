@@ -131,10 +131,10 @@
             // 
             // db_Port
             // 
-            this.db_Port.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.db_Port.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.db_Port.Location = new System.Drawing.Point(228, 109);
             this.db_Port.Name = "db_Port";
-            this.db_Port.Size = new System.Drawing.Size(203, 29);
+            this.db_Port.Size = new System.Drawing.Size(203, 26);
             this.db_Port.TabIndex = 4;
             this.db_Port.Text = "系统默认端口";
             this.db_Port.Click += new System.EventHandler(this.TextBoxClickandSelect);
@@ -150,10 +150,10 @@
             // 
             // db_DataSource
             // 
-            this.db_DataSource.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.db_DataSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.db_DataSource.Location = new System.Drawing.Point(228, 73);
             this.db_DataSource.Name = "db_DataSource";
-            this.db_DataSource.Size = new System.Drawing.Size(203, 29);
+            this.db_DataSource.Size = new System.Drawing.Size(203, 26);
             this.db_DataSource.TabIndex = 4;
             this.db_DataSource.Click += new System.EventHandler(this.TextBoxClickandSelect);
             // 
@@ -198,20 +198,20 @@
             // 
             // db_userpwd
             // 
-            this.db_userpwd.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.db_userpwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.db_userpwd.Location = new System.Drawing.Point(228, 181);
             this.db_userpwd.Name = "db_userpwd";
             this.db_userpwd.PasswordChar = '*';
-            this.db_userpwd.Size = new System.Drawing.Size(203, 29);
+            this.db_userpwd.Size = new System.Drawing.Size(203, 26);
             this.db_userpwd.TabIndex = 1;
             this.db_userpwd.Click += new System.EventHandler(this.TextBoxClickandSelect);
             // 
             // db_userid
             // 
-            this.db_userid.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.db_userid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.db_userid.Location = new System.Drawing.Point(228, 145);
             this.db_userid.Name = "db_userid";
-            this.db_userid.Size = new System.Drawing.Size(203, 29);
+            this.db_userid.Size = new System.Drawing.Size(203, 26);
             this.db_userid.TabIndex = 1;
             this.db_userid.Click += new System.EventHandler(this.TextBoxClickandSelect);
             // 

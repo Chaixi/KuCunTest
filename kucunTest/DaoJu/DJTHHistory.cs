@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace kucunTest.DaoJu
 {
-    public partial class DJLYHistory : Form
+    public partial class DJTHHistory : Form
     {
         #region 全局变量
         private MySql SQL = new MySql();
@@ -36,23 +36,26 @@ namespace kucunTest.DaoJu
 
         #endregion
 
-        public DJLYHistory()
+        public DJTHHistory()
         {
             InitializeComponent();
 
-            danjubiao = DaoJuLingYong.TableName;
-            mingxibiao = DaoJuLingYongMingXi.TableName;
-            LS_dgv = LS_djccd;
-            MX_dgv = MX_djccd;
-            DH = "chucangdanhao";
-            RQ = "chucangriqi";
-            BZ = "lingyongbanzu";
-            SB = "lingyongshebei";
-            GX = "jiagonggongyi";
-            Cells = "LS_djzt";
-            
-            Init();//窗体初始化
+            string type = "DJTH";
+            TYPE = type;
 
+
+            danjubiao = DaoJuTuiHuan.TableName;
+            mingxibiao = DaoJuTuiHuanMingXi.TableName;
+            LS_dgv = LS_djth;
+            MX_dgv = MX_djth;
+            DH = "danhao";
+            RQ = "jbrq";//经办日期字段
+            BZ = "sqbz";//自定义查询1，申请班组
+            SB = "sqsb";//自定义查询2，申请设备
+            GX = "jbr";//自定义查询3，经办人
+            Cells = "LS_djth_djzt";
+
+            Init();//窗体初始化
         }
 
         /// <summary>
@@ -61,23 +64,24 @@ namespace kucunTest.DaoJu
         /// <param name="type"></param>
         private void Init()
         {
-            this.Name = "DJLY";//界面显示字段名称更新
-            this.Text = "刀具领用单据记录";
-            label1.Text = "刀具领用记录";
+            this.Name = "DJTH";//界面显示字段名称更新
+            this.Text = "刀具退还单据";
+            label1.Text = "刀具退还单据记录";
 
-            label2.Text = "领用单号：";//查询部分
-            label7.Text = "领用班组：";
-            label8.Text = "领用设备：";
-            label9.Text = "加工工序：";
-            //label1.Font.Size = ;
-            NewBtn.Text = "新建领用";
-            groupBox1.Text = "刀具领用单";
-            groupBox2.Text = "领用单明细";
+            label2.Text = "退还单号：";//查询部分
+            label7.Text = "自定义：";
+            label8.Text = "自定义：";
+            label9.Text = "经 办 人：";
 
-            MX_djccd.Visible = true;//单据和明细信息的更新
-            LS_djccd.Visible = true;
+            NewBtn.Text = "新建退还";
+            groupBox1.Text = "历史退还单据";
+            groupBox2.Text = "退还刀具信息";
+
+            LS_djth.Visible = true;
+            MX_djth.Visible = true;
 
             AllBtn.Visible = false;//查看全部按钮状态更新
+
         }
 
         /// <summary>
@@ -85,7 +89,7 @@ namespace kucunTest.DaoJu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DJLYHistory_Load(object sender, EventArgs e)
+        private void DJCCHistory_Load(object sender, EventArgs e)
         {
             asc.controllInitializeSize(this);
 
@@ -109,11 +113,11 @@ namespace kucunTest.DaoJu
 
             //根据单据状态字段设置历史单号表单元格背景色
             Refresh();
-
             SqlStr = "SELECT * FROM " + mingxibiao;
             ds = SQL.getDataSet(SqlStr, mingxibiao);
             MX_dgv.AutoGenerateColumns = false;//关闭自动生成列
             MX_dgv.DataSource = ds.Tables[0].DefaultView;
+
         }
 
         /// <summary>
@@ -140,15 +144,13 @@ namespace kucunTest.DaoJu
         private void NewBtn_Click(object sender, EventArgs e)
         {
             Form frm = new Form();
-            DJLY djccd = new DJLY();
-            frm = djccd;
-
+            DJTH djth = new DJTH();
+            frm = djth;
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.OK)
             {
-                DJLYHistory_Load(null, null);
+                DJCCHistory_Load(null, null);
             }
-
             //this.Close();
         }
 
@@ -192,34 +194,19 @@ namespace kucunTest.DaoJu
 
         #region 双击单元格事件部分
         /// <summary>
-        /// 领用单据历史表--双击单元格事件
+        /// 退还单据历史表--双击单元格事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LS_djccd_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void LS_djth_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //MessageBox.Show("celldoubleclick!");
-            //DJCCD djccd = new DJCCD(LS_dgv.Rows[e.RowIndex].Cells["LS_ccdh"].Value.ToString());
-            //djccd.Owner = this;
+            string dh = LS_dgv.Rows[e.RowIndex].Cells["LS_djth_dh"].Value.ToString();
+            DJTH djth = new DJTH(dh);
+            djth.ShowDialog();
 
-            List<string> list = new List<string>();
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lydh"].Value.ToString());//list[0] 领用单号
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_zjgx"].Value.ToString());//list[1] 制件工序
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lybz"].Value.ToString());//list[2] 领用班组
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lysb"].Value.ToString());//list[3] 领用设备
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lyr"].Value.ToString());//list[4] 领用人
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lyrq"].Value.ToString());//list[5] 领用日期
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_jbr"].Value.ToString());//list[6] 经办人
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_bz"].Value.ToString());//list[7] 备注
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_djzt"].Value.ToString());//list[8] 单据状态
-
-            DJLY djccd = new DJLY(list);
-
-            djccd.ShowDialog();
-
-            if (djccd.DialogResult == DialogResult.OK)
+            if (djth.DialogResult == DialogResult.OK)
             {
-                DJLYHistory_Load(null, null);
+                DJCCHistory_Load(null, null);
             }
         }
 
@@ -268,5 +255,7 @@ namespace kucunTest.DaoJu
                 }
             }
         }
+
+
     }
 }
