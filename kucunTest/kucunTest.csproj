@@ -350,24 +350,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="quanxianguanli\AuthoritiesString.cs" />
-    <Compile Include="quanxianguanli\Authorize.cs" />
-    <Compile Include="quanxianguanli\qxguanli.cs">
+    <Compile Include="XiTongGuanLi\AuthoritiesString.cs" />
+    <Compile Include="XiTongGuanLi\Authorize.cs" />
+    <Compile Include="XiTongGuanLi\qxguanli.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="quanxianguanli\qxguanli.designer.cs">
+    <Compile Include="XiTongGuanLi\qxguanli.designer.cs">
       <DependentUpon>qxguanli.cs</DependentUpon>
     </Compile>
-    <Compile Include="quanxianguanli\xjxz.cs">
+    <Compile Include="XiTongGuanLi\xjxz.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="quanxianguanli\xjxz.designer.cs">
+    <Compile Include="XiTongGuanLi\xjxz.designer.cs">
       <DependentUpon>xjxz.cs</DependentUpon>
     </Compile>
-    <Compile Include="quanxianguanli\xzyh.cs">
+    <Compile Include="XiTongGuanLi\xzyh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="quanxianguanli\xzyh.designer.cs">
+    <Compile Include="XiTongGuanLi\xzyh.designer.cs">
       <DependentUpon>xzyh.cs</DependentUpon>
     </Compile>
     <Compile Include="src\BianMa.cs" />
@@ -502,13 +502,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="quanxianguanli\qxguanli.resx">
+    <EmbeddedResource Include="XiTongGuanLi\qxguanli.resx">
       <DependentUpon>qxguanli.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="quanxianguanli\xjxz.resx">
+    <EmbeddedResource Include="XiTongGuanLi\xjxz.resx">
       <DependentUpon>xjxz.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="quanxianguanli\xzyh.resx">
+    <EmbeddedResource Include="XiTongGuanLi\xzyh.resx">
       <DependentUpon>xzyh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="test.resx">
@@ -567,7 +567,7 @@
     <None Include="Resources\cancel.gif" />
     <None Include="Resources\hsk.png" />
     <None Include="Resources\jiaodao.png" />
-    <Content Include="quanxianguanli\Authority.xml" />
+    <Content Include="XiTongGuanLi\Authority.xml" />
     <Content Include="Resources\loading.gif" />
     <None Include="Resources\lock.png" />
     <None Include="Resources\print.gif" />
@@ -612,6 +612,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="quanxianguanli\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\JsonSchemaClassGenerator.1.0.0.8\build\JsonSchemaClassGenerator.targets" Condition="Exists('..\packages\JsonSchemaClassGenerator.1.0.0.8\build\JsonSchemaClassGenerator.targets')" />

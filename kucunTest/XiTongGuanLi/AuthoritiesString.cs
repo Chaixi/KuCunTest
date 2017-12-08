@@ -46,6 +46,7 @@ namespace kucunTest.quanxianguanli
 
         }
 
+        #region 刀具
         /// <summary>
         /// 刀具管理界面
         /// </summary>
@@ -152,5 +153,111 @@ namespace kucunTest.quanxianguanli
             public static string bcsj = "dj_djcl_bcsj";//保存数据
             public static string hqclsj = "dj_djcl_hqclsj";//获取测量数据
         }
+
+        #endregion 刀具结束
+
+
+
+        #region 零部件
+        /// <summary>
+        /// 零部件管理界面
+        /// </summary>
+        public static class LBJGLForm
+        {
+            public static string AllAuthorities = "lbj";//零部件
+            public static string lxgl = "lbj_lxgl";//
+            public static string kcmx = "lbj_kcmx";//
+            public static string lbjly = "lbj_lbjly";//
+            public static string lbjth = "lbj_lbjth";//
+            public static string xgkcl = "lbj_xgkcl";//
+
+        }
+
+        /// <summary>
+        /// 零部件领用单据界面
+        /// </summary>
+        public static class LBJLYForm
+        {
+            public static string AllAuthorities = "lbj_lbjly";//全部权限：零部件领用
+            public static string lsjl = "lbj_lbjly_djlsjl";//单据历史记录
+            public static string bc = "lbj_lbjly_bc";//保存
+            public static string qr = "lbj_lbjly_qr";//确认
+            public static string dy = "lbj_lbjly_dy";//打印
+            public static string sc = "lbj_lbjly__sc";//删除
+        }
+
+        /// <summary>
+        /// 零部件退还单据界面
+        /// </summary>
+        public static class LBJTHForm
+        {
+            public static string AllAuthorities = "lbj_lbjth";//全部权限：零部件退还
+            public static string lsjl = "lbj_lbjth_djlsjl";//单据历史记录
+            public static string bc = "lbj_lbjth_bc";//保存
+            public static string qr = "lbj_lbjth_qr";//确认
+            public static string dy = "lbj_lbjth_dy";//打印
+            public static string sc = "lbj_lbjth_sc";//删除
+        }
+        #endregion 零部件结束
+
+
+
+        #region 刀具柜
+        #endregion 刀具柜结束
+
+
+
+        #region 机床
+        #endregion 机床结束
+
+
+
+        #region 工艺卡
+        #endregion 工艺卡结束
+
+
+
+        #region 基础资料
+        #endregion 基础资料结束
+
+
+
+        #region 系统管理
+        /// <summary>
+        /// 权限管理界面
+        /// </summary>
+        public static class QXGLForm
+        {
+            public static string AllAuthorities = "xtgl";//系统管理
+            public static string qxgl = "xtgl_qxgl";//权限管理
+            public static string yhgl = "xtgl_qxgl_yhgl";//用户管理
+            public static string xgmm = "xtgl_qxgl_yhgl_xgmm";//修改密码
+            public static string tjyh = "xtgl_qxgl_yhgl_tjyh";//添加用户
+            public static string scyh = "xtgl_qxgl_yhgl_scyh";//删除用户
+            public static string bjyh = "xtgl_qxgl_yhgl_bjyh";//编辑用户
+            public static string bcxx = "xtgl_qxgl_yhgl_bcxx";//保存信息
+            public static string czmm = "xtgl_qxgl_yhgl_czmm";//重置密码
+
+            public static string xzgl = "xtgl_qxgl_xzgl";//小组管理
+            public static string tjxzty = "xtgl_qxgl_xzgl_tjxzcy";//添加小组成员
+            public static string ycxzcy = "xtgl_qxgl_xzgl_ycxzcy";//移除小组成员
+            public static string xjxz = "xtgl_qxgl_xzgl_xjxz";//新建小组
+            public static string scxz = "xtgl_qxgl_xzgl_scxz";//删除小组
+            public static string bjxz = "xtgl_qxgl_xzgl_bjxz";//编辑小组
+            public static string bcsz = "xtgl_qxgl_xzgl_bcsz";//保存设置
+        }
+
+        /// <summary>
+        /// 系统日志界面
+        /// </summary>
+        public static class XTRZYForm
+        {
+            public static string AllAuthorities = "xtgl_xtrz";//系统日志
+            public static string jzrz = "xtgl_xtrz_jzrz";//加载系统日志
+            public static string zwjjzck = "xtgl_xtrz_zwjjzck";//在文件夹中查看
+        }
+
+        #endregion 系统管理结束
+
     }
 }

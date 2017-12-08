@@ -82,10 +82,25 @@ namespace kucunTest.quanxianguanli
         /// <returns></returns>
         private bool AuthorityState(DataTable qxdb, string qxdm, string qxfm, bool like = false)
         {
+            //判断是否有启用以权限代码开头的项
             if(like)
             {
-                if (qxdb.Select(string.Format("{0} LIKE '{1}%'  AND {2} = '{3}'", QuanXian.dm, qxdm, QuanXian.fm, qxfm)).Count<DataRow>() != 0)
+                string str = string.Format("{0} LIKE '{1}%'  AND {2} LIKE '{3}%' AND {4} = '{5}'", QuanXian.dm, qxdm, QuanXian.fm, qxfm, QuanXian.zt, '1');
+                if (qxdm == "dj")
+                {
+                    str += string.Format(" AND {0} NOT LIKE '{1}%'", QuanXian.dm, "djg");
+                }
+                if (qxdm == "jc")
+                {
+                    str += string.Format(" AND {0} NOT LIKE '{1}%'", QuanXian.dm, "jczl");
+                }
+
+                if (qxdb.Select(str).Count<DataRow>() != 0)
                     return true;
+                else
+                {
+                    return false;
+                }
             }
 
             //判断此权限代码是否存在
@@ -114,53 +129,160 @@ namespace kucunTest.quanxianguanli
                 return;
             }
 
+            #region 刀具：8项子菜单，其中刀具类型管理直接判断，刀具管理根据单据状态判断，单据根据单据下按钮判断
             if (!AuthorityState(db, AuthoritiesString.MainMenu.dj, AuthoritiesString.MainMenu.AllAuthorities))
             {
-                //还要继续判断子菜单是否可用
-                frm.tsmi_dj.Enabled = false;
-                frm.linkLabel_djgl.Enabled = false;
-                frm.linkLabel_djly.Enabled = false;
+                int i = 0;
+
+                if(!AuthorityState(db, AuthoritiesString.DJGLForm.djly, AuthoritiesString.MainMenu.dj, true))
+                {
+                    frm.tsmi_dj_djlyd.Enabled = false;
+                    frm.linkLabel_djly.Enabled = false;
+                    i++;
+                }
+                if (!AuthorityState(db, AuthoritiesString.DJGLForm.djxy, AuthoritiesString.MainMenu.dj, true))
+                {
+                    frm.tsmi_dj_djxyd.Enabled = false;
+                    i++;
+                }
+                if (!AuthorityState(db, AuthoritiesString.DJGLForm.djgh, AuthoritiesString.MainMenu.dj, true))
+                {
+                    frm.tsmi_dj_djghd.Enabled = false;
+                    i++;
+                }
+                if (!AuthorityState(db, AuthoritiesString.DJGLForm.djwj, AuthoritiesString.MainMenu.dj, true))
+                {
+                    frm.tsmi_dj_djwjd.Enabled = false;
+                    i++;
+                }
+                if (!AuthorityState(db, AuthoritiesString.DJGLForm.djth, AuthoritiesString.MainMenu.dj, true))
+                {
+                    frm.tsmi_dj_djthd.Enabled = false;
+                    i++;
+                }
+                if (!AuthorityState(db, AuthoritiesString.DJGLForm.djbf, AuthoritiesString.MainMenu.dj, true))
+                {
+                    frm.tsmi_dj_djbfd.Enabled = false;
+                    i++;
+                }
+                if(!AuthorityState(db, AuthoritiesString.DJGLForm.lxgl, AuthoritiesString.MainMenu.dj))
+                {
+                    frm.tsmi_dj_djlxgl.Enabled = false;
+                    i++;
+                }
+
+                if (i == 7)
+                {
+                    frm.tsmi_dj.Enabled = false;
+                    frm.linkLabel_djgl.Enabled = false;
+                    frm.linkLabel_djly.Enabled = false;
+                }
             }
+            #endregion 刀具菜单结束
+
+
+
+            #region 零部件：4项子菜单，其中零部件类型管理直接判断，单据管理根据单据状态判断，单据根据单据下按钮判断
             if (!AuthorityState(db, AuthoritiesString.MainMenu.lbj, AuthoritiesString.MainMenu.AllAuthorities))
             {
-                //还要继续判断子菜单是否可用
+                int i = 0;
 
-                frm.tsmi_lbj.Enabled = false;
-                frm.linkLabel_lbjgl.Enabled = false;
-                frm.linkLabel_xhply.Enabled = false;
+                if (!AuthorityState(db, AuthoritiesString.LBJGLForm.lbjly, AuthoritiesString.MainMenu.lbj, true))
+                {
+                    frm.tsmi_lbj_lbjyld.Enabled = false;
+                    frm.linkLabel_xhply.Enabled = false;
+                    i++;
+                }
+                if (!AuthorityState(db, AuthoritiesString.LBJGLForm.lbjth, AuthoritiesString.MainMenu.lbj, true))
+                {
+                    frm.tsmi_lbj_lbjthd.Enabled = false;
+                    i++;
+                }
+                if (!AuthorityState(db, AuthoritiesString.LBJGLForm.lxgl, AuthoritiesString.MainMenu.lbj, true))
+                {
+                    frm.tsmi_lbj_lbjlxgl.Enabled = false;
+                    i++;
+                }
+                
+                if(i == 3)
+                {
+                    frm.tsmi_lbj.Enabled = false;
+                    frm.linkLabel_lbjgl.Enabled = false;
+                    frm.linkLabel_xhply.Enabled = false;
+                }
             }
-            if (!AuthorityState(db, AuthoritiesString.MainMenu.djg, AuthoritiesString.MainMenu.AllAuthorities))
-            {
-                //还要继续判断子菜单是否可用
+            #endregion 零部件菜单结束
 
-                frm.tsmi_djg.Enabled = false;
+
+
+            #region 刀具柜：4项子菜单，其中零部件类型管理直接判断，单据管理根据单据状态判断，单据根据单据下按钮判断
+            if (!AuthorityState(db, AuthoritiesString.MainMenu.djg, AuthoritiesString.MainMenu.AllAuthorities, true))
+            {
+                if(!AuthorityState(db, AuthoritiesString.MainMenu.djg, AuthoritiesString.MainMenu.djg, true))
+                {
+                    frm.tsmi_djg.Enabled = false;
+                }
             }
-            if (!AuthorityState(db, AuthoritiesString.MainMenu.jc, AuthoritiesString.MainMenu.AllAuthorities))
-            {
-                //还要继续判断子菜单是否可用
+            #endregion 刀具柜菜单结束
 
-                frm.tsmi_jc.Enabled = false;
+
+
+            #region 机床：4项子菜单，其中零部件类型管理直接判断，单据管理根据单据状态判断，单据根据单据下按钮判断
+            if (!AuthorityState(db, AuthoritiesString.MainMenu.jc, AuthoritiesString.MainMenu.AllAuthorities, true))
+            {
+                if (!AuthorityState(db, AuthoritiesString.MainMenu.jc, AuthoritiesString.MainMenu.jc, true))
+                {
+                    frm.tsmi_jc.Enabled = false;
+                }
             }
-            if (!AuthorityState(db, AuthoritiesString.MainMenu.gyk, AuthoritiesString.MainMenu.AllAuthorities))
-            {
-                //还要继续判断子菜单是否可用
+            #endregion 机床菜单结束
 
-                frm.tsmi_gyk.Enabled = false;
+
+
+            #region 工艺卡：4项子菜单，其中零部件类型管理直接判断，单据管理根据单据状态判断，单据根据单据下按钮判断
+            if (!AuthorityState(db, AuthoritiesString.MainMenu.gyk, AuthoritiesString.MainMenu.AllAuthorities, true))
+            {
+                if (!AuthorityState(db, AuthoritiesString.MainMenu.gyk, AuthoritiesString.MainMenu.gyk, true))
+                {
+                    frm.tsmi_gyk.Enabled = false;
+                }
             }
-            if (!AuthorityState(db, AuthoritiesString.MainMenu.jczl, AuthoritiesString.MainMenu.AllAuthorities))
-            {
-                //还要继续判断子菜单是否可用
+            #endregion 工艺卡菜单结束
 
+
+
+            #region 基础资料：4项子菜单，其中零部件类型管理直接判断，单据管理根据单据状态判断，单据根据单据下按钮判断
+            if (!AuthorityState(db, AuthoritiesString.MainMenu.jczl, AuthoritiesString.MainMenu.AllAuthorities, true))
+            {
                 frm.tsmi_jczl.Enabled = false;
             }
+            #endregion 基础资料菜单结束
+
+
+
+            #region 系统管理：4项子菜单，其中零部件类型管理直接判断，单据管理根据单据状态判断，单据根据单据下按钮判断
             if (!AuthorityState(db, AuthoritiesString.MainMenu.xtgl, AuthoritiesString.MainMenu.AllAuthorities))
             {
-                //还要继续判断子菜单是否可用
+                int i = 0;
 
-                frm.tsmi_xtgl.Enabled = false;
-                frm.tsmi_xtgl.Enabled = true;
+                if (!AuthorityState(db, AuthoritiesString.QXGLForm.AllAuthorities, AuthoritiesString.MainMenu.xtgl, true))
+                {
+                    frm.tsmi_xtgl_qxgl.Enabled = false;
+                    i++;
+                }
+                if (!AuthorityState(db, AuthoritiesString.XTRZYForm.AllAuthorities, AuthoritiesString.MainMenu.xtgl, true))
+                {
+                    frm.tsmi_xtgl_xtrz.Enabled = false;
+                    i++;
+                }
 
+                if(i == 2)
+                {
+                    frm.tsmi_xtgl.Enabled = false;
+                }
             }
+            #endregion 系统管理菜单结束
+
         }
 
         /// <summary>

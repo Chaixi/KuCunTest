@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("");
-            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("刀具监测");
-            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("刀具领用单据");
-            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("刀具续用单据");
-            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("刀具更换单据");
-            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("刀具外借单据");
-            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("刀具退还单据");
-            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("刀具报废单据");
-            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("单据填写", new System.Windows.Forms.TreeNode[] {
-            treeNode58,
-            treeNode59,
-            treeNode60,
-            treeNode61,
-            treeNode62,
-            treeNode63});
-            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("库存明细");
-            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("类型管理");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("刀具监测");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("刀具领用单据");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("刀具续用单据");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("刀具更换单据");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("刀具外借单据");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("刀具退还单据");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("刀具报废单据");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("单据填写", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("库存明细");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("类型管理");
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.tsmi_dj = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_dj_djgl = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,9 +72,9 @@
             this.tsmi_jczl_djlxgl = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jczl_sjdrdc = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_xtgl = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_jczl_qxgl = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_jczl_xtrz = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_jczl_qtsz = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_xtgl_qxgl = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_xtgl_xtrz = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_xtgl_qtsz = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_xqgl = new System.Windows.Forms.ToolStripMenuItem();
             this.采购需求订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新建采购需求ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -305,7 +305,7 @@
             // tsmi_jc_jcgl
             // 
             this.tsmi_jc_jcgl.Name = "tsmi_jc_jcgl";
-            this.tsmi_jc_jcgl.Size = new System.Drawing.Size(144, 26);
+            this.tsmi_jc_jcgl.Size = new System.Drawing.Size(152, 26);
             this.tsmi_jc_jcgl.Text = "机床管理";
             this.tsmi_jc_jcgl.Click += new System.EventHandler(this.机床管理ToolStripMenuItem_Click);
             // 
@@ -356,34 +356,34 @@
             // tsmi_xtgl
             // 
             this.tsmi_xtgl.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_jczl_qxgl,
-            this.tsmi_jczl_xtrz,
-            this.tsmi_jczl_qtsz});
+            this.tsmi_xtgl_qxgl,
+            this.tsmi_xtgl_xtrz,
+            this.tsmi_xtgl_qtsz});
             this.tsmi_xtgl.Name = "tsmi_xtgl";
             this.tsmi_xtgl.Size = new System.Drawing.Size(86, 26);
             this.tsmi_xtgl.Text = "系统管理";
             this.tsmi_xtgl.Click += new System.EventHandler(this.系统管理ToolStripMenuItem_Click_1);
             // 
-            // tsmi_jczl_qxgl
+            // tsmi_xtgl_qxgl
             // 
-            this.tsmi_jczl_qxgl.Name = "tsmi_jczl_qxgl";
-            this.tsmi_jczl_qxgl.Size = new System.Drawing.Size(144, 26);
-            this.tsmi_jczl_qxgl.Text = "权限管理";
-            this.tsmi_jczl_qxgl.Click += new System.EventHandler(this.权限管理ToolStripMenuItem_Click);
+            this.tsmi_xtgl_qxgl.Name = "tsmi_xtgl_qxgl";
+            this.tsmi_xtgl_qxgl.Size = new System.Drawing.Size(152, 26);
+            this.tsmi_xtgl_qxgl.Text = "权限管理";
+            this.tsmi_xtgl_qxgl.Click += new System.EventHandler(this.权限管理ToolStripMenuItem_Click);
             // 
-            // tsmi_jczl_xtrz
+            // tsmi_xtgl_xtrz
             // 
-            this.tsmi_jczl_xtrz.Name = "tsmi_jczl_xtrz";
-            this.tsmi_jczl_xtrz.Size = new System.Drawing.Size(144, 26);
-            this.tsmi_jczl_xtrz.Text = "系统日志";
-            this.tsmi_jczl_xtrz.Click += new System.EventHandler(this.系统日志ToolStripMenuItem_Click);
+            this.tsmi_xtgl_xtrz.Name = "tsmi_xtgl_xtrz";
+            this.tsmi_xtgl_xtrz.Size = new System.Drawing.Size(152, 26);
+            this.tsmi_xtgl_xtrz.Text = "系统日志";
+            this.tsmi_xtgl_xtrz.Click += new System.EventHandler(this.系统日志ToolStripMenuItem_Click);
             // 
-            // tsmi_jczl_qtsz
+            // tsmi_xtgl_qtsz
             // 
-            this.tsmi_jczl_qtsz.Name = "tsmi_jczl_qtsz";
-            this.tsmi_jczl_qtsz.Size = new System.Drawing.Size(144, 26);
-            this.tsmi_jczl_qtsz.Text = "其他设置";
-            this.tsmi_jczl_qtsz.Click += new System.EventHandler(this.其他设置ToolStripMenuItem_Click);
+            this.tsmi_xtgl_qtsz.Name = "tsmi_xtgl_qtsz";
+            this.tsmi_xtgl_qtsz.Size = new System.Drawing.Size(152, 26);
+            this.tsmi_xtgl_qtsz.Text = "其他设置";
+            this.tsmi_xtgl_qtsz.Click += new System.EventHandler(this.其他设置ToolStripMenuItem_Click);
             // 
             // tsmi_xqgl
             // 
@@ -530,45 +530,45 @@
             this.menu_treeView.ItemHeight = 40;
             this.menu_treeView.Location = new System.Drawing.Point(3, 42);
             this.menu_treeView.Name = "menu_treeView";
-            treeNode56.Name = "节点2";
-            treeNode56.Tag = "0";
-            treeNode56.Text = "";
-            treeNode57.Name = "节点1";
-            treeNode57.Tag = "DJJC";
-            treeNode57.Text = "刀具监测";
-            treeNode58.Name = "节点4";
-            treeNode58.Tag = "DJCCD";
-            treeNode58.Text = "刀具领用单据";
-            treeNode59.Name = "节点18";
-            treeNode59.Tag = "DJXY";
-            treeNode59.Text = "刀具续用单据";
-            treeNode60.Name = "节点5";
-            treeNode60.Tag = "DJGH";
-            treeNode60.Text = "刀具更换单据";
-            treeNode61.Name = "节点6";
-            treeNode61.Tag = "DJWJ";
-            treeNode61.Text = "刀具外借单据";
-            treeNode62.Name = "节点16";
-            treeNode62.Tag = "DJTH";
-            treeNode62.Text = "刀具退还单据";
-            treeNode63.Name = "节点17";
-            treeNode63.Tag = "DJBF";
-            treeNode63.Text = "刀具报废单据";
-            treeNode64.Name = "节点0";
-            treeNode64.Tag = "DJTX";
-            treeNode64.Text = "单据填写";
-            treeNode65.Name = "节点1";
-            treeNode65.Tag = "KCMX";
-            treeNode65.Text = "库存明细";
-            treeNode66.Name = "节点0";
-            treeNode66.Tag = "LXGL";
-            treeNode66.Text = "类型管理";
+            treeNode1.Name = "节点2";
+            treeNode1.Tag = "0";
+            treeNode1.Text = "";
+            treeNode2.Name = "节点1";
+            treeNode2.Tag = "DJJC";
+            treeNode2.Text = "刀具监测";
+            treeNode3.Name = "节点4";
+            treeNode3.Tag = "DJCCD";
+            treeNode3.Text = "刀具领用单据";
+            treeNode4.Name = "节点18";
+            treeNode4.Tag = "DJXY";
+            treeNode4.Text = "刀具续用单据";
+            treeNode5.Name = "节点5";
+            treeNode5.Tag = "DJGH";
+            treeNode5.Text = "刀具更换单据";
+            treeNode6.Name = "节点6";
+            treeNode6.Tag = "DJWJ";
+            treeNode6.Text = "刀具外借单据";
+            treeNode7.Name = "节点16";
+            treeNode7.Tag = "DJTH";
+            treeNode7.Text = "刀具退还单据";
+            treeNode8.Name = "节点17";
+            treeNode8.Tag = "DJBF";
+            treeNode8.Text = "刀具报废单据";
+            treeNode9.Name = "节点0";
+            treeNode9.Tag = "DJTX";
+            treeNode9.Text = "单据填写";
+            treeNode10.Name = "节点1";
+            treeNode10.Tag = "KCMX";
+            treeNode10.Text = "库存明细";
+            treeNode11.Name = "节点0";
+            treeNode11.Tag = "LXGL";
+            treeNode11.Text = "类型管理";
             this.menu_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode56,
-            treeNode57,
-            treeNode64,
-            treeNode65,
-            treeNode66});
+            treeNode1,
+            treeNode2,
+            treeNode9,
+            treeNode10,
+            treeNode11});
             this.menu_treeView.ShowRootLines = false;
             this.menu_treeView.Size = new System.Drawing.Size(187, 456);
             this.menu_treeView.TabIndex = 1;
@@ -1148,9 +1148,9 @@
         public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_cjgl;
         public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_djlxgl;
         public System.Windows.Forms.ToolStripMenuItem tsmi_xtgl;
-        public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_qxgl;
-        public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_xtrz;
-        public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_qtsz;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_xtgl_qxgl;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_xtgl_xtrz;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_xtgl_qtsz;
         public System.Windows.Forms.ToolStripMenuItem tsmi_dj;
         public System.Windows.Forms.ToolStripMenuItem tsmi_dj_djgl;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

@@ -159,7 +159,7 @@ namespace kucunTest.quanxianguanli
             treeViewAuthorityList.Nodes.Add(node);
 
             //从xml文件中加载权限列表
-            string xmlPath = @"../../quanxianguanli/Authority.xml";
+            string xmlPath = @"../../XiTongGuanLi/Authority.xml";
             doc.Load(xmlPath);
             RecursionTreeControl(doc.DocumentElement, treeViewAuthorityList.Nodes[0].Nodes);//将加载完成的XML文件显示在TreeView控件中
             //treeViewAuthorityList.ExpandAll();//展开TreeView控件中的所有项

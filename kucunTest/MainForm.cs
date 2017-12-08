@@ -587,7 +587,38 @@ namespace kucunTest
         /// <param name="e"></param>
         private void tsmi_dj_djxyd_Click(object sender, EventArgs e)
         {
+            DJXYHistory djxyd = new DJXYHistory();
+            djxyd.MdiParent = this;
 
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djxyd.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djxyd.Name;
+                djxyd.Parent = tb;
+                tb.Text = djxyd.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djxyd.Size = tb.Size;
+                //djccd.WindowState = FormWindowState.Maximized;
+
+                djxyd.Show();
+            }
         }
 
         /// <summary>
