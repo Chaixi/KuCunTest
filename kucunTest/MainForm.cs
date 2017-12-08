@@ -86,7 +86,6 @@ namespace kucunTest
             this.Authorize.setAuthority(this, AuthoritiesString.FormName.mainFrm);
         }
 
-        #region 其他
 
         /// <summary>
         /// 库存管理--库存明细
@@ -100,16 +99,7 @@ namespace kucunTest
             kcmx.Show();
         }
 
-        /// <summary>
-        /// 需求管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void 需求历史ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-        
+               
         #region 刀具单据部分
         /// <summary>
         /// 刀具领用单据
