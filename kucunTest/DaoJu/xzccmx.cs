@@ -129,8 +129,8 @@ namespace kucunTest.DaoJu
                 list.Add(dth.Text.ToString().Trim());//list[5] 刀套号
                 list.Add(bz.Text.ToString().Trim());//list[6] 备注
 
-                DJCCD form_djccd = new DJCCD();
-                form_djccd = (DJCCD)this.Owner;
+                DJLY form_djccd = new DJLY();
+                form_djccd = (DJLY)this.Owner;
                 form_djccd.AddData(list);
 
                 //this.Close();

@@ -584,7 +584,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void button_history_Click(object sender, EventArgs e)
         {
-            XYLS xyls = new XYLS();
+            DJXYHistory xyls = new DJXYHistory();
             xyls.Show();
         }
 

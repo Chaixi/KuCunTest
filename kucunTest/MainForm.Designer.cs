@@ -29,74 +29,58 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("刀具监测");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("刀具领用单据");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("刀具续用单据");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("刀具更换单据");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("刀具外借单据");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("刀具退还单据");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("刀具报废单据");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("单据填写", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("库存明细");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("类型管理");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("");
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("刀具监测");
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("刀具领用单据");
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("刀具续用单据");
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("刀具更换单据");
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("刀具外借单据");
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("刀具退还单据");
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("刀具报废单据");
+            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("单据填写", new System.Windows.Forms.TreeNode[] {
+            treeNode58,
+            treeNode59,
+            treeNode60,
+            treeNode61,
+            treeNode62,
+            treeNode63});
+            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("库存明细");
+            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("类型管理");
             this.mainMenu = new System.Windows.Forms.MenuStrip();
-            this.ToolStripMenuItem_dj = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_dj = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_dj_djgl = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_dj_djlyd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_dj_djxyd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_dj_djghd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_dj_djwjd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_dj_djthd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_dj_djbfd = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_dj_djlxgl = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_lbj = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_lbj = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_lbj_kcgl = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_lbj_lbjyl = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_lbj_lbjth = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_lbj_lbjyld = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_lbj_lbjthd = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_lbj_lbjlxgl = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_djg = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_djg = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_djg_djggl = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_jc = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_jc = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jc_jcgl = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_gyk = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_gyk = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_gyk_gykgl = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_jczl = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_jczl = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jczl_cjgl = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jczl_djlxgl = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jczl_sjdrdc = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_xtgl = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_xtgl = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jczl_qxgl = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jczl_xtrz = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jczl_qtsz = new System.Windows.Forms.ToolStripMenuItem();
-            this.库存管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.库存明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.出仓管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新建出仓单ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.出仓历史ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.入仓管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新建入仓单ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.入仓历史ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.daojuguaniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具监测ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具测量ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具装配ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具拆卸入仓ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.配刀清单管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.需求管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_xqgl = new System.Windows.Forms.ToolStripMenuItem();
             this.采购需求订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新建采购需求ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.采购需求历史ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.采购需求入仓单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.采购需求退还单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.临时ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具领用单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具外借单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具更换单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具报废单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刀具退还单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.组合领用单据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fR测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_CrtUser = new System.Windows.Forms.ToolStripStatusLabel();
@@ -172,32 +156,34 @@
             this.mainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainMenu.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem_dj,
-            this.ToolStripMenuItem_lbj,
-            this.ToolStripMenuItem_djg,
-            this.ToolStripMenuItem_jc,
-            this.ToolStripMenuItem_gyk,
-            this.ToolStripMenuItem_jczl,
-            this.ToolStripMenuItem_xtgl,
-            this.库存管理ToolStripMenuItem,
-            this.daojuguaniToolStripMenuItem,
-            this.需求管理ToolStripMenuItem,
-            this.临时ToolStripMenuItem,
-            this.fR测试ToolStripMenuItem});
+            this.tsmi_dj,
+            this.tsmi_lbj,
+            this.tsmi_djg,
+            this.tsmi_jc,
+            this.tsmi_gyk,
+            this.tsmi_jczl,
+            this.tsmi_xtgl,
+            this.tsmi_xqgl});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Size = new System.Drawing.Size(1184, 30);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
             // 
-            // ToolStripMenuItem_dj
+            // tsmi_dj
             // 
-            this.ToolStripMenuItem_dj.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_dj.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_dj_djgl,
+            this.tsmi_dj_djlyd,
+            this.tsmi_dj_djxyd,
+            this.tsmi_dj_djghd,
+            this.tsmi_dj_djwjd,
+            this.tsmi_dj_djthd,
+            this.tsmi_dj_djbfd,
             this.tsmi_dj_djlxgl});
-            this.ToolStripMenuItem_dj.Name = "ToolStripMenuItem_dj";
-            this.ToolStripMenuItem_dj.Size = new System.Drawing.Size(54, 26);
-            this.ToolStripMenuItem_dj.Text = "刀具";
+            this.tsmi_dj.Name = "tsmi_dj";
+            this.tsmi_dj.Size = new System.Drawing.Size(54, 26);
+            this.tsmi_dj.Text = "刀具";
             // 
             // tsmi_dj_djgl
             // 
@@ -206,6 +192,48 @@
             this.tsmi_dj_djgl.Text = "刀具管理";
             this.tsmi_dj_djgl.Click += new System.EventHandler(this.刀具管理ToolStripMenuItem_Click);
             // 
+            // tsmi_dj_djlyd
+            // 
+            this.tsmi_dj_djlyd.Name = "tsmi_dj_djlyd";
+            this.tsmi_dj_djlyd.Size = new System.Drawing.Size(176, 26);
+            this.tsmi_dj_djlyd.Text = "刀具领用单";
+            this.tsmi_dj_djlyd.Click += new System.EventHandler(this.tsmi_dj_djlyd_Click);
+            // 
+            // tsmi_dj_djxyd
+            // 
+            this.tsmi_dj_djxyd.Name = "tsmi_dj_djxyd";
+            this.tsmi_dj_djxyd.Size = new System.Drawing.Size(176, 26);
+            this.tsmi_dj_djxyd.Text = "刀具续用单";
+            this.tsmi_dj_djxyd.Click += new System.EventHandler(this.tsmi_dj_djxyd_Click);
+            // 
+            // tsmi_dj_djghd
+            // 
+            this.tsmi_dj_djghd.Name = "tsmi_dj_djghd";
+            this.tsmi_dj_djghd.Size = new System.Drawing.Size(176, 26);
+            this.tsmi_dj_djghd.Text = "刀具更换单";
+            this.tsmi_dj_djghd.Click += new System.EventHandler(this.tsmi_dj_djghd_Click);
+            // 
+            // tsmi_dj_djwjd
+            // 
+            this.tsmi_dj_djwjd.Name = "tsmi_dj_djwjd";
+            this.tsmi_dj_djwjd.Size = new System.Drawing.Size(176, 26);
+            this.tsmi_dj_djwjd.Text = "刀具外借单";
+            this.tsmi_dj_djwjd.Click += new System.EventHandler(this.tsmi_dj_djwjd_Click);
+            // 
+            // tsmi_dj_djthd
+            // 
+            this.tsmi_dj_djthd.Name = "tsmi_dj_djthd";
+            this.tsmi_dj_djthd.Size = new System.Drawing.Size(176, 26);
+            this.tsmi_dj_djthd.Text = "刀具退还单";
+            this.tsmi_dj_djthd.Click += new System.EventHandler(this.tsmi_dj_djthd_Click);
+            // 
+            // tsmi_dj_djbfd
+            // 
+            this.tsmi_dj_djbfd.Name = "tsmi_dj_djbfd";
+            this.tsmi_dj_djbfd.Size = new System.Drawing.Size(176, 26);
+            this.tsmi_dj_djbfd.Text = "刀具报废单";
+            this.tsmi_dj_djbfd.Click += new System.EventHandler(this.tsmi_dj_djbfd_Click);
+            // 
             // tsmi_dj_djlxgl
             // 
             this.tsmi_dj_djlxgl.Name = "tsmi_dj_djlxgl";
@@ -213,16 +241,16 @@
             this.tsmi_dj_djlxgl.Text = "刀具类型管理";
             this.tsmi_dj_djlxgl.Click += new System.EventHandler(this.刀具类型管理ToolStripMenuItem1_Click);
             // 
-            // ToolStripMenuItem_lbj
+            // tsmi_lbj
             // 
-            this.ToolStripMenuItem_lbj.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_lbj.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_lbj_kcgl,
-            this.tsmi_lbj_lbjyl,
-            this.tsmi_lbj_lbjth,
+            this.tsmi_lbj_lbjyld,
+            this.tsmi_lbj_lbjthd,
             this.tsmi_lbj_lbjlxgl});
-            this.ToolStripMenuItem_lbj.Name = "ToolStripMenuItem_lbj";
-            this.ToolStripMenuItem_lbj.Size = new System.Drawing.Size(70, 26);
-            this.ToolStripMenuItem_lbj.Text = "零部件";
+            this.tsmi_lbj.Name = "tsmi_lbj";
+            this.tsmi_lbj.Size = new System.Drawing.Size(70, 26);
+            this.tsmi_lbj.Text = "零部件";
             // 
             // tsmi_lbj_kcgl
             // 
@@ -231,19 +259,19 @@
             this.tsmi_lbj_kcgl.Text = "零部件库存管理";
             this.tsmi_lbj_kcgl.Click += new System.EventHandler(this.零部件库存管理ToolStripMenuItem_Click);
             // 
-            // tsmi_lbj_lbjyl
+            // tsmi_lbj_lbjyld
             // 
-            this.tsmi_lbj_lbjyl.Name = "tsmi_lbj_lbjyl";
-            this.tsmi_lbj_lbjyl.Size = new System.Drawing.Size(192, 26);
-            this.tsmi_lbj_lbjyl.Text = "零部件领用单";
-            this.tsmi_lbj_lbjyl.Click += new System.EventHandler(this.零部件领用单ToolStripMenuItem_Click);
+            this.tsmi_lbj_lbjyld.Name = "tsmi_lbj_lbjyld";
+            this.tsmi_lbj_lbjyld.Size = new System.Drawing.Size(192, 26);
+            this.tsmi_lbj_lbjyld.Text = "零部件领用单";
+            this.tsmi_lbj_lbjyld.Click += new System.EventHandler(this.零部件领用单ToolStripMenuItem_Click);
             // 
-            // tsmi_lbj_lbjth
+            // tsmi_lbj_lbjthd
             // 
-            this.tsmi_lbj_lbjth.Name = "tsmi_lbj_lbjth";
-            this.tsmi_lbj_lbjth.Size = new System.Drawing.Size(192, 26);
-            this.tsmi_lbj_lbjth.Text = "零部件退还单";
-            this.tsmi_lbj_lbjth.Click += new System.EventHandler(this.零部件退还单ToolStripMenuItem_Click);
+            this.tsmi_lbj_lbjthd.Name = "tsmi_lbj_lbjthd";
+            this.tsmi_lbj_lbjthd.Size = new System.Drawing.Size(192, 26);
+            this.tsmi_lbj_lbjthd.Text = "零部件退还单";
+            this.tsmi_lbj_lbjthd.Click += new System.EventHandler(this.零部件退还单ToolStripMenuItem_Click);
             // 
             // tsmi_lbj_lbjlxgl
             // 
@@ -251,13 +279,13 @@
             this.tsmi_lbj_lbjlxgl.Size = new System.Drawing.Size(192, 26);
             this.tsmi_lbj_lbjlxgl.Text = "零部件类型管理";
             // 
-            // ToolStripMenuItem_djg
+            // tsmi_djg
             // 
-            this.ToolStripMenuItem_djg.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_djg.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_djg_djggl});
-            this.ToolStripMenuItem_djg.Name = "ToolStripMenuItem_djg";
-            this.ToolStripMenuItem_djg.Size = new System.Drawing.Size(70, 26);
-            this.ToolStripMenuItem_djg.Text = "刀具柜";
+            this.tsmi_djg.Name = "tsmi_djg";
+            this.tsmi_djg.Size = new System.Drawing.Size(70, 26);
+            this.tsmi_djg.Text = "刀具柜";
             // 
             // tsmi_djg_djggl
             // 
@@ -266,13 +294,13 @@
             this.tsmi_djg_djggl.Text = "刀具柜管理";
             this.tsmi_djg_djggl.Click += new System.EventHandler(this.刀具柜管理ToolStripMenuItem1_Click);
             // 
-            // ToolStripMenuItem_jc
+            // tsmi_jc
             // 
-            this.ToolStripMenuItem_jc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_jc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_jc_jcgl});
-            this.ToolStripMenuItem_jc.Name = "ToolStripMenuItem_jc";
-            this.ToolStripMenuItem_jc.Size = new System.Drawing.Size(54, 26);
-            this.ToolStripMenuItem_jc.Text = "机床";
+            this.tsmi_jc.Name = "tsmi_jc";
+            this.tsmi_jc.Size = new System.Drawing.Size(54, 26);
+            this.tsmi_jc.Text = "机床";
             // 
             // tsmi_jc_jcgl
             // 
@@ -281,13 +309,13 @@
             this.tsmi_jc_jcgl.Text = "机床管理";
             this.tsmi_jc_jcgl.Click += new System.EventHandler(this.机床管理ToolStripMenuItem_Click);
             // 
-            // ToolStripMenuItem_gyk
+            // tsmi_gyk
             // 
-            this.ToolStripMenuItem_gyk.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_gyk.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_gyk_gykgl});
-            this.ToolStripMenuItem_gyk.Name = "ToolStripMenuItem_gyk";
-            this.ToolStripMenuItem_gyk.Size = new System.Drawing.Size(70, 26);
-            this.ToolStripMenuItem_gyk.Text = "工艺卡";
+            this.tsmi_gyk.Name = "tsmi_gyk";
+            this.tsmi_gyk.Size = new System.Drawing.Size(70, 26);
+            this.tsmi_gyk.Text = "工艺卡";
             // 
             // tsmi_gyk_gykgl
             // 
@@ -296,15 +324,15 @@
             this.tsmi_gyk_gykgl.Text = "工艺卡管理";
             this.tsmi_gyk_gykgl.Click += new System.EventHandler(this.工艺卡管理ToolStripMenuItem_Click);
             // 
-            // ToolStripMenuItem_jczl
+            // tsmi_jczl
             // 
-            this.ToolStripMenuItem_jczl.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_jczl.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_jczl_cjgl,
             this.tsmi_jczl_djlxgl,
             this.tsmi_jczl_sjdrdc});
-            this.ToolStripMenuItem_jczl.Name = "ToolStripMenuItem_jczl";
-            this.ToolStripMenuItem_jczl.Size = new System.Drawing.Size(86, 26);
-            this.ToolStripMenuItem_jczl.Text = "基础资料";
+            this.tsmi_jczl.Name = "tsmi_jczl";
+            this.tsmi_jczl.Size = new System.Drawing.Size(86, 26);
+            this.tsmi_jczl.Text = "基础资料";
             // 
             // tsmi_jczl_cjgl
             // 
@@ -325,161 +353,48 @@
             this.tsmi_jczl_sjdrdc.Text = "数据导入/导出";
             this.tsmi_jczl_sjdrdc.Click += new System.EventHandler(this.数据导入导出ToolStripMenuItem_Click);
             // 
-            // ToolStripMenuItem_xtgl
+            // tsmi_xtgl
             // 
-            this.ToolStripMenuItem_xtgl.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_xtgl.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_jczl_qxgl,
             this.tsmi_jczl_xtrz,
             this.tsmi_jczl_qtsz});
-            this.ToolStripMenuItem_xtgl.Name = "ToolStripMenuItem_xtgl";
-            this.ToolStripMenuItem_xtgl.Size = new System.Drawing.Size(86, 26);
-            this.ToolStripMenuItem_xtgl.Text = "系统管理";
-            this.ToolStripMenuItem_xtgl.Click += new System.EventHandler(this.系统管理ToolStripMenuItem_Click_1);
+            this.tsmi_xtgl.Name = "tsmi_xtgl";
+            this.tsmi_xtgl.Size = new System.Drawing.Size(86, 26);
+            this.tsmi_xtgl.Text = "系统管理";
+            this.tsmi_xtgl.Click += new System.EventHandler(this.系统管理ToolStripMenuItem_Click_1);
             // 
             // tsmi_jczl_qxgl
             // 
             this.tsmi_jczl_qxgl.Name = "tsmi_jczl_qxgl";
-            this.tsmi_jczl_qxgl.Size = new System.Drawing.Size(152, 26);
+            this.tsmi_jczl_qxgl.Size = new System.Drawing.Size(144, 26);
             this.tsmi_jczl_qxgl.Text = "权限管理";
             this.tsmi_jczl_qxgl.Click += new System.EventHandler(this.权限管理ToolStripMenuItem_Click);
             // 
             // tsmi_jczl_xtrz
             // 
             this.tsmi_jczl_xtrz.Name = "tsmi_jczl_xtrz";
-            this.tsmi_jczl_xtrz.Size = new System.Drawing.Size(152, 26);
+            this.tsmi_jczl_xtrz.Size = new System.Drawing.Size(144, 26);
             this.tsmi_jczl_xtrz.Text = "系统日志";
             this.tsmi_jczl_xtrz.Click += new System.EventHandler(this.系统日志ToolStripMenuItem_Click);
             // 
             // tsmi_jczl_qtsz
             // 
             this.tsmi_jczl_qtsz.Name = "tsmi_jczl_qtsz";
-            this.tsmi_jczl_qtsz.Size = new System.Drawing.Size(152, 26);
+            this.tsmi_jczl_qtsz.Size = new System.Drawing.Size(144, 26);
             this.tsmi_jczl_qtsz.Text = "其他设置";
             this.tsmi_jczl_qtsz.Click += new System.EventHandler(this.其他设置ToolStripMenuItem_Click);
             // 
-            // 库存管理ToolStripMenuItem
+            // tsmi_xqgl
             // 
-            this.库存管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.库存明细ToolStripMenuItem,
-            this.出仓管理ToolStripMenuItem,
-            this.入仓管理ToolStripMenuItem});
-            this.库存管理ToolStripMenuItem.Name = "库存管理ToolStripMenuItem";
-            this.库存管理ToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
-            this.库存管理ToolStripMenuItem.Text = "库存管理";
-            this.库存管理ToolStripMenuItem.Visible = false;
-            // 
-            // 库存明细ToolStripMenuItem
-            // 
-            this.库存明细ToolStripMenuItem.Name = "库存明细ToolStripMenuItem";
-            this.库存明细ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
-            this.库存明细ToolStripMenuItem.Text = "库存明细";
-            this.库存明细ToolStripMenuItem.Click += new System.EventHandler(this.库存明细ToolStripMenuItem_Click);
-            // 
-            // 出仓管理ToolStripMenuItem
-            // 
-            this.出仓管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.新建出仓单ToolStripMenuItem1,
-            this.出仓历史ToolStripMenuItem1});
-            this.出仓管理ToolStripMenuItem.Name = "出仓管理ToolStripMenuItem";
-            this.出仓管理ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
-            this.出仓管理ToolStripMenuItem.Text = "出仓管理";
-            this.出仓管理ToolStripMenuItem.Click += new System.EventHandler(this.出仓管理ToolStripMenuItem_Click);
-            // 
-            // 新建出仓单ToolStripMenuItem1
-            // 
-            this.新建出仓单ToolStripMenuItem1.Name = "新建出仓单ToolStripMenuItem1";
-            this.新建出仓单ToolStripMenuItem1.Size = new System.Drawing.Size(160, 26);
-            this.新建出仓单ToolStripMenuItem1.Text = "新建出仓单";
-            this.新建出仓单ToolStripMenuItem1.Click += new System.EventHandler(this.新建出仓单ToolStripMenuItem1_Click);
-            // 
-            // 出仓历史ToolStripMenuItem1
-            // 
-            this.出仓历史ToolStripMenuItem1.Name = "出仓历史ToolStripMenuItem1";
-            this.出仓历史ToolStripMenuItem1.Size = new System.Drawing.Size(160, 26);
-            this.出仓历史ToolStripMenuItem1.Text = "出仓历史";
-            this.出仓历史ToolStripMenuItem1.Click += new System.EventHandler(this.出仓历史ToolStripMenuItem1_Click);
-            // 
-            // 入仓管理ToolStripMenuItem
-            // 
-            this.入仓管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.新建入仓单ToolStripMenuItem1,
-            this.入仓历史ToolStripMenuItem1});
-            this.入仓管理ToolStripMenuItem.Name = "入仓管理ToolStripMenuItem";
-            this.入仓管理ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
-            this.入仓管理ToolStripMenuItem.Text = "入仓管理";
-            // 
-            // 新建入仓单ToolStripMenuItem1
-            // 
-            this.新建入仓单ToolStripMenuItem1.Name = "新建入仓单ToolStripMenuItem1";
-            this.新建入仓单ToolStripMenuItem1.Size = new System.Drawing.Size(160, 26);
-            this.新建入仓单ToolStripMenuItem1.Text = "新建入仓单";
-            this.新建入仓单ToolStripMenuItem1.Click += new System.EventHandler(this.新建入仓单ToolStripMenuItem1_Click);
-            // 
-            // 入仓历史ToolStripMenuItem1
-            // 
-            this.入仓历史ToolStripMenuItem1.Name = "入仓历史ToolStripMenuItem1";
-            this.入仓历史ToolStripMenuItem1.Size = new System.Drawing.Size(160, 26);
-            this.入仓历史ToolStripMenuItem1.Text = "入仓历史";
-            this.入仓历史ToolStripMenuItem1.Click += new System.EventHandler(this.入仓历史ToolStripMenuItem1_Click);
-            // 
-            // daojuguaniToolStripMenuItem
-            // 
-            this.daojuguaniToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.刀具监测ToolStripMenuItem,
-            this.刀具测量ToolStripMenuItem,
-            this.刀具装配ToolStripMenuItem,
-            this.刀具拆卸入仓ToolStripMenuItem,
-            this.配刀清单管理ToolStripMenuItem});
-            this.daojuguaniToolStripMenuItem.Name = "daojuguaniToolStripMenuItem";
-            this.daojuguaniToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
-            this.daojuguaniToolStripMenuItem.Text = "刀具管理";
-            this.daojuguaniToolStripMenuItem.Visible = false;
-            // 
-            // 刀具监测ToolStripMenuItem
-            // 
-            this.刀具监测ToolStripMenuItem.Name = "刀具监测ToolStripMenuItem";
-            this.刀具监测ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.刀具监测ToolStripMenuItem.Text = "刀具监测";
-            this.刀具监测ToolStripMenuItem.Click += new System.EventHandler(this.刀具监测ToolStripMenuItem_Click);
-            // 
-            // 刀具测量ToolStripMenuItem
-            // 
-            this.刀具测量ToolStripMenuItem.Name = "刀具测量ToolStripMenuItem";
-            this.刀具测量ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.刀具测量ToolStripMenuItem.Text = "刀具测量";
-            this.刀具测量ToolStripMenuItem.Click += new System.EventHandler(this.刀具测量ToolStripMenuItem_Click);
-            // 
-            // 刀具装配ToolStripMenuItem
-            // 
-            this.刀具装配ToolStripMenuItem.Name = "刀具装配ToolStripMenuItem";
-            this.刀具装配ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.刀具装配ToolStripMenuItem.Text = "刀具装配出仓";
-            this.刀具装配ToolStripMenuItem.Click += new System.EventHandler(this.刀具装配ToolStripMenuItem_Click);
-            // 
-            // 刀具拆卸入仓ToolStripMenuItem
-            // 
-            this.刀具拆卸入仓ToolStripMenuItem.Name = "刀具拆卸入仓ToolStripMenuItem";
-            this.刀具拆卸入仓ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.刀具拆卸入仓ToolStripMenuItem.Text = "刀具拆卸入仓";
-            this.刀具拆卸入仓ToolStripMenuItem.Click += new System.EventHandler(this.刀具拆卸入仓ToolStripMenuItem_Click);
-            // 
-            // 配刀清单管理ToolStripMenuItem
-            // 
-            this.配刀清单管理ToolStripMenuItem.Name = "配刀清单管理ToolStripMenuItem";
-            this.配刀清单管理ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.配刀清单管理ToolStripMenuItem.Text = "配刀清单管理";
-            this.配刀清单管理ToolStripMenuItem.Click += new System.EventHandler(this.配刀清单管理ToolStripMenuItem_Click);
-            // 
-            // 需求管理ToolStripMenuItem
-            // 
-            this.需求管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_xqgl.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.采购需求订单ToolStripMenuItem,
             this.采购需求入仓单ToolStripMenuItem,
             this.采购需求退还单ToolStripMenuItem});
-            this.需求管理ToolStripMenuItem.Name = "需求管理ToolStripMenuItem";
-            this.需求管理ToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
-            this.需求管理ToolStripMenuItem.Text = "需求管理";
-            this.需求管理ToolStripMenuItem.Visible = false;
+            this.tsmi_xqgl.Name = "tsmi_xqgl";
+            this.tsmi_xqgl.Size = new System.Drawing.Size(86, 26);
+            this.tsmi_xqgl.Text = "需求管理";
+            this.tsmi_xqgl.Visible = false;
             // 
             // 采购需求订单ToolStripMenuItem
             // 
@@ -495,7 +410,6 @@
             this.新建采购需求ToolStripMenuItem1.Name = "新建采购需求ToolStripMenuItem1";
             this.新建采购需求ToolStripMenuItem1.Size = new System.Drawing.Size(176, 26);
             this.新建采购需求ToolStripMenuItem1.Text = "新建采购需求";
-            this.新建采购需求ToolStripMenuItem1.Click += new System.EventHandler(this.新建采购需求ToolStripMenuItem1_Click);
             // 
             // 采购需求历史ToolStripMenuItem
             // 
@@ -514,70 +428,6 @@
             this.采购需求退还单ToolStripMenuItem.Name = "采购需求退还单ToolStripMenuItem";
             this.采购需求退还单ToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.采购需求退还单ToolStripMenuItem.Text = "采购需求退还单";
-            // 
-            // 临时ToolStripMenuItem
-            // 
-            this.临时ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.刀具领用单ToolStripMenuItem,
-            this.刀具外借单ToolStripMenuItem,
-            this.刀具更换单ToolStripMenuItem,
-            this.刀具报废单ToolStripMenuItem,
-            this.刀具退还单ToolStripMenuItem,
-            this.组合领用单据ToolStripMenuItem});
-            this.临时ToolStripMenuItem.Name = "临时ToolStripMenuItem";
-            this.临时ToolStripMenuItem.Size = new System.Drawing.Size(54, 26);
-            this.临时ToolStripMenuItem.Text = "临时";
-            this.临时ToolStripMenuItem.Visible = false;
-            // 
-            // 刀具领用单ToolStripMenuItem
-            // 
-            this.刀具领用单ToolStripMenuItem.Name = "刀具领用单ToolStripMenuItem";
-            this.刀具领用单ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.刀具领用单ToolStripMenuItem.Text = "刀具领用单";
-            this.刀具领用单ToolStripMenuItem.Click += new System.EventHandler(this.刀具领用单ToolStripMenuItem_Click);
-            // 
-            // 刀具外借单ToolStripMenuItem
-            // 
-            this.刀具外借单ToolStripMenuItem.Name = "刀具外借单ToolStripMenuItem";
-            this.刀具外借单ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.刀具外借单ToolStripMenuItem.Text = "刀具外借单";
-            this.刀具外借单ToolStripMenuItem.Click += new System.EventHandler(this.刀具外借单ToolStripMenuItem_Click);
-            // 
-            // 刀具更换单ToolStripMenuItem
-            // 
-            this.刀具更换单ToolStripMenuItem.Name = "刀具更换单ToolStripMenuItem";
-            this.刀具更换单ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.刀具更换单ToolStripMenuItem.Text = "刀具更换单";
-            this.刀具更换单ToolStripMenuItem.Click += new System.EventHandler(this.刀具更换单ToolStripMenuItem_Click);
-            // 
-            // 刀具报废单ToolStripMenuItem
-            // 
-            this.刀具报废单ToolStripMenuItem.Name = "刀具报废单ToolStripMenuItem";
-            this.刀具报废单ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.刀具报废单ToolStripMenuItem.Text = "刀具报废单";
-            this.刀具报废单ToolStripMenuItem.Click += new System.EventHandler(this.刀具报废单ToolStripMenuItem_Click);
-            // 
-            // 刀具退还单ToolStripMenuItem
-            // 
-            this.刀具退还单ToolStripMenuItem.Name = "刀具退还单ToolStripMenuItem";
-            this.刀具退还单ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.刀具退还单ToolStripMenuItem.Text = "刀具退还单";
-            this.刀具退还单ToolStripMenuItem.Click += new System.EventHandler(this.刀具退还单ToolStripMenuItem_Click);
-            // 
-            // 组合领用单据ToolStripMenuItem
-            // 
-            this.组合领用单据ToolStripMenuItem.Name = "组合领用单据ToolStripMenuItem";
-            this.组合领用单据ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.组合领用单据ToolStripMenuItem.Text = "组合领用单";
-            this.组合领用单据ToolStripMenuItem.Click += new System.EventHandler(this.组合领用单据ToolStripMenuItem_Click);
-            // 
-            // fR测试ToolStripMenuItem
-            // 
-            this.fR测试ToolStripMenuItem.Name = "fR测试ToolStripMenuItem";
-            this.fR测试ToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
-            this.fR测试ToolStripMenuItem.Text = "FR测试";
-            this.fR测试ToolStripMenuItem.Visible = false;
-            this.fR测试ToolStripMenuItem.Click += new System.EventHandler(this.fR测试ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -680,45 +530,45 @@
             this.menu_treeView.ItemHeight = 40;
             this.menu_treeView.Location = new System.Drawing.Point(3, 42);
             this.menu_treeView.Name = "menu_treeView";
-            treeNode1.Name = "节点2";
-            treeNode1.Tag = "0";
-            treeNode1.Text = "";
-            treeNode2.Name = "节点1";
-            treeNode2.Tag = "DJJC";
-            treeNode2.Text = "刀具监测";
-            treeNode3.Name = "节点4";
-            treeNode3.Tag = "DJCCD";
-            treeNode3.Text = "刀具领用单据";
-            treeNode4.Name = "节点18";
-            treeNode4.Tag = "DJXY";
-            treeNode4.Text = "刀具续用单据";
-            treeNode5.Name = "节点5";
-            treeNode5.Tag = "DJGH";
-            treeNode5.Text = "刀具更换单据";
-            treeNode6.Name = "节点6";
-            treeNode6.Tag = "DJWJ";
-            treeNode6.Text = "刀具外借单据";
-            treeNode7.Name = "节点16";
-            treeNode7.Tag = "DJTH";
-            treeNode7.Text = "刀具退还单据";
-            treeNode8.Name = "节点17";
-            treeNode8.Tag = "DJBF";
-            treeNode8.Text = "刀具报废单据";
-            treeNode9.Name = "节点0";
-            treeNode9.Tag = "DJTX";
-            treeNode9.Text = "单据填写";
-            treeNode10.Name = "节点1";
-            treeNode10.Tag = "KCMX";
-            treeNode10.Text = "库存明细";
-            treeNode11.Name = "节点0";
-            treeNode11.Tag = "LXGL";
-            treeNode11.Text = "类型管理";
+            treeNode56.Name = "节点2";
+            treeNode56.Tag = "0";
+            treeNode56.Text = "";
+            treeNode57.Name = "节点1";
+            treeNode57.Tag = "DJJC";
+            treeNode57.Text = "刀具监测";
+            treeNode58.Name = "节点4";
+            treeNode58.Tag = "DJCCD";
+            treeNode58.Text = "刀具领用单据";
+            treeNode59.Name = "节点18";
+            treeNode59.Tag = "DJXY";
+            treeNode59.Text = "刀具续用单据";
+            treeNode60.Name = "节点5";
+            treeNode60.Tag = "DJGH";
+            treeNode60.Text = "刀具更换单据";
+            treeNode61.Name = "节点6";
+            treeNode61.Tag = "DJWJ";
+            treeNode61.Text = "刀具外借单据";
+            treeNode62.Name = "节点16";
+            treeNode62.Tag = "DJTH";
+            treeNode62.Text = "刀具退还单据";
+            treeNode63.Name = "节点17";
+            treeNode63.Tag = "DJBF";
+            treeNode63.Text = "刀具报废单据";
+            treeNode64.Name = "节点0";
+            treeNode64.Tag = "DJTX";
+            treeNode64.Text = "单据填写";
+            treeNode65.Name = "节点1";
+            treeNode65.Tag = "KCMX";
+            treeNode65.Text = "库存明细";
+            treeNode66.Name = "节点0";
+            treeNode66.Tag = "LXGL";
+            treeNode66.Text = "类型管理";
             this.menu_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode9,
-            treeNode10,
-            treeNode11});
+            treeNode56,
+            treeNode57,
+            treeNode64,
+            treeNode65,
+            treeNode66});
             this.menu_treeView.ShowRootLines = false;
             this.menu_treeView.Size = new System.Drawing.Size(187, 456);
             this.menu_treeView.TabIndex = 1;
@@ -1288,56 +1138,34 @@
         #endregion
 
         public System.Windows.Forms.MenuStrip mainMenu;
-        private System.Windows.Forms.ToolStripMenuItem 库存管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 库存明细ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 需求管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem daojuguaniToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 刀具监测ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 刀具测量ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 刀具装配ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 刀具拆卸入仓ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 出仓管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 入仓管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 新建出仓单ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 出仓历史ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 新建入仓单ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 入仓历史ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 配刀清单管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_xqgl;
         private System.Windows.Forms.ToolStripMenuItem 采购需求订单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 新建采购需求ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 采购需求历史ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 采购需求入仓单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 采购需求退还单ToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_jczl;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_jczl;
         public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_cjgl;
         public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_djlxgl;
-        public System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_xtgl;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_xtgl;
         public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_qxgl;
         public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_xtrz;
         public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_qtsz;
-        private System.Windows.Forms.ToolStripMenuItem 临时ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fR测试ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 刀具领用单ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 刀具外借单ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 刀具更换单ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 刀具报废单ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 刀具退还单ToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_dj;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_dj;
         public System.Windows.Forms.ToolStripMenuItem tsmi_dj_djgl;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem close;
         private System.Windows.Forms.ToolStripMenuItem closeAll;
-        public System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_lbj;
-        public System.Windows.Forms.ToolStripMenuItem tsmi_lbj_lbjyl;
-        public System.Windows.Forms.ToolStripMenuItem tsmi_lbj_lbjth;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_lbj;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_lbj_lbjyld;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_lbj_lbjthd;
         public System.Windows.Forms.ToolStripMenuItem tsmi_lbj_kcgl;
         public System.Windows.Forms.ToolStripMenuItem tsmi_dj_djlxgl;
-        public System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_djg;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_djg;
         public System.Windows.Forms.ToolStripMenuItem tsmi_djg_djggl;
-        public System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_jc;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_jc;
         public System.Windows.Forms.ToolStripMenuItem tsmi_jc_jcgl;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ToolStripMenuItem 组合领用单据ToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CrtUser;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_TimeNow;
@@ -1384,12 +1212,18 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label14;
-        public System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_gyk;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_gyk;
         public System.Windows.Forms.ToolStripMenuItem tsmi_gyk_gykgl;
         public System.Windows.Forms.ToolStripMenuItem tsmi_lbj_lbjlxgl;
         public System.Windows.Forms.LinkLabel linkLabel_lbjgl;
         public System.Windows.Forms.ToolStripMenuItem tsmi_jczl_sjdrdc;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_dj_djlyd;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_dj_djxyd;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_dj_djghd;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_dj_djwjd;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_dj_djthd;
+        public System.Windows.Forms.ToolStripMenuItem tsmi_dj_djbfd;
     }
 }
 

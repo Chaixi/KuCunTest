@@ -12,7 +12,7 @@ using kucunTest.BaseClasses;
 
 namespace kucunTest.DaoJu
 {
-    public partial class XYLS : Form
+    public partial class DJXYHistory : Form
     {
         #region 全局变量
         MySql SQL = new MySql();
@@ -21,7 +21,7 @@ namespace kucunTest.DaoJu
         BaseAlex Alex = new BaseAlex();
         #endregion
 
-        public XYLS()
+        public DJXYHistory()
         {
             InitializeComponent();
         }

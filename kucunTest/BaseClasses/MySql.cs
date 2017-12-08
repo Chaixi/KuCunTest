@@ -28,6 +28,22 @@ namespace kucunTest
         //public static string M_str_sqlcon = "Data Source=192.168.1.130; Database=kucuntest; Userid=root; PWD=root; Charset=utf8";//同一局域网内实验室电脑
         public static int Login_n = 0;
 
+        public static string CurrentUserName
+        {
+            set
+            {
+                Login_Name = value;
+            }
+        }
+
+        public static string SetMysqlConStr
+        {
+            set
+            {
+                M_str_sqlcon = value;
+            }
+        }
+
         //存储职工基本信息表中的SQL语句
         //public static string AllSql = "select * from tb_Staffbasic";
         #endregion
@@ -40,8 +56,29 @@ namespace kucunTest
         public static MySqlConnection getcon()
         {
             My_con = new MySqlConnection(M_str_sqlcon);  //用MySqlConnection对象与制定的数据库相连接
-            My_con.Open();
+            if(test())
+            {
+                My_con.Open();
+            }
             return My_con;
+        }
+
+        private static bool test()
+        {
+            try
+            {
+                My_con.Open();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                My_con.Close();
+                My_con.Dispose();
+            }
         }
         #endregion
 
@@ -252,5 +289,7 @@ namespace kucunTest
             return list;
         }
         #endregion
+
+        
     }
 }

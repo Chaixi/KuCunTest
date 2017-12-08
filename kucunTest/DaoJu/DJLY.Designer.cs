@@ -1,6 +1,6 @@
 ﻿namespace kucunTest.DaoJu
 {
-    partial class DJCCD
+    partial class DJLY
     {
         /// <summary>
         /// Required designer variable.

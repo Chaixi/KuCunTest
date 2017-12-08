@@ -18,7 +18,7 @@ namespace kucunTest.quanxianguanli
         /// </summary>
         public static class FormName
         {
-            public static string mainFrm = "Mainform";//主界面
+            public static string mainFrm = "MainForm";//主界面
             public static string djglFrm = "DaoJuGuanLi";//刀具管理窗体
             public static string djlyFrm = "djly";//刀具领用单据窗体
             public static string djxyFrm = "djxy";//刀具续用单据窗体

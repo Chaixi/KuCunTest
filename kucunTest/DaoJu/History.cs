@@ -360,7 +360,7 @@ namespace kucunTest.DaoJu
             switch(TYPE)
             {
                 case "DJCCD"://刀具领用单
-                    DJCCD djccd = new DJCCD();
+                    DJLY djccd = new DJLY();
                     frm = djccd;
                     break;
                 case "DJWJ"://刀具外借申请单
@@ -485,7 +485,7 @@ namespace kucunTest.DaoJu
             list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_bz"].Value.ToString());//list[7] 备注
             list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_djzt"].Value.ToString());//list[8] 单据状态
 
-            DJCCD djccd = new DJCCD(list);
+            DJLY djccd = new DJLY(list);
 
             djccd.ShowDialog();
 

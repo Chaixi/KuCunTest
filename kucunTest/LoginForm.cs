@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
-
+using MySql.Data.MySqlClient;
 
 namespace kucunTest
 {
@@ -21,6 +21,8 @@ namespace kucunTest
 
         BaseAlex Alex = new BaseAlex();
         private MyOpaqueLayer.MyOpaqueLayer m_OpaqueLayer = null;//半透明蒙板层
+
+        MsgForm tishi;
 
         //string userTable = "user";//用户表
         //string userTb_name = "name";//用户名字段
@@ -43,10 +45,6 @@ namespace kucunTest
             UserType.Text = "";
 
             panel2.BackColor = Color.FromArgb(128, Color.WhiteSmoke);
-
-            UserName.Select();
-            UserName.Text = "xmu";
-            pwd.Text = "123";
         }
 
         /// <summary>
@@ -56,7 +54,10 @@ namespace kucunTest
         /// <param name="e"></param>
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            
+            UserName.Select();
+            //UserName.Text = "xmu";
+            UserName.Text = "admin";
+            pwd.Text = "123";
         }
 
         /// <summary>
@@ -120,7 +121,8 @@ namespace kucunTest
                 //登录成功
                 if (db.Rows.Count != 0)
                 {
-                    Program.CurrentUserName = UserName.Text.ToString();
+                    //设置用户名全局变量
+                    MySql.CurrentUserName = UserName.Text.ToString();
 
                     MainForm mainfrm = new MainForm();
                     mainfrm.Show();
@@ -145,10 +147,11 @@ namespace kucunTest
         /// <param name="e"></param>
         private void cancel_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("确认取消登录？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            //if(MessageBox.Show("确认取消登录？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            //{
+            //    this.Close();
+            //}
+            this.Close();
         }
 
         /// <summary>
@@ -191,30 +194,152 @@ namespace kucunTest
 
         private void linkLabel1_MouseHover(object sender, EventArgs e)
         {
-            linkLabel1.Text = "默认账户xmu，密码为123";
+            linkLabel1.Text = "默认账户admin，密码为123";
         }
 
         /// <summary>
-        /// 进行数据库设置
+        /// 数据库设置按妞
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_setDatabase_Click(object sender, EventArgs e)
         {
+            db_DataSource.Text = "localhost";
+            db_userid.Text = "root";
+            db_userpwd.Text = "root";
             panel_SetDatabase.Visible = true;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 数据库连接测试按妞
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_sqlConTest_Click(object sender, EventArgs e)
+        {
+            if(CheckDatabseData())
+            {
+                mysqlConTest();
+            }
+        }
+
+        /// <summary>
+        /// 连接测试方法
+        /// </summary>
+        /// <returns>返回字符串，如果连接成功，返回字符串true，否则返回错误消息字符串</returns>
+        private bool mysqlConTest()
+        {
+            string message = "连接中...";
+            if(!Alex.ActivateForm(tishi))
+            {
+                tishi = new MsgForm("");
+                tishi.Show();
+            }
+            tishi.SetContent(message, "连接状态");
+            //tishi.Show();
+
+            string connStr = string.Format("Data Source={0}; Database=kucuntest; Userid={1}; PWD={2}; Charset=utf8;", db_DataSource.Text.ToString().Trim(), db_userid.Text.ToString().Trim(), db_userpwd.Text.ToString().Trim());
+
+            if (db_Port.Text != "系统默认端口")
+            {
+                connStr += string.Format("port={0}", db_Port.Text.ToString().Trim());
+            }
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            
+            try
+            {
+                conn.Open();
+                message = "连接成功！";
+                tishi.SetContent(message, "成功");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                message = ex.ToString();
+                tishi.SetContent(message, "出错了");
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// 更新数据库设置按妞
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_UpdateSetting_Click(object sender, EventArgs e)
+        {
+            if(CheckDatabseData())
+            {
+                if (mysqlConTest())
+                {
+                    string connStr = string.Format("Data Source={0}; Database=kucuntest; Userid={1}; PWD={2}; Charset=utf8;", db_DataSource.Text.ToString().Trim(), db_userid.Text.ToString().Trim(), db_userpwd.Text.ToString().Trim());
+
+                    if (db_Port.Text != "系统默认端口")
+                    {
+                        connStr += string.Format("port={0}", db_Port.Text.ToString().Trim());
+                    }
+
+                    MySql.SetMysqlConStr = connStr;
+
+                    tishi.SetContent("数据库设置保存成功！", "成功");
+                }
+            }            
+        }
+
+        /// <summary>
+        /// 返回登录按妞
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_returnLogin_Click(object sender, EventArgs e)
         {
             panel_SetDatabase.Visible = false;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 检查输入的数据库设置数据
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckDatabseData()
         {
-            //string con = string.Format("Data Source=localhost; Database=kucuntest; Userid={0}; PWD={1}; Charset=utf8", db_userid, db_userpwd);
-            //MySql.M_str_sqlcon = con;
+            if (db_DataSource.Text == "" || db_DataSource.Text == "请输入数据库地址")
+            {
+                db_DataSource.Text = "请输入数据库地址";
+                db_DataSource.Focus();
+                db_DataSource.SelectAll();
+                return false;
+            }
 
-            MySql.M_str_sqlcon = string.Format("Data Source=localhost; Database=kucuntest; Userid={0}; PWD={1}; Charset=utf8", db_userid, db_userpwd);
+            if (db_userid.Text == "" || db_userid.Text == "请输入连接用户名")
+            {
+                db_userid.Text = "请输入连接用户名";
+                db_userid.Focus();
+                db_userid.SelectAll();
+                return false;
+            }
+
+            if (db_userpwd.Text == "")
+            {
+                label_pwdwarning.Visible = true;
+                return false;
+            }
+            else
+            {
+                label_pwdwarning.Visible = false;
+            }
+
+            return true;
+        }
+
+        private void TextBoxClickandSelect(object sender, EventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            t.SelectAll();
         }
     }
 }

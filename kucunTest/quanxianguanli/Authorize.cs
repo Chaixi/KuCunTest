@@ -26,11 +26,12 @@ namespace kucunTest.quanxianguanli
 
         public void setAuthority(object frm, string frmName)
         {
-            //username = Alex.CurrentUserName;
-            username = Program.CurrentUserName;
+            username = MySql.Login_Name;
+
             //SqlStr = string.Format("SELECT u.{1} FROM `{0}` u WHERE u.`{2}` = '{3}'", User.TableName, User.groupName, User.name, username);
             //crtUserGroup = SQL.getDataSet(SqlStr, User.TableName).Tables[0].Rows[0][User.groupName].ToString();
 
+            //根据窗体名进行相应的权限设置
             switch(frmName)
             {
                 case "MainForm":
@@ -42,7 +43,7 @@ namespace kucunTest.quanxianguanli
                     setDaoJuGuanLiForm(djglFrm);
                     break;
                 case "djly":
-                    DJCCD djlyFrm = (DJCCD)frm;
+                    DJLY djlyFrm = (DJLY)frm;
                     setDJLYForm(djlyFrm);
                     break;
                 case "djxy":
@@ -116,7 +117,7 @@ namespace kucunTest.quanxianguanli
             if (!AuthorityState(db, AuthoritiesString.MainMenu.dj, AuthoritiesString.MainMenu.AllAuthorities))
             {
                 //还要继续判断子菜单是否可用
-                frm.ToolStripMenuItem_dj.Enabled = false;
+                frm.tsmi_dj.Enabled = false;
                 frm.linkLabel_djgl.Enabled = false;
                 frm.linkLabel_djly.Enabled = false;
             }
@@ -124,7 +125,7 @@ namespace kucunTest.quanxianguanli
             {
                 //还要继续判断子菜单是否可用
 
-                frm.ToolStripMenuItem_lbj.Enabled = false;
+                frm.tsmi_lbj.Enabled = false;
                 frm.linkLabel_lbjgl.Enabled = false;
                 frm.linkLabel_xhply.Enabled = false;
             }
@@ -132,31 +133,33 @@ namespace kucunTest.quanxianguanli
             {
                 //还要继续判断子菜单是否可用
 
-                frm.ToolStripMenuItem_djg.Enabled = false;
+                frm.tsmi_djg.Enabled = false;
             }
             if (!AuthorityState(db, AuthoritiesString.MainMenu.jc, AuthoritiesString.MainMenu.AllAuthorities))
             {
                 //还要继续判断子菜单是否可用
 
-                frm.ToolStripMenuItem_jc.Enabled = false;
+                frm.tsmi_jc.Enabled = false;
             }
             if (!AuthorityState(db, AuthoritiesString.MainMenu.gyk, AuthoritiesString.MainMenu.AllAuthorities))
             {
                 //还要继续判断子菜单是否可用
 
-                frm.ToolStripMenuItem_gyk.Enabled = false;
+                frm.tsmi_gyk.Enabled = false;
             }
             if (!AuthorityState(db, AuthoritiesString.MainMenu.jczl, AuthoritiesString.MainMenu.AllAuthorities))
             {
                 //还要继续判断子菜单是否可用
 
-                frm.ToolStripMenuItem_jczl.Enabled = false;
+                frm.tsmi_jczl.Enabled = false;
             }
             if (!AuthorityState(db, AuthoritiesString.MainMenu.xtgl, AuthoritiesString.MainMenu.AllAuthorities))
             {
                 //还要继续判断子菜单是否可用
 
-                frm.ToolStripMenuItem_xtgl.Enabled = false;
+                frm.tsmi_xtgl.Enabled = false;
+                frm.tsmi_xtgl.Enabled = true;
+
             }
         }
 
@@ -224,7 +227,7 @@ namespace kucunTest.quanxianguanli
         /// 刀具领用窗体权限设置
         /// </summary>
         /// <param name="frm"></param>
-        private void setDJLYForm(DJCCD frm)
+        private void setDJLYForm(DJLY frm)
         {
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];

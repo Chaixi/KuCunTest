@@ -10,7 +10,7 @@ using kucunTest.quanxianguanli;
 
 namespace kucunTest.DaoJu
 {
-    public partial class DJCCD : Form
+    public partial class DJLY : Form
     {
         #region 全局变量
         MySql SQL = new MySql();
@@ -36,7 +36,7 @@ namespace kucunTest.DaoJu
         /// <summary>
         /// 默认构造函数
         /// </summary>
-        public DJCCD()
+        public DJLY()
         {
             InitializeComponent();
 
@@ -60,7 +60,7 @@ namespace kucunTest.DaoJu
         /// 重写构造函数，用于从历史记录窗体加载数据
         /// </summary>
         /// <param name="list">从历史记录传过来的值</param>
-        public DJCCD(List<string> list)
+        public DJLY(List<string> list)
         {
             InitializeComponent();//
 

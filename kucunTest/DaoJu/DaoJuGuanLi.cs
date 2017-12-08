@@ -407,7 +407,7 @@ namespace kucunTest.DaoJu
 
             if(flag)//可以领用
             {
-                DJCCD djly = new DJCCD();
+                DJLY djly = new DJLY();
                 djly.AddDataFromTable(tb);
                 djly.ShowDialog();
             }

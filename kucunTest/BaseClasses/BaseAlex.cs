@@ -325,5 +325,23 @@ namespace kucunTest.BaseClasses
             return tmp;
         }
 
+        public bool ActivateForm(Form frm)
+        {
+            if(frm == null || frm.IsDisposed)
+            {
+                return false;
+            }
+
+            foreach(Form f in Application.OpenForms)
+            {
+                if(f.Name == frm.Name)
+                {
+                    f.Activate();
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

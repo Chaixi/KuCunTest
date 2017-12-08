@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.LingBuJian;
-using kucunTest.RuCang;
-using kucunTest.ChuCang;
 using kucunTest.KuCun;
 using kucunTest.DaoJu;
-using kucunTest.CaiGou;
-using kucunTest.FastReport;
 using kucunTest.BaseClasses;
 using kucunTest.Daojugui;
 using kucunTest.Jichuang;
@@ -110,11 +100,6 @@ namespace kucunTest
             kcmx.Show();
         }
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// 需求管理
         /// </summary>
@@ -124,108 +109,7 @@ namespace kucunTest
         {
 
         }
-
-        private void 出仓管理ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        #region 库存管理模块
-        /// <summary>
-        /// 库存管理之出仓--新建出仓单
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void 新建出仓单ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            NewCC ccFrm = new NewCC();
-            ccFrm.MdiParent = this;
-            ccFrm.Show();
-        }
-
-        private void 出仓历史ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            CCHistory cchistory = new CCHistory();
-            cchistory.MdiParent = this;
-            cchistory.Show();
-        }
-
-        /// <summary>
-        /// 库存管理之出仓--新建入仓单
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void 新建入仓单ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            NewRC rcFrm = new NewRC();
-            rcFrm.MdiParent = this;
-            rcFrm.Show();
-        }
-
-        /// <summary>
-        /// 库存管理之出仓--入仓历史
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void 入仓历史ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            RCHistory rchistory = new RCHistory();
-            rchistory.MdiParent = this;
-            rchistory.Show();
-        }
-
-        #endregion 库存管理模块结束
-
-        private void 刀具测量ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //DJCL djclFrm = new DJCL();
-            //djclFrm.MdiParent = this;
-            //djclFrm.Show();
-        }
-
-        private void 刀具监测ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //DJJC djjcFrm = new DJJC();
-            //djjcFrm.MdiParent = this;
-            //djjcFrm.Show();
-        }
-
-        private void 配刀清单管理ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //PDQDGL pdqdglFrm = new PDQDGL();
-            //pdqdglFrm.MdiParent = this;
-            //pdqdglFrm.Show();
-        }
-
-        private void 刀具装配ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //DJZPCC djccFrm = new DJZPCC();
-            //djccFrm.MdiParent = this;
-            //djccFrm.Show();
-        }
-
-        private void 刀具拆卸入仓ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //DJCCRC djccrcFrm = new DJCCRC();
-            //djccrcFrm.MdiParent = this;
-            //djccrcFrm.Show();
-        }
-
-        private void 新建采购需求ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            CGXQ cgxqFrm = new CGXQ();
-            cgxqFrm.MdiParent = this;
-            cgxqFrm.Show();
-        }
-
-        private void fR测试ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FastReport.FastReport测试 fr = new FastReport测试();
-            fr.Show();
-        }
-
-        #endregion 其他部分结束
-
+        
         #region 刀具单据部分
         /// <summary>
         /// 刀具领用单据
@@ -234,7 +118,7 @@ namespace kucunTest
         /// <param name="e"></param>
         private void 刀具领用单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DJCCD djccd = new DJCCD();
+            DJLY djccd = new DJLY();
             djccd.MdiParent = this;
             //tabControl1.Dock = DockStyle.Fill;
 
@@ -480,6 +364,9 @@ namespace kucunTest
 
         #endregion 刀具单据部分结束
 
+
+
+
         #region 选项卡操作部分
         /// <summary>
         /// 关闭选中的选项卡
@@ -567,6 +454,9 @@ namespace kucunTest
 
         #endregion 选项卡操作部分结束
 
+
+
+
         #region 首页linklabel部分
         /// <summary>
         /// 刀具管理linklabel
@@ -593,6 +483,8 @@ namespace kucunTest
             零部件领用单ToolStripMenuItem_Click(null, null);
         }
         #endregion 首页linklabel部分结束
+
+
 
         #region 主菜单部分
 
@@ -655,6 +547,97 @@ namespace kucunTest
             //tabControl1.Visible = true;
 
             //djgl.Show();
+        }
+
+        /// <summary>
+        /// 刀具领用单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmi_dj_djlyd_Click(object sender, EventArgs e)
+        {
+            DJLYHistory djccd = new  DJLYHistory();
+            djccd.MdiParent = this;
+
+            bool have = false;
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                if (tp.Text == djccd.Text)
+                {
+                    tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djccd.Name;
+                djccd.Parent = tb;
+                tb.Text = djccd.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                this.tabControl1.TabPages.Add(tb);
+                tabControl1.SelectedTab = tb;
+                tabControl1.Visible = true;
+
+                djccd.Size = tb.Size;
+                //djccd.WindowState = FormWindowState.Maximized;
+
+                djccd.Show();
+            }
+        }
+
+        /// <summary>
+        /// 刀具续用单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmi_dj_djxyd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 刀具更换单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmi_dj_djghd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 刀具外借单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmi_dj_djwjd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 刀具退还单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmi_dj_djthd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 刀具报废单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmi_dj_djbfd_Click(object sender, EventArgs e)
+        {
+
         }
 
         /// <summary>
@@ -1488,6 +1471,8 @@ namespace kucunTest
                 fr.Show();
             }
         }
+
+
 
 
         #endregion 公用方法部分结束

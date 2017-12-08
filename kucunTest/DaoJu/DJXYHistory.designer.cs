@@ -1,6 +1,6 @@
 ﻿namespace kucunTest.DaoJu
 {
-    partial class XYLS
+    partial class DJXYHistory
     {
         /// <summary>
         /// Required designer variable.
