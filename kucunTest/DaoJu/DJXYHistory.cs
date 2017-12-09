@@ -64,5 +64,11 @@ namespace kucunTest.DaoJu
             Alex.RowPostPaint(xuyongmingxi, e);
         }
         #endregion
+
+        private void DJXYHistory_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+
+        }
     }
 }

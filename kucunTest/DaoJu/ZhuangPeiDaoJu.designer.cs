@@ -234,7 +234,7 @@
             // 
             this.djlx.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.djlx.FormattingEnabled = true;
-            this.djlx.Location = new System.Drawing.Point(180, 12);
+            this.djlx.Location = new System.Drawing.Point(180, 7);
             this.djlx.Margin = new System.Windows.Forms.Padding(5);
             this.djlx.Name = "djlx";
             this.djlx.Size = new System.Drawing.Size(201, 29);
@@ -256,7 +256,7 @@
             // 
             this.djgg.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.djgg.FormattingEnabled = true;
-            this.djgg.Location = new System.Drawing.Point(592, 12);
+            this.djgg.Location = new System.Drawing.Point(592, 7);
             this.djgg.Margin = new System.Windows.Forms.Padding(5);
             this.djgg.Name = "djgg";
             this.djgg.Size = new System.Drawing.Size(201, 29);
@@ -302,7 +302,7 @@
             // 
             this.jtwz.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.jtwz.FormattingEnabled = true;
-            this.jtwz.Location = new System.Drawing.Point(592, 56);
+            this.jtwz.Location = new System.Drawing.Point(592, 51);
             this.jtwz.Margin = new System.Windows.Forms.Padding(5);
             this.jtwz.Name = "jtwz";
             this.jtwz.Size = new System.Drawing.Size(201, 29);
@@ -313,7 +313,7 @@
             // 
             this.djgbm.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.djgbm.FormattingEnabled = true;
-            this.djgbm.Location = new System.Drawing.Point(178, 56);
+            this.djgbm.Location = new System.Drawing.Point(178, 51);
             this.djgbm.Name = "djgbm";
             this.djgbm.Size = new System.Drawing.Size(203, 29);
             this.djgbm.TabIndex = 10;

@@ -841,5 +841,10 @@ namespace kucunTest.JiChuZiLiao
 
             }
         }
+
+        private void shujudaorudaochu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+        }
     }
 }

@@ -205,6 +205,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "DJCZJL";
             this.Text = "刀具操作记录";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DJCZJL_FormClosed);
             this.Load += new System.EventHandler(this.DJCZJL_Load);
             ((System.ComponentModel.ISupportInitialize)(this.djsymx)).EndInit();
             this.groupBox1.ResumeLayout(false);

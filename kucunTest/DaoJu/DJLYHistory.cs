@@ -176,17 +176,21 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void LiShi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //int RowIndex = LiShi.CurrentCell.RowIndex;
-            int ColumnIndex = LS_dgv.CurrentCell.ColumnIndex;
-            if (ColumnIndex == 0)
+            if(e.RowIndex >= 0)
             {
-                string dh = LS_dgv.CurrentCell.Value.ToString();
+                //int RowIndex = LiShi.CurrentCell.RowIndex;
+                int ColumnIndex = LS_dgv.CurrentCell.ColumnIndex;
+                if (ColumnIndex == 0)
+                {
+                    string dh = LS_dgv.CurrentCell.Value.ToString();
 
-                //直接加载明细表
-                SqlStr = "SELECT * FROM " + mingxibiao + " WHERE " + DH + " = '" + dh + "'";
-                DataSet ds = SQL.getDataSet(SqlStr, mingxibiao);
-                MX_dgv.DataSource = ds.Tables[0].DefaultView;
+                    //直接加载明细表
+                    SqlStr = "SELECT * FROM " + mingxibiao + " WHERE " + DH + " = '" + dh + "'";
+                    DataSet ds = SQL.getDataSet(SqlStr, mingxibiao);
+                    MX_dgv.DataSource = ds.Tables[0].DefaultView;
+                }
             }
+            
         }
         #endregion
 
@@ -198,29 +202,33 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void LS_djccd_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //MessageBox.Show("celldoubleclick!");
-            //DJCCD djccd = new DJCCD(LS_dgv.Rows[e.RowIndex].Cells["LS_ccdh"].Value.ToString());
-            //djccd.Owner = this;
-
-            List<string> list = new List<string>();
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lydh"].Value.ToString());//list[0] 领用单号
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_zjgx"].Value.ToString());//list[1] 制件工序
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lybz"].Value.ToString());//list[2] 领用班组
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lysb"].Value.ToString());//list[3] 领用设备
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lyr"].Value.ToString());//list[4] 领用人
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lyrq"].Value.ToString());//list[5] 领用日期
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_jbr"].Value.ToString());//list[6] 经办人
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_bz"].Value.ToString());//list[7] 备注
-            list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_djzt"].Value.ToString());//list[8] 单据状态
-
-            DJLY djccd = new DJLY(list);
-
-            djccd.ShowDialog();
-
-            if (djccd.DialogResult == DialogResult.OK)
+            if(e.RowIndex >= 0)
             {
-                DJLYHistory_Load(null, null);
+                //MessageBox.Show("celldoubleclick!");
+                //DJCCD djccd = new DJCCD(LS_dgv.Rows[e.RowIndex].Cells["LS_ccdh"].Value.ToString());
+                //djccd.Owner = this;
+
+                List<string> list = new List<string>();
+                list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lydh"].Value.ToString());//list[0] 领用单号
+                list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_zjgx"].Value.ToString());//list[1] 制件工序
+                list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lybz"].Value.ToString());//list[2] 领用班组
+                list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lysb"].Value.ToString());//list[3] 领用设备
+                list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lyr"].Value.ToString());//list[4] 领用人
+                list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_lyrq"].Value.ToString());//list[5] 领用日期
+                list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_jbr"].Value.ToString());//list[6] 经办人
+                list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_bz"].Value.ToString());//list[7] 备注
+                list.Add(LS_dgv.Rows[e.RowIndex].Cells["LS_djzt"].Value.ToString());//list[8] 单据状态
+
+                DJLY djccd = new DJLY(list);
+
+                djccd.ShowDialog();
+
+                if (djccd.DialogResult == DialogResult.OK)
+                {
+                    DJLYHistory_Load(null, null);
+                }
             }
+           
         }
 
         #endregion 双击单元格事件部分结束
@@ -267,6 +275,11 @@ namespace kucunTest.DaoJu
                     LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.AntiqueWhite;
                 }
             }
+        }
+
+        private void DJLYHistory_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
         }
     }
 }

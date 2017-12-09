@@ -951,6 +951,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "零部件管理";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.lbj_GuanLi_FormClosed);
             this.Load += new System.EventHandler(this.lbj_GuanLi_Load);
             this.SizeChanged += new System.EventHandler(this.lbj_GuanLi_SizeChanged);
             this.groupBox1.ResumeLayout(false);

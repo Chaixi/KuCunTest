@@ -384,8 +384,11 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void btn_lbjly_Click(object sender, EventArgs e)
         {
-            lbj_History lbjly = new lbj_History("LBJLY");
-            lbjly.Show();
+            LBJLYHistory lbjlyd = new LBJLYHistory();
+            Program.MainFormInstance.零部件领用单ToolStripMenuItem_Click(null, null);
+
+            //lbj_History lbjly = new lbj_History("LBJLY");
+            //lbjly.Show();
         }
 
         /// <summary>
@@ -395,10 +398,12 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void btn_lbjth_Click(object sender, EventArgs e)
         {
-            lbj_History lbjth = new lbj_History("LBJTH");
-            //MainForm mf = (MainForm)this.MdiParent;
-            //mf.showInTabPage(lbjth);
-            lbjth.Show();
+            LBJTHHistory lbjlyd = new LBJTHHistory();
+            Program.MainFormInstance.零部件退还单ToolStripMenuItem_Click(null, null);
+            //lbj_History lbjth = new lbj_History("LBJTH");
+            ////MainForm mf = (MainForm)this.MdiParent;
+            ////mf.showInTabPage(lbjth);
+            //lbjth.Show();
         }
         #endregion 按钮部分结束
 
@@ -589,5 +594,9 @@ namespace kucunTest.LingBuJian
             }
         }
 
+        private void lbj_GuanLi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+        }
     }
 }

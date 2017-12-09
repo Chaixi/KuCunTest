@@ -17,6 +17,8 @@ namespace kucunTest
 
         public static string tishiTitle = "刀具管理系统提示";
 
+        private static MainForm MFrm;
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -31,6 +33,18 @@ namespace kucunTest
             //Application.Run(new test());
             //Application.Run(new shujudaorudaochu());
             Program.WriteLog("退出", "关闭主窗体。");            
+        }
+
+        public static MainForm MainFormInstance
+        {
+            get
+            {
+                if (MFrm == null)
+                {
+                    MFrm = new MainForm();
+                }
+                return MFrm;
+            }
         }
 
         /// <summary>

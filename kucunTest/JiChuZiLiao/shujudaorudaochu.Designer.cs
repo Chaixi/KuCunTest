@@ -489,7 +489,7 @@
             "零部件信息",
             "刀具柜信息",
             "机床信息"});
-            this.SJLX.Location = new System.Drawing.Point(115, 47);
+            this.SJLX.Location = new System.Drawing.Point(115, 52);
             this.SJLX.Name = "SJLX";
             this.tableLayoutPanel3.SetRowSpan(this.SJLX, 2);
             this.SJLX.Size = new System.Drawing.Size(217, 29);
@@ -591,7 +591,7 @@
             "零部件信息",
             "刀具柜信息",
             "机床信息"});
-            this.cbx_inputDataType.Location = new System.Drawing.Point(115, 28);
+            this.cbx_inputDataType.Location = new System.Drawing.Point(115, 23);
             this.cbx_inputDataType.Name = "cbx_inputDataType";
             this.cbx_inputDataType.Size = new System.Drawing.Size(217, 29);
             this.cbx_inputDataType.TabIndex = 3;
@@ -630,7 +630,7 @@
             this.choseSheet.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.choseSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.choseSheet.FormattingEnabled = true;
-            this.choseSheet.Location = new System.Drawing.Point(115, 90);
+            this.choseSheet.Location = new System.Drawing.Point(115, 85);
             this.choseSheet.Name = "choseSheet";
             this.choseSheet.Size = new System.Drawing.Size(217, 29);
             this.choseSheet.TabIndex = 8;
@@ -646,6 +646,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "shujudaorudaochu";
             this.Text = "数据导入/导出";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.shujudaorudaochu_FormClosed);
             this.Load += new System.EventHandler(this.shujudaorudaochu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.groupBox1.ResumeLayout(false);

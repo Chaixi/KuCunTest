@@ -644,8 +644,13 @@ namespace kucunTest.DaoJu
             Alex.RowPostPaint(xuyongmingxi, e);
         }
 
+
         #endregion 其他方法部分结束
 
-        
+        private void DJXY_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+
+        }
     }
 }

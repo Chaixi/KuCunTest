@@ -729,6 +729,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "qxguanli";
             this.Text = "系统管理";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.qxguanli_FormClosed);
             this.Load += new System.EventHandler(this.qxguanli_Load);
             this.SizeChanged += new System.EventHandler(this.qxguanli_SizeChanged);
             this.tabControl1.ResumeLayout(false);

@@ -20,8 +20,6 @@ namespace kucunTest
     public partial class MainForm : Form
     {
         #region 全局变量
-        public static MainForm MF = new MainForm();
-
         MySql SQL = new MySql();
         string Sqlstr = "";
 
@@ -546,13 +544,13 @@ namespace kucunTest
         /// <param name="e"></param>
         private void tsmi_dj_djlyd_Click(object sender, EventArgs e)
         {
-            DJLYHistory djccd = new  DJLYHistory();
-            djccd.MdiParent = this;
+            DJLYHistory djlyd = new  DJLYHistory();
+            djlyd.MdiParent = this;
 
             bool have = false;
             foreach (TabPage tp in tabControl1.TabPages)
             {
-                if (tp.Text == djccd.Text)
+                if (tp.Text == djlyd.Text)
                 {
                     tabControl1.SelectedTab = tp;
                     have = true;
@@ -563,9 +561,9 @@ namespace kucunTest
             if (!have)
             {
                 TabPage tb = new TabPage();
-                tb.Name = djccd.Name;
-                djccd.Parent = tb;
-                tb.Text = djccd.Text;
+                tb.Name = djlyd.Name;
+                djlyd.Parent = tb;
+                tb.Text = djlyd.Text;
                 tb.BackgroundImage = kucunTest.Properties.Resources.background;
                 tb.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -573,10 +571,11 @@ namespace kucunTest
                 tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
-                djccd.Size = tb.Size;
+                djlyd.Size = tb.Size;
                 //djccd.WindowState = FormWindowState.Maximized;
 
-                djccd.Show();
+                djlyd.Show();
+                djlyd.Refresh();
             }
         }
 
@@ -659,6 +658,7 @@ namespace kucunTest
                 //djccd.WindowState = FormWindowState.Maximized;
 
                 djghd.Show();
+                djghd.Refresh();
             }
         }
 
@@ -700,6 +700,7 @@ namespace kucunTest
                 //djccd.WindowState = FormWindowState.Maximized;
 
                 djwjd.Show();
+                djwjd.Refresh();
             }
         }
 
@@ -741,6 +742,7 @@ namespace kucunTest
                 //djccd.WindowState = FormWindowState.Maximized;
 
                 djthd.Show();
+                djthd.Refresh();
             }
         }
 
@@ -782,6 +784,7 @@ namespace kucunTest
                 //djccd.WindowState = FormWindowState.Maximized;
 
                 djbfd.Show();
+                djbfd.Refresh();
             }
         }
 
@@ -881,15 +884,14 @@ namespace kucunTest
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void 零部件领用单ToolStripMenuItem_Click(object sender, EventArgs e)
+        public void 零部件领用单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LBJLY lbjly = new LBJLY();
-            lbjly.MdiParent = this;
-
+            LBJLYHistory lbjlyd = new  LBJLYHistory();
+            lbjlyd.MdiParent = this;
             bool have = false;
             foreach (TabPage tp in tabControl1.TabPages)
             {
-                if (tp.Text == lbjly.Text)
+                if (tp.Text == lbjlyd.Text)
                 {
                     tabControl1.SelectedTab = tp;
                     have = true;
@@ -900,9 +902,9 @@ namespace kucunTest
             if (!have)
             {
                 TabPage tb = new TabPage();
-                tb.Name = lbjly.Name;
-                lbjly.Parent = tb;
-                tb.Text = lbjly.Text;
+                tb.Name = lbjlyd.Name;
+                lbjlyd.Parent = tb;
+                tb.Text = lbjlyd.Text;
                 tb.BackgroundImage = kucunTest.Properties.Resources.background;
                 tb.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -910,11 +912,10 @@ namespace kucunTest
                 tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
-                lbjly.StartPosition = FormStartPosition.Manual;
-                lbjly.Left = (tabControl1.Width - lbjly.Width) / 4;
-                lbjly.Top = (tb.Height - lbjly.Height) / 4;
+                lbjlyd.Size = tb.Size;
 
-                lbjly.Show();
+                lbjlyd.Show();
+                lbjlyd.RefreshColor();
             }
         }
 
@@ -923,15 +924,15 @@ namespace kucunTest
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void 零部件退还单ToolStripMenuItem_Click(object sender, EventArgs e)
+        public void 零部件退还单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LBJTH lbjth = new LBJTH();
-            lbjth.MdiParent = this;
+            LBJTHHistory lbjthd = new LBJTHHistory();
+            lbjthd.MdiParent = this;
 
             bool have = false;
             foreach (TabPage tp in tabControl1.TabPages)
             {
-                if (tp.Text == lbjth.Text)
+                if (tp.Text == lbjthd.Text)
                 {
                     tabControl1.SelectedTab = tp;
                     have = true;
@@ -942,9 +943,9 @@ namespace kucunTest
             if (!have)
             {
                 TabPage tb = new TabPage();
-                tb.Name = lbjth.Name;
-                lbjth.Parent = tb;
-                tb.Text = lbjth.Text;
+                tb.Name = lbjthd.Name;
+                lbjthd.Parent = tb;
+                tb.Text = lbjthd.Text;
                 tb.BackgroundImage = kucunTest.Properties.Resources.background;
                 tb.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -952,11 +953,11 @@ namespace kucunTest
                 tabControl1.SelectedTab = tb;
                 tabControl1.Visible = true;
 
-                lbjth.StartPosition = FormStartPosition.Manual;
-                lbjth.Left = (tabControl1.Width - lbjth.Width) / 4;
-                lbjth.Top = (tb.Height - lbjth.Height) / 4;
+                lbjthd.Size = tb.Size;
 
-                lbjth.Show();
+                lbjthd.Show();
+                lbjthd.RefreshColor();
+
             }
         }
         #endregion 主菜单——零部件结束

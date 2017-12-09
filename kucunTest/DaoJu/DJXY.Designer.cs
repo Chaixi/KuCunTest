@@ -712,6 +712,7 @@
             this.Name = "DJXY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "刀具续用单据";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DJXY_FormClosed);
             this.Load += new System.EventHandler(this.DJXY_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -31,5 +31,11 @@ namespace kucunTest.DaoJu
             djsymx.DataSource = (SQL.getDataSet(Sqlstr, "daojuliushui")).Tables[0].DefaultView;
             djsymx.AutoGenerateColumns = false;
         }
+
+        private void DJCZJL_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+
+        }
     }
 }

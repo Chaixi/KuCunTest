@@ -175,5 +175,11 @@ namespace kucunTest.LingBuJian
             kcmx.DataSource = SQL.getDataSet(Sqlstr, LingBuJianBiao.TableName).Tables[0].DefaultView;
             Sqlstr = "";
         }
+
+        private void lbjkcmx_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+
+        }
     }
 }

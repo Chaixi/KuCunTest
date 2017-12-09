@@ -521,8 +521,14 @@
     <EmbeddedResource Include="LingBuJian\LBJLY.resx">
       <DependentUpon>LBJLY.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LingBuJian\LBJLYHistory.resx">
+      <DependentUpon>LBJLYHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LingBuJian\LBJTH.resx">
       <DependentUpon>LBJTH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LingBuJian\LBJTHHistory.resx">
+      <DependentUpon>LBJTHHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LingBuJian\lbj_guanli.resx">
       <DependentUpon>lbj_GuanLi.cs</DependentUpon>

@@ -447,9 +447,11 @@
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.cancel;
             this.ClientSize = new System.Drawing.Size(825, 517);
             this.Controls.Add(this.panel1);
             this.HelpButton = true;

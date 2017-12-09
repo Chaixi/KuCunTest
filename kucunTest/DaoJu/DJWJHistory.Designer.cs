@@ -536,6 +536,7 @@
             this.Name = "DJWJHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具领用记录";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DJWJHistory_FormClosed);
             this.Load += new System.EventHandler(this.DJCCHistory_Load);
             this.SizeChanged += new System.EventHandler(this.History_SizeChanged);
             this.groupBox1.ResumeLayout(false);

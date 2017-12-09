@@ -912,6 +912,7 @@
             this.Text = "工艺卡管理";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.gyk_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.gyk_FormClosed);
             this.Load += new System.EventHandler(this.gyk_Load);
             this.SizeChanged += new System.EventHandler(this.gyk_SizeChanged);
             this.groupBox1.ResumeLayout(false);

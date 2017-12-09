@@ -291,6 +291,7 @@
             this.czjl_dh.DataPropertyName = "danhao";
             this.czjl_dh.HeaderText = "操作单号";
             this.czjl_dh.Name = "czjl_dh";
+            this.czjl_dh.ReadOnly = true;
             this.czjl_dh.Width = 99;
             // 
             // Column7
@@ -298,6 +299,7 @@
             this.Column7.DataPropertyName = "dhlx";
             this.Column7.HeaderText = "操作类型";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             this.Column7.Width = 99;
             // 
             // czjl_dskykc
@@ -305,6 +307,7 @@
             this.czjl_dskykc.DataPropertyName = "dskykc";
             this.czjl_dskykc.HeaderText = "当时可用库存";
             this.czjl_dskykc.Name = "czjl_dskykc";
+            this.czjl_dskykc.ReadOnly = true;
             this.czjl_dskykc.Width = 131;
             // 
             // czjl_zsl
@@ -312,6 +315,7 @@
             this.czjl_zsl.DataPropertyName = "zsl";
             this.czjl_zsl.HeaderText = "库存增加";
             this.czjl_zsl.Name = "czjl_zsl";
+            this.czjl_zsl.ReadOnly = true;
             this.czjl_zsl.Width = 99;
             // 
             // czjl_fsl
@@ -319,6 +323,7 @@
             this.czjl_fsl.DataPropertyName = "fsl";
             this.czjl_fsl.HeaderText = "库存减少";
             this.czjl_fsl.Name = "czjl_fsl";
+            this.czjl_fsl.ReadOnly = true;
             this.czjl_fsl.Width = 99;
             // 
             // czjl_jbr
@@ -326,6 +331,7 @@
             this.czjl_jbr.DataPropertyName = "jbr";
             this.czjl_jbr.HeaderText = "经办人";
             this.czjl_jbr.Name = "czjl_jbr";
+            this.czjl_jbr.ReadOnly = true;
             this.czjl_jbr.Width = 83;
             // 
             // czjl_bz
@@ -333,6 +339,7 @@
             this.czjl_bz.DataPropertyName = "bz";
             this.czjl_bz.HeaderText = "备注";
             this.czjl_bz.Name = "czjl_bz";
+            this.czjl_bz.ReadOnly = true;
             this.czjl_bz.Width = 67;
             // 
             // czjl_czsj
@@ -340,6 +347,7 @@
             this.czjl_czsj.DataPropertyName = "czsj";
             this.czjl_czsj.HeaderText = "操作时间";
             this.czjl_czsj.Name = "czjl_czsj";
+            this.czjl_czsj.ReadOnly = true;
             this.czjl_czsj.Width = 99;
             // 
             // lbjkcmx
@@ -354,6 +362,7 @@
             this.Controls.Add(this.label1);
             this.Name = "lbjkcmx";
             this.Text = "零部件库存明细";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.lbjkcmx_FormClosed);
             this.Load += new System.EventHandler(this.lbjkcmx_Load);
             this.SizeChanged += new System.EventHandler(this.lbjkcmx_SizeChanged);
             this.groupBox1.ResumeLayout(false);

@@ -1489,6 +1489,11 @@ namespace kucunTest.gongyika
                 }
             }
         }
+
+        private void gyk_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+        }
     }
 
 }

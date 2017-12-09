@@ -71,7 +71,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void daojuguanli_Load(object sender, EventArgs e)
         {
-            //asc.controllInitializeSize(this);
+            asc.controllInitializeSize(this);
 
             //设置权限
             this.Authorise.setAuthority(this, AuthoritiesString.FormName.djglFrm);
@@ -841,7 +841,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void DaoJuGuanLi_SizeChanged(object sender, EventArgs e)
         {
-            //asc.controlAutoSize(this);
+            asc.controlAutoSize(this);
         }
 
         /// <summary>
@@ -851,11 +851,11 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void DaoJuGuanLi_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (this.Parent != null)
-            {
-                MainForm mfr = (MainForm)this.Parent.FindForm();
-                mfr.CloseTab(this.Name);
-            }
+            Alex.CloseFormFromTabpages(this);
+            //if (this.Parent != null)
+            //{
+            //    Program.MainFormInstance.CloseTab(this.Name);
+            //}
         }
 
         /// <summary>

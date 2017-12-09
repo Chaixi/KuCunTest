@@ -669,11 +669,8 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void DJTH_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (this.Parent != null)
-            {
-                MainForm mfr = (MainForm)this.Parent.FindForm();
-                mfr.CloseTab(this.Name);
-            }
+            Alex.CloseFormFromTabpages(this);
+
         }
         #endregion 其他部分结束
 

@@ -260,5 +260,11 @@ namespace kucunTest.DaoJu
                 }
             }
         }
+
+        private void DJBFHistory_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+
+        }
     }
 }

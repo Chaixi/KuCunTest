@@ -1323,6 +1323,12 @@ namespace kucunTest.quanxianguanli
             }
         }
 
-        #endregion               
+        #endregion
+
+        private void qxguanli_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+
+        }
     }
 }

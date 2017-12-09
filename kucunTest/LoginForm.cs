@@ -24,6 +24,8 @@ namespace kucunTest
 
         MsgForm tishi;
 
+        private static MainForm MFrm;
+
         //string userTable = "user";//用户表
         //string userTb_name = "name";//用户名字段
         //string userTb_type = "type";//用户类型字段
@@ -124,7 +126,7 @@ namespace kucunTest
                     //设置用户名全局变量
                     MySql.CurrentUserName = UserName.Text.ToString();
 
-                    MainForm mainfrm = new MainForm();
+                    MainForm mainfrm = Program.MainFormInstance;
                     mainfrm.Show();
 
                     this.HideOpaqueLayer();//隐藏遮罩层
@@ -171,8 +173,6 @@ namespace kucunTest
             }
             this.m_OpaqueLayer.Enabled = true;
             this.m_OpaqueLayer.Visible = true;
-
-
         }
 
         /// <summary>
@@ -235,6 +235,7 @@ namespace kucunTest
                 tishi = new MsgForm("");
                 tishi.Show();
             }
+            tishi.TopMost = true;
             tishi.SetContent(message, "连接状态");
             //tishi.Show();
 

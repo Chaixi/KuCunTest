@@ -343,5 +343,13 @@ namespace kucunTest.BaseClasses
 
             return false;
         }
+
+        public void CloseFormFromTabpages(Form frm)
+        {
+            if (frm.Parent != null)
+            {
+                Program.MainFormInstance.CloseTab(frm.Name);
+            }
+        }
     }
 }

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LS_djccd = new System.Windows.Forms.DataGridView();
@@ -106,19 +106,19 @@
             // 
             this.LS_djccd.AllowUserToAddRows = false;
             this.LS_djccd.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            this.LS_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.LS_djccd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.LS_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.LS_djccd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.LS_djccd.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.LS_djccd.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LS_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LS_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.LS_djccd.ColumnHeadersHeight = 30;
             this.LS_djccd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LS_lydh,
@@ -153,6 +153,7 @@
             this.LS_lydh.HeaderText = "领用单号";
             this.LS_lydh.Name = "LS_lydh";
             this.LS_lydh.ReadOnly = true;
+            this.LS_lydh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.LS_lydh.Width = 180;
             // 
             // LS_lybz
@@ -161,7 +162,7 @@
             this.LS_lybz.HeaderText = "领用班组";
             this.LS_lybz.Name = "LS_lybz";
             this.LS_lybz.ReadOnly = true;
-            this.LS_lybz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_lybz.Width = 99;
             // 
             // LS_lysb
             // 
@@ -169,6 +170,7 @@
             this.LS_lysb.HeaderText = "领用设备";
             this.LS_lysb.Name = "LS_lysb";
             this.LS_lysb.ReadOnly = true;
+            this.LS_lysb.Width = 99;
             // 
             // LS_cclx
             // 
@@ -176,8 +178,8 @@
             this.LS_cclx.HeaderText = "领用类型";
             this.LS_cclx.Name = "LS_cclx";
             this.LS_cclx.ReadOnly = true;
-            this.LS_cclx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.LS_cclx.Visible = false;
+            this.LS_cclx.Width = 99;
             // 
             // LS_zjgx
             // 
@@ -186,8 +188,7 @@
             this.LS_zjgx.HeaderText = "制件工序";
             this.LS_zjgx.Name = "LS_zjgx";
             this.LS_zjgx.ReadOnly = true;
-            this.LS_zjgx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LS_zjgx.Width = 80;
+            this.LS_zjgx.Width = 99;
             // 
             // LS_lyr
             // 
@@ -195,7 +196,7 @@
             this.LS_lyr.HeaderText = "领用人";
             this.LS_lyr.Name = "LS_lyr";
             this.LS_lyr.ReadOnly = true;
-            this.LS_lyr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_lyr.Width = 83;
             // 
             // LS_lyrq
             // 
@@ -203,7 +204,7 @@
             this.LS_lyrq.HeaderText = "领用日期";
             this.LS_lyrq.Name = "LS_lyrq";
             this.LS_lyrq.ReadOnly = true;
-            this.LS_lyrq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_lyrq.Width = 99;
             // 
             // LS_jbr
             // 
@@ -211,7 +212,7 @@
             this.LS_jbr.HeaderText = "经办人";
             this.LS_jbr.Name = "LS_jbr";
             this.LS_jbr.ReadOnly = true;
-            this.LS_jbr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_jbr.Width = 83;
             // 
             // LS_bz
             // 
@@ -219,7 +220,7 @@
             this.LS_bz.HeaderText = "备注";
             this.LS_bz.Name = "LS_bz";
             this.LS_bz.ReadOnly = true;
-            this.LS_bz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LS_bz.Width = 67;
             // 
             // LS_djzt
             // 
@@ -228,6 +229,7 @@
             this.LS_djzt.Name = "LS_djzt";
             this.LS_djzt.ReadOnly = true;
             this.LS_djzt.Visible = false;
+            this.LS_djzt.Width = 99;
             // 
             // groupBox2
             // 
@@ -244,18 +246,18 @@
             // 
             this.MX_djccd.AllowUserToAddRows = false;
             this.MX_djccd.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.MX_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.MX_djccd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MX_djccd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.MX_djccd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.MX_djccd.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MX_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MX_djccd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.MX_djccd.ColumnHeadersHeight = 30;
             this.MX_djccd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.djccd_djlx,
@@ -283,6 +285,7 @@
             this.djccd_djlx.HeaderText = "刀具类型";
             this.djccd_djlx.Name = "djccd_djlx";
             this.djccd_djlx.ReadOnly = true;
+            this.djccd_djlx.Width = 99;
             // 
             // djccd_djgg
             // 
@@ -290,6 +293,7 @@
             this.djccd_djgg.HeaderText = "刀具规格";
             this.djccd_djgg.Name = "djccd_djgg";
             this.djccd_djgg.ReadOnly = true;
+            this.djccd_djgg.Width = 99;
             // 
             // djccd_cd
             // 
@@ -297,6 +301,7 @@
             this.djccd_cd.HeaderText = "刀具长度";
             this.djccd_cd.Name = "djccd_cd";
             this.djccd_cd.ReadOnly = true;
+            this.djccd_cd.Width = 99;
             // 
             // djccd_djid
             // 
@@ -304,15 +309,17 @@
             this.djccd_djid.HeaderText = "刀具ID";
             this.djccd_djid.Name = "djccd_djid";
             this.djccd_djid.ReadOnly = true;
+            this.djccd_djid.Width = 84;
             // 
             // djccd_sl
             // 
             this.djccd_sl.DataPropertyName = "shuliang";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.djccd_sl.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.djccd_sl.DefaultCellStyle = dataGridViewCellStyle5;
             this.djccd_sl.HeaderText = "数量";
             this.djccd_sl.Name = "djccd_sl";
             this.djccd_sl.ReadOnly = true;
+            this.djccd_sl.Width = 67;
             // 
             // djccd_jcbm
             // 
@@ -320,6 +327,7 @@
             this.djccd_jcbm.HeaderText = "机床编码";
             this.djccd_jcbm.Name = "djccd_jcbm";
             this.djccd_jcbm.ReadOnly = true;
+            this.djccd_jcbm.Width = 99;
             // 
             // djccd_dth
             // 
@@ -327,6 +335,7 @@
             this.djccd_dth.HeaderText = "刀套号";
             this.djccd_dth.Name = "djccd_dth";
             this.djccd_dth.ReadOnly = true;
+            this.djccd_dth.Width = 83;
             // 
             // djccd_bz
             // 
@@ -334,6 +343,7 @@
             this.djccd_bz.HeaderText = "特殊要求及备注";
             this.djccd_bz.Name = "djccd_bz";
             this.djccd_bz.ReadOnly = true;
+            this.djccd_bz.Width = 147;
             // 
             // NewBtn
             // 
@@ -536,6 +546,7 @@
             this.Name = "DJLYHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具领用记录";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DJLYHistory_FormClosed);
             this.Load += new System.EventHandler(this.DJLYHistory_Load);
             this.SizeChanged += new System.EventHandler(this.History_SizeChanged);
             this.groupBox1.ResumeLayout(false);

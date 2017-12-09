@@ -1,12 +1,7 @@
 ﻿using kucunTest.BaseClasses;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace kucunTest.LingBuJian
@@ -54,64 +49,32 @@ namespace kucunTest.LingBuJian
             GX = "zjgx";
             Cells = "LS_lbjly_djzt";
 
-
-            Init(type);//窗体初始化
-
+            Init();//窗体初始化
         }
 
         /// <summary>
         /// 初始化界面
         /// </summary>
         /// <param name="type"></param>
-        private void Init(string type)
+        private void Init()
         {
-            if (type == "LBJLY")//零部件领用单
-            {
-                this.Name = "LBJLYHistory";//界面显示字段名称更新
-                this.Text = "零部件领用单据记录";
-                label1.Text = "零部件领用记录";
+            this.Name = "LBJLYHistory";//界面显示字段名称更新
+            this.Text = "零部件领用单据记录";
+            label1.Text = "零部件领用记录";
 
-                label2.Text = "领用单号：";//查询部分
-                label7.Text = "领用班组：";
-                label8.Text = "领用设备：";
-                label9.Text = "制件工序：";
+            label2.Text = "领用单号：";//查询部分
+            label7.Text = "领用班组：";
+            label8.Text = "领用设备：";
+            label9.Text = "制件工序：";
 
-                NewBtn.Text = "新建领用";
-                LS.Text = "零部件领用单";
-                MX.Text = "领用单明细";
+            NewBtn.Text = "新建领用";
+            LS.Text = "零部件领用单";
+            MX.Text = "领用单明细";
 
-                LS_lbjly.Visible = true;//单据和明细信息的更新
-                MX_lbjly.Visible = true;
+            LS_lbjly.Visible = true;//单据和明细信息的更新
+            MX_lbjly.Visible = true;
 
-                LS_lbjth.Visible = false;
-                MX_lbjth.Visible = false;
-
-                AllBtn.Visible = false;//查看全部按钮状态更新
-
-            }
-            else if (type == "LBJTH")//零部件退还单
-            {
-                this.Name = "LBJTHHistory";//界面显示字段名称更新
-                this.Text = "零部件退还单据";
-                label1.Text = "零部件退还单据记录";
-
-                label2.Text = "退还单号：";//查询部分
-                label7.Text = "退还班组：";
-                label8.Text = "退还原因：";
-                label9.Text = "经 办 人：";
-
-                NewBtn.Text = "新建退还";
-                LS.Text = "历史退还单据";
-                MX.Text = "退还刀具信息";
-
-                LS_lbjth.Visible = true;
-                MX_lbjth.Visible = true;
-
-                LS_lbjly.Visible = false;
-                MX_lbjly.Visible = false;
-
-                AllBtn.Visible = false;//查看全部按钮状态更新
-            }
+            AllBtn.Visible = false;//查看全部按钮状态更新
         }
 
         private void lbj_History_Load(object sender, EventArgs e)
@@ -135,7 +98,17 @@ namespace kucunTest.LingBuJian
             DataSet ds = SQL.getDataSet(SqlStr, danjubiao);
             LS_dgv.AutoGenerateColumns = false;//关闭自动生成列，只显示datagridview中有定义的列
             LS_dgv.DataSource = ds.Tables[0].DefaultView;
+            RefreshColor();            
 
+            //直接加载单据明细
+            SqlStr = "SELECT * FROM " + mingxibiao;
+            ds = SQL.getDataSet(SqlStr, mingxibiao);
+            MX_dgv.AutoGenerateColumns = false;//关闭自动生成列
+            MX_dgv.DataSource = ds.Tables[0].DefaultView;
+        }
+
+        public void RefreshColor()
+        {
             //根据单据状态字段设置历史单号表单元格背景色
             for (int row = 0; row < LS_dgv.RowCount; row++)
             {
@@ -151,12 +124,6 @@ namespace kucunTest.LingBuJian
                     LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.AntiqueWhite;
                 }
             }
-
-            //直接加载单据明细
-            SqlStr = "SELECT * FROM " + mingxibiao;
-            ds = SQL.getDataSet(SqlStr, mingxibiao);
-            MX_dgv.AutoGenerateColumns = false;//关闭自动生成列
-            MX_dgv.DataSource = ds.Tables[0].DefaultView;
         }
 
         /// <summary>
@@ -174,7 +141,7 @@ namespace kucunTest.LingBuJian
             //临时测试，根据单据状态字段设置单元格背景色
             for (int row = 0; row < LS_dgv.RowCount; row++)
             {
-                if (LS_dgv.Rows[row].Cells[Cells].Value.ToString() == "1")
+                if (LS_dgv.Rows[row].Cells["LS_lbjly_djzt"].Value.ToString() == "1")
                 {
                     //LS_dgv.Rows[row].Cells[0].Style.BackColor = Color.Gray;
                     //LS_dgv.Rows[row].DefaultCellStyle.BackColor = Color.Gray;
@@ -197,18 +164,8 @@ namespace kucunTest.LingBuJian
         private void NewBtn_Click(object sender, EventArgs e)
         {
             Form frm = new Form();
-            switch (TYPE)
-            {
-                case "LBJLY"://零部件领用单
-                    LBJLY lbjly = new LBJLY();
-                    frm = lbjly;
-                    break;
-                case "LBJTH"://零部件退还单
-                    LBJTH lbjth = new LBJTH();
-                    frm = lbjth;
-                    break;
-            }
-
+            LBJLY lbjly = new LBJLY();
+            frm = lbjly;
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.OK)
             {
@@ -244,16 +201,20 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void LS_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int ColumnIndex = LS_dgv.CurrentCell.ColumnIndex;
-            if (ColumnIndex == 0)
+            if(e.RowIndex >= 0)
             {
-                string dh = LS_dgv.CurrentCell.Value.ToString();
+                int ColumnIndex = LS_dgv.CurrentCell.ColumnIndex;
+                if (ColumnIndex == 0)
+                {
+                    string dh = LS_dgv.CurrentCell.Value.ToString();
 
-                //直接加载明细表
-                SqlStr = "SELECT * FROM " + mingxibiao + " WHERE " + DH + " = '" + dh + "'";
-                DataSet ds = SQL.getDataSet(SqlStr, mingxibiao);
-                MX_dgv.DataSource = ds.Tables[0].DefaultView;
+                    //直接加载明细表
+                    SqlStr = "SELECT * FROM " + mingxibiao + " WHERE " + DH + " = '" + dh + "'";
+                    DataSet ds = SQL.getDataSet(SqlStr, mingxibiao);
+                    MX_dgv.DataSource = ds.Tables[0].DefaultView;
+                }
             }
+            
         }
         #endregion
 
@@ -265,31 +226,18 @@ namespace kucunTest.LingBuJian
         /// <param name="e"></param>
         private void LS_lbjly_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string dh = LS_dgv.Rows[e.RowIndex].Cells["LS_lbjly_lydh"].Value.ToString();
-            LBJLY djccd = new LBJLY(dh);
-            djccd.ShowDialog();
-
-            if (djccd.DialogResult == DialogResult.OK)
+            if(e.RowIndex >= 0)
             {
-                lbj_History_Load(null, null);
-            }
-        }
+                string dh = LS_dgv.Rows[e.RowIndex].Cells["LS_lbjly_lydh"].Value.ToString();
+                LBJLY djccd = new LBJLY(dh);
+                djccd.ShowDialog();
 
-        /// <summary>
-        /// 退还单据历史表--双击单元格事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LS_lbjth_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string dh = LS_dgv.Rows[e.RowIndex].Cells["LS_lbjth_thdh"].Value.ToString();
-            LBJTH lbjth = new LBJTH(dh);
-            lbjth.ShowDialog();
-
-            if (lbjth.DialogResult == DialogResult.OK)
-            {
-                lbj_History_Load(null, null);
+                if (djccd.DialogResult == DialogResult.OK)
+                {
+                    lbj_History_Load(null, null);
+                }
             }
+            
         }
 
         #endregion 双击单元格事件部分结束
@@ -302,6 +250,13 @@ namespace kucunTest.LingBuJian
         private void lbj_History_SizeChanged(object sender, EventArgs e)
         {
             asc.controlAutoSize(this);
+            RefreshColor();
+        }
+
+        private void LBJLYHistory_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+
         }
     }
 }

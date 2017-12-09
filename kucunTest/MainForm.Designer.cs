@@ -1170,8 +1170,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CrtUser;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_TimeNow;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage TabIndex;
+        public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.TabPage TabIndex;
         private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.LinkLabel linkLabel_xhply;
         public System.Windows.Forms.LinkLabel linkLabel_djly;
