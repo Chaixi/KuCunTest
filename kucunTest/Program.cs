@@ -39,7 +39,7 @@ namespace kucunTest
         {
             get
             {
-                if (MFrm == null)
+                if (MFrm == null || MFrm.IsDisposed)
                 {
                     MFrm = new MainForm();
                 }

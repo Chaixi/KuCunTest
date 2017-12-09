@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using kucunTest.BaseClasses;
 
 namespace kucunTest.DaoJu
 {
@@ -15,6 +16,7 @@ namespace kucunTest.DaoJu
         #region 全局变量
         private string Sqlstr = "";
         private MySql SQL = new MySql();
+        private BaseAlex Alex = new BaseAlex();
 
         private string djid = "";
         #endregion

@@ -129,6 +129,10 @@ namespace kucunTest
                     MainForm mainfrm = Program.MainFormInstance;
                     mainfrm.Show();
 
+                    ////获取用户姓名和类型
+                    //Sqlstr = string.Format("SELECT {1}, {2} FROM {0} WHERE {} = '{}'", User.TableName, User.xingming, User.type, User.name, UserName.Text.ToString());
+                    mainfrm.toolStripStatusLabel_CrtUser.Text = string.Format("当前用户：{0}({1})", db.Rows[0][User.xingming].ToString(), db.Rows[0][User.type].ToString());
+
                     this.HideOpaqueLayer();//隐藏遮罩层
                     this.Hide();
                 }

@@ -1167,7 +1167,7 @@
         public System.Windows.Forms.ToolStripMenuItem tsmi_jc_jcgl;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CrtUser;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CrtUser;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_TimeNow;
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.TabControl tabControl1;
