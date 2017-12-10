@@ -405,7 +405,7 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
 
-            if (AuthorityState(db, AuthoritiesString.DJLYForm.AllAuthorities, AuthoritiesString.DJGLForm.AllAuthorities))
+            if (AuthorityState(db, AuthoritiesString.DJLYForm.AllAuthorities, AuthoritiesString.MainMenu.dj))
             {
                 return;
             }
@@ -436,7 +436,7 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
 
-            if (AuthorityState(db, AuthoritiesString.DJXYForm.AllAuthorities, AuthoritiesString.DJGLForm.AllAuthorities))
+            if (AuthorityState(db, AuthoritiesString.DJXYForm.AllAuthorities, AuthoritiesString.MainMenu.dj))
             {
                 return;
             }
@@ -467,7 +467,7 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
 
-            if (AuthorityState(db, AuthoritiesString.DJGHForm.AllAuthorities, AuthoritiesString.DJGLForm.AllAuthorities))
+            if (AuthorityState(db, AuthoritiesString.DJGHForm.AllAuthorities, AuthoritiesString.MainMenu.dj))
             {
                 return;
             }
@@ -498,7 +498,7 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
 
-            if (AuthorityState(db, AuthoritiesString.DJWJForm.AllAuthorities, AuthoritiesString.DJGLForm.AllAuthorities))
+            if (AuthorityState(db, AuthoritiesString.DJWJForm.AllAuthorities, AuthoritiesString.MainMenu.dj))
             {
                 return;
             }
@@ -529,7 +529,7 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
 
-            if (AuthorityState(db, AuthoritiesString.DJTHForm.AllAuthorities, AuthoritiesString.DJGLForm.AllAuthorities))
+            if (AuthorityState(db, AuthoritiesString.DJTHForm.AllAuthorities, AuthoritiesString.MainMenu.dj))
             {
                 return;
             }
@@ -560,7 +560,7 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
 
-            if (AuthorityState(db, AuthoritiesString.DJBFForm.AllAuthorities, AuthoritiesString.DJGLForm.AllAuthorities))
+            if (AuthorityState(db, AuthoritiesString.DJBFForm.AllAuthorities, AuthoritiesString.MainMenu.dj))
             {
                 return;
             }
@@ -596,7 +596,7 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
 
-            if (AuthorityState(db, AuthoritiesString.DJCLForm.AllAuthorities, AuthoritiesString.DJGLForm.AllAuthorities))
+            if (AuthorityState(db, AuthoritiesString.DJCLForm.AllAuthorities, AuthoritiesString.MainMenu.dj))
             {
                 return;
             }
@@ -668,7 +668,7 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
 
-            if (AuthorityState(db, AuthoritiesString.LBJLYForm.AllAuthorities, AuthoritiesString.LBJLYForm.AllAuthorities))
+            if (AuthorityState(db, AuthoritiesString.LBJLYForm.AllAuthorities, AuthoritiesString.MainMenu.lbj))
             {
                 return;
             }
@@ -699,7 +699,7 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
 
-            if (AuthorityState(db, AuthoritiesString.LBJTHForm.AllAuthorities, AuthoritiesString.LBJTHForm.AllAuthorities))
+            if (AuthorityState(db, AuthoritiesString.LBJTHForm.AllAuthorities, AuthoritiesString.MainMenu.lbj))
             {
                 return;
             }
