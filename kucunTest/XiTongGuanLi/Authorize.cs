@@ -76,7 +76,7 @@ namespace kucunTest.quanxianguanli
                     setDJCLForm(djclFrm);
                     break;
                 case "djg"://刀具柜
-                    daojugui djgFrm = new daojugui();
+                    daojugui djgFrm =(daojugui)frm;
                     setDJGForm(djgFrm);
                     break;
             }

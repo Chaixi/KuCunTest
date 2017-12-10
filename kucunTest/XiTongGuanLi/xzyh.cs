@@ -40,6 +40,11 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT DISTINCT {1} FROM {0}", UserGroup.TableName, UserGroup.groupName);
             ssxz.DataSource = Sql.DataReadList(SqlStr);
             ssxz.SelectedIndex = -1;
+
+            //加载已有部门
+            SqlStr = string.Format("SELECT DISTINCT {1} FROM {0}", User.TableName, User.bumen);
+            bumen.DataSource = Sql.DataReadList(SqlStr);
+            bumen.SelectedIndex = -1;
         }
 
         /// <summary>

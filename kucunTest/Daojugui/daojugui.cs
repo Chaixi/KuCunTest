@@ -42,7 +42,7 @@ namespace kucunTest.Daojugui
         public daojugui()
         {
             InitializeComponent();
-                       
+
             //生成刀具柜树 
             BindRoot();
 

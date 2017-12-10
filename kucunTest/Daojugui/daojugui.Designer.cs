@@ -377,9 +377,9 @@
             // btn_xzdjg
             // 
             this.btn_xzdjg.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_xzdjg.Location = new System.Drawing.Point(539, 659);
+            this.btn_xzdjg.Location = new System.Drawing.Point(395, 659);
             this.btn_xzdjg.Name = "btn_xzdjg";
-            this.btn_xzdjg.Size = new System.Drawing.Size(109, 29);
+            this.btn_xzdjg.Size = new System.Drawing.Size(109, 35);
             this.btn_xzdjg.TabIndex = 4;
             this.btn_xzdjg.Text = "新增刀柜";
             this.btn_xzdjg.UseVisualStyleBackColor = true;
@@ -472,9 +472,9 @@
             // btn_drtp
             // 
             this.btn_drtp.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_drtp.Location = new System.Drawing.Point(801, 659);
+            this.btn_drtp.Location = new System.Drawing.Point(690, 659);
             this.btn_drtp.Name = "btn_drtp";
-            this.btn_drtp.Size = new System.Drawing.Size(98, 29);
+            this.btn_drtp.Size = new System.Drawing.Size(98, 35);
             this.btn_drtp.TabIndex = 7;
             this.btn_drtp.Text = "导入图片";
             this.btn_drtp.UseVisualStyleBackColor = true;
@@ -483,9 +483,9 @@
             // btn_scdjg
             // 
             this.btn_scdjg.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_scdjg.Location = new System.Drawing.Point(671, 659);
+            this.btn_scdjg.Location = new System.Drawing.Point(539, 659);
             this.btn_scdjg.Name = "btn_scdjg";
-            this.btn_scdjg.Size = new System.Drawing.Size(109, 29);
+            this.btn_scdjg.Size = new System.Drawing.Size(109, 35);
             this.btn_scdjg.TabIndex = 4;
             this.btn_scdjg.Text = "删除刀柜";
             this.btn_scdjg.UseVisualStyleBackColor = true;
@@ -496,7 +496,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1173, 700);
+            this.ClientSize = new System.Drawing.Size(1173, 706);
             this.Controls.Add(this.btn_drtp);
             this.Controls.Add(this.查询条件);
             this.Controls.Add(this.btn_scdjg);
