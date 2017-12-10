@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.quanxianguanli;
+
 namespace kucunTest.DaoJu
 {
     public partial class DJBFHistory : Form
@@ -34,6 +36,8 @@ namespace kucunTest.DaoJu
 
         private DataGridView LS_dgv = new DataGridView();//历史记录表
         private DataGridView MX_dgv = new DataGridView();//明细表
+
+        private Authorize Authorize = new Authorize();
 
         #endregion
 
@@ -115,6 +119,8 @@ namespace kucunTest.DaoJu
 
             //加载单据明细，若是“刀具更换单”、“刀具报废单”等没有明细表的情况，则不加载明细表
             djbf_djlx.Text = "请选择报废单号。";
+
+            this.Authorize.setAuthority(this, AuthoritiesString.DJBFForm.lsjl);
 
         }
 

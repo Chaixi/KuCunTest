@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using kucunTest.BaseClasses;
 using System.IO;
 using System.Threading;
+using kucunTest.quanxianguanli;
 
 namespace kucunTest.Daojugui
 {
@@ -21,6 +22,7 @@ namespace kucunTest.Daojugui
         private MySql Sql = new MySql();//MySQL类
         private BaseAlex Alex = new BaseAlex();
         private AutoSizeFormClass asc = new AutoSizeFormClass();
+        private Authorize Authorize = new Authorize();
 
         private string SqlStr = "";
         private string SqlStr1 = "";
@@ -57,6 +59,8 @@ namespace kucunTest.Daojugui
         {
             //记录窗体初始大小值
             asc.controllInitializeSize(this);
+
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.djgFrm);
         }
 
         /// <summary>

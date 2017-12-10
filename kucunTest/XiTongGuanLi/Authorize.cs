@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
 using kucunTest.DaoJu;
+using kucunTest.Daojugui;
 using kucunTest.LingBuJian;
 
 namespace kucunTest.quanxianguanli
@@ -66,9 +67,17 @@ namespace kucunTest.quanxianguanli
                     DJBF djbfFrm = (DJBF)frm;
                     setDJBFForm(djbfFrm);
                     break;
+                case "dj_djbf_djlsjl":
+                    DJBFHistory djbfHistoryFrm = (DJBFHistory)frm;
+                    setDJBFHistoryForm(djbfHistoryFrm);
+                    break;
                 case "djcl":
                     DaoJuCanShuXinXi djclFrm = (DaoJuCanShuXinXi)frm;
                     setDJCLForm(djclFrm);
+                    break;
+                case "djg"://刀具柜
+                    daojugui djgFrm = new daojugui();
+                    setDJGForm(djgFrm);
                     break;
             }
         }
@@ -532,6 +541,11 @@ namespace kucunTest.quanxianguanli
             }
         }
 
+        private void setDJBFHistoryForm(DJBFHistory frm)
+        {
+
+        }
+
         /// <summary>
         /// 刀具测量
         /// </summary>
@@ -556,5 +570,34 @@ namespace kucunTest.quanxianguanli
         }
 
         #endregion 刀具相关单据权限设置结束
+
+
+        #region 刀具柜菜单
+        /// <summary>
+        /// 刀具柜窗体权限设置
+        /// </summary>
+        /// <param name="frm"></param>
+        private void setDJGForm(daojugui frm)
+        {
+            SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
+            DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
+
+            if (!AuthorityState(db, AuthoritiesString.DJGForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities, true))
+            {
+                if (!AuthorityState(db, AuthoritiesString.DJGForm.djg_xzdjg, AuthoritiesString.DJGForm.AllAuthorities, true))
+                {
+                    frm.btn_xzdjg.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.DJGForm.djg_scdjg, AuthoritiesString.DJGForm.AllAuthorities, true))
+                {
+                    frm.btn_scdjg.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.DJGForm.djg_drtp, AuthoritiesString.DJGForm.AllAuthorities, true))
+                {
+                    frm.btn_drtp.Enabled = false;
+                }
+            }
+            #endregion 刀具柜菜单结束
+        }
     }
 }

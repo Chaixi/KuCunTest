@@ -28,6 +28,9 @@ namespace kucunTest.quanxianguanli
             public static string djbfFrm = "djbf";//刀具报废单据窗体
             public static string djclFrm = "djcl";//刀具测量窗体
 
+            public static string djgFrm = "djg";//刀具柜窗体
+
+
         }
 
         /// <summary>
@@ -203,6 +206,16 @@ namespace kucunTest.quanxianguanli
 
 
         #region 刀具柜
+        /// <summary>
+        /// 刀具柜界面
+        /// </summary>
+        public static class DJGForm
+        {
+            public static string AllAuthorities = "djg";//全部权限：刀具柜
+            public static string djg_xzdjg = "djg_xzdjg";//新增刀具柜
+            public static string djg_scdjg = "djg_scdjg";//删除刀具柜
+            public static string djg_drtp = "djg_drtp";//导入图片
+        }
         #endregion 刀具柜结束
 
 
