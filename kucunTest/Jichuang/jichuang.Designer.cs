@@ -37,6 +37,8 @@
             this.jichuangtupian = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.JCLX = new System.Windows.Forms.TextBox();
+            this.SSBZ = new System.Windows.Forms.TextBox();
             this.ZCBH = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.JCMC = new System.Windows.Forms.TextBox();
@@ -46,14 +48,12 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.xzjc = new System.Windows.Forms.Button();
+            this.btn_xzjc = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_scjc = new System.Windows.Forms.Button();
+            this.btn_drtp = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lab_progbar = new System.Windows.Forms.Label();
-            this.SSBZ = new System.Windows.Forms.TextBox();
-            this.JCLX = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.jcxx.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -158,6 +158,22 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "机床类型";
             // 
+            // JCLX
+            // 
+            this.JCLX.Location = new System.Drawing.Point(311, 125);
+            this.JCLX.Name = "JCLX";
+            this.JCLX.ReadOnly = true;
+            this.JCLX.Size = new System.Drawing.Size(180, 29);
+            this.JCLX.TabIndex = 4;
+            // 
+            // SSBZ
+            // 
+            this.SSBZ.Location = new System.Drawing.Point(311, 39);
+            this.SSBZ.Name = "SSBZ";
+            this.SSBZ.ReadOnly = true;
+            this.SSBZ.Size = new System.Drawing.Size(180, 29);
+            this.SSBZ.TabIndex = 4;
+            // 
             // ZCBH
             // 
             this.ZCBH.Location = new System.Drawing.Point(596, 44);
@@ -242,16 +258,16 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
-            // xzjc
+            // btn_xzjc
             // 
-            this.xzjc.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.xzjc.Location = new System.Drawing.Point(376, 539);
-            this.xzjc.Name = "xzjc";
-            this.xzjc.Size = new System.Drawing.Size(96, 29);
-            this.xzjc.TabIndex = 3;
-            this.xzjc.Text = "新增机床";
-            this.xzjc.UseVisualStyleBackColor = true;
-            this.xzjc.Click += new System.EventHandler(this.xzjc_Click);
+            this.btn_xzjc.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_xzjc.Location = new System.Drawing.Point(354, 539);
+            this.btn_xzjc.Name = "btn_xzjc";
+            this.btn_xzjc.Size = new System.Drawing.Size(96, 38);
+            this.btn_xzjc.TabIndex = 3;
+            this.btn_xzjc.Text = "新增机床";
+            this.btn_xzjc.UseVisualStyleBackColor = true;
+            this.btn_xzjc.Click += new System.EventHandler(this.xzjc_Click);
             // 
             // groupBox2
             // 
@@ -264,27 +280,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "机床刀具库";
             // 
-            // btn_delete
+            // btn_scjc
             // 
-            this.btn_delete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_delete.Location = new System.Drawing.Point(496, 539);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(96, 29);
-            this.btn_delete.TabIndex = 3;
-            this.btn_delete.Text = "删除机床";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            this.btn_scjc.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_scjc.Location = new System.Drawing.Point(490, 539);
+            this.btn_scjc.Name = "btn_scjc";
+            this.btn_scjc.Size = new System.Drawing.Size(96, 38);
+            this.btn_scjc.TabIndex = 3;
+            this.btn_scjc.Text = "删除机床";
+            this.btn_scjc.UseVisualStyleBackColor = true;
+            this.btn_scjc.Click += new System.EventHandler(this.btn_delete_Click);
             // 
-            // button2
+            // btn_drtp
             // 
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(610, 539);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 29);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "导入图片";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_drtp.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_drtp.Location = new System.Drawing.Point(620, 539);
+            this.btn_drtp.Name = "btn_drtp";
+            this.btn_drtp.Size = new System.Drawing.Size(104, 38);
+            this.btn_drtp.TabIndex = 5;
+            this.btn_drtp.Text = "导入图片";
+            this.btn_drtp.UseVisualStyleBackColor = true;
+            this.btn_drtp.Click += new System.EventHandler(this.button2_Click);
             // 
             // progressBar1
             // 
@@ -304,34 +320,18 @@
             this.lab_progbar.Text = "0%";
             this.lab_progbar.Visible = false;
             // 
-            // SSBZ
-            // 
-            this.SSBZ.Location = new System.Drawing.Point(311, 39);
-            this.SSBZ.Name = "SSBZ";
-            this.SSBZ.ReadOnly = true;
-            this.SSBZ.Size = new System.Drawing.Size(180, 29);
-            this.SSBZ.TabIndex = 4;
-            // 
-            // JCLX
-            // 
-            this.JCLX.Location = new System.Drawing.Point(311, 125);
-            this.JCLX.Name = "JCLX";
-            this.JCLX.ReadOnly = true;
-            this.JCLX.Size = new System.Drawing.Size(180, 29);
-            this.JCLX.TabIndex = 4;
-            // 
             // jichuang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(996, 580);
+            this.ClientSize = new System.Drawing.Size(996, 593);
             this.Controls.Add(this.lab_progbar);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_drtp);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.xzjc);
+            this.Controls.Add(this.btn_scjc);
+            this.Controls.Add(this.btn_xzjc);
             this.Controls.Add(this.jcxx);
             this.Controls.Add(this.groupBox1);
             this.Name = "jichuang";
@@ -356,7 +356,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox jcxx;
-        private System.Windows.Forms.Button xzjc;
+        public System.Windows.Forms.Button btn_xzjc;
         private System.Windows.Forms.DataGridView jichuangdaoku;
         private System.Windows.Forms.PictureBox jichuangtupian;
         private System.Windows.Forms.TextBox JCMC;
@@ -368,8 +368,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Button btn_delete;
-        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btn_scjc;
+        public System.Windows.Forms.Button btn_drtp;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox ZCBH;

@@ -10,6 +10,9 @@ using kucunTest.BaseClasses;
 using kucunTest.DaoJu;
 using kucunTest.Daojugui;
 using kucunTest.LingBuJian;
+using kucunTest.Jichuang;
+using kucunTest.gongyika;
+using kucunTest.XiTongGuanLi;
 
 namespace kucunTest.quanxianguanli
 {
@@ -78,6 +81,14 @@ namespace kucunTest.quanxianguanli
                 case "djg"://刀具柜
                     daojugui djgFrm =(daojugui)frm;
                     setDJGForm(djgFrm);
+                    break;
+                case "jc"://机床
+                    jichuang jcFrm = (jichuang)frm;
+                    setJCForm(jcFrm);
+                    break;
+                case "gyk"://工艺卡
+                    gyk gykFrm = (gyk)frm;
+                    setGYKForm(gykFrm);
                     break;
             }
         }
@@ -597,7 +608,80 @@ namespace kucunTest.quanxianguanli
                     frm.btn_drtp.Enabled = false;
                 }
             }
-            #endregion 刀具柜菜单结束
         }
+        #endregion 刀具柜菜单结束
+
+
+        #region 机床菜单
+        /// <summary>
+        /// 机床管理窗体权限设置
+        /// </summary>
+        /// <param name="frm"></param>
+        private void setJCForm(jichuang frm)
+        {
+            SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
+            DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
+
+            if (!AuthorityState(db, AuthoritiesString.JCForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities, true))
+            {
+                if (!AuthorityState(db, AuthoritiesString.JCForm.jc_xzjc, AuthoritiesString.JCForm.AllAuthorities, true))
+                {
+                    frm.btn_xzjc.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.JCForm.jc_scjc, AuthoritiesString.JCForm.AllAuthorities, true))
+                {
+                    frm.btn_scjc.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.JCForm.jc_drtp, AuthoritiesString.JCForm.AllAuthorities, true))
+                {
+                    frm.btn_drtp.Enabled = false;
+                }
+            }
+        }
+        #endregion 机床菜单结束
+
+        #region 工艺卡菜单
+        /// <summary>
+        /// 工艺卡窗体权限设置
+        /// </summary>
+        /// <param name="frm"></param>
+        private void setGYKForm(gyk frm)
+        {
+            SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
+            DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
+
+            if (!AuthorityState(db, AuthoritiesString.GYKForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities, true))
+            {
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_xz, AuthoritiesString.GYKForm.AllAuthorities, true))
+                {
+                    frm.btn_gyk_New.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_bc, AuthoritiesString.GYKForm.AllAuthorities, true))
+                {
+                    frm.btn_gyk_Save.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_sc, AuthoritiesString.GYKForm.AllAuthorities, true))
+                {
+                    frm.btn_gyk_Delete.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_gxxz, AuthoritiesString.GYKForm.AllAuthorities, true))
+                {
+                    frm.btn_gx_New.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_gxxg, AuthoritiesString.GYKForm.AllAuthorities, true))
+                {
+                    frm.btn_gx_Edit.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_pdxz, AuthoritiesString.GYKForm.AllAuthorities, true))
+                {
+                    frm.btn_pd_New.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_pdxg, AuthoritiesString.GYKForm.AllAuthorities, true))
+                {
+                    frm.btn_pd_Edit.Enabled = false;
+                }
+            }
+        }
+        #endregion 工艺卡菜单结束
     }
 }

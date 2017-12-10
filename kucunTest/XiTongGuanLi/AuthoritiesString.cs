@@ -29,6 +29,8 @@ namespace kucunTest.quanxianguanli
             public static string djclFrm = "djcl";//刀具测量窗体
 
             public static string djgFrm = "djg";//刀具柜窗体
+            public static string jcFrm = "jc";//机床窗体
+            public static string gykFrm = "gyk";//工艺卡窗体
 
 
         }
@@ -221,11 +223,36 @@ namespace kucunTest.quanxianguanli
 
 
         #region 机床
+        /// <summary>
+        /// 机床界面
+        /// </summary>
+        public static class JCForm
+        {
+            public static string AllAuthorities = "jc";//全部权限：机床
+            public static string jc_xzjc = "jc_xzjc";//新增机床
+            public static string jc_scjc = "jc_scjc";//删除机床
+            public static string jc_drtp = "jc_drtp";//导入图片
+        }
         #endregion 机床结束
 
 
 
         #region 工艺卡
+        /// <summary>
+        /// 工艺卡界面
+        /// </summary>
+        public static class GYKForm
+        {
+            public static string AllAuthorities = "gyk";//全部权限：工艺卡
+            public static string gyk_xz = "gyk_xz";//工艺卡新增
+            public static string gyk_bc = "gyk_bc";//工艺卡保存
+            public static string gyk_sc = "gyk_sc";//工艺卡删除
+            public static string gyk_gxxz = "gyk_gxxz";//工艺卡——工序新增
+            public static string gyk_gxxg = "gyk_gxxg";//工艺卡——工序修改
+            public static string gyk_pdxz = "gyk_pdxz";//工艺卡——配刀新增
+            public static string gyk_pdxg = "gyk_pdxg";//工艺卡——配刀删除
+
+        }
         #endregion 工艺卡结束
 
 

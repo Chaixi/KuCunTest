@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
+using kucunTest.quanxianguanli;
 
 namespace kucunTest.gongyika
 {
@@ -20,6 +21,7 @@ namespace kucunTest.gongyika
         private static MySql SQL = new MySql();//MySQL类
         private AutoSizeFormClass asc = new AutoSizeFormClass();
         private BaseAlex Alex = new BaseAlex();
+        private Authorize Authorize = new Authorize();
 
         private static string SqlStr = "";
         private string tishi = "";//提示内容
@@ -74,6 +76,8 @@ namespace kucunTest.gongyika
         private void gyk_Load(object sender, EventArgs e)
         {
             asc.controllInitializeSize(this);
+
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.gykFrm);
         }
 
         #endregion 窗体构造与加载函数结束
@@ -1477,7 +1481,7 @@ namespace kucunTest.gongyika
             tishi = "";
 
             //判断是否对上一个做了修改的工艺卡进行保存，提示保存再加载新数据
-            if (flag)
+            if (flag && btn_gyk_Save.Enabled)
             {
                 tishi = "工艺卡‘" + GYKBH.Text + "’已修改，是否保存？";
                 DialogResult dr = MessageBox.Show(tishi, "提示", MessageBoxButtons.YesNo);

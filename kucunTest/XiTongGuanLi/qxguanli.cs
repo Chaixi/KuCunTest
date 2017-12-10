@@ -911,7 +911,7 @@ namespace kucunTest.quanxianguanli
                 SqlStr = string.Format("DELETE FROM {0} WHERE {1} = '{2}'; UPDATE `{3}` SET {4} = '' WHERE {4} = '{2}';", UserGroup.TableName, UserGroup.groupName, xiaozuming.Text, User.TableName, User.groupName);
                 int row = Sql.ExecuteNonQuery(SqlStr);
 
-                LogMessage = string.Format("成功删除小组：{}，并将该小组下{}个用户更改未分配小组用户。", xiaozuming.Text, row - 1);
+                LogMessage = string.Format("成功删除小组：{0}，并将该小组下{1}个用户更改未分配小组用户。", xiaozuming.Text, row - 1);
 
                 //日志记录
                 Program.WriteLog(LogType, LogMessage);

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using kucunTest.BaseClasses;
 using System.IO;
 using System.Threading;
+using kucunTest.quanxianguanli;
 
 namespace kucunTest.Jichuang
 {
@@ -21,6 +22,7 @@ namespace kucunTest.Jichuang
         private MySql SQL = new MySql();//MySQL类
         private BaseAlex Alex = new BaseAlex();
         private AutoSizeFormClass asc = new AutoSizeFormClass();
+        private Authorize Authorize = new Authorize();
 
         private string SqlStr = "";
         string jctp = "";//机床图片名称
@@ -52,6 +54,8 @@ namespace kucunTest.Jichuang
         {
             //记录窗体初始大小
             asc.controllInitializeSize(this);
+
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.jcFrm);
         }
 
         #region BindeRoot()方法和AddChild()方法：构造类型（所有类型-->名称-->型号）树
