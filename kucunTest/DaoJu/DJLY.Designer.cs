@@ -300,6 +300,7 @@
             this.lingyongmingxi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.lingyongmingxi.Size = new System.Drawing.Size(975, 205);
             this.lingyongmingxi.TabIndex = 0;
+            this.lingyongmingxi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lingyongmingxi_CellDoubleClick);
             this.lingyongmingxi.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.ChuCangMingXi_RowPostPaint);
             // 
             // djlx
@@ -556,7 +557,7 @@
             this.btn_exit.UseVisualStyleBackColor = true;
             this.btn_exit.Click += new System.EventHandler(this.button5_Click);
             // 
-            // DJCCD
+            // DJLY
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -575,7 +576,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.label1);
-            this.Name = "DJCCD";
+            this.Name = "DJLY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "刀具领用单";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DJCCD_FormClosed);

@@ -12,7 +12,7 @@ using kucunTest.BaseClasses;
 
 namespace kucunTest.DaoJu
 {
-    public partial class xzccmx : Form
+    public partial class xzlymx : Form
     {
         #region 全局变量
         MySql SQL = new MySql();
@@ -20,11 +20,64 @@ namespace kucunTest.DaoJu
         BaseAlex Alex = new BaseAlex();
         String sqlstr = "";
         String sqlstr1 = "";
+        int index = -1;
         #endregion
 
-        public xzccmx()
+        /// <summary>
+        /// 默认构造函数
+        /// </summary>
+        public xzlymx()
         {
             InitializeComponent();
+
+            //加载所有刀具类型
+            djlx.DataSource = Alex.GetList("djlx");
+            //加载所有机床编码/名称
+            jcbm.DataSource = Alex.GetList("jc");
+
+            djlx.SelectedIndex = -1;
+            jcbm.SelectedIndex = -1;
+
+            btn_xiugai.Visible = false;
+        }
+
+        public xzlymx(DataRow row, int rowindex)
+        {
+            InitializeComponent();
+
+            //加载所有刀具类型
+            djlx.DataSource = Alex.GetList("djlx");
+            //加载所有机床编码/名称
+            jcbm.DataSource = Alex.GetList("jc");
+
+            djlx.SelectedIndex = -1;
+            djgg.SelectedIndex = -1;
+            djcd.SelectedIndex = -1;
+            djid.SelectedIndex = -1;
+            jcbm.SelectedIndex = -1;
+
+            btn_xiugai.Visible = true;
+
+            index = rowindex;
+
+            if (row[DaoJuLingYongMingXi.djlx] != null && row[DaoJuLingYongMingXi.djlx].ToString() != "")
+            {
+                djlx.SelectedItem = row[DaoJuLingYongMingXi.djlx].ToString();
+            }
+            if (row[DaoJuLingYongMingXi.djgg] != null && row[DaoJuLingYongMingXi.djgg].ToString() != "")
+            {
+                djgg.SelectedItem = row[DaoJuLingYongMingXi.djgg].ToString();
+            }
+            if (row[DaoJuLingYongMingXi.djcd] != null && row[DaoJuLingYongMingXi.djcd].ToString() != "")
+            {
+                djcd.SelectedItem = row[DaoJuLingYongMingXi.djcd].ToString();
+            }
+            if (row[DaoJuLingYongMingXi.djid] != null && row[DaoJuLingYongMingXi.djid].ToString() != "")
+            {
+                djid.SelectedItem = row[DaoJuLingYongMingXi.djid].ToString();
+            }
+
+            
         }
 
         /// <summary>
@@ -35,16 +88,16 @@ namespace kucunTest.DaoJu
         private void xzccmx_Load(object sender, EventArgs e)
         {
             //加载所有刀具类型
-            djlx.DataSource = Alex.GetList("djlx");
+            //djlx.DataSource = Alex.GetList("djlx");
             //sqlstr = "select distinct daojuleixing from daojutemp";
             //djlx.DataSource = SQL.DataReadList(sqlstr);
-            djlx.SelectedIndex = -1;
+            //djlx.SelectedIndex = -1;
 
             //加载所有机床编码/名称
-            jcbm.DataSource = Alex.GetList("jc");
+            //jcbm.DataSource = Alex.GetList("jc");
             //sqlstr1 = "select jichuangbianma from jichuang";
             //jcbm.DataSource = SQL.DataReadList(sqlstr1);
-            jcbm.SelectedIndex = -1;
+            //jcbm.SelectedIndex = -1;
         }
 
         #region 刀具信息三级联动
@@ -129,8 +182,7 @@ namespace kucunTest.DaoJu
                 list.Add(dth.Text.ToString().Trim());//list[5] 刀套号
                 list.Add(bz.Text.ToString().Trim());//list[6] 备注
 
-                DJLY form_djccd = new DJLY();
-                form_djccd = (DJLY)this.Owner;
+                DJLY form_djccd = (DJLY)this.Owner;
                 form_djccd.AddData(list);
 
                 //this.Close();
@@ -173,6 +225,35 @@ namespace kucunTest.DaoJu
             sqlstr = string.Format("SELECT jcdjk.{2} FROM {0} jcdjk LEFT JOIN {1} djtp ON CONCAT(djtp.{3},'-', djtp.{4} ) = CONCAT(jcdjk.{5},'-', jcdjk.{2} ) WHERE djtp.{6} IS NULL AND jcdjk.{5} = '{7}'", JiChuangDaoJuKu.TableName, DaoJuTemp.TableName, JiChuangDaoJuKu.dth, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, JiChuangDaoJuKu.jcbm, DaoJuTemp.id, jcbm.SelectedItem.ToString().Trim());
             dth.DataSource = SQL.DataReadList(sqlstr);
             dth.SelectedIndex = -1;
+        }
+
+        /// <summary>
+        /// 修改按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_xiugai_Click(object sender, EventArgs e)
+        {
+            if (CheckData() == 0)
+            {
+                return;
+            }
+            else
+            {
+                List<string> list = new List<string>();
+                list.Add(djlx.SelectedItem.ToString().Trim());//list[0] 刀具类型
+                list.Add(djgg.SelectedItem.ToString().Trim());//list[1] 刀具规格
+                list.Add(djcd.Text.ToString().Trim());//list[2] 刀具长度
+                list.Add(djid.SelectedItem.ToString().Trim());//list[3] 刀具id
+                list.Add(jcbm.Text.ToString().Trim());//list[4] 机床编码
+                list.Add(dth.Text.ToString().Trim());//list[5] 刀套号
+                list.Add(bz.Text.ToString().Trim());//list[6] 备注
+
+                DJLY form_djccd = (DJLY)this.Owner;
+                form_djccd.EditLingYongMXbyRowinde(index, list);
+
+                //this.Close();
+            }
         }
     }
 }

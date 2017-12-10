@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 using kucunTest.BaseClasses;
 using FastReport;
@@ -141,7 +142,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            xzccmx xzccmx = new xzccmx();
+            xzlymx xzccmx = new xzlymx();
             xzccmx.Owner = this;
             xzccmx.ShowDialog();
         }
@@ -700,6 +701,45 @@ namespace kucunTest.DaoJu
             }
 
             LYSB.DataSource = Alex.GetJCofBZ(LYBZ.Text);
+        }
+
+        /// <summary>
+        /// 双击单元格，填充历史数据进行更改
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lingyongmingxi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                DataRow row = ((lingyongmingxi.Rows[e.RowIndex].DataBoundItem) as DataRowView).Row;
+                xzlymx xzlymx = new xzlymx(row, e.RowIndex);
+                xzlymx.Owner = this;
+                xzlymx.ShowDialog();
+            }
+        }
+
+        public void EditLingYongMXbyRowinde(int rowindex, List<string> list)
+        {
+            if (rowindex >= 0)
+            {
+                DataRow rowrow = lymx_db.NewRow();
+
+                rowrow["daojuleixing"] = list[0];//刀具类型
+                rowrow["daojuguige"] = list[1];//刀具规格
+                rowrow["changdu"] = list[2];//刀具长度
+                rowrow["daojuid"] = list[3];//刀具id
+                rowrow["shuliang"] = "1";//数量
+                rowrow["jichuangbianma"] = list[4];//机床编码
+                rowrow["daotaohao"] = list[5];//刀套号
+                rowrow["beizhu"] = list[6];//备注
+
+                lymx_db.Rows.RemoveAt(rowindex);
+                lymx_db.Rows.InsertAt(rowrow, rowindex);
+
+                //HJ++;//合计数量加一
+                //heji.Text = HJ.ToString();//更新合计数量
+            }
         }
     }
 }

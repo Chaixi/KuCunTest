@@ -1,6 +1,6 @@
 ﻿namespace kucunTest.DaoJu
 {
-    partial class xzccmx
+    partial class xzlymx
     {
         /// <summary>
         /// Required designer variable.
@@ -47,6 +47,7 @@
             this.jcbm = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.btn_xiugai = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(182, 320);
+            this.button1.Location = new System.Drawing.Point(129, 321);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 32);
             this.button1.TabIndex = 1;
@@ -292,7 +293,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(282, 320);
+            this.button2.Location = new System.Drawing.Point(341, 320);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 32);
             this.button2.TabIndex = 1;
@@ -311,17 +312,30 @@
             this.label6.Text = "添加领用刀具";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // xzccmx
+            // btn_xiugai
+            // 
+            this.btn_xiugai.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_xiugai.Location = new System.Drawing.Point(234, 319);
+            this.btn_xiugai.Name = "btn_xiugai";
+            this.btn_xiugai.Size = new System.Drawing.Size(88, 33);
+            this.btn_xiugai.TabIndex = 7;
+            this.btn_xiugai.Text = "修改";
+            this.btn_xiugai.UseVisualStyleBackColor = true;
+            this.btn_xiugai.Visible = false;
+            this.btn_xiugai.Click += new System.EventHandler(this.btn_xiugai_Click);
+            // 
+            // xzlymx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 364);
+            this.Controls.Add(this.btn_xiugai);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "xzccmx";
+            this.Name = "xzlymx";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "添加领用刀具";
             this.Load += new System.EventHandler(this.xzccmx_Load);
@@ -353,5 +367,6 @@
         private System.Windows.Forms.ComboBox jcbm;
         private System.Windows.Forms.ComboBox djcd;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btn_xiugai;
     }
 }

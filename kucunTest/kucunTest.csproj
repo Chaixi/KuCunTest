@@ -251,11 +251,11 @@
     <Compile Include="DaoJu\DJXYHistory.designer.cs">
       <DependentUpon>DJXYHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="DaoJu\xzccmx.cs">
+    <Compile Include="DaoJu\xzlymx.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DaoJu\xzccmx.Designer.cs">
-      <DependentUpon>xzccmx.cs</DependentUpon>
+    <Compile Include="DaoJu\xzlymx.Designer.cs">
+      <DependentUpon>xzlymx.cs</DependentUpon>
     </Compile>
     <Compile Include="DaoJu\xzthmx.cs">
       <SubType>Form</SubType>
@@ -488,8 +488,8 @@
     <EmbeddedResource Include="DaoJu\DJXYHistory.resx">
       <DependentUpon>DJXYHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DaoJu\xzccmx.resx">
-      <DependentUpon>xzccmx.cs</DependentUpon>
+    <EmbeddedResource Include="DaoJu\xzlymx.resx">
+      <DependentUpon>xzlymx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\xzthmx.resx">
       <DependentUpon>xzthmx.cs</DependentUpon>
