@@ -19,6 +19,7 @@ namespace kucunTest.quanxianguanli
         public static class FormName
         {
             public static string mainFrm = "MainForm";//主界面
+
             public static string djglFrm = "DaoJuGuanLi";//刀具管理窗体
             public static string djlyFrm = "djly";//刀具领用单据窗体
             public static string djxyFrm = "djxy";//刀具续用单据窗体
@@ -31,7 +32,7 @@ namespace kucunTest.quanxianguanli
             public static string djgFrm = "djg";//刀具柜窗体
             public static string jcFrm = "jc";//机床窗体
             public static string gykFrm = "gyk";//工艺卡窗体
-
+            public static string sjdrdcFrm = "sjdrdc";//数据导入导出窗体
 
         }
 
@@ -258,6 +259,15 @@ namespace kucunTest.quanxianguanli
 
 
         #region 基础资料
+        /// <summary>
+        /// 数据导入导出界面
+        /// </summary>
+        public static class SJDRDCForm
+        {
+            public static string AllAuthorities = "jczl";//全部权限：基础资料
+            public static string jczl_sjdc = "jczl_sjdc";//数据导出
+            public static string jczl_sjdr = "jczl_sjdr";//数据导入
+        }
         #endregion 基础资料结束
 
 

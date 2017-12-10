@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.quanxianguanli;
 using kucunTest.BaseClasses;
 using System.IO;
 
@@ -25,6 +26,7 @@ namespace kucunTest.JiChuZiLiao
 
         private BaseAlex Alex = new BaseAlex();//自定义方法类
         private AutoSizeFormClass asc = new AutoSizeFormClass();//窗口自适应类
+        private Authorize Authorize = new Authorize();
 
         private string tishi = "";//提示文本
 
@@ -69,7 +71,7 @@ namespace kucunTest.JiChuZiLiao
         /// <param name="e"></param>
         private void shujudaorudaochu_Load(object sender, EventArgs e)
         {
-
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.sjdrdcFrm);
         }
 
         /// <summary>

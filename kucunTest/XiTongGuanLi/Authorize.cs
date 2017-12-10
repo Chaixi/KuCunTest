@@ -12,6 +12,7 @@ using kucunTest.Daojugui;
 using kucunTest.LingBuJian;
 using kucunTest.Jichuang;
 using kucunTest.gongyika;
+using kucunTest.JiChuZiLiao;
 using kucunTest.XiTongGuanLi;
 
 namespace kucunTest.quanxianguanli
@@ -89,6 +90,10 @@ namespace kucunTest.quanxianguanli
                 case "gyk"://工艺卡
                     gyk gykFrm = (gyk)frm;
                     setGYKForm(gykFrm);
+                    break;
+                case "sjdrdc"://数据导入导出
+                    shujudaorudaochu sjdrdcFrm = (shujudaorudaochu)frm;
+                    setSJDRDCForm(sjdrdcFrm);
                     break;
             }
         }
@@ -272,9 +277,12 @@ namespace kucunTest.quanxianguanli
 
 
             #region 基础资料：4项子菜单，其中零部件类型管理直接判断，单据管理根据单据状态判断，单据根据单据下按钮判断
-            if (!AuthorityState(db, AuthoritiesString.MainMenu.jczl, AuthoritiesString.MainMenu.AllAuthorities, true))
+            if (!AuthorityState(db, AuthoritiesString.MainMenu.jczl, AuthoritiesString.MainMenu.AllAuthorities))
             {
-                frm.tsmi_jczl.Enabled = false;
+                if (!AuthorityState(db, AuthoritiesString.SJDRDCForm.AllAuthorities, AuthoritiesString.SJDRDCForm.AllAuthorities, true))
+                {
+                    frm.tsmi_jczl.Enabled = false;
+                }
             }
             #endregion 基础资料菜单结束
 
@@ -304,6 +312,8 @@ namespace kucunTest.quanxianguanli
             #endregion 系统管理菜单结束
 
         }
+
+
 
         /// <summary>
         /// 刀具管理窗体权限设置
@@ -365,6 +375,8 @@ namespace kucunTest.quanxianguanli
             }
         }
         
+
+
         #region 刀具相关单据权限设置
         /// <summary>
         /// 刀具领用
@@ -639,6 +651,7 @@ namespace kucunTest.quanxianguanli
             }
         }
         #endregion 机床菜单结束
+        
 
         #region 工艺卡菜单
         /// <summary>
@@ -679,6 +692,30 @@ namespace kucunTest.quanxianguanli
                 if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_pdxg, AuthoritiesString.GYKForm.AllAuthorities, true))
                 {
                     frm.btn_pd_Edit.Enabled = false;
+                }
+            }
+        }
+        #endregion 工艺卡菜单结束
+
+        #region 工艺卡菜单
+        /// <summary>
+        /// 工艺卡窗体权限设置
+        /// </summary>
+        /// <param name="frm"></param>
+        private void setSJDRDCForm(shujudaorudaochu frm)
+        {
+            SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
+            DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
+
+            if (!AuthorityState(db, AuthoritiesString.SJDRDCForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities, true))
+            {
+                if (!AuthorityState(db, AuthoritiesString.SJDRDCForm.jczl_sjdc, AuthoritiesString.SJDRDCForm.AllAuthorities, true))
+                {
+                    frm.btn_output.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.SJDRDCForm.jczl_sjdr, AuthoritiesString.SJDRDCForm.AllAuthorities, true))
+                {
+                    frm.btn_save.Enabled = false;
                 }
             }
         }
