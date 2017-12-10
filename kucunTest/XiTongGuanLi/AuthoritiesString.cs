@@ -33,6 +33,8 @@ namespace kucunTest.quanxianguanli
             public static string jcFrm = "jc";//机床窗体
             public static string gykFrm = "gyk";//工艺卡窗体
             public static string sjdrdcFrm = "sjdrdc";//数据导入导出窗体
+            public static string qxglFrm = "qxgl";//权限管理窗体
+            public static string xtrzFrm = "xtrz";//系统日志窗体
 
         }
 
@@ -49,7 +51,6 @@ namespace kucunTest.quanxianguanli
             public static string gyk = "gyk";//工艺卡
             public static string jczl = "jczl";//基础资料
             public static string xtgl = "xtgl";//系统管理
-
         }
 
         #region 刀具

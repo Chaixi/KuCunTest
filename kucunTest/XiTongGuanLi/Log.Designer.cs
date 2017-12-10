@@ -169,8 +169,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtp_dateChose;
-        private System.Windows.Forms.Button btn_openExplorer;
+        public System.Windows.Forms.Button btn_openExplorer;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button btn_loadLog;
+        public System.Windows.Forms.Button btn_loadLog;
     }
 }

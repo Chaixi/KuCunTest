@@ -23,7 +23,8 @@ namespace kucunTest.quanxianguanli
 
         private AutoSizeFormClass asc = new AutoSizeFormClass();
         private XmlDocument doc = new XmlDocument();//存放权限列表（从xml文件读取）
-                
+        private Authorize Authorize = new Authorize();
+
         private string SqlStr = "";
         private string LogType = "权限管理";
         private string LogMessage = "";
@@ -86,12 +87,15 @@ namespace kucunTest.quanxianguanli
             xzglUserFlag = false;
             xzglAuthorityFlage = false;
 
-            //禁用修改密码按钮
-            btnEditPwd.Enabled = false;
-            btnConfirmEditPwd.Enabled = false;
-            btnSaveInfo.Enabled = false;
-            bntResetPwd.Enabled = false;
-            btnDeleteUser.Enabled = false;
+            btn_EditPwd.Enabled = true;
+            btn_ConfirmEditPwd.Enabled = true;
+            btn_SaveInfo.Enabled = true;
+            bnt_ResetPwd.Enabled = true;
+            btn_DeleteUser.Enabled = true;
+            btn_AddGroup.Enabled = true;
+            btn_DeleteGroup.Enabled = true;
+            btn_EditGroup.Enabled = true;
+            btn_SaveSettings.Enabled = true;
 
             //隐藏密码框，用于显示密码
             ycysmm.Visible = false;
@@ -102,6 +106,8 @@ namespace kucunTest.quanxianguanli
             //treeViewAuthorityList.Nodes[0].Expand();
 
             asc.controllInitializeSize(this);
+
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.qxglFrm);
         }
 
 
@@ -412,11 +418,11 @@ namespace kucunTest.quanxianguanli
                 ysmm.ReadOnly = true;
                 xmm.ReadOnly = true;
                 qrxmm.ReadOnly = true;
-                btnEditPwd.Enabled = false;
-                btnConfirmEditPwd.Enabled = false;
-                btnSaveInfo.Enabled = false;
-                bntResetPwd.Enabled = false;
-                btnDeleteUser.Enabled = false;
+                //btn_EditPwd.Enabled = false;
+                //btn_ConfirmEditPwd.Enabled = false;
+                //btn_SaveInfo.Enabled = false;
+                //bnt_ResetPwd.Enabled = false;
+                //btn_DeleteUser.Enabled = false;
                 ysmm.Text = "";
                 xmm.Text = "";
                 qrxmm.Text = "";
@@ -460,10 +466,13 @@ namespace kucunTest.quanxianguanli
                 xzqxStr = "";
 
                 //切换小组时重新禁止编辑
-                btnAddUsertoGroup.Enabled = false;
-                btnDeleteUserfromGroup.Enabled = false;
-                btnSaveSettings.Enabled = false;
-                btnDeleteGroup.Enabled = false;
+                //btn_AddUsertoGroup.Enabled = false;
+                //btn_DeleteUserfromGroup.Enabled = false;
+                //btn_SaveSettings.Enabled = false;
+                //btn_DeleteGroup.Enabled = false;
+                btn_AddUsertoGroup.Enabled = false;
+                btn_DeleteUserfromGroup.Enabled = false;
+
                 xiaozuming.ReadOnly = true;
                 xiaozujj.ReadOnly = true;
                 xiaozubeizhu.ReadOnly = true;
@@ -634,11 +643,11 @@ namespace kucunTest.quanxianguanli
                 return;
             }
 
-            btnEditPwd.Enabled = true;
-            btnConfirmEditPwd.Enabled = true;
-            btnSaveInfo.Enabled = true;
-            bntResetPwd.Enabled = true;
-            btnDeleteUser.Enabled = true;
+            //btn_EditPwd.Enabled = true;
+            //btn_ConfirmEditPwd.Enabled = true;
+            //btn_SaveInfo.Enabled = true;
+            //bnt_ResetPwd.Enabled = true;
+            //btn_DeleteUser.Enabled = true;
             yhm.ReadOnly = false;
             yhxm.ReadOnly = false;
             ssjs.ReadOnly = false;
@@ -839,7 +848,7 @@ namespace kucunTest.quanxianguanli
                 }
             }
 
-            SqlStr = string.Format("UPDATE `{0}` SET `{1}` = '{2}', {3} = '{4}', {5} = '{6}', {7} = '{6}', {8} = '{9}', {10} = '{11}' WHERE `{1}` = '{12}'", User.TableName, User.name, yhm.Text, User.xingming, yhxm.Text, User.type, ssjs.Text, User.groupName, User.bumen, ssbm.Text, User.bz, beizhu.Text, treeViewUserList.SelectedNode.Text);
+            SqlStr = string.Format("UPDATE `{0}` SET `{1}` = '{2}', {3} = '{4}', {5} = '{6}', {7} = '{13}', {8} = '{9}', {10} = '{11}' WHERE `{1}` = '{12}'", User.TableName, User.name, yhm.Text, User.xingming, yhxm.Text, User.type, ssjs.Text, User.groupName, User.bumen, ssbm.Text, User.bz, beizhu.Text, treeViewUserList.SelectedNode.Text, ssxiaozu.Text.ToString());
             Sql.ExecuteNonQuery(SqlStr);
 
             //日志记录
@@ -942,17 +951,16 @@ namespace kucunTest.quanxianguanli
                 return;
             }
 
-            btnAddUsertoGroup.Enabled = true;
-            btnDeleteUserfromGroup.Enabled = true;
-            btnSaveSettings.Enabled = true;
-            btnDeleteGroup.Enabled = true;
+            btn_AddUsertoGroup.Enabled = true;
+            btn_DeleteUserfromGroup.Enabled = true;
+            //btn_SaveSettings.Enabled = true;
+            //btn_DeleteGroup.Enabled = true;
             xiaozuming.ReadOnly = false;
             xiaozujj.ReadOnly = false;
             xiaozubeizhu.ReadOnly = false;
             treeViewUserinGroup.Enabled = true;
             treeViewAuthorityList.Enabled = true;
             treeViewUsernotinGroup.Enabled = true;
-
         }
 
 
@@ -1250,6 +1258,10 @@ namespace kucunTest.quanxianguanli
             asc.controlAutoSize(this);
         }
 
+        private void qxguanli_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Alex.CloseFormFromTabpages(this);
+        }
         #endregion
 
 
@@ -1325,10 +1337,6 @@ namespace kucunTest.quanxianguanli
 
         #endregion
 
-        private void qxguanli_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Alex.CloseFormFromTabpages(this);
-
-        }
+        
     }
 }

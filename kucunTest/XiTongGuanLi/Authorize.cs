@@ -95,6 +95,14 @@ namespace kucunTest.quanxianguanli
                     shujudaorudaochu sjdrdcFrm = (shujudaorudaochu)frm;
                     setSJDRDCForm(sjdrdcFrm);
                     break;
+                case "qxgl"://权限管理
+                    qxguanli qxglFrm = (qxguanli)frm;
+                    setQXGLForm(qxglFrm);
+                    break;
+                case "xtrz"://系统日志
+                    Log logFrm = (Log)frm;
+                    setXTRZForm(logFrm);
+                    break;
             }
         }
 
@@ -697,9 +705,10 @@ namespace kucunTest.quanxianguanli
         }
         #endregion 工艺卡菜单结束
 
-        #region 工艺卡菜单
+
+        #region 基础资料菜单
         /// <summary>
-        /// 工艺卡窗体权限设置
+        /// 数据导入导出窗体权限设置
         /// </summary>
         /// <param name="frm"></param>
         private void setSJDRDCForm(shujudaorudaochu frm)
@@ -719,6 +728,90 @@ namespace kucunTest.quanxianguanli
                 }
             }
         }
-        #endregion 工艺卡菜单结束
+        #endregion 基础资料菜单结束
+
+
+        #region 系统管理菜单
+        /// <summary>
+        /// 权限管理窗体权限设置
+        /// </summary>
+        /// <param name="frm"></param>
+        private void setQXGLForm(qxguanli frm)
+        {
+            SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
+            DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
+
+            if (!AuthorityState(db, AuthoritiesString.QXGLForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities, true))
+            {
+                if (!AuthorityState(db, AuthoritiesString.QXGLForm.tjyh, AuthoritiesString.QXGLForm.AllAuthorities, true))
+                {
+                    frm.btn_AddUser.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.QXGLForm.scyh, AuthoritiesString.QXGLForm.AllAuthorities, true))
+                {
+                    frm.btn_DeleteUser.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.QXGLForm.bjyh, AuthoritiesString.QXGLForm.AllAuthorities, true))
+                {
+                    frm.btn_EditUser.Enabled = false;
+                    frm.btn_SaveInfo.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.QXGLForm.xgmm, AuthoritiesString.QXGLForm.AllAuthorities, true))
+                {
+                    frm.btn_EditPwd.Enabled = false;
+                    frm.btn_ConfirmEditPwd.Enabled = false;
+                }
+                //if (!AuthorityState(db, AuthoritiesString.QXGLForm.bcxx, AuthoritiesString.QXGLForm.AllAuthorities))
+                //{
+                //    frm.btn_SaveInfo.Enabled = false;
+                //}
+                if (!AuthorityState(db, AuthoritiesString.QXGLForm.czmm, AuthoritiesString.QXGLForm.AllAuthorities, true))
+                {
+                    frm.bnt_ResetPwd.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.QXGLForm.xjxz, AuthoritiesString.QXGLForm.AllAuthorities, true))
+                {
+                    frm.btn_AddGroup.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.QXGLForm.scxz, AuthoritiesString.QXGLForm.AllAuthorities, true))
+                {
+                    frm.btn_DeleteGroup.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.QXGLForm.bjxz, AuthoritiesString.QXGLForm.AllAuthorities, true))
+                {
+                    frm.btn_EditGroup.Enabled = false;
+                    frm.btn_AddUsertoGroup.Enabled = false;
+                    frm.btn_DeleteUserfromGroup.Enabled = false;
+                    frm.btn_SaveSettings.Enabled = false;
+                }
+                //if (!AuthorityState(db, AuthoritiesString.QXGLForm.bcsz, AuthoritiesString.QXGLForm.AllAuthorities))
+                //{
+                //    frm.btn_save.Enabled = false;
+                //}
+            }
+        }
+
+        /// <summary>
+        /// 系统日志窗体权限设置
+        /// </summary>
+        /// <param name="frm"></param>
+        private void setXTRZForm(Log frm)
+        {
+            SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
+            DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
+
+            if (!AuthorityState(db, AuthoritiesString.XTRZYForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities, true))
+            {
+                if (!AuthorityState(db, AuthoritiesString.XTRZYForm.jzrz, AuthoritiesString.XTRZYForm.AllAuthorities, true))
+                {
+                    frm.btn_loadLog.Enabled = false;
+                }
+                if (!AuthorityState(db, AuthoritiesString.XTRZYForm.zwjjzck, AuthoritiesString.XTRZYForm.AllAuthorities, true))
+                {
+                    frm.btn_openExplorer.Enabled = false;
+                }
+            }
+        }
+        #endregion 系统管理菜单结束
     }
 }

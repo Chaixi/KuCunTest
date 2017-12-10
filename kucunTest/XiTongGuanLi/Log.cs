@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using System.IO;
 using kucunTest.BaseClasses;
+using kucunTest.quanxianguanli;
 
 namespace kucunTest.XiTongGuanLi
 {
@@ -18,6 +19,7 @@ namespace kucunTest.XiTongGuanLi
         #region 全局变量
         string LogFilePath = string.Format("{0}\\LogFile\\{1}", Program._PATH, DateTime.Now.ToString("yyyy"));//系统日志文件夹路径
         private BaseAlex Alex = new BaseAlex();
+        private Authorize Authorize = new Authorize();
         #endregion 全局变量结束
 
         /// <summary>
@@ -39,6 +41,8 @@ namespace kucunTest.XiTongGuanLi
         /// <param name="e"></param>
         private void Log_Load(object sender, EventArgs e)
         {
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.xtrzFrm);
+
             btn_loadLog_Click(null, null);
         }
 
