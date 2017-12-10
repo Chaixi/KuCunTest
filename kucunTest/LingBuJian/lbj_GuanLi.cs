@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using kucunTest.BaseClasses;
+using kucunTest.quanxianguanli;
 
 namespace kucunTest.LingBuJian
 {
@@ -17,6 +18,7 @@ namespace kucunTest.LingBuJian
         #region 全局变量
         MySql SQL = new MySql();
         String Sqlstr = "";
+        private Authorize Authorize = new Authorize();
 
         //提示文本
         string tishi = "";
@@ -74,6 +76,8 @@ namespace kucunTest.LingBuJian
 
             //库存表取得焦点
             lbjxinxi.Focus();
+
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.lbjglFrm);
         }
 
         /// <summary>

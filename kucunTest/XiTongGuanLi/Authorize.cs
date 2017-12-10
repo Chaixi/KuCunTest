@@ -79,6 +79,19 @@ namespace kucunTest.quanxianguanli
                     DaoJuCanShuXinXi djclFrm = (DaoJuCanShuXinXi)frm;
                     setDJCLForm(djclFrm);
                     break;
+                case "lbjgl"://零部件管理
+                    lbj_GuanLi lbjglFrm = (lbj_GuanLi)frm;
+                    setLBJGLForm(lbjglFrm);
+                    break;
+                case "lbjly"://零部件零用单据
+                    LBJLY lbjlyFrm = (LBJLY)frm;
+                    setLBJLYForm(lbjlyFrm);
+                    break;
+                case "lbjth"://零部件退还单据
+                    LBJTH lbjthFrm = (LBJTH)frm;
+                    setLBJTHForm(lbjthFrm);
+                    break;
+
                 case "djg"://刀具柜
                     daojugui djgFrm =(daojugui)frm;
                     setDJGForm(djgFrm);
@@ -322,7 +335,7 @@ namespace kucunTest.quanxianguanli
         }
 
 
-
+        #region 刀具菜单
         /// <summary>
         /// 刀具管理窗体权限设置
         /// </summary>
@@ -381,11 +394,8 @@ namespace kucunTest.quanxianguanli
             {
                 frm.btn_djbf.Enabled = false;
             }
-        }
-        
+        }        
 
-
-        #region 刀具相关单据权限设置
         /// <summary>
         /// 刀具领用
         /// </summary>
@@ -600,7 +610,119 @@ namespace kucunTest.quanxianguanli
             }           
         }
 
-        #endregion 刀具相关单据权限设置结束
+        #endregion 刀具菜单结束
+
+
+
+        #region 零部件菜单
+        /// <summary>
+        /// 零部件管理窗体权限设置
+        /// </summary>
+        /// <param name="frm"></param>
+        private void setLBJGLForm(lbj_GuanLi frm)
+        {
+            SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
+            DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
+
+            if (AuthorityState(db, AuthoritiesString.LBJGLForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities))
+            {
+                return;
+            }
+            //if (!AuthorityState(db, AuthoritiesString.DJGLForm.lxgl, AuthoritiesString.DJGLForm.AllAuthorities))
+            //{
+            //    MainForm mdiParentFrm = (MainForm)frm.MdiParent;
+            //    mdiParentFrm.tsmi_dj_djlxgl.Visible = false;
+            //}
+            if (!AuthorityState(db, AuthoritiesString.LBJGLForm.lbjly, AuthoritiesString.LBJGLForm.AllAuthorities, true))
+            {
+                frm.btn_lbjly.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJGLForm.lbjth, AuthoritiesString.LBJGLForm.AllAuthorities, true))
+            {
+                frm.btn_lbjth.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJGLForm.kcmx, AuthoritiesString.LBJGLForm.AllAuthorities))
+            {
+                frm.btn_kcmx.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJGLForm.xgkcl, AuthoritiesString.LBJGLForm.AllAuthorities))
+            {
+                frm.btn_xgkxl.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJGLForm.lbjlyjl, AuthoritiesString.LBJGLForm.lbjly))
+            {
+                frm.btn_lbjlyjl.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJGLForm.lbjthjl, AuthoritiesString.LBJGLForm.lbjth))
+            {
+                frm.btn_lbjthjl.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// 零部件领用单据窗体权限设置
+        /// </summary>
+        /// <param name="frm"></param>
+        private void setLBJLYForm(LBJLY frm)
+        {
+            SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
+            DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
+
+            if (AuthorityState(db, AuthoritiesString.LBJLYForm.AllAuthorities, AuthoritiesString.LBJLYForm.AllAuthorities))
+            {
+                return;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJLYForm.bc, AuthoritiesString.LBJLYForm.AllAuthorities))
+            {
+                frm.btn_save.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJLYForm.qr, AuthoritiesString.LBJLYForm.AllAuthorities))
+            {
+                frm.btn_confirm.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJLYForm.dy, AuthoritiesString.LBJLYForm.AllAuthorities))
+            {
+                frm.btn_print.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJLYForm.sc, AuthoritiesString.LBJLYForm.AllAuthorities))
+            {
+                frm.btn_delete.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// 零部件退还单据窗体权限设置
+        /// </summary>
+        /// <param name="frm"></param>
+        private void setLBJTHForm(LBJTH frm)
+        {
+            SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
+            DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
+
+            if (AuthorityState(db, AuthoritiesString.LBJTHForm.AllAuthorities, AuthoritiesString.LBJTHForm.AllAuthorities))
+            {
+                return;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJTHForm.bc, AuthoritiesString.LBJTHForm.AllAuthorities))
+            {
+                frm.btn_save.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJTHForm.qr, AuthoritiesString.LBJTHForm.AllAuthorities))
+            {
+                frm.btn_confirm.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJTHForm.dy, AuthoritiesString.LBJTHForm.AllAuthorities))
+            {
+                frm.btn_print.Enabled = false;
+            }
+            if (!AuthorityState(db, AuthoritiesString.LBJTHForm.sc, AuthoritiesString.LBJTHForm.AllAuthorities))
+            {
+                frm.btn_delete.Enabled = false;
+            }
+        }
+
+        #endregion 零部件菜单结束
+
 
 
         #region 刀具柜菜单
@@ -615,21 +737,22 @@ namespace kucunTest.quanxianguanli
 
             if (!AuthorityState(db, AuthoritiesString.DJGForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities, true))
             {
-                if (!AuthorityState(db, AuthoritiesString.DJGForm.djg_xzdjg, AuthoritiesString.DJGForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.DJGForm.djg_xzdjg, AuthoritiesString.DJGForm.AllAuthorities))
                 {
                     frm.btn_xzdjg.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.DJGForm.djg_scdjg, AuthoritiesString.DJGForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.DJGForm.djg_scdjg, AuthoritiesString.DJGForm.AllAuthorities))
                 {
                     frm.btn_scdjg.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.DJGForm.djg_drtp, AuthoritiesString.DJGForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.DJGForm.djg_drtp, AuthoritiesString.DJGForm.AllAuthorities))
                 {
                     frm.btn_drtp.Enabled = false;
                 }
             }
         }
         #endregion 刀具柜菜单结束
+
 
 
         #region 机床菜单
@@ -642,17 +765,17 @@ namespace kucunTest.quanxianguanli
             SqlStr = string.Format("SELECT qxdm, qxzt, qxfm FROM {0} g WHERE g.{1} = (SELECT u.{2} FROM `{3}` u WHERE u.`{4}` = '{5}' )", QuanXian.TableName, QuanXian.qxgroup, User.groupName, User.TableName, User.name, username);
             DataTable db = SQL.getDataSet1(SqlStr).Tables[0];
 
-            if (!AuthorityState(db, AuthoritiesString.JCForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities, true))
+            if (!AuthorityState(db, AuthoritiesString.JCForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities))
             {
-                if (!AuthorityState(db, AuthoritiesString.JCForm.jc_xzjc, AuthoritiesString.JCForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.JCForm.jc_xzjc, AuthoritiesString.JCForm.AllAuthorities))
                 {
                     frm.btn_xzjc.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.JCForm.jc_scjc, AuthoritiesString.JCForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.JCForm.jc_scjc, AuthoritiesString.JCForm.AllAuthorities))
                 {
                     frm.btn_scjc.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.JCForm.jc_drtp, AuthoritiesString.JCForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.JCForm.jc_drtp, AuthoritiesString.JCForm.AllAuthorities))
                 {
                     frm.btn_drtp.Enabled = false;
                 }
@@ -660,6 +783,7 @@ namespace kucunTest.quanxianguanli
         }
         #endregion 机床菜单结束
         
+
 
         #region 工艺卡菜单
         /// <summary>
@@ -673,37 +797,38 @@ namespace kucunTest.quanxianguanli
 
             if (!AuthorityState(db, AuthoritiesString.GYKForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities, true))
             {
-                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_xz, AuthoritiesString.GYKForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_xz, AuthoritiesString.GYKForm.AllAuthorities))
                 {
                     frm.btn_gyk_New.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_bc, AuthoritiesString.GYKForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_bc, AuthoritiesString.GYKForm.AllAuthorities))
                 {
                     frm.btn_gyk_Save.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_sc, AuthoritiesString.GYKForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_sc, AuthoritiesString.GYKForm.AllAuthorities))
                 {
                     frm.btn_gyk_Delete.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_gxxz, AuthoritiesString.GYKForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_gxxz, AuthoritiesString.GYKForm.AllAuthorities))
                 {
                     frm.btn_gx_New.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_gxxg, AuthoritiesString.GYKForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_gxxg, AuthoritiesString.GYKForm.AllAuthorities))
                 {
                     frm.btn_gx_Edit.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_pdxz, AuthoritiesString.GYKForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_pdxz, AuthoritiesString.GYKForm.AllAuthorities))
                 {
                     frm.btn_pd_New.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_pdxg, AuthoritiesString.GYKForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.GYKForm.gyk_pdxg, AuthoritiesString.GYKForm.AllAuthorities))
                 {
                     frm.btn_pd_Edit.Enabled = false;
                 }
             }
         }
         #endregion 工艺卡菜单结束
+
 
 
         #region 基础资料菜单
@@ -718,17 +843,18 @@ namespace kucunTest.quanxianguanli
 
             if (!AuthorityState(db, AuthoritiesString.SJDRDCForm.AllAuthorities, AuthoritiesString.MainMenu.AllAuthorities, true))
             {
-                if (!AuthorityState(db, AuthoritiesString.SJDRDCForm.jczl_sjdc, AuthoritiesString.SJDRDCForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.SJDRDCForm.jczl_sjdc, AuthoritiesString.SJDRDCForm.AllAuthorities))
                 {
                     frm.btn_output.Enabled = false;
                 }
-                if (!AuthorityState(db, AuthoritiesString.SJDRDCForm.jczl_sjdr, AuthoritiesString.SJDRDCForm.AllAuthorities, true))
+                if (!AuthorityState(db, AuthoritiesString.SJDRDCForm.jczl_sjdr, AuthoritiesString.SJDRDCForm.AllAuthorities))
                 {
                     frm.btn_save.Enabled = false;
                 }
             }
         }
         #endregion 基础资料菜单结束
+
 
 
         #region 系统管理菜单

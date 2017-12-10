@@ -40,11 +40,11 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_lbjthjl = new System.Windows.Forms.Button();
+            this.btn_kcmx = new System.Windows.Forms.Button();
+            this.btn_lbjlyjl = new System.Windows.Forms.Button();
             this.btn_lbjth = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.btn_lbjly = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.lbjxinxi = new System.Windows.Forms.DataGridView();
             this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lbjmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -221,11 +221,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btn_lbjthjl);
+            this.groupBox2.Controls.Add(this.btn_kcmx);
+            this.groupBox2.Controls.Add(this.btn_lbjlyjl);
             this.groupBox2.Controls.Add(this.btn_lbjth);
-            this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.btn_lbjly);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.lbjxinxi);
             this.groupBox2.Controls.Add(this.btn_xgkxl);
             this.groupBox2.Controls.Add(this.label21);
@@ -241,57 +241,57 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "零部件列表";
             // 
+            // btn_lbjthjl
+            // 
+            this.btn_lbjthjl.Location = new System.Drawing.Point(1023, 303);
+            this.btn_lbjthjl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_lbjthjl.Name = "btn_lbjthjl";
+            this.btn_lbjthjl.Size = new System.Drawing.Size(104, 36);
+            this.btn_lbjthjl.TabIndex = 7;
+            this.btn_lbjthjl.Text = "退 还 记 录";
+            this.btn_lbjthjl.UseVisualStyleBackColor = true;
+            this.btn_lbjthjl.Click += new System.EventHandler(this.btn_lbjth_Click);
+            // 
+            // btn_kcmx
+            // 
+            this.btn_kcmx.Location = new System.Drawing.Point(1023, 194);
+            this.btn_kcmx.Name = "btn_kcmx";
+            this.btn_kcmx.Size = new System.Drawing.Size(104, 36);
+            this.btn_kcmx.TabIndex = 5;
+            this.btn_kcmx.Text = "库 存 明 细";
+            this.btn_kcmx.UseVisualStyleBackColor = true;
+            this.btn_kcmx.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btn_lbjlyjl
+            // 
+            this.btn_lbjlyjl.Location = new System.Drawing.Point(1023, 248);
+            this.btn_lbjlyjl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_lbjlyjl.Name = "btn_lbjlyjl";
+            this.btn_lbjlyjl.Size = new System.Drawing.Size(104, 36);
+            this.btn_lbjlyjl.TabIndex = 7;
+            this.btn_lbjlyjl.Text = "领 用 记 录";
+            this.btn_lbjlyjl.UseVisualStyleBackColor = true;
+            this.btn_lbjlyjl.Click += new System.EventHandler(this.btn_lbjly_Click);
+            // 
             // btn_lbjth
             // 
-            this.btn_lbjth.Location = new System.Drawing.Point(1023, 303);
-            this.btn_lbjth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_lbjth.Location = new System.Drawing.Point(1023, 86);
             this.btn_lbjth.Name = "btn_lbjth";
             this.btn_lbjth.Size = new System.Drawing.Size(104, 36);
-            this.btn_lbjth.TabIndex = 7;
-            this.btn_lbjth.Text = "退 还 记 录";
+            this.btn_lbjth.TabIndex = 5;
+            this.btn_lbjth.Text = "零部件退还";
             this.btn_lbjth.UseVisualStyleBackColor = true;
-            this.btn_lbjth.Click += new System.EventHandler(this.btn_lbjth_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(1023, 194);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 36);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "库 存 明 细";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_lbjth.Click += new System.EventHandler(this.button3_Click);
             // 
             // btn_lbjly
             // 
-            this.btn_lbjly.Location = new System.Drawing.Point(1023, 248);
-            this.btn_lbjly.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_lbjly.Location = new System.Drawing.Point(1023, 32);
             this.btn_lbjly.Name = "btn_lbjly";
             this.btn_lbjly.Size = new System.Drawing.Size(104, 36);
-            this.btn_lbjly.TabIndex = 7;
-            this.btn_lbjly.Text = "领 用 记 录";
+            this.btn_lbjly.TabIndex = 5;
+            this.btn_lbjly.Text = "零部件领用";
             this.btn_lbjly.UseVisualStyleBackColor = true;
-            this.btn_lbjly.Click += new System.EventHandler(this.btn_lbjly_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1023, 86);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 36);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "零部件退还";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1023, 32);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 36);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "零部件领用";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_lbjly.Click += new System.EventHandler(this.button2_Click);
             // 
             // lbjxinxi
             // 
@@ -984,10 +984,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.Button btn_xgkxl;
+        public System.Windows.Forms.Button btn_xgkxl;
         private System.Windows.Forms.PictureBox LBJTP;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btn_lbjly;
+        public System.Windows.Forms.Button btn_lbjlyjl;
         private System.Windows.Forms.ComboBox search_jtwz;
         private System.Windows.Forms.ComboBox search_djgbm;
         private System.Windows.Forms.Label label20;
@@ -996,10 +996,10 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox LBJZSL;
         private System.Windows.Forms.TextBox LBJGGS;
-        private System.Windows.Forms.Button btn_lbjth;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btn_lbjthjl;
+        public System.Windows.Forms.Button btn_kcmx;
+        public System.Windows.Forms.Button btn_lbjth;
+        public System.Windows.Forms.Button btn_lbjly;
         private System.Windows.Forms.DataGridViewCheckBoxColumn check;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjmc;
         private System.Windows.Forms.DataGridViewTextBoxColumn lbjxh;

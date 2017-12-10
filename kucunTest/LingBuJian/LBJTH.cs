@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.quanxianguanli;
 using kucunTest.BaseClasses;
 using FastReport;
 
@@ -21,6 +22,7 @@ namespace kucunTest.LingBuJian
 
         BaseAlex Alex = new BaseAlex();
         AutoSizeFormClass asc = new AutoSizeFormClass();//窗口自适应类
+        private Authorize Authorize = new Authorize();
 
         DataTable thmx_db = new DataTable();//退还明细数据源
 
@@ -126,8 +128,8 @@ namespace kucunTest.LingBuJian
             if (djzt == "1")
             {
                 Alex.DisableAllControl(this);
-                button_print.Enabled = true;
-                button_delete.Enabled = true;
+                btn_print.Enabled = true;
+                btn_delete.Enabled = true;
                 queren = true;//是已确认单据
             }
             else
@@ -144,6 +146,7 @@ namespace kucunTest.LingBuJian
         private void LBJTH_Load(object sender, EventArgs e)
         {
             //asc.controllInitializeSize(this);
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.lbjthFrm);
         }
 
         /*----------------------------------------------------------------明细部分-----------------------------------------------------------------------------------------------------------------*/

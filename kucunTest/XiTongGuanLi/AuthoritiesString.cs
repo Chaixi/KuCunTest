@@ -29,6 +29,10 @@ namespace kucunTest.quanxianguanli
             public static string djbfFrm = "djbf";//刀具报废单据窗体
             public static string djclFrm = "djcl";//刀具测量窗体
 
+            public static string lbjglFrm = "lbjgl";//零部件管理窗体
+            public static string lbjlyFrm = "lbjly";//零部件领用单据窗体
+            public static string lbjthFrm = "lbjth";//零部件退还单据窗体
+
             public static string djgFrm = "djg";//刀具柜窗体
             public static string jcFrm = "jc";//机床窗体
             public static string gykFrm = "gyk";//工艺卡窗体
@@ -172,12 +176,13 @@ namespace kucunTest.quanxianguanli
         public static class LBJGLForm
         {
             public static string AllAuthorities = "lbj";//零部件
-            public static string lxgl = "lbj_lxgl";//
-            public static string kcmx = "lbj_kcmx";//
-            public static string lbjly = "lbj_lbjly";//
-            public static string lbjth = "lbj_lbjth";//
-            public static string xgkcl = "lbj_xgkcl";//
-
+            public static string lxgl = "lbj_lxgl";//类型管理
+            public static string kcmx = "lbj_kcmx";//库存明细
+            public static string lbjly = "lbj_lbjly";//零部件领用
+            public static string lbjth = "lbj_lbjth";//零部件退换
+            public static string xgkcl = "lbj_xgkcl";//修改库存量
+            public static string lbjlyjl = "lbj_lbjly_djlsjl";//零部件领用记录
+            public static string lbjthjl = "lbj_lbjth_djlsjl";//零部件退还记录
         }
 
         /// <summary>

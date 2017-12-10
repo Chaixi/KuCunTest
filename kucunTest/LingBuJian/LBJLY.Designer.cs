@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -88,11 +88,11 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.JBR = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.btnexit = new System.Windows.Forms.Button();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btn_confirm = new System.Windows.Forms.Button();
+            this.btn_print = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lingyongmingxi)).BeginInit();
@@ -515,8 +515,8 @@
             // 
             // lingyongmingxi
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            this.lingyongmingxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.lingyongmingxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.lingyongmingxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.lingyongmingxi.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -800,19 +800,19 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Visible = false;
             // 
-            // btnexit
+            // btn_exit
             // 
-            this.btnexit.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btnexit.Image = global::kucunTest.Properties.Resources.cancel;
-            this.btnexit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnexit.Location = new System.Drawing.Point(625, 741);
-            this.btnexit.Name = "btnexit";
-            this.btnexit.Size = new System.Drawing.Size(98, 32);
-            this.btnexit.TabIndex = 6;
-            this.btnexit.Text = "退    出";
-            this.btnexit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnexit.UseVisualStyleBackColor = true;
-            this.btnexit.Click += new System.EventHandler(this.button5_Click);
+            this.btn_exit.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btn_exit.Image = global::kucunTest.Properties.Resources.cancel;
+            this.btn_exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_exit.Location = new System.Drawing.Point(625, 741);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(98, 32);
+            this.btn_exit.TabIndex = 6;
+            this.btn_exit.Text = "退    出";
+            this.btn_exit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.button5_Click);
             // 
             // btn_save
             // 
@@ -828,47 +828,47 @@
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
-            // btnConfirm
+            // btn_confirm
             // 
-            this.btnConfirm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnConfirm.Image = global::kucunTest.Properties.Resources._lock;
-            this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirm.Location = new System.Drawing.Point(313, 741);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(98, 32);
-            this.btnConfirm.TabIndex = 5;
-            this.btnConfirm.Text = "确认领用";
-            this.btnConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.btn_confirm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_confirm.Image = global::kucunTest.Properties.Resources._lock;
+            this.btn_confirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_confirm.Location = new System.Drawing.Point(313, 741);
+            this.btn_confirm.Name = "btn_confirm";
+            this.btn_confirm.Size = new System.Drawing.Size(98, 32);
+            this.btn_confirm.TabIndex = 5;
+            this.btn_confirm.Text = "确认领用";
+            this.btn_confirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_confirm.UseVisualStyleBackColor = true;
+            this.btn_confirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // btnPrint
+            // btn_print
             // 
-            this.btnPrint.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPrint.Image = global::kucunTest.Properties.Resources.print;
-            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(417, 741);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(98, 32);
-            this.btnPrint.TabIndex = 3;
-            this.btnPrint.Text = "打印单据";
-            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.btn_print.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_print.Image = global::kucunTest.Properties.Resources.print;
+            this.btn_print.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_print.Location = new System.Drawing.Point(417, 741);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(98, 32);
+            this.btn_print.TabIndex = 3;
+            this.btn_print.Text = "打印单据";
+            this.btn_print.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // btnDelete
+            // btn_delete
             // 
-            this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Image = global::kucunTest.Properties.Resources.remove;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(521, 741);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(98, 32);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "删除单据";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btn_delete.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_delete.Image = global::kucunTest.Properties.Resources.remove;
+            this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_delete.Location = new System.Drawing.Point(521, 741);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(98, 32);
+            this.btn_delete.TabIndex = 3;
+            this.btn_delete.Text = "删除单据";
+            this.btn_delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // LBJLY
             // 
@@ -877,17 +877,17 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1015, 786);
-            this.Controls.Add(this.btnexit);
+            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.danhao);
             this.Controls.Add(this.btn_save);
-            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btn_confirm);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.btn_print);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.label1);
             this.Name = "LBJLY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -919,9 +919,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Button btnDelete;
+        public System.Windows.Forms.Button btn_confirm;
+        public System.Windows.Forms.Button btn_print;
+        public System.Windows.Forms.Button btn_delete;
         //表格：DataGridView
         private System.Windows.Forms.DataGridView lingyongmingxi;
         private System.Windows.Forms.TextBox danhao;
@@ -944,8 +944,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox heji;
-        private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Button btnexit;
+        public System.Windows.Forms.Button btn_save;
+        public System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Button btnMXDelete;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_kcsl;

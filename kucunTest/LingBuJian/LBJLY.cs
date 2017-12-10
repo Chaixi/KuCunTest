@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kucunTest.quanxianguanli;
 using kucunTest.BaseClasses;
 using FastReport;
 
@@ -25,6 +26,7 @@ namespace kucunTest.LingBuJian
 
         BaseAlex Alex = new BaseAlex();
         AutoSizeFormClass asc = new AutoSizeFormClass();//窗口自适应类
+        private Authorize Authorize = new Authorize();
         
         DataTable lymx_db = new DataTable();
 
@@ -122,8 +124,8 @@ namespace kucunTest.LingBuJian
             if (djzt == "1")
             {
                 Alex.DisableAllControl(this);
-                btnPrint.Enabled = true;
-                btnexit.Enabled = true;
+                btn_print.Enabled = true;
+                btn_exit.Enabled = true;
                 queren = true;//是已确认单据
             }
             else
@@ -140,6 +142,8 @@ namespace kucunTest.LingBuJian
         private void LBJLY_Load(object sender, EventArgs e)
         {
             //asc.controllInitializeSize(this);//记录窗体及控件初始大小，以便自适应
+
+            this.Authorize.setAuthority(this, AuthoritiesString.FormName.lbjlyFrm);
         }
 
         #endregion 构造函数与窗体加载部分结束
