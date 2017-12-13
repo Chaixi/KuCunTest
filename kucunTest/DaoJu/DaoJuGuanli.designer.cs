@@ -1374,7 +1374,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox4.Size = new System.Drawing.Size(211, 908);
+            this.groupBox4.Size = new System.Drawing.Size(211, 952);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "刀具类型";
@@ -1386,14 +1386,14 @@
             this.treeView1.Location = new System.Drawing.Point(4, 27);
             this.treeView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(203, 876);
+            this.treeView1.Size = new System.Drawing.Size(203, 920);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(59, 927);
+            this.label5.Location = new System.Drawing.Point(15, 950);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 21);

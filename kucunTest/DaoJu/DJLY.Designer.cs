@@ -211,6 +211,7 @@
             this.ZJGX.Name = "ZJGX";
             this.ZJGX.Size = new System.Drawing.Size(181, 29);
             this.ZJGX.TabIndex = 1;
+            this.ZJGX.Click += new System.EventHandler(this.ZJGX_Click);
             // 
             // label7
             // 
@@ -616,7 +617,7 @@
         private System.Windows.Forms.DateTimePicker LYRQ;
 
         #endregion 声明变量结束
-        private System.Windows.Forms.TextBox ZJGX;
+        public System.Windows.Forms.TextBox ZJGX;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox LYR;

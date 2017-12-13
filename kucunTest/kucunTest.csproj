@@ -275,6 +275,12 @@
     <Compile Include="DaoJu\ZhuangPeiDaoJu.designer.cs">
       <DependentUpon>ZhuangPeiDaoJu.cs</DependentUpon>
     </Compile>
+    <Compile Include="gongyika\GongXuXuanZe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gongyika\GongXuXuanZe.Designer.cs">
+      <DependentUpon>GongXuXuanZe.cs</DependentUpon>
+    </Compile>
     <Compile Include="gongyika\gyk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -499,6 +505,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DaoJu\ZhuangPeiDaoJu.resx">
       <DependentUpon>ZhuangPeiDaoJu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gongyika\GongXuXuanZe.resx">
+      <DependentUpon>GongXuXuanZe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gongyika\gyk.resx">
       <DependentUpon>gyk.cs</DependentUpon>

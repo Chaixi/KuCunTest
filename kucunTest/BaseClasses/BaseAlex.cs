@@ -264,7 +264,7 @@ namespace kucunTest.BaseClasses
         /// <summary>
         /// 加载所有名称或编码，如刀具柜、班组、机床等，返回字符串list
         /// </summary>
-        /// <param name="type">班组：bz, 机床：jc, 刀具柜：djg, 生产线：ssx, 刀具类型：djlx, 零部件名称：lbjmc,</param>
+        /// <param name="type">班组：bz, 机床：jc, 刀具柜：djg, 生产线：ssx, 刀具类型：djlx, 零部件名称：lbjmc, 工艺卡编号：gyk, </param>
         /// <returns></returns>
         public List<string> GetList(string type)
         {
@@ -289,6 +289,9 @@ namespace kucunTest.BaseClasses
                     break;
                 case "lbjmc":
                     Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0}", LingBuJianBiao.TableName, LingBuJianBiao.mc);
+                    break;
+                case "gyk":
+                    Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0}", GongYiKa.TableName, GongYiKa.gykbh);
                     break;
             }
 

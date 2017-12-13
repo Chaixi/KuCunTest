@@ -8,6 +8,7 @@ using MySql.Data.MySqlClient;
 using kucunTest.BaseClasses;
 using FastReport;
 using kucunTest.quanxianguanli;
+using kucunTest.gongyika;
 
 namespace kucunTest.DaoJu
 {
@@ -710,7 +711,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void lingyongmingxi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if(e.RowIndex >= 0 && e.RowIndex < lingyongmingxi.Rows.Count - 1)
             {
                 DataRow row = ((lingyongmingxi.Rows[e.RowIndex].DataBoundItem) as DataRowView).Row;
                 xzlymx xzlymx = new xzlymx(row, e.RowIndex);
@@ -740,6 +741,13 @@ namespace kucunTest.DaoJu
                 //HJ++;//合计数量加一
                 //heji.Text = HJ.ToString();//更新合计数量
             }
+        }
+
+        private void ZJGX_Click(object sender, EventArgs e)
+        {
+            GongXuXuanZe xzzjgx = new GongXuXuanZe();
+            xzzjgx.Owner = this;
+            xzzjgx.ShowDialog();
         }
     }
 }

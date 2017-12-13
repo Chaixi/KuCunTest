@@ -47,7 +47,7 @@
             this.xzbeizhu.Multiline = true;
             this.xzbeizhu.Name = "xzbeizhu";
             this.xzbeizhu.Size = new System.Drawing.Size(262, 83);
-            this.xzbeizhu.TabIndex = 29;
+            this.xzbeizhu.TabIndex = 2;
             // 
             // labelbeizhu
             // 
@@ -57,7 +57,7 @@
             this.labelbeizhu.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelbeizhu.Name = "labelbeizhu";
             this.labelbeizhu.Size = new System.Drawing.Size(74, 21);
-            this.labelbeizhu.TabIndex = 28;
+            this.labelbeizhu.TabIndex = 2;
             this.labelbeizhu.Text = "小组备注";
             // 
             // btn_qxxj
@@ -67,7 +67,7 @@
             this.btn_qxxj.Margin = new System.Windows.Forms.Padding(5);
             this.btn_qxxj.Name = "btn_qxxj";
             this.btn_qxxj.Size = new System.Drawing.Size(129, 42);
-            this.btn_qxxj.TabIndex = 27;
+            this.btn_qxxj.TabIndex = 4;
             this.btn_qxxj.Text = "取消添加";
             this.btn_qxxj.UseVisualStyleBackColor = true;
             this.btn_qxxj.Click += new System.EventHandler(this.btn_qxxj_Click);
@@ -79,7 +79,7 @@
             this.btn_xjxz.Margin = new System.Windows.Forms.Padding(5);
             this.btn_xjxz.Name = "btn_xjxz";
             this.btn_xjxz.Size = new System.Drawing.Size(129, 42);
-            this.btn_xjxz.TabIndex = 26;
+            this.btn_xjxz.TabIndex = 3;
             this.btn_xjxz.Text = "确认添加";
             this.btn_xjxz.UseVisualStyleBackColor = true;
             this.btn_xjxz.Click += new System.EventHandler(this.btn_xjxz_Click);
@@ -91,7 +91,7 @@
             this.xzxx.Multiline = true;
             this.xzxx.Name = "xzxx";
             this.xzxx.Size = new System.Drawing.Size(262, 33);
-            this.xzxx.TabIndex = 22;
+            this.xzxx.TabIndex = 1;
             // 
             // xzm
             // 
@@ -100,7 +100,7 @@
             this.xzm.MaxLength = 20;
             this.xzm.Name = "xzm";
             this.xzm.Size = new System.Drawing.Size(262, 29);
-            this.xzm.TabIndex = 21;
+            this.xzm.TabIndex = 0;
             this.xzm.Leave += new System.EventHandler(this.xzm_Leave);
             // 
             // labelxzxx
@@ -111,7 +111,7 @@
             this.labelxzxx.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelxzxx.Name = "labelxzxx";
             this.labelxzxx.Size = new System.Drawing.Size(74, 21);
-            this.labelxzxx.TabIndex = 17;
+            this.labelxzxx.TabIndex = 1;
             this.labelxzxx.Text = "小组信息";
             // 
             // labelxzm
@@ -122,7 +122,7 @@
             this.labelxzm.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelxzm.Name = "labelxzm";
             this.labelxzm.Size = new System.Drawing.Size(74, 21);
-            this.labelxzm.TabIndex = 16;
+            this.labelxzm.TabIndex = 0;
             this.labelxzm.Text = "小组名称";
             // 
             // labelxz
@@ -144,15 +144,17 @@
             this.label_xzmcz.Location = new System.Drawing.Point(374, 64);
             this.label_xzmcz.Name = "label_xzmcz";
             this.label_xzmcz.Size = new System.Drawing.Size(90, 21);
-            this.label_xzmcz.TabIndex = 30;
+            this.label_xzmcz.TabIndex = 0;
             this.label_xzmcz.Text = "（已存在）";
             this.label_xzmcz.Visible = false;
             // 
             // xjxz
             // 
+            this.AcceptButton = this.btn_xjxz;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.btn_qxxj;
             this.ClientSize = new System.Drawing.Size(468, 334);
             this.Controls.Add(this.label_xzmcz);
             this.Controls.Add(this.xzbeizhu);

@@ -305,7 +305,7 @@
             // tsmi_jc_jcgl
             // 
             this.tsmi_jc_jcgl.Name = "tsmi_jc_jcgl";
-            this.tsmi_jc_jcgl.Size = new System.Drawing.Size(152, 26);
+            this.tsmi_jc_jcgl.Size = new System.Drawing.Size(144, 26);
             this.tsmi_jc_jcgl.Text = "机床管理";
             this.tsmi_jc_jcgl.Click += new System.EventHandler(this.机床管理ToolStripMenuItem_Click);
             // 
@@ -367,21 +367,21 @@
             // tsmi_xtgl_qxgl
             // 
             this.tsmi_xtgl_qxgl.Name = "tsmi_xtgl_qxgl";
-            this.tsmi_xtgl_qxgl.Size = new System.Drawing.Size(152, 26);
+            this.tsmi_xtgl_qxgl.Size = new System.Drawing.Size(144, 26);
             this.tsmi_xtgl_qxgl.Text = "权限管理";
             this.tsmi_xtgl_qxgl.Click += new System.EventHandler(this.权限管理ToolStripMenuItem_Click);
             // 
             // tsmi_xtgl_xtrz
             // 
             this.tsmi_xtgl_xtrz.Name = "tsmi_xtgl_xtrz";
-            this.tsmi_xtgl_xtrz.Size = new System.Drawing.Size(152, 26);
+            this.tsmi_xtgl_xtrz.Size = new System.Drawing.Size(144, 26);
             this.tsmi_xtgl_xtrz.Text = "系统日志";
             this.tsmi_xtgl_xtrz.Click += new System.EventHandler(this.系统日志ToolStripMenuItem_Click);
             // 
             // tsmi_xtgl_qtsz
             // 
             this.tsmi_xtgl_qtsz.Name = "tsmi_xtgl_qtsz";
-            this.tsmi_xtgl_qtsz.Size = new System.Drawing.Size(152, 26);
+            this.tsmi_xtgl_qtsz.Size = new System.Drawing.Size(144, 26);
             this.tsmi_xtgl_qtsz.Text = "其他设置";
             this.tsmi_xtgl_qtsz.Click += new System.EventHandler(this.其他设置ToolStripMenuItem_Click);
             // 
@@ -438,7 +438,7 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel_CrtUser,
             this.toolStripStatusLabel_TimeNow});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 692);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 694);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1184, 30);
             this.statusStrip1.TabIndex = 3;
@@ -490,8 +490,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1184, 662);
-            this.splitContainer1.SplitterDistance = 210;
+            this.splitContainer1.Size = new System.Drawing.Size(1184, 664);
+            this.splitContainer1.SplitterDistance = 138;
             this.splitContainer1.TabIndex = 2;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
@@ -517,7 +517,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(208, 660);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(136, 662);
             this.tableLayoutPanel1.TabIndex = 6;
             this.tableLayoutPanel1.Visible = false;
             // 
@@ -570,7 +570,7 @@
             treeNode10,
             treeNode11});
             this.menu_treeView.ShowRootLines = false;
-            this.menu_treeView.Size = new System.Drawing.Size(187, 456);
+            this.menu_treeView.Size = new System.Drawing.Size(115, 457);
             this.menu_treeView.TabIndex = 1;
             this.menu_treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
             this.menu_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -582,7 +582,7 @@
             this.button1.Font = new System.Drawing.Font("微软雅黑", 14F);
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 33);
+            this.button1.Size = new System.Drawing.Size(115, 33);
             this.button1.TabIndex = 6;
             this.button1.Text = "系 统 首 页";
             this.button1.UseVisualStyleBackColor = true;
@@ -592,9 +592,9 @@
             this.button5.AutoSize = true;
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button5.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.button5.Location = new System.Drawing.Point(3, 621);
+            this.button5.Location = new System.Drawing.Point(3, 622);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(187, 36);
+            this.button5.Size = new System.Drawing.Size(115, 37);
             this.button5.TabIndex = 10;
             this.button5.Text = "统 计 信 息";
             this.button5.UseVisualStyleBackColor = true;
@@ -604,9 +604,9 @@
             this.button4.AutoSize = true;
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.button4.Location = new System.Drawing.Point(3, 582);
+            this.button4.Location = new System.Drawing.Point(3, 583);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(187, 33);
+            this.button4.Size = new System.Drawing.Size(115, 33);
             this.button4.TabIndex = 9;
             this.button4.Text = "订 单 管 理";
             this.button4.UseVisualStyleBackColor = true;
@@ -616,9 +616,9 @@
             this.button3.AutoSize = true;
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.button3.Location = new System.Drawing.Point(3, 543);
+            this.button3.Location = new System.Drawing.Point(3, 544);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(187, 33);
+            this.button3.Size = new System.Drawing.Size(115, 33);
             this.button3.TabIndex = 8;
             this.button3.Text = "零部件管理";
             this.button3.UseVisualStyleBackColor = true;
@@ -628,16 +628,16 @@
             this.button2.AutoSize = true;
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.button2.Location = new System.Drawing.Point(3, 504);
+            this.button2.Location = new System.Drawing.Point(3, 505);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(187, 33);
+            this.button2.Size = new System.Drawing.Size(115, 33);
             this.button2.TabIndex = 7;
             this.button2.Text = "刀 具 管 理";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(196, 42);
+            this.button6.Location = new System.Drawing.Point(124, 42);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(9, 456);
             this.button6.TabIndex = 2;
@@ -654,7 +654,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(968, 660);
+            this.tabControl1.Size = new System.Drawing.Size(1040, 662);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
             this.tabControl1.MouseLeave += new System.EventHandler(this.tabControl1_MouseLeave);
@@ -671,7 +671,7 @@
             this.TabIndex.Controls.Add(this.label1);
             this.TabIndex.Location = new System.Drawing.Point(4, 30);
             this.TabIndex.Name = "TabIndex";
-            this.TabIndex.Size = new System.Drawing.Size(960, 626);
+            this.TabIndex.Size = new System.Drawing.Size(1032, 628);
             this.TabIndex.TabIndex = 0;
             this.TabIndex.Text = "首页";
             // 
@@ -680,7 +680,7 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::kucunTest.Properties.Resources.YTO;
-            this.pictureBox1.Location = new System.Drawing.Point(243, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(279, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(146, 79);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -693,7 +693,7 @@
             this.groupBox2.Controls.Add(this.tableLayoutPanel3);
             this.groupBox2.Font = new System.Drawing.Font("黑体", 14F);
             this.groupBox2.ForeColor = System.Drawing.Color.Gray;
-            this.groupBox2.Location = new System.Drawing.Point(90, 451);
+            this.groupBox2.Location = new System.Drawing.Point(126, 451);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(769, 96);
             this.groupBox2.TabIndex = 0;
@@ -795,7 +795,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("黑体", 14F);
             this.groupBox1.ForeColor = System.Drawing.Color.Gray;
-            this.groupBox1.Location = new System.Drawing.Point(90, 193);
+            this.groupBox1.Location = new System.Drawing.Point(126, 193);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(769, 218);
             this.groupBox1.TabIndex = 0;
@@ -1028,7 +1028,7 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("方正姚体", 38F);
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(140, 0);
+            this.label14.Location = new System.Drawing.Point(176, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(730, 91);
             this.label14.TabIndex = 1;
@@ -1042,7 +1042,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(960, 252);
+            this.label1.Size = new System.Drawing.Size(1032, 252);
             this.label1.TabIndex = 1;
             this.label1.Text = "车 间 刀 具 管 理 系 统";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1088,7 +1088,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1184, 722);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1184, 724);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // MainForm
