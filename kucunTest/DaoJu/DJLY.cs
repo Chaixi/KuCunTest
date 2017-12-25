@@ -713,6 +713,11 @@ namespace kucunTest.DaoJu
         {
             if(e.RowIndex >= 0 && e.RowIndex < lingyongmingxi.Rows.Count - 1)
             {
+                if(lingyongmingxi.Rows[e.RowIndex].DataBoundItem == null)
+                {
+                    MessageBox.Show("如需修改请移除此条数据后重新添加。", Program.tishiTitle);
+                    return;
+                }
                 DataRow row = ((lingyongmingxi.Rows[e.RowIndex].DataBoundItem) as DataRowView).Row;
                 xzlymx xzlymx = new xzlymx(row, e.RowIndex);
                 xzlymx.Owner = this;

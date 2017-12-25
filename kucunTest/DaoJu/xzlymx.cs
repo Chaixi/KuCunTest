@@ -76,8 +76,19 @@ namespace kucunTest.DaoJu
             {
                 djid.SelectedItem = row[DaoJuLingYongMingXi.djid].ToString();
             }
+            if (row[DaoJuLingYongMingXi.jcbm] != null && row[DaoJuLingYongMingXi.jcbm].ToString() != "")
+            {
+                jcbm.SelectedItem = row[DaoJuLingYongMingXi.jcbm].ToString();
+            }
+            if (row[DaoJuLingYongMingXi.dth] != null && row[DaoJuLingYongMingXi.dth].ToString() != "")
+            {
+                dth.SelectedItem = row[DaoJuLingYongMingXi.dth].ToString();
+            }
+            if (row[DaoJuLingYongMingXi.bz] != null && row[DaoJuLingYongMingXi.bz].ToString() != "")
+            {
+                bz.Text = row[DaoJuLingYongMingXi.bz].ToString();
+            }
 
-            
         }
 
         /// <summary>

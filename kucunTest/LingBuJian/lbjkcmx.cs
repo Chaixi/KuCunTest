@@ -179,7 +179,6 @@ namespace kucunTest.LingBuJian
         private void lbjkcmx_FormClosed(object sender, FormClosedEventArgs e)
         {
             Alex.CloseFormFromTabpages(this);
-
         }
     }
 }

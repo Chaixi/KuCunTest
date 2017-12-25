@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.search_btn = new System.Windows.Forms.Button();
@@ -109,6 +109,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.cbx_qtwzdj = new System.Windows.Forms.CheckBox();
+            this.cbx_dgkxdj = new System.Windows.Forms.CheckBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbjxinxi)).BeginInit();
@@ -221,6 +225,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbx_dgkxdj);
+            this.groupBox2.Controls.Add(this.label32);
+            this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.btn_lbjthjl);
             this.groupBox2.Controls.Add(this.btn_kcmx);
             this.groupBox2.Controls.Add(this.btn_lbjlyjl);
@@ -232,6 +239,7 @@
             this.groupBox2.Controls.Add(this.LBJZSL);
             this.groupBox2.Controls.Add(this.LBJGGS);
             this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.cbx_qtwzdj);
             this.groupBox2.Location = new System.Drawing.Point(272, 110);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
@@ -297,19 +305,19 @@
             // 
             this.lbjxinxi.AllowUserToAddRows = false;
             this.lbjxinxi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.lbjxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
+            this.lbjxinxi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.lbjxinxi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.lbjxinxi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.lbjxinxi.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.lbjxinxi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.lbjxinxi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.lbjxinxi.ColumnHeadersHeight = 35;
             this.lbjxinxi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.check,
@@ -935,6 +943,58 @@
             this.treeView1.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeExpand);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
+            // cbx_qtwzdj
+            // 
+            this.cbx_qtwzdj.AutoSize = true;
+            this.cbx_qtwzdj.Checked = true;
+            this.cbx_qtwzdj.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbx_qtwzdj.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.cbx_qtwzdj.Location = new System.Drawing.Point(44, 357);
+            this.cbx_qtwzdj.Name = "cbx_qtwzdj";
+            this.cbx_qtwzdj.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbx_qtwzdj.Size = new System.Drawing.Size(163, 24);
+            this.cbx_qtwzdj.TabIndex = 14;
+            this.cbx_qtwzdj.Text = "库存量高于最大库存";
+            this.cbx_qtwzdj.UseVisualStyleBackColor = true;
+            // 
+            // cbx_dgkxdj
+            // 
+            this.cbx_dgkxdj.AutoSize = true;
+            this.cbx_dgkxdj.Checked = true;
+            this.cbx_dgkxdj.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbx_dgkxdj.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.cbx_dgkxdj.Location = new System.Drawing.Point(252, 357);
+            this.cbx_dgkxdj.Name = "cbx_dgkxdj";
+            this.cbx_dgkxdj.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbx_dgkxdj.Size = new System.Drawing.Size(133, 24);
+            this.cbx_dgkxdj.TabIndex = 15;
+            this.cbx_dgkxdj.Text = "零部件库存预警";
+            this.cbx_dgkxdj.UseVisualStyleBackColor = true;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.BackColor = System.Drawing.Color.HotPink;
+            this.label32.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.label32.ForeColor = System.Drawing.Color.HotPink;
+            this.label32.Location = new System.Drawing.Point(228, 361);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(20, 17);
+            this.label32.TabIndex = 16;
+            this.label32.Text = "刀";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.LightPink;
+            this.label23.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.label23.ForeColor = System.Drawing.Color.LightPink;
+            this.label23.Location = new System.Drawing.Point(18, 361);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(20, 17);
+            this.label23.TabIndex = 17;
+            this.label23.Text = "刀";
+            // 
             // lbj_GuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -1054,5 +1114,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbx_dplx;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cbx_qtwzdj;
+        private System.Windows.Forms.CheckBox cbx_dgkxdj;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label23;
     }
 }

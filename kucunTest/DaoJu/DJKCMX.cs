@@ -47,7 +47,7 @@ namespace kucunTest.DaoJu
             //Sqlstr = "SELECT dt.daojuleixing AS djlx, COUNT(DISTINCT dt.daojuid) AS sysl, COUNT(dt.daojuleixing) + SUM(d.zsl) - SUM(d.fsl) AS kysl FROM daojutemp dt LEFT JOIN daojuliushui d ON dt.daojuid = d.djid GROUP BY dt.daojuleixing";
 
             //窗体自适应
-            //asc.controllInitializeSize(this);
+            asc.controllInitializeSize(this);
 
             //计时归零
             time_count = 0;
@@ -121,7 +121,7 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void DJKCMX_SizeChanged(object sender, EventArgs e)
         {
-            //asc.controlAutoSize(this);   
+            asc.controlAutoSize(this);
         }
 
         /// <summary>

@@ -378,6 +378,39 @@ namespace kucunTest.LingBuJian
         private void button4_Click(object sender, EventArgs e)
         {
             lbjkcmx lbjkc = new lbjkcmx();
+
+            MainForm mfrm = Program.MainFormInstance;
+            lbjkc.MdiParent = mfrm;
+
+            bool have = false;
+            foreach (TabPage tp in mfrm.tabControl1.TabPages)
+            {
+                if (tp.Text == lbjkc.Text)
+                {
+                    mfrm.tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = lbjkc.Name;
+                lbjkc.Parent = tb;
+                tb.Text = lbjkc.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                mfrm.tabControl1.TabPages.Add(tb);
+                mfrm.tabControl1.SelectedTab = tb;
+                mfrm.tabControl1.Visible = true;
+
+                lbjkc.Size = tb.Size;
+                lbjkc.Show();
+                //lbjkc.Refresh_kcmxTable();
+            }
+
             lbjkc.Show();
         }
 

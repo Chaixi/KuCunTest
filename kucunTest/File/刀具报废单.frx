@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="07/02/2017 21:01:47" ReportInfo.Modified="07/22/2017 14:58:08" ReportInfo.CreatorVersion="2016.1.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/02/2017 21:01:47" ReportInfo.Modified="12/25/2017 15:03:19" ReportInfo.CreatorVersion="2016.1.0.0">
   <Styles>
     <Style Name="格式1" Border.Lines="All"/>
   </Styles>
@@ -46,14 +46,14 @@
       <TextObject Name="Text30" Left="283.5" Top="66.15" Width="75.6" Height="18.9" Text="申请设备：" Font="黑体, 9pt"/>
       <TextObject Name="Text31" Left="538.65" Top="85.05" Width="75.6" Height="18.9" Text="工    序：" Font="黑体, 9pt"/>
       <TextObject Name="Text32" Left="283.5" Top="85.05" Width="75.6" Height="18.9" Text="加工零件：" Font="黑体, 9pt"/>
-      <TextObject Name="Text7" Left="94.5" Top="85.05" Width="122.85" Height="18.9" Text="[sqr]" Font="宋体, 9pt"/>
+      <TextObject Name="Text7" Left="94.5" Top="85.05" Width="170.1" Height="18.9" Text="[sqr]" Font="宋体, 9pt"/>
       <TextObject Name="Text9" Left="349.65" Top="85.05" Width="122.85" Height="18.9" Text="[jglj]" Font="宋体, 9pt"/>
       <TextObject Name="Text14" Left="604.8" Top="85.05" Width="94.5" Height="18.9" Text="[gx]" Font="宋体, 9pt"/>
       <TextObject Name="Text15" Left="604.8" Top="66.15" Width="94.5" Height="18.9" Text="[sqsj]" Font="宋体, 9pt"/>
       <TextObject Name="Text16" Left="349.65" Top="66.15" Width="122.85" Height="18.9" Text="[sqsb]" Font="宋体, 9pt"/>
-      <TextObject Name="Text18" Left="94.5" Top="66.15" Width="122.85" Height="18.9" Text="[sqbz]" Font="宋体, 9pt"/>
+      <TextObject Name="Text18" Left="94.5" Top="66.15" Width="179.55" Height="18.9" Text="[sqbz]" Font="宋体, 9pt"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="106.33" Width="718.2" Height="141.75" MaxRows="1">
+    <DataBand Name="Data1" Top="106.51" Width="718.2" Height="141.75" MaxRows="1">
       <TableObject Name="Table1" Left="9.45" Width="697.6" Height="141.75" Border.Lines="All">
         <TableColumn Name="Column30" Width="103.95"/>
         <TableColumn Name="Column31" Width="93.65"/>
@@ -95,16 +95,16 @@
         </TableRow>
       </TableObject>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="250.46" Width="718.2" Height="75.6">
+    <PageFooterBand Name="PageFooter1" Top="250.83" Width="718.2" Height="75.6">
       <TextObject Name="Text12" Left="307.12" Top="47.25" Width="103.95" Height="28.35" Text="第[Page#]页/共[TotalPages#]页" Font="宋体, 9pt"/>
       <TextObject Name="Text11" Left="326.03" Top="9.45" Width="66.15" Height="18.9" Text="经办人：" Font="黑体, 9pt"/>
       <TextObject Name="Text19" Left="378" Top="9.45" Width="94.5" Height="18.9" Text="[jbr]" Font="宋体, 9pt"/>
       <TextObject Name="Text6" Left="538.65" Top="9.45" Width="75.6" Height="18.9" Text="经办日期：" Font="黑体, 9pt"/>
       <TextObject Name="Text13" Left="604.8" Top="9.45" Width="94.5" Height="18.9" Text="[jbrq]" Format="Date" Format.Format="D" Font="宋体, 9pt"/>
       <TextObject Name="Text33" Left="33.08" Top="9.45" Width="75.6" Height="18.9" Text="审批领导：" Font="黑体, 9pt"/>
-      <TextObject Name="Text34" Left="33.08" Top="28.35" Width="75.6" Height="18.9" Text="审批意见：" Font="黑体, 9pt"/>
+      <TextObject Name="Text34" Left="33.08" Top="37.8" Width="75.6" Height="18.9" Text="审批意见：" Font="黑体, 9pt"/>
       <TextObject Name="Text3" Left="94.5" Top="9.45" Width="122.85" Height="18.9" Text="[spld]" Font="宋体, 9pt"/>
-      <TextObject Name="Text5" Left="94.5" Top="28.35" Width="604.8" Height="18.9" Text="[spyj]" Font="宋体, 9pt"/>
+      <TextObject Name="Text5" Left="94.5" Top="37.8" Width="604.8" Height="18.9" Text="[spyj]" Font="宋体, 9pt"/>
     </PageFooterBand>
   </ReportPage>
 </Report>

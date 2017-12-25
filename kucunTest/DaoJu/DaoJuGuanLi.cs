@@ -254,7 +254,39 @@ namespace kucunTest.DaoJu
         private void kccx_Click(object sender, EventArgs e)
         {
             DJKCMX djczjl = new DJKCMX();
-            djczjl.Show();
+            MainForm mfrm = Program.MainFormInstance;
+            djczjl.MdiParent = mfrm;
+
+            bool have = false;
+            foreach (TabPage tp in mfrm.tabControl1.TabPages)
+            {
+                if (tp.Text == djczjl.Text)
+                {
+                    mfrm.tabControl1.SelectedTab = tp;
+                    have = true;
+                    return;
+                }
+            }
+
+            if (!have)
+            {
+                TabPage tb = new TabPage();
+                tb.Name = djczjl.Name;
+                djczjl.Parent = tb;
+                tb.Text = djczjl.Text;
+                tb.BackgroundImage = kucunTest.Properties.Resources.background;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+
+                mfrm.tabControl1.TabPages.Add(tb);
+                mfrm.tabControl1.SelectedTab = tb;
+                mfrm.tabControl1.Visible = true;
+
+                djczjl.Size = tb.Size;
+                djczjl.Show();
+                djczjl.Refresh_kcmxTable();
+            }
+
+            //djczjl.Show();
         }
 
         /// <summary>
