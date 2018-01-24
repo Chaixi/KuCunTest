@@ -33,6 +33,8 @@ namespace kucunTest.DaoJu
         //string liushuibiao = "daojuliushui";
         //string daojutemp = "daojutemp";
         //string DHZD = "chucangdanhao";
+
+        bool Edit = true;//单据是否可以编辑
         #endregion
 
         /// <summary>
@@ -41,6 +43,15 @@ namespace kucunTest.DaoJu
         public DJLY()
         {
             InitializeComponent();
+
+            lymx_db.Columns.Add("daojuleixing", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("daojuguige", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("changdu", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("daojuid", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("shuliang", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("jichuangbianma", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("daotaohao", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("beizhu", System.Type.GetType("System.String"));
 
             danhao.Text = Alex.DanHao("DJCC");//自动生成单号
 
@@ -55,6 +66,14 @@ namespace kucunTest.DaoJu
             JBR.SelectedIndex = 0;
             heji.Text = HJ.ToString();
 
+            //加载所有刀具类型
+            cbx_lymx_djlx.DataSource = Alex.GetList("djlx");
+            //加载所有机床编码/名称
+            cbx_lymx_jcbm.DataSource = Alex.GetList("jc");
+
+            cbx_lymx_djlx.SelectedIndex = -1;
+            cbx_lymx_jcbm.SelectedIndex = -1;
+
             lingyongmingxi.AutoGenerateColumns = false;//禁止自动生成行
         }
 
@@ -66,9 +85,29 @@ namespace kucunTest.DaoJu
         {
             InitializeComponent();//
 
+            lymx_db.Columns.Add("daojuleixing", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("daojuguige", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("changdu", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("daojuid", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("shuliang", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("jichuangbianma", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("daotaohao", System.Type.GetType("System.String"));
+            lymx_db.Columns.Add("beizhu", System.Type.GetType("System.String"));
+
             //班组和机床设置数据源
             LYBZ.DataSource = Alex.GetList("bz");
             LYSB.DataSource = Alex.GetList("jc");
+
+            //加载所有刀具类型
+            cbx_lymx_djlx.DataSource = Alex.GetList("djlx");
+            //加载所有机床编码/名称
+            cbx_lymx_jcbm.DataSource = Alex.GetList("jc");
+
+            cbx_lymx_djlx.SelectedIndex = -1;
+            cbx_lymx_djgg.SelectedIndex = -1;
+            cbx_lymx_djcd.SelectedIndex = -1;
+            cbx_lymx_djid.SelectedIndex = -1;
+            cbx_lymx_jcbm.SelectedIndex = -1;
 
             lingyongmingxi.AutoGenerateColumns = false;//禁止自动生成行
 
@@ -109,6 +148,7 @@ namespace kucunTest.DaoJu
             //若是已完成的单据，则只允许查看，不许修改。
             if (danjuzhuangtai == "1")
             {
+                Edit = false;
                 Alex.DisableAllControl(this);
                 btn_print.Enabled = true;
             }
@@ -143,9 +183,96 @@ namespace kucunTest.DaoJu
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            xzlymx xzccmx = new xzlymx();
-            xzccmx.Owner = this;
-            xzccmx.ShowDialog();
+            #region 弹出添加框
+            //xzlymx xzccmx = new xzlymx();
+            //xzccmx.Owner = this;
+            //xzccmx.ShowDialog();
+            #endregion 弹出框部分结束
+
+            if (AddDataCheck())//进行数据验证
+            {
+                //暂存单据，领用明细datagridview已经绑定数据源
+                //if (zancun)
+                //{
+                DataRow rowrow = lymx_db.NewRow();
+
+                rowrow["daojuleixing"] = cbx_lymx_djlx.Text.ToString();//刀具类型
+                rowrow["daojuguige"] = cbx_lymx_djgg.Text.ToString();//刀具规格
+                rowrow["changdu"] = cbx_lymx_djcd.Text.ToString();//刀具长度
+                rowrow["daojuid"] = cbx_lymx_djid.Text.ToString();//刀具id
+                rowrow["shuliang"] = "1";//数量
+                rowrow["jichuangbianma"] = cbx_lymx_jcbm.Text.ToString();//机床编码
+                rowrow["daotaohao"] = cbx_lymx_dth.Text.ToString();//刀套号
+                rowrow["beizhu"] = txt_lymx_bz.Text.ToString();//备注
+
+                lymx_db.Rows.Add(rowrow);
+                lingyongmingxi.DataSource = lymx_db.DefaultView;
+
+                HJ++;//合计数量增加
+                heji.Text = HJ.ToString();//更新合计数量
+            }
+
+            lingyongmingxi.CurrentCell = null;//取消选中任何行
+        }
+
+        /// <summary>
+        /// 新增明细时的数据验证
+        /// </summary>
+        /// <returns></returns>
+        private bool AddDataCheck()
+        {
+            string tishi = "";
+
+            //刀具类型
+            if (cbx_lymx_djlx.SelectedIndex < 0 || cbx_lymx_djlx.Text == null || cbx_lymx_djlx.Text == "")
+            {
+                tishi = "请选择刀具类型！";
+                MessageBox.Show(tishi, "提示");
+                cbx_lymx_djlx.Focus();
+                return false;
+            }
+            //刀具规格
+            if (cbx_lymx_djgg.SelectedIndex < 0 || cbx_lymx_djgg.Text == "" || cbx_lymx_djgg.Text == null)
+            {
+                tishi = "请选择刀具规格！";
+                MessageBox.Show(tishi, "提示");
+                cbx_lymx_djgg.Focus();
+                return false;
+            }
+            //刀具长度
+            if (cbx_lymx_djcd.Text == null || cbx_lymx_djcd.Text == "")
+            {
+                tishi = "请填写刀具长度！";
+                MessageBox.Show(tishi, "提示");
+                cbx_lymx_djcd.Focus();
+                return false;
+            }
+            //刀具ID
+            if (cbx_lymx_djid.Text == "" || cbx_lymx_djid.Text == null)
+            {
+                tishi = "请选择刀具ID！";
+                MessageBox.Show(tishi, "提示");
+                cbx_lymx_djid.Focus();
+                return false;
+            }
+            //机床编码
+            if (cbx_lymx_jcbm.SelectedIndex < 0 || cbx_lymx_jcbm.Text == null || cbx_lymx_jcbm.Text == "")
+            {
+                tishi = "请选择要领用刀具的机床编码！";
+                MessageBox.Show(tishi, "提示");
+                cbx_lymx_jcbm.Focus();
+                return false;
+            }
+            //刀套号
+            if (cbx_lymx_dth.SelectedIndex < 0 || cbx_lymx_dth.Text == null || cbx_lymx_dth.Text == "")
+            {
+                tishi = "请选择要领用刀具的刀套号！";
+                MessageBox.Show(tishi, "提示");
+                cbx_lymx_dth.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -647,7 +774,6 @@ namespace kucunTest.DaoJu
         private void DJCCD_FormClosed(object sender, FormClosedEventArgs e)
         {
             Alex.CloseFormFromTabpages(this);
-
         }
 
         #endregion 其他方法结束
@@ -658,14 +784,14 @@ namespace kucunTest.DaoJu
         /// <param name="tb">要新增的明细表部分内容</param>
         public void AddDataFromTable(DataTable tb)
         {
-            lymx_db.Columns.Add("daojuleixing", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("daojuguige", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("changdu", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("daojuid", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("shuliang", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("jichuangbianma", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("daotaohao", System.Type.GetType("System.String"));
-            lymx_db.Columns.Add("beizhu", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("daojuleixing", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("daojuguige", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("changdu", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("daojuid", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("shuliang", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("jichuangbianma", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("daotaohao", System.Type.GetType("System.String"));
+            //lymx_db.Columns.Add("beizhu", System.Type.GetType("System.String"));
 
             for (int i = 0; i < tb.Rows.Count; i++)
             {
@@ -688,11 +814,7 @@ namespace kucunTest.DaoJu
             heji.Text = HJ.ToString();
         }
 
-        /// <summary>
         /// 领用班组变化，领用设备数据源相应变化
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LYBZ_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(LYBZ.SelectedIndex < 0)
@@ -704,25 +826,21 @@ namespace kucunTest.DaoJu
             LYSB.DataSource = Alex.GetJCofBZ(LYBZ.Text);
         }
 
-        /// <summary>
         /// 双击单元格，填充历史数据进行更改
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void lingyongmingxi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0 && e.RowIndex < lingyongmingxi.Rows.Count - 1)
-            {
-                if(lingyongmingxi.Rows[e.RowIndex].DataBoundItem == null)
-                {
-                    MessageBox.Show("如需修改请移除此条数据后重新添加。", Program.tishiTitle);
-                    return;
-                }
-                DataRow row = ((lingyongmingxi.Rows[e.RowIndex].DataBoundItem) as DataRowView).Row;
-                xzlymx xzlymx = new xzlymx(row, e.RowIndex);
-                xzlymx.Owner = this;
-                xzlymx.ShowDialog();
-            }
+            //if(e.RowIndex >= 0 && e.RowIndex < lingyongmingxi.Rows.Count - 1)
+            //{
+            //    if(lingyongmingxi.Rows[e.RowIndex].DataBoundItem == null)
+            //    {
+            //        MessageBox.Show("如需修改请移除此条数据后重新添加。", Program.tishiTitle);
+            //        return;
+            //    }
+            //    DataRow row = ((lingyongmingxi.Rows[e.RowIndex].DataBoundItem) as DataRowView).Row;
+            //    xzlymx xzlymx = new xzlymx(row, e.RowIndex);
+            //    xzlymx.Owner = this;
+            //    xzlymx.ShowDialog();
+            //}
         }
 
         public void EditLingYongMXbyRowinde(int rowindex, List<string> list)
@@ -753,6 +871,145 @@ namespace kucunTest.DaoJu
             GongXuXuanZe xzzjgx = new GongXuXuanZe();
             xzzjgx.Owner = this;
             xzzjgx.ShowDialog();
+        }
+
+        #region 明细信息联动部分
+        /// <summary>刀具类型变化加载刀具规格</summary>
+        private void cbx_lymx_djlx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbx_lymx_djlx.SelectedIndex < 0)
+            {
+                cbx_lymx_djgg.DataSource = null;
+                return;
+            }
+            else
+            {
+                Sqlstr = string.Format("SELECT DISTINCT {1} FROM {0} WHERE {2} = '{3}'", DaoJuTemp.TableName, DaoJuTemp.guige, DaoJuTemp.leixing, cbx_lymx_djlx.SelectedItem.ToString().Trim());
+                cbx_lymx_djgg.DataSource = SQL.DataReadList(Sqlstr);
+                cbx_lymx_djgg.SelectedIndex = -1;//默认为空
+            }
+        }
+
+        /// <summary>刀具规格变化加载相应刀具id</summary>
+        private void cbx_lymx_djgg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbx_lymx_djgg.SelectedIndex < 0)
+            {
+                cbx_lymx_djid.DataSource = null;
+                return;
+            }
+            else
+            {
+                cbx_lymx_djid.DataSource = null;
+
+                Sqlstr = string.Format("SELECT dj.{1} FROM {0} dj WHERE dj.{2} = 'S' AND dj.{3} = '{4}' AND dj.{5} = '{6}'", DaoJuTemp.TableName, DaoJuTemp.id, DaoJuTemp.weizhibiaoshi, DaoJuTemp.leixing, cbx_lymx_djlx.SelectedItem.ToString().Trim(), DaoJuTemp.guige, cbx_lymx_djgg.SelectedItem.ToString().Trim());
+
+                List<string> list = new List<string>();
+                list = SQL.DataReadList(Sqlstr);
+                if (list.Count == 0)
+                {
+                    MessageBox.Show("该规格下没有空闲刀具，请装配刀具？", "提示");//是否进行刀具装配
+                }
+                else
+                {
+                    cbx_lymx_djid.DataSource = list;
+                }
+            }
+        }
+
+        //机床编码变化加载相应刀套号
+        private void cbx_lymx_jcbm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbx_lymx_jcbm.SelectedIndex < 0)
+            {
+                cbx_lymx_dth.DataSource = null;
+                return;
+            }
+
+            Sqlstr = string.Format("SELECT jcdjk.{2} FROM {0} jcdjk LEFT JOIN {1} djtp ON CONCAT(djtp.{3},'-', djtp.{4} ) = CONCAT(jcdjk.{5},'-', jcdjk.{2} ) WHERE djtp.{6} IS NULL AND jcdjk.{5} = '{7}'", JiChuangDaoJuKu.TableName, DaoJuTemp.TableName, JiChuangDaoJuKu.dth, DaoJuTemp.weizhibianma, DaoJuTemp.csordth, JiChuangDaoJuKu.jcbm, DaoJuTemp.id, cbx_lymx_jcbm.SelectedItem.ToString().Trim());
+            cbx_lymx_dth.DataSource = SQL.DataReadList(Sqlstr);
+            cbx_lymx_dth.SelectedIndex = -1;
+        }
+        #endregion
+
+        /// <summary>选中明细数据行填充明细数据</summary>
+        private void lingyongmingxi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex < 0)
+            {
+                return;
+            }
+
+            //选中最后一行
+            if(e.RowIndex == lingyongmingxi.Rows.Count - 1)
+            {
+                cbx_lymx_djlx.SelectedIndex = -1;
+                cbx_lymx_djgg.SelectedIndex = -1;
+                cbx_lymx_djcd.SelectedIndex = -1;
+                cbx_lymx_djid.SelectedIndex = -1;
+                cbx_lymx_jcbm.SelectedIndex = -1;
+                cbx_lymx_dth.SelectedIndex = -1;
+                txt_lymx_bz.Text = "";
+                txt_lymx_sl.Text = "";
+
+                btn_lymx_sc.Enabled = false;
+                btn_lymx_xg.Enabled = false;
+
+                return;
+            }
+
+            if(Edit)
+            {
+                btn_lymx_sc.Enabled = true;
+                btn_lymx_xg.Enabled = true;
+            }
+
+            //数据填充
+            cbx_lymx_djlx.SelectedItem = lingyongmingxi.Rows[e.RowIndex].Cells["djlx"].Value.ToString();
+            cbx_lymx_djgg.SelectedItem = lingyongmingxi.Rows[e.RowIndex].Cells["djgg"].Value.ToString();
+            cbx_lymx_djcd.SelectedItem = lingyongmingxi.Rows[e.RowIndex].Cells["djcd"].Value.ToString();
+            cbx_lymx_djid.SelectedItem = lingyongmingxi.Rows[e.RowIndex].Cells["djID"].Value.ToString();
+            cbx_lymx_jcbm.SelectedItem = lingyongmingxi.Rows[e.RowIndex].Cells["jcbm"].Value.ToString();
+            cbx_lymx_dth.SelectedItem = lingyongmingxi.Rows[e.RowIndex].Cells["dth"].Value.ToString();
+            txt_lymx_bz.Text = lingyongmingxi.Rows[e.RowIndex].Cells["bz"].Value.ToString();
+            txt_lymx_sl.Text = lingyongmingxi.Rows[e.RowIndex].Cells["sl"].Value.ToString();
+        }
+
+        /// <summary>明细修改按钮</summary>
+        private void btn_lymx_xg_Click(object sender, EventArgs e)
+        {
+            //为选中行或者选中的是最后一行
+            if (lingyongmingxi.SelectedRows.Count <= 0 || lingyongmingxi.CurrentRow.Index == lingyongmingxi.Rows.Count - 1)
+            {
+                MessageBox.Show("请先选中一行非空白的明细数据！", "提示");
+                return;
+            }
+
+            if (AddDataCheck())
+            {
+                int crtrowindex = lingyongmingxi.CurrentRow.Index;
+
+                //排除从总表勾选得到的明细数据因没有领用数量、机床编码、工序、备注而出错的情况
+                if (lingyongmingxi.Rows[crtrowindex].Cells["sl"].Value.ToString() != "" && lingyongmingxi.Rows[crtrowindex].Cells["sl"] != null)
+                {
+                    HJ--;
+                }
+
+                lingyongmingxi.Rows[crtrowindex].Cells["djlx"].Value = cbx_lymx_djlx.SelectedItem.ToString();//刀具类型
+                lingyongmingxi.Rows[crtrowindex].Cells["djgg"].Value = cbx_lymx_djgg.SelectedItem.ToString();//刀具规格
+                lingyongmingxi.Rows[crtrowindex].Cells["djcd"].Value = cbx_lymx_djcd.Text;//刀具长度
+                lingyongmingxi.Rows[crtrowindex].Cells["djID"].Value = cbx_lymx_djid.SelectedItem.ToString();//刀具ID
+                lingyongmingxi.Rows[crtrowindex].Cells["jcbm"].Value = cbx_lymx_jcbm.SelectedItem.ToString();//领用机床编码
+                lingyongmingxi.Rows[crtrowindex].Cells["dth"].Value = cbx_lymx_dth.SelectedItem.ToString();//刀套号
+                lingyongmingxi.Rows[crtrowindex].Cells["sl"].Value = txt_lymx_sl.Text;//领用数量
+                lingyongmingxi.Rows[crtrowindex].Cells["bz"].Value = txt_lymx_bz.Text;//备注
+
+                HJ = HJ + Convert.ToInt16(txt_lymx_sl.Text);
+                heji.Text = HJ.ToString();
+
+                //修改完清除选中行，避免误操作
+                lingyongmingxi.CurrentCell = null;
+            }
         }
     }
 }

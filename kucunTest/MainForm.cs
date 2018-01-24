@@ -30,6 +30,7 @@ namespace kucunTest
         private string nongli = "";//农历日期
 
         bool Collapsed = false;
+        static int CLOSE_SIZE = 14;
         #endregion
 
         public MainForm()
@@ -82,6 +83,13 @@ namespace kucunTest
             Win32.AnimateWindow(this.Handle, 2000, Win32.AW_BLEND);//窗体淡入效果
 
             this.Authorize.setAuthority(this, AuthoritiesString.FormName.mainFrm);
+
+            //2，设定TabControl的属性：自定义绘制标签关闭按钮
+            //this.tabControl1.TabPages.Clear();
+            //this.tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            //this.tabControl1.Padding = new System.Drawing.Point(CLOSE_SIZE, CLOSE_SIZE);
+            //this.tabControl1.DrawItem += new DrawItemEventHandler(this.tabControl1_DrawItem);
+            //this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
         }
 
 
@@ -412,6 +420,29 @@ namespace kucunTest
         /// <param name="e"></param>
         private void tabControl1_MouseDown(object sender, MouseEventArgs e)
         {
+            //if (e.Button == MouseButtons.Left && this.tabControl1.SelectedIndex > 0)
+            //{
+            //    int x = e.X, y = e.Y;
+            //    //计算关闭区域   
+            //    Rectangle myTabRect = this.tabControl1.GetTabRect(this.tabControl1.SelectedIndex);
+            //    myTabRect.Offset(myTabRect.Width - (CLOSE_SIZE + 3), 2);
+            //    myTabRect.Width = CLOSE_SIZE;
+            //    myTabRect.Height = CLOSE_SIZE;
+
+
+            //    //如果鼠标在区域内就关闭选项卡   
+            //    bool isClose = x > myTabRect.X && x < myTabRect.Right
+            //     && y > myTabRect.Y && y < myTabRect.Bottom;
+
+
+            //    if (isClose == true)
+            //    {
+            //        this.tabControl1.TabPages.Remove(this.tabControl1.SelectedTab);
+            //    }
+
+            //    return;
+            //}
+
             if (e.Button == MouseButtons.Right)
             {
                 for (int i = 0; i < tabControl1.TabPages.Count; i++)
@@ -1622,8 +1653,67 @@ namespace kucunTest
 
 
 
+
         #endregion 公用方法部分结束
 
-        
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            try
+            {
+                Rectangle myTabRect = this.tabControl1.GetTabRect(e.Index);
+                //先添加TabPage属性   
+                //e.Graphics.DrawString(this.tabControl1.TabPages[e.Index].Text, this.Font, SystemBrushes.ControlText, myTabRect.X + 2, myTabRect.Y + 2);
+                //this.tabControl1.SizeMode = TabSizeMode.Fixed;
+                
+                e.Graphics.DrawString(this.tabControl1.TabPages[e.Index].Text, new Font("微软雅黑", 10f), SystemBrushes.ControlText, myTabRect.X + 2, myTabRect.Y + 2);
+
+                if (e.Index <= 0)
+                {
+                    return;//首页不绘制关闭按钮
+                }
+
+                //再画一个矩形框
+                using (Pen p = new Pen(Color.Black))
+                {
+                    myTabRect.Offset(myTabRect.Width - (CLOSE_SIZE + 3), 4);
+                    myTabRect.Width = CLOSE_SIZE;
+                    myTabRect.Height = CLOSE_SIZE;
+                    e.Graphics.DrawRectangle(p, myTabRect);
+                }
+                //填充矩形框
+                Color recColor = e.State == DrawItemState.Selected ? Color.Red : Color.DarkGray;
+                using (Brush b = new SolidBrush(recColor))
+                {
+                    e.Graphics.FillRectangle(b, myTabRect);
+                }
+                //画关闭符号
+                using (Pen p = new Pen(Color.White))
+                {
+                    //画"/"线
+                    Point p1 = new Point(myTabRect.X + 3, myTabRect.Y + 3);
+                    Point p2 = new Point(myTabRect.X + myTabRect.Width - 3, myTabRect.Y + myTabRect.Height - 3);
+                    e.Graphics.DrawLine(p, p1, p2);
+                    //画"/"线
+                    Point p3 = new Point(myTabRect.X + 3, myTabRect.Y + myTabRect.Height - 3);
+                    Point p4 = new Point(myTabRect.X + myTabRect.Width - 3, myTabRect.Y + 3);
+                    e.Graphics.DrawLine(p, p3, p4);
+                }
+                e.Graphics.Dispose();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            //this.tabControl1.SelectedTab.BackColor = Color.AliceBlue;
+
+            //foreach(TabPage tab in this.tabControl1.TabPages)
+            //{
+            //    tab.BackColor = Color.DarkGray;
+            //}
+        }
     }
 }

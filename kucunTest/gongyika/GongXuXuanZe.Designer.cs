@@ -32,16 +32,16 @@
             this.gx = new System.Windows.Forms.ComboBox();
             this.btn_confirm = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.cbx_gyk = new System.Windows.Forms.CheckBox();
+            this.cbx_gx = new System.Windows.Forms.CheckBox();
+            this.cbx_jgljh = new System.Windows.Forms.CheckBox();
+            this.cbx_jgljlx = new System.Windows.Forms.CheckBox();
+            this.cbx_jgljm = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.jgljlx = new System.Windows.Forms.TextBox();
-            this.jgljh = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.jgljm = new System.Windows.Forms.TextBox();
+            this.jgljh = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -88,87 +88,72 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // checkBox1
+            // cbx_gyk
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(11, 55);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(77, 25);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "工艺卡";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbx_gyk.AutoSize = true;
+            this.cbx_gyk.Checked = true;
+            this.cbx_gyk.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbx_gyk.Location = new System.Drawing.Point(11, 55);
+            this.cbx_gyk.Name = "cbx_gyk";
+            this.cbx_gyk.Size = new System.Drawing.Size(77, 25);
+            this.cbx_gyk.TabIndex = 3;
+            this.cbx_gyk.Text = "工艺卡";
+            this.cbx_gyk.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cbx_gx
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(23, 40);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(61, 25);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "工序";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbx_gx.AutoSize = true;
+            this.cbx_gx.Checked = true;
+            this.cbx_gx.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbx_gx.Location = new System.Drawing.Point(23, 40);
+            this.cbx_gx.Name = "cbx_gx";
+            this.cbx_gx.Size = new System.Drawing.Size(61, 25);
+            this.cbx_gx.TabIndex = 3;
+            this.cbx_gx.Text = "工序";
+            this.cbx_gx.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // cbx_jgljh
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(23, 121);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(109, 25);
-            this.checkBox3.TabIndex = 3;
-            this.checkBox3.Text = "加工零件号";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbx_jgljh.AutoSize = true;
+            this.cbx_jgljh.Location = new System.Drawing.Point(23, 121);
+            this.cbx_jgljh.Name = "cbx_jgljh";
+            this.cbx_jgljh.Size = new System.Drawing.Size(109, 25);
+            this.cbx_jgljh.TabIndex = 3;
+            this.cbx_jgljh.Text = "加工零件号";
+            this.cbx_jgljh.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // cbx_jgljlx
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(11, 111);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(125, 25);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "加工零件类型";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.cbx_jgljlx.AutoSize = true;
+            this.cbx_jgljlx.Location = new System.Drawing.Point(11, 111);
+            this.cbx_jgljlx.Name = "cbx_jgljlx";
+            this.cbx_jgljlx.Size = new System.Drawing.Size(125, 25);
+            this.cbx_jgljlx.TabIndex = 3;
+            this.cbx_jgljlx.Text = "加工零件类型";
+            this.cbx_jgljlx.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // cbx_jgljm
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(23, 81);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(109, 25);
-            this.checkBox5.TabIndex = 3;
-            this.checkBox5.Text = "加工零件名";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.cbx_jgljm.AutoSize = true;
+            this.cbx_jgljm.Location = new System.Drawing.Point(23, 81);
+            this.cbx_jgljm.Name = "cbx_jgljm";
+            this.cbx_jgljm.Size = new System.Drawing.Size(109, 25);
+            this.cbx_jgljm.TabIndex = 3;
+            this.cbx_jgljm.Text = "加工零件名";
+            this.cbx_jgljm.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.jgljlx);
-            this.groupBox1.Controls.Add(this.checkBox4);
+            this.groupBox1.Controls.Add(this.cbx_jgljlx);
             this.groupBox1.Controls.Add(this.gyk);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.cbx_gyk);
             this.groupBox1.Location = new System.Drawing.Point(17, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(344, 171);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "工艺卡信息";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.jgljm);
-            this.groupBox2.Controls.Add(this.jgljh);
-            this.groupBox2.Controls.Add(this.checkBox3);
-            this.groupBox2.Controls.Add(this.gx);
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox5);
-            this.groupBox2.Location = new System.Drawing.Point(367, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(343, 171);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "工序信息";
             // 
             // jgljlx
             // 
@@ -178,13 +163,20 @@
             this.jgljlx.Size = new System.Drawing.Size(193, 29);
             this.jgljlx.TabIndex = 4;
             // 
-            // jgljh
+            // groupBox2
             // 
-            this.jgljh.Location = new System.Drawing.Point(135, 119);
-            this.jgljh.Name = "jgljh";
-            this.jgljh.ReadOnly = true;
-            this.jgljh.Size = new System.Drawing.Size(193, 29);
-            this.jgljh.TabIndex = 4;
+            this.groupBox2.Controls.Add(this.jgljm);
+            this.groupBox2.Controls.Add(this.jgljh);
+            this.groupBox2.Controls.Add(this.cbx_jgljh);
+            this.groupBox2.Controls.Add(this.gx);
+            this.groupBox2.Controls.Add(this.cbx_gx);
+            this.groupBox2.Controls.Add(this.cbx_jgljm);
+            this.groupBox2.Location = new System.Drawing.Point(367, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(343, 171);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "工序信息";
             // 
             // jgljm
             // 
@@ -193,6 +185,14 @@
             this.jgljm.ReadOnly = true;
             this.jgljm.Size = new System.Drawing.Size(193, 29);
             this.jgljm.TabIndex = 4;
+            // 
+            // jgljh
+            // 
+            this.jgljh.Location = new System.Drawing.Point(135, 119);
+            this.jgljh.Name = "jgljh";
+            this.jgljh.ReadOnly = true;
+            this.jgljh.Size = new System.Drawing.Size(193, 29);
+            this.jgljh.TabIndex = 4;
             // 
             // GongXuXuanZe
             // 
@@ -207,7 +207,7 @@
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_confirm);
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GongXuXuanZe";
@@ -227,11 +227,11 @@
         private System.Windows.Forms.ComboBox gx;
         private System.Windows.Forms.Button btn_confirm;
         private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox cbx_gyk;
+        private System.Windows.Forms.CheckBox cbx_gx;
+        private System.Windows.Forms.CheckBox cbx_jgljh;
+        private System.Windows.Forms.CheckBox cbx_jgljlx;
+        private System.Windows.Forms.CheckBox cbx_jgljm;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox jgljlx;

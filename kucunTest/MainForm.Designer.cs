@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("刀具监测");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("刀具领用单据");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("刀具续用单据");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("刀具更换单据");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("刀具外借单据");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("刀具退还单据");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("刀具报废单据");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("单据填写", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("库存明细");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("类型管理");
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("");
+            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("刀具监测");
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("刀具领用单据");
+            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("刀具续用单据");
+            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("刀具更换单据");
+            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("刀具外借单据");
+            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("刀具退还单据");
+            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("刀具报废单据");
+            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("单据填写", new System.Windows.Forms.TreeNode[] {
+            treeNode80,
+            treeNode81,
+            treeNode82,
+            treeNode83,
+            treeNode84,
+            treeNode85});
+            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("库存明细");
+            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("类型管理");
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.tsmi_dj = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_dj_djgl = new System.Windows.Forms.ToolStripMenuItem();
@@ -438,7 +438,7 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel_CrtUser,
             this.toolStripStatusLabel_TimeNow});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 694);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 692);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1184, 30);
             this.statusStrip1.TabIndex = 3;
@@ -490,7 +490,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1184, 664);
+            this.splitContainer1.Size = new System.Drawing.Size(1184, 662);
             this.splitContainer1.SplitterDistance = 138;
             this.splitContainer1.TabIndex = 2;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
@@ -517,7 +517,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(136, 662);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(136, 660);
             this.tableLayoutPanel1.TabIndex = 6;
             this.tableLayoutPanel1.Visible = false;
             // 
@@ -530,47 +530,47 @@
             this.menu_treeView.ItemHeight = 40;
             this.menu_treeView.Location = new System.Drawing.Point(3, 42);
             this.menu_treeView.Name = "menu_treeView";
-            treeNode1.Name = "节点2";
-            treeNode1.Tag = "0";
-            treeNode1.Text = "";
-            treeNode2.Name = "节点1";
-            treeNode2.Tag = "DJJC";
-            treeNode2.Text = "刀具监测";
-            treeNode3.Name = "节点4";
-            treeNode3.Tag = "DJCCD";
-            treeNode3.Text = "刀具领用单据";
-            treeNode4.Name = "节点18";
-            treeNode4.Tag = "DJXY";
-            treeNode4.Text = "刀具续用单据";
-            treeNode5.Name = "节点5";
-            treeNode5.Tag = "DJGH";
-            treeNode5.Text = "刀具更换单据";
-            treeNode6.Name = "节点6";
-            treeNode6.Tag = "DJWJ";
-            treeNode6.Text = "刀具外借单据";
-            treeNode7.Name = "节点16";
-            treeNode7.Tag = "DJTH";
-            treeNode7.Text = "刀具退还单据";
-            treeNode8.Name = "节点17";
-            treeNode8.Tag = "DJBF";
-            treeNode8.Text = "刀具报废单据";
-            treeNode9.Name = "节点0";
-            treeNode9.Tag = "DJTX";
-            treeNode9.Text = "单据填写";
-            treeNode10.Name = "节点1";
-            treeNode10.Tag = "KCMX";
-            treeNode10.Text = "库存明细";
-            treeNode11.Name = "节点0";
-            treeNode11.Tag = "LXGL";
-            treeNode11.Text = "类型管理";
+            treeNode78.Name = "节点2";
+            treeNode78.Tag = "0";
+            treeNode78.Text = "";
+            treeNode79.Name = "节点1";
+            treeNode79.Tag = "DJJC";
+            treeNode79.Text = "刀具监测";
+            treeNode80.Name = "节点4";
+            treeNode80.Tag = "DJCCD";
+            treeNode80.Text = "刀具领用单据";
+            treeNode81.Name = "节点18";
+            treeNode81.Tag = "DJXY";
+            treeNode81.Text = "刀具续用单据";
+            treeNode82.Name = "节点5";
+            treeNode82.Tag = "DJGH";
+            treeNode82.Text = "刀具更换单据";
+            treeNode83.Name = "节点6";
+            treeNode83.Tag = "DJWJ";
+            treeNode83.Text = "刀具外借单据";
+            treeNode84.Name = "节点16";
+            treeNode84.Tag = "DJTH";
+            treeNode84.Text = "刀具退还单据";
+            treeNode85.Name = "节点17";
+            treeNode85.Tag = "DJBF";
+            treeNode85.Text = "刀具报废单据";
+            treeNode86.Name = "节点0";
+            treeNode86.Tag = "DJTX";
+            treeNode86.Text = "单据填写";
+            treeNode87.Name = "节点1";
+            treeNode87.Tag = "KCMX";
+            treeNode87.Text = "库存明细";
+            treeNode88.Name = "节点0";
+            treeNode88.Tag = "LXGL";
+            treeNode88.Text = "类型管理";
             this.menu_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode9,
-            treeNode10,
-            treeNode11});
+            treeNode78,
+            treeNode79,
+            treeNode86,
+            treeNode87,
+            treeNode88});
             this.menu_treeView.ShowRootLines = false;
-            this.menu_treeView.Size = new System.Drawing.Size(115, 457);
+            this.menu_treeView.Size = new System.Drawing.Size(115, 456);
             this.menu_treeView.TabIndex = 1;
             this.menu_treeView.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
             this.menu_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -592,9 +592,9 @@
             this.button5.AutoSize = true;
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button5.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.button5.Location = new System.Drawing.Point(3, 622);
+            this.button5.Location = new System.Drawing.Point(3, 621);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(115, 37);
+            this.button5.Size = new System.Drawing.Size(115, 36);
             this.button5.TabIndex = 10;
             this.button5.Text = "统 计 信 息";
             this.button5.UseVisualStyleBackColor = true;
@@ -604,7 +604,7 @@
             this.button4.AutoSize = true;
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.button4.Location = new System.Drawing.Point(3, 583);
+            this.button4.Location = new System.Drawing.Point(3, 582);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(115, 33);
             this.button4.TabIndex = 9;
@@ -616,7 +616,7 @@
             this.button3.AutoSize = true;
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.button3.Location = new System.Drawing.Point(3, 544);
+            this.button3.Location = new System.Drawing.Point(3, 543);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(115, 33);
             this.button3.TabIndex = 8;
@@ -628,7 +628,7 @@
             this.button2.AutoSize = true;
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.Font = new System.Drawing.Font("微软雅黑", 14F);
-            this.button2.Location = new System.Drawing.Point(3, 505);
+            this.button2.Location = new System.Drawing.Point(3, 504);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(115, 33);
             this.button2.TabIndex = 7;
@@ -654,8 +654,10 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1040, 662);
+            this.tabControl1.Size = new System.Drawing.Size(1040, 660);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
             this.tabControl1.MouseLeave += new System.EventHandler(this.tabControl1_MouseLeave);
             // 
@@ -670,8 +672,9 @@
             this.TabIndex.Controls.Add(this.label14);
             this.TabIndex.Controls.Add(this.label1);
             this.TabIndex.Location = new System.Drawing.Point(4, 30);
+            this.TabIndex.Margin = new System.Windows.Forms.Padding(8);
             this.TabIndex.Name = "TabIndex";
-            this.TabIndex.Size = new System.Drawing.Size(1032, 628);
+            this.TabIndex.Size = new System.Drawing.Size(1032, 626);
             this.TabIndex.TabIndex = 0;
             this.TabIndex.Text = "首页";
             // 
@@ -1088,7 +1091,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1184, 724);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1184, 722);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // MainForm
@@ -1099,7 +1102,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 722);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mainMenu;
             this.MinimumSize = new System.Drawing.Size(1200, 760);

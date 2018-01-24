@@ -91,6 +91,8 @@ namespace kucunTest.DaoJu
                 Sqlstr = string.Format("SELECT * FROM {0} WHERE {1} = '{2}' ORDER BY {3} ASC", DaoJuLiuShui.TableName, DaoJuLiuShui.djlx, dgv_KCTJ.Rows[e.RowIndex].Cells["kctj_djlx"].Value.ToString(), DaoJuLiuShui.czsj);
                 dgv_CRMX.AutoGenerateColumns = false;
                 dgv_CRMX.DataSource = (SQL.getDataSet(Sqlstr, DaoJuLiuShui.TableName)).Tables[0].DefaultView;
+                //dgv_CRMX.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                //dgv_CRMX.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
                 //int sskysl = 0;//当时可用数量
                 //int sskysl = Convert.ToInt32(dgv_KCTJ.Rows[e.RowIndex].Cells["kctj_sysl"].Value);//当时可用数量,默认数量为车间中所有数量。问题在于这是当前可用数量不是！当时！可用数量
@@ -100,7 +102,7 @@ namespace kucunTest.DaoJu
                 //    sskysl = sskysl + Convert.ToInt32(dgv_CRMX.Rows[i].Cells["zsl"].Value) - Convert.ToInt32(dgv_CRMX.Rows[i].Cells["fsl"].Value);
                 //    dgv_CRMX.Rows[i].Cells["crmx_kysl"].Value = sskysl.ToString();
                 //}
-            }            
+            }
         }
 
         /// <summary>
@@ -109,9 +111,12 @@ namespace kucunTest.DaoJu
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void CRMX_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {            
-            DJCZJL djczjl = new DJCZJL(dgv_CRMX.Rows[e.RowIndex].Cells["crmx_djid"].Value.ToString());
-            djczjl.ShowDialog();
+        {
+            if (e.RowIndex >= 0)
+            {
+                DJCZJL djczjl = new DJCZJL(dgv_CRMX.Rows[e.RowIndex].Cells["crmx_djid"].Value.ToString());
+                djczjl.ShowDialog();
+            }
         }
 
         /// <summary>

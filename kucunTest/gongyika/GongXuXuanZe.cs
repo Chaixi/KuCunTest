@@ -97,12 +97,48 @@ namespace kucunTest.gongyika
             }
         }
 
+        /// <summary>
+        /// 确定按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_confirm_Click(object sender, EventArgs e)
         {
+            string zjgx = "";
+            if(cbx_gyk.Checked)
+            {
+                zjgx += gyk.Text.ToString();
+            }
+            if(zjgx != "")
+            {
+                zjgx += "-";
+            }
+            if (cbx_jgljlx.Checked)
+            {
+                zjgx += jgljlx.Text.ToString();
+            }
+            if (cbx_gx.Checked)
+            {
+                zjgx += "-" + gx.Text.ToString();
+            }
+            if (cbx_jgljh.Checked)
+            {
+                zjgx += "-" + jgljh.Text.ToString();
+            }
+            if (cbx_jgljm.Checked)
+            {
+                zjgx += "-" + jgljm.Text.ToString();
+            }
+            
             DJLY djly = (DJLY)this.Owner;
-            djly.ZJGX.Text = string.Format("{0}-{1}", gyk.Text, gx.Text); 
+            djly.ZJGX.Text = zjgx; 
         }
 
+        /// <summary>
+        /// 取消按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
